@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.activity1.jpa3">
+    <class name="Resource" table="OOCKE1_RESOURCE">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>    
+		<field name="segment" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>    
+		<field name="workReportEntry" visibility="cci">
+			<join table="OOCKE1_JOIN_RESCONTAINSWRE"/>
+		</field>	
+		<field name="assignedActivity" visibility="cci">
+			<join table="OOCKE1_JOIN_RESHASASSIGNEDACT"/>
+		</field>	
+	</class>    
+  </package>
+</openmdxjdo>

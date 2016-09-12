@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owner" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>オブジェクト所有者</_item>
+                      </label>
+                      <toolTip>
+                        <_item>オブジェクト所有者</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owningUser" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>所有ユーザー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有ユーザー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessGrantedByParent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>親がアクセスを許可</_item>
+                      </label>
+                      <toolTip>
+                        <_item>親がアクセスを許可</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelBrowse" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>アクセスレベル参照</_item>
+                      </label>
+                      <toolTip>
+                        <_item>アクセスレベル参照</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelUpdate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>アクセスレベル更新</_item>
+                      </label>
+                      <toolTip>
+                        <_item>アクセスレベル更新</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelDelete" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>アクセスレベル削除</_item>
+                      </label>
+                      <toolTip>
+                        <_item>アクセスレベル削除</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>^</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有グループ(セキュリティ)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setOwningUser" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>所有ユーザー設定</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有ユーザー設定</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setOwningUser:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>入力</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:user" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ユーザー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ユーザー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>モード</_item>
+                      </label>
+                      <toolTip>
+                        <_item>モード</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:referenceFilter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>リファレンスフィルター</_item>
+                      </label>
+                      <toolTip>
+                        <_item>リファレンスフィルター</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:addOwningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>所有ユーザー追加</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有ユーザー追加</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:addOwningGroup:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>入力</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeOwningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>所有ユーザー削除</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有ユーザー削除</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeOwningGroup:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>入力</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifyOwningGroupParams:group" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>グループ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>グループ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifyOwningGroupParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>モード</_item>
+                      </label>
+                      <toolTip>
+                        <_item>モード</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeAllOwningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>全所有グループ削除</_item>
+                      </label>
+                      <toolTip>
+                        <_item>全所有グループ削除</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeAllOwningGroup:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>入力</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:RemoveAllOwningGroupParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>モード</_item>
+                      </label>
+                      <toolTip>
+                        <_item>モード</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:replaceOwningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>所有グループ置換</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有グループ置換</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setAccessLevel" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>アクセスレベル設定</_item>
+                      </label>
+                      <toolTip>
+                        <_item>アクセスレベル設定</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setAccessLevel:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>入力</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelBrowse" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>アクセスレベル参照</_item>
+                      </label>
+                      <toolTip>
+                        <_item>アクセスレベル参照</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelUpdate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>アクセスレベル更新</_item>
+                      </label>
+                      <toolTip>
+                        <_item>アクセスレベル更新</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelDelete" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>アクセスレベル削除</_item>
+                      </label>
+                      <toolTip>
+                        <_item>アクセスレベル削除</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>モード</_item>
+                      </label>
+                      <toolTip>
+                        <_item>モード</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifySecureObjectResult:statusMessage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ステータスメッセージ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ステータスメッセージ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:checkPermissions" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>パーミッションチェック</_item>
+                      </label>
+                      <toolTip>
+                        <_item>パーミッションチェック</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:checkPermissions:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>入力</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsParams:principalName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>プリンシパル名</_item>
+                      </label>
+                      <toolTip>
+                        <_item>プリンシパル名</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:checkPermissions:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>結果</_item>
+                      </label>
+                      <toolTip>
+                        <_item>結果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:hasReadPermission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>読取権限あり</_item>
+                      </label>
+                      <toolTip>
+                        <_item>読取権限あり</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:hasUpdatePermission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>更新権限あり</_item>
+                      </label>
+                      <toolTip>
+                        <_item>更新権限あり</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:hasDeletePermission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>削除権限あり</_item>
+                      </label>
+                      <toolTip>
+                        <_item>削除権限あり</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:membershipForRead" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>読取可能メンバー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>読取可能メンバー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:membershipForUpdate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>更新可能メンバー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>更新可能メンバー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:membershipForDelete" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>削除可能メンバー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>削除可能メンバー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

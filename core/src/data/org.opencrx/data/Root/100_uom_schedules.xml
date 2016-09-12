@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?StartPath org::opencrx::kernel::uom1/provider/CRX/segment/Root?>
+<org.openmdx.base.Authority name="org:opencrx:kernel:uom1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xri://+resource/org/opencrx/kernel/uom1/xmi1/uom1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.opencrx.kernel.uom1.Segment qualifiedName="Root" _operation="create">
+							<_object>
+								<accessLevelBrowse>4</accessLevelBrowse>
+							</_object>
+							<_content>
+								<uomSchedule>
+									<org.opencrx.kernel.uom1.UomSchedule id="ISO:Paper" _operation="create">
+										<_object>
+											<name>ISO Standard Paper Sizes</name>
+											<description>data from http://www.cl.cam.ac.uk/~mgk25/iso-paper.html</description>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.UomSchedule>
+									<org.opencrx.kernel.uom1.UomSchedule id="SI" _operation="create">
+										<_object>
+											<name>SI</name>
+											<description>International System</description>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.UomSchedule>
+									<org.opencrx.kernel.uom1.UomSchedule id="Other" _operation="create">
+										<_object>
+											<name>Other</name>
+											<description>Other</description>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.UomSchedule>
+								</uomSchedule>
+							</_content>
+						</org.opencrx.kernel.uom1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

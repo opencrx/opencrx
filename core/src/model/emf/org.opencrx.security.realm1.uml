@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_Fg_Y0N8IEdmKapscEl8OLg" name="realm1">
+  <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D414385950213PPP" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D414385950213PP" name="opencrx">
+      <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D414385950213P" name="security">
+        <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D414385950213" name="realm1">
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D415745E0031F" name="PrincipalGroup">
+            <generalization xmi:id="_3C7B8A60016D415745F10143">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Security%20(EMF)/org.openmdx.security.realm1.uml#_3C7B8A60016D3FC606E402DA"/>
+            </generalization>
+            <generalization xmi:id="_3C7B8A60016D415746080363">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4157457903CB"/>
+            </generalization>
+            <ownedAttribute xmi:id="_3C7B8A60016D418269730357" name="grantedRole" isUnique="false" association="_3C7B8A60016D41826973019E">
+              <type xmi:type="uml:Class" href="../openMDX%202%20~%20Security%20(EMF)/org.openmdx.security.realm1.uml#_3C7B8A60016D3FC602CD0106"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ITQt-t7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ITQt-97NEdmKapscEl8OLg" value="1"/>
+              <qualifier xmi:id="_3C7B8A60016D418269BD005A" name="index" visibility="private">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
+              </qualifier>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_IWrQQDPhEd6XQv1N84LoBw" name="isFinal" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NNGzsDPhEd6XQv1N84LoBw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NNIB0DPhEd6XQv1N84LoBw" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D415A99CD0095" name="Principal">
+            <generalization xmi:id="_3C7B8A60016D415AA92E02A9">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Security%20(EMF)/org.openmdx.security.realm1.uml#_3C7B8A60016D3FC602E60397"/>
+            </generalization>
+            <ownedAttribute xmi:id="_s4RV8JTKEdqX-OMBVTxzmw" name="lastLoginAt">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_05A54F1ZEd25QKCNQi9hiQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_05Kq4F1ZEd25QKCNQi9hiQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3TYYwsNoEeCwM9ZbEbYdjg" name="grantedRole" association="_3TVVcMNoEeCwM9ZbEbYdjg">
+              <type xmi:type="uml:Class" href="../openMDX%202%20~%20Security%20(EMF)/org.openmdx.security.realm1.uml#_3C7B8A60016D3FC602CD0106"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3TY_0MNoEeCwM9ZbEbYdjg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3TY_0cNoEeCwM9ZbEbYdjg" value="1"/>
+              <qualifier xmi:id="_JDoHQMNpEeCwM9ZbEbYdjg" name="index">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
+              </qualifier>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D41826973019E" name="PrincipalGroupHasGrantedRole" memberEnd="_3C7B8A60016D418269730361 _3C7B8A60016D418269730357">
+            <ownedEnd xmi:id="_3C7B8A60016D418269730361" name="principalGroup" type="_3C7B8A60016D415745E0031F" isUnique="false" association="_3C7B8A60016D41826973019E">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ITQt_t7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ITQt_97NEdmKapscEl8OLg" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_qlmIAB5CEdqET7ZHRltKzA" name="User">
+            <generalization xmi:id="_uCfssB5CEdqET7ZHRltKzA">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Security%20(EMF)/org.openmdx.security.realm1.uml#_3C7B8A60016D3FC606E402DA"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3TVVcMNoEeCwM9ZbEbYdjg" name="PrincipalHasGrantedRole" memberEnd="_3TXxsMNoEeCwM9ZbEbYdjg _3TYYwsNoEeCwM9ZbEbYdjg">
+            <ownedEnd xmi:id="_3TXxsMNoEeCwM9ZbEbYdjg" name="principal" type="_3C7B8A60016D415A99CD0095" association="_3TVVcMNoEeCwM9ZbEbYdjg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3TYYwMNoEeCwM9ZbEbYdjg" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3TYYwcNoEeCwM9ZbEbYdjg" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

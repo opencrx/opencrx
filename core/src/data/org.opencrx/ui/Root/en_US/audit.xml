@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+									<!--Segment Definition-->
+									<!--Auditee-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Auditee:audit">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>»Audit Entries</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1500</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Audit Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entry</_item>
+											</label>
+											<iconKey>Audit</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:auditee">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Auditee</_item>
+											</toolTip>
+											<label>
+												<_item>Auditee</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>999</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:unitOfWork">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Unit of work</_item>
+											</toolTip>
+											<label>
+												<_item>Unit of work</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:visitedBy">
+										<_object>
+											<spanRow>10</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Visited by</_item>
+											</toolTip>
+											<label>
+												<_item>Visited by</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:visitedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Visited at</_item>
+											</toolTip>
+											<label>
+												<_item>Visited at</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ObjectModificationAuditEntry -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Audit Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entry (Modification)</_item>
+											</label>
+											<iconKey>AuditEntryModification</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Attr:Tab:0:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object Modification Information</_item>
+											</toolTip>
+											<label>
+												<_item>Object Modification Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:modifiedFeatures">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Modified features</_item>
+											</toolTip>
+											<label>
+												<_item>Modified features</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:beforeImage">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<filterable>false</filterable>
+											<spanRow>7</spanRow>
+											<toolTip>
+												<_item>Image (before)</_item>
+											</toolTip>
+											<label>
+												<_item>Image (before)</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>999</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ObjectRemovalAuditEntry -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Audit Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entry (Removal)</_item>
+											</label>
+											<iconKey>AuditEntryRemoval</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Audit Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entry</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:Pane:Attr:Tab:0:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object Removal Information</_item>
+											</toolTip>
+											<label>
+												<_item>Object Removal Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:beforeImage">
+										<_object>
+											<active>true</active>
+											<filterable>false</filterable>
+											<sortable>false</sortable>
+											<spanRow>7</spanRow>
+											<toolTip>
+												<_item>Image (before)</_item>
+											</toolTip>
+											<label>
+												<_item>Image (before)</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>999</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ObjectCreationAuditEntry -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Audit Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entry (Creation)</_item>
+											</label>
+											<iconKey>AuditEntryCreation</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Audit Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entry</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry:Pane:Attr:Tab:0:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object Creation Information</_item>
+											</toolTip>
+											<label>
+												<_item>Object Creation Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<!-- TimeStamp -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:createdAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Time stamp</_item>
+											</toolTip>
+											<label>
+												<_item>Time stamp</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- hide security operations on audit entries -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Op:Tab:setOwningUser">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Op:Tab:addOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Op:Tab:removeOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Op:Tab:removeAllOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Op:Tab:setAccessLevel">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy">
+										<_object>
+											<active>false</active> <!-- do NOT call interactively !!! -->
+											<toolTip>
+												<_item>Test and Set Visited by</_item>
+											</toolTip>
+											<label>
+												<_item>Test and Set Visited by</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey></iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:TestAndSetVisitedByParams:visitorId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Visitor id</_item>
+											</toolTip>
+											<label>
+												<_item>Visitor id</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:TestAndSetVisitedByResult:visitStatus">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Visit status</_item>
+											</toolTip>
+											<label>
+												<_item>Visit status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

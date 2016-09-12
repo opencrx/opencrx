@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="1">
+				<void index="0">
+					<string>org:opencrx:kernel:building1:Segment:buildingComplex</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="2">
+				<!-- not disabled buildingComplex -->
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>buildingComplex:9998</string>
+						</void>
+						<void property="iconKey">
+							<string>spacer.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<!-- disabled buildingComplex -->
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>buildingComplex:9999</string>
+						</void>
+						<void property="iconKey">
+							<string>spacer.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short>  <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

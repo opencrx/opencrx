@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.contract1.jpa3">
+    <class name="CalculationRule" table="OOCKE1_CALCULATIONRULE">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>    
+		<field name="segment" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>		    
+		<field name="getContractAmountsScript" visibility="cci">
+			<column name="GET_CONTRACT_AMOUNTS_SCRIPT" jdbc-type="CLOB"/>
+		</field>		
+		<field name="getPositionAmountsScript" visibility="cci">
+			<column name="GET_POSITION_AMOUNTS_SCRIPT" jdbc-type="CLOB"/>
+		</field>    
+	</class>
+  </package>
+</openmdxjdo>

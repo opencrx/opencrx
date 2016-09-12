@@ -1,0 +1,1978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <!-- Segment -->
+                  <!-- Grid Tab -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:resource">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>all resources</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resources</_item>
+                      </label>
+                      <order>
+                        <_item>40</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                      <maxMember>4</maxMember>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:workReportEntry">
+                    <_object>
+                      <active>true</active>
+                      <inPlace>false</inPlace>
+                      <changeable>false</changeable>
+                      <toolTip>
+                        <_item>Work and Expense Records</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work and Expense Records</_item>
+                      </label>
+                      <order>
+                        <_item>40</_item>
+                        <_item>0</_item>
+                        <_item>15</_item>
+                      </order>
+                      <maxMember>19</maxMember>
+                      <showMemberRange>
+                        <_item>0:0:0-0:20:24</_item>
+                      </showMemberRange>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:calendar">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>all calendars</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Calendars</_item>
+                      </label>
+                      <order>
+                        <_item>40</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                      <maxMember>3</maxMember>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!-- Resource -->
+                  <!--Inspector Definitions-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource</_item>
+                      </label>
+                      <iconKey>Resource</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Tab Definitions Pane1-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:assignedActivity">
+                    <_object>
+                      <active>true</active>
+                      <changeable>false</changeable>
+                      <toolTip>
+                        <_item>Assigned Activities</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Assigned Activities</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                      <showMaxMember>10</showMaxMember>
+                      <maxMember>16</maxMember>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:workReportEntry">
+                    <_object>
+                      <active>true</active>
+                      <changeable>false</changeable>
+                      <toolTip>
+                        <_item>Work and Expense Records</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work and Expense Records</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                      <maxMember>19</maxMember>
+                      <showMemberRange>
+                        <_item>0:0:0-0:20:22</_item>
+                      </showMemberRange>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:resourceRate">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource Rates</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource Rates</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>30</_item>
+                      </order>
+                      <maxMember>5</maxMember>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:description">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:contact">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Contact</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Contact</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:calendar">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Calendar</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Calendar</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>90</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <!-- ResourceRate -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceRate">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource Rate</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource Rate</_item>
+                      </label>
+                      <iconKey>ResourceRate</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceRate:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceRate:description">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceRate:rateType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceRate:rateCurrency">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Currency</_item>
+											</toolTip>
+											<label>
+												<_item>Currency</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceRate:rate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Amount</_item>
+											</toolTip>
+											<label>
+												<_item>Amount</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <!-- Calendar -->
+                  <!--Inspector Definitions-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Calendar">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Calendar</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Calendar</_item>
+                      </label>
+                      <iconKey>Calendar</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Tab Definitions Pane1-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Calendar:weekDay">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Week Days</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Week Days</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                      <maxMember>4</maxMember>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Calendar:calendarDay">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Calendar Days</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Calendar Days</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                      <maxMember>5</maxMember>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Calendar:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Calendar:description">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Calendar:baseCalendar">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Base calendar</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Base calendar</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!-- WorkingDay -->
+                  <!--Inspector Definitions-->
+                  <!--Tab Definitions Pane1-->
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkingDay:workDurationHours">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>hh (work duration)</_item>
+                      </toolTip>
+                      <label>
+                        <_item>hh (work duration)</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkingDay:workDurationMinutes">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>mm (work duration)</_item>
+                      </toolTip>
+                      <label>
+                        <_item>mm (work duration)</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>90</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkingDay:isWorkingDay">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Is working day</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Is working day</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>100</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!-- WeekDay -->
+                  <!--Inspector Definitions-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WeekDay">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Week day</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Week day</_item>
+                      </label>
+                      <iconKey>WeekDay</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Tab Definitions Pane1-->
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WeekDay:dayOfWeek">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Day of week</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Day of week</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!-- CalendarDay -->
+                  <!--Inspector Definitions-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:CalendarDay">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Calendar day</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Calendar day</_item>
+                      </label>
+                      <iconKey>CalendarDay</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Tab Definitions Pane1-->
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:CalendarDay:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:CalendarDay:dateOfDay">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Date of day</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Date of day</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!-- EffortEstimate -->
+                  <!--Inspector Definitions-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Effort Estimate</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Effort Estimate</_item>
+                      </label>
+                      <iconKey>EffortEstimate</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Tab Definitions Pane1-->
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate:description">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate:isMain">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Is main</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Is main</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>30</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate:estimateEffortHours">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>hh (effort estimate)</_item>
+                      </toolTip>
+                      <label>
+                        <_item>hh (effort estimate)</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate:estimateEffortMinutes">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>mm (effort estimate)</_item>
+                      </toolTip>
+                      <label>
+                        <_item>mm (effort estimate)</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>90</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate:estimateMaxDeviation">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Estimate max deviation</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Estimate max deviation</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>100</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EffortEstimate:selector">
+                    <_object>
+                      <active>true</active>
+                      <spanRow>10</spanRow>
+                      <toolTip>
+                        <_item>Selectors</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Selectors</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <!-- ResourceAssignment -->
+                  <!--Inspector Definitions-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource Assignment</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource Assignment</_item>
+                      </label>
+                      <iconKey>ResourceAssignment</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Tab Definitions Pane1-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:workRecord">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Work and Expense Records</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work and Expense Records</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                      <maxMember>14</maxMember>
+                      <showMemberRange>
+                        <_item>0:0:0-0:20:22</_item>
+                      </showMemberRange>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:description">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:resource">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:resourceOrder">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource order</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource order</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:workDurationPercentage">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Work duration %</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work duration %</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>30</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:resourceRole">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Role of resource</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Role of resource</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAssignment:calendar">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Calendar</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Calendar</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>90</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Inspector Definitions-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityWorkRecord">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Work / Expense Record</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work / Expense Record</_item>
+                      </label>
+                      <iconKey>WorkReportEntry</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Work / Expense Record</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work / Expense Record</_item>
+                      </label>
+                      <iconKey>WorkReportEntry</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Tab Definition-->
+                  <!--FieldGroups in General Tab-->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:Pane:Attr:Tab:0:Group:40">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item></_item>
+                      </toolTip>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:recordType">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Record type</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Record type</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:startedAt">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Started at</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Started at</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:endedAt">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Ended at</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Ended at</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>90</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:description">
+                    <_object>
+                      <active>true</active>
+                      <spanRow>3</spanRow>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:quantity">
+                    <_object>
+                      <active>true</active>
+											<decimalPlaces>5</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
+                      <toolTip>
+                        <_item>Quantity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Quantity</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:quantityUom">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>UOM</_item>
+                      </toolTip>
+                      <label>
+                        <_item>UOM</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:rate">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Rate (per unit)</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Rate (per unit)</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>30</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:paymentType">
+                    <_object>
+                      <active>true</active>
+                      <columnBreak>true</columnBreak>
+                      <toolTip>
+                        <_item>Payment type</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Payment type</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:isBillable">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Is billable</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Is billable</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>90</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:isReimbursable">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Is reimbursable</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Is reimbursable</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>100</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:billingCurrency">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Currency</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Currency</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>30</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:billableAmount">
+                    <_object>
+                      <active>true</active>
+                      <columnBreak>true</columnBreak>
+											<changeable>false</changeable>
+                      <cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+                        <_item>Amount</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Amount</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>30</_item>
+                        <_item>80</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:depotSelector">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Depot selector</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Depot selector</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>40</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:workCb">
+                    <_object>
+                      <active>true</active>
+											<changeable>false</changeable>
+                      <toolTip>
+                        <_item>Work / Expense booking</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work / Expense booking</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>40</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:Pane:Attr:Tab:0:Group:50">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item></_item>
+                      </toolTip>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:activity">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Activity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Activity</_item>
+                      </label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>22</_item>
+											</orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkAndExpenseRecord:resource">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource</_item>
+                      </label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>24</_item>
+											</orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <!-- WorkReportEntry -->
+                  <!--Inspector Definitions-->
+<!--
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkReportEntry">
+                    <_object>
+                      <active>true</active>
+                      <changeable>false</changeable>
+                      <toolTip>
+                        <_item>Work / Expense Report Entry</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work / Expense Report Entry</_item>
+                      </label>
+                      <iconKey>WorkReportEntry</iconKey>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+-->
+                  <!--Tab Definition-->
+                  <!--FieldGroups in General Tab-->
+<!--
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkReportEntry:Pane:Attr:Tab:0:Group:50">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item></_item>
+                      </toolTip>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+-->
+                  <!--Element Definitions -->
+<!--
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkReportEntry:activity">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Activity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Activity</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>50</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkReportEntry:activityNumber">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Activity number</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Activity number</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>50</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkReportEntry:resource">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Resource</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Resource</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>50</_item>
+                        <_item>30</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkReportEntry:assignment">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Assignment</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Assignment</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>50</_item>
+                        <_item>40</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WorkReportEntry:workRecord">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Work / Expense record</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work / Expense record</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>50</_item>
+                        <_item>50</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+-->
+                  <!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:calcTotalQuantity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Calculate Total Quantity from Work / Expense Records</_item>
+											</toolTip>
+											<label>
+												<_item>Calculate Total Quantity from Work / Expense Records</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+											<iconKey>org:opencrx:kernel:OpRefresh</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:calcTotalQuantity:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:calcTotalQuantity:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:addExpenseRecord">
+                    <_object>
+                      <active>false</active>
+                      <toolTip>
+                        <_item>Add Expense Record</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Add Expense Record</_item>
+                      </label>
+                      <iconKey>WorkRecord</iconKey>
+                      <order>
+                        <_item>500</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:addExpenseRecord:Group:in">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Input</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Input</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:recordType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Record type</_item>
+											</toolTip>
+											<label>
+												<_item>Record type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:activity">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Activity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Activity</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>30</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:description">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>40</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:startAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Start at / value date</_item>
+											</toolTip>
+											<label>
+												<_item>Start at / value date</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:endAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>End at</_item>
+											</toolTip>
+											<label>
+												<_item>End at</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:quantity">
+										<_object>
+											<active>true</active>
+											<decimalPlaces>5</decimalPlaces>
+											<toolTip>
+												<_item>Quantity</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:quantityUom">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UOM</_item>
+											</toolTip>
+											<label>
+												<_item>UOM</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:rate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Rate (per unit)</_item>
+											</toolTip>
+											<label>
+												<_item>Rate (per unit)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:rateCurrency">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Currency</_item>
+											</toolTip>
+											<label>
+												<_item>Currency</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:paymentType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Payment type</_item>
+											</toolTip>
+											<label>
+												<_item>Payment type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:isBillable">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Is billable</_item>
+											</toolTip>
+											<label>
+												<_item>Is billable</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>120</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:isReimbursable">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Is reimbusable</_item>
+											</toolTip>
+											<label>
+												<_item>Is reimbursable</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>130</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:depotSelector">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Depot selector</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Depot selector</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>140</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddExpenseRecordParams:owningGroup">
+                    <_object>
+                      <active>false</active>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:addExpenseRecord:Group:result">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Result</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Result</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:addWorkRecord">
+                    <_object>
+                      <active>false</active>
+                      <toolTip>
+                        <_item>Add Work Record</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Add Work Record</_item>
+                      </label>
+                      <iconKey>WorkRecord</iconKey>
+                      <order>
+                        <_item>500</_item>
+                        <_item>0</_item>
+                        <_item>11</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:addWorkRecord:Group:in">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Input</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Input</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:recordType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Record type</_item>
+											</toolTip>
+											<label>
+												<_item>Record type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:activity">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Activity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Activity</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:name">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>30</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:description">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Description</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Description</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>40</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:startAt">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Start at</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Start at</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>50</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:endAt">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>End at</_item>
+                      </toolTip>
+                      <label>
+                        <_item>End at</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>60</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:durationHours">
+										<_object>
+											<active>true</active>
+                      <toolTip>
+                        <_item>Hours (work duration)</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Hours (work duration)</_item>
+                      </label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:durationMinutes">
+										<_object>
+											<active>true</active>
+                      <toolTip>
+                        <_item>Minutes (work duration)</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Minutes (work duration)</_item>
+                      </label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:rate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Rate (per hour)</_item>
+											</toolTip>
+											<label>
+												<_item>Rate (per hour)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:rateCurrency">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Currency</_item>
+											</toolTip>
+											<label>
+												<_item>Currency</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:isBillable">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Is billable</_item>
+											</toolTip>
+											<label>
+												<_item>Is billable</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:depotSelector">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Depot selector</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Depot selector</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>120</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ResourceAddWorkRecordParams:owningGroup">
+                    <_object>
+                      <active>false</active>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Resource:Pane:Op:Tab:addWorkRecord:Group:result">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Result</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Result</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AddWorkAndExpenseRecordResult:workRecord">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Work record</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Work record</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

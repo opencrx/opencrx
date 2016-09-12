@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<shortcuts>
+	<programGroup defaultName="openCRX Server $PROJECT_VERSION" location="applications" />
+	<shortcut
+		name="Uninstall $APP_NAME"
+		description="Uninstall $APP_NAME"
+		target="java"
+		commandLine="-jar Uninstall.jar"
+		iconFile="$INSTALL_PATH/installer/favicon.ico"
+		workingDirectory="$INSTALL_PATH/Uninstall/"
+		programGroup="yes"
+    	desktop="no"
+    	applications="no"
+    	startMenu="no"
+    	startup="no">		
+		<creatForPack name="Main" />		
+	</shortcut>
+	<shortcut
+		name="Start $APP_NAME ($TOMCAT_HTTP_PORT)"
+		description="Start $APP_NAME ($TOMCAT_HTTP_PORT)"
+		target="$INSTALL_PATH/$TOMEE_BASEDIR/bin/opencrx.bat"
+		commandLine="run"
+		iconFile="$INSTALL_PATH/installer/favicon.ico"
+		workingDirectory="$INSTALL_PATH/$TOMEE_BASEDIR/bin/"
+		programGroup="yes"
+    	desktop="no"
+    	applications="no"
+    	startMenu="no"
+    	startup="no">		
+		<creatForPack name="Main" />		
+	</shortcut>
+	<shortcut
+		name="Stop $APP_NAME ($TOMCAT_HTTP_PORT)"
+		description="Stop $APP_NAME ($TOMCAT_HTTP_PORT)"
+		target="$INSTALL_PATH/$TOMEE_BASEDIR/bin/opencrx.bat"
+		commandLine="stop"
+		iconFile="$INSTALL_PATH/installer/favicon.ico"
+		workingDirectory="$INSTALL_PATH/$TOMEE_BASEDIR/bin/"
+		programGroup="yes"
+    	desktop="no"
+    	applications="no"
+    	startMenu="no"
+    	startup="no">		
+		<creatForPack name="Main" />		
+	</shortcut>
+	<shortcut
+		name="Start HSQLDB Console for $APP_NAME ($HSQLDB_PORT)"
+		description="Start HSQLDB Console for $APP_NAME ($HSQLDB_PORT)"
+		target="$INSTALL_PATH/data/hsqldb/dbmanager.bat"
+		commandLine=""
+		iconFile="$INSTALL_PATH/data/hsqldb/hsqldb.ico"
+		windowsPath="$INSTALL_PATH/data/hsqldb"
+		programGroup="yes"
+    	desktop="no"
+    	applications="no"
+    	startMenu="no"
+    	startup="no">		
+		<creatForPack name="Main" />		
+	</shortcut>
+	<shortcut
+		name="Start HSQLDB for $APP_NAME ($HSQLDB_PORT)"
+		description="Start HSQLDB for $APP_NAME ($HSQLDB_PORT)"
+		target="$INSTALL_PATH/data/hsqldb/db.bat"
+		commandLine="run"
+		iconFile="$INSTALL_PATH/data/hsqldb/hsqldb.ico"
+		workingDirectory="$INSTALL_PATH/data/hsqldb/"
+		programGroup="yes"
+    	desktop="no"
+    	applications="no"
+    	startMenu="no"
+    	startup="no">		
+		<creatForPack name="Main" />		
+	</shortcut>
+	<shortcut
+		name="Stop HSQLDB for $APP_NAME ($HSQLDB_PORT)"
+		description="Stop HSQLDB for $APP_NAME ($HSQLDB_PORT)"
+		target="$INSTALL_PATH/data/hsqldb/db.bat"
+		commandLine="stop"
+		iconFile="$INSTALL_PATH/data/hsqldb/hsqldb.ico"
+		workingDirectory="$INSTALL_PATH/data/hsqldb/"
+		programGroup="yes"
+    	desktop="no"
+    	applications="no"
+    	startMenu="no"
+    	startup="no">		
+		<creatForPack name="Main" />		
+	</shortcut>
+</shortcuts>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Auditee:audit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Záznamy auditu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Záznamy auditu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Záznam auditu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Záznam auditu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:auditee" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Preverovaný objekt</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Preverovaný objekt</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:unitOfWork" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pracovná jednotka</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pracovná jednotka</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:visitedBy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Navštívený (kým)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Navštívený (kým)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:visitedAt" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Navštívený (kedy)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Navštívený (kedy)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Záznam auditu (modifikácia)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Záznam auditu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Informácie o modifikáciách objektu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Informácie o modifikáciách objektu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:modifiedFeatures" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Upravené funkcie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Upravené funkcie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:beforeImage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hodnoty pred úpravami</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hodnoty pred úpravami</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Záznam auditu (odstránenie)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Záznam auditu (odstránenie)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Záznam auditu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Záznam auditu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Informácie o odstránení objektu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Informácie o odstránení objektu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:beforeImage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hodnoty pred odstránením</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hodnoty pred odstránením</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Záznam auditu (vytvorenie)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Záznam auditu (vytvorenie)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Záznam auditu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Záznam auditu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Informácie o vytvorení objektu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Informácie o vytvorení objektu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:createdAt" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Časová značka</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Časová značka</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Testované a nastavené [Navštívené] (kým)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Testované a nastavené [navštívené] (kým)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:TestAndSetVisitedByParams:visitorId" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ID návštevníka</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ID návštevníka</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:TestAndSetVisitedByResult:visitStatus" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Stav návštevy</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Stav návštevy</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

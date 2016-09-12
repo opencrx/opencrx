@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <!-- ContractPositionConstrained -->
+                  <!--Inspector Definitions-->
+                  <!--Grid -->
+                  <!--Tab Definition-->
+                  <!--FieldGroups in General Tab-->
+                  <!--Element Definitions -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:itemNumber">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Item number</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Item number</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>90</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>4</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!-- hide itemNumber on selected classes like Product, ProductOffering -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:itemNumber">
+                    <_object>
+                      <active>false</active>
+                      <toolTip>
+                        <_item>Item number</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Item number</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>90</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>99</_item>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:allowModification">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Allow modification</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Allow modification</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>10</_item>
+                        <_item>20</_item>
+                        <_item>90</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>99</_item>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:allowRemoval">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Allow removal</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Allow removal</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>10</_item>
+                        <_item>20</_item>
+                        <_item>100</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>99</_item>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:minPositions">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Min positions</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Min positions</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>10</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:maxPositions">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Max positions</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Max positions</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>20</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:defaultPositions">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Default positions</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Default positions</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>10</_item>
+                        <_item>80</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:minQuantity">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Min quantity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Min quantity</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>10</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:maxQuantity">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Max quantity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Max quantity</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>20</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:offsetQuantity">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Offset quantity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Offset quantity</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>30</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:defaultQuantity">
+                    <_object>
+                      <columnBreak>true</columnBreak>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Default quantity</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Default quantity</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>80</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ContractPositionConstrained:minMaxQuantityHandling">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>[min..max] handling</_item>
+                      </toolTip>
+                      <label>
+                        <_item>[min..max] handling</_item>
+                      </label>
+                      <orderFieldGroup>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                        <_item>90</_item>
+                      </orderFieldGroup>
+                      <orderObjectContainer>
+                        <_item>20</_item>
+                        <_item>0</_item>
+                        <_item>999</_item>
+                      </orderObjectContainer>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

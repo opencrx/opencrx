@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:contractFilter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Фильтры контракта</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Все фильтры контракта</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Фильтр контракта</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Фильтр контракта</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Наименование</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Наименование</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Описание</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Описание</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:filterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Все свойства фильтра</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:filteredContract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Отфильтрованные контракты</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Все отфильтрованные контракты</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Подсчет отфильтрованных контрактов</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Подсчет отфильтрованных контрактов</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ввод</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ввод</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Результат</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Результат</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractPriorityFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра приоритетов контрактов</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра приоритетов контрактов</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractPriorityFilterProperty:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Приоритеты</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Приоритеты</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractStateFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра состояния контрактов</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра состояния контрактов</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractStateFilterProperty:contractState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Состояние</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Состояние</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractTypeFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра типов контрактов</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра типов контрактов</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractTypeFilterProperty:contractType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Тип</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Тип</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:TotalAmountFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра общей суммы</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра общей суммы</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:TotalAmountFilterProperty:totalAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Общая сумма (искл. налоги)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Общая сумма (искл. налоги)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CustomerFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра заказчиков</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра заказчиков</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CustomerFilterProperty:customer" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Заказчики</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Заказчики</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesRepFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра состояния репутации  продаж</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра состояния репутации  продаж</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesRepFilterProperty:salesRep" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Репутации продаж</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Репутации продаж</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SupplierFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра состояния поставщиков</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра состояния поставщиков</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SupplierFilterProperty:supplier" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Поставщики</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Поставщики</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DisabledFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра заблокированных</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра заблокированных</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DisabledFilterProperty:disabled" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Заблокированные</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Заблокированные</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractQueryFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Свойства фильтра запросов</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Свойства фильтра запросов</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

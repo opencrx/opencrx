@@ -1,0 +1,69 @@
+digraph "Diagram SecureObject [Package org:opencrx:kernel:base]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=true,width=9]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:security:realm1:User,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:security:realm1:PrincipalGroup,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:ModifyOwningGroupParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	  ${CLASS[name=org:opencrx:kernel:base:ModifyOwningGroupsParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	  ${CLASS[name=org:opencrx:kernel:base:RemoveAllOwningGroupParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:SetOwningUserParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	  ${CLASS[name=org:opencrx:kernel:base:SetAccessLevelParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	  ${CLASS[name=org:opencrx:kernel:base:CheckPermissionsParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:ModifySecureObjectResult,compartments=true,fillcolor="#FFECFF",width=4]};
+	  ${CLASS[name=org:opencrx:kernel:base:CheckPermissionsResult,compartments=true,fillcolor="#FFECFF",width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER5[style=invis];
+	  NOTE0[label="{owner[0]: name of object owner\lowner[1]: name of primary group\lStoring the owner names in a list allows efficient queries of the form 'owner IS_IN [\<owner name\>, \<group names\>]'.\l\laccessLevel:\l0 - N/A\l1 - private\l2 - basic (all users member of primary group)\l3 - deep (all users member of primary group recursively)\l4 - global\l\lmode:\l0 - local\l1 - recursive\l\lreferenceFilter:\llist of reference names. If list is empty all composite referenced\lobjects are processed.\l}",fillcolor="#D8F2FA"];	  
+	  NOTE1[label="{Read access to an object and object creation requires sufficient\laccess levels granted by the accessLevelBrowse and\laccessLevelUpdate of the parent object. Typically the access levels\lare retrieved from the direct composite parent. An implementation\lshould allow to configure the parent object which grants the access\l(level - 1, level - 2, ...). The reference accessGrantedByParent\lpoints to the parent object used to determine\laccessLevelBrowse and accessLevelUpdate.\l}",fillcolor="#D8F2FA"];	  
+	}
+
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER3->LAYER4[style=invis];
+	LAYER4->LAYER5[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:base:SecureObjectHasOwningUser,minlen=3]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

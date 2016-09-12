@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.activity1.jpa3">
+    <class name="Activity" table="OOCKE1_ACTIVITY">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>
+		<field name="segment" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>		    
+		<field name="workReportEntry" visibility="cci">
+			<join table="OOCKE1_JOIN_ACTCONTAINSWRE"/>
+		</field>
+		<field name="detailedDescription" visibility="cci">
+			<column name="DETAILED_DESCRIPTION" jdbc-type="CLOB"/>
+		</field>		
+		<field name="ical" visibility="cci">
+			<column name="ICAL" jdbc-type="CLOB"/>
+		</field>		
+		<field name="messageBody" visibility="cci">
+			<column name="MESSAGE_BODY" jdbc-type="CLOB"/>
+		</field>		
+		<field name="totalVotes" persistence-modifier="persistent" visibility="cci">
+			<column name="TOTAL_VOTES"/>
+		</field>		
+		<field name="reportingContact" visibility="cci">
+			<column name="REP_CONTACT"/>
+		</field>		
+		<field name="reportingAccount" visibility="cci">
+			<column name="REP_ACCT"/>
+		</field>		
+    </class>
+  </package>
+</openmdxjdo>

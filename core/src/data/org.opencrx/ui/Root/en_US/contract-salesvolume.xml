@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<featureDefinition>
+									<org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:contract1:AbstractContract:account">
+										<_object>
+											<type>org:opencrx:kernel:account1:Account</type>
+											<multiplicity>list</multiplicity>
+											<changeable>false</changeable>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.StructuralFeatureDefinition>
+								</featureDefinition>
+
+								<elementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:contract">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Contracts</_item>
+											</toolTip>
+											<label>
+												<_item>Contracts</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+											<showMaxMember>10</showMaxMember>
+											<maxMember>20</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definition-->
+									<!--Pane1 Tab Definitions-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Volume Contract</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Volume Contract</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+											<iconKey>SalesVolumeContract</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract:assignedAccount">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Account Assignments</_item>
+											</toolTip>
+											<label>
+												<_item>Account Assignments</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract:salesVolumeTarget">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales volume targets and conditions</_item>
+											</toolTip>
+											<label>
+												<_item>Sales volume targets and conditions</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>4</_item>
+											</order>
+                      <maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--FieldGroups in Details Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name of contract</_item>
+											</toolTip>
+											<label>
+												<_item>Name of contract</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract:contractLanguage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Contract language</_item>
+											</toolTip>
+											<label>
+												<_item>Contract language</_item>
+											</label>
+											<!--
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											-->
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:account">
+										<_object>
+											<dataBindingName>org.opencrx.kernel.portal.AccountAssignmentDataBinding</dataBindingName>
+											<active>true</active>
+											<filterable>false</filterable>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Assigned Accounts</_item>
+											</toolTip>
+											<label>
+												<_item>Assigned Accounts</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Lead:account">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:account">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Quote:account">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesOrder:account">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:account">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract:account">
+										<_object>
+											<dataBindingName>org.opencrx.kernel.portal.AccountAssignmentDataBinding</dataBindingName>
+											<active>true</active>
+											<filterable>true</filterable>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Assigned Accounts</_item>
+											</toolTip>
+											<label>
+												<_item>Assigned Accounts</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+	  
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract:contractNumber">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Contract number</_item>
+											</toolTip>
+											<label>
+												<_item>Contract number</_item>
+											</label>
+											<!--
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+											-->
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>25</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeContract:budget">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales volume target</_item>
+											</toolTip>
+											<label>
+												<_item>Sales volume target</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+<!-- SalesVolumeTarget -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Products / Sales Volume Target and Conditions</_item>
+											</toolTip>
+											<label>
+												<_item>Products / Sales Volume Target and Conditions</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>SalesVolumeTarget</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget:priceLevelRole">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Role</_item>
+											</toolTip>
+											<label>
+												<_item>Role</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget:priceLevel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search Products / Price Level</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search Products / Price Level</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget:targetVolume">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Target volume</_item>
+											</toolTip>
+											<label>
+												<_item>Target volume</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget:contributionFactor">
+										<_object>
+                      <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>ROUND(x*roundingFactor*contributionFactor,0) / roundingFactor</_item>
+											</toolTip>
+											<label>
+												<_item>Contribution factor</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesVolumeTarget:contributionRoundingFactor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>ROUND(x*roundingFactor*contributionFactor,0) / roundingFactor</_item>
+											</toolTip>
+											<label>
+												<_item>Rounding factor</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

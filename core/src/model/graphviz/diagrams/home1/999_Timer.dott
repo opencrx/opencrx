@@ -1,0 +1,59 @@
+digraph "Diagram Timer [Package org:opencrx:kernel:home1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:home1:UserHome,compartments=false,width=6]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:PropertySet,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:home1:Timer,compartments=true,width=8]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:workflow1:WfProcess,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:openmdx:base:ContextCapable,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:openmdx:base:BasicObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  NOTE0[label="{The assigned workflows are\lexecuted when a timer is\ltriggered.  A timer does not\ltrigger before timerStartAt and\lnot after timerEndAt. It triggers\lat most triggerRepeatTimes with\linterval triggerIntervalMinutes.\l}",fillcolor="#D8F2FA"];	  
+	}
+
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER3->LAYER4[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:home1:TimerHasWfProcess,minlen=3]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+				  <formDefinition>
+					  <org.openmdx.ui1.FormDefinition name="CustomerCareShowActivityForm">
+							<_object>
+								<title>
+									<_item>Activities</_item>
+								</title>
+								<toolTip>
+									<_item>Activities</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="ActivityInformation">
+										<_object>
+											<label>
+												<_item>Activity</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>5</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="activityNumber">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>activityNumber</featureName>
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>			
+												<org.openmdx.ui1.FormFieldDefinition id="name">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>name</featureName>
+														<order>110</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>			
+												<org.openmdx.ui1.FormFieldDefinition id="processState">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>processState</featureName>
+														<order>120</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>					
+												<org.openmdx.ui1.FormFieldDefinition id="reportingContact">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>reportingContact</featureName>
+														<order>130</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>																					
+									<org.openmdx.ui1.FormFieldGroupDefinition name="ActivityDetails">
+										<_object>
+											<label>
+												<_item>Details</_item>
+											</label>
+											<order>20</order>
+											<columnBreakAtElement>
+												<_item>4</_item>
+												<_item>8</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>																														
+												<org.openmdx.ui1.FormFieldDefinition id="priority">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>priority</featureName>
+														<order>100</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="dueBy">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>dueBy</featureName>
+														<order>110</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="scheduledStart">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>scheduledStart</featureName>
+														<order>120</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="scheduledEnd">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>scheduledEnd</featureName>
+														<order>130</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="activityCreator">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>lastAppliedCreator</featureName>
+														<order>140</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="misc1">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>misc1</featureName>
+														<order>150</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="misc2">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>misc2</featureName>
+														<order>160</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="misc3">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>misc3</featureName>
+														<order>170</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>							
+									<org.openmdx.ui1.FormFieldGroupDefinition name="ActivityDescription">
+										<_object>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>30</order>
+											<columnBreakAtElement>
+												<_item>2</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="description">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>description</featureName>
+														<spanRow>3</spanRow>																												
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>		
+												<org.openmdx.ui1.FormFieldDefinition id="detailedDescription">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:Activity</forClass>
+														<featureName>detailedDescription</featureName>
+														<spanRow>6</spanRow>																												
+														<order>200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>														
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>																					
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>
+				  </formDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,63 @@
+digraph "Diagram Main [Package org:opencrx:kernel:contract1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:contract1:Segment,compartments=false,width=20]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:contract1:Lead,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:Opportunity,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:Quote,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:SalesOrder,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:Invoice,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractOpportunityPosition,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractQuotePosition,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractSalesOrderPosition,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractInvoicePosition,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:contract1:LeadCreateOpportunityResult,compartments=true,fillcolor="#FFECFF",width=3]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:LeadMarkAsClosedParams,compartments=true,fillcolor="#FFECFF",width=3]};
+	}
+
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:SegmentContainsLead,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:OpportunityHasOpportunityPosition,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:LeadIsReferencedByOpportunity,minlen=5]}
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:OpportunityIsReferencedByQuote,minlen=5]}
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:QuoteIsReferencedBySalesOrder,minlen=5]}
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:SalesOrderIsReferencedByInvoice,minlen=5]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

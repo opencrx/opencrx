@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority name="org:openmdx:security:realm1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/security/realm1/xmi1/realm1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.security.realm1.Segment qualifiedName="Root" _operation="set">
+							<_object/>
+							<_content>
+								<realm>
+									<org.openmdx.security.realm1.Realm id="Default" _operation="create">
+										<_object>
+											<description>Login Realm</description>
+										</_object>
+										<_content>
+											<principal>
+												<org.opencrx.security.realm1.Principal id="admin-Root" _operation="create">
+													<_object>
+														<description>admin-Root</description>
+														<disabled>false</disabled>
+														<subject>xri:@openmdx:org.opencrx.security.identity1/provider/CRX/segment/Root/subject/admin-Root</subject>
+													</_object>
+													<_content/>
+												</org.opencrx.security.realm1.Principal>
+												<org.opencrx.security.realm1.PrincipalGroup id="Administrators" _operation="create">
+													<_object>
+														<description>Administrators</description>
+														<disabled>false</disabled>
+														<grantedRole>
+															<_item>xri:@openmdx:org.openmdx.security.authorization1/provider/CRX/segment/Root/policy/Default/role/OpenCrxAdministrator</_item>
+														</grantedRole>
+													</_object>
+													<_content/>
+												</org.opencrx.security.realm1.PrincipalGroup>
+												<org.opencrx.security.realm1.PrincipalGroup id="Users" _operation="create">
+													<_object>
+														<description>Users</description>
+														<disabled>false</disabled>
+														<grantedRole>
+															<_item>xri:@openmdx:org.openmdx.security.authorization1/provider/CRX/segment/Root/policy/Default/role/OpenCrxUser</_item>
+														</grantedRole>
+													</_object>
+													<_content/>
+												</org.opencrx.security.realm1.PrincipalGroup>
+											</principal>
+										</_content>
+									</org.openmdx.security.realm1.Realm>
+									<org.openmdx.security.realm1.Realm id="Root" _operation="create">
+										<_object>
+											<description>Root realm</description>
+										</_object>
+										<_content>
+											<principal>
+												<org.opencrx.security.realm1.PrincipalGroup id="Administrators" _operation="create">
+													<_object>
+														<description>Administrators</description>
+														<disabled>false</disabled>
+													</_object>
+													<_content/>
+												</org.opencrx.security.realm1.PrincipalGroup>
+												<org.opencrx.security.realm1.PrincipalGroup id="Users" _operation="create">
+													<_object>
+														<description>Users</description>
+														<disabled>false</disabled>
+													</_object>
+													<_content/>
+												</org.opencrx.security.realm1.PrincipalGroup>
+												<org.opencrx.security.realm1.User id="admin-Root.User" _operation="create">
+													<_object>
+														<description>Root\\admin-Root.User</description>
+														<disabled>false</disabled>
+														<subject>xri:@openmdx:org.opencrx.security.identity1/provider/CRX/segment/Root/subject/admin-Root</subject>
+													</_object>
+													<_content/>
+												</org.opencrx.security.realm1.User>
+												<org.opencrx.security.realm1.Principal id="admin-Root" _operation="create">
+													<_object>
+														<description>Root\\admin-Root</description>
+														<disabled>false</disabled>
+														<isMemberOf>
+															<_item>xri:@openmdx:org.openmdx.security.realm1/provider/CRX/segment/Root/realm/Root/principal/admin-Root.User</_item>
+															<_item>xri:@openmdx:org.openmdx.security.realm1/provider/CRX/segment/Root/realm/Root/principal/Administrators</_item>
+														</isMemberOf>
+														<subject>xri:@openmdx:org.opencrx.security.identity1/provider/CRX/segment/Root/subject/admin-Root</subject>
+													</_object>
+													<_content/>
+												</org.opencrx.security.realm1.Principal>
+											</principal>
+										</_content>
+									</org.openmdx.security.realm1.Realm>
+								</realm>
+							</_content>
+						</org.openmdx.security.realm1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

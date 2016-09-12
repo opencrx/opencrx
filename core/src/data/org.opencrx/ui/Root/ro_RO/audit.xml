@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Auditee:audit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Auditare Intrări</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Auditare Intrări</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Auditare Intrare</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Auditare Intrare</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:auditee" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Auditat</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Auditat</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:unitOfWork" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unitate de muncă</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unitate de muncă</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:visitedBy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vizitat de</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vizitat de</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:visitedAt" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vizitat la</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vizitat la</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Auditare Intrare (Modificare)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Auditare Intrare</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Informare Modificare Obiect</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Informare Modificare Obiect</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:modifiedFeatures" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Modificare atribut</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Modificare atribut</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectModificationAuditEntry:beforeImage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Imagine (înainte)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Imagine (înainte)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Audit Intrare (eliminare)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Audit Intrare</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Audit Intrare</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Audit Intrare</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Informare Eliminare Obiect</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Informare Eliminare Obiect</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectRemovalAuditEntry:beforeImage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Imagine (înainte)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Imagine (înainte)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Audit Intrare (Creare)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Audit Intrare</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Audit Intrare</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Audit Intrare</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ObjectCreationAuditEntry:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Informare Creare Obiect</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Informare Creare Obiect</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:createdAt" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Data / Ora</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Data / Ora</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Testat şi Configurat vizitat de</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Testat şi Configurat vizitat de</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Introducere</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Introducere</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:TestAndSetVisitedByParams:visitorId" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Identificator Vizitator</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Identificator Vizitator</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:AuditEntry:Pane:Op:Tab:testAndSetVisitedBy:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rezultat</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rezultat</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:TestAndSetVisitedByResult:visitStatus" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Statut vizită</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Statut vizită</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

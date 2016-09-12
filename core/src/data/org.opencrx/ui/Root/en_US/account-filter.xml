@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+
+                  <!--Segment Grids -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:accountFilter">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Saved Searches - Accounts</_item>
+                      </toolTip>
+                      <label>
+                        <_item>»Saved Searches - Accounts</_item>
+                      </label>
+                      <order>
+                        <_item>0</_item>
+                        <_item>0</_item>
+                        <_item>60</_item>
+                      </order>
+                      <maxMember>2</maxMember>
+                    </_object>
+                    <_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AbstractFilterAccount -->
+									<!--Inspector Definitions-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:accountFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>10</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:filteredAccount">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Accounts (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Accounts (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<maxMember>21</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:Pane:Op:Tab:countFilteredAccount">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Accounts</_item>
+											</toolTip>
+											<label>
+												<_item>Count Accounts</_item>
+											</label>
+											<iconKey>Account</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:Pane:Op:Tab:countFilteredAccount:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:Pane:Op:Tab:countFilteredAccount:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AccountTypeFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountTypeFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Account Type</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Account Type</_item>
+											</label>
+											<iconKey>AccountTypeFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountTypeFilterProperty:accountType">
+										<_object>
+											<spanRow>5</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Account types</_item>
+											</toolTip>
+											<label>
+												<_item>Account types</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AccountCategoryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountCategoryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Account Category</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Account Category</_item>
+											</label>
+											<iconKey>AccountCategoryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountCategoryFilterProperty:accountCategory">
+										<_object>
+											<spanRow>5</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Account categories</_item>
+											</toolTip>
+											<label>
+												<_item>Account categories</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>11</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AccountMembershipFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembershipFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Account Membership</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Account Membership</_item>
+											</label>
+											<iconKey>AccountMembershipFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembershipFilterProperty:account">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Account</_item>
+											</toolTip>
+											<label>
+												<_item>Account</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>13</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- CategoryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CategoryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Category</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Category</_item>
+											</label>
+											<iconKey>CategoryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CategoryFilterProperty:category">
+										<_object>
+											<spanRow>5</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Categories</_item>
+											</toolTip>
+											<label>
+												<_item>Categories</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>13</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DisabledFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:DisabledFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Disabled</_item>
+											</label>
+											<iconKey>DisabledFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:DisabledFilterProperty:disabled">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>14</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AccountFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Accounts</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Accounts</_item>
+											</label>
+											<iconKey>AccountFilterGlobal</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AccountQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>500</_item>
+											</order>
+											<iconKey>AccountQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

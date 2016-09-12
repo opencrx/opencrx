@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="1">
+				<void index="0">
+					<string>org:opencrx:kernel:home1:UserHome:assignedActivity</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="4">
+				<!-- show only activities that are not disabled -->
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>assignedActivity</string>
+						</void>
+						<void property="iconKey">
+							<string>spacer.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<!-- open activities, assigned to owner of userhome -->
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Open - assigned to owner of user home</string>
+						</void>
+						<void property="iconKey">
+							<string>ActivityCreator.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Open - assigned to owner of user home</string>
+								</void>
+								<void index="1">
+									<string>Offen - Inhaber der Startseite zugewiesen</string>
+								</void>
+							</array>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>(
+												EXISTS (SELECT 0 FROM
+												OOCKE1_USERHOME h
+												WHERE
+												(h.object_id = vj.user_home) AND
+												(
+												(v.assigned_to = h.contact) ) AND
+												((v.disabled is null) OR (v.disabled = ?b0)) AND
+												(v.percent_complete &lt; 100))
+												)
+											</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>false</boolean>
+												</void>
+											</array>
+										</void>										
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- open activities, assigned to owner of userhome -->
+				<void index="2">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Open - assigned to owner of user home [Priority / Due]</string>
+						</void>
+						<void property="iconKey">
+							<string>ActivityCreator.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Open - assigned to owner of user home [Priority / Due]</string>
+								</void>
+								<void index="1">
+									<string>Offen - Inhaber der Startseite zugewiesen [Priorität / Fällig bis]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="3">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>priority</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>dueBy</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+								<void index="2">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>scheduledStart</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>(
+												EXISTS (SELECT 0 FROM
+												OOCKE1_USERHOME h
+												WHERE
+												(h.object_id = vj.user_home) AND
+												(
+												(v.assigned_to = h.contact) ) AND
+												((v.disabled is null) OR (v.disabled = ?b0)) AND
+												(v.percent_complete &lt; 100))
+												)
+											</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>false</boolean>
+												</void>
+											</array>
+										</void>										
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- open activities, reported by owner of userhome -->
+				<void index="3">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Open - reported by owner of user home</string>
+						</void>
+						<void property="iconKey">
+							<string>ActivityProcess.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Open - reported by owner of user home</string>
+								</void>
+								<void index="1">
+									<string>Offen - vom Inhaber der Startseite gemeldet</string>
+								</void>
+							</array>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>(
+												EXISTS (SELECT 0 FROM
+												OOCKE1_USERHOME h
+												WHERE
+												(h.object_id = vj.user_home) AND
+												(
+												(v.rep_contact = h.contact) ) AND
+												((v.disabled is null) OR (v.disabled = ?b0)) AND
+												(v.percent_complete &lt; 100))
+												)
+											</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>false</boolean>
+												</void>
+											</array>
+										</void>										
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

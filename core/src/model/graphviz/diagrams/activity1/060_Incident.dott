@@ -1,0 +1,63 @@
+digraph "Diagram Incident [Package org:opencrx:kernel:activity1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Segment,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Activity,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Incident,compartments=true,width=3]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:IncidentParty,compartments=true,width=5]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractActivityParty,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:account1:Account,compartments=false,fillcolor="#FFBD9D",width=2]};	  
+	}
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER3->LAYER4[style=invis];
+	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:SegmentContainsActivity,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:IncidentContainsParticipant,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:IncidentPartyHasAccount,minlen=2]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityReportedByAccount,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountHasAssignedActivity,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountHasPartner,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountIsDuplicateOfAccount,style=invis]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

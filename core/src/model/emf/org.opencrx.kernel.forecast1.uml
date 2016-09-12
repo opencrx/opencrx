@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_4sgZsN8HEdmKapscEl8OLg" name="forecast1">
+  <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9C470028PPP" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9C470028PP" name="opencrx">
+      <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9C470028P" name="kernel">
+        <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9C470028" name="forecast1">
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3FECAAE80041" name="Segment">
+            <ownedRule xmi:id="_IIYTvd7NEdmKapscEl8OLg">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_IIYTvt7NEdmKapscEl8OLg">
+                <body>isFrozen</body>
+              </specification>
+            </ownedRule>
+            <generalization xmi:id="_3C7B8A60016D3FECAAF600B0">
+              <general xmi:type="uml:Class" href="org.opencrx.uml#_kAemwPtpEduZnKmt1dsSSQ"/>
+            </generalization>
+            <generalization xmi:id="_3C7B8A60016D40D04B7103CA">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D40D03B5F0220"/>
+            </generalization>
+            <generalization xmi:id="_3C7B8A60016D414D7BE30102">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D414D676C01DB"/>
+            </generalization>
+            <generalization xmi:id="_3C7B8A60016D415FF35601DF">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
+            </generalization>
+            <generalization xmi:id="_3C7B8A60016D417834410112">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D417826C80073"/>
+            </generalization>
+            <generalization xmi:id="_3C7B8A60016D4205F1B30026">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4205ED760135"/>
+            </generalization>
+            <generalization xmi:id="_eO7gwHaUEduay-WajN2Vbg">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_FrwCsHaQEduay-WajN2Vbg"/>
+            </generalization>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F3FCEF102E6" name="budget" type="_7T5v8OaSEd-XquPOMEGJEw" isUnique="false" aggregation="composite" association="_3C7B8A60016D3F3FCEF10124">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIYTs97NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIYTtN7NEdmKapscEl8OLg" value="1"/>
+              <qualifier xmi:id="_3C7B8A60016D3F3FCF17015A" name="id" visibility="private">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F4008A6009A" name="Budget">
+            <generalization xmi:id="_aW5t8OaTEd-XquPOMEGJEw" general="_7T5v8OaSEd-XquPOMEGJEw"/>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F78C378006D" name="toBeFulfilledByOrganizationalUnit" isUnique="false" association="_3C7B8A60016D3F78C3770256">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.account1.uml#_3C7B8A60016D3F3EBC6703D3"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IISNB97NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IISNCN7NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F78C5E801E7" name="account" isUnique="false" association="_3C7B8A60016D3F78C5E80006">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.account1.uml#_3C7B8A60016D3F50EA250055"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IISNDt7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IISND97NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D3F78C3770256" name="BudgetToBeFulfilledByOrganizationalUnit" memberEnd="_3C7B8A60016D3F78C3780077 _3C7B8A60016D3F78C378006D">
+            <ownedEnd xmi:id="_3C7B8A60016D3F78C3780077" name="budget" type="_3C7B8A60016D3F4008A6009A" isUnique="false" association="_3C7B8A60016D3F78C3770256">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IISNCt7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IISNC97NEdmKapscEl8OLg" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D3F78C5E80006" name="BudgetToBeFulfilledByAccount" memberEnd="_3C7B8A60016D3F78C5E8020F _3C7B8A60016D3F78C5E801E7">
+            <ownedEnd xmi:id="_3C7B8A60016D3F78C5E8020F" name="budget" type="_3C7B8A60016D3F4008A6009A" isUnique="false" association="_3C7B8A60016D3F78C5E80006">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IISNEd7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IISNEt7NEdmKapscEl8OLg" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D3F3FCEF10124" name="SegmentContainsBudget" memberEnd="_3C7B8A60016D3F3FCEF102E6 _3C7B8A60016D3F3FCEF102E8">
+            <ownedEnd xmi:id="_3C7B8A60016D3F3FCEF102E8" name="segment" type="_3C7B8A60016D3FECAAE80041" isUnique="false" association="_3C7B8A60016D3F3FCEF10124">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIYTt97NEdmKapscEl8OLg" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIYTuN7NEdmKapscEl8OLg" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7T5v8OaSEd-XquPOMEGJEw" name="AbstractBudget" isAbstract="true">
+            <generalization xmi:id="_JY1HYOdQEd-MqvhFuwCU1g">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_njI2YG6bEd2FatqvZZ4esQ" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_pUF2oG6bEd2FatqvZZ4esQ" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qzmhkG6bEd2FatqvZZ4esQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qzmhkW6bEd2FatqvZZ4esQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F78C8270049" name="budgetType">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F3FCF840021" name="startingFrom">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0G548G6bEd2FatqvZZ4esQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0G548W6bEd2FatqvZZ4esQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F78C0110165" name="endingAt">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0ffYEG6bEd2FatqvZZ4esQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0ffYEW6bEd2FatqvZZ4esQ" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_l74-oOaUEd-XquPOMEGJEw" name="SalesVolumeBudget">
+            <generalization xmi:id="_tgYDwOaUEd-XquPOMEGJEw" general="_7T5v8OaSEd-XquPOMEGJEw"/>
+            <ownedAttribute xmi:id="_B1r6kOaWEd-_XKX_i59cGw" name="contractType" aggregation="composite">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_kFCf0eaWEd-_XKX_i59cGw" name="depot" association="_kFADkOaWEd-_XKX_i59cGw">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.depot1.uml#_3C7B8A60016D428D1A0503AE"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kFDG4OaWEd-_XKX_i59cGw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kFDG4eaWEd-_XKX_i59cGw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_z6m_cOaYEd-CcIMKJoq29Q" name="lastCalculatedAt" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oA-oUOdDEd-MqvhFuwCU1g"/>
+            </ownedAttribute>
+            <ownedOperation xmi:id="_1933sOaYEd-CcIMKJoq29Q" name="recalcBudget">
+              <ownedParameter xmi:id="_4Czj4OaYEd-CcIMKJoq29Q" direction="return">
+                <type xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3E40433402E1"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_MW_WIOaWEd-_XKX_i59cGw" name="SalesVolumeBudgetHasPosition" memberEnd="_MW_9MOaWEd-_XKX_i59cGw _MXAkQuaWEd-_XKX_i59cGw" navigableOwnedEnd="_MXAkQuaWEd-_XKX_i59cGw">
+            <ownedEnd xmi:id="_MW_9MOaWEd-_XKX_i59cGw" name="budget" type="_l74-oOaUEd-XquPOMEGJEw" association="_MW_WIOaWEd-_XKX_i59cGw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MXAkQOaWEd-_XKX_i59cGw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MXAkQeaWEd-_XKX_i59cGw" value="1"/>
+            </ownedEnd>
+            <ownedEnd xmi:id="_MXAkQuaWEd-_XKX_i59cGw" name="position" type="_J0PskOaWEd-_XKX_i59cGw" aggregation="composite" association="_MW_WIOaWEd-_XKX_i59cGw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MXAkQ-aWEd-_XKX_i59cGw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MXAkROaWEd-_XKX_i59cGw" value="1"/>
+              <qualifier xmi:id="_HiW2UOdCEd-EjtBxHG0xBg" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_kFADkOaWEd-_XKX_i59cGw" name="SalesVolumeBudgetIsAssignedToDepot" memberEnd="_kFBRsOaWEd-_XKX_i59cGw _kFCf0eaWEd-_XKX_i59cGw">
+            <ownedEnd xmi:id="_kFBRsOaWEd-_XKX_i59cGw" name="budget" type="_l74-oOaUEd-XquPOMEGJEw" association="_kFADkOaWEd-_XKX_i59cGw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kFB4wOaWEd-_XKX_i59cGw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kFCf0OaWEd-_XKX_i59cGw" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_J0PskOaWEd-_XKX_i59cGw" name="SalesVolumeBudgetPosition" isAbstract="true">
+            <generalization xmi:id="_bwD8cOaXEd-_XKX_i59cGw">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_yFTzIIm0EdqT-YHfpV38vQ"/>
+            </generalization>
+            <generalization xmi:id="_OHzmsOdKEd-MqvhFuwCU1g">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_pEcuMOaYEd-CcIMKJoq29Q" name="name" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_pniNIOaYEd-CcIMKJoq29Q" name="description" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XcR8YOdCEd-EjtBxHG0xBg"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_vdPuMeaWEd-_XKX_i59cGw" name="depotPosition" association="_vdOgEOaWEd-_XKX_i59cGw">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.depot1.uml#_3C7B8A60016D42A96B28006E"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vdQVQOaWEd-_XKX_i59cGw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vdQVQeaWEd-_XKX_i59cGw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_58Sf8OaWEd-_XKX_i59cGw" name="targetVolume" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ypum8OdCEd-EjtBxHG0xBg"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_-dhPcOaWEd-_XKX_i59cGw" name="contributionFactor" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZYtM0OdCEd-EjtBxHG0xBg"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_bvVuQOaYEd-CcIMKJoq29Q" name="contributionRoundingFactor" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aE16EOdCEd-EjtBxHG0xBg"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_vdOgEOaWEd-_XKX_i59cGw" name="SalesVolumeBudgetPositionHasDepotPosition" memberEnd="_vdPHIOaWEd-_XKX_i59cGw _vdPuMeaWEd-_XKX_i59cGw">
+            <ownedEnd xmi:id="_vdPHIOaWEd-_XKX_i59cGw" name="position" type="_J0PskOaWEd-_XKX_i59cGw" association="_vdOgEOaWEd-_XKX_i59cGw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vdPHIeaWEd-_XKX_i59cGw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vdPuMOaWEd-_XKX_i59cGw" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Vy1eIOaZEd-CcIMKJoq29Q" name="SalesVolumeBudgetContributionSource" isAbstract="true">
+            <eAnnotations xmi:id="_8muSYOdFEd-MqvhFuwCU1g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_98qKkOdFEd-MqvhFuwCU1g" key="root"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_arbkweaZEd-CcIMKJoq29Q" name="budget" type="_l74-oOaUEd-XquPOMEGJEw" association="_arX6YOaZEd-CcIMKJoq29Q">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_arcL0OaZEd-CcIMKJoq29Q"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_arcL0eaZEd-CcIMKJoq29Q" value="1"/>
+              <qualifier xmi:id="_QYyg8OdBEd-EjtBxHG0xBg" name="index">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
+              </qualifier>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_arX6YOaZEd-CcIMKJoq29Q" name="BudgetContributionSourceHasBudget" memberEnd="_arZvkOaZEd-CcIMKJoq29Q _arbkweaZEd-CcIMKJoq29Q">
+            <ownedEnd xmi:id="_arZvkOaZEd-CcIMKJoq29Q" name="contributionSource" type="_Vy1eIOaZEd-CcIMKJoq29Q" association="_arX6YOaZEd-CcIMKJoq29Q">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ara9sOaZEd-CcIMKJoq29Q"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_arbkwOaZEd-CcIMKJoq29Q" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_k0sB0OabEd-CcIMKJoq29Q" name="FindSalesVolumeBudgetsParams">
+            <eAnnotations xmi:id="_PJvsMOdHEd-MqvhFuwCU1g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_ReMbEOdHEd-MqvhFuwCU1g" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_molBUOabEd-CcIMKJoq29Q" name="contract" aggregation="composite">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.contract1.uml#_3C7B8A60016D3F40D53501B3"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rKWTkOdwEd-c2OkllwFQhg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rKVsgOdwEd-c2OkllwFQhg" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_u_Up0OabEd-CcIMKJoq29Q" name="FindSalesVolumeBudgetsResult">
+            <eAnnotations xmi:id="_TOvysOdHEd-MqvhFuwCU1g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_UNJUoOdHEd-MqvhFuwCU1g" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_wyEZ0OabEd-CcIMKJoq29Q" name="budget" type="_l74-oOaUEd-XquPOMEGJEw" aggregation="composite">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kAM4OdDEd-MqvhFuwCU1g"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_SasOdDEd-MqvhFuwCU1g" value="*"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_HqiKoOcxEd-EjtBxHG0xBg" name="QuantityBasedSalesVolumeBudgetPosition">
+            <generalization xmi:id="_nxC-oOcyEd-EjtBxHG0xBg" general="_J0PskOaWEd-_XKX_i59cGw"/>
+            <ownedAttribute xmi:id="_PCNtYucyEd-EjtBxHG0xBg" name="uom" association="_PCKDAOcyEd-EjtBxHG0xBg">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.uom1.uml#_3C7B8A60016D3F3EBFB30391"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PCOUcOcyEd-EjtBxHG0xBg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PCOUcecyEd-EjtBxHG0xBg" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_NMU_QOcxEd-EjtBxHG0xBg" name="ValueBasedSalesVolumeBudgetPosition">
+            <generalization xmi:id="_zu87EOcyEd-EjtBxHG0xBg" general="_J0PskOaWEd-_XKX_i59cGw"/>
+            <ownedAttribute xmi:id="_jgaFUOcxEd-EjtBxHG0xBg" name="currency" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63110001"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_c8czoOcyEd-EjtBxHG0xBg" name="valueType" aggregation="composite">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63110001"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_PCKDAOcyEd-EjtBxHG0xBg" name="QuantityBasedSalesVolumeBudgetPositionHasUom" memberEnd="_PCNGUOcyEd-EjtBxHG0xBg _PCNtYucyEd-EjtBxHG0xBg">
+            <ownedEnd xmi:id="_PCNGUOcyEd-EjtBxHG0xBg" name="position" type="_HqiKoOcxEd-EjtBxHG0xBg" association="_PCKDAOcyEd-EjtBxHG0xBg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PCNtYOcyEd-EjtBxHG0xBg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PCNtYecyEd-EjtBxHG0xBg" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

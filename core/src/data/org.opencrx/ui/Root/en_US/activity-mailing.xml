@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+
+									<!-- disable operation "Clone" -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Mailing:Pane:Op:Tab:clone">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Mailing">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Mailing</_item>
+											</toolTip>
+											<label>
+												<_item>Mailing</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<iconKey>Mailing</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Mailing:mailingRecipient">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Recipients</_item>
+											</toolTip>
+											<label>
+												<_item>Recipients</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--grid column definition-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Mailing:sender">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sender</_item>
+											</toolTip>
+											<label>
+												<_item>Sender</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Mailing:document">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Document</_item>
+											</toolTip>
+											<label>
+												<_item>Document</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Mailing:template">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Template</_item>
+											</toolTip>
+											<label>
+												<_item>Template</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--MailingRecipient-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipient">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Recipient</_item>
+											</toolTip>
+											<label>
+												<_item>Recipient</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>PostalAddress</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--grid column definition-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipient:party">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Address</_item>
+											</toolTip>
+											<label>
+												<_item>Address</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipient:emailHint">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>E-Mail hint</_item>
+											</toolTip>
+											<label>
+												<_item>E-Mail hint</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>200</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipient:partyType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipient:partyStatus">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--MailingRecipientGroup-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipientGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Address group</_item>
+											</toolTip>
+											<label>
+												<_item>Address group</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>AddressGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--grid column definition-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipientGroup:party">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Address group</_item>
+											</toolTip>
+											<label>
+												<_item>Address group</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipientGroup:partyType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MailingRecipientGroup:partyStatus">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--AbstractMailingRecipient-->
+									<!--Inspector Definitions-->
+									<!--Tab Definitions Pane1-->
+									<!--grid column definition-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractMailingRecipient:party">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Address(es)</_item>
+											</toolTip>
+											<label>
+												<_item>Address(es)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractMailingRecipient:partyType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractMailingRecipient:partyStatus">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

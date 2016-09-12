@@ -1,0 +1,600 @@
+#if defined(POSTGRESQL_8)
+/* This software is published under the BSD license                          */
+/* as listed below.                                                          */
+/*                                                                           */
+/* Copyright (c) 2004-2013, CRIXP Corp., Switzerland                         */
+/* All rights reserved.                                                      */
+/*                                                                           */
+/* Redistribution and use in source and binary forms, with or without        */
+/* modification, are permitted provided that the following conditions        */
+/* are met:                                                                  */
+/*                                                                           */
+/* * Redistributions of source code must retain the above copyright          */
+/* notice, this list of conditions and the following disclaimer.             */
+/*                                                                           */
+/* * Redistributions in binary form must reproduce the above copyright       */
+/* notice, this list of conditions and the following disclaimer in           */
+/* the documentation and/or other materials provided with the                */
+/* distribution.                                                             */
+/*                                                                           */
+/* * Neither the name of CRIXP Corp. nor the names of the contributors       */
+/* to openCRX may be used to endorse or promote products derived             */
+/* from this software without specific prior written permission              */
+/*                                                                           */
+/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND                    */
+/* CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,               */
+/* INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF                  */
+/* MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE                  */
+/* DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS         */
+/* BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,                  */
+/* EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED           */
+/* TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,             */
+/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON         */
+/* ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,           */
+/* OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY            */
+/* OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                   */
+/* POSSIBILITY OF SUCH DAMAGE.                                               */
+/*                                                                           */
+/* ------------------                                                        */
+/*                                                                           */
+/* This product includes software developed by the Apache Software           */
+/* Foundation (http://www.apache.org/).                                      */
+/*                                                                           */
+/* This product includes software developed by contributors to               */
+/* openMDX (http://www.openmdx.org/)                                         */
+/*                                                                           */
+#define NULLABLE NULL
+#define BIGINT int8
+#define SMALLINT integer
+#define VARCHAR(n) varchar(n)
+#define DECIMAL(n,m) decimal(n,m)
+#define INTEGER integer
+#define BLOB bytea
+#define RID_TYPE varchar(200)
+#define AUTONUM_RID_TYPE bigint
+#define MAIN_OID_TYPE varchar(200)
+#define OID_TYPE varchar(200)
+#define REF_TYPE varchar(150)
+#define LONG_REF_TYPE varchar(300)
+#define ID_TYPE varchar(300)
+#define QUOTED_COL_ROLE role
+#define QUOTED_COL_NUMBER number
+#define QUOTED_COL_COMMENT comment
+#define QUOTED_COL_FILTER filter
+#define QUOTED_COL_PASSWORD password
+#define QUOTED_COL_ACTION action
+#define QUOTED_COL_DOLLAR(s) #s
+#define QUOTED_COL_RESOURCE resource
+#define QUOTED_COL_POSITION position
+#define STRCAT_INFIX ||
+#define STRCAT_PREFIX
+#define STRCAT_SUFFIX
+#define LONG_TEXT text
+#define LONG_TEXT_ASCII text
+#define NULL_CHAR CAST(NULL AS char)
+#define PRIMARY_KEY(NAME) PRIMARY KEY
+#define SHORT_TEXT varchar(50)
+#define RENAME_COLUMN(table_name, column_from, column_to, table_and_column_from, new_type) ALTER TABLE table_name RENAME COLUMN column_from TO column_to
+#define RENAME_TABLE(table_from, table_to) ALTER TABLE table_from RENAME TO table_to
+#define DROP_COLUMN_BEGIN DROP
+#define DROP_COLUMN_NEXT
+#define DROP_COLUMN_END
+#define ADD_COLUMN_BEGIN ADD
+#define ADD_COLUMN_NEXT , ADD
+#define ADD_COLUMN_END
+#define ALTER_COLUMN ALTER
+#define ALTER_TYPE TYPE
+#define REM(s) s */
+#define COMMAND_TERMINATOR ;
+#define DROP_INDEX(table_name, index_name) DROP INDEX index_name
+#define SET_NOT_NULL(column_name, type_name) column_name SET NOT NULL
+#define CREATE_INDEX(table_name, index_name) CREATE INDEX index_name
+#define CREATE_UNIQUE_INDEX(table_name, index_name) CREATE UNIQUE INDEX index_name
+#define FORMAT_NUMBER_3_0(column_name) to_char(column_name, 'FM000')
+#define FORMAT_NUMBER_2_0(column_name) to_char(column_name, 'FM00')
+#define AS_CHAR(n) CHR(n)
+#define STRSUB SUBSTRING
+#define STRLEN LEN
+#define REORG_TABLE(t)
+#define P_PARENT p$$parent
+
+#elif defined(HSQLDB_2)
+-- This software is published under the BSD license                          
+-- as listed below.                                                          
+--                                                                           
+-- Copyright (c) 2004-2013, CRIXP Corp., Switzerland                              
+-- All rights reserved.                                                      
+--                                                                           
+-- Redistribution and use in source and binary forms, with or without        
+-- modification, are permitted provided that the following conditions        
+-- are met:                                                                  
+--                                                                           
+-- * Redistributions of source code must retain the above copyright          
+-- notice, this list of conditions and the following disclaimer.             
+--                                                                           
+-- * Redistributions in binary form must reproduce the above copyright       
+-- notice, this list of conditions and the following disclaimer in           
+-- the documentation and/or other materials provided with the                
+-- distribution.                                                             
+--                                                                           
+-- * Neither the name of CRIXP Corp. nor the names of the contributors       
+-- to openCRX may be used to endorse or promote products derived             
+-- from this software without specific prior written permission              
+--                                                                           
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND                    
+-- CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,               
+-- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF                  
+-- MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE                  
+-- DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS         
+-- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,                  
+-- EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED           
+-- TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, LOSS OF USE,             
+-- DATA, OR PROFITS, OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON         
+-- ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,           
+-- OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY            
+-- OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                   
+-- POSSIBILITY OF SUCH DAMAGE.                                               
+--                                                                           
+-- ------------------                                                        
+--                                                                           
+-- This product includes software developed by the Apache Software           
+-- Foundation (http://www.apache.org/).                                      
+--                                                                           
+-- This product includes software developed by contributors to               
+-- openMDX (http://www.openmdx.org/)                                         
+#define NULLABLE NULL
+#define BIGINT bigint
+#define SMALLINT integer
+#define VARCHAR(n) varchar(n)
+#define DECIMAL(n,m) decimal(n,m)
+#define INTEGER integer
+#define BLOB longvarbinary
+#define RID_TYPE varchar(200)
+#define AUTONUM_RID_TYPE bigint
+#define MAIN_OID_TYPE varchar(200)
+#define OID_TYPE varchar(200)
+#define REF_TYPE varchar(150)
+#define LONG_REF_TYPE varchar(300)
+#define ID_TYPE varchar(300)
+#define QUOTED_COL_ROLE role
+#define QUOTED_COL_NUMBER number
+#define QUOTED_COL_COMMENT comment
+#define QUOTED_COL_FILTER filter
+#define QUOTED_COL_PASSWORD password
+#define QUOTED_COL_ACTION action
+#define QUOTED_COL_DOLLAR(s) #s
+#define QUOTED_COL_RESOURCE resource
+#define QUOTED_COL_POSITION "position"
+#define STRCAT_INFIX ||
+#define STRCAT_PREFIX
+#define STRCAT_SUFFIX
+#define LONG_TEXT text
+#define LONG_TEXT_ASCII longvarchar
+#define NULL_CHAR CAST(NULL AS char)
+#define PRIMARY_KEY(NAME) PRIMARY KEY
+#define SHORT_TEXT varchar(50)
+#define RENAME_COLUMN(table_name, column_from, column_to, table_and_column_from, new_type) ALTER TABLE table_name ALTER COLUMN column_from RENAME TO column_to
+#define RENAME_TABLE(table_from, table_to) ALTER TABLE table_from RENAME TO table_to
+#define DROP_COLUMN_BEGIN DROP
+#define DROP_COLUMN_NEXT
+#define DROP_COLUMN_END
+#define ADD_COLUMN_BEGIN ADD
+#define ADD_COLUMN_NEXT , ADD
+#define ADD_COLUMN_END
+#define ALTER_COLUMN ALTER
+#define ALTER_TYPE TYPE
+#define REM(s) s */
+#define COMMAND_TERMINATOR ;
+#define DROP_INDEX(table_name, index_name) DROP INDEX index_name
+#define SET_NOT_NULL(column_name, type_name) column_name SET NOT NULL
+#define CREATE_INDEX(table_name, index_name) CREATE INDEX index_name
+#define CREATE_UNIQUE_INDEX(table_name, index_name) CREATE UNIQUE INDEX index_name
+#define FORMAT_NUMBER_3_0(column_name) CAST(column_name AS CHARACTER)
+#define FORMAT_NUMBER_2_0(column_name) CAST(column_name AS CHARACTER)
+#define AS_CHAR(n) CHAR(n)
+#define STRSUB SUBSTRING
+#define STRLEN LEN
+#define REORG_TABLE(t)
+#define P_PARENT "P$$PARENT"
+
+#elif defined(SQL_SERVER_2005)
+/* This software is published under the BSD license                          */
+/* as listed below.                                                          */
+/*                                                                           */
+/* Copyright (c) 2004-2013, CRIXP Corp., Switzerland                         */
+/* All rights reserved.                                                      */
+/*                                                                           */
+/* Redistribution and use in source and binary forms, with or without        */
+/* modification, are permitted provided that the following conditions        */
+/* are met:                                                                  */
+/*                                                                           */
+/* * Redistributions of source code must retain the above copyright          */
+/* notice, this list of conditions and the following disclaimer.             */
+/*                                                                           */
+/* * Redistributions in binary form must reproduce the above copyright       */
+/* notice, this list of conditions and the following disclaimer in           */
+/* the documentation and/or other materials provided with the                */
+/* distribution.                                                             */
+/*                                                                           */
+/* * Neither the name of CRIXP Corp. nor the names of the contributors       */
+/* to openCRX may be used to endorse or promote products derived             */
+/* from this software without specific prior written permission              */
+/*                                                                           */
+/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND                    */
+/* CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,               */
+/* INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF                  */
+/* MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE                  */
+/* DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS         */
+/* BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,                  */
+/* EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED           */
+/* TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,             */
+/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON         */
+/* ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,           */
+/* OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY            */
+/* OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                   */
+/* POSSIBILITY OF SUCH DAMAGE.                                               */
+/*                                                                           */
+/* ------------------                                                        */
+/*                                                                           */
+/* This product includes software developed by the Apache Software           */
+/* Foundation (http://www.apache.org/).                                      */
+/*                                                                           */
+/* This product includes software developed by contributors to               */
+/* openMDX (http://www.openmdx.org/)                                         */
+/*                                                                           */
+#define NULLABLE NULL
+#define BIGINT bigint
+#define SMALLINT smallint
+#define VARCHAR(n) nvarchar(n)
+#define DECIMAL(n,m) numeric(n,m)
+#define INTEGER int
+#define BLOB image
+#define RID_TYPE nvarchar(200) COLLATE SQL_Latin1_General_CP1_CS_AS
+#define AUTONUM_RID_TYPE bigint IDENTITY (1, 1) NOT FOR REPLICATION
+#define MAIN_OID_TYPE nvarchar(200) COLLATE SQL_Latin1_General_CP1_CS_AS
+#define OID_TYPE nvarchar(200) COLLATE SQL_Latin1_General_CP1_CS_AS
+#define REF_TYPE nvarchar(150) COLLATE SQL_Latin1_General_CP1_CS_AS
+#define LONG_REF_TYPE nvarchar(300) COLLATE SQL_Latin1_General_CP1_CS_AS
+#define ID_TYPE nvarchar(300) COLLATE SQL_Latin1_General_CP1_CS_AS
+#define QUOTED_COL_ROLE role
+#define QUOTED_COL_NUMBER number
+#define QUOTED_COL_COMMENT comment
+#define QUOTED_COL_FILTER filter
+#define QUOTED_COL_PASSWORD password
+#define QUOTED_COL_ACTION action
+#define QUOTED_COL_DOLLAR(s) s
+#define QUOTED_COL_RESOURCE resource
+#define QUOTED_COL_POSITION position
+#define STRCAT_INFIX +
+#define STRCAT_PREFIX
+#define STRCAT_SUFFIX
+#define LONG_TEXT ntext
+#define LONG_TEXT_ASCII text
+#define NULL_CHAR NULL
+#define PRIMARY_KEY(name) CONSTRAINT PK_##name PRIMARY KEY
+#define SHORT_TEXT nvarchar(50)
+#define RENAME_COLUMN(table_name, column_from, column_to, table_and_column_from, new_type) EXEC sp_rename #table_and_column_from, #column_to, 'COLUMN'
+#define RENAME_TABLE(table_from, table_to) EXEC sp_rename #table_from, #table_to
+#define DROP_COLUMN_BEGIN DROP COLUMN
+#define DROP_COLUMN_NEXT
+#define DROP_COLUMN_END
+#define ADD_COLUMN_BEGIN ADD
+#define ADD_COLUMN_NEXT ,
+#define ADD_COLUMN_END
+#define ALTER_COLUMN ALTER COLUMN
+#define ALTER_TYPE
+#define REM(s) s */
+#define COMMAND_TERMINATOR
+#define DROP_INDEX(table_name, index_name) DROP INDEX table_name.index_name
+#define SET_NOT_NULL(column_name, type_name) column_name type_name NOT NULL
+#define CREATE_INDEX(table_name, index_name) CREATE INDEX index_name
+#define CREATE_UNIQUE_INDEX(table_name, index_name) CREATE UNIQUE INDEX index_name
+#define FORMAT_NUMBER_3_0(column_name) STR(column_name)
+#define FORMAT_NUMBER_2_0(column_name) STR(column_name, 2, 0)
+#define AS_CHAR(n) CHAR(n)
+#define STRSUB SUBSTRING
+#define STRLEN LEN
+#define REORG_TABLE(t)
+#define P_PARENT p$$parent
+
+#elif defined(MYSQL_5)
+/* This software is published under the BSD license                          */
+/* as listed below.                                                          */
+/*                                                                           */
+/* Copyright (c) 2004-2013, CRIXP Corp., Switzerland                         */
+/* All rights reserved.                                                      */
+/*                                                                           */
+/* Redistribution and use in source and binary forms, with or without        */
+/* modification, are permitted provided that the following conditions        */
+/* are met:                                                                  */
+/*                                                                           */
+/* * Redistributions of source code must retain the above copyright          */
+/* notice, this list of conditions and the following disclaimer.             */
+/*                                                                           */
+/* * Redistributions in binary form must reproduce the above copyright       */
+/* notice, this list of conditions and the following disclaimer in           */
+/* the documentation and/or other materials provided with the                */
+/* distribution.                                                             */
+/*                                                                           */
+/* * Neither the name of CRIXP Corp. nor the names of the contributors       */
+/* to openCRX may be used to endorse or promote products derived             */
+/* from this software without specific prior written permission              */
+/*                                                                           */
+/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND                    */
+/* CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,               */
+/* INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF                  */
+/* MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE                  */
+/* DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS         */
+/* BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,                  */
+/* EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED           */
+/* TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,             */
+/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON         */
+/* ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,           */
+/* OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY            */
+/* OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                   */
+/* POSSIBILITY OF SUCH DAMAGE.                                               */
+/*                                                                           */
+/* ------------------                                                        */
+/*                                                                           */
+/* This product includes software developed by the Apache Software           */
+/* Foundation (http://www.apache.org/).                                      */
+/*                                                                           */
+/* This product includes software developed by contributors to               */
+/* openMDX (http://www.openmdx.org/)                                         */
+/*                                                                           */
+#define NULLABLE
+#define BIGINT bigint
+#define SMALLINT smallint
+#define VARCHAR(n) varchar(n)
+#define DECIMAL(n,m) numeric(n,m)
+#define INTEGER int
+#define BLOB longblob
+#define RID_TYPE varchar(200) character set utf8 collate utf8_bin
+#define AUTONUM_RID_TYPE bigint auto_increment
+#define MAIN_OID_TYPE varchar(200) character set utf8 collate utf8_bin
+#define OID_TYPE varchar(200) character set utf8 collate utf8_bin
+#define REF_TYPE varchar(150) character set utf8 collate utf8_bin
+#define LONG_REF_TYPE varchar(300) character set utf8 collate utf8_bin
+#define ID_TYPE varchar(250) character set utf8 collate utf8_bin
+#define QUOTED_COL_ROLE `role`
+#define QUOTED_COL_NUMBER number
+#define QUOTED_COL_COMMENT comment
+#define QUOTED_COL_FILTER filter
+#define QUOTED_COL_PASSWORD password
+#define QUOTED_COL_ACTION action
+#define QUOTED_COL_DOLLAR(s) s
+#define QUOTED_COL_RESOURCE resource
+#define QUOTED_COL_POSITION position
+#define STRCAT_INFIX ,
+#define STRCAT_PREFIX CONCAT(
+#define STRCAT_SUFFIX )
+#define LONG_TEXT longtext
+#define LONG_TEXT_ASCII longtext
+#define NULL_CHAR NULL
+#define PRIMARY_KEY(NAME) PRIMARY KEY
+#define SHORT_TEXT varchar(50)
+#define RENAME_COLUMN(table_name, column_from, column_to, table_and_column_from, new_type) ALTER TABLE table_name CHANGE COLUMN column_from column_to new_type
+#define RENAME_TABLE(table_from, table_to) RENAME TABLE table_from TO table_to
+#define DROP_COLUMN_BEGIN DROP
+#define DROP_COLUMN_NEXT
+#define DROP_COLUMN_END
+#define ADD_COLUMN_BEGIN ADD
+#define ADD_COLUMN_NEXT , ADD
+#define ADD_COLUMN_END
+#define ALTER_COLUMN MODIFY
+#define ALTER_TYPE
+#define REM(s) s */
+#define COMMAND_TERMINATOR ;
+#define DROP_INDEX(table_name, index_name) DROP INDEX index_name
+#define SET_NOT_NULL(column_name, type_name) column_name type_name NOT NULL
+#define CREATE_INDEX(table_name, index_name) CREATE INDEX index_name
+#define CREATE_UNIQUE_INDEX(table_name, index_name) CREATE UNIQUE INDEX index_name
+#define FORMAT_NUMBER_3_0(column_name) CAST(column_name AS CHARACTER)
+#define FORMAT_NUMBER_2_0(column_name) CAST(column_name AS CHARACTER)
+#define AS_CHAR(n) CHAR(n)
+#define STRSUB SUBSTRING
+#define STRLEN LEN
+#define REORG_TABLE(t)
+#define P_PARENT p$$parent
+
+#elif defined(ORACLE_10)
+/* This software is published under the BSD license                          */
+/* as listed below.                                                          */
+/*                                                                           */
+/* Copyright (c) 2004-2013, CRIXP Corp., Switzerland                         */
+/* All rights reserved.                                                      */
+/*                                                                           */
+/* Redistribution and use in source and binary forms, with or without        */
+/* modification, are permitted provided that the following conditions        */
+/* are met:                                                                  */
+/*                                                                           */
+/* * Redistributions of source code must retain the above copyright          */
+/* notice, this list of conditions and the following disclaimer.             */
+/*                                                                           */
+/* * Redistributions in binary form must reproduce the above copyright       */
+/* notice, this list of conditions and the following disclaimer in           */
+/* the documentation and/or other materials provided with the                */
+/* distribution.                                                             */
+/*                                                                           */
+/* * Neither the name of CRIXP Corp. nor the names of the contributors       */
+/* to openCRX may be used to endorse or promote products derived             */
+/* from this software without specific prior written permission              */
+/*                                                                           */
+/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND                    */
+/* CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,               */
+/* INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF                  */
+/* MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE                  */
+/* DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS         */
+/* BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,                  */
+/* EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED           */
+/* TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,             */
+/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON         */
+/* ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,           */
+/* OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY            */
+/* OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                   */
+/* POSSIBILITY OF SUCH DAMAGE.                                               */
+/*                                                                           */
+/* ------------------                                                        */
+/*                                                                           */
+/* This product includes software developed by the Apache Software           */
+/* Foundation (http://www.apache.org/).                                      */
+/*                                                                           */
+/* This product includes software developed by contributors to               */
+/* openMDX (http://www.openmdx.org/)                                         */
+/*                                                                           */
+#define NULLABLE NULL
+#define BIGINT integer
+#define SMALLINT integer
+#define VARCHAR(n) varchar2(n)
+#define DECIMAL(n,m) number(n,m)
+#define INTEGER integer
+#define BLOB blob
+#define RID_TYPE varchar2(200)
+#define AUTONUM_RID_TYPE integer
+#define MAIN_OID_TYPE varchar2(200)
+#define OID_TYPE varchar2(200)
+#define REF_TYPE varchar2(150)
+#define LONG_REF_TYPE varchar2(300)
+#define ID_TYPE varchar2(300)
+#define QUOTED_COL_ROLE "role"
+#define QUOTED_COL_NUMBER "number"
+#define QUOTED_COL_COMMENT "comment"
+#define QUOTED_COL_FILTER filter
+#define QUOTED_COL_PASSWORD password
+#define QUOTED_COL_ACTION action
+#define QUOTED_COL_DOLLAR(s) s
+#define QUOTED_COL_RESOURCE "resource"
+#define QUOTED_COL_POSITION position
+#define STRCAT_INFIX ||
+#define STRCAT_PREFIX
+#define STRCAT_SUFFIX
+#define LONG_TEXT clob
+#define LONG_TEXT_ASCII clob
+#define NULL_CHAR CAST(NULL AS char)
+#define PRIMARY_KEY(NAME) CONSTRAINT PK_##NAME PRIMARY KEY
+#define SHORT_TEXT varchar2(50)
+#define RENAME_COLUMN(table_name, column_from, column_to, table_and_column_from, new_type) ALTER TABLE table_name RENAME COLUMN column_from TO column_to
+#define RENAME_TABLE(table_from, table_to) RENAME table_from TO table_to
+#define DROP_COLUMN_BEGIN DROP (
+#define DROP_COLUMN_NEXT
+#define DROP_COLUMN_END )
+#define ADD_COLUMN_BEGIN ADD (
+#define ADD_COLUMN_NEXT ,
+#define ADD_COLUMN_END )
+#define ALTER_COLUMN MODIFY
+#define ALTER_TYPE
+#define REM(s) s */
+#define COMMAND_TERMINATOR ;
+#define DROP_INDEX(table_name, index_name) DROP INDEX index_name
+#define SET_NOT_NULL(column_name, type_name) column_name type_name NOT NULL
+#define CREATE_INDEX(table_name, index_name) CREATE INDEX index_name
+#define CREATE_UNIQUE_INDEX(table_name, index_name) CREATE UNIQUE INDEX index_name
+#define FORMAT_NUMBER_3_0(column_name) TO_CHAR(column_name)
+#define FORMAT_NUMBER_2_0(column_name) TO_CHAR(column_name, '00')
+#define AS_CHAR(n) CHR(n)
+#define STRSUB SUBSTR
+#define STRLEN LENGTH
+#define REORG_TABLE(t)
+#define P_PARENT p$$parent
+
+#elif defined(DB2_9)
+-- This software is published under the BSD license                          
+-- as listed below.                                                          
+--                                                                           
+-- Copyright (c) 2004-2013, CRIXP Corp., Switzerland                              
+-- All rights reserved.                                                      
+--                                                                           
+-- Redistribution and use in source and binary forms, with or without        
+-- modification, are permitted provided that the following conditions        
+-- are met:                                                                  
+--                                                                           
+-- * Redistributions of source code must retain the above copyright          
+-- notice, this list of conditions and the following disclaimer.             
+--                                                                           
+-- * Redistributions in binary form must reproduce the above copyright       
+-- notice, this list of conditions and the following disclaimer in           
+-- the documentation and/or other materials provided with the                
+-- distribution.                                                             
+--                                                                           
+-- * Neither the name of CRIXP Corp. nor the names of the contributors       
+-- to openCRX may be used to endorse or promote products derived             
+-- from this software without specific prior written permission              
+--                                                                           
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND                    
+-- CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,               
+-- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF                  
+-- MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE                  
+-- DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS         
+-- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,                  
+-- EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED           
+-- TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, LOSS OF USE,             
+-- DATA, OR PROFITS, OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON         
+-- ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,           
+-- OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY            
+-- OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                   
+-- POSSIBILITY OF SUCH DAMAGE.                                               
+--                                                                           
+-- ------------------                                                        
+--                                                                           
+-- This product includes software developed by the Apache Software           
+-- Foundation (http://www.apache.org/).                                      
+--                                                                           
+-- This product includes software developed by contributors to               
+-- openMDX (http://www.openmdx.org/)                                         
+                                                                             
+#define NULLABLE
+#define BIGINT bigint
+#define SMALLINT smallint
+#define VARCHAR(n) varchar(n)
+#define DECIMAL(n,m) numeric(n,m)
+#define INTEGER int
+#define BLOB blob
+#define RID_TYPE varchar(150)
+#define AUTONUM_RID_TYPE bigint generated by default as identity
+#define MAIN_OID_TYPE varchar(150)
+#define OID_TYPE varchar(150)
+#define REF_TYPE varchar(150)
+#define LONG_REF_TYPE varchar(250)
+#define ID_TYPE varchar(250)
+#define QUOTED_COL_ROLE role
+#define QUOTED_COL_NUMBER number
+#define QUOTED_COL_COMMENT comment
+#define QUOTED_COL_FILTER filter
+#define QUOTED_COL_PASSWORD password
+#define QUOTED_COL_ACTION action
+#define QUOTED_COL_DOLLAR(s) s
+#define QUOTED_COL_RESOURCE resource
+#define QUOTED_COL_POSITION position
+#define STRCAT_INFIX ||
+#define STRCAT_PREFIX
+#define STRCAT_SUFFIX
+#define LONG_TEXT clob
+#define LONG_TEXT_ASCII clob
+#define NULL_CHAR CAST(NULL AS CHAR)
+#define PRIMARY_KEY(NAME) PRIMARY KEY
+#define SHORT_TEXT varchar(50)
+#define RENAME_COLUMN(table_name, column_from, column_to, table_and_column_from, new_type) RENAME COLUMN column_from TO column_to
+#define RENAME_TABLE(table_from, table_to) RENAME table_from TO table_to
+#define DROP_COLUMN_BEGIN DROP
+#define DROP_COLUMN_NEXT
+#define DROP_COLUMN_END
+#define ADD_COLUMN_BEGIN ADD
+#define ADD_COLUMN_NEXT ADD
+#define ADD_COLUMN_END
+#define ALTER_COLUMN ALTER COLUMN
+#define ALTER_TYPE SET DATA TYPE
+#define REM(s) s */
+#define COMMAND_TERMINATOR ;
+#define DROP_INDEX(table_name, index_name) DROP INDEX index_name
+#define SET_NOT_NULL(column_name, type_name) column_name type_name NOT NULL
+#define CREATE_INDEX(table_name, index_name) CREATE INDEX table_name.index_name
+#define CREATE_UNIQUE_INDEX(table_name, index_name) CREATE UNIQUE INDEX table_name.index_name
+#define FORMAT_NUMBER_3_0(column_name) SUBSTR(DIGITS(column_name),LENGTH(DIGITS(column_name))-2,3)
+#define FORMAT_NUMBER_2_0(column_name) SUBSTR(DIGITS(column_name),LENGTH(DIGITS(column_name))-1,2)
+#define AS_CHAR(n) CHR(n)
+#define STRSUB SUBSTR
+#define STRLEN LEN
+#define REORG_TABLE(table) REORG TABLE table
+#define P_PARENT p$$parent
+
+#endif

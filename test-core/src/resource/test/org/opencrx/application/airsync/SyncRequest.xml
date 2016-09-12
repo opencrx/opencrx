@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sync xmlns="AirSync:" xmlns:Calendar="POOMCAL:" xmlns:AirSyncBase="AirSyncBase:" xmlns:Contacts="POOMCONTACTS:" xmlns:Tasks="POOMTASKS:" xmlns:Email="POOMMAIL:">
+	<Collections>
+		<Collection>
+			<Class>Calendar</Class>
+			<SyncKey>1267720104477</SyncKey>
+			<GetChanges />
+			<CollectionId>1</CollectionId>
+			<WindowSize>50</WindowSize>
+			<Commands>
+				<Fetch>
+					<ServerId>Calendar://123456</ServerId>
+				</Fetch>
+				<Add>
+					<ClientId>1111111</ClientId>
+					<ApplicationData>
+			            <AirSyncBase:Body>
+			              <AirSyncBase:Data>Event 1111111</AirSyncBase:Data>
+			              <AirSyncBase:Type>3</AirSyncBase:Type>
+			              <AirSyncBase:EstimatedDataSize>5500</AirSyncBase:EstimatedDataSize>
+			              <AirSyncBase:Truncated>1</AirSyncBase:Truncated>			              
+			            </AirSyncBase:Body>					
+			            <Calendar:Organizer_Name>Organizer Name</Calendar:Organizer_Name>
+			            <Calendar:Organizer_Email>organizer@opencrx.org</Calendar:Organizer_Email>
+						<Calendar:Attendees>
+							<Calendar:Attendee>
+								<Calendar:Attendee_Email>attendee1@opencrx.org</Calendar:Attendee_Email>
+								<Calendar:Attendee_Name>Attendee 1</Calendar:Attendee_Name>
+								<Calendar:Attendee_Status>3</Calendar:Attendee_Status>
+								<Calendar:Attendee_Type>2</Calendar:Attendee_Type>
+							</Calendar:Attendee>
+							<Calendar:Attendee>
+								<Calendar:Attendee_Email>attendee2@opencrx.org</Calendar:Attendee_Email>
+								<Calendar:Attendee_Name>Attendee 2</Calendar:Attendee_Name>
+								<Calendar:Attendee_Status>3</Calendar:Attendee_Status>
+								<Calendar:Attendee_Type>2</Calendar:Attendee_Type>
+							</Calendar:Attendee>
+							<Calendar:Attendee>
+								<Calendar:Attendee_Email>attendee3@opencrx.org</Calendar:Attendee_Email>
+								<Calendar:Attendee_Name>Attendee 3</Calendar:Attendee_Name>
+								<Calendar:Attendee_Status>3</Calendar:Attendee_Status>
+								<Calendar:Attendee_Type>2</Calendar:Attendee_Type>
+							</Calendar:Attendee>
+						</Calendar:Attendees>			            
+						<Calendar:AllDayEvent>0</Calendar:AllDayEvent>
+						<Calendar:BusyStatus>2</Calendar:BusyStatus>						
+						<Calendar:DtStamp>20090608T162705Z</Calendar:DtStamp>
+						<Calendar:EndTime>20090608T110000Z</Calendar:EndTime>
+						<Calendar:MeetingStatus>0</Calendar:MeetingStatus>
+						<Calendar:Reminder_MinsBefore>15</Calendar:Reminder_MinsBefore>
+						<Calendar:Sensitivity>0</Calendar:Sensitivity>
+						<Calendar:Subject>Daily pda</Calendar:Subject>
+						<Calendar:StartTime>20090608T100000Z</Calendar:StartTime>
+						<Calendar:UID>040000008200E00074C5B7101A82E00800000000792AA3784DFC80EDFC43A1468AC46FB62EF4A20F0D46F467AEF399E0F4113B35</Calendar:UID>
+						<Calendar:Recurrence>
+							<Calendar:Recurrence_Occurrences>2</Calendar:Recurrence_Occurrences>
+							<Calendar:Recurrence_Interval>1</Calendar:Recurrence_Interval>
+							<Calendar:Recurrence_Type>0</Calendar:Recurrence_Type>
+						</Calendar:Recurrence>
+						<Calendar:Categories>
+							<Calendar:Category>cat1</Calendar:Category>
+							<Calendar:Category>cat2</Calendar:Category>
+							<Calendar:Category>cat3</Calendar:Category>
+						</Calendar:Categories>						
+						<Calendar:Exceptions>
+							<Calendar:Exception>
+								<Calendar:Exception_StartTime>20090814T070000Z</Calendar:Exception_StartTime>
+								<Calendar:Subject>happy recurrence exception1</Calendar:Subject>
+								<Calendar:StartTime>20090814T090000Z</Calendar:StartTime>
+								<Calendar:EndTime>20090814T093000Z</Calendar:EndTime>
+								<Calendar:Location>happy center exception1</Calendar:Location>
+								<Calendar:Sensitivity>0</Calendar:Sensitivity>
+								<Calendar:BusyStatus>1</Calendar:BusyStatus>
+								<Calendar:AllDayEvent>0</Calendar:AllDayEvent>
+								<Calendar:MeetingStatus>0</Calendar:MeetingStatus>
+							</Calendar:Exception>
+						</Calendar:Exceptions>						
+					</ApplicationData>
+				</Add>
+			</Commands>
+		</Collection>
+		<Collection>
+			<Class>Contacts</Class>
+			<SyncKey>1267720104477</SyncKey>
+			<GetChanges />
+			<CollectionId>2</CollectionId>
+			<WindowSize>50</WindowSize>
+			<Commands>
+				<Fetch>
+					<ServerId>Contacts://123456</ServerId>
+				</Fetch>
+				<Add>
+					<ClientId>1111111</ClientId>
+					<ApplicationData>
+						<Contacts:Anniversary>20090814T093000Z</Contacts:Anniversary>
+						<Contacts:AssistantName>Assistant name</Contacts:AssistantName>
+						<Contacts:AssistantTelephoneNumber>(206) 555-7912</Contacts:AssistantTelephoneNumber>
+						<Contacts:Birthday>20090814T093000Z</Contacts:Birthday>
+						<Contacts:Department>Department</Contacts:Department>
+			            <Contacts:WebPage>http://www.contoso.com/</Contacts:WebPage>
+			            <Contacts:BusinessAddressCountry>United States of America</Contacts:BusinessAddressCountry>
+			            <Contacts:Email1Address>"Rajesh M. Patel (someone@example.com)" &lt;someone@example.com&gt;</Contacts:Email1Address>
+			            <Contacts:BusinessFaxNumber>(206) 555-7912</Contacts:BusinessFaxNumber>
+			            <Contacts:FileAs>Patel, Rajesh M.</Contacts:FileAs>
+			            <Contacts:FirstName>Rajesh</Contacts:FirstName>
+			            <Contacts:HomePhoneNumber>(206) 555-9201</Contacts:HomePhoneNumber>
+			            <Contacts:BusinessAddressCity>Redmond</Contacts:BusinessAddressCity>
+			            <Contacts:MiddleName>M.</Contacts:MiddleName>
+			            <Contacts:MobilePhoneNumber>(206) 555-3248</Contacts:MobilePhoneNumber>
+			            <Contacts:CompanyName>Contoso, Ltd.</Contacts:CompanyName>
+			            <Contacts:BusinessAddressPostalCode>10021</Contacts:BusinessAddressPostalCode>
+			            <Contacts:LastName>Patel</Contacts:LastName>
+			            <Contacts:BusinessAddressState>WA</Contacts:BusinessAddressState>
+			            <Contacts:BusinessAddressStreet>234 Main St.</Contacts:BusinessAddressStreet>
+			            <Contacts:BusinessPhoneNumber>(206) 555-9102</Contacts:BusinessPhoneNumber>
+			            <Contacts:JobTitle>Development Manager</Contacts:JobTitle>
+			            <Contacts:Picture>/9j/4AAQSkZJRgABAQEAYABgAAD/...</Contacts:Picture>
+					</ApplicationData>
+				</Add>
+			</Commands>
+		</Collection>
+		<Collection>
+			<Class>Tasks</Class>
+			<SyncKey>1267720104477</SyncKey>
+			<GetChanges />
+			<CollectionId>3</CollectionId>
+			<WindowSize>50</WindowSize>
+			<Commands>
+				<Fetch>
+					<ServerId>Tasks://123456</ServerId>
+				</Fetch>
+				<Add>
+					<ClientId>1111111</ClientId>
+					<ApplicationData>
+			            <AirSyncBase:Body>
+			              <AirSyncBase:Data>Event 1111111</AirSyncBase:Data>
+			              <AirSyncBase:Type>3</AirSyncBase:Type>
+			              <AirSyncBase:EstimatedDataSize>5500</AirSyncBase:EstimatedDataSize>
+			              <AirSyncBase:Truncated>1</AirSyncBase:Truncated>			              
+			            </AirSyncBase:Body>					
+						<Tasks:Complete>0</Tasks:Complete>
+						<Tasks:DateCompleted>20090608T162705Z</Tasks:DateCompleted>						
+						<Tasks:DueDate>20090608T162705Z</Tasks:DueDate>						
+						<Tasks:UTCDueDate>20090608T162705Z</Tasks:UTCDueDate>
+						<Tasks:Importance>1</Tasks:Importance>
+						<Tasks:Sensitivity>1</Tasks:Sensitivity>						
+						<Tasks:StartDate>20090608T100000Z</Tasks:StartDate>
+						<Tasks:UTCStartDate>20090608T100000Z</Tasks:UTCStartDate>
+						<Tasks:Subject>Event 11111111</Tasks:Subject>
+						<Tasks:Recurrence>
+							<Tasks:Recurrence_Occurrences>2</Tasks:Recurrence_Occurrences>
+							<Tasks:Recurrence_Interval>1</Tasks:Recurrence_Interval>
+							<Tasks:Recurrence_Type>0</Tasks:Recurrence_Type>
+						</Tasks:Recurrence>
+					</ApplicationData>
+				</Add>
+			</Commands>
+		</Collection>
+		<Collection>
+			<Class>Email</Class>
+			<SyncKey>1267720104477</SyncKey>
+			<GetChanges />
+			<CollectionId>4</CollectionId>
+			<WindowSize>50</WindowSize>
+			<Commands>
+				<Fetch>
+					<ServerId>Email://123456</ServerId>
+				</Fetch>
+				<Add>
+					<ClientId>1111111</ClientId>
+					<ApplicationData>
+			            <Email:To>"New openCRX User" &lt;New openCRX User&gt;</Email:To>
+			            <Email:From>"openCRX Team" &lt;olteam@microsoft.com&gt;</Email:From>
+			            <Email:Subject>Welcome to openCRX</Email:Subject>
+			            <Email:DateReceived>2009-03-09T10:22:36.125Z</Email:DateReceived>
+			            <Email:DisplayTo>New openCRX User</Email:DisplayTo>
+			            <Email:ThreadTopic>Welcome to openCRX</Email:ThreadTopic>
+			            <Email:Importance>1</Email:Importance>
+			            <Email:Read>1</Email:Read>
+			            <Email:Attachments>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2059</Email:AttSize>
+			                <Email:DisplayName>1.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a0</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>1979</Email:AttSize>
+			                <Email:DisplayName>2.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a1</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2178</Email:AttSize>
+			                <Email:DisplayName>3.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a2</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2024</Email:AttSize>
+			                <Email:DisplayName>4.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a3</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2375</Email:AttSize>
+			                <Email:DisplayName>5.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a4</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2226</Email:AttSize>
+			                <Email:DisplayName>6.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a5</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2054</Email:AttSize>
+			                <Email:DisplayName>7.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a6</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>1996</Email:AttSize>
+			                <Email:DisplayName>8.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a7</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>1854</Email:AttSize>
+			                <Email:DisplayName>9.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a8</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2041</Email:AttSize>
+			                <Email:DisplayName>10.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a9</Email:AttName>
+			              </Email:Attachment>
+			              <Email:Attachment>
+			                <Email:AttMethod>1</Email:AttMethod>
+			                <Email:AttSize>2075</Email:AttSize>
+			                <Email:DisplayName>12.jpg</Email:DisplayName>
+			                <Email:AttName>RgAAAAAmsikS%2fLluSqBprF2N8O5IBwDT57FoEcqOTIXstrNzTaATAAACBigfAAArLaZP%2bBC%2fSr%2bn3yLd%2fdfBAPDCRAYDAAAJ%3a10</Email:AttName>
+			              </Email:Attachment>
+			            </Email:Attachments>
+			            <Email:BodyTruncated>0</Email:BodyTruncated>
+			            <Email:Body>Thank you for using openCRX!</Email:Body>
+			            <Email:MessageClass>IPM.Note</Email:MessageClass>
+			            <Email:InternetCPID>1252</Email:InternetCPID>
+					</ApplicationData>
+				</Add>
+			</Commands>
+		</Collection>
+	</Collections>
+</Sync>

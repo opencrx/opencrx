@@ -1,0 +1,2854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object />
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object />
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object />
+							<_content>
+								<elementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment" _operation="create">
+										<_object>
+											<label>
+												<_item>Склады</_item>
+											</label>
+											<toolTip>
+												<_item>Склады</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:entity" _operation="create">
+										<_object>
+											<label>
+												<_item>Объекты склада</_item>
+											</label>
+											<toolTip>
+												<_item>Все объекты склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:entityRelationship" _operation="create">
+										<_object>
+											<label>
+												<_item>Отношения</_item>
+											</label>
+											<toolTip>
+												<_item>Все отношения</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:depotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Типы складов</_item>
+											</label>
+											<toolTip>
+												<_item>Все типы складов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:cb" _operation="create">
+										<_object>
+											<label>
+												<_item>Составные заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Все составные заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:booking" _operation="create">
+										<_object>
+											<label>
+												<_item>Заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Все заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:simpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Простые заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Простые заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity" _operation="create">
+										<_object>
+											<label>
+												<_item>Объект склада</_item>
+											</label>
+											<toolTip>
+												<_item>Объект склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Склады</_item>
+											</label>
+											<toolTip>
+												<_item>Все склады</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Группы складов</_item>
+											</label>
+											<toolTip>
+												<_item>Все группы складов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depotHolder" _operation="create">
+										<_object>
+											<label>
+												<_item>Владельцы складов</_item>
+											</label>
+											<toolTip>
+												<_item>Все владельцы складов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:bookingPeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Периоды заказов</_item>
+											</label>
+											<toolTip>
+												<_item>Все периоды заказов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Текст заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Все тексты заказов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depotEntityNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер объекта</_item>
+											</label>
+											<toolTip>
+												<_item>Номер объекта</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship" _operation="create">
+										<_object>
+											<label>
+												<_item>Отношение объекта склада</_item>
+											</label>
+											<toolTip>
+												<_item>Отношение объекта склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:relationshipType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип отношения</_item>
+											</label>
+											<toolTip>
+												<_item>Тип отношения</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:entity1" _operation="create">
+										<_object>
+											<label>
+												<_item>Объект 1</_item>
+											</label>
+											<toolTip>
+												<_item>Объект 1</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:entity2" _operation="create">
+										<_object>
+											<label>
+												<_item>Объект 2</_item>
+											</label>
+											<toolTip>
+												<_item>Объект 2</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип склада</_item>
+											</label>
+											<toolTip>
+												<_item>Тип склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:compatibleTo" _operation="create">
+										<_object>
+											<label>
+												<_item>Совместимый с</_item>
+											</label>
+											<toolTip>
+												<_item>Совместимый с</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:allowDebitBookings" _operation="create">
+										<_object>
+											<label>
+												<_item>Позволить давать заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Позволить давать заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:allowCreditBookings" _operation="create">
+										<_object>
+											<label>
+												<_item>Позволить кредитовать заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Позволить кредитовать заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DebitBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Дебетовый заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Дебетовый заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreditBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Кредитный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Кредитный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:position" _operation="create">
+										<_object>
+											<label>
+												<_item>Позиция</_item>
+											</label>
+											<toolTip>
+												<_item>Позиция</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:bookingStatus" _operation="create">
+										<_object>
+											<label>
+												<_item>Состояние</_item>
+											</label>
+											<toolTip>
+												<_item>Состояние</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DebitBooking:quantityDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Дебет</_item>
+											</label>
+											<toolTip>
+												<_item>Дебет</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreditBooking:quantityCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Кредит</_item>
+											</label>
+											<toolTip>
+												<_item>Кредит</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Тип заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:bookingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Дата заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата зачисления платежа</_item>
+											</label>
+											<toolTip>
+												<_item>Дата зачисления платежа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:originContext" _operation="create">
+										<_object>
+											<label>
+												<_item>Первоисточники</_item>
+											</label>
+											<toolTip>
+												<_item>Первоисточники</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:originContextParams" _operation="create">
+										<_object>
+											<label>
+												<_item>Параметры контекста превоисточника</_item>
+											</label>
+											<toolTip>
+												<_item>Параметры контекста превоисточника</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBooking:cb" _operation="create">
+										<_object>
+											<label>
+												<_item>Сложный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Сложный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBooking:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Первоисточник</_item>
+											</label>
+											<toolTip>
+												<_item>Первоисточник</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Простой заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Простой заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Количество</_item>
+											</label>
+											<toolTip>
+												<_item>Количество</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:quantityUom" _operation="create">
+										<_object>
+											<label>
+												<_item>Единица изм. количества</_item>
+											</label>
+											<toolTip>
+												<_item>Единица измерения количества</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:originId" _operation="create">
+										<_object>
+											<label>
+												<_item>id первоисточника</_item>
+											</label>
+											<toolTip>
+												<_item>id первоисточника</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Сложный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Сложный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:booking" _operation="create">
+										<_object>
+											<label>
+												<_item>Заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:bookingStatus" _operation="create">
+										<_object>
+											<label>
+												<_item>Статус</_item>
+											</label>
+											<toolTip>
+												<_item>Статус</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:lockingReason" _operation="create">
+										<_object>
+											<label>
+												<_item>Причина блокировки</_item>
+											</label>
+											<toolTip>
+												<_item>Причина блокировки</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:bookingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Дата заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Тип заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:isLocked" _operation="create">
+										<_object>
+											<label>
+												<_item>Заблокирован</_item>
+											</label>
+											<toolTip>
+												<_item>Заблокирован</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:lockModifiedAt" _operation="create">
+										<_object>
+											<label>
+												<_item>Блокировка изменена в</_item>
+											</label>
+											<toolTip>
+												<_item>Блокировка изменена в</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:wfProcess" _operation="create">
+										<_object>
+											<label>
+												<_item>Рабочий процесс</_item>
+											</label>
+											<toolTip>
+												<_item>Рабочий процесс</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:reversalOf" _operation="create">
+										<_object>
+											<label>
+												<_item>Обратный от</_item>
+											</label>
+											<toolTip>
+												<_item>Обратный от</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:acceptedBy" _operation="create">
+										<_object>
+											<label>
+												<_item>Принято</_item>
+											</label>
+											<toolTip>
+												<_item>Принято</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder" _operation="create">
+										<_object>
+											<label>
+												<_item>Владелец склада</_item>
+											</label>
+											<toolTip>
+												<_item>Владелец склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Склады</_item>
+											</label>
+											<toolTip>
+												<_item>Склады</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:depotHolderNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер владельца склада</_item>
+											</label>
+											<toolTip>
+												<_item>Номер владельца склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Warehouse" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад</_item>
+											</label>
+											<toolTip>
+												<_item>Склад</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Site" _operation="create">
+										<_object>
+											<label>
+												<_item>Предприятие</_item>
+											</label>
+											<toolTip>
+												<_item>Предприятие</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotContract" _operation="create">
+										<_object>
+											<label>
+												<_item>Складской контракт</_item>
+											</label>
+											<toolTip>
+												<_item>Складской контракт</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад</_item>
+											</label>
+											<toolTip>
+												<_item>Склад</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:position" _operation="create">
+										<_object>
+											<label>
+												<_item>Позиции</_item>
+											</label>
+											<toolTip>
+												<_item>Позиции</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Типы складов</_item>
+											</label>
+											<toolTip>
+												<_item>Типы складов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:report" _operation="create">
+										<_object>
+											<label>
+												<_item>Отчеты</_item>
+											</label>
+											<toolTip>
+												<_item>Отчеты</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Группа складов</_item>
+											</label>
+											<toolTip>
+												<_item>Группа складов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Открыто</_item>
+											</label>
+											<toolTip>
+												<_item>Открыто</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрыто</_item>
+											</label>
+											<toolTip>
+												<_item>Закрыто</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер склада</_item>
+											</label>
+											<toolTip>
+												<_item>Номер склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:isDefault" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад по умолчанию</_item>
+											</label>
+											<toolTip>
+												<_item>Склад по умолчанию</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:isLocked" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрытый</_item>
+											</label>
+											<toolTip>
+												<_item>Закрытый</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:allowPositionAutoCreate" _operation="create">
+										<_object>
+											<label>
+												<_item>Автосоздание позиции</_item>
+											</label>
+											<toolTip>
+												<_item>Автосоздание позиции</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:latestReport" _operation="create">
+										<_object>
+											<label>
+												<_item>Последний отчет</_item>
+											</label>
+											<toolTip>
+												<_item>Последний отчет</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Позиция склада</_item>
+											</label>
+											<toolTip>
+												<_item>Позиция склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:booking" _operation="create">
+										<_object>
+											<label>
+												<_item>Заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:simpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Простые заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Простые заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:isLocked" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрытый</_item>
+											</label>
+											<toolTip>
+												<_item>Закрытый</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:qualifier" _operation="create">
+										<_object>
+											<label>
+												<_item>Классификатор</_item>
+											</label>
+											<toolTip>
+												<_item>Классификатор</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Открыт</_item>
+											</label>
+											<toolTip>
+												<_item>Открыт</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрыт</_item>
+											</label>
+											<toolTip>
+												<_item>Закрыт</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:ProductDepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Позиция склада продукта</_item>
+											</label>
+											<toolTip>
+												<_item>Позиция склада продукта</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Период заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Период заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:isFinal" _operation="create">
+										<_object>
+											<label>
+												<_item>Окончательный</_item>
+											</label>
+											<toolTip>
+												<_item>Окончательный</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:periodStartsAt" _operation="create">
+										<_object>
+											<label>
+												<_item>Начало (включительно)</_item>
+											</label>
+											<toolTip>
+												<_item>Начало (включительно)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:periodEndsAtExclusive" _operation="create">
+										<_object>
+											<label>
+												<_item>Окончание (исключительно)</_item>
+											</label>
+											<toolTip>
+												<_item>Окончание (исключительно)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:isClosed" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрыт</_item>
+											</label>
+											<toolTip>
+												<_item>Закрыт</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:closingBookingTypeThreshold" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип порога закрытия заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Тип порога закрытия заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Текст заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Текст заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:Pane:Attr:Tab:0:Group:10" _operation="create">
+										<_object>
+											<label>
+												<_item>Тексты заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Тексты заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:Pane:Attr:Tab:0:Group:15" _operation="create">
+										<_object>
+											<label>
+												<_item> Тексты Сложных заказов</_item>
+											</label>
+											<toolTip>
+												<_item>Тексты Сложных заказов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:debitBookingNameInfix" _operation="create">
+										<_object>
+											<label>
+												<_item>Инфиксный дебет</_item>
+											</label>
+											<toolTip>
+												<_item>Инфиксный дебет</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:creditBookingNameInfix" _operation="create">
+										<_object>
+											<label>
+												<_item>Инфиксный кредит</_item>
+											</label>
+											<toolTip>
+												<_item>Инфиксный кредит</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:cbNameInfix1" _operation="create">
+										<_object>
+											<label>
+												<_item>Инфиксный 1</_item>
+											</label>
+											<toolTip>
+												<_item>Инфиксный 1</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:cbNameInfix2" _operation="create">
+										<_object>
+											<label>
+												<_item>Инфиксный 2</_item>
+											</label>
+											<toolTip>
+												<_item>Инфиксный 2</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:creditFirst" _operation="create">
+										<_object>
+											<label>
+												<_item>Кредитовать сначала</_item>
+											</label>
+											<toolTip>
+												<_item>Кредитовать сначала</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Группа складов</_item>
+											</label>
+											<toolTip>
+												<_item>Группа складов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Группы складов</_item>
+											</label>
+											<toolTip>
+												<_item>Группы складов</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Склады</_item>
+											</label>
+											<toolTip>
+												<_item>Склады</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:parent" _operation="create">
+										<_object>
+											<label>
+												<_item>Родитель</_item>
+											</label>
+											<toolTip>
+												<_item>Родитель</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport" _operation="create">
+										<_object>
+											<label>
+												<_item>Отчет склада</_item>
+											</label>
+											<toolTip>
+												<_item>Отчет склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:itemPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Пункты позиций</_item>
+											</label>
+											<toolTip>
+												<_item>Пункты позиций</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:bookingPeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Период заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Период заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:isDraft" _operation="create">
+										<_object>
+											<label>
+												<_item>Чек</_item>
+											</label>
+											<toolTip>
+												<_item>Чек</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:bookingStatusThreshold" _operation="create">
+										<_object>
+											<label>
+												<_item>Порог состояния заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Порог состояния заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Отчет о пункте (Позиции)</_item>
+											</label>
+											<toolTip>
+												<_item>Отчет о пункте (Позиции)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:singleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:simpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Простые заказы</_item>
+											</label>
+											<toolTip>
+												<_item>Простые заказы</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:10" _operation="create">
+										<_object>
+											<label>
+												<_item>Начало периода</_item>
+											</label>
+											<toolTip>
+												<_item>Начало периода</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:15" _operation="create">
+										<_object>
+											<label>
+												<_item>&amp;nbsp;&amp;nbsp;&amp;nbsp; Простые заказы</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:20" _operation="create">
+										<_object>
+											<label>
+												<_item>Окончание периода</_item>
+											</label>
+											<toolTip>
+												<_item>Окончание периода</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:25" _operation="create">
+										<_object>
+											<label>
+												<_item>&amp;nbsp;&amp;nbsp;&amp;nbsp; Простые заказы</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:positionName" _operation="create">
+										<_object>
+											<label>
+												<_item>Название позиции</_item>
+											</label>
+											<toolTip>
+												<_item>Название позиции</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:position" _operation="create">
+										<_object>
+											<label>
+												<_item>Позиция</_item>
+											</label>
+											<toolTip>
+												<_item>Позиция</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата оценки</_item>
+											</label>
+											<toolTip>
+												<_item>Дата оценки</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceDebitBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Дебет (начало периода)</_item>
+											</label>
+											<toolTip>
+												<_item>Дебет (начало периода)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceCreditBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Кредит (начало периода)</_item>
+											</label>
+											<toolTip>
+												<_item>Кредит (начало периода)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Баланс (начало периода)</_item>
+											</label>
+											<toolTip>
+												<_item>Баланс (начало периода)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceSimpleBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Начальный баланс</_item>
+											</label>
+											<toolTip>
+												<_item>Начальный баланс</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Дебет (конец периода)</_item>
+											</label>
+											<toolTip>
+												<_item>Дебет (конец периода)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Кредит (конец периода)</_item>
+											</label>
+											<toolTip>
+												<_item>Кредит (конец периода)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balance" _operation="create">
+										<_object>
+											<label>
+												<_item>Баланс (конец периода)</_item>
+											</label>
+											<toolTip>
+												<_item>Баланс (конец периода)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceSimple" _operation="create">
+										<_object>
+											<label>
+												<_item>Баланс закрытия</_item>
+											</label>
+											<toolTip>
+												<_item>Баланс закрытия</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReferenceHolder:depotReference" _operation="create">
+										<_object>
+											<label>
+												<_item>Ссылки склада</_item>
+											</label>
+											<toolTip>
+												<_item>Ссылки склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference" _operation="create">
+										<_object>
+											<label>
+												<_item>Ссылка склада</_item>
+											</label>
+											<toolTip>
+												<_item>Ссылка склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:holderQualifiesPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Позиция классификатора: Владелец</_item>
+											</label>
+											<toolTip>
+												<_item>Позиция классификатора: Владелец</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад</_item>
+											</label>
+											<toolTip>
+												<_item>Склад</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:depotUsage" _operation="create">
+										<_object>
+											<label>
+												<_item>Использование склада</_item>
+											</label>
+											<toolTip>
+												<_item>Использование склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:Pane:Op:Tab:refreshReport" _operation="create">
+										<_object>
+											<label>
+												<_item>Обновить отчет</_item>
+											</label>
+											<toolTip>
+												<_item>Обновить отчет</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:Pane:Op:Tab:refreshReport:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:acceptCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Принять сложный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Принять сложный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:acceptCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:finalizeCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Завершить сложный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Завершить сложный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:finalizeCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:cancelCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Создать аннулирование заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Создать аннулирование заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:cancelCb:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:cancelCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CancelCompoundBookingResult:cancelBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Аннулирование заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Аннулирование заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CancelCompoundBookingResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Статус</_item>
+											</label>
+											<toolTip>
+												<_item>Статус</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CancelCompoundBookingResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Сообщение о состоянии</_item>
+											</label>
+											<toolTip>
+												<_item>Сообщение о состоянии</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:lockCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Заблокировать сложный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Заблокировать сложный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:lockCb:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:LockCompoundBookingParams:lockingReason" _operation="create">
+										<_object>
+											<label>
+												<_item>Причина блокировки</_item>
+											</label>
+											<toolTip>
+												<_item>Причина блокировки</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:lockCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:unlockCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Разблокировать сложный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Разблокировать сложный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:unlockCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Создать заказ с позицией</_item>
+											</label>
+											<toolTip>
+												<_item>Создать заказ с позицией</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPosition:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:positionDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Дебет позиции </_item>
+											</label>
+											<toolTip>
+												<_item>Дебет позиции</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:positionCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Кредит позиции</_item>
+											</label>
+											<toolTip>
+												<_item>Кредит позиции</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Количество</_item>
+											</label>
+											<toolTip>
+												<_item>Количество</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата оценки</_item>
+											</label>
+											<toolTip>
+												<_item>Дата оценки</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:bookingTextName" _operation="create">
+										<_object>
+											<label>
+												<_item>Наименование текста заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Наименование текста заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Текст заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Текст заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Тип заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Первоисточник</_item>
+											</label>
+											<toolTip>
+												<_item>Первоисточник</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPosition:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingResult:compoundBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Сложный заказ</_item>
+											</label>
+											<toolTip>
+												<_item>Сложный заказ</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Статус</_item>
+											</label>
+											<toolTip>
+												<_item>Статус</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Сообщение о состоянии</_item>
+											</label>
+											<toolTip>
+												<_item>Сообщение о состоянии</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPositionName" _operation="create">
+										<_object>
+											<label>
+												<_item>Создать заказ по имени позиции</_item>
+											</label>
+											<toolTip>
+												<_item>Создать заказ по имени позиции</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPositionName:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:positionName" _operation="create">
+										<_object>
+											<label>
+												<_item>Имя позиции</_item>
+											</label>
+											<toolTip>
+												<_item>Имя позиции</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotNumberDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер склада (дебет)</_item>
+											</label>
+											<toolTip>
+												<_item>Номер склада (дебет)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад (дебет)</_item>
+											</label>
+											<toolTip>
+												<_item>Склад (дебет)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotNumberCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер склада (кредит)</_item>
+											</label>
+											<toolTip>
+												<_item>Номер склада (кредит)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад (кредит)</_item>
+											</label>
+											<toolTip>
+												<_item>Склад (кредит)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Количество</_item>
+											</label>
+											<toolTip>
+												<_item>Количество</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата оценки</_item>
+											</label>
+											<toolTip>
+												<_item>Дата оценки</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:bookingTextName" _operation="create">
+										<_object>
+											<label>
+												<_item>Наименование текста заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Наименование текста заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Текст заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Текст заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Тип заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Первоисточник</_item>
+											</label>
+											<toolTip>
+												<_item>Первоисточник</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPositionName:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByProduct" _operation="create">
+										<_object>
+											<label>
+												<_item>Создать заказ по продукту</_item>
+											</label>
+											<toolTip>
+												<_item>Создать заказ по продукту</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByProduct:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:product" _operation="create">
+										<_object>
+											<label>
+												<_item>Продукт</_item>
+											</label>
+											<toolTip>
+												<_item>Продукт</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotNumberDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер склада (дебет)</_item>
+											</label>
+											<toolTip>
+												<_item>Номер склада (дебет)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад (дебет)</_item>
+											</label>
+											<toolTip>
+												<_item>Склад (дебет)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotNumberCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер склада (кредит)</_item>
+											</label>
+											<toolTip>
+												<_item>Номер склада (кредит)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад (кредит)</_item>
+											</label>
+											<toolTip>
+												<_item>Склад (кредит)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Количество</_item>
+											</label>
+											<toolTip>
+												<_item>Количество</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата оценки</_item>
+											</label>
+											<toolTip>
+												<_item>Дата оценки</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:bookingTextName" _operation="create">
+										<_object>
+											<label>
+												<_item>Наименование текста заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Наименование текста заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Текст заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Текст заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Тип заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Первоисточник</_item>
+											</label>
+											<toolTip>
+												<_item>Первоисточник</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByProduct:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:closePeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрыть период</_item>
+											</label>
+											<toolTip>
+												<_item>Закрыть период</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:closePeriod:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:ClosePeriodParams:periodEndsAtExclusive" _operation="create">
+										<_object>
+											<label>
+												<_item>Конец периода (исключительно)</_item>
+											</label>
+											<toolTip>
+												<_item>Конец периода (исключительно)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:closePeriod:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:finalizePeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Завершить период</_item>
+											</label>
+											<toolTip>
+												<_item>Завершить период</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:finalizePeriod:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:finalizePeriod:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:assertReports" _operation="create">
+										<_object>
+											<label>
+												<_item>Утвердить отчеты</_item>
+											</label>
+											<toolTip>
+												<_item>Утвердить отчеты</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:assertReports:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:bookingStatusThreshold" _operation="create">
+										<_object>
+											<label>
+												<_item>Порог состояния заказа</_item>
+											</label>
+											<toolTip>
+												<_item>Порог состояния заказа</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:assertReports:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:openDepot" _operation="create">
+										<_object>
+											<label>
+												<_item>Открыть склад</_item>
+											</label>
+											<toolTip>
+												<_item>Открыть склад</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:openDepot:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата открытия</_item>
+											</label>
+											<toolTip>
+												<_item>Дата открытия</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:depotNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Номер склада</_item>
+											</label>
+											<toolTip>
+												<_item>Номер склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:depotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Тип склада</_item>
+											</label>
+											<toolTip>
+												<_item>Тип склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Группа склада</_item>
+											</label>
+											<toolTip>
+												<_item>Группа склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:openDepot:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotResult:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Склад</_item>
+											</label>
+											<toolTip>
+												<_item>Склад</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Статус</_item>
+											</label>
+											<toolTip>
+												<_item>Статус</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Сообщение о состоянии</_item>
+											</label>
+											<toolTip>
+												<_item>Сообщение о состоянии</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:assertReports" _operation="create">
+										<_object>
+											<label>
+												<_item>Утвердить отчеты</_item>
+											</label>
+											<toolTip>
+												<_item>Утвердить отчеты</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:assertReports:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:assertReports:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:openDepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Открыть позицию склада</_item>
+											</label>
+											<toolTip>
+												<_item>Открыть позицию склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:openDepotPosition:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата открытия</_item>
+											</label>
+											<toolTip>
+												<_item>Дата открытия</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Название</_item>
+											</label>
+											<toolTip>
+												<_item>Название</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Описание</_item>
+											</label>
+											<toolTip>
+												<_item>Описание</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:qualifier" _operation="create">
+										<_object>
+											<label>
+												<_item>Классификатор</_item>
+											</label>
+											<toolTip>
+												<_item>Классификатор</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:product" _operation="create">
+										<_object>
+											<label>
+												<_item>Продукт</_item>
+											</label>
+											<toolTip>
+												<_item>Продукт</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:productRole" _operation="create">
+										<_object>
+											<label>
+												<_item>Роль продукта</_item>
+											</label>
+											<toolTip>
+												<_item>Роль продукта</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:openDepotPosition:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionResult:depotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Позиция склада</_item>
+											</label>
+											<toolTip>
+												<_item>Позиция склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Статус</_item>
+											</label>
+											<toolTip>
+												<_item>Статус</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Сообщение о состоянии</_item>
+											</label>
+											<toolTip>
+												<_item>Сообщение о состоянии</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:closeDepot" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрыть склад</_item>
+											</label>
+											<toolTip>
+												<_item>Закрыть склад</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:closeDepot:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotParams:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата закрытия</_item>
+											</label>
+											<toolTip>
+												<_item>Дата закрытия</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:closeDepot:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Статус</_item>
+											</label>
+											<toolTip>
+												<_item>Статус</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Сообщение о состоянии</_item>
+											</label>
+											<toolTip>
+												<_item>Сообщение о состоянии</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:Pane:Op:Tab:closeDepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Закрыть позицию склада</_item>
+											</label>
+											<toolTip>
+												<_item>Закрыть позицию склада</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:Pane:Op:Tab:closeDepotPosition:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Ввод</_item>
+											</label>
+											<toolTip>
+												<_item>Ввод</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotPositionParams:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Дата закрытия</_item>
+											</label>
+											<toolTip>
+												<_item>Дата закрытия</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:Pane:Op:Tab:closeDepotPosition:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Результат</_item>
+											</label>
+											<toolTip>
+												<_item>Результат</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotPositionResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Статус</_item>
+											</label>
+											<toolTip>
+												<_item>Статус</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotPositionResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Сообщение о состоянии</_item>
+											</label>
+											<toolTip>
+												<_item>Сообщение о состоянии</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

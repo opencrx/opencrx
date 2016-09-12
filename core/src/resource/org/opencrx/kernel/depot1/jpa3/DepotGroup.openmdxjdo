@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.depot1.jpa3">
+    <class name="DepotGroup" table="OOCKE1_DEPOTGROUP">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>    
+		<field name="entity" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>		    
+		<field name="depot" visibility="cci">
+			<join table="OOCKE1_JOIN_DEPGCONTAINSDEP"/>
+		</field>			        
+		<field name="depotGroup" visibility="cci">
+			<join table="OOCKE1_JOIN_DEPGCONTAINSDEPG"/>
+		</field>			            
+    </class>
+  </package>
+</openmdxjdo>

@@ -1,0 +1,65 @@
+digraph "Diagram Competitor [Package org:opencrx:kernel:account1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:Segment,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:Competitor,compartments=true,width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:Account,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:Contact,compartments=false,width=3]};
+	}
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER4->LAYER4[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:account1:CompetitorHasContact,minlen=2]}	
+	${ASSOCIATION[name=org:opencrx:kernel:account1:CompetitorRelatesToAccount,constraint=true,minlen=2]}	
+	${ASSOCIATION[name=org:opencrx:kernel:account1:SegmentContainsCompetitor,minlen=2]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountIsDuplicateOfAccount,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountHasPartner,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:SegmentContainsAccount,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:ContactHasAssistant,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:ContactHasDeputy,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountHasContact,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:ContactReportsToContact,style=invis]}	
+	
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

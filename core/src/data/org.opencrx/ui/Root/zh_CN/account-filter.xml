@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:accountFilter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>联系人过滤器</_item>
+                      </label>
+                      <toolTip>
+                        <_item>联系人过滤器</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:accountFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>过滤器属性</_item>
+                      </label>
+                      <toolTip>
+                        <_item>过滤器属性</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:filteredAccount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>已过联系人</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有已过联系人</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:Pane:Op:Tab:countFilteredAccount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>计数已过滤联系人</_item>
+                      </label>
+                      <toolTip>
+                        <_item>计数已过滤联系人</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:Pane:Op:Tab:countFilteredAccount:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>输入</_item>
+                      </label>
+                      <toolTip>
+                        <_item>输入</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractFilterAccount:Pane:Op:Tab:countFilteredAccount:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>结果</_item>
+                      </label>
+                      <toolTip>
+                        <_item>结果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountTypeFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>联系人类型过滤器属性</_item>
+                      </label>
+                      <toolTip>
+                        <_item>联系人类型过滤器属性</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountTypeFilterProperty:accountType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>联系人类型</_item>
+                      </label>
+                      <toolTip>
+                        <_item>联系人类型</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountCategoryFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>联系人类别过滤器属性</_item>
+                      </label>
+                      <toolTip>
+                        <_item>联系人类别过滤器属性</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountCategoryFilterProperty:accountCategory" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>联系人类别</_item>
+                      </label>
+                      <toolTip>
+                        <_item>联系人类别</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembershipFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>搜索条件-账号关系</_item>
+                      </label>
+                      <toolTip>
+                        <_item>搜索条件-账号关系</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembershipFilterProperty:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>账号</_item>
+                      </label>
+                      <toolTip>
+                        <_item>账号</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CategoryFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>类别过滤器属性</_item>
+                      </label>
+                      <toolTip>
+                        <_item>类别过滤器属性</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CategoryFilterProperty:category" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>类别</_item>
+                      </label>
+                      <toolTip>
+                        <_item>类别</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:DisabledFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>禁用过滤器属性</_item>
+                      </label>
+                      <toolTip>
+                        <_item>禁用过滤器属性</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:DisabledFilterProperty:disabled" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>禁用</_item>
+                      </label>
+                      <toolTip>
+                        <_item>禁用</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountFilterGlobal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>联系人过滤器</_item>
+                      </label>
+                      <toolTip>
+                        <_item>联系人过滤器</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountFilterGlobal:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名字</_item>
+                      </label>
+                      <toolTip>
+                        <_item>名字</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountFilterGlobal:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>描述</_item>
+                      </label>
+                      <toolTip>
+                        <_item>描述</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountQueryFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>查询过滤器属性</_item>
+                      </label>
+                      <toolTip>
+                        <_item>查询过滤器属性</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

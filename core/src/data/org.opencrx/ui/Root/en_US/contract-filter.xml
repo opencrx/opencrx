@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+									<!-- Segment -->
+									<!-- Grid Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:contractFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Contracts</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Searches - Contracts</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ContractFilterGroup-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Contracts</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Contracts</_item>
+											</label>
+											<iconKey>ContractFilterGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!-- FieldGroups -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGroup:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGroup:description">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ContractFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Contracts</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Contracts</_item>
+											</label>
+											<iconKey>ContractFilter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!-- FieldGroups -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AbstractFilterContract -->
+									<!--Inspector Definitions-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:filterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:filteredContract">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Contracts (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Contracts (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<showMaxMember>20</showMaxMember>
+											<maxMember>9</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- FieldGroups -->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Contracts</_item>
+											</toolTip>
+											<label>
+												<_item>Count Contracts</_item>
+											</label>
+											<iconKey>Contract</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  common.xml -->
+
+									<!-- ContractPriorityFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractPriorityFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Contract Priority</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Contract Priority</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>ContractPriorityFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractPriorityFilterProperty:priority">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Priorities</_item>
+											</toolTip>
+											<label>
+												<_item>Priorities</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ContractStateFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractStateFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Contract State</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Contract State</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>ContractStateFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractStateFilterProperty:contractState">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>State</_item>
+											</toolTip>
+											<label>
+												<_item>State</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ContractTypeFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractTypeFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Contract Type</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Contract Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<iconKey>ContractTypeFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractTypeFilterProperty:contractType">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- TotalAmountFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:TotalAmountFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Total Amount</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Total Amount</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<iconKey>TotalAmountFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:TotalAmountFilterProperty:totalAmount">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Total amounts (excl. tax)</_item>
+											</toolTip>
+											<label>
+												<_item>Total amounts (excl. tax)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- CustomerFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CustomerFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Customer</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Customer</_item>
+											</label>
+											<iconKey>CustomerFilterProperty</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CustomerFilterProperty:customer">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Customers</_item>
+											</toolTip>
+											<label>
+												<_item>Customers</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- SalesRepFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesRepFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Sales Rep</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Sales Rep</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<iconKey>SalesRepFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesRepFilterProperty:salesRep">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Reps</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Reps</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>60</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- SupplierFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SupplierFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Supplier</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Supplier</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+											<iconKey>SupplierFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SupplierFilterProperty:supplier">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Suppliers</_item>
+											</toolTip>
+											<label>
+												<_item>Suppliers</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>70</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- DisabledFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DisabledFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Disabled</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+											<iconKey>DisabledFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DisabledFilterProperty:disabled">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ContractQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>500</_item>
+											</order>
+											<iconKey>ContractQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+								</elementDefinition>
+
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

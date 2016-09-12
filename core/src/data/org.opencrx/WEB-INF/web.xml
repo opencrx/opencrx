@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<description>openCRX WebGUI</description>
+	<filter>
+		<filter-name>CacheControlFilter</filter-name>
+		<filter-class>org.openmdx.kernel.servlet.ReplyHeaderFilter</filter-class>
+		<init-param>
+			<param-name>Cache-Control</param-name>
+			<param-value>public, max-age=2592000</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>/_style/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>/images/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>/js/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>/blank.html</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>org.openmdx.portal.servlet.PortalSessionCloser</listener-class>
+	</listener>
+	<jsp-config> 
+	  <taglib>
+	      <taglib-uri>http://www.openmdx.org/tags/openmdx-portal</taglib-uri>
+	      <taglib-location>/WEB-INF/openmdx-portal.tld</taglib-location>
+	    </taglib>  
+	</jsp-config>	
+	<!-- Activate to enable development mode for Tomcat -->
+	<!--
+	<servlet>
+		<servlet-name>jsp</servlet-name>
+		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+		<init-param>
+		      <param-name>development</param-name>
+		      <param-value>true</param-value>
+		</init-param>
+	</servlet>
+	-->
+	<!-- WorkflowController -->
+	<servlet id="WorkflowController">
+		<servlet-name>WorkflowController</servlet-name>
+		<servlet-class>org.opencrx.kernel.workflow.servlet.WorkflowControllerServlet</servlet-class>
+		<!-- Set of realms defines monitored providers/segments -->
+		<init-param>
+			<param-name>realmSegment</param-name>
+			<param-value>xri://@openmdx*org.openmdx.security.realm1/provider/CRX/segment/Root</param-value>
+		</init-param>
+		<init-param>
+			<param-name>excludeRealm[0]</param-name>
+			<param-value>Default</param-value>
+		</init-param>
+		<init-param>
+			<param-name>excludeRealm[1]</param-name>
+			<param-value>Root</param-value>
+		</init-param>
+		<init-param>
+			<param-name>path[0]</param-name>
+			<param-value>/SubscriptionHandler</param-value>
+		</init-param>
+		<init-param>
+			<param-name>path[1]</param-name>
+			<param-value>/WorkflowHandler</param-value>
+		</init-param>
+		<init-param>
+			<param-name>path[2]</param-name>
+			<param-value>/IndexerServlet</param-value>
+		</init-param>
+		<init-param>
+			<param-name>path[3]</param-name>
+			<param-value>/DocumentScannerServlet</param-value>
+		</init-param>
+		<init-param>
+			<param-name>path[4]</param-name>
+			<param-value>/MailImporterServlet</param-value>
+		</init-param>
+		<init-param>
+			<param-name>path[5]</param-name>
+			<param-value>/LDAPSynchronizer</param-value>
+		</init-param>
+		<init-param>
+			<param-name>path[6]</param-name>
+			<param-value>/DocumentExporterServlet</param-value>
+		</init-param>
+		<!-- activate if WorkflowController should be initialized at startup
+		<load-on-startup>10</load-on-startup>
+		-->
+	</servlet>
+	<!-- WorkflowHandler-->
+	<servlet id="WorkflowHandler">
+		<servlet-name>WorkflowHandler</servlet-name>
+		<servlet-class>org.opencrx.kernel.workflow.servlet.WorkflowHandlerServlet</servlet-class>
+	</servlet>
+	<!-- SubscriptionHandler-->
+	<servlet id="SubscriptionHandler">
+		<servlet-name>SubscriptionHandler</servlet-name>
+		<servlet-class>org.opencrx.kernel.workflow.servlet.SubscriptionHandlerServlet</servlet-class>
+	</servlet>
+	<!-- Indexer -->
+	<servlet id="IndexerServlet">
+		<servlet-name>IndexerServlet</servlet-name>
+		<servlet-class>org.opencrx.kernel.workflow.servlet.IndexerServlet</servlet-class>
+	</servlet>
+	<!-- DocumentScanner -->
+	<servlet id="DocumentScannerServlet">
+		<servlet-name>DocumentScannerServlet</servlet-name>
+		<servlet-class>org.opencrx.application.document.DocumentScannerServlet</servlet-class>
+	</servlet>
+	<!-- MailImporterServlet -->
+	<servlet id="MailImporterServlet">
+		<servlet-name>MailImporterServlet</servlet-name>
+		<servlet-class>org.opencrx.application.mail.importer.MailImporterServlet</servlet-class>
+	</servlet>
+	<!-- LDAPSynchronizer -->
+	<servlet id="LDAPSynchronizer">
+		<servlet-name>LDAPSynchronizer</servlet-name>
+		<servlet-class>org.opencrx.application.ldap.LDAPSynchronizer</servlet-class>
+	</servlet>
+	<!-- DocumentExporter -->
+	<servlet id="DocumentExporterServlet">
+		<servlet-name>DocumentExporterServlet</servlet-name>
+		<servlet-class>org.opencrx.application.document.DocumentExporterServlet</servlet-class>
+	</servlet>
+	<servlet id="ObjectInspectorServlet">
+		<servlet-name>ObjectInspectorServlet</servlet-name>
+		<servlet-class>org.openmdx.portal.servlet.ObjectInspectorServlet</servlet-class>
+		<!-- application name -->
+		<init-param>
+			<param-name>applicationName</param-name>
+			<param-value>openCRX</param-value>
+		</init-param>
+		<!-- locales -->
+		<init-param>
+			<param-name>locale[0]</param-name>
+			<param-value>en_US</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[1]</param-name>
+			<param-value>de_CH</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[2]</param-name>
+			<param-value>es_MX</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[3]</param-name>
+			<param-value>zh_CN</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[4]</param-name>
+			<param-value>sv_SE</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[5]</param-name>
+			<param-value>tr_TR</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[6]</param-name>
+			<param-value>fa_IR</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[7]</param-name>
+			<param-value>fr_FR</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[8]</param-name>
+			<param-value>it_IT</param-value>
+		</init-param>
+		<!--
+		<init-param>
+			<param-name>locale[9]</param-name>
+			<param-value>nl_NL</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[10]</param-name>
+			<param-value>no_NO</param-value>
+		</init-param>
+		-->
+		<init-param>
+			<param-name>locale[11]</param-name>
+			<param-value>ru_RU</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[12]</param-name>
+			<param-value>pl_PL</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[13]</param-name>
+			<param-value>ja_JP</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[14]</param-name>
+			<param-value>pt_BR</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[15]</param-name>
+			<param-value>cs_CZ</param-value>
+		</init-param>
+<!--
+		<init-param>
+			<param-name>locale[17]</param-name>
+			<param-value>ar_SA</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[18]</param-name>
+			<param-value>el_GR</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[19]</param-name>
+			<param-value>ko_KR</param-value>
+		</init-param>
+-->		
+		<init-param>
+			<param-name>locale[22]</param-name>
+			<param-value>es_CO</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[23]</param-name>
+			<param-value>sk_SK</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[24]</param-name>
+			<param-value>ro_RO</param-value>
+		</init-param>
+<!--
+		<init-param>
+			<param-name>locale[25]</param-name>
+			<param-value>bg_BG</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[26]</param-name>
+			<param-value>hu_HU</param-value>
+		</init-param>
+		<init-param>
+			<param-name>locale[27]</param-name>
+			<param-value>fi_FI</param-value>
+		</init-param>
+-->
+		<!-- mimeTypes -->
+		<init-param>
+			<param-name>mimeType[0]</param-name>
+			<param-value>application/x-shockwave-flash</param-value>
+		</init-param>
+		<init-param>
+			<param-name>mimeTypeClass[0]</param-name>
+			<param-value>org.openmdx.portal.servlet.attribute.FlashBinaryValue</param-value>
+		</init-param>
+		<!-- mobile user agents -->
+		<init-param>
+			<param-name>mobileUserAgents</param-name>
+			<param-value>Android,iPhone</param-value>
+		</init-param>		
+		<!-- exception domain -->
+		<init-param>
+			<param-name>exceptionDomain</param-name>
+			<param-value>OpenCrxDomain</param-value>
+		</init-param>
+		<!-- filter criteria field -->
+		<init-param>
+			<param-name>filterCriteriaField</param-name>
+			<param-value>org:opencrx:kernel:base:XmlExportParams:attributeFilter</param-value>
+		</init-param>
+		<!-- filter value pattern -->
+		<init-param>
+			<param-name>filterValuePattern[0]</param-name>
+			<param-value>(?i)</param-value>
+		</init-param>
+		<init-param>
+			<param-name>filterValuePattern[1]</param-name>
+			<param-value>.*</param-value>
+		</init-param>
+		<init-param>
+			<param-name>filterValuePattern[2]</param-name>
+			<param-value>.*</param-value>
+		</init-param>
+		<!-- security realm -->
+		<init-param>
+			<param-name>realm</param-name>
+			<param-value>xri://@openmdx*org.openmdx.security.realm1/provider/CRX/segment/Root/realm/Default</param-value>
+		</init-param>
+		<!-- ui refresh rate -->
+		<init-param>
+			<param-name>uiRefreshRate</param-name>
+			<param-value>0</param-value>
+		</init-param>
+		<!-- Timeout for unused views in minutes -->
+		<init-param>
+			<param-name>viewsTimeout</param-name>
+			<param-value>10</param-value>
+		</init-param>
+		<!-- ui provider -->
+		<init-param>
+			<param-name>uiSegment</param-name>
+			<param-value>xri://@openmdx*org.openmdx.ui1/provider/CRX/segment/Root</param-value>
+		</init-param>
+		<!-- code tables -->
+		<init-param>
+			<param-name>codeSegment</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.code1/provider/CRX/segment/Root</param-value>
+		</init-param>
+		<!-- evaluator -->
+		<init-param>
+			<param-name>evaluator</param-name>
+			<param-value>org.opencrx.kernel.portal.PortalExtension</param-value>
+		</init-param>
+		<!-- favoritesReference -->
+		<init-param>
+			<param-name>favoritesReference</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.home1/provider/CRX/segment/${SEGMENT}/userHome/${USER}/quickAccess</param-value>
+		</init-param>
+		<!-- userHome -->
+		<init-param>
+			<param-name>userHome</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.home1/provider/CRX/segment/${SEGMENT}/userHome/${USER}</param-value>
+		</init-param>
+		<!-- requestSizeMax -->
+		<init-param>
+			<param-name>requestSizeMax</param-name>
+			<param-value>50000000</param-value>
+		</init-param>
+		<!-- Admin -->
+		<init-param>
+			<param-name>rootObject[0]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.admin1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Home -->
+		<init-param>
+			<param-name>rootObject[1]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.home1/provider/CRX/segment/${SEGMENT}/userHome/${USER}</param-value>
+		</init-param>
+		<!-- Accounts -->
+		<init-param>
+			<param-name>rootObject[2]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.account1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Activities -->
+		<init-param>
+			<param-name>rootObject[3]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.activity1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Contract -->
+		<init-param>
+			<param-name>rootObject[4]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.contract1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Products -->
+		<init-param>
+			<param-name>rootObject[5]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.product1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Depots -->
+		<init-param>
+			<param-name>rootObject[6]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.depot1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Documents -->
+		<init-param>
+			<param-name>rootObject[7]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.document1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Buildings -->
+		<init-param>
+			<param-name>rootObject[8]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.building1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Forecasts -->
+		<init-param>
+			<param-name>rootObject[9]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.forecast1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Units [segment-specific] -->
+		<init-param>
+			<param-name>rootObject[10]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.uom1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Units [root] -->
+		<init-param>
+			<param-name>rootObject[11]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.uom1/provider/CRX/segment/Root</param-value>
+		</init-param>
+		<!-- Codes -->
+		<init-param>
+			<param-name>rootObject[12]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.code1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Workflows -->
+		<init-param>
+			<param-name>rootObject[13]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.workflow1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- UserHomes -->
+		<init-param>
+			<param-name>rootObject[14]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.kernel.home1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Security/Realm -->
+		<init-param>
+			<param-name>rootObject[15]</param-name>
+			<param-value>xri://@openmdx*org.openmdx.security.realm1/provider/CRX/segment/Root/realm/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Security/Policy -->
+		<init-param>
+			<param-name>rootObject[16]</param-name>
+			<param-value>xri://@openmdx*org.openmdx.security.authorization1/provider/CRX/segment/Root/policy/${SEGMENT}</param-value>
+		</init-param>
+		<!-- Security/Identity -->
+		<init-param>
+			<param-name>rootObject[17]</param-name>
+			<param-value>xri://@openmdx*org.opencrx.security.identity1/provider/CRX/segment/${SEGMENT}</param-value>
+		</init-param>
+		<!-- no listing -->
+		<init-param>
+			<param-name>listings</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<!-- activate if ObjectInspectorServlet should be initialized at startup
+		<load-on-startup>1</load-on-startup>
+-->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ObjectInspectorServlet</servlet-name>
+		<url-pattern>/ObjectInspectorServlet/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ObjectInspectorServlet</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WorkflowHandler</servlet-name>
+		<url-pattern>/WorkflowHandler/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubscriptionHandler</servlet-name>
+		<url-pattern>/SubscriptionHandler/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WorkflowController</servlet-name>
+		<url-pattern>/WorkflowController/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IndexerServlet</servlet-name>
+		<url-pattern>/IndexerServlet/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DocumentScannerServlet</servlet-name>
+		<url-pattern>/DocumentScannerServlet/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MailImporterServlet</servlet-name>
+		<url-pattern>/MailImporterServlet/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LDAPSynchronizer</servlet-name>
+		<url-pattern>/LDAPSynchronizer/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DocumentExporterServlet</servlet-name>
+		<url-pattern>/DocumentExporterServlet/*</url-pattern>
+	</servlet-mapping>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<!-- welcome -->
+	<welcome-file-list>
+		<welcome-file>welcome.html</welcome-file>
+	</welcome-file-list>
+	<!-- error -->
+	<error-page>
+		<error-code>400</error-code>
+		<location>/Error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/Error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>408</error-code>
+		<location>/Error.jsp</location>
+	</error-page>
+	<resource-ref>
+		<res-ref-name>jdbc_opencrx_CRX</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	<!-- Wizards, Workflows (e.g. MailWorkflow), etc. can use mail resources. Configure a mail resource for each used mail resource.
+	<resource-ref id="mail_opencrx_CRX">
+		<res-ref-name>mail/provider/CRX</res-ref-name>
+		<res-type>javax.mail.Session</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	-->
+	<!-- security-constraint -->
+	<security-constraint id="security_constraint-Default">
+		<web-resource-collection id="c-Default">
+			<web-resource-name>c-Standard</web-resource-name>
+			<url-pattern>/ObjectInspectorServlet</url-pattern>
+			<url-pattern>/run</url-pattern>
+			<url-pattern>/wizards/*</url-pattern>
+			<url-pattern>/jsp/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint id="auth_constraint-Default">
+			<role-name>OpenCrxUser</role-name>
+			<role-name>OpenCrxAdministrator</role-name>
+			<role-name>OpenCrxRoot</role-name>
+		</auth-constraint>
+		<user-data-constraint id="user_data_constraint-Default">
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<security-constraint id="security_constraint-Root">
+		<web-resource-collection id="c-Root">
+			<web-resource-name>c-Root</web-resource-name>
+			<url-pattern>/WorkflowController/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint id="auth_constraint-Root">
+			<role-name>OpenCrxRoot</role-name>
+		</auth-constraint>
+		<user-data-constraint id="user_data_constraint-Root">
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/Login.jsp</form-login-page>
+			<form-error-page>/Error.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role id="SecurityRole_OpenCrxUser">
+		<role-name>OpenCrxUser</role-name>
+	</security-role>
+	<security-role id="SecurityRole_OpenCrxAdministrator">
+		<role-name>OpenCrxAdministrator</role-name>
+	</security-role>
+	<security-role id="SecurityRole_OpenCrxRoot">
+		<role-name>OpenCrxRoot</role-name>
+	</security-role>
+</web-app>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority name="org:openmdx:security:authorization1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/security/authorization1/xmi1/authorization1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.security.authorization1.Segment qualifiedName="Root" _operation="set">
+							<_object/>
+							<_content>
+								<policy>
+									<!-- Security policy for segment Default (Login) -->
+									<org.openmdx.security.authorization1.Policy id="Default" _operation="create">
+										<_object>
+											<description>Default Policy</description>
+										</_object>
+										<_content>
+											<role>
+												<org.openmdx.security.realm1.Role name="OpenCrxAdministrator" _operation="create">
+													<_object>
+														<description>openCRX Administrator Users</description>
+														<disabled>false</disabled>
+													</_object>
+													<_content/>
+												</org.openmdx.security.realm1.Role>
+												<org.openmdx.security.realm1.Role name="OpenCrxUser" _operation="create">
+													<_object>
+														<description>openCRX Standard Users</description>
+														<disabled>false</disabled>
+													</_object>
+													<_content/>
+												</org.openmdx.security.realm1.Role>
+												<org.openmdx.security.realm1.Role name="OpenCrxRoot" _operation="create">
+													<_object>
+														<description>openCRX Root Users</description>
+														<disabled>false</disabled>
+													</_object>
+													<_content/>
+												</org.openmdx.security.realm1.Role>
+											</role>
+										</_content>
+									</org.openmdx.security.authorization1.Policy>
+									<!-- Security policy for segment Root -->
+									<org.openmdx.security.authorization1.Policy id="Root" _operation="create">
+										<_object>
+											<description>Root Policy</description>
+										</_object>
+										<_content />
+									</org.openmdx.security.authorization1.Policy>
+								</policy>
+							</_content>
+						</org.openmdx.security.authorization1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

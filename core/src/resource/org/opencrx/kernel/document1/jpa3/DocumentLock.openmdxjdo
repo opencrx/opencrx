@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.document1.jpa3">
+    <class name="DocumentLock" table="OOCKE1_DOCUMENTLOCK">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>    
+		<field name="document" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>		    
+    </class>
+  </package>
+</openmdxjdo>

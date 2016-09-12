@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+	<package name="org.opencrx.kernel.activity1.jpa3">
+		<class name="ActivityGroup">
+			<field name="activityNote" visibility="cci">
+				<join table="OOCKE1_JOIN_ACTGCONTAINSNOTE"/>
+			</field>			
+			<field name="followUp" visibility="cci">
+				<join table="OOCKE1_JOIN_ACTGCONTAINSFLUP"/>
+			</field>				
+			<field name="filteredActivity" visibility="cci">
+				<join table="OOCKE1_JOIN_ACTGCONTAINSACT"/>
+			</field>													
+			<field name="workReportEntry" visibility="cci">
+				<join table="OOCKE1_JOIN_ACTGCONTAINSWRE"/>
+			</field>					
+			<field name="activityCreator" visibility="cci">
+				<join table="OOCKE1_JOIN_ACTGISCREATEDBY"/>
+			</field>					
+		</class>
+	</package>
+</openmdxjdo>

@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+
+								<featureDefinition>
+								  <!-- 500 = Business -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:account1:Member:(account;address)*Business!phoneNumberFull">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								  <!-- 200 = Mobile -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:account1:Member:(account;address)*Mobile!phoneNumberFull">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								  <!-- 500 = Business -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:account1:Member:(account;address)*Business!emailAddress">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+
+								  <!-- 500 = Business -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:account1:AccountMembership:(accountFrom;address)*Business!phoneNumberFull">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								  <!-- 200 = Mobile -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:account1:AccountMembership:(accountFrom;address)*Mobile!phoneNumberFull">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								  <!-- 500 = Business -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:account1:AccountMembership:(accountFrom;address)*Business!emailAddress">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								</featureDefinition>														
+
+								<elementDefinition>
+									<!--Pane1 Tab Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:member">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Members</_item>
+											</toolTip>
+											<label>
+												<_item>Members</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>10</maxMember>
+										</_object>
+										<_content>
+											<additionalElementDefinition>
+												<org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Members (disabled)</_item>
+														</toolTip>
+														<label>
+															<_item>»Members (disabled)</_item>
+														</label>
+														<order>
+															<_item>10</_item>
+															<_item>0</_item>
+															<_item>9</_item>
+														</order>
+														<maxMember>10</maxMember>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+											</additionalElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Group">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Group</_item>
+											</toolTip>
+											<label>
+												<_item>Group</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<iconKey>Group</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions Group-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractGroup:name">
+										<_object>
+											<active>true</active>
+											<mandatory>true</mandatory>
+											<toolTip>
+												<_item>Group name</_item>
+											</toolTip>
+											<label>
+												<_item>Group name</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>19</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Group:aliasName">
+										<_object>
+											<active>true</active>
+                      <toolTip>
+                        <_item>Account's alias name</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Alias name</_item>
+                      </label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>19</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Group:aliasName" _operation="create">
+										<_object/>
+										<_content>
+											<alternateElementDefinition>
+												<org.openmdx.ui1.AlternateElementDefinition id="0">
+													<_object>
+														<columnBreak>false</columnBreak>
+														<orderFieldGroup>
+															<_item>0</_item>
+															<_item>0</_item>
+															<_item>20</_item>
+														</orderFieldGroup>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AlternateElementDefinition>
+											</alternateElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									-->
+
+									<!-- Operations -->
+                  <!-- Operation Import Parameters are customized in common.xml -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Group:Pane:Op:Tab:importItem">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Import vCard</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Import vCard</_item>
+                      </label>
+                      <iconKey>org:opencrx:kernel:Import</iconKey>
+                      <order>
+                        <_item>100</_item>
+                        <_item>0</_item>
+                        <_item>110</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions Member -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Member</_item>
+											</toolTip>
+											<label>
+												<_item>Member</_item>
+											</label>
+											<iconKey>Member</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:forUseBy">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>For Use By</_item>
+											</toolTip>
+											<label>
+												<_item>For Use By</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>200</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions Group-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:account">
+										<_object>
+											<active>true</active>
+											<filterable>true</filterable>
+											<sortable>false</sortable>
+											<toolTip>
+												<_item>Member</_item>
+											</toolTip>
+											<label>
+												<_item>Member</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:quality">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Relationship quality</_item>
+											</toolTip>
+											<label>
+												<_item>Relationship quality</_item>
+											</label>
+											<shortLabel>
+												<_item>Quality</_item>
+											</shortLabel>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:memberRole">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<spanRow>2</spanRow>
+											<multiplicity>0..5</multiplicity> <!-- at most 5 values can be stored -->
+											<toolTip>
+												<_item>Roles</_item>
+											</toolTip>
+											<label>
+												<_item>Roles</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:(account;address)*Business!phoneNumberFull">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PhoneNumber;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)500;automaticParsing=(boolean)true</dataBindingName>
+                      <columnBreak>false</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Phone business</_item>
+											</toolTip>
+											<label>
+												<_item>Phone business</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>12</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:(account;address)*Mobile!phoneNumberFull">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PhoneNumber;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)200;automaticParsing=(boolean)true</dataBindingName>
+											<active>true</active>
+											<toolTip>
+												<_item>Phone mobile</_item>
+											</toolTip>
+											<label>
+												<_item>Phone mobile</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>14</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Member:(account;address)*Business!emailAddress">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:EMailAddress;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)500</dataBindingName>
+                      <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>E-mail business</_item>
+											</toolTip>
+											<label>
+												<_item>E-mail business</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>16</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AccountMembership -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Membership</_item>
+											</toolTip>
+											<label>
+												<_item>Membership</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>AccountMembership</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:forUseBy">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>For Use By</_item>
+											</toolTip>
+											<label>
+												<_item>For Use By</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>200</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions Group-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:name">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:description">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:accountFrom">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<filterable>true</filterable>
+											<sortable>false</sortable>
+											<toolTip>
+												<_item>Account from</_item>
+											</toolTip>
+											<label>
+												<_item>Account from</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:accountFromId">
+										<_object>
+											<active>false</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>ID of account from</_item>
+											</toolTip>
+											<label>
+												<_item>ID of account from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>31</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:accountTo">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<filterable>true</filterable>
+											<sortable>false</sortable>
+											<toolTip>
+												<_item>Account to</_item>
+											</toolTip>
+											<label>
+												<_item>Account to</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>9</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:accountToId">
+										<_object>
+											<active>false</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>ID of account to</_item>
+											</toolTip>
+											<label>
+												<_item>ID of account to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>41</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:quality">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Quality</_item>
+											</toolTip>
+											<label>
+												<_item>Quality</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:validFrom">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:validTo">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:memberRole">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<spanRow>2</spanRow>
+											<changeable>true</changeable>
+											<toolTip>
+												<_item>Roles</_item>
+											</toolTip>
+											<label>
+												<_item>Roles</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:distance">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Distance</_item>
+											</toolTip>
+											<label>
+												<_item>Distance</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>110</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>190</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:(accountFrom;address)*Business!phoneNumberFull">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PhoneNumber;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)500;automaticParsing=(boolean)true</dataBindingName>
+                      <columnBreak>false</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Phone business</_item>
+											</toolTip>
+											<label>
+												<_item>Phone business [from]</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>6</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:(accountFrom;address)*Mobile!phoneNumberFull">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PhoneNumber;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)200;automaticParsing=(boolean)true</dataBindingName>
+											<active>true</active>
+											<toolTip>
+												<_item>Phone mobile</_item>
+											</toolTip>
+											<label>
+												<_item>Phone mobile [from]</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>7</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:(accountFrom;address)*Business!emailAddress">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:EMailAddress;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)500</dataBindingName>
+                      <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>E-mail business</_item>
+											</toolTip>
+											<label>
+												<_item>E-mail business [from]</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>8</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:member">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Member</_item>
+											</toolTip>
+											<label>
+												<_item>Member</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>220</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountMembership:disabled">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object is disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

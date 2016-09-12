@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+									<!--Segment Definition-->
+									<!--Auditee-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Indexed:indexEntry">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>»Index Entries</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1490</_item>
+											</order>
+											<maxMember>1</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Index Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entry</_item>
+											</label>
+											<iconKey>IndexEntry</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- disable Edit/Delete Operations -->
+									<!--
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:base:IndexEntry:Pane:Op:Tab:edit">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  -->
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:base:IndexEntry:Pane:Op:Tab:delete">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry:indexedObject">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Indexed object</_item>
+											</toolTip>
+											<label>
+												<_item>Indexed object</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry:keywords">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Key words</_item>
+											</toolTip>
+											<label>
+												<_item>Key words</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- hide security operations on index entries -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry:Pane:Op:Tab:setOwningUser">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry:Pane:Op:Tab:addOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry:Pane:Op:Tab:removeOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry:Pane:Op:Tab:removeAllOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IndexEntry:Pane:Op:Tab:setAccessLevel">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Indexed:Pane:Op:Tab:updateIndex">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Update Index</_item>
+											</toolTip>
+											<label>
+												<_item>Update Index</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>9999</_item>
+											</order>
+											<iconKey></iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Indexed:Pane:Op:Tab:updateIndex:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateIndexParams:keywordLengthMin">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Min keyword length</_item>
+											</toolTip>
+											<label>
+												<_item>Min keyword length</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateIndexParams:keywordLengthMax">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Max keyword length</_item>
+											</toolTip>
+											<label>
+												<_item>Max keyword length</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateIndexParams:indexedAttributesInclude">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Indexed attributes incl.</_item>
+											</toolTip>
+											<label>
+												<_item>Indexed attributes incl.</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateIndexParams:indexedAttributesExclude">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Indexed attributes excl.</_item>
+											</toolTip>
+											<label>
+												<_item>Indexed attributes excl.</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Indexed:Pane:Op:Tab:updateIndex:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateIndexResult:numberOfIndexedObjects">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item># indexed objects</_item>
+											</toolTip>
+											<label>
+												<_item># indexed objects</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

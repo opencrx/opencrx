@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owner" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مالک کالا</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مالک کالا</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owningUser" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>کاربر مالک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>کاربر مالک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelBrowse" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>پیمایش سطح دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>پیمایش سطح دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelUpdate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>به روز رسانی سطح دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>به روز رسانی سطج دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelDelete" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>حذف سطح دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>حذف سطح دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>^</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروههای مالک (امنیت)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setOwningUser" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>تنظیم کاربر مالک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>تنظیم کاربر مالک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setOwningUser:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ورودی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ورودی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:user" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سبک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سبک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:referenceFilter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>فیلتر مرجع</_item>
+                      </label>
+                      <toolTip>
+                        <_item>فیلتر مرجع</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:addOwningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>اضافه کردن گروه مالک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>اضافه کردن گروه مالک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:addOwningGroup:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ورودی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ورودی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeOwningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>حذف گروه مالک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>حذف گروه مالک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeOwningGroup:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ورودی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ورودی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifyOwningGroupParams:group" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifyOwningGroupParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سبک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سبک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeAllOwningGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>حذف تمامی گروههای مالک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>حذف تمامی گروههای مالک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeAllOwningGroup:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ورودی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ورودی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:RemoveAllOwningGroupParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سبک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سبک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setAccessLevel" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>تنظیم سطح دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>تنظیم سطح دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setAccessLevel:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ورودی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ورودی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelBrowse" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>پیمایش سطح دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>پیمایش سطح دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelUpdate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>به روز رسانی سطح دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>به روز رسانی سطح دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelDelete" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>حذف سطح دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>حذف سطح دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:mode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سبک</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سبک</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifySecureObjectResult:statusMessage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>پیام وضعیت</_item>
+                      </label>
+                      <toolTip>
+                        <_item>پیام وضعیت</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

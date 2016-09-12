@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+									<!-- Segment -->
+									<!-- Grid Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activityFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Activities</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Searches - Activities</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ActivityFilterGroup-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFilterGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Activities</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Activities</_item>
+											</label>
+											<iconKey>ActivityFilterGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!-- FieldGroups -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFilterGroup:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFilterGroup:description">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ActivityFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Activities</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Activities</_item>
+											</label>
+											<iconKey>ActivityFilter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!-- FieldGroups -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFilterGlobal:activitiesSource">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Source of activities</_item>
+											</toolTip>
+											<label>
+												<_item>Source</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AbstractActivityFilter-->
+									<!--Inspector Definitions-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:filterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>15</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:filteredActivity">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Activities (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Activities (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<showMaxMember>10</showMaxMember>
+											<maxMember>16</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- FieldGroups -->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:Pane:Op:Tab:countFilteredActivity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Activities</_item>
+											</toolTip>
+											<label>
+												<_item>Count Activities</_item>
+											</label>
+											<iconKey>Account</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:Pane:Op:Tab:countFilteredActivity:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:Pane:Op:Tab:countFilteredActivity:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  common.xml -->
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:Pane:Op:Tab:calcTotalQuantity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Calculate Total Quantity from Work / Expense Records</_item>
+											</toolTip>
+											<label>
+												<_item>Calculate Total Quantity from Work / Expense Records</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+											<iconKey>org:opencrx:kernel:OpRefresh</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:Pane:Op:Tab:calcTotalQuantity:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AbstractFilterActivity:Pane:Op:Tab:calcTotalQuantity:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  activity-tracker.xml -->
+
+									<!-- ActivityProcessStateFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessStateFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Activity Process State</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Activity Process State</_item>
+											</label>
+											<iconKey>ActivityProcessStateFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessStateFilterProperty:processState">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Process States</_item>
+											</toolTip>
+											<label>
+												<_item>Process States</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- ActivityStateFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityStateFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Activity State</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Activity State</_item>
+											</label>
+											<iconKey>ActivityStateFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityStateFilterProperty:activityState">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Activity states</_item>
+											</toolTip>
+											<label>
+												<_item>Activity states</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ActivityNumberFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityNumberFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Activity Number</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Activity Number</_item>
+											</label>
+											<iconKey>ActivityNumberFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityNumberFilterProperty:activityNumber">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Activity numbers</_item>
+											</toolTip>
+											<label>
+												<_item>Activity numbers</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>11</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DisabledFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:DisabledFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Disabled</_item>
+											</label>
+											<iconKey>DisabledFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:DisabledFilterProperty:disabled">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>13</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ActivityTypeFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTypeFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Activity Types</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Activity Types</_item>
+											</label>
+											<iconKey>ActivityTypeFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTypeFilterProperty:activityType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Activity Types</_item>
+											</toolTip>
+											<label>
+												<_item>Activity Types</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>12</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- AssignedToFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AssignedToFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Assigned to</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Assigned to</_item>
+											</label>
+											<iconKey>AssignedToFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:AssignedToFilterProperty:contact">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Assigned To</_item>
+											</toolTip>
+											<label>
+												<_item>Assigned To</_item>
+											</label>
+											<shortLabel>
+												<_item>Reported by / Assigned to</_item>
+											</shortLabel>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- ReportedByContactFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ReportedByContactFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Reported by contact</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Reported by contact</_item>
+											</label>
+											<iconKey>ReportedByContactFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ReportedByContactFilterProperty:contact">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reported by</_item>
+											</toolTip>
+											<label>
+												<_item>Reported by</_item>
+											</label>
+											<shortLabel>
+												<_item>Reported by / Assigned to</_item>
+											</shortLabel>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- ReportedByAccountFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ReportedByAccountFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Reported by account</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Reported by account</_item>
+											</label>
+											<iconKey>ReportedByAccountFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ReportedByAccountFilterProperty:account">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reported by</_item>
+											</toolTip>
+											<label>
+												<_item>Reported by</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>19</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- ScheduledEndFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ScheduledEndFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Scheduled End</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Scheduled End</_item>
+											</label>
+											<iconKey>ScheduledEndFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ScheduledEndFilterProperty:scheduledEnd">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Scheduled ends</_item>
+											</toolTip>
+											<label>
+												<_item>Scheduled ends</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>14</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ScheduledEndFilterProperty:offsetInHours">
+										<_object>
+                      <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Offset in hours</_item>
+											</toolTip>
+											<label>
+												<_item>Offset in hours</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ScheduledStartFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ScheduledStartFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Scheduled Start</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Scheduled Start</_item>
+											</label>
+											<iconKey>ScheduledStartFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ScheduledStartFilterProperty:scheduledStart">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Scheduled starts</_item>
+											</toolTip>
+											<label>
+												<_item>Scheduled starts</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>13</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ScheduledStartFilterProperty:offsetInHours">
+										<_object>
+                      <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Offset in hours</_item>
+											</toolTip>
+											<label>
+												<_item>Offset in hours</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ActivityQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>500</_item>
+											</order>
+											<iconKey>ActivityQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+								</elementDefinition>
+
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

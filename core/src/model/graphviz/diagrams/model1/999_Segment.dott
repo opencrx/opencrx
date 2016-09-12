@@ -1,0 +1,48 @@
+digraph "Diagram Segment [Package org:opencrx:kernel:model1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:model1:Segment,compartments=true,width=14]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:Segment,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:Importer,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:Auditee,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:WorkflowTarget,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:Exporter,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:Indexed,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

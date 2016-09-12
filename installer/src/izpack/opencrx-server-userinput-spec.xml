@@ -1,0 +1,9 @@
+<userInput>
+	<panel order="0">
+		<createForPack name="Main" />
+		<field type="staticText" align="left" txt="Select home directory of an existing Ant 1.9+ installation, e.g. C:\pgm\apache-ant-1.9.4 on Windows or /opt/apache-ant-1.9.4 on Linux platforms." />
+		<field type="dir" align="left" variable="ANTPath">
+			<spec txt="ANT home directory" size="30" set="${ENV[ANT_HOME]}" mustExist="true" create="false" />
+		</field>
+	</panel>
+</userInput>

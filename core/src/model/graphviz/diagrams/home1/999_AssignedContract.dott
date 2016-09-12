@@ -1,0 +1,39 @@
+digraph "Diagram AssignedContract [Package org:opencrx:kernel:home1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:home1:UserHome,compartments=false,width=3]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractContract,compartments=false,fillcolor="#FFBD9D",width=3]};
+	}
+
+	LAYER0->LAYER1[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:home1:UserHomeHasAssignedContract,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:ContractHasOrigin,style=invis]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

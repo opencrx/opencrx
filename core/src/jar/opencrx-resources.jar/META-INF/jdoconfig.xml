@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jdoconfig xmlns="http://java.sun.com/xml/ns/jdo/jdoconfig"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://java.sun.com/xml/ns/jdo/jdoconfig">
+    
+    <!-- Entity manager -->
+    <persistence-manager-factory 
+    	name="EntityManagerFactory"
+    	class="org.openmdx.base.accessor.jmi.spi.EntityManagerFactory_1"
+    	connection-factory-name="jdo:DataManagerFactory"
+    >
+		<!--  AOP2 plugins at layer Standard -->
+        <property name="org.openmdx.jdo.EntityManager.plugIn[0]" value="org.opencrx.kernel.aop2.PlugIn.Standard"/>
+
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.userObject[0]" value="org.opencrx.kernel.aop2.PlugIn.Standard.Configuration"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.Configuration.class" value="org.opencrx.kernel.aop2.Configuration"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.Configuration.passwordEncodingAlgorithm" value="MD5"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.Configuration.EMailAddressLookupCaseInsensitive" value="(java.lang.Boolean)true"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.Configuration.EMailAddressLookupIgnoreDisabled" value="(java.lang.Boolean)false"/>
+
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[0]" value="org:openmdx:base"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[0]" value="org.opencrx.generic.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[1]" value="org:opencrx:kernel:home1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[1]" value="org.opencrx.kernel.home1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[2]" value="org:opencrx:kernel:depot1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[2]" value="org.opencrx.kernel.depot1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[3]" value="org:opencrx:kernel:activity1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[3]" value="org.opencrx.kernel.activity1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[4]" value="org:opencrx:kernel:base"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[4]" value="org.opencrx.kernel.base.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[5]" value="org:opencrx:kernel:admin1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[5]" value="org.opencrx.kernel.admin1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[6]" value="org:opencrx:kernel:address1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[6]" value="org.opencrx.kernel.address1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[7]" value="org:opencrx:kernel:account1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[7]" value="org.opencrx.kernel.account1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[8]" value="org:opencrx:kernel:contract1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[8]" value="org.opencrx.kernel.contract1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[9]" value="org:opencrx:kernel:product1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[9]" value="org.opencrx.kernel.product1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[10]" value="org:opencrx:kernel:model1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[10]" value="org.opencrx.kernel.model1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[11]" value="org:opencrx:kernel:generic"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[11]" value="org.opencrx.kernel.generic.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[12]" value="org:opencrx:kernel:forecast1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[12]" value="org.opencrx.kernel.forecast1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[13]" value="org:opencrx:kernel:building1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[13]" value="org.opencrx.kernel.building1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[14]" value="org:opencrx:kernel:document1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[14]" value="org.opencrx.kernel.document1.aop2"/>
+    </persistence-manager-factory>
+
+    <!-- Data manager -->
+    <persistence-manager-factory 
+    	name="DataManagerFactory"
+    	class="org.openmdx.base.accessor.rest.DataManagerFactory_1"
+    >
+        <property name="javax.jdo.option.Multithreaded" value="true"/>
+        <property name="org.openmdx.jdo.DataManager.optimalFetchSize" value="(java.lang.Integer)64"/>
+        <property name="org.openmdx.jdo.DataManager.cacheThreshold" value="(java.lang.Integer)256"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[0]" value="xri://@openmdx*org.opencrx.kernel.account1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[0]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[1]" value="xri://@openmdx*org.opencrx.kernel.activity1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[1]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[2]" value="xri://@openmdx*org.opencrx.kernel.building1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[2]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[3]" value="xri://@openmdx*org.opencrx.kernel.code1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[3]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[4]" value="xri://@openmdx*org.opencrx.kernel.contract1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[4]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[5]" value="xri://@openmdx*org.opencrx.kernel.document1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[5]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[6]" value="xri://@openmdx*org.opencrx.kernel.forecast1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[6]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[7]" value="xri://@openmdx*org.opencrx.kernel.home1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[7]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[8]" value="xri://@openmdx*org.opencrx.kernel.product1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[8]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[9]" value="xri://@openmdx*org.opencrx.kernel.uom1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[9]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[10]" value="xri://@openmdx*org.opencrx.kernel.workflow1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[10]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[11]" value="xri://@openmdx*org.opencrx.kernel.reservation1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[11]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[12]" value="xri://@openmdx*org.opencrx.kernel.admin1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[12]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[13]" value="xri://@openmdx*org.opencrx.kernel.model1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[13]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[14]" value="xri://@openmdx*org.opencrx.kernel.depot1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[14]" value="org.opencrx.kernel.rest.PlugIn.Kernel"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[15]" value="xri://@openmdx*org.openmdx.security.realm1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[15]" value="org.opencrx.kernel.rest.PlugIn.Security"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[16]" value="xri://@openmdx*org.opencrx.security.identity1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[16]" value="org.opencrx.kernel.rest.PlugIn.Security"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[17]" value="xri://@openmdx*org.openmdx.security.authorization1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[17]" value="org.opencrx.kernel.rest.PlugIn.Security"/>
+        <property name="org.openmdx.jdo.DataManager.xriPattern[18]" value="xri://@openmdx*org.openmdx.security.authentication1/($...)"/>
+        <property name="org.openmdx.jdo.DataManager.restPlugIn[18]" value="org.opencrx.kernel.rest.PlugIn.Security"/>
+
+		<!--  Dataprovider Kernel -->             
+        <property name="org.opencrx.kernel.rest.PlugIn.Kernel.class" value="org.openmdx.base.dataprovider.kernel.Dataprovider_2"/>
+        <property name="org.opencrx.kernel.rest.PlugIn.Kernel.configuration" value="xri://+resource/META-INF/Kernel.properties"/>
+
+		<!--  Dataprovider Security -->             
+        <property name="org.opencrx.kernel.rest.PlugIn.Security.class" value="org.openmdx.base.dataprovider.kernel.Dataprovider_2"/>
+        <property name="org.opencrx.kernel.rest.PlugIn.Security.configuration" value="xri://+resource/META-INF/Security.properties"/>
+
+    </persistence-manager-factory>
+
+</jdoconfig>

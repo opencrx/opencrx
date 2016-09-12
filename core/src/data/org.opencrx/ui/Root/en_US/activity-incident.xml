@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<featureDefinition>
+								  <!-- 500 = Business -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:activity1:IncidentParty:(party;address)*Business!phoneNumberFull">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								  <!-- 200 = Mobile -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:activity1:IncidentParty:(party;address)*Mobile!phoneNumberFull">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								  <!-- 500 = Business -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:activity1:IncidentParty:(party;address)*Business!emailAddress">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>false</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+								</featureDefinition>														
+
+								<elementDefinition>
+
+									<!-- disable operation "Clone" -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:Pane:Op:Tab:clone">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Incident</_item>
+											</toolTip>
+											<label>
+												<_item>Incident</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>Incident</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:incidentParty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Involved Accounts</_item>
+											</toolTip>
+											<label>
+												<_item>Involved Accounts</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definition-->
+									<!--grid column definition-->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:Pane:Attr:Tab:0:Group:20">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Incident Management</_item>
+											</toolTip>
+											<label>
+												<_item>Incident Management</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in Details Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:severity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Severity</_item>
+											</toolTip>
+											<label>
+												<_item>Severity</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:customerSatisfaction">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Customer satisfaction</_item>
+											</toolTip>
+											<label>
+												<_item>Customer satisfaction</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:caseType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Incident type</_item>
+											</toolTip>
+											<label>
+												<_item>Incident type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:caseOrigin">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Incident origin</_item>
+											</toolTip>
+											<label>
+												<_item>Incident origin</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:reproducibility">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reproducibility</_item>
+											</toolTip>
+											<label>
+												<_item>Reproducibility</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--MeetingParty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Involved Account</_item>
+											</toolTip>
+											<label>
+												<_item>Involved Account</_item>
+											</label>
+											<iconKey>Account</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--grid column definition-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty:party">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Account</_item>
+											</toolTip>
+											<label>
+												<_item>Account</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty:emailHint">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>E-Mail hint</_item>
+											</toolTip>
+											<label>
+												<_item>E-Mail hint</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>200</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty:partyType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty:partyStatus">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty:(party;address)*Business!phoneNumberFull">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PhoneNumber;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)500;automaticParsing=(boolean)true</dataBindingName>
+                      <columnBreak>false</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Phone business</_item>
+											</toolTip>
+											<label>
+												<_item>Phone business</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>12</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty:(party;address)*Mobile!phoneNumberFull">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PhoneNumber;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)200;automaticParsing=(boolean)true</dataBindingName>
+											<active>true</active>
+											<toolTip>
+												<_item>Phone mobile</_item>
+											</toolTip>
+											<label>
+												<_item>Phone mobile</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>14</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:IncidentParty:(party;address)*Business!emailAddress">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:EMailAddress;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)500</dataBindingName>
+                      <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>E-mail business</_item>
+											</toolTip>
+											<label>
+												<_item>E-mail business</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>16</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

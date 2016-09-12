@@ -1,0 +1,48 @@
+digraph "Diagram LinkableItem [Package org:opencrx:kernel:building1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:building1:LinkableItem,compartments=false,width=12]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:building1:LinkableItemLinkFrom,compartments=true,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:building1:LinkableItemLinkTo,compartments=true,width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:building1:LinkableItemLink,compartments=false,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	
+	${ASSOCIATION[name=org:opencrx:kernel:building1:LinkableItemContainsLinkFrom,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:building1:LinkFromIsBasedOnLinkTo,minlen=5]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

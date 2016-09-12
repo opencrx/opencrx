@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konta</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wszystkie konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konta</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wszystkie konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="0" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Grupy kont</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Tylko grupy kont</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:partner" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Partnerzy</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Partnerzy</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:externalLink" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>zew Link</_item>
+                      </label>
+                      <toolTip>
+                        <_item>zewnętrzny Link</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:fullName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pełna nazwa</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pełna nazwa konta (Nazwisko, Imię)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:aliasName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa skrócona</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Skrócona nazwa konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Opis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Opis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:businessType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rodzaj biznesu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rodzaj biznesu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:governmentId" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Numer identyfikacyjny rząd</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Numer identyfikacyjny rząd</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Status</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Status konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountRating" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ocena</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ocena konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountCategory" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kategoria</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kategoria Konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Typ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Typ Konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dopisanie do Konta</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dopisanie do Konta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:validFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ważny od</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ważny od</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:validTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ważny do</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ważny do</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:Pane:Op:Tab:importItem" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Importuj vCard</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Importuj vCard</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Utwórz Nowy Kontakt</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Utwórz Nowy Kontakt</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wstaw</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wstaw</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa Nowego Kontaktu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa Nowego Kontaktu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Opis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Opis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:nextStep" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Następny krok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Następny krok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Na podstawie template</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Na podstawie template</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wynik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wynik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadResult:lead" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nowy Kontakt</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nowy Kontakt</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Utwórz szansę</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Utwórz szansę</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wstaw</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wstaw</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa szansy</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa szansy</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Opis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Opis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Na podstawie template</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Na podstawie template</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wynik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wynik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityResult:opportunity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Szansa</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Szansa</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Utwórz ofertę</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Utwórz ofertę</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wstaw</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wstaw</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa oferty</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa oferty</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Opis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Opis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Na podstawie template</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Na podstawie template</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wynik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wynik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteResult:quote" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Oferta</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Oferta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Utwórz zamówienie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Utwórz zamówienie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wstaw</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wstaw</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa zamówienia</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa zamówienia</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Opis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Opis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Na podstawie template</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Na podstawie template</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wynik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wynik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderResult:salesOrder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Zamówienie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Zamówienie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Utwórz rachunek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Utwórz rachunek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wstaw</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wstaw</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa rachunku</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa rachunku</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Opis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Opis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Na podstawie template</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Na podstawie template</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wynik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wynik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceResult:invoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Faktura</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Faktura</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

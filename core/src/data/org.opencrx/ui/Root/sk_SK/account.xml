@@ -1,0 +1,993 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Spravovať Účty (Klientov)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Spravovať Účty (Klientov)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Všetky účty (klienti)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Všetky účty</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="9998" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Účty (klienti)</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Účty (klienti)</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Účty (deaktivované)</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Účty (deaktivované)</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="0" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Skupiny účtov</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Skupiny účtov (klientov)</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Účet</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Účet</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vzťahy</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vzťahy</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountMembership" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="20" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Členstvá</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Členstvá</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountMembership" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="30" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Členstvá (hlboké)</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Členstvá (hlboké)</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountMembership" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Členstvá (zablokované)</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Členstvá (zablokované)</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:partner" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Partneri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Partneri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:contact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kontakty</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kontakty</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Účet</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Účet</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hesap</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25:Group:20" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25:Group:30" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!phoneNumberFull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pracovný telefón</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pracovný telefón</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Mobile!phoneNumberFull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mobil</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mobil</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Other!phoneNumberFull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Iný telefón</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Iný telefón</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*BusinessFax!phoneNumberFull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pracovný fax</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pracovný fax</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!emailAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pracovný e-mail</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pracovný e-mail</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Other!emailAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Iný e-mail</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Iný e-mail</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pracovná poštová adresa</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pracovná poštová adresa</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!postalAddressLine" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Adresa</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Adresa</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!postalStreet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ulica / PO Box</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ulica / PO Box</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!postalState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Región/Okres</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Región/Okres</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!postalCode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>PSČ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>PSČ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!postalCity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mesto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mesto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:address*Business!postalCountry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Štát/Krajina</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Štát/Krajina</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:Pictured:pictureContent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Obrázok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Obrázok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:Pictured:picture" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Názov / Zdroj</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Názov / Zdroj</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:fullName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Celé meno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Celé meno účtu (meno, prímenie)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:aliasName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Prezývka</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Prezývka účtu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:businessType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Typ obchodu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Typ obchodu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:governmentId" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vláda ID</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vláda ID</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Stav</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Stav účtu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountRating" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hodnotenie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hodnotenie účtu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountCategory" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kategória</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kategória účtu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Typ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Typ účtu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:master" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vlastník</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vlastník</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:vcard" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>vCard</_item>
+                      </label>
+                      <toolTip>
+                        <_item>vCard</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Priradenie účtu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Priradenie účtu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Účet</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Účet</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:validFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Platné od</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Platné od</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:validTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Platné do</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Platné do</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vytvoriť zahájenie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vytvoriť zahájenie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Meno zahájenia</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Meno zahájenia</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:nextStep" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ďalšie kroky</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ďalšie kroky</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Založené na vzore</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Založené na vzore</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadResult:lead" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Zahájenie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Zahájenie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vytvorenie príležitosti</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vytvorenie príležitosti</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Meno príležitosti</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Meno príležitosti</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Založené na vzore</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Založené na vzore</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityResult:opportunity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Príležitosť</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Príležitosť</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vytvorenie ocenenia</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vytvorenie ocenenia</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Meno ocenenia</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Meno ocenenia</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Založené na vzore</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Založené na vzore</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteResult:quote" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ocenenie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ocenenie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vytvorenie objednávky</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vytvorenie objednávky</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Názov objednávky</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Názov objednávky</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Založené na vzore</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Založené na vzore</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderResult:salesOrder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Objednávka</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Objednávka</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vytvorenie faktúry</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vytvorenie faktúry</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Názov faktúry</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Názov faktúry</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Založené na vzore</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Založené na vzore</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceResult:invoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Faktúra</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Faktúra</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:updateVcard" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktualizácia vCard-y</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktualizácia vCard-y</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:updateVcard:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:updateVcard:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledok</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledok</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

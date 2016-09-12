@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pipeline</_item>
+                      </label>
+                      <toolTip>
+                        <_item>todos los Objetos del Pipeline</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+				  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:contact" _operation="create">
+					<_object>											
+						<toolTip>
+							<_item>Contactos</_item>
+						</toolTip>
+						<label>
+							<_item>Contactos</_item>
+						</label>											
+					</_object>
+					<_content/>
+				  </org.openmdx.ui1.ElementDefinition>                 				  
+				  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:competitor" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Competidores</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Competidores</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:activity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Actividades</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Actividades</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:inventoryCb" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Reservación de inventario</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Reservación de inventario</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Attr:Tab:0:Group:40" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Información de Precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Información de Precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Attr:Tab:0:Group:50" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Información Financiera</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Información Financiera</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:customer" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cuenta</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cuenta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre del contrato</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre del contrato</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:origin" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Origen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Origen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:salesRep" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Representante de Ventas</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Representante de Ventas</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:broker" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Corredor</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Corredor</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:contractNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Número de contrato</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Número de contrato</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>                  
+				  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:contractRole" _operation="create">
+				  <_object>											
+					<toolTip>
+						<_item>Función del contrato</_item>
+					</toolTip>
+					<label>
+						<_item>Función del contrato</_item>
+					</label>											
+				  </_object>
+				  <_content/>
+				  </org.openmdx.ui1.ElementDefinition>	
+				  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:contractState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Prioridad</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Prioridad</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:activeOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Activo/Válido a partir de</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Activo/Válido a partir de</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:expiresOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Expira en</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Expira en</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:cancelOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cancela en</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cancela en</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:closedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cerrado en</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cerrado en</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:pricingRule" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Regla de precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Regla de precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:pricingState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estado de calculo de precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estado de calculo de precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:pricingDate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Fecha de calculo de precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Fecha de calculo de precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:contractCurrency" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Moneda</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Moneda</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:paymentTerms" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Condiciones de Pago</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Condiciones de Pago</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:totalSalesCommission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Comisión de Ventas</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Comisión de Ventas</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:totalBaseAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad Total Base</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad Total Base</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:totalDiscountAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descuento Total</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descuento Total</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:totalAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Total (excl. Impuestos)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Total (excl. Impuestos)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:totalTaxAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Impuesto Total</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Impuesto Total</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:totalAmountIncludingTax" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Total (incl. Impuestos)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Total (incl. Impuestos)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Op:Tab:createPosition" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Crear Posición</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Crear Posición</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Op:Tab:createPosition:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Entrada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Entrada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre-Pos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre de la Posición</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionParams:quantity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionParams:uom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unidad de Medida</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unidad de Medida</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionParams:product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionParams:pricingDate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Fecha de calculo de precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Fecha de calculo de precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionParams:pricingRule" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Regla de precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Regla de precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionParams:priceUom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unidad de Medida (precio)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unidad de Medida (precio)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Op:Tab:createPosition:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CreatePositionResult:position" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Posición</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Posición</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Op:Tab:reprice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Recalculo de precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Recalculo de precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Op:Tab:reprice:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Entrada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Entrada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContract:Pane:Op:Tab:reprice:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:isDefault" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Es por defecto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Es por defecto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:Pane:Op:Tab:getPositionAmounts:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Entrada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Entrada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsParams:position" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Posición</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Posición</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:Pane:Op:Tab:getPositionAmounts:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:baseAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad Base</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad Base</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:discountAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad de Descuento</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad de Descuento</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:taxAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Impuesto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Impuesto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:amount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:statusCode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estatus</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estatus</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:statusMessage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mensaje de Estatus</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mensaje de Estatus</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:Pane:Op:Tab:getContractAmounts:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Entrada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Entrada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:contract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Contrato</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Contrato</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:lineItemNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pos-#</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pos-#</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:positionBaseAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad Base</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad Base</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:positionDiscountAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad de Descuento</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad de Descuento</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:positionTaxAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Impuesto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Impuesto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:positionAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:salesCommissionIsPercentage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Comisión de Vetnas en %</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Comisión de Vetnas en %</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsParams:salesCommission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Comisión de Ventas</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Comisión de Ventas</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:Pane:Op:Tab:getContractAmounts:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:totalBaseAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad Total Base</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad Total Base</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:totalDiscountAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descuento Total</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descuento Total</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:totalTaxAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Impuesto Total</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Impuesto Total</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:totalAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Total (excl. Impuestos)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Total (excl. Impuestos)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:totalAmountIncludingTax" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Total (incl. Impuestos)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Total (incl. Impuestos)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:totalSalesCommission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Comisión de Ventas</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Comisión de Ventas</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:statusCode" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estatus</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estatus</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetContractAmountsResult:statusMessage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mensaje de Estatus</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mensaje de Estatus</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

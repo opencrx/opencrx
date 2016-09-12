@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.3.1_11" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="1">
+				<void index="0">
+					<string>org:opencrx:kernel:product1:Segment:priceLevel</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="2">
+				<!-- Active price levels validFromMatches && validToMatches where boolean validFromMatches = (l.getValidFrom() == null) || l.getValidFrom().compareTo(today) <= 0; boolean validToMatches = (l.getValidTo() == null) || l.getValidTo().compareTo(today) >= 0; -->
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>priceLevel:0</string>
+						</void>
+						<void property="iconKey">
+							<string>spacer.gif</string>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS (SELECT 0 FROM OOCKE1_PRICELEVEL pl WHERE (pl.object_id = v.object_id) and ((pl.valid_from is null) or (pl.valid_from &lt; current_timestamp)) and ((pl.valid_to is null) or (pl.valid_to &gt; current_timestamp)))</string>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<!-- Root PriceLevel (basedOn == NULL) -->
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Root Level</string>
+						</void>
+						<void property="iconKey">
+							<string>spacer.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short>
+										</void>
+										<void property="feature">
+											<string>basedOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="org.openmdx.base.naming.Path" length="0" />
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

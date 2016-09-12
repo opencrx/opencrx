@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.3.1_11" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="4">
+				<void index="0">
+					<string>org:opencrx:kernel:account1:Contact:member</string>
+				</void>
+				<void index="1">
+					<string>org:opencrx:kernel:account1:LegalEntity:member</string>
+				</void>
+				<void index="2">
+					<string>org:opencrx:kernel:account1:UnspecifiedAccount:member</string>
+				</void>
+				<void index="3">
+					<string>org:opencrx:kernel:account1:Group:member</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="3">
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>member</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>member:9999</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short>  <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+
+				<void index="2">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>+ Members with non-unique account reference (</string>
+						</void>
+						<void property="iconKey">
+							<string>ActivityCategory.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>+ Members with non-unique account references (duplicates)</string>
+								</void>
+								<void index="1">
+									<string>+ Mitglieder mit nicht einzigartiger Kontakt-Referenz (Duplikate)</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>account</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS (
+											  select 0 from oocke1_accountassignment acctass
+											  where v.p$$parent = acctass.p$$parent
+											  and v.account = acctass.account
+											  and v.object_id &lt;&gt; acctass.object_id
+											  and ( /* current entry disabled or (both current and duplicate enabled) */
+											    v.disabled = '1' OR
+											    ((v.disabled is null OR v.disabled = '0') and (acctass.disabled is null OR acctass.disabled = '0'))
+											  )
+										)</string>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

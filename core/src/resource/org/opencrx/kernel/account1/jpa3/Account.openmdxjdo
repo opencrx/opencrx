@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.account1.jpa3">
+    <class name="Account" table="OOCKE1_ACCOUNT">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>    
+		<field name="segment" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>    
+		<field name="assignedActivity" visibility="cci">
+			<join table="OOCKE1_JOIN_ACCTHASASSACT"/>
+		</field>
+		<field name="assignedContract" visibility="cci">
+			<join table="OOCKE1_JOIN_ACCTHASASSCONTR"/>
+		</field>
+		<field name="assignedBudget" visibility="cci">
+			<join table="OOCKE1_JOIN_ACCTHASASSBUDGET"/>
+		</field>
+		<field name="product" visibility="cci">
+			<join table="OOCKE1_JOIN_ACCTHASPROD"/>
+		</field>
+		<field name="assignedAddress" visibility="cci">
+			<join table="OOCKE1_JOIN_ACCTHASASSADDRESS"/>
+		</field>			
+		<field name="vcard" visibility="cci">
+			<column name="VCARD" jdbc-type="CLOB"/>
+		</field>				
+	</class>
+  </package>
+</openmdxjdo>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:opencrx:kernel:code1" xsi:noNamespaceSchemaLocation="xri://+resource/org/opencrx/kernel/code1/xmi1/code1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.opencrx.kernel.code1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<valueContainer>
+									<org.opencrx.kernel.code1.CodeValueContainer name="salesorderState" _operation="set">
+										<_object>
+											<name>
+												<_item>salesorderState</_item>
+												<_item>org:opencrx:kernel:contract1:SalesOrder:contractState</_item>
+												<_item>org:opencrx:kernel:contract1:SalesOrderMarkAsClosedParams:salesOrderState</_item>
+												<_item>org:opencrx:kernel:contract1:SalesOrderPosition:contractPositionState</_item>
+											</name>
+										</_object>
+										<_content>
+											<entry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="0" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>open.gif</iconKey>
+														<shortText>
+															<_item>--none--</_item>
+														</shortText>
+														<longText>
+															<_item>--none--</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="400" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>open.gif</iconKey>
+														<shortText>
+															<_item>draft / in progress</_item>
+														</shortText>
+														<longText>
+															<_item>[01] Open / Draft / in progress</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="410" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>open.gif</iconKey>
+														<shortText>
+															<_item>in progress</_item>
+														</shortText>
+														<longText>
+															<_item>[02] Open / in progress</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="420" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>open.gif</iconKey>
+														<shortText>
+															<_item>open</_item>
+														</shortText>
+														<longText>
+															<_item>[03] Open</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="430" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>open.gif</iconKey>
+														<shortText>
+															<_item>on hold / pending</_item>
+														</shortText>
+														<longText>
+															<_item>[04]-a Open / on hold / pending</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="440" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>open.gif</iconKey>
+														<shortText>
+															<_item>on hold / in progress</_item>
+														</shortText>
+														<longText>
+															<_item>[04]-b Open / on hold / in progress</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="1410" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>closed.gif</iconKey>
+														<shortText>
+															<_item>won or next stage</_item>
+														</shortText>
+														<longText>
+															<_item>[05] Closed / won or next stage</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="1420" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>closed.gif</iconKey>
+														<shortText>
+															<_item>lost</_item>
+														</shortText>
+														<longText>
+															<_item>[06] Closed / lost</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="1430" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>closed.gif</iconKey>
+														<shortText>
+															<_item>out-sold</_item>
+														</shortText>
+														<longText>
+															<_item>[07] Closed / out-sold</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="1440" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>closed.gif</iconKey>
+														<shortText>
+															<_item>quality issues</_item>
+														</shortText>
+														<longText>
+															<_item>[08] Closed / quality issues</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="1450" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>closed.gif</iconKey>
+														<shortText>
+															<_item>canceled</_item>
+														</shortText>
+														<longText>
+															<_item>[09] Closed / canceled</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="1460" _operation="set">
+													<_object>
+														<color>inherit</color>
+														<backColor>inherit</backColor>
+														<iconKey>closed.gif</iconKey>
+														<shortText>
+															<_item>revised</_item>
+														</shortText>
+														<longText>
+															<_item>[10] Closed / revised</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+											</entry>
+										</_content>
+									</org.opencrx.kernel.code1.CodeValueContainer>
+								</valueContainer>
+							</_content>
+						</org.opencrx.kernel.code1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürünler</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürünler</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:allProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tüm Ürünler Gözlemleme</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tüm Ürünler Gözlemleme</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürünler</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürünler</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:configurationTypeSet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Konfigürasyon Tipleri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Konfigürasyon Tipleri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:productClassification" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Sınıflaması</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Sınıflaması</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:basePrice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Taban Fiyatlar</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Taban Fiyatlar</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:priceUom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Fiyat Ölçü Birimleri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Fiyat Ölçü Birimleri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:classification" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Sınıflamaları</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Sınıflamaları</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:assignedAccount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hesap Atamaları</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hesap Atamaları</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kısa açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kısa açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Durumu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Durumu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün numarası</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Ürün #</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Ürün numarası</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:activeOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Etkin/Geçerli ; &apos;den beri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Etkin/Geçerli ; &apos;den beri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:expiresOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Geçersizlik başlangıç tarihi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>6&apos;den Başlayarak Geçersiz</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultPriceLevel" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Fiyat Düzeyi Öndeğeri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Fiyat Düzeyi Öndeğeri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:salesTaxType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Satış Vergisi Tipi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Satış Vergisi Tipi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultUom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ölçü Birimi Öndeğeri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ölçü Birimi Öndeğeri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:alternateProductNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Alternatif Ürün #</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Alternatif Ürün #</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productUsage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün kullanımı</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün kullanımı</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:detailedDescription" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:relatedProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İlişkili Ürünler</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İlişkili Ürünler</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:isStockItem" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Stoklanan ürün mü</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Stoklanan ürün mü</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:pictureContent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:picture" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Başlık / Kaynak</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Başlık / Kaynak</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:productDimension" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Boyutu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Boyutu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:grossWeightKilogram" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Brüt Ağırlık (Kg)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Brüt Ağırlık (Kg)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:netWeightKilogram" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Net Ağırlık (Kg)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Net Ağırlık (Kg)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Sınıflaması</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Sınıflaması</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:relationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İlişkiler</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İlişkiler</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Sınıflaması İlişkisi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Sınıflaması İlişkisi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:relationshipTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>a İlişkili</_item>
+                      </label>
+                      <toolTip>
+                        <_item>a İlişkili</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:relationshipType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İlişki Tipi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İlişki Tipi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İlişkili Ürün</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İlişkili Ürün</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:relationshipType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İlişki tipi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İlişki tipi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignmentProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hesap Ataması</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hesap Ataması</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignmentProduct:accountRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rol</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rol</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Attr:Tab:0:Group:15" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:configuration" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Konfigürasyonları</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Konfigürasyonları</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:configType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konfigürasyon tipi</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Konfigürasyon Tipi</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Konfigürasyon tipi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Konfigürasyon Tip Kümesi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Konfigürasyon Tip Kümesi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:configurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konfigürasyon Tipleri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konfigürasyon Tipleri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:isDefault" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ön tanımlı mı?</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ön tanımlı mı?</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:validFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Geçerlilik Başlangıcı</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Geçerlilik Başlangıcı</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:validTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Geçerlilik Sonu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Geçerlilik Sonu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Konfigürasyon Tipi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Konfigürasyon Tipi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün Konfigürasyonu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün Konfigürasyonu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Attr:Tab:0:Group:15" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:configType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konfigürasyon Tipi</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Konfigürasyon Tipi</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Konfigürasyon Tipi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductDescriptor:Pane:Attr:Tab:0:Group:15" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductDescriptor:product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ürün</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ürün</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:Pane:Attr:Tab:10:Group:20" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ek ürün ayrıntıları</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ek ürün ayrıntıları</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:currentConfig" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Güncel Konfigürasyon</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Güncel Konfigürasyon</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Güncel Konfigürasyon</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:productSerialNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Seri no(ları)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Seri no(ları</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Küme Konfigürasyon Tipi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konfigürasyon Tipi Kur</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Giriş</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Giriş</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SetConfigurationTypeParams:configurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konfigürasyon Tipi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konfigürasyon Tipi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Sonuç</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Sonuç</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konfigürasyon Tipi Çöz</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konfigürasyon Tipi Çöz</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Giriş</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Giriş</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Sonuç</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Sonuç</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Konfigürasyon Tipi Çöz</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Konfigürasyon Tipi Çöz</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Giriş</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Giriş</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Sonuç</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Sonuç</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

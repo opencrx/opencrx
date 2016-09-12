@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+				  <formDefinition>
+					  <org.openmdx.ui1.FormDefinition name="CreateProductForm">
+							<_object>
+								<title>
+									<_item>Products</_item>
+								</title>
+								<toolTip>
+									<_item>Products</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="ProductInformation">
+										<_object>
+											<label>
+												<_item>Product</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>5</_item>
+												<_item>10</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="name">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>name</featureName>
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="productState">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>productState</featureName>
+														<order>200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="productNumber">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>productNumber</featureName>
+														<order>300</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="defaultUom">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>defaultUom</featureName>
+														<order>400</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="activeOn">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>activeOn</featureName>
+														<order>500</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="expiresOn">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>expiresOn</featureName>
+														<order>600</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="salesTaxType">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>salesTaxType</featureName>
+														<order>700</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="grossWeightKilogram">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:Product</forClass>
+														<featureName>grossWeightKilogram</featureName>
+														<order>800</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="netWeightKilogram">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:Product</forClass>
+														<featureName>netWeightKilogram</featureName>
+														<order>900</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="productDimension">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:Product</forClass>
+														<featureName>productDimension</featureName>
+														<order>1000</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="DescriptionInformation">
+										<_object>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>20</order>
+											<columnBreakAtElement>
+												<_item>2</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="description">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>description</featureName>
+														<spanRow>6</spanRow>
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="detailedDescription">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProduct</forClass>
+														<featureName>detailedDescription</featureName>
+														<spanRow>6</spanRow>
+														<order>200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+											</formFieldDefinition>										
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>
+						<org.openmdx.ui1.FormDefinition name="ProductBasePriceForm">
+							<_object>
+								<title>
+									<_item>Product Price</_item>
+								</title>
+								<toolTip>
+									<_item>Product Price</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="ProductBasePriceInformation">
+										<_object>
+											<label>
+												<_item>Product Price</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>4</_item>
+												<_item>8</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="usage">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProductPrice</forClass>
+														<featureName>usage</featureName>
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="priceLevel">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractPriceLevel</forClass>
+														<featureName>basedOn</featureName>
+														<order>200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="price">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProductPrice</forClass>
+														<featureName>price</featureName>
+														<order>300</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="quantityFrom">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProductPrice</forClass>
+														<featureName>quantityFrom</featureName>
+														<order>400</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="quantityTo">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProductPrice</forClass>
+														<featureName>quantityTo</featureName>
+														<order>500</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="discountIsPercentage">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProductPrice</forClass>
+														<featureName>discountIsPercentage</featureName>
+														<order>600</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="discount">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:AbstractProductPrice</forClass>
+														<featureName>discount</featureName>
+														<order>700</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>												
+				  </formDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

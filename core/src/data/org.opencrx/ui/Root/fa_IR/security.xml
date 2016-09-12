@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سیاستهای امنیتی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سیاستهای امنیتی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Segment:policy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سیاستها</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سیاستها</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سیاست</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سیاست</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>سیاست</_item>
+                      </label>
+                      <toolTip>
+                        <_item>سیاست</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نام </_item>
+                      </label>
+                      <toolTip>
+                        <_item>نام</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:parent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>منشا</_item>
+                      </label>
+                      <toolTip>
+                        <_item>منسا</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Privilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ModelClassPrivilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدل کلاس دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدل کلاس دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ModelReferencePrivilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدل مرجع دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدل مرجع دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ResourcePrivilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>منبع دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>منبع دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  -->
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نام</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نام</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:action" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>فعالیت</_item>
+                      </label>
+                      <toolTip>
+                        <_item>فعالیت</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Policy:role" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نقشها</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نقشها</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Policy:privilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>دسترسیها</_item>
+                      </label>
+                      <toolTip>
+                        <_item>دسترسیها</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ModelReferencePrivilege:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مرجع دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مرجع دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ModelReferencePrivilege:filter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>فیلتر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>فیلتر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>قلمروهای امنیتی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>قلمروهای امنیتی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Segment:realm" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>قلمروها</_item>
+                      </label>
+                      <toolTip>
+                        <_item>قلمروها</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:Segment:subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>کاربران و گروههای کاربران</_item>
+                      </label>
+                      <toolTip>
+                        <_item>کاربران و گروههای کاربران</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>قلمرو</_item>
+                      </label>
+                      <toolTip>
+                        <_item>قلمرو</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نام</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نام</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدیر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدیر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:securityContext" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>زمینه امنیتی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>زمینه امنیتی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدیر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدیر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدیر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدیر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نام</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نام</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عنوان</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عنوان</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:disabled" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>غیرفعال</_item>
+                      </label>
+                      <toolTip>
+                        <_item>غیرفعال</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عضو گروههای مدیریتی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عضو گروههای مدیریتی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>صحت اعتبارنامه</_item>
+                      </label>
+                      <toolTip>
+                        <_item>صحت اعتبارنامه</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:Principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدیر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدیر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:PrincipalGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه مدیریت</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه مدیریت</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:PrincipalGroup:subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:PrincipalGroup:grantedRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نقشهای اعطا شده</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نقشهای اعطا شده</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:Principal:grantedRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نقشهای اعطا شده</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نقشهای اعطا شده</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نقش</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نقش</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نقش</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نقش</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نام</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نام </_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:scope" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>محدوده</_item>
+                      </label>
+                      <toolTip>
+                        <_item>محدوده</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:disabled" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>غیر فعال</_item>
+                      </label>
+                      <toolTip>
+                        <_item>غیر فعال</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدیرها</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدیرها</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:permission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مجوزها</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مجوزها</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مجوز</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مجوز</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مجوز</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مجوز</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نام</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نام</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:action" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>فعالیت</_item>
+                      </label>
+                      <toolTip>
+                        <_item>فعالیت</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:privilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>دسترسی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>دسترسی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عنوان</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عنوان</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عنوان</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عنوان</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدیران</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدیران</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>اعتبارنامه ها</_item>
+                      </label>
+                      <toolTip>
+                        <_item>اعتبارنامه ها</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عنوان</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عنوان</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>مدیران</_item>
+                      </label>
+                      <toolTip>
+                        <_item>مدیران</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group:grantedRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نقشهای اعطاشده</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نقشهای اعطاشده</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group:credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>صحت اعتبارنامه</_item>
+                      </label>
+                      <toolTip>
+                        <_item>صحت اعتبارنامه</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عضو گروههای کاربران</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عضو گروههای کاربران</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه داخلی کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه داخلی کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه داخلی کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه داخلی کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup:exportedTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ارسال شده به</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ارسال شده به</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عضو گروههای کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عضو گروههای کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:ImportedUserGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گروه کاربر وارد شده</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گروه کاربر وارد شده</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:correlation" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>تماس</_item>
+                      </label>
+                      <toolTip>
+                        <_item>تماس</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>توضیحات</_item>
+                      </label>
+                      <toolTip>
+                        <_item>توضیحات</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>عضو گروههای کاربر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>عضو گروههای کاربر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>اعتبارنامه</_item>
+                      </label>
+                      <toolTip>
+                        <_item>اعتبارنامه</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Credential:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>اعتبارنامه</_item>
+                      </label>
+                      <toolTip>
+                        <_item>اعتبارنامه</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>رمز عبور</_item>
+                      </label>
+                      <toolTip>
+                        <_item>رمز عبور</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>رمز عبور</_item>
+                      </label>
+                      <toolTip>
+                        <_item>رمز عبور</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:locked" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>قفل شده</_item>
+                      </label>
+                      <toolTip>
+                        <_item>قفل شده</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Certificate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>گواهی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>گواهی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:ChallengeResponse" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>واکنش رقابت</_item>
+                      </label>
+                      <toolTip>
+                        <_item>واکنش رقابت</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:validate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>معتبر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>معتبر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:change" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>تغییر</_item>
+                      </label>
+                      <toolTip>
+                        <_item>تغییر</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>تعیین رمز عبور</_item>
+                      </label>
+                      <toolTip>
+                        <_item>تعیین رمز عبور</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ورودی</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ورودی</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نتیجه</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نتیجه</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set:token" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>نشانه</_item>
+                      </label>
+                      <toolTip>
+                        <_item>نشانه</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set:newPassword" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>رمز عبور جدید</_item>
+                      </label>
+                      <toolTip>
+                        <_item>رمز عبور جدید</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

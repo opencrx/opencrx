@@ -1,0 +1,54 @@
+digraph "Diagram Membership [Package org:opencrx:kernel:account1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:Account,compartments=false,width=15]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:generic:UserDefined,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:AccountMembership,compartments=true,width=9]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:Member,compartments=true,width=6]};
+	  ${CLASS[name=org:opencrx:kernel:account1:AccountAssignment,compartments=true]};
+	}
+
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountHasAccountMembership,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:MembershipIsBasedOnMember,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountIsDuplicateOfAccount,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:AccountHasPartner,style=invis]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

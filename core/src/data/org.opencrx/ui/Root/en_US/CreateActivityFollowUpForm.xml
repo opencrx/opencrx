@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <formDefinition>
+                  <org.openmdx.ui1.FormDefinition name="doFollowUpForm">
+                    <_object>
+                      <title>
+                        <_item>Follow up</_item>
+                      </title>
+                      <toolTip>
+                        <_item>Follow up</_item>
+                      </toolTip>
+                    </_object>
+                    <_content>
+                      <formFieldGroupDefinition>
+                        <org.openmdx.ui1.FormFieldGroupDefinition name="FollowUp">
+                          <_object>
+                            <label>
+                              <_item>&amp;nbsp;</_item>
+                            </label>
+                            <order>10</order>
+                          </_object>
+                          <_content>
+                            <formFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="transition">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>transition</featureName>
+                                  <order>100</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="followUpTitle">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>followUpTitle</featureName>
+                                  <order>110</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="followUpText">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>followUpText</featureName>
+                                  <spanRow>10</spanRow>
+                                  <order>120</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="assignTo">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>assignTo</featureName>
+                                  <order>130</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+
+                            </formFieldDefinition>
+                          </_content>
+                        </org.openmdx.ui1.FormFieldGroupDefinition>
+
+                        <org.openmdx.ui1.FormFieldGroupDefinition name="Activity">
+                          <_object>
+                            <label>
+                              <_item>&amp;nbsp;</_item>
+                            </label>
+                            <order>20</order>
+                          </_object>
+                          <_content>
+                            <formFieldDefinition>
+
+                              <org.openmdx.ui1.FormFieldDefinition id="description">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>description</featureName>
+                                  <spanRow>3</spanRow>
+                                  <order>210</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="location">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>location</featureName>
+                                  <order>220</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="priority">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>priority</featureName>
+                                  <order>230</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="dueBy">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>dueBy</featureName>
+                                  <order>240</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                              <org.openmdx.ui1.FormFieldDefinition id="assignedTo">
+                                <_object>
+                                  <forClass>org:opencrx:kernel:activity1:Activity</forClass>
+                                  <featureName>assignedTo</featureName>
+                                  <order>250</order>
+                                </_object>
+                                <_content/>
+                              </org.openmdx.ui1.FormFieldDefinition>
+                            </formFieldDefinition>
+                          </_content>
+                        </org.openmdx.ui1.FormFieldGroupDefinition>
+                      </formFieldGroupDefinition>
+                    </_content>
+                  </org.openmdx.ui1.FormDefinition>
+                </formDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

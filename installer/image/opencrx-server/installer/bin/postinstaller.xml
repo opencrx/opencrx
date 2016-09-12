@@ -1,0 +1,37 @@
+<project
+	name="opencrx-server-postinstaller" 
+	xmlns:antcontrib="antlib:net.sf.antcontrib"
+>
+	<property name="install.path" value="$INSTALL_PATH" />
+	<target name="expand-native">
+		<exec command="unzip ${install.path}/installer/files/apache-tomee-webprofile-1.7.4.zip -d ${install.path}" />
+	</target>
+	<target name="expand-ant">
+		<unzip src="${install.path}/installer/files/apache-tomee-webprofile-1.7.4.zip" dest="${install.path}" />
+	</target>
+	<target name="postinstall">
+		<antcall inheritAll="true" target="${expand.target}"/>
+		<mkdir dir="${install.path}/$TOMEE_BASEDIR/maildir" />
+		<mkdir dir="${install.path}/$TOMEE_BASEDIR/airsyncdir" />
+		<!-- Update conf -->
+		<move file="${install.path}/$TOMEE_BASEDIR/conf/tomee.xml" tofile="${install.path}/$TOMEE_BASEDIR/conf/tomee.orig"/>
+		<copy file="${install.path}/installer/files/tomee.xml" todir="${install.path}/$TOMEE_BASEDIR/conf"/>
+		<move file="${install.path}/$TOMEE_BASEDIR/conf/tomcat-users.xml" tofile="${install.path}/$TOMEE_BASEDIR/conf/tomcat-users.orig"/>
+		<copy file="${install.path}/installer/files/tomcat-users.xml" todir="${install.path}/$TOMEE_BASEDIR/conf"/>
+		<move file="${install.path}/$TOMEE_BASEDIR/conf/server.xml" tofile="${install.path}/$TOMEE_BASEDIR/conf/server.orig"/>
+		<copy file="${install.path}/installer/files/server.xml" todir="${install.path}/$TOMEE_BASEDIR/conf"/>
+		<!-- Update lib -->
+		<copy file="${install.path}/installer/files/catalina-openmdx.jar" todir="${install.path}/$TOMEE_BASEDIR/lib"/>
+		<!-- Update bin -->
+		<copy file="${install.path}/installer/files/setenv.bat" todir="${install.path}/$TOMEE_BASEDIR/bin"/>
+		<copy file="${install.path}/installer/files/setenv.sh" tofile="${install.path}/installer/files/setenv.sh.bak"/>
+		<move file="${install.path}/installer/files/setenv.sh" todir="${install.path}/$TOMEE_BASEDIR/bin"/>
+		<move file="${install.path}/installer/files/setenv.sh.bak" tofile="${install.path}/installer/files/setenv.sh"/>
+		<copy file="${install.path}/installer/files/opencrx.bat" todir="${install.path}/$TOMEE_BASEDIR/bin"/>
+		<copy file="${install.path}/installer/files/opencrx.sh" tofile="${install.path}/installer/files/opencrx.sh.bak"/>
+		<move file="${install.path}/installer/files/opencrx.sh" todir="${install.path}/$TOMEE_BASEDIR/bin"/>
+		<move file="${install.path}/installer/files/opencrx.sh.bak" tofile="${install.path}/installer/files/opencrx.sh"/>
+		<!-- Update apps -->
+		<copy file="${install.path}/installer/files/opencrx-core-CRX.ear" todir="${install.path}/$TOMEE_BASEDIR/apps"/>		
+	</target>
+</project>

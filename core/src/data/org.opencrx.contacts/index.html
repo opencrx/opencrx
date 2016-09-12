@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+<head>
+	<title>CardDavMATE</title>
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--
+CardDavMATE - the open source CardDAV Web Client
+Copyright (C) 2011-2015
+    Jan Mate <jan.mate@inf-it.com>
+    Andrej Lezo <andrej.lezo@inf-it.com>
+    Matej Mihalik <matej.mihalik@inf-it.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+	<link rel="stylesheet" href="css/jquery-ui.custom.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.tagsinput.css" type="text/css" />
+	<link rel="stylesheet" href="css/spectrum.custom.css" type="text/css" />
+	<link rel="stylesheet" href="css/default.css" type="text/css" />
+	<script src="cache_handler.js" type="text/javascript"></script>
+	<script src="lib/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="lib/jquery.browser.js" type="text/javascript"></script>
+	<script src="lib/jquery.autosize.js" type="text/javascript"></script>
+	<script src="lib/jquery-ui-1.11.4.custom.js" type="text/javascript"></script>
+	<script src="lib/jquery.quicksearch.js" type="text/javascript"></script>
+	<script src="lib/jquery.placeholder-1.1.9.js" type="text/javascript"></script>
+	<script src="lib/jshash-2.2_sha256.js" type="text/javascript"></script>
+	<script src="lib/jquery.tagsinput.js" type="text/javascript"></script>
+	<script src="lib/spectrum.js" type="text/javascript"></script>
+	<script src="config.js" type="text/javascript"></script>
+	<script src="common.js" type="text/javascript"></script>
+	<script src="webdav_protocol.js" type="text/javascript"></script>
+	<script src="localization.js" type="text/javascript"></script>
+	<script src="interface.js" type="text/javascript"></script>
+	<script src="vcard_rfc_regex.js" type="text/javascript"></script>
+	<script src="resource.js" type="text/javascript"></script>
+	<script src="addressbook.js" type="text/javascript"></script>
+	<script src="data_process.js" type="text/javascript"></script>
+	<script src="main.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="cacheDialog">
+		<div id="cacheDialogText">newer version detected!</div>
+		<div id="cacheDialogButtonWrapper">
+			<input id="cacheDialogButton" type="button" value="refresh" onclick="window.location.reload()"/>
+		</div>
+	</div>
+	<div id="MainLoader">
+		<div id="MainLoaderInner" class="loaderInfo">Loading ...</div>
+		<div class="loader"></div>
+	</div>
+	<div id="LoginPage" style="opacity: 1; display:none">
+		<div class="window">
+			<div id="Login">
+				<form onsubmit="return false;">
+					<table>
+						<tr>
+							<td data-size="login_logo"><img data-type="system_logo" src="" alt="Logo" /></td>
+						</tr>
+						<tr>
+							<td data-size="login_input"><input data-type="system_username" type="text" class="fs" autocomplete="off" placeholder="Login" /></td>
+						</tr>
+						<tr>
+							<td data-size="login_input"><input data-type="system_password" type="password" class="fs" autocomplete="off" placeholder="Password" /></td>
+						</tr>
+						<tr>
+							<td data-size="login">
+								<select data-type="language" onchange="if($(this).val()!=''){globalInterfaceLanguage=$(this).find('option').filter(':selected').attr('data-type');resetSettings();if(isAvaible('CalDavZAP') && !isCalDAVLoaded)localizeCalDAV();if(isAvaible('CardDavMATE') && !isCardDAVLoaded)localizeCardDAV();if(isAvaible('Settings') && !isSettingsLoaded)localizeSettings();if(isAvaible('Projects') && !isProjectsLoaded)localizeProjects();}">
+									<option data-type=""> </option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><img data-type="system_login" alt="login" title="login" src="images/login.svg" onclick="if(event.shiftKey)ignoreServerSettings=true;login();" /></td>
+						</tr>
+						<tr style="display:none">
+							<td><input type="submit"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<div id="login_message" style="display: none;"></div>
+			<div id="LoginLoader">
+				<div class="loader"></div>
+			</div>
+		</div>
+		<div class="footer">This is SOFTWARE!!!</div>
+	</div>
+	<div class="integration_d">
+		<div id="intCarddav" title="addressbook" onclick="checkForApplication('CardDavMATE');">
+			<img class="int_error" src="images/error_badge.svg" alt="error" />
+		</div>
+		<div class="intBlank"></div>
+		<div id="intRefresh" title="refresh" onclick="reloadResources();"></div>
+		<div class="intBlank"></div>
+		<div id="intLogout" title="logout" onclick="logout();"></div>
+	</div>
+	<div class="System" id="SystemCardDavMATE">
+		<div class="update_d" style="display: none;">
+			<div class="update_h"></div>
+		</div>
+		<div class="resourcesCardDAV_d">
+			<div data-type="resourcesCardDAV_txt" class="resourcesCardDAV_h">Resources</div>
+			<img id="showUnloadedAddressbooks" src="images/delegation.svg" alt="Subscribe" title="Subscribe" onclick="showUnloadedCardDAVCollections();" />
+			<input id="Logout" style="display: none;" data-url="" class="system_l" type="image" src="images/logout.svg" alt="Logout" title="Logout" onclick="logout();" />
+			<input id="loadUnloadedAddressbooks" type="button" value="save" onclick="loadAdditionalCardDAVCollections()" style="margin-top:4px;margin-left:6px;" />
+			<input id="loadUnloadedAddressbooksCancel" type="button" value="cancel" onclick="cancelUnloadedCardDAVCollections();" style="margin-top:4px;margin-right:6px;float:right;" />
+		</div>
+		<div class="collection_d">
+			<input id="ResourceCardDAVToggle" type="image" src="images/resources.svg" alt="Show/Hide Resources" />
+			<input id="AddContact" disabled="disabled" data-account-uid="" data-url="" data-filter-url="" data-color="" class="collection_a element_no_display" type="image" src="images/new_item.svg" alt="Add Contact" title="Add Contact" onclick="
+			if($('#vCardEditor').attr('data-editor-state')!='edit')
+			{
+				$('#ResourceCardDAVListOverlay').fadeTo(globalEditorFadeAnimation, 0.6);
+				$('#ABListOverlay').fadeTo(globalEditorFadeAnimation, 0.6);
+				globalRefABListTable.find('.ablist_item.ablist_item_selected').removeClass('ablist_item_selected');
+				globalAddressbookList.loadContactByVcard('BEGIN:VCARD\r\nVERSION:3.0\r\n'+(typeof globalGroupContactsByCompanies!='undefined' && globalGroupContactsByCompanies===true ? 'X-ABShowAs:company\r\n' : '')+'FN:\r\nN:;;;;\r\nEND:VCARD\r\n', this.getAttribute('data-color'), true, 'add');
+
+				$('#vCardEditor').attr('data-editor-state','edit');
+				$('#vCardEditor').attr({'data-account-uid': this.getAttribute('data-account-uid'), 'data-url': this.getAttribute('data-url')});
+				$('#vCardEditor').find('[data-type=cancel]').attr('data-id', globalAddressbookList.getLoadedContactUID());
+// todo: move to the processEditor* ?
+				if(typeof globalContactsExtEditorProcess =='function')
+					$('#vCardEditor').find('[data-type=org]').focus();
+				else
+					$('#vCardEditor').find('[data-type=given]').focus();
+				$('#ABContact').scrollTop(0);
+			}" />
+		</div>
+		<div class="contact_d">
+			<div data-type="contact_txt" class="contact_h">Contact</div>
+		</div>
+		<div id="ResourceCardDAVList">
+			<div id="ResourceCardDAVListTemplate" style="display: none;">
+				<div class="resourceCardDAV_header"><input type="checkbox"></div>
+				<div class="resourceCardDAV_item">
+					<div class="resourceCardDAV"><div class="resourceCardDAVColor"></div><input type="text" class="colorPicker"/><input type="checkbox" data-ind="false"></div>
+					<div class="contact_group">
+						<div class="group" style="display: none;"><div class="resourceCardDAVGroupColor"></div><input type="checkbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="ResourceCardDAVListOverlay"></div>
+		<div id="AddressbookOverlay">
+			<div class="loaderInfo">Addressbooking ...</div>
+			<div class="loader"></div>
+		</div>
+		<div id="SearchBox">
+			<img data-type="invalid" style="position: inline; margin-top: 0px; margin-top: 4px; margin-left: 8px; vertical-align: top;" src="images/search.svg" alt="invalid" />
+			<div class="container">
+				<input data-type="search" type="text" placeholder="Search" size="45" value="" />
+			</div>
+			<img data-type="reset" style="display: none; position: absolute; margin-top: 5px; right: 9px; vertical-align: top; cursor: pointer;" src="images/reset_b.svg" alt="reset" onclick="$('#ABInMessage').height(0);hideNotVisibleMessage();if(globalQs!=null){$('[data-type=search]').val(''); globalQs.search('');}" />
+		</div>
+		<div id="ABList">
+			<table id="ABListTable">
+				<colgroup>
+					<col class="ablist_column_color" />
+				</colgroup>
+				<tbody>
+					<tr class="ablist_table_header">
+						<th></th>
+					</tr>
+					<tr class="ablist_table_container">
+						<td>
+							<div class="ablist_table_wrapper">
+								<table id="ABListTableInner">
+									<colgroup>
+										<col class="ablist_column_color" />
+									</colgroup>
+									<tbody>
+										<tr class="ablist_header" style="display: none;">
+											<td></td>
+										</tr>
+										<tr class="ablist_item" style="display: none;">
+											<td class="ablist_item_color"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="ABListOverlay"></div>
+		<div id="ABContactColor"></div>
+		<div id="ABMessage">
+			<div id="ABMessageText"></div>
+		</div>
+		<div id="ABContact">
+			<div id="vCardTemplate">
+				<div id="ABInMessage">
+					<div id="ABInMessageText">
+					</div>
+				</div>
+				<div id="ABInMessageEditBox" >
+					<div id="ABInMessageTextEditBox">
+					</div>
+				</div>
+				<div id="EditorBox" style="display: none;">
+					<table id="vCardEditor" data-url="" data-etag="" data-editor-state="show">
+						<tr>
+							<td class="opw zero_height">
+							</td>
+							<td class="opw zero_height">
+							</td>
+							<td class="type zero_height">
+							</td>
+							<td colspan="2" class="zero_height">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5" class="clean">
+								<table style="margin-bottom:10px">
+									<tr>
+										<td data-attr-name="PHOTO" rowspan="10" class="photo_box">
+											<div class="photo_div">
+												<canvas id="photo" data-type="photo" class="photo photo_user photo_blank" onclick="if($(this).parent().find('#photo_drag').css('display')!='none'){if(event.shiftKey){showPhotoBox(event);}else{$('#upload_file').trigger('click');}}">Photo</canvas>
+												<img id="photo_drag" data-type="photo_drag" class="photo_drag" style="position: absolute; left: 0px; top: 0px; display: none; pointer-events: none;" src="images/drag.svg" alt="" /><img id="reset_img" data-type="reset_img" style="position: absolute; top: 10px; left: 140px; vertical-align: top; cursor: pointer; display: none;" src="images/reset_b.svg" alt="remove" onclick="vCard.tplM['contentline_PHOTO'][0]=null; $('#upload_file, #photoURL, #photoURLHidden').val('');$(this).css('display', 'none'); $('#photo').addClass('photo_blank'); var canvasElement=$('#photo').get(0); canvasElement.getContext('2d').clearRect(0,0,canvasElement.width,canvasElement.height);">
+												<div style="width: 0px !important; height: 0px !important; overflow: hidden !important; top: -20px !important; left: -20px !important;"><input type="file" id="upload_file" name="upload_file" accept="image/*" /></div>
+											</div>
+											<div id="photoArrow"></div>
+											<div id="photoBox">
+												<h1>remote image url</h1>
+												<div id="photoBoxContent">
+													<form onsubmit="return false;">
+														<input type="text" id="photoURL" autocomplete="off" />
+														<img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -22px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid">
+														<input type="hidden" id="photoURLHidden" autocomplete="off" />
+														<input type="submit" id="photoBoxButton" value="OK" />
+													</form>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr data-type="DEST">
+										<td colspan="4" data-size="full"><span><select data-type="xfull_type" data-attr-name="_DEST_"></select></span></td>
+									</tr>
+									<tr>
+										<td style="padding-top: 1px;" colspan="2"><input data-type="given" type="text" class="hs" placeholder="FirstName" value="" /></td>
+										<td style="padding-top: 1px;" colspan="2"><input data-type="family" type="text" class="hs" placeholder="LastName" value="" /></td>
+									</tr>
+									<tr>
+										<td colspan="2"><input data-type="middle" type="text" class="hs" placeholder="MiddleName" value="" /></td>
+										<td data-attr-name="NICKNAME" colspan="2"><input data-type="nickname" type="text" class="hs" placeholder="NickName" value="" /></td>
+									</tr>
+									<tr>
+										<td><input data-type="prefix" type="text" style="width:94px" placeholder="Prefix" value="" /></td>
+										<td><input data-type="suffix" type="text" style="width:95px" placeholder="Suffix" value="" /></td>
+										<td data-attr-name="BDAY" colspan="2">
+											<input data-type="date_bday" type="text" class="hs" placeholder="BirthDay" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr>
+										<td data-attr-name="X-PHONETIC-FIRST-NAME" colspan="2">
+											<input data-type="ph_firstname" type="text" class="hs" placeholder="PhoneticFirstName" value="" />
+										</td>
+										<td data-attr-name="X-PHONETIC-LAST-NAME" colspan="2">
+											<input data-type="ph_lastname" type="text" class="hs" placeholder="PhoneticLastName" value="" />
+										</td>
+									</tr>
+									<tr data-attr-name="TITLE">
+										<td colspan="4"><input data-type="title" type="text" class="fs" placeholder="JobTitle" value="" /></td>
+									</tr>
+
+									<tr data-attr-name="ORG">
+										<td colspan="4"><input data-type="org" type="text" class="fs" placeholder="Company" size="45" value="" /></td>
+									</tr>
+									<tr data-attr-name="ORG">
+										<td colspan="4"><input data-type="department" type="text" class="fs" placeholder="Department" size="45" value="" /></td>
+									</tr>
+									<tr data-attr-name="X-Flags" class="heightfix">
+										<td data-attr-name="X-ABShowAs" class="heightfix" colspan="2">
+											<label class="element_grayed">
+												<input data-type="isorg" type="checkbox" onclick="$('#photo').toggleClass('photo_user photo_company');" /><span data-type="company_contact">Company Contact</span>
+											</label>
+										</td>
+										<td data-attr-name="X-BOOLEAN" class="heightfix" colspan="2">
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr data-attr-name="TEL">
+							<td data-type="phone_txt" colspan="5" class="attr_desc">Phone</td>
+						</tr>
+						<tr data-attr-name="TEL" data-type="%phone" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="phone_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type="work">work</option>
+									<option data-type="home">home</option>
+									<option data-type="cell">mobile</option>
+									<option data-type="cell,work">work mobile</option>
+									<option data-type="cell,home">home mobile</option>
+									<option data-type="main">main</option>
+									<option data-type="pager">pager</option>
+									<option data-type="fax">fax</option>
+									<option data-type="fax,work">work fax</option>
+									<option data-type="fax,home">home fax</option>
+									<option data-type="iphone">iPhone</option>
+									<option data-type="other">other</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td colspan="2" onmouseover="if(globalSettings.urihandlertel.value!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
+								<input data-type="value" type="text" class="fs" placeholder="Phone" value="" /><input data-type="value_handler" style="position: inline; margin-left: -17px; visibility: hidden; vertical-align: top;" type="image" src="images/arrow.svg" alt=">" onclick="if(globalSettings.urihandlertel.value!=null) { parent.location=globalSettings.urihandlertel.value+$(this).parent().find('input[data-type=value]').val(); $(this).css('visibility','hidden');}" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+							</td>
+						</tr>
+						<tr data-attr-name="EMAIL">
+							<td data-type="email_txt" colspan="5" class="attr_desc">Email</td>
+						</tr>
+						<tr data-attr-name="EMAIL" data-type="%email" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="email_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type="internet,work">work</option>
+									<option data-type="home,internet">home</option>
+									<option data-type=":mobileme:,internet">mobileMe</option>
+									<option data-type=":_$!<other>!$_:,internet">other</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td colspan="2" onmouseover="if(globalSettings.urihandleremail.value!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
+								<input data-type="value" type="text" class="fs" placeholder="Email" value="" /><input data-type="value_handler" style="position: inline; margin-left: -17px; visibility: hidden; vertical-align: top;" type="image" src="images/arrow.svg" alt=">" onclick="if(globalSettings.urihandleremail.value!=null) { parent.location=globalSettings.urihandleremail.value+$(this).parent().find('input[data-type=value]').val(); $(this).css('visibility','hidden');}" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+							</td>
+						</tr>
+						<tr data-attr-name="URL">
+							<td data-type="url_txt" colspan="5" class="attr_desc">URL</td>
+						</tr>
+						<tr data-attr-name="URL" data-type="%url" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="url_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type="work">work</option>
+									<option data-type="home">home</option>
+									<option data-type=":_$!<homepage>!$_:">homePage</option>
+									<option data-type=":_$!<other>!$_:">other</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td colspan="2" onmouseover="if(globalSettings.urihandlerurl.value!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[data-type=value]').val()!='' && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
+								<input data-type="value" type="text" class="fs" placeholder="URL" value="" /><input data-type="value_handler" style="position: inline; margin-left: -17px; visibility: hidden; vertical-align: top;" type="image" src="images/arrow.svg" alt=">" onclick="if(globalSettings.urihandlerurl.value!=null){var value=$(this).parent().find('input[data-type=value]').val(); if(value.match(RegExp('^[a-z0-9]+:','i'))==null) value=globalSettings.urihandlerurl.value+value; window.open(value); $(this).css('visibility','hidden');}" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+							</td>
+						</tr>
+						<tr data-attr-name="X-ABRELATEDNAMES">
+							<td data-type="related_txt" colspan="5" class="attr_desc">Related</td>
+						</tr>
+						<tr data-attr-name="X-ABRELATEDNAMES" data-type="%person" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="person_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type=":_$!<manager>!$_:">manager</option>
+									<option data-type=":_$!<assistant>!$_:">assistant</option>
+									<option data-type=":_$!<father>!$_:">father</option>
+									<option data-type=":_$!<mother>!$_:">mother</option>
+									<option data-type=":_$!<parent>!$_:">parent</option>
+									<option data-type=":_$!<brother>!$_:">brother</option>
+									<option data-type=":_$!<sister>!$_:">sister</option>
+									<option data-type=":_$!<child>!$_:">child</option>
+									<option data-type=":_$!<friend>!$_:">friend</option>
+									<option data-type=":_$!<spouse>!$_:">spouse</option>
+									<option data-type=":_$!<partner>!$_:">partner</option>
+									<option data-type=":_$!<other>!$_:">other</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td colspan="2"><input data-type="value" type="text" class="fs" placeholder="Name" value="" /></td>
+						</tr>
+						<tr data-attr-name="IMPP">
+							<td data-type="im_txt" colspan="5" class="attr_desc">IM</td>
+						</tr>
+						<tr data-attr-name="IMPP" data-type="%im" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="im_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type="work">work</option>
+									<option data-type="home">home</option>
+									<option data-type=":mobileme:">mobileMe</option>
+									<option data-type=":_$!<other>!$_:">other</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td><input data-type="value" type="text" class="ms" placeholder="UserID" value="" /></td>
+							<td data-size="small" style="width: 139px; /* FF hack */">
+								<select data-type="im_service_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type="aim">AIM</option>
+									<option data-type="icq">ICQ</option>
+									<option data-type="irc">IRC</option>
+									<option data-type="jabber">Jabber</option>
+									<option data-type="msn">MSN</option>
+									<option data-type="yahoo">Yahoo</option>
+									<option data-type="facebook">Facebook</option>
+									<option data-type="gadugadu">GaduGadu</option>
+									<option data-type="googletalk">GoogleTalk</option>
+									<option data-type="qq">QQ</option>
+									<option data-type="skype">Skype</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+						</tr>
+						<tr data-attr-name="X-SOCIALPROFILE">
+							<td data-type="profile_txt" colspan="5" class="attr_desc">Profile</td>
+						</tr>
+						<tr data-attr-name="X-SOCIALPROFILE" data-type="%profile" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="profile_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type="twitter">twitter</option>
+									<option data-type="facebook">facebook</option>
+									<option data-type="flickr">flickr</option>
+									<option data-type="linkedin">linkedin</option>
+									<option data-type="myspace">myspace</option>
+									<option data-type="sinaweibo">sina weibo</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td colspan="2" onmouseover="if(globalSettings.urihandlerprofile.value[$(this).parent().find('[data-type=profile_type] option').filter(':selected').attr('data-type')]!=undefined && globalSettings.urihandlerprofile.value[$(this).parent().find('[data-type=profile_type] option').filter(':selected').attr('data-type')]!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
+								<input data-type="value" type="text" class="fs" placeholder="UserName" value="" /><input data-type="value_handler" style="position: inline; margin-left: -17px; visibility: hidden; vertical-align: top;" type="image" src="images/arrow.svg" alt=">" onclick="if(globalSettings.urihandlerprofile.value[$(this).parent().parent().find('[data-type=profile_type] option').filter(':selected').attr('data-type')]!=undefined && globalSettings.urihandlerprofile.value[$(this).parent().parent().find('[data-type=profile_type] option').filter(':selected').attr('data-type')]!=null)
+{var type=$(this).parent().parent().find('[data-type=profile_type] option').filter(':selected').attr('data-type'), value=$(this).parent().find('input[data-type=value]').val(); if(type=='twitter') value=value.replace(/^@/,''); window.open(globalSettings.urihandlerprofile.value[type].replace('%u', value)); $(this).css('visibility','hidden');}" />
+							</td>
+						</tr>
+						<tr data-attr-name="X-ABDATE">
+							<td data-type="dates_txt" colspan="5" class="attr_desc">Dates</td>
+						</tr>
+						<tr data-attr-name="X-ABDATE" data-type="%date" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="date_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type=":_$!<anniversary>!$_:">anniversary</option>
+									<option data-type=":_$!<other>!$_:">other</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td colspan="2"><input data-type="date_value" type="text" class="fs" placeholder="Name" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" /></td>
+						</tr>
+						<tr data-attr-name="ADR">
+							<td data-type="address_txt" colspan="5" class="attr_desc">Address</td>
+						</tr>
+						<tr data-attr-name="ADR" data-type="%address" data-id="0">
+							<td data-type="%del"><input class="op" type="image" src="images/op_del.svg" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="images/op_add.svg" alt="+" /></td>
+							<td data-size="small">
+								<select data-type="address_type" onchange="if($(':selected', this).attr('data-type')==':custom') {$(this).parent().find('span[data-type=custom_span]').css('display','inline'); $(this).parent().find('[data-type=custom_value]').focus().trigger('change')} else $(this).parent().find('span[data-type=custom_span]').css('display','none');">
+									<option data-type="work">work</option>
+									<option data-type="home">home</option>
+									<option data-type=":_$!<other>!$_:">other</option>
+									<option data-type=":custom">» custom</option>
+								</select><span data-type="custom_span" style="position: relative; margin-left: -134px; margin-top: 0px; vertical-align: top; display: none; z-index: 1;"><input data-type="custom_value" type="text" class="ss" placeholder="custom" value="" /><img data-type="invalid" style="z-index: 2; margin-top: 1px; margin-left: -16px; vertical-align: top; display: none;" src="images/error_b.svg" alt="invalid" /></span>
+							</td>
+							<td colspan="2" class="clean">
+								<table>
+									<tr data-type="container">
+										<td data-addr-fid="0" colspan="2">
+											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="1" colspan="2" data-size="full">
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="2" colspan="2">
+											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="3" colspan="2">
+											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="4" colspan="2">
+											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="5">
+											<input data-type="value" data-addr-field="" type="text" class="hs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+										<td data-addr-fid="6" style="width:195px;">
+											<input data-type="value" data-addr-field="" type="text" class="hs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="7">
+											<input data-type="value" data-addr-field="" type="text" class="hs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+										<td data-addr-fid="8" data-size="half">
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="9" colspan="2">
+											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="10" colspan="2">
+											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="11" colspan="2" data-size="full">
+											<span data-type="%country_container">
+												<select data-addr-field="country" data-type="country_type">
+													<option data-type="" data-full-name=""> </option>
+												</select>
+											</span>
+										</td>
+									</tr>
+									<tr data-type="container">
+										<td data-addr-fid="12" colspan="2">
+											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="images/error_b.svg" alt="invalid" />
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr data-attr-name="CATEGORIES">
+							<td data-type="categories_txt" colspan="5" class="attr_desc">Categories</td>
+						</tr>
+						<tr data-attr-name="CATEGORIES" data-type="%categories" data-id="0">
+							<td></td>
+							<td></td>
+							<td colspan="3">
+								<input data-type="value" class="fs" name="tags" id="tags" value="" />
+							</td>
+						</tr>
+						<tr data-attr-name="NOTE">
+							<td data-type="note_txt" colspan="5" class="attr_desc">Note</td>
+						</tr>
+						<tr data-attr-name="NOTE" data-type="%note" data-id="0">
+							<td></td>
+							<td></td>
+							<td colspan="3">
+								<textarea data-type="value" class="ms" placeholder="NoteText"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5" class="buttons">
+								<input data-type="add_contact" type="button" value="Add Contact" onclick="
+									$('#ResourceCardDAVListOverlay').fadeTo(globalEditorFadeAnimation, 0.6);
+									$('#ABListOverlay').fadeTo(globalEditorFadeAnimation, 0.6);
+
+									var tmp_account_uid=$('#vCardEditor').attr('data-account-uid');
+									var tmp_data_url=$('#vCardEditor').attr('data-url').replace(new RegExp('[^/]+$'), '');
+									var tmp_data_id=$('#vCardEditor').find('[data-type=cancel]').attr('data-id');
+									var tmp_background_color=$('#ABContactColor').css('background-color');
+
+									globalRefABListTable.find('.ablist_item.ablist_item_selected').removeClass('ablist_item_selected');
+									$('#ABContactColor').css('background-color', tmp_background_color);
+									globalAddressbookList.loadContactByVcard('BEGIN:VCARD\r\nVERSION:3.0\r\nORG:'+vcardEscapeValue($('#vCardEditor').find('[data-type=org]').val())+';'+vcardEscapeValue($('#vCardEditor').find('[data-type=department]').val())+'\r\nFN:\r\nN:;;;;\r\nEND:VCARD\r\n', tmp_background_color, false, 'add');
+
+									$('#vCardEditor').attr('data-editor-state','edit');
+									$('#vCardEditor').attr('data-account-uid', tmp_account_uid);
+									$('#vCardEditor').attr('data-url', tmp_data_url);
+									$('#vCardEditor').find('[data-type=cancel]').attr('data-id', tmp_data_id);
+									$('#vCardEditor').find('[data-type=given]').focus();
+									$('#ABContact').scrollTop(0);
+									checkContactFormScrollBar();
+								" />
+								<input data-type="edit" type="button" value="Edit" onclick="
+									// OK ale treba optimalizovat selectory
+									$('#ResourceCardDAVListOverlay').fadeTo(globalEditorFadeAnimation, 0.6);
+									$('#ABListOverlay').fadeTo(globalEditorFadeAnimation, 0.6);
+
+									processEditorElements($('#vCardEditor'), 'show', null, $('#vCardEditor').find('[data-type=isorg]').prop('checked'));
+									$('#vCardEditor').find('[data-disabled]').prop('disabled',true);
+									$('#vCardEditor').find('[data-type=given]').focus();
+									$('#ABContact').scrollTop(0);
+									checkContactFormScrollBar();
+								" />
+								<input data-type="save" type="button" value="Save" onclick="
+									if($('#vCardEditor').find('img[data-type=invalid]').is(':visible'))
+									{
+										show_editor_message('in', 'message_error', localization[globalInterfaceLanguage].errUnableSaveInvalidData, globalHideInfoMessageAfter);
+										return false;
+									}
+									else
+									{
+										$('#ResourceCardDAVListOverlay').fadeTo(globalEditorFadeAnimation, 0.6);
+										$('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6);
+										globalRefAddContact.prop('disabled',true);
+										$('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
+											dataToVcard($('#vCardEditor').attr('data-account-uid'), $('#vCardEditor').attr('data-url'), globalRefAddContact.attr('data-filter-url'), $('#vCardEditor').attr('data-etag'))
+										})
+									}
+								" />
+								<input data-type="cancel" type="button" value="Cancel" data-id="" onclick="
+									$('#ResourceCardDAVListOverlay').fadeOut(globalEditorFadeAnimation);
+									$('#ABListOverlay').fadeOut(globalEditorFadeAnimation);
+									globalAddressbookList.loadContactByUID(this.getAttribute('data-id'));
+								" />
+								<input data-type="delete_from_group" type="button" value="Delete from Group" onclick="
+									$('#ResourceCardDAVListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); globalRefAddContact.prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
+										lockAndPerformToCollection({accountUID: $('#vCardEditor').attr('data-account-uid'), uid: $('#vCardEditor').attr('data-url')}, globalRefAddContact.attr('data-filter-url'), 'DELETE_FROM_GROUP');
+									});
+								" />
+								<input data-type="delete" type="button" value="Delete" onclick="
+									$('#ResourceCardDAVListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); globalRefAddContact.prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
+										lockAndPerformToCollection({accountUID: $('#vCardEditor').attr('data-account-uid'), uid: $('#vCardEditor').attr('data-url')}, globalRefAddContact.attr('data-filter-url'), 'DELETE');
+									});
+								" />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div id="ABContactOverlay">
+			<div class="half">
+				<div class="loader"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

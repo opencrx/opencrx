@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.activity1.jpa3">
+    <class name="WorkAndExpenseRecord" table="OOCKE1_WORKRECORD">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>
+		<field name="assignment" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>		
+    </class>
+  </package>
+</openmdxjdo>

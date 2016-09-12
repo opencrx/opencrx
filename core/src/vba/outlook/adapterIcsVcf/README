@@ -1,0 +1,133 @@
+openCRX ICS Calendar Importer/Exporter for MS Outlook
+-----------------------------------------------------
+
+A.   License
+B.   More Information
+I.   Installation
+II.  Configuration ICS
+III. Configuration VCF
+IV.  Usage
+
+
+A. License
+----------
+
+Please read http://www.opencrx.org/license.htm for details
+
+
+B. More Information
+----------
+
+Please visit http://www.opencrx.org/opencrx/2.4/Outlook_ICS_VCF_adapter.htm for details
+
+
+I. Installation
+-----------------
+
+1) start Outlook
+
+2) press <ALT>-<F11> to start Visual Basic
+
+3) File > Import File
+   and then navigate to the file "ProgressBox.frm" and import it
+
+4) File > Import File
+   and then navigate to the file "openCRX.bas" and import it
+
+5) Rename the Project to "CRX"
+
+6) close Visual Basic
+
+7) back in Outlook select Tools > Customize
+
+8) select tab [Toolbars] and create a new toolbar "openCRX"
+
+9) select tab [Commands] and select "Macros" (from Categories)
+   you should see the three commands "CRX.getContacts",
+   "CRX.getCalendars", and "CRX.putCalendars"
+
+10) drag command "CRX.getContacts" to the toolbar "openCRX"
+
+11) drag command "CRX.getCalendars" to the toolbar "openCRX"
+
+12) drag command "CRX.putCalendars" to the toolbar "openCRX"
+
+13) close dialog box "Customize"
+
+
+II. Configuration ICS
+---------------------
+
+Hint: It is recommended to create a calendar folder and a task folder for each
+      openCRX remote calendar. Do not use your (personal) default calendar for
+      remote calendar usage as you will loose all your appointments!
+
+1) create a new calendar and/or task folder in Outlook (i.e. a folder that contains "Calendar Items")
+
+2) add the following information to the description of this calendar folder
+
+   url=< URL to access ICS calendar>
+   user=< user >
+   password=< password of user >
+
+   for example:
+   url=http://127.0.0.1:8080/opencrx-ical-CRX/ical?id=CRX/Standard/userhome/admin-Standard&resource=activities.ics
+   user=guest
+   password=opencrx
+
+   Hint: to determine the appropriate URL, navigate to the desired
+         activity group (tracker, category, milestone), activity
+         filter or home page and start the wizard "Timeline";
+         take the beginning of that URL up to resource=activities.
+         and add "ics" to construct the URL to retrieve the ICS
+         calendar.
+
+         Example: ...andard/userhome/admin-Standard&resource=activities.html&user.locale=de_CH&user.tz=GMT%2B0100
+         ICS URL: ...andard/userhome/admin-Standard&resource=activities.ics
+
+
+II. Configuration VCF
+---------------------
+
+Hint: It is recommended to create a contact folder for each openCRX
+      account filter. Do not use your (personal) default contacts
+      folder as you will loose all your contacts!
+
+1) create a new contacts in Outlook (i.e. a folder that contains "Contact Items")
+
+2) add the following information to the description of this calendar folder
+
+   url=< URL to access account filter>
+   user=< user >
+   password=< password of user >
+
+   for example (assuming your account filter is named "allAccounts"):
+   url=http://127.0.0.1:8080/opencrx-vcard-CRX/vcard?id=CRX/Standard/filter/allAccounts&resource=accounts.vcf
+   user=guest
+   password=opencrx
+
+
+IV. Usage
+----------
+
+a) calendar
+
+ 1) click the button "CRX.getCalendars" to retrieve appointments and/or
+    tasks from openCRX (the description of the calendar contains the time
+    stamp of the last download - look for the line starting with "last_download")
+
+ 2) work with the calendar locally
+
+ 3) click the button "CRX.putCalendars" to upload appointments and/or
+    tasks to openCRX (the description of the calendar contains the time
+    stamp of the last upload - look for the line starting with "last_upload")
+
+ Please note that there is no real synchronization. The latest change
+ (based on time stamps) wins. Hence, make sure that your openCRX server
+ and your computer running Outlook are properly time synched.
+
+b) contacts
+
+ 1) click the button "CRX.getContacts" to retrieve contacts from openCRX
+    (the description of the calendar contains the time stamp of the last
+    download - look for the line starting with "last_download")

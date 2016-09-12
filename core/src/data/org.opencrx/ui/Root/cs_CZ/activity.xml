@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Veškeré aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Veškeré aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:activityLinkTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Spojené aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Spojené aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:activityLinkFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Spojení příchozí aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Spojení příchozí aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:vote" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hlasy</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hlasy</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:contract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kontrakt</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kontrakt</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Attr:Tab:0:Group:30" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:activityNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>#</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Číslo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:assignedTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Přiřazeno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Přiřazeno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:misc1" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Celé číslo</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Celé číslo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:misc2" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vlastní #2</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vlastní #2</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:misc3" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vlastní #3</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vlastní #3</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:activityState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Stav</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Stav</_item>
+                      </toolTip>
+											<shortLabel>
+												<_item> </_item> <!-- note: space required for icon to be shown! -->
+											</shortLabel>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Priorita</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Priorita</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:scheduledStart" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Plánovaný začátek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Plánovaný začátek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:modifiedAt" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Upraveno dne</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Datum a čas poslední úpravy objektu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:scheduledEnd" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Plánovaný konec</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Plánovaný konec</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:dueBy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Odměněno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Odměněno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:percentComplete" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Procent dokončeno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Procent dokončeno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:actualStart" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Skutečný začátek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Skutečný začátek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:actualEnd" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Skutečný konec</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Skutečný konec</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:reportingAccount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Účet pro hlášení</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Účet pro hlášení</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:reportingContact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kontakt pro hlášení</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kontakt pro hlášení</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:isAllDayEvent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>je celodení událost</_item>
+                      </label>
+                      <toolTip>
+                        <_item>je celodení událost</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:location" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Místo</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Místo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:detailedDescription" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Detailní popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Detailní popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:totalVotes" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Soušet hlasů</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Soušet hlasů</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Spojení odchozí aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Spojení odchozí aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkTo:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkTo:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkTo:activityLinkType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Typ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Typ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkTo:linkTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Spojená aktivita</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Spojená aktivita</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Spojení příchozí aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Spojení příchozí aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkFrom:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkFrom:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkFrom:activityLinkType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Typ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Typ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityLinkFrom:linkFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Spojeno z aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Spojeno z aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ProductReference" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Reference produktu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Reference produktu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:importItem" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Importovat iCal</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Importovat iCal</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:doFollowUp:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityDoFollowUpParams:followUpTitle" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nadpis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nadpis poznámky</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityDoFollowUpParams:followUpText" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Text</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Text</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:doFollowUp:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:reapplyActivityCreator:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:reapplyActivityCreator:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:assignTo:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:assignTo:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:voteForActivity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hlas pro aktivitu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hlas pro aktivitu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:voteForActivity:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityVoteForActivityParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno hlasu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno hlasu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityVoteForActivityParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:voteForActivity:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:addWorkAndExpenseRecord:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddWorkAndExpenseRecordParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddWorkAndExpenseRecordParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:addWorkAndExpenseRecord:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityType:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityType:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Priorita</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Priorita</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:scheduledStart" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Plánovaný začátek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Plánovaný začátek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:scheduledEnd" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Plánovaný konec</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Plánovaný konec</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:dueBy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Odměněno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Odměněno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:Pane:Op:Tab:newActivity:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:detailedDescription" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Detailní popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Detailní popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:scheduledStart" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Plánovaný začátek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Plánovaný začátek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:scheduledEnd" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Plánovaný konec</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Plánovaný konec</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:dueBy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Odměněno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Odměněno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Priorita</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Priorita</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:NewActivityParams:reportingContact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kontakt pro hlášení</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kontakt pro hlášení</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreator:Pane:Op:Tab:newActivity:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

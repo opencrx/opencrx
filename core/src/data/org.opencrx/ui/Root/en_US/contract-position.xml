@@ -1,0 +1,1924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:productApplication">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Applications</_item>
+											</toolTip>
+											<label>
+												<_item>Product Applications</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>15</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:deliveryInformation">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Delivery Information</_item>
+											</toolTip>
+											<label>
+												<_item>Delivery Information</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>12</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:salesVolContract">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales volume contracts</_item>
+											</toolTip>
+											<label>
+												<_item>Sales volume contracts</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:OpportunityPosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position</_item>
+											</toolTip>
+											<label>
+												<_item>Position</_item>
+											</label>
+											<iconKey>SalesContractPosition</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:QuotePosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position</_item>
+											</toolTip>
+											<label>
+												<_item>Position</_item>
+											</label>
+											<iconKey>SalesContractPosition</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesOrderPosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position</_item>
+											</toolTip>
+											<label>
+												<_item>Position</_item>
+											</label>
+											<iconKey>SalesContractPosition</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:InvoicePosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position</_item>
+											</toolTip>
+											<label>
+												<_item>Position</_item>
+											</label>
+											<iconKey>SalesContractPosition</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Tab Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:positionModification">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Position Modifications</_item>
+											</toolTip>
+											<label>
+												<_item>»Position Modifications</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1400</_item>
+											</order>
+											<iconKey>ConfigurationModification</iconKey>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:OpportunityPosition:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:QuotePosition:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesOrderPosition:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:InvoicePosition:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:OpportunityPosition:Pane:Attr:Tab:0:Group:20">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Estimates</_item>
+											</toolTip>
+											<label>
+												<_item>Estimates</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:QuotePosition:Pane:Attr:Tab:0:Group:20">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Estimates</_item>
+											</toolTip>
+											<label>
+												<_item>Estimates</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:0:Group:40">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Pricing Information</_item>
+											</toolTip>
+											<label>
+												<_item>Pricing Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:0:Group:50">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Financial Information</_item>
+											</toolTip>
+											<label>
+												<_item>Financial Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:lineItemNumber">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Line item number</_item>
+											</toolTip>
+											<label>
+												<_item>Pos-#</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name of position</_item>
+											</toolTip>
+											<label>
+												<_item>Pos-Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Pos-Text</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:contractPositionState">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:positionNumber">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position reference number</_item>
+											</toolTip>
+											<label>
+												<_item>Pos-Reference#</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions Additional Information-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:quantity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Quantity</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:uom">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UOM (quantity)</_item>
+											</toolTip>
+											<label>
+												<_item>UOM (quantity)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:quantityShipped">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Shipped</_item>
+											</toolTip>
+											<label>
+												<_item>Shipped</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:quantityBackOrdered">
+										<_object>
+											<active>false</active>
+											<sortable>false</sortable>
+											<toolTip>
+												<_item>Quantity back ordered</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity back ordered</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>40</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:listPrice">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>List price</_item>
+											</toolTip>
+											<label>
+												<_item>List price</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:priceUom">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UOM (price)</_item>
+											</toolTip>
+											<label>
+												<_item>UOM (price)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:pricePerUnit">
+										<_object>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Price per unit</_item>
+											</toolTip>
+											<label>
+												<_item>Price per unit</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions Pricing Information-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:pricingRule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Pricing rule</_item>
+											</toolTip>
+											<label>
+												<_item>Pricing rule</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>40</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:priceLevel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Price level</_item>
+											</toolTip>
+											<label>
+												<_item>Price level</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>40</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:calcRule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Calculation rule</_item>
+											</toolTip>
+											<label>
+												<_item>Calculation rule</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>40</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:pricingState">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Pricing status</_item>
+											</toolTip>
+											<label>
+												<_item>Pricing status</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>40</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:pricingDate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Pricing date</_item>
+											</toolTip>
+											<label>
+												<_item>Pricing date</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>40</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions Financial Information-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discountIsPercentage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount is %</_item>
+											</toolTip>
+											<label>
+												<_item>Discount is %</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>110</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discount">
+										<_object>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Discount</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>120</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discountDescription">
+										<_object>
+											<spanRow>2</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount Description</_item>
+											</toolTip>
+											<label>
+												<_item>Discount Description</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>30</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:salesTaxType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales tax type</_item>
+											</toolTip>
+											<label>
+												<_item>Sales tax type</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>40</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>130</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:salesCommissionIsPercentage">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales commission is %</_item>
+											</toolTip>
+											<label>
+												<_item>Sales commission is %</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:salesCommission">
+										<_object>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Sales commission</_item>
+											</toolTip>
+											<label>
+												<_item>Sales commission</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>90</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:baseAmount">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Base amount</_item>
+											</toolTip>
+											<label>
+												<_item>Base amount</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>100</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discountAmount">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Discount amount</_item>
+											</toolTip>
+											<label>
+												<_item>Discount amount</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>110</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:taxAmount">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Tax</_item>
+											</toolTip>
+											<label>
+												<_item>Tax</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>120</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:amount">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Amount (incl. tax)</_item>
+											</toolTip>
+											<label>
+												<_item>Amount (inxl. tax)</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>50</_item>
+												<_item>130</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>140</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Estimates -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:OpportunityPosition:closeProbability">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Close probability (%)</_item>
+											</toolTip>
+											<label>
+												<_item>Close probability (%)</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:QuotePosition:closeProbability">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Close probability (%)</_item>
+											</toolTip>
+											<label>
+												<_item>Close probability (%)</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:OpportunityPosition:estimatedCloseDate">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>estimated close date</_item>
+											</toolTip>
+											<label>
+												<_item>Estimated close date</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:QuotePosition:estimatedCloseDate">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>estimated close date</_item>
+											</toolTip>
+											<label>
+												<_item>Estimated close date</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Field Group Definition in Details Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:20">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional details</_item>
+											</toolTip>
+											<label>
+												<_item>Additional details</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:25">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item></_item>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:30">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional unit of measurement details (quantity)</_item>
+											</toolTip>
+											<label>
+												<_item>Additional unit of measurement details (quantity)</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:35">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item></_item>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:40">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional unit of measurement details (price)</_item>
+											</toolTip>
+											<label>
+												<_item>Additional unit of measurement details (price)</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:45">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item></_item>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:50">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional sales tax type details</_item>
+											</toolTip>
+											<label>
+												<_item>Additional sales tax type details</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Attr:Tab:10:Group:55">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item></_item>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Element Definition Details Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:minQuantity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Min quantity</_item>
+											</toolTip>
+											<label>
+												<_item>Min quantity</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:maxQuantity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Max quantity</_item>
+											</toolTip>
+											<label>
+												<_item>Max quantity</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:offsetQuantity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Offset quantity</_item>
+											</toolTip>
+											<label>
+												<_item>Offset quantity</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:minMaxQuantityHandling">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>[min..max] handling</_item>
+											</toolTip>
+											<label>
+												<_item>[min..max] handling</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:productDescription">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:productDetailedDescription">
+										<_object>
+											<spanRow>20</spanRow>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Detailed description</_item>
+											</toolTip>
+											<label>
+												<_item>Detailed description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>25</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:uom" _operation="null">
+										<_object/>
+										<_content>
+											<alternateElementDefinition>
+												<org.openmdx.ui1.AlternateElementDefinition id="0">
+													<_object>
+														<changeable>false</changeable>
+														<toolTip>
+															<_item>UOM (quantity)</_item>
+														</toolTip>
+														<label>
+															<_item>UOM (quantity)</_item>
+														</label>
+														<orderFieldGroup>
+															<_item>10</_item>
+															<_item>30</_item>
+															<_item>10</_item>
+														</orderFieldGroup>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AlternateElementDefinition>
+											</alternateElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:uomDescription">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:uomDetailedDescription">
+										<_object>
+											<spanRow>20</spanRow>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Detailed description</_item>
+											</toolTip>
+											<label>
+												<_item>Detailed description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>35</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:priceUom" _operation="null">
+										<_object/>
+										<_content>
+											<alternateElementDefinition>
+												<org.openmdx.ui1.AlternateElementDefinition id="0">
+													<_object>
+														<changeable>false</changeable>
+														<toolTip>
+															<_item>UOM (price)</_item>
+														</toolTip>
+														<label>
+															<_item>UOM (price)</_item>
+														</label>
+														<orderFieldGroup>
+															<_item>10</_item>
+															<_item>40</_item>
+															<_item>10</_item>
+														</orderFieldGroup>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AlternateElementDefinition>
+											</alternateElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:priceUomDescription">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>40</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:priceUomDetailedDescription">
+										<_object>
+											<spanRow>20</spanRow>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Detailed description</_item>
+											</toolTip>
+											<label>
+												<_item>Detailed description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>45</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:salesTaxType" _operation="null">
+										<_object/>
+										<_content>
+											<alternateElementDefinition>
+												<org.openmdx.ui1.AlternateElementDefinition id="0">
+													<_object>
+														<columnBreak>false</columnBreak>
+														<changeable>false</changeable>
+														<toolTip>
+															<_item>Sales tax type</_item>
+														</toolTip>
+														<label>
+															<_item>Sales tax type</_item>
+														</label>
+														<orderFieldGroup>
+															<_item>10</_item>
+															<_item>50</_item>
+															<_item>10</_item>
+														</orderFieldGroup>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AlternateElementDefinition>
+											</alternateElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:salesTaxTypeDescription">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>50</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:salesTaxTypeDetailedDescription">
+										<_object>
+											<spanRow>20</spanRow>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Detailed description</_item>
+											</toolTip>
+											<label>
+												<_item>Detailed description</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>55</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--DeliveryInformation-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Delivery Information</_item>
+											</toolTip>
+											<label>
+												<_item>Delivery Information</_item>
+											</label>
+											<iconKey>DeliveryInformation</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:deliveryTempCelcius">
+										<_object>
+											<active>true</active>
+											<decimalPlaces>1</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
+											<toolTip>
+												<_item>Delivery temperature</_item>
+											</toolTip>
+											<label>
+												<_item>Delivery temperature</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:actualDeliveryOn">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Actual delivery on</_item>
+											</toolTip>
+											<label>
+												<_item>Actual delivery on</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:actualStartAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Actual start</_item>
+											</toolTip>
+											<label>
+												<_item>Actual start</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>00</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:actualEndAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Actual end</_item>
+											</toolTip>
+											<label>
+												<_item>Actual end</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>12</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:quantityShipped">
+										<_object>
+											<active>true</active>
+											<decimalPlaces>0</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
+											<toolTip>
+												<_item>Quantity shipped</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity shipped</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>14</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:quantityShipped2">
+										<_object>
+											<active>true</active>
+											<decimalPlaces>0</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
+											<toolTip>
+												<_item>Quantity (other) shipped</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity (other) shipped</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:quantityBeforeDelivery">
+										<_object>
+											<active>true</active>
+											<decimalPlaces>0</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
+											<toolTip>
+												<_item>Quantity before delivery</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity before delivery</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:uomQuantityShipped">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>UOM (quantity shipped)</_item>
+											</toolTip>
+											<label>
+												<_item>UOM (quantity shipped)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:uomQuantityShipped2">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UOM (quantity other shipped)</_item>
+											</toolTip>
+											<label>
+												<_item>UOM (quantity other shipped)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:uomQuantityBeforeDelivery">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UOM (quantity before delivery)</_item>
+											</toolTip>
+											<label>
+												<_item>UOM (quantity before delivery)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DeliveryInformation:feedback">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Feedback</_item>
+											</toolTip>
+											<label>
+												<_item>Feedback</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--ProductApplication-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ProductApplication">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Application</_item>
+											</toolTip>
+											<label>
+												<_item>Product Application</_item>
+											</label>
+											<iconKey>ProductApplication</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definition-->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ProductApplication:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Application</_item>
+											</toolTip>
+											<label>
+												<_item>Product Application</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ProductApplication:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name of application</_item>
+											</toolTip>
+											<label>
+												<_item>Name of application</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ProductApplication:description">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ProductApplication:underlying">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>false</active>
+											<toolTip>
+												<_item>Underlying</_item>
+											</toolTip>
+											<label>
+												<_item>Underlying</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Op:Tab:reprice">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reprice</_item>
+											</toolTip>
+											<label>
+												<_item>Reprice</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>ProductBasePrice</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Op:Tab:reprice:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:RepriceParams:price">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Price</_item>
+											</toolTip>
+											<label>
+												<_item>Price</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Op:Tab:reprice:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+
+									<!-- PositionModification -->
+									<!--Inspector Definitions-->
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PositionModification:involved">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Involved position</_item>
+											</toolTip>
+											<label>
+												<_item>Involved position</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- QuantityModification -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:QuantityModification">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Quantity Modification</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity Modification</_item>
+											</label>
+											<iconKey>QuantityModification</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:QuantityModification:quantity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Quantity before</_item>
+											</toolTip>
+											<label>
+												<_item>Quantity before</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ConfigurationModification -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ConfigurationModification">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Configuration Modification</_item>
+											</toolTip>
+											<label>
+												<_item>Configuration Modification</_item>
+											</label>
+											<iconKey>ConfigurationModification</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ConfigurationModification:involvedPty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Involved property</_item>
+											</toolTip>
+											<label>
+												<_item>Involved property</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>11</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ConfigurationModification:propertyValue">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Property value</_item>
+											</toolTip>
+											<label>
+												<_item>Property value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- PositionCreation -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PositionCreation">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Position Creation</_item>
+											</toolTip>
+											<label>
+												<_item>Position Creation</_item>
+											</label>
+											<iconKey>PositionCreation</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+
+									<!-- PositionRemoval -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PositionRemoval">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Position Removal</_item>
+											</toolTip>
+											<label>
+												<_item>Position Removal</_item>
+											</label>
+											<iconKey>PositionRemoval</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+
+									<!-- RemovedPosition -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:RemovedPosition">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Removed Position</_item>
+											</toolTip>
+											<label>
+												<_item>Removed Position</_item>
+											</label>
+											<iconKey>SalesContractPosition</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

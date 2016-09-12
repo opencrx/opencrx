@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<display-name>openCRX Document Finder</display-name>
+	<servlet>
+		<servlet-name>DocumentFinder</servlet-name>
+		<servlet-class>org.opencrx.application.document.DocumentFinderServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>		
+		<init-param>
+			<param-name>checkPermissions</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DocumentFinder</servlet-name>
+		<url-pattern>/connector/*</url-pattern>
+	</servlet-mapping>
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	<welcome-file-list>
+	    <welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<resource-ref>
+		<res-ref-name>jdbc_opencrx_CRX</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>documents</web-resource-name>
+			<description>documents</description>
+			<url-pattern>/</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+	<security-role>
+		<description>An openCRX user</description>
+		<role-name>OpenCrxUser</role-name>
+	</security-role>	
+</web-app>

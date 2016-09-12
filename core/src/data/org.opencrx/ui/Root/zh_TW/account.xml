@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>帳戶管理</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有帳戶</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>帳戶</_item>
+                      </label>
+                      <toolTip>
+                        <_item>所有帳戶</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:account" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+                        <org.openmdx.ui1.AdditionalElementDefinition id="0" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>帳戶組</_item>
+                            </label>
+                            <toolTip>
+                              <_item>僅帳戶組</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:partner" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>夥伴</_item>
+                      </label>
+                      <toolTip>
+                        <_item>夥伴</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:contact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>聯繫人</_item>
+                      </label>
+                      <toolTip>
+                        <_item>聯繫人</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:externalLink" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>外部鏈結</_item>
+                      </label>
+                      <toolTip>
+                        <_item>外部鏈結</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>帳戶</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Attr:Tab:25:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>帳戶</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:fullName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>全名</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶全名(姓,名)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:aliasName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>別名</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶別名</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>描述</_item>
+                      </label>
+                      <toolTip>
+                        <_item>描述</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:businessType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>公司類型</_item>
+                      </label>
+                      <toolTip>
+                        <_item>公司類型</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>狀態</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶狀態</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountRating" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>等級</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶等級</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountCategory" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>分類</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶分類</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:accountType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>類型</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶類型</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>帳戶分配</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶分配</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>帳戶</_item>
+                      </label>
+                      <toolTip>
+                        <_item>帳戶</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:validFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>起始有效值</_item>
+                      </label>
+                      <toolTip>
+                        <_item>起始有效值</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAssignment:validTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>最高有效值</_item>
+                      </label>
+                      <toolTip>
+                        <_item>最高有效值</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:Pane:Op:Tab:importItem" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>導入 vCard</_item>
+                      </label>
+                      <toolTip>
+                        <_item>導入 vCard</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>創建商機</_item>
+                      </label>
+                      <toolTip>
+                        <_item>創建商機</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>輸入</_item>
+                      </label>
+                      <toolTip>
+                        <_item>輸入</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名稱</_item>
+                      </label>
+                      <toolTip>
+                        <_item>商機名稱</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>描述</_item>
+                      </label>
+                      <toolTip>
+                        <_item>描述</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:nextStep" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>下一步</_item>
+                      </label>
+                      <toolTip>
+                        <_item>下一步</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>基於範本</_item>
+                      </label>
+                      <toolTip>
+                        <_item>基於範本</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createLead:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>結果</_item>
+                      </label>
+                      <toolTip>
+                        <_item>結果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateLeadResult:lead" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>商機</_item>
+                      </label>
+                      <toolTip>
+                        <_item>商機</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>創建機會</_item>
+                      </label>
+                      <toolTip>
+                        <_item>創建機會</_item>
+                      </toolTip>
+
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>輸入</_item>
+                      </label>
+                      <toolTip>
+                        <_item>輸入</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名稱</_item>
+                      </label>
+                      <toolTip>
+                        <_item>機會名稱</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>描述</_item>
+                      </label>
+                      <toolTip>
+                        <_item>描述</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>基於範本</_item>
+                      </label>
+                      <toolTip>
+                        <_item>基於範本</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createOpportunity:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>結果</_item>
+                      </label>
+                      <toolTip>
+                        <_item>結果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateOpportunityResult:opportunity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>機會</_item>
+                      </label>
+                      <toolTip>
+                        <_item>機會</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>創建報價</_item>
+                      </label>
+                      <toolTip>
+                        <_item>創建報價</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>輸入</_item>
+                      </label>
+                      <toolTip>
+                        <_item>輸入</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名稱</_item>
+                      </label>
+                      <toolTip>
+                        <_item>報價名稱</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>描述</_item>
+                      </label>
+                      <toolTip>
+                        <_item>描述</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>基於範本</_item>
+                      </label>
+                      <toolTip>
+                        <_item>基於範本</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createQuote:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>結果</_item>
+                      </label>
+                      <toolTip>
+                        <_item>結果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateQuoteResult:quote" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>報價</_item>
+                      </label>
+                      <toolTip>
+                        <_item>報價</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>創建訂單</_item>
+                      </label>
+                      <toolTip>
+                        <_item>創建訂單</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>輸入</_item>
+                      </label>
+                      <toolTip>
+                        <_item>輸入</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名稱</_item>
+                      </label>
+                      <toolTip>
+                        <_item>訂單名稱</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>描述</_item>
+                      </label>
+                      <toolTip>
+                        <_item>描述</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>基於範本</_item>
+                      </label>
+                      <toolTip>
+                        <_item>基於範本</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createSalesOrder:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>結果</_item>
+                      </label>
+                      <toolTip>
+                        <_item>結果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateSalesOrderResult:salesOrder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>銷售訂單</_item>
+                      </label>
+                      <toolTip>
+                        <_item>銷售訂單</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>創建發票</_item>
+                      </label>
+                      <toolTip>
+                        <_item>創建發票</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>輸入</_item>
+                      </label>
+                      <toolTip>
+                        <_item>輸入</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名稱</_item>
+                      </label>
+                      <toolTip>
+                        <_item>發票名稱</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>描述</_item>
+                      </label>
+                      <toolTip>
+                        <_item>描述</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceParams:basedOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>基於範本</_item>
+                      </label>
+                      <toolTip>
+                        <_item>基於範本</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:Pane:Op:Tab:createInvoice:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>結果</_item>
+                      </label>
+                      <toolTip>
+                        <_item>結果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreateInvoiceResult:invoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>發票</_item>
+                      </label>
+                      <toolTip>
+                        <_item>發票</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>
+

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activityTracker" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Sledovači aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Sledovači všech aktivit</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityGroup:filteredActivity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Veškeré aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityGroup:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Jméno</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Jméno</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityGroup:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Popis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Popis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Sledovač aktivity</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Sledovač aktivity</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:estimateEffortHours" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>hh (odhadované úsilí)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>hh (odhadované úsilí)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:estimateEffortMinutes" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>mm (odhadované úsilí)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>mm (odhadované úsilí)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:estimateMaxDeviation" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Max. odchylka v %</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Max. odchylka v %</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:sumEstimateEffortHours" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Σ hh (odhadované úsilí)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Σ hh (odhadované úsilí)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:sumEstimateEffortMinutes" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Σ mm (odhadované úsilí)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Σ mm (odhadované úsilí)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:welcome" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vítejte</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vítejte</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:Pane:Op:Tab:refreshItems" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Přepočítat a obnovit</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Přepočítat a obnovit</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:Pane:Op:Tab:refreshItems:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vstup</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vstup</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityTracker:Pane:Op:Tab:refreshItems:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Výsledek</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Výsledek</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

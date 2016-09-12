@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+									<!--Segment Definition-->
+									<!--Tab Definitions Pane1-->
+									<!-- Asset -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Asset</_item>
+											</toolTip>
+											<label>
+												<_item>Asset</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<iconKey>Asset</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset:solutionPart">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Artifacts</_item>
+											</toolTip>
+											<label>
+												<_item>Artifacts</_item>
+											</label>
+											<order>
+												<_item>30</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>11</maxMember>
+											<showMaxMember>4</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset:classificationElement">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Classifications</_item>
+											</toolTip>
+											<label>
+												<_item>Classifications</_item>
+											</label>
+											<order>
+												<_item>50</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset:definingProfile">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Profiles</_item>
+											</toolTip>
+											<label>
+												<_item>Profiles</_item>
+											</label>
+											<order>
+												<_item>60</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Fieldgroups -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset:version">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Version</_item>
+											</toolTip>
+											<label>
+												<_item>Version</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>30</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset:profile">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Profile</_item>
+											</toolTip>
+											<label>
+												<_item>Profile</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>30</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions in Field Group Additional Information-->
+									<!-- picture -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset:pictureContent">
+										<_object>
+											<columnBreak>false</columnBreak>
+											<spanRow>6</spanRow>
+											<active>true</active>
+											<changeable>false</changeable>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Picture</_item>
+											</toolTip>
+											<label>
+												<_item>Picture</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Asset:picture">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Title / Source</_item>
+											</toolTip>
+											<label>
+												<_item>Title / Source</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Profile -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Profile">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Profile</_item>
+											</toolTip>
+											<label>
+												<_item>Profile</_item>
+											</label>
+											<iconKey>Profile</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Profile:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Profile:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Profile:idHistory">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>ID history</_item>
+											</toolTip>
+											<label>
+												<_item>ID history</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Profile:versionMajor">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Major version</_item>
+											</toolTip>
+											<label>
+												<_item>Major version</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Profile:versionMinor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Minor version</_item>
+											</toolTip>
+											<label>
+												<_item>Minor version</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Profile:parentProfile">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Parent profile</_item>
+											</toolTip>
+											<label>
+												<_item>Parent profile</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ClassificationElement -->
+									<!--Inspector Definitions-->
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ClassificationElement:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ClassificationElement:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- AssetContext -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:AssetContext">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Asset Context</_item>
+											</toolTip>
+											<label>
+												<_item>Asset Context</_item>
+											</label>
+											<iconKey>AssetContext</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:AssetContext:descGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Descriptor Groups</_item>
+											</toolTip>
+											<label>
+												<_item>Descriptor Groups</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<!-- DescriptorGroup -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:DescriptorGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Descriptor Group</_item>
+											</toolTip>
+											<label>
+												<_item>Descriptor Group</_item>
+											</label>
+											<iconKey>DescriptorGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:DescriptorGroup:descriptor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Descriptors</_item>
+											</toolTip>
+											<label>
+												<_item>Descriptors</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<!-- Descriptor -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Descriptor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Descriptor</_item>
+											</toolTip>
+											<label>
+												<_item>Descriptor</_item>
+											</label>
+											<iconKey>Descriptor</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Descriptor:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Descriptor:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Descriptor:assetContext">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Asset context</_item>
+											</toolTip>
+											<label>
+												<_item>Asset context</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Artifact -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:DesignDiagram">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Design Diagram</_item>
+											</toolTip>
+											<label>
+												<_item>Design Diagram</_item>
+											</label>
+											<iconKey>DesignDiagram</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:DesignModel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Design Model</_item>
+											</toolTip>
+											<label>
+												<_item>Design Model</_item>
+											</label>
+											<iconKey>DesignModel</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ImplementationPart">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Implementation Part</_item>
+											</toolTip>
+											<label>
+												<_item>Implementation Part</_item>
+											</label>
+											<iconKey>ImplementationPart</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:InterfaceSpec">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Interface Spec</_item>
+											</toolTip>
+											<label>
+												<_item>Interface Spec</_item>
+											</label>
+											<iconKey>InterfaceSpec</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:RequirementDiagram">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Requirement Diagram</_item>
+											</toolTip>
+											<label>
+												<_item>Requirement Diagram</_item>
+											</label>
+											<iconKey>RequirementDiagram</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:RequirementModel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Requirement Model</_item>
+											</toolTip>
+											<label>
+												<_item>Requirement Model</_item>
+											</label>
+											<iconKey>RequirementModel</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:TestDiagram">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Test Diagram</_item>
+											</toolTip>
+											<label>
+												<_item>Test Diagram</_item>
+											</label>
+											<iconKey>TestDiagram</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:TestModel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Test Model</_item>
+											</toolTip>
+											<label>
+												<_item>Test Model</_item>
+											</label>
+											<iconKey>TestModel</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:UseCase">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Use Case</_item>
+											</toolTip>
+											<label>
+												<_item>Use Case</_item>
+											</label>
+											<iconKey>UseCase</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Artifact:dependency">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Dependencies</_item>
+											</toolTip>
+											<label>
+												<_item>Dependencies</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Artifact:artifactContext">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Contexts</_item>
+											</toolTip>
+											<label>
+												<_item>Contexts</_item>
+											</label>
+											<order>
+												<_item>30</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Artifact:vp">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Variability Points</_item>
+											</toolTip>
+											<label>
+												<_item>Variability Points</_item>
+											</label>
+											<order>
+												<_item>40</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:SolutionPart:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:SolutionPart:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Artifact:artifactType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Artifact type</_item>
+											</toolTip>
+											<label>
+												<_item>Artifact type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Artifact:version">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Version</_item>
+											</toolTip>
+											<label>
+												<_item>Version</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Artifact:digestName">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Digest name</_item>
+											</toolTip>
+											<label>
+												<_item>Digest name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Artifact:digestValue">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Digest version</_item>
+											</toolTip>
+											<label>
+												<_item>Digest version</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:InterfaceSpec:operationDef">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Operation Definitions</_item>
+											</toolTip>
+											<label>
+												<_item>Operation Definitions</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Model:relatedModel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Related model</_item>
+											</toolTip>
+											<label>
+												<_item>Related model</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:Model:relatedDiagram">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Related diagram</_item>
+											</toolTip>
+											<label>
+												<_item>Related diagram</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ArtifactDependency -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ArtifactDependency">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Dependency</_item>
+											</toolTip>
+											<label>
+												<_item>Dependency</_item>
+											</label>
+											<iconKey>ArtifactDependency</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ArtifactDependency:artifact">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Artifact</_item>
+											</toolTip>
+											<label>
+												<_item>Artifact</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ArtifactDependency:dependencyType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Dependency type</_item>
+											</toolTip>
+											<label>
+												<_item>Dependency type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ArtifactContext -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ArtifactContext">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Context</_item>
+											</toolTip>
+											<label>
+												<_item>Context</_item>
+											</label>
+											<iconKey>ArtifactContext</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ArtifactContext:assetContext">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Asset context</_item>
+											</toolTip>
+											<label>
+												<_item>Asset context</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:ArtifactContext:vp">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Variability point</_item>
+											</toolTip>
+											<label>
+												<_item>Variability point</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- VariabilityPoint -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:VariabilityPoint">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Variability Point</_item>
+											</toolTip>
+											<label>
+												<_item>Variability Point</_item>
+											</label>
+											<iconKey>VariabilityPoint</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:VariabilityPoint:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:VariabilityPoint:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:ras1:VariabilityPoint:assetContext">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Asset context</_item>
+											</toolTip>
+											<label>
+												<_item>Asset context</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

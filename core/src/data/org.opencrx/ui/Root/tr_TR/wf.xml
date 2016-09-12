@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İş Akışları</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İş Akışları</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:wfProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İş Akışı İşlemleri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İş Akışı İşlemleri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Öncelik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Öncelik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İş Akışı İşlemi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İş Akışı İşlemi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess:isSynchronous" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Eşzamanlı</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Eşzamanlı</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess:maxRetries" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>En çok deneme sayısı</_item>
+                      </label>
+                      <toolTip>
+                        <_item>En çok deneme sayısı</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:ExternalTask" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dış Görev</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dış Görev</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:topic" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Temalar</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Temalar</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tema</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tema</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tema</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:topicPathPattern" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tema yol kalıbı</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tema yol kalıbı</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:performAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Yürütülecek eylem</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Yürütülecek eylem</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:PropertySet:property" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Özellikler</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Özellikler</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>İsim</_item>
+                      </label>
+                      <toolTip>
+                        <_item>İsim</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Açıklama</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Açıklama</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:domain" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Alan</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Alan</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mantıksal Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mantıksal Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mantıksal Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mantıksal Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty:booleanValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mantıksal Değer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mantıksal Değer</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tamsayı Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tamsayı Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tamsayı Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tamsayı Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty:integerValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tamsayı değer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tamsayı değer</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ondalık Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ondalık Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ondalık Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ondalık Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty:decimalValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ondalık değer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ondalık değer</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>String Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>String Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>String Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>String Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty:stringValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>String değer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>String değer</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tarih Özniteliği</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tarih Özniteliği</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tarih Özniteliği</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tarih Özniteliği</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateProperty:dateValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tarih Değeri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tarih Değeri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateTimeProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tarih/Zaman Özniteliği</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tarih/Zaman Özniteliği</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateTimeProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tarih/Zaman Özniteliği</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tarih/Zaman Özniteliği</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateTimeProperty:dateTimeValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tarih/Zaman Değeri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tarih/Zaman Değeri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>URI Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>URI Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>URI Özellik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>URI Özellik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty:uriValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>URI değer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>URI değer</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ReferenceProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Referans Özniteliği</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Referans Özniteliği</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ReferenceProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Referans Özniteliği</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Referans Özniteliği</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ReferenceProperty:referenceValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Referans Değeri</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Referans Değeri</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

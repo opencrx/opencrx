@@ -1,0 +1,1328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ordner &amp; Dokumente</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ordner &amp; Dokumente</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:folder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ordner</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ordner</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:document" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dokumente</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dokumente</_item>
+                      </toolTip>
+                    </_object>
+										<_content>
+											<additionalElementDefinition>
+												<org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Dokumente (deaktiviert)</_item>
+														</toolTip>
+														<label>
+															<_item>Dokumente (deaktiviert)</_item>
+														</label>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+											</additionalElementDefinition>
+										</_content>
+                  </org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare">
+										<_object>
+											<toolTip>
+												<_item>Ordnerfreigaben</_item>
+											</toolTip>
+											<label>
+												<_item>Ordnerfreigaben</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:isActive">
+										<_object>
+											<toolTip>
+												<_item>Aktiv</_item>
+											</toolTip>
+											<label>
+												<_item>Aktiv</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:shareForUser">
+										<_object>
+											<toolTip>
+												<_item>Freigabe für Benutzer</_item>
+											</toolTip>
+											<label>
+												<_item>Freigabe für Benutzer</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ordner</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ordner</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:propertySet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Eigenschaften</_item>
+                      </label>
+                      <toolTip>
+                        <_item>hinzugefügte Eigenschaften</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:folderShare">
+										<_object>
+											<toolTip>
+												<_item>Freigaben</_item>
+											</toolTip>
+											<label>
+												<_item>Freigaben</_item>
+											</label>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:subFolder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unterordner</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unterordner</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:folderEntry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Einträge</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Einträge</_item>
+                      </toolTip>
+                    </_object>
+										<_content>
+											<additionalElementDefinition>
+												<org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Einträge (deaktiviert)</_item>
+														</toolTip>
+														<label>
+															<_item>Einträge (deaktiviert)</_item>
+														</label>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+											</additionalElementDefinition>
+										</_content>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:parent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Übergeordneter Ordner</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Übergeordneter Ordner</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:disabled">
+										<_object>
+											<toolTip>
+												<_item>Objekt ist deaktiviert</_item>
+											</toolTip>
+											<label>
+												<_item>Deaktiviert</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry">
+										<_object>
+											<toolTip>
+												<_item>Ordnereintrag</_item>
+											</toolTip>
+											<label>
+												<_item>Ordnereintrag</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:AssignmentBasedFolderEntry">
+										<_object>
+											<toolTip>
+												<_item>Ordnereintrag (Zuweisung)</_item>
+											</toolTip>
+											<label>
+												<_item>Ordnereintrag</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentBasedFolderEntry">
+										<_object>
+											<toolTip>
+												<_item>Ordnereintrag (Dokument)</_item>
+											</toolTip>
+											<label>
+												<_item>Ordnereintrag</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:document">
+										<_object>
+											<toolTip>
+												<_item>Dokument</_item>
+											</toolTip>
+											<label>
+												<_item>Dokument</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:assignmentRole">
+										<_object>
+											<toolTip>
+												<_item>Rolle</_item>
+											</toolTip>
+											<label>
+												<_item>Rolle</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:validFrom">
+                    <_object>
+                      <toolTip>
+                        <_item>Gültig ab</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Gültig ab</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:validTo">
+                    <_object>
+                      <toolTip>
+                        <_item>Gültig bis</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Gültig bis</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:basedOn">
+										<_object>
+											<toolTip>
+												<_item>Eintrag basierend auf</_item>
+											</toolTip>
+											<label>
+												<_item>Eintrag basierend auf</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:disabled">
+										<_object>
+                      <toolTip>
+                        <_item>Objekt ist deaktiviert</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Deaktiviert</_item>
+                      </label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dokument</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dokument</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:folder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ordner (Direktzuweisungen)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ordner (Direktzuweisungen)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentReference" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Dokumentreferenzen</_item>
+											</toolTip>
+											<label>
+												<_item>Dokumentreferenzen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentFolderAssignment" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Ordner</_item>
+											</toolTip>
+											<label>
+												<_item>Ordner</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:propertySet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Eigenschaften</_item>
+                      </label>
+                      <toolTip>
+                        <_item>hinzugefügte Eigenschaften</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:revision" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Revisionen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Revisionen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:link">
+										<_object>
+											<toolTip>
+												<_item>Verweise</_item>
+											</toolTip>
+											<label>
+												<_item>Verweise</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:lock">
+										<_object>
+											<toolTip>
+												<_item>Blockierungen</_item>
+											</toolTip>
+											<label>
+												<_item>Blockierungen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:attachment">
+										<_object>
+											<toolTip>
+												<_item>Dateien</_item>
+											</toolTip>
+											<label>
+												<_item>Dateien</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:title" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Titel</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Titel des Dokuments</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:author" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Autor</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Autor des Dokuments</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:parent">
+										<_object>
+											<toolTip>
+												<_item>Übergeordnetes Dokument</_item>
+											</toolTip>
+											<label>
+												<_item>Übergeordnetes Dokument</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:qualifiedName">
+										<_object>
+											<toolTip>
+												<_item>Qualifizierter Name</_item>
+											</toolTip>
+											<label>
+												<_item>Qualifizierter Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentAbstract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Zusammenfassung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Zusammenfassung des Dokuments</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Status</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dokumentstatus</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:activeOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gültig ab</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gültig ab</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:activeUntil" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gültig bis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gültig bis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:headRevision" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hauptrevision</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hauptrevision</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:contentLength" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Inhaltsgrösse</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Inhaltsgrösse</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:contentType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Inhaltstyp</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Inhaltstyp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:contentLanguage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Sprache (Inhalt)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Sprache (Inhalt)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dokumenttyp</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dokumenttyp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:literatureType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dokumentart</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dokumentart</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:location" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Lokation</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Lokation</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:keywords" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Stichwörter</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Stichwörter</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:searchText" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Suchtext</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Suchtext</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentSize" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Grösse</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dokumentgrösse</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nummer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nummer</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsLanguage">
+										<_object>
+											<toolTip>
+												<_item>CMS Sprache</_item>
+											</toolTip>
+											<label>
+												<_item>CMS Sprache</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsDefaultLanguage">
+										<_object>
+											<toolTip>
+												<_item>CMS Sprache Voreinstellung</_item>
+											</toolTip>
+											<label>
+												<_item>CMS Sprache Voreinstellung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsTranslation">
+										<_object>
+											<toolTip>
+												<_item>CMS Übersetzung</_item>
+											</toolTip>
+											<label>
+												<_item>CMS Übersetzung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsClass">
+										<_object>
+											<toolTip>
+												<_item>CMS Klasse</_item>
+											</toolTip>
+											<label>
+												<_item>CMS Klasse</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsTemplate">
+										<_object>
+											<toolTip>
+												<_item>CMS Vorlage</_item>
+											</toolTip>
+											<label>
+												<_item>CMS Vorlage</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsMeta">
+										<_object>
+											<toolTip>
+												<_item>CMS Meta</_item>
+											</toolTip>
+											<label>
+												<_item>CMS Meta</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:disabled">
+										<_object>
+											<toolTip>
+												<_item>Objekt ist deaktiviert</_item>
+											</toolTip>
+											<label>
+												<_item>Deaktiviert</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:FolderAssignment">
+										<_object>
+											<toolTip>
+												<_item>Ordnerzuweisung</_item>
+											</toolTip>
+											<label>
+												<_item>Ordnerzuweisung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:FolderAssignment:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:FolderAssignment:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Dokumentreferenz</_item>
+											</toolTip>
+											<label>
+												<_item>Dokumentreferenz</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:basedOn" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Basiert auf Dokument</_item>
+											</toolTip>
+											<label>
+												<_item>Basiert auf Dokument</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:object" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Referenziert von</_item>
+											</toolTip>
+											<label>
+												<_item>Referenziert von</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentRevision:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentRevision:author">
+										<_object>
+											<toolTip>
+												<_item>Autor</_item>
+											</toolTip>
+											<label>
+												<_item>Autor</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentRevision:version">
+										<_object>
+											<toolTip>
+												<_item>Version</_item>
+											</toolTip>
+											<label>
+												<_item>Version</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:MediaContent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Datei</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Datei</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:contentName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name des Inhalts</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name des Inhalts</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:contentLength" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Inhaltsgrösse</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Inhaltsgrösse</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:contentMimeType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>MIME Typ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>MIME Typ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:content" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Datei</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Datei</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:MediaReference" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Medienreferenz</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Medienreferenz</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:MediaReference:media" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Datei</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Datei</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ResourceIdentifier" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ressourcenidentifikator</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ressourcenidentifikator</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ResourceIdentifier:uri" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>URI</_item>
+                      </label>
+                      <toolTip>
+                        <_item>URI</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:PropertySet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Eigenschaftenbehälter</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Eigenschaftenbehälter</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:PropertySet:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:PropertySet:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink">
+										<_object>
+											<toolTip>
+												<_item>Dokumentverweis</_item>
+											</toolTip>
+											<label>
+												<_item>Dokumentverweis</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink:linkUri">
+										<_object>
+											<toolTip>
+												<_item>Link URI</_item>
+											</toolTip>
+											<label>
+												<_item>Link URI</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DocumentLock -->
+									<!-- Inspector -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock">
+										<_object>
+											<toolTip>
+												<_item>Dokumentblockierung</_item>
+											</toolTip>
+											<label>
+												<_item>Dokumentblockierung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:lockedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Blockiert um</_item>
+											</toolTip>
+											<label>
+												<_item>Blockiert um</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:lockedBy">
+										<_object>
+											<toolTip>
+												<_item>Blockiert von</_item>
+											</toolTip>
+											<label>
+												<_item>Blockiert von</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentAttachment">
+										<_object>
+											<toolTip>
+												<_item>Datei</_item>
+											</toolTip>
+											<label>
+												<_item>Datei</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentAttachment:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentAttachment:author">
+										<_object>
+											<toolTip>
+												<_item>Autor</_item>
+											</toolTip>
+											<label>
+												<_item>Autor</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentAttachment:version">
+										<_object>
+											<toolTip>
+												<_item>Version</_item>
+											</toolTip>
+											<label>
+												<_item>Version</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:documentFolder">
+                    <_object>
+                      <toolTip>
+                        <_item>Ordner</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Ordner</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:assignmentRole">
+                    <_object>
+                      <toolTip>
+                        <_item>Rolle</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Rolle</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:validFrom">
+                    <_object>
+                      <toolTip>
+                        <_item>Gültig ab</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Gültig ab</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:validTo">
+                    <_object>
+                      <toolTip>
+                        <_item>Gültig bis</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Gültig bis</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:disabled">
+										<_object>
+                      <toolTip>
+                        <_item>Objekt ist deaktiviert</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Deaktiviert</_item>
+                      </label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:createDefaultShare">
+										<_object>
+											<toolTip>
+												<_item>Freigabe (Voreinstellung) erstellen</_item>
+											</toolTip>
+											<label>
+												<_item>Freigabe (Voreinstellung) erstellen</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:createDefaultShare:Group:in">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:createDefaultShare:Group:result">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:CreateDefaultShareResult:folderShare">
+										<_object>
+											<toolTip>
+												<_item>Freigabe </_item>
+											</toolTip>
+											<label>
+												<_item>Freigabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:removeDefaultShare">
+										<_object>
+											<toolTip>
+												<_item>Freigabe (Voreinstellung) deaktivieren</_item>
+											</toolTip>
+											<label>
+												<_item>Freigabe (Voreinstellung) deaktivieren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:removeDefaultShare:Group:in">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:removeDefaultShare:Group:result">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

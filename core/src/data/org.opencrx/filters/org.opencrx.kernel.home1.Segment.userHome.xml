@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="1">
+				<void index="0">
+					<string>org:opencrx:kernel:home1:Segment:userHome</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="2">
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>userHome:9998</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS (SELECT 0 FROM OOMSE2_PRINCIPAL p WHERE v.object_id = REPLACE(REPLACE(p.object_id, 'principal/', 'userHome/'), '/Root', '') AND (p.disabled IS NULL OR p.disabled = ?b0))</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>false</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>userHome:9999</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS (SELECT 0 FROM OOMSE2_PRINCIPAL p WHERE v.object_id = REPLACE(REPLACE(p.object_id, 'principal/', 'userHome/'), '/Root', '') AND p.disabled = ?b0)</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

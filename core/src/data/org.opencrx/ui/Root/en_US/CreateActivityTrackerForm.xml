@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+				  <formDefinition>
+					  <org.openmdx.ui1.FormDefinition name="CreateActivityTrackerForm">
+							<_object>
+								<title>
+									<_item>Activities</_item>
+								</title>
+								<toolTip>
+									<_item>Activities</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="Main">
+										<_object>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>2</_item>
+												<_item>4</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="name">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:ActivityGroup</forClass>
+														<featureName>name</featureName>
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>					
+											</formFieldDefinition>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="description">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:ActivityGroup</forClass>
+														<featureName>description</featureName>
+														<spanRow>6</spanRow>
+														<order>200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>		
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>							
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>
+				  </formDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

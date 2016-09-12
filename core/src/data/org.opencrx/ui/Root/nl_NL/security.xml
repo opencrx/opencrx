@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beveiligingsbeleid</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beveiligingsbeleid</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Segment:policy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beleid</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beleid</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beleid</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beleid</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beleid</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beleid</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Naam</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Naam</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:parent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ouder</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ouder</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <!--
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ModelClassPrivilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Privilege modelklasse</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Privilege modelklasse</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ModelReferencePrivilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Privilege modelreferentie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Privilege modelreferentie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ResourcePrivilege" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Privilege bron</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Privilege bron</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  -->
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Naa,</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Naam</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:action" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Actie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Actie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Policy:role" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rollen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rollen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:ModelReferencePrivilege:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Referentie privilege</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Referentie privilege</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beveiligings Realms</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beveilinging Realms</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:Segment:subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gebruikers / Groepen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gebruikers / Groepen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Naam</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Naam</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofden</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofden</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Realm:securityContext" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beveiligings context</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beveiligings context</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofd</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofd</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofd</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofd</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Naam</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Naam</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Onderwerp</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Onderwerp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:disabled" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gedeactiveerd</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gedeactiveerd</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Lid van hoofdgroepen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Lid van hoofdgroepen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Autheticatie gegevens</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Authenticatie gegevens</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:Principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofd</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofd</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:PrincipalGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofdgroep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofdgroep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:PrincipalGroup:subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gebruikersgroep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gebruikersgroep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:PrincipalGroup:grantedRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Toegekende rollen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Toegekende rollen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:Principal:grantedRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Toegekende rollen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Toegekende rollen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rol</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rol</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rol</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rol</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Naam</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Naam</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:disabled" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gedeactiveerd</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gedeactiveerd</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofden</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofden</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:permission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rechten</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rechten</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Recht</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Recht</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Recht</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Recht</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Naam</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Naam</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:action" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Actie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Actie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Onderwerp</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Onderwerp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Onderwerp</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Onderwerp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Onderwerp</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Onderwerp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofden</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofden</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Subject:credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gegevens</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gegevens</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Groep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Groep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group:principal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hoofden</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hoofden</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group:grantedRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Toegekende rollen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Toegekende rollen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Group:credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Authenticatie gegevens</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Authenticatie gegevens</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gebruikersgroepen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gebruikersgroepen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gebruikersgroep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gebruikersgroep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:UserGroup:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Lid van gerbuikersgroepen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Lid van gebruikersgroepen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Lokale gerbuikersgroep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Lokale gebruikersgroep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Lokale gerbuikersgroep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Lokale gebruikersgroep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup:exportedTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Geexporteerd naar</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Geexporteerd naar</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:LocalUserGroup:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Lid van gebruikersgroep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Lid van gebruikersgroep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:identity1:ImportedUserGroup" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Geimporteerde gebruikersgroep</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Geimporteerde gebruikersgroep</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gebruiker</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gebruiker</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gebruiker</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gebruiker</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:correlation" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Contact</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Contact</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Omschrijving</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Omschrijving</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:isMemberOf" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Lid van gebruikersgroepen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Lid van gebruikersgroepen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Credential" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gegeven</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gegeven</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Credential:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Gegeven</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Gegeven</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wachtwoord</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wachtwoord</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wachtwoord</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wachtwoord</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:locked" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Geblokkeerd</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Geblokkeerd</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Certificate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Certificaat</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Certificaat</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:validate" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valideren</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valideren</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:change" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wijzigen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wijzigen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wachtwoord bepalen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wachtwoord bepalen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Invoer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Invoer</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultaat</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultaat</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authentication1:Password:Pane:Op:Tab:set:newPassword" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nieuw wachtwoord</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nieuw wachtwoord</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

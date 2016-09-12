@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Fluxuri de lucru</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Fluxuri de lucru</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:wfProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Procese ale fluxurilor de lucru</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Procese ale fluxurilor de lucru</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nume</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nume</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Prioritate</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Prioritate</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descriere</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descriere</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proces al fluxului de lucru</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proces al fluxului de lucru</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess:isSynchronous" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>E sincronizat</_item>
+                      </label>
+                      <toolTip>
+                        <_item>E sincronizat</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess:maxRetries" _operation="create">
+                    <_object>
+                      <label>
+                        <_item># Maxim de tentative</_item>
+                      </label>
+                      <toolTip>
+                        <_item># Maxim de tentative</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:ExternalTask" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Obiectiv Extern</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Obiectiv Extern</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:topic" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Subiecte</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Subiecte</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Subiect</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Subiect</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nume</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nume</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descriere</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descriere</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:topicPathPattern" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Modelul căii subiectului</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Modelul căii subiectului</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:performAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Acţiuni de executat</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Acţiuni de executat</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:PropertySet:property" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietăţi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietăţi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nume</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nume</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descriere</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descriere</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:domain" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Domeniu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Domeniu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Booleană</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Booleană</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Booleană</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Booleană</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty:booleanValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare Booleană</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare Booleană</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Număr Întreg</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Număr Întreg</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Număr Întreg</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Număr Întreg</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty:integerValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare Număr Întreg</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare Număr Întreg</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Zecimală</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Zecimală</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Zecimală</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Zecimală</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty:decimalValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare Zecimală</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare Zecimală</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Șir</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Șir</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Șir</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Șir</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty:stringValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare Șir</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare Șir</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Dată</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Dată</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Dată</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Dată</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateProperty:dateValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare Dată</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare Dată</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateTimeProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Dată / Oră</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Dată/Oră</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateTimeProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Dată / Oră</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Dată / Oră</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DateTimeProperty:dateTimeValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare Dată / Oră</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare Dată / Oră</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate URI</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate URI</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate URI</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate URI</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty:uriValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare URI</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare URI</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ReferenceProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Referinţă</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Referinţă</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ReferenceProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proprietate Referinţă</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proprietate Referinţă</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ReferenceProperty:referenceValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valoare Referinţă</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valoare Referintţă</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

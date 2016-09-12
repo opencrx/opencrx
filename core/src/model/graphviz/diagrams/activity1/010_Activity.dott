@@ -1,0 +1,52 @@
+digraph "Diagram Activity [Package org:opencrx:kernel:activity1]" {
+
+	graph[
+	  splines=ortho;
+	  ranksep=1;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Activity,compartments=false,width=18]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityVote,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityGroupAssignment,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:ProductReference,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:EffortEstimate,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:WorkAndExpenseRecord,compartments=false,width=3]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractVote,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:product1:ConfiguredProduct,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=5]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:ResourceAssignment,compartments=false,width=4]};
+	}
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityContainsVote,minlen=2]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

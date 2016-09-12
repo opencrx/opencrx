@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.activity1.jpa3">
+    <class name="ActivityCreator" table="OOCKE1_ACTIVITYCREATOR">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>
+		<field name="segment" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>		
+		<field name="resource" visibility="cci">
+			<column name="RESRC"/>
+		</field>
+    </class>
+  </package>
+</openmdxjdo>

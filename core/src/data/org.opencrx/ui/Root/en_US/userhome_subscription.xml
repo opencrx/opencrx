@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object />
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object />
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object />
+							<_content>
+								<elementDefinition>
+									<!--Subscription -->
+									<!--Tab Definitions Pane1 -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:subscription">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Subscriptions</_item>
+											</toolTip>
+											<label>
+												<_item>»Subscriptions</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>300</_item>
+											</order>
+											<iconKey>Subscription</iconKey>
+											<maxMember>15</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Subscription</_item>
+											</toolTip>
+											<label>
+												<_item>Subscription</_item>
+											</label>
+											<iconKey>Subscription</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- disable matches Operation -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:Pane:Op:Tab:matches">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:Pane:Attr:Tab:0:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Filters</_item>
+											</toolTip>
+											<label>
+												<_item>Filters</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:description">
+										<_object>
+											<active>true</active>
+											<spanRow>2</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:isActive">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Active</_item>
+											</toolTip>
+											<label>
+												<_item>Active</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:eventType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Event type</_item>
+											</toolTip>
+											<label>
+												<_item>Event type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:topic">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Topic</_item>
+											</toolTip>
+											<label>
+												<_item>Topic</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterName0">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Name of filter #0</_item>
+											</toolTip>
+											<label>
+												<_item>Name of filter #0</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterName1">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Name of filter #1</_item>
+											</toolTip>
+											<label>
+												<_item>Name of filter #1</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterName2">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Name of filter #2</_item>
+											</toolTip>
+											<label>
+												<_item>Name of filter #2</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterName3">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Name of filter #3</_item>
+											</toolTip>
+											<label>
+												<_item>Name of filter #3</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterName4">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Name of filter #4</_item>
+											</toolTip>
+											<label>
+												<_item>Name of filter #4</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterValue0">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<spanRow>4</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Values of filter #0</_item>
+											</toolTip>
+											<label>
+												<_item>Values of filter #0</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>15</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterValue1">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Values of filter #1</_item>
+											</toolTip>
+											<label>
+												<_item>Values of filter #1</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>25</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterValue2">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Values of filter #2</_item>
+											</toolTip>
+											<label>
+												<_item>Values of filter #2</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>35</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterValue3">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Values of filter #3</_item>
+											</toolTip>
+											<label>
+												<_item>Values of filter #3</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>110</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>45</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Subscription:filterValue4">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Values of filter #4</_item>
+											</toolTip>
+											<label>
+												<_item>Values of filter #4</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>120</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>55</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

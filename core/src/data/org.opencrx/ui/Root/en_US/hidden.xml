@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<!--disable high level tabs-->
+								<elementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:reservation1:Segment">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Reservations</_item>
+											</toolTip>
+											<label>
+												<_item>Reservations</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>org:opencrx:kernel:activity1:Activity</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:reservation1:Segment:event">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Events</_item>
+											</toolTip>
+											<label>
+												<_item>Events</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>org:opencrx:kernel:activity1:Activity</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:base:Segment:description">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Segment Description</_item>
+											</toolTip>
+											<label>
+												<_item>Segment Description</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:base:Segment:extent">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Extent</_item>
+											</toolTip>
+											<label>
+												<_item>Extent</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:base:ContextCapable:context">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Context</_item>
+											</toolTip>
+											<label>
+												<_item>Context</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:CrxObject:additionalExternalLink">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Extent</_item>
+											</toolTip>
+											<label>
+												<_item>Extent</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- generic:Pictured -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:Pictured:pictureContentMimeType">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>MIME type</_item>
+											</toolTip>
+											<label>
+												<_item>MIME type</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:Pictured:pictureContentName">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- generic:Media -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:Media:contentName">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- disable Segment Security FieldGroups -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:building1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:model1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:reservation1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:uom1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:Pane:Attr:Tab:900100:Group:30">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Security</_item>
+											</toolTip>
+											<label>
+												<_item>Security</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- disable Segment Tabs Audit and Index Entries -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:building1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:building1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:model1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:model1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:reservation1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:reservation1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:uom1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:uom1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:audit">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Audit Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Audit Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:indexEntry">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Index Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Index Entries</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- hide [Export XML] operation at the segment level (prevent performance issues) -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:building1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:model1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:reservation1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:uom1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:Pane:Op:Tab:exportXml">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Export XML</_item>
+											</toolTip>
+											<label>
+												<_item>Export XML</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

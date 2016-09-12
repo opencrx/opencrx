@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Simple" _operation="null">
+              <_object/>
+							<_content>
+								<elementDefinition>
+
+<!-- Account -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:organization">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:competitor">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:ouMembership">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:product">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:assignedBudget">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:UnspecifiedAccount:note">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>attached notes</_item>
+											</toolTip>
+											<label>
+												<_item>Notes</_item>
+											</label>
+											<order>
+												<_item>78</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:note">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>attached notes</_item>
+											</toolTip>
+											<label>
+												<_item>Notes</_item>
+											</label>
+											<order>
+												<_item>78</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:note">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>attached notes</_item>
+											</toolTip>
+											<label>
+												<_item>Notes</_item>
+											</label>
+											<order>
+												<_item>78</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Group:note">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>attached notes</_item>
+											</toolTip>
+											<label>
+												<_item>Notes</_item>
+											</label>
+											<order>
+												<_item>78</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+<!-- Activity -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activityFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Activities</_item>
+											</toolTip>
+											<label>
+												<_item>»Saved Searches - Activities</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:calendar">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>all calendars</_item>
+                      </toolTip>
+                      <label>
+                        <_item>»Calendars</_item>
+                      </label>
+                      <order>
+                        <_item>40</_item>
+                        <_item>0</_item>
+                        <_item>20</_item>
+                      </order>
+                      <maxMember>3</maxMember>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activityCreator">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>all activity creators</_item>
+											</toolTip>
+											<label>
+												<_item>»Activity Creators</_item>
+											</label>
+											<order>
+												<_item>40</_item>
+												<_item>0</_item>
+												<_item>25</_item>
+											</order>
+											<maxMember>9</maxMember>
+											<showMaxMember>4</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activityProcess">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>all activity processes</_item>
+											</toolTip>
+											<label>
+												<_item>»Activity Processes</_item>
+											</label>
+											<order>
+												<_item>40</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activityType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>all activity types</_item>
+											</toolTip>
+											<label>
+												<_item>»Activity Types</_item>
+											</label>
+											<order>
+												<_item>40</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:assignedResource">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Assigned Resources</_item>
+											</toolTip>
+											<label>
+												<_item>»Assigned Resources</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>240</_item>
+											</order>
+											<maxMember>7</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:effortEstimate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Effort Estimates</_item>
+											</toolTip>
+											<label>
+												<_item>»Effort Estimates</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>241</_item>
+											</order>
+											<maxMember>7</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:workReportEntry">
+										<_object>
+											<active>true</active>
+											<inPlace>false</inPlace>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Work and Expense Records</_item>
+											</toolTip>
+											<label>
+												<_item>»Work and Expense Records</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>242</_item>
+											</order>
+											<maxMember>19</maxMember>
+                      <showMemberRange>
+                        <_item>0:0:0-0:20:20</_item>
+                        <_item>0:20:24-0:20:24</_item>
+                      </showMemberRange>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:vote">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Votes</_item>
+											</toolTip>
+											<label>
+												<_item>»Votes</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>243</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:contract">
+										<_object>
+											<active>true</active>
+											<filterable>true</filterable>
+											<toolTip>
+												<_item>Involved Pipeline Items / Contracts</_item>
+											</toolTip>
+											<label>
+												<_item>»Involved Pipeline Items / Contracts</_item>
+											</label>
+											<shortLabel>
+												<_item>Pipeline</_item>
+											</shortLabel>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>245</_item>
+											</order>
+											<!--
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>76</_item>
+											</orderObjectContainer>
+											-->
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:productReference">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Involved Products</_item>
+											</toolTip>
+											<label>
+												<_item>»Involved Products</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>246</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:involvedObject">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Involved Objects</_item>
+											</toolTip>
+											<label>
+												<_item>»Involved Objects</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>247</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EMail:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Meeting:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SalesVisit:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Task:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Incident:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PhoneCall:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Mailing:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Absence:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ExternalActivity:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:CrxObject:media">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Attached media</_item>
+											</toolTip>
+											<label>
+												<_item>Attachments</_item>
+											</label>
+											<order>
+												<_item>80</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:doFollowUp">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:assignTo">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:reapplyActivityCreator">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:voteForActivity">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:calcTotalQuantity">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:updateIcal">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+	
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:Pane:Op:Tab:markAsAllDayEvent">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+<!-- Contract -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:opportunity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>all opportunities</_item>
+											</toolTip>
+											<label>
+												<_item>»Opportunities</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>20</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:quote">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Quotes</_item>
+											</toolTip>
+											<label>
+												<_item>»Quotes</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<maxMember>20</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:salesOrder">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Orders</_item>
+											</toolTip>
+											<label>
+												<_item>»Sales Orders</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>20</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:invoice">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Invoices</_item>
+											</toolTip>
+											<label>
+												<_item>»Invoices</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<maxMember>20</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:contractRole">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Contract Roles</_item>
+											</toolTip>
+											<label>
+												<_item>»Contract Roles</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>200</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:calculationRule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Calculation Rules</_item>
+											</toolTip>
+											<label>
+												<_item>»Calculation Rules</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>210</_item>
+											</order>
+											<iconKey>CalculationRule</iconKey>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:contractFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Contracts</_item>
+											</toolTip>
+											<label>
+												<_item>»Saved Searches - Contracts</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>220</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Lead:note">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>attached notes</_item>
+											</toolTip>
+											<label>
+												<_item>Notes</_item>
+											</label>
+											<order>
+												<_item>78</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:linkTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Linked To</_item>
+											</toolTip>
+											<label>
+												<_item>»Linked To</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>200</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:linkFrom">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Inbound Links</_item>
+											</toolTip>
+											<label>
+												<_item>»Inbound Links</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>210</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>7</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+<!-- Depots -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReferenceHolder:depotReference">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

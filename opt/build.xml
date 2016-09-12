@@ -1,0 +1,24 @@
+<project
+	name="opt-installer" 
+	xmlns:antcontrib="antlib:net.sf.antcontrib"
+>
+	<target name="install-opt">
+		<copy todir="." failonerror="false">
+			<fileset dir="../../openmdx/distribution" includes="*" />
+			<fileset dir="../../openmdx2/distribution" includes="*" />
+		</copy>
+		<delete dir="openmdx-2.15.0" />
+		<unzip dest=".">
+			<fileset dir="." includes="*.zip" />
+		</unzip>
+		<untar dest="." compression="gzip">
+			<fileset dir="." includes="*.tar.gz" />
+		</untar>
+		<delete>
+			<fileset dir="." includes="*.MD5" />
+			<fileset dir="." includes="*.zip" />
+			<fileset dir="." includes="*.tar.gz" />
+		</delete>
+	</target>
+	
+</project>

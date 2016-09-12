@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+									<!-- Segment -->
+									<!-- Grid Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:documentFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Documents</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Searches - Documents</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DocumentFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Documents</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Documents</_item>
+											</label>
+											<iconKey>DocumentFilterGlobal</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!-- FieldGroups -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+
+									<!-- AbstractFilterDocument -->
+									<!--Inspector Definitions-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:AbstractFilterDocument:filteredDocument">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Documents (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Documents (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>20</maxMember>
+											<showMaxMember>8</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:AbstractFilterDocument:filterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:AbstractFilterDocument:Pane:Op:Tab:countFilteredDocument">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Documents</_item>
+											</toolTip>
+											<label>
+												<_item>Count Documents</_item>
+											</label>
+											<iconKey>Document</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:AbstractFilterDocument:Pane:Op:Tab:countFilteredDocument:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:AbstractFilterDocument:Pane:Op:Tab:countFilteredDocument:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  common.xml -->
+
+									<!-- DocumentFolderFilterProperty -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Document Folder</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Document Folder</_item>
+											</label>
+											<iconKey>DocumentFolderFilterProperty</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderFilterProperty:folder">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Folder</_item>
+											</toolTip>
+											<label>
+												<_item>Folder</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DocumentNameFilterProperty -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentNameFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Document Name</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Document Name</_item>
+											</label>
+											<iconKey>DocumentNameFilterProperty</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentNameFilterProperty:namePattern">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name pattern</_item>
+											</toolTip>
+											<label>
+												<_item>Name pattern</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DocumentTypeFilterProperty -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentTypeFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Document Type</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Document Type</_item>
+											</label>
+											<iconKey>DocumentTypeFilterProperty</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentTypeFilterProperty:documentType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Document type</_item>
+											</toolTip>
+											<label>
+												<_item>Document type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DocumentStateFilterProperty -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentStateFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Document State</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Document State</_item>
+											</label>
+											<iconKey>DocumentTypeFilterProperty</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentStateFilterProperty:documentState">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Document state</_item>
+											</toolTip>
+											<label>
+												<_item>Document state</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DocumentLanguageFilterProperty -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLanguageFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Document Language</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Document Language</_item>
+											</label>
+											<iconKey>DocumentLanguageFilterProperty</iconKey>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLanguageFilterProperty:contentLanguage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Content language</_item>
+											</toolTip>
+											<label>
+												<_item>Content language</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DisabledFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DisabledFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria - Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria - Disabled</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<iconKey>DisabledFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DisabledFilterProperty:disabled">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- DocumentQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+											<iconKey>DocumentQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.generic.jpa3">
+    <class name="LocalizedField" table="OOCKE1_LOCALIZEDFIELD">
+		<field name="openmdxjdoIdentity" visibility="none">
+			<column name="OBJECT_ID"/>
+		</field>    
+		<field name="localizedFieldContainer" visibility="none">
+			<column name="P$$PARENT"/>
+		</field>
+		<field name="usage" visibility="cci">
+			<column name="OBJUSAGE"/>
+		</field>			    
+    </class>
+  </package>
+</openmdxjdo>

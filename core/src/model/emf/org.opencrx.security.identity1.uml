@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_EgI_0N8IEdmKapscEl8OLg" name="identity1">
+  <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D41819EE802DAPPP" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D41819EE802DAPP" name="opencrx">
+      <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D41819EE802DAP" name="security">
+        <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D41819EE802DA" name="identity1">
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D41819F360016" name="Segment">
+            <generalization xmi:id="_3C7B8A60016D41819F4C01DA">
+              <general xmi:type="uml:Class" href="org.opencrx.uml#_txYYwPtsEduZnKmt1dsSSQ"/>
+            </generalization>
+            <ownedAttribute xmi:id="_3C7B8A60016D41819F820278" name="subject" type="_3C7B8A60016D415732A70124" isUnique="false" aggregation="composite" association="_3C7B8A60016D41819F8200BF">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ITKnXN7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ITKnXd7NEdmKapscEl8OLg" value="1"/>
+              <qualifier xmi:id="_3C7B8A60016D41819F9701F6" name="name" visibility="private">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D415732A70124" name="Subject">
+            <generalization xmi:id="_3C7B8A60016D415732CD02BA">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Security%20(EMF)/org.openmdx.security.realm1.uml#_3C7B8A60016D3FC602C4017B"/>
+            </generalization>
+            <generalization xmi:id="_3C7B8A60016D418234FD0160">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D41819F8200BF" name="SegmentContainsSubject" memberEnd="_3C7B8A60016D41819F820278 _3C7B8A60016D41819F82027A">
+            <ownedEnd xmi:id="_3C7B8A60016D41819F82027A" name="segment" type="_3C7B8A60016D41819F360016" isUnique="false" association="_3C7B8A60016D41819F8200BF">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ITKnYN7NEdmKapscEl8OLg" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ITKnYd7NEdmKapscEl8OLg" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

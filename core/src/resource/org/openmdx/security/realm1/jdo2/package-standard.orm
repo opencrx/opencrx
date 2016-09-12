@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE orm PUBLIC "-//Sun Microsystems, Inc.//DTD Java Data Objects Mapping Metadata 2.0//EN" "http://java.sun.com/dtd/orm_2_0.dtd">
+<orm>
+  <package name="org.openmdx.security.realm1.jdo2">
+    <class name="Realm" table="OOCSE1_REALM">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Realm"/>
+      </inheritance>
+      <version strategy="date-time">
+        <column name="MODIFIED_AT"/>
+      </version>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="segment">
+        <column name="P$$PARENT"/>
+      </field>
+      <field name="createdBy_size">
+        <column name="CREATED_BY_" default-value="-1"/>
+      </field>
+      <field name="modifiedBy_size">
+        <column name="MODIFIED_BY_" default-value="-1"/>
+      </field>
+      <field name="createdAt">
+        <column name="CREATED_AT" allows-null="true"/>
+      </field>
+      <field name="description">
+        <column name="DESCRIPTION" allows-null="true"/>
+      </field>
+      <field name="name">
+        <column name="NAME"/>
+      </field>
+    </class>
+    <class name="RealmSlice" table="OOCSE1_REALM_">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Realm"/>
+      </inheritance>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="openmdxjdoIndex">
+        <column name="IDX"/>
+      </field>
+      <field name="createdBy">
+        <column name="CREATED_BY" allows-null="true"/>
+      </field>
+      <field name="modifiedBy">
+        <column name="MODIFIED_BY" allows-null="true"/>
+      </field>
+    </class>
+    <class name="Role" table="OOCSE1_ROLE">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Role"/>
+      </inheritance>
+      <version strategy="date-time">
+        <column name="MODIFIED_AT"/>
+      </version>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="policy">
+        <column name="P$$PARENT" allows-null="true"/>
+      </field>
+      <field name="modifiedBy_size">
+        <column name="MODIFIED_BY_" default-value="-1"/>
+      </field>
+      <field name="createdBy_size">
+        <column name="CREATED_BY_" default-value="-1"/>
+      </field>
+      <field name="createdAt">
+        <column name="CREATED_AT" allows-null="true"/>
+      </field>
+      <field name="description">
+        <column name="DESCRIPTION" allows-null="true"/>
+      </field>
+      <field name="name">
+        <column name="NAME" allows-null="true"/>
+      </field>
+      <field name="disabled">
+        <column name="DISABLED" allows-null="true"/>
+      </field>
+    </class>
+    <class name="RoleSlice" table="OOCSE1_ROLE_">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Role"/>
+      </inheritance>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="openmdxjdoIndex">
+        <column name="IDX"/>
+      </field>
+      <field name="modifiedBy">
+        <column name="MODIFIED_BY" allows-null="true"/>
+      </field>
+      <field name="createdBy">
+        <column name="CREATED_BY" allows-null="true"/>
+      </field>
+    </class>
+    <class name="Principal" table="OOCSE1_PRINCIPAL">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="org:openmdx:security:realm1:Principal"/>
+      </inheritance>
+      <version strategy="date-time">
+        <column name="MODIFIED_AT"/>
+      </version>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="realm">
+        <column name="P$$PARENT"/>
+      </field>
+      <field name="modifiedAt">
+      </field>
+      <field name="modifiedBy_size">
+        <column name="MODIFIED_BY_" default-value="-1"/>
+      </field>
+      <field name="subject">
+        <column name="SUBJECT" allows-null="true"/>
+      </field>
+      <field name="credential">
+        <column name="CREDENTIAL" allows-null="true"/>
+      </field>
+      <field name="authCredential_size">
+        <column name="AUTH_CREDENTIAL_" default-value="-1"/>
+      </field>
+      <field name="createdBy_size">
+        <column name="CREATED_BY_" default-value="-1"/>
+      </field>
+      <field name="isMemberOf_size">
+        <column name="IS_MEMBER_OF_" default-value="-1"/>
+      </field>
+      <field name="createdAt">
+        <column name="CREATED_AT" allows-null="true"/>
+      </field>
+      <field name="description">
+        <column name="DESCRIPTION" allows-null="true"/>
+      </field>
+      <field name="name">
+        <column name="NAME" allows-null="true"/>
+      </field>
+      <field name="disabled">
+        <column name="DISABLED" allows-null="true"/>
+      </field>
+    </class>
+    <class name="PrincipalSlice" table="OOCSE1_PRINCIPAL_">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="org:openmdx:security:realm1:Principal"/>
+      </inheritance>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="openmdxjdoIndex">
+        <column name="IDX"/>
+      </field>
+      <field name="modifiedBy">
+        <column name="MODIFIED_BY" allows-null="true"/>
+      </field>
+      <field name="authCredential">
+        <column name="AUTH_CREDENTIAL" allows-null="true"/>
+      </field>
+      <field name="createdBy">
+        <column name="CREATED_BY" allows-null="true"/>
+      </field>
+      <field name="isMemberOf">
+        <column name="IS_MEMBER_OF" allows-null="true"/>
+      </field>
+    </class>
+    <class name="Permission" table="OOCSE1_PERMISSION">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Permission"/>
+      </inheritance>
+      <version strategy="date-time">
+        <column name="MODIFIED_AT"/>
+      </version>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="realm">
+        <column name="P$$PARENT"/>
+      </field>
+      <field name="modifiedBy_size">
+        <column name="MODIFIED_BY_" default-value="-1"/>
+      </field>
+      <field name="createdBy_size">
+        <column name="CREATED_BY_" default-value="-1"/>
+      </field>
+      <field name="createdAt">
+        <column name="CREATED_AT" allows-null="true"/>
+      </field>
+      <field name="description">
+        <column name="DESCRIPTION" allows-null="true"/>
+      </field>
+      <field name="privilege">
+        <column name="PRIVILEGE" allows-null="true"/>
+      </field>
+      <field name="name">
+        <column name="NAME" allows-null="true"/>
+      </field>
+      <field name="action_size">
+        <column name="ACTION_" default-value="-1"/>
+      </field>
+    </class>
+    <class name="PermissionSlice" table="OOCSE1_PERMISSION_">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Permission"/>
+      </inheritance>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="openmdxjdoIndex">
+        <column name="IDX"/>
+      </field>
+      <field name="modifiedBy">
+        <column name="MODIFIED_BY" allows-null="true"/>
+      </field>
+      <field name="createdBy">
+        <column name="CREATED_BY" allows-null="true"/>
+      </field>
+      <field name="action">
+        <column name="ACTION" allows-null="true"/>
+      </field>
+    </class>
+    <class name="Privilege" table="OOCSE1_PRIVILEGE">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Privilege"/>
+      </inheritance>
+      <version strategy="date-time">
+        <column name="MODIFIED_AT"/>
+      </version>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="policy">
+        <column name="P$$PARENT"/>
+      </field>
+      <field name="createdBy_size">
+        <column name="CREATED_BY_" default-value="-1"/>
+      </field>
+      <field name="modifiedBy_size">
+        <column name="MODIFIED_BY_" default-value="-1"/>
+      </field>
+      <field name="createdAt">
+        <column name="CREATED_AT" allows-null="true"/>
+      </field>
+      <field name="description">
+        <column name="DESCRIPTION" allows-null="true"/>
+      </field>
+      <field name="name">
+        <column name="NAME" allows-null="true"/>
+      </field>
+      <field name="action_size">
+        <column name="ACTION_" default-value="-1"/>
+      </field>
+    </class>
+    <class name="PrivilegeSlice" table="OOCSE1_PRIVILEGE_">
+      <inheritance>
+        <discriminator strategy="value-map" column="DTYPE" value="Privilege"/>
+      </inheritance>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="openmdxjdoIndex">
+        <column name="IDX"/>
+      </field>
+      <field name="createdBy">
+        <column name="CREATED_BY" allows-null="true"/>
+      </field>
+      <field name="modifiedBy">
+        <column name="MODIFIED_BY" allows-null="true"/>
+      </field>
+      <field name="action">
+        <column name="ACTION" allows-null="true"/>
+      </field>
+    </class>    
+    <class name="Segment" table="OOCSE1_SEGMENT">
+      <inheritance strategy="new-table"/>    
+    </class>
+    <class name="SegmentSlice" table="OOCSE1_SEGMENT_">
+      <inheritance strategy="new-table">
+        <discriminator strategy="value-map" column="DTYPE" value="org:openmdx:security:realm1:Segment"/>
+      </inheritance>
+      <field name="openmdxjdoIdentity">
+        <column name="OBJECT_ID"/>
+      </field>
+      <field name="openmdxjdoIndex">
+        <column name="IDX"/>
+      </field>
+    </class>    
+  </package>
+</orm>

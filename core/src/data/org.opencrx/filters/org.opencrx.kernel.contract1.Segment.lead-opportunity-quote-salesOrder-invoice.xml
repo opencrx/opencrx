@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="10">
+				<void index="0">
+					<string>org:opencrx:kernel:contract1:Segment:lead</string>
+				</void>
+				<void index="1">
+					<string>org:opencrx:kernel:contract1:Segment:opportunity</string>
+				</void>
+				<void index="2">
+					<string>org:opencrx:kernel:contract1:Segment:quote</string>
+				</void>
+				<void index="3">
+					<string>org:opencrx:kernel:contract1:Segment:salesOrder</string>
+				</void>
+				<void index="4">
+					<string>org:opencrx:kernel:contract1:Segment:invoice</string>
+				</void>
+				<void index="5">
+					<string>org:opencrx:kernel:account1:Contact:assignedContract</string>
+				</void>
+				<void index="6">
+					<string>org:opencrx:kernel:account1:Group:assignedContract</string>
+				</void>
+				<void index="7">
+					<string>org:opencrx:kernel:account1:LegalEntity:assignedContract</string>
+				</void>
+				<void index="8">
+					<string>org:opencrx:kernel:account1:UnspecifiedAccount:assignedContract</string>
+				</void>
+				<void index="9">
+					<string>org:opencrx:kernel:home1:UserHome:assignedContract</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="4">
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Open [Priority]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_priority.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Open [Priority]</string>
+								</void>
+								<void index="1">
+									<string>Offen [Priorität]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>priority</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsGreaterOrEqualCondition">
+										<void property="quantor">
+											<short>1</short>
+											<!-- for all -->
+										</void>
+										<void property="feature">
+											<string>contractState</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>1000</short>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Open [State]</string>
+						</void>
+						<void property="iconKey">
+							<string>upGreen1T.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Open [State]</string>
+								</void>
+								<void index="1">
+									<string>Offen [Status]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>contractState</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>priority</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsGreaterOrEqualCondition">
+										<void property="quantor">
+											<short>1</short>
+										</void>
+										<void property="feature">
+											<string>contractState</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>1000</short>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Closed [Expiry]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_time.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Closed [Expiry]</string>
+								</void>
+								<void index="1">
+									<string>Geschlossen [Verfall]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>expiresOn</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsGreaterOrEqualCondition">
+										<void property="quantor">
+											<short>1</short>
+											<!-- for all -->
+										</void>
+										<void property="feature">
+											<string>contractState</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>1000</short>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Disabled [Modification At]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_time.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Disabled [Modification At]</string>
+								</void>
+								<void index="1">
+									<string>Deaktiviert [Modifiziert am]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>modifiedAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short>  <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

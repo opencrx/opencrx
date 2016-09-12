@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+	<package name="org.opencrx.kernel.depot1.jpa3">
+		<class name="DepotReportItemPosition" table="OOCKE1_DEPOTREPORTITEM">
+			<field name="openmdxjdoIdentity" visibility="none">
+				<column name="OBJECT_ID"/>
+			</field>
+			<field name="report" visibility="none">
+				<column name="P$$PARENT"/>
+			</field>					
+			<field name="singleBooking" visibility="cci">
+				<join table="OOCKE1_JOIN_DEPREPITMHASBK"/>
+			</field>			            
+			<field name="simpleBooking" visibility="cci">
+				<join table="OOCKE1_JOIN_DEPREPITMHASSBK"/>
+			</field>			            
+		</class>
+	</package>
+</openmdxjdo>

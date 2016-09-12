@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:contractFilter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>契約フィルター</_item>
+                      </label>
+                      <toolTip>
+                        <_item>全契約フィルター</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>契約フィルター</_item>
+                      </label>
+                      <toolTip>
+                        <_item>契約フィルター</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名称</_item>
+                      </label>
+                      <toolTip>
+                        <_item>名称</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractFilterGlobal:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>説明</_item>
+                      </label>
+                      <toolTip>
+                        <_item>説明</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:filterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>フィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>全フィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:filteredContract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>フィルター済契約</_item>
+                      </label>
+                      <toolTip>
+                        <_item>全フィルター済契約</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>フィルター済契約数</_item>
+                      </label>
+                      <toolTip>
+                        <_item>フィルター済契約数</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>入力</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractFilterContract:Pane:Op:Tab:countFilteredContract:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>入力</_item>
+                      </label>
+                      <toolTip>
+                        <_item>結果</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractPriorityFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>契約優先度フィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>契約優先度フィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractPriorityFilterProperty:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>優先度</_item>
+                      </label>
+                      <toolTip>
+                        <_item>優先度</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractStateFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>契約ステータスフィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>契約ステータスフィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractStateFilterProperty:contractState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ステータス</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ステータス</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractTypeFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>契約タイプフィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>契約タイプフィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractTypeFilterProperty:contractType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>タイプ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>タイプ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:TotalAmountFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>総額フィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>総額フィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:TotalAmountFilterProperty:totalAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>総額 (税抜)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>総額 (税抜)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CustomerFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>顧客フィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>顧客フィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CustomerFilterProperty:customer" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>顧客</_item>
+                      </label>
+                      <toolTip>
+                        <_item>顧客</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesRepFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>営業ステータスフィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>営業ステータスフィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesRepFilterProperty:salesRep" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>営業</_item>
+                      </label>
+                      <toolTip>
+                        <_item>営業</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SupplierFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>サプライヤーステータスフィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>サプライヤーフィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SupplierFilterProperty:supplier" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>サプライヤー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>サプライヤー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DisabledFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>使用不可フィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>使用不可フィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:DisabledFilterProperty:disabled" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>使用不可</_item>
+                      </label>
+                      <toolTip>
+                        <_item>使用不可</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:ContractQueryFilterProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>クエリーフィルタープロパティ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>クエリーフィルタープロパティ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Planzahlen &amp; Umsatzziele</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Planzahlen &amp; Umsatzziele</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Account:assignedBudget">
+										<_object>
+											<toolTip>
+												<_item>Planzahlen &amp; Umsatzziele</_item>
+											</toolTip>
+											<label>
+												<_item>Planzahlen &amp; Umsatzziele</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Segment:budget" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Alle Planzahlen &amp; Umsatzziele</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Alle Planzahlen &amp; Umsatzziele</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Segment:budget" _operation="null">
+                    <_object/>
+                    <_content>
+                      <additionalElementDefinition>
+												<org.openmdx.ui1.AdditionalElementDefinition id="9998" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Planzahlen &amp; Umsatzziele</_item>
+														</toolTip>
+														<label>
+															<_item>Planzahlen &amp; Umsatzziele</_item>
+														</label>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+
+												<org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Planzahlen &amp; Umsatzziele (deaktiviert)</_item>
+														</toolTip>
+														<label>
+															<_item>Planzahlen &amp; Umsatzziele (deaktiviert)</_item>
+														</label>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+
+                        <org.openmdx.ui1.AdditionalElementDefinition id="0" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Planzahlen</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Planzahlen</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+
+                        <org.openmdx.ui1.AdditionalElementDefinition id="1" _operation="create">
+                          <_object>
+                            <label>
+                              <_item>Umsatzziele</_item>
+                            </label>
+                            <toolTip>
+                              <_item>Umsatzziele</_item>
+                            </toolTip>
+                          </_object>
+                          <_content/>
+                        </org.openmdx.ui1.AdditionalElementDefinition>
+
+                      </additionalElementDefinition>
+                    </_content>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Budget:toBeFulfilledByOrganizationalUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Organisationseinheit</_item>
+                      </label>
+                      <toolTip>
+                        <_item>zu erfüllen von der Organisationseinheit</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Budget:account" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kontakt</_item>
+                      </label>
+                      <toolTip>
+                        <_item>zu erfüllen vom Kontakt</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:AbstractBudget">
+										<_object>
+											<toolTip>
+												<_item>Planzahl / Umsatzziel</_item>
+											</toolTip>
+											<label>
+												<_item>Planzahl / Umsatzziel</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:AbstractBudget:budgetType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Typ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Budgettyp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:AbstractBudget:startingFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Von</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Von</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:AbstractBudget:endingAt" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Bis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Bis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:AbstractBudget:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:AbstractBudget:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:Budget" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Budget</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Budget</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Umsatzziel</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Umsatzziel</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:contributionSource">
+										<_object>
+											<toolTip>
+												<_item>Beitragsquellen</_item>
+											</toolTip>
+											<label>
+												<_item>Beitragsquellen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:contractType">
+										<_object>
+											<toolTip>
+												<_item>Vertragsart</_item>
+											</toolTip>
+											<label>
+												<_item>Vertragsart</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:lastCalculatedAt">
+										<_object>
+											<toolTip>
+												<_item>Letzte Aktualisierung</_item>
+											</toolTip>
+											<label>
+												<_item>Letzte Aktualisierung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:depot">
+										<_object>
+											<toolTip>
+												<_item>Zugewiesenes Depot</_item>
+											</toolTip>
+											<label>
+												<_item>Zugewiesenes Depot</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:Pane:Op:Tab:recalcBudget" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Umsatz Aktualisieren</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Umsatz Aktualisieren</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:Pane:Op:Tab:recalcBudget:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Eingabe</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Eingabe</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:Pane:Op:Tab:recalcBudget:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultat</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultat</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+									<!-- SalesVolumeBudgetPosition -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:position">
+										<_object>
+											<toolTip>
+												<_item>Positionen</_item>
+											</toolTip>
+											<label>
+												<_item>Positionen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:ValueBasedSalesVolumeBudgetPosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position (Währung)</_item>
+											</toolTip>
+											<label>
+												<_item>Position (Währung)</_item>
+											</label>
+											<iconKey>ValueBasedSalesVolumeBudgetPosition</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:QuantityBasedSalesVolumeBudgetPosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position (Masseinheit)</_item>
+											</toolTip>
+											<label>
+												<_item>Position (Masseinheit)</_item>
+											</label>
+											<iconKey>QuantityBasedSalesVolumeBudgetPosition</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudgetPosition:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudgetPosition:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudgetPosition:targetVolume">
+										<_object>
+											<toolTip>
+												<_item>Umsatzziel</_item>
+											</toolTip>
+											<label>
+												<_item>Umsatzziel</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:QuantityBasedSalesVolumeBudgetPosition:uom">
+										<_object>
+											<toolTip>
+												<_item>Einheit</_item>
+											</toolTip>
+											<label>
+												<_item>Einheit</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:ValueBasedSalesVolumeBudgetPosition:currency">
+										<_object>
+											<toolTip>
+												<_item>Währung</_item>
+											</toolTip>
+											<label>
+												<_item>Währung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:ValueBasedSalesVolumeBudgetPosition:valueType">
+										<_object>
+											<toolTip>
+												<_item>Umsatzbasis</_item>
+											</toolTip>
+											<label>
+												<_item>Umsatzbasis</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudgetPosition:contributionFactor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>ROUND(x*Rundungsfaktor*Beitragsfaktor,0) / Rundungsfaktor</_item>
+											</toolTip>
+											<label>
+												<_item>Beitragsfaktor</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudgetPosition:contributionRoundingFactor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>ROUND(x*Rundungsfaktor*Beitragsfaktor,0) / Rundungsfaktor</_item>
+											</toolTip>
+											<label>
+												<_item>Rundungsfaktor</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudgetPosition:depotPosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Depotposition</_item>
+											</toolTip>
+											<label>
+												<_item>Depotposition</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- CustomerAssignment -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:customer">
+										<_object>
+											<toolTip>
+												<_item>Kunden</_item>
+											</toolTip>
+											<label>
+												<_item>Kunden</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:CustomerAssignment">
+										<_object>
+											<toolTip>
+												<_item>Zuweisung Kunde</_item>
+											</toolTip>
+											<label>
+												<_item>Zuweisung Kunde</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid Tabs -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definition Contact-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:CustomerAssignment:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:CustomerAssignment:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- BrokerAssignment -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:broker">
+										<_object>
+											<toolTip>
+												<_item>Vermittler</_item>
+											</toolTip>
+											<label>
+												<_item>Vermittler</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:BrokerAssignment">
+										<_object>
+											<toolTip>
+												<_item>Zuweisung Vermittler</_item>
+											</toolTip>
+											<label>
+												<_item>Zuweisung Vermittler</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid Tabs -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definition Contact-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:BrokerAssignment:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:BrokerAssignment:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- SalesRepAssignment -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudget:salesRep">
+										<_object>
+											<toolTip>
+												<_item>Verkäufer</_item>
+											</toolTip>
+											<label>
+												<_item>Verkäufer</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesRepAssignment">
+										<_object>
+											<toolTip>
+												<_item>Zuweisung Verkäufer</_item>
+											</toolTip>
+											<label>
+												<_item>Zuweisung Verkäufer</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid Tabs -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definition Contact-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesRepAssignment:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesRepAssignment:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:forecast1:SalesVolumeBudgetContributionSource:budget">
+										<_object>
+											<toolTip>
+												<_item>Umsatzziele</_item>
+											</toolTip>
+											<label>
+												<_item>Umsatzziele</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

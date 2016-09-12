@@ -1,0 +1,52 @@
+digraph "Diagram Media [Package org:opencrx:kernel:generic]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:generic:Media,compartments=true,width=6]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:document1:Media,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:generic:UserDefined,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:Indexed,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	}
+
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:generic:CrxObjectHasMedia,minlen=3]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

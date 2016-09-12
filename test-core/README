@@ -1,0 +1,28 @@
+-------------------------------------------------------------------
+     
+                         openCRX/Test Core
+
+-------------------------------------------------------------------
+
+1. Create the file build.properties in your home directory with the 
+   following content:
+   
+   opencrx-test.core.datasource=jdbc:postgresql:\/\/localhost\/CRX?user=postgres&password=manager99&driver=org.postgresql.Driver
+
+2. Database configuration
+   Amend the openCRX database configuration as follows:
+
+   * Create the sequence
+      
+      CREATE SEQUENCE OOCKE1_alias_name_seq
+        START WITH 1000000
+        INCREMENT BY 1;
+      
+      and add the following configuration to Kernel.properties
+      
+      PERSISTENCE/autonumColumn[002]=OOCKE1_ACCOUNT.alias_name TYPED AS CHAR(20)
+
+   * Make sure that the columns OOCKE1_PRODUCT.description and detailed_description are
+     of type text.
+      
+3. Open a shell and go to the directory ./test-core. Run ant test.

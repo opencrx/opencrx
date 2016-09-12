@@ -1,0 +1,303 @@
+@import url("//fonts.googleapis.com/css?family=Lato");
+share-button {
+  position: relative;
+  font-size: 16px;
+  color: #333;
+  background: #a29baa;
+  padding: 5px 10px 5px 1.75em;
+  border-radius: 5px;
+  font-family: Lato, sans-serif;
+  font-weight: 800;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+  text-transform: uppercase;
+}
+share-button:hover {
+  color: rgba(51,51,51,0.8);
+  background: rgba(162,155,170,0.8);
+}
+share-button:before {
+  position: absolute;
+  line-height: 1em;
+  left: 0.6em;
+  width: 1em;
+  height: 1em;
+  content: ' ';
+  background: url("./share-button/svg/export.svg") no-repeat;
+}
+share-button .sb-social {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+}
+share-button .sb-social.sb-center {
+  left: 50%;
+}
+share-button .sb-social.sb-center.sb-top {
+  top: 0;
+  -webkit-transform: translate(-50%, -100%);
+      -ms-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+}
+share-button .sb-social.sb-center.sb-bottom {
+  bottom: 0;
+  -webkit-transform: translate(-50%, 100%);
+      -ms-transform: translate(-50%, 100%);
+          transform: translate(-50%, 100%);
+}
+share-button .sb-social.sb-center.active.sb-top {
+  top: -1em;
+}
+share-button .sb-social.sb-center.active.sb-bottom {
+  bottom: -1em;
+}
+share-button .sb-social.sb-left {
+  left: 50%;
+}
+share-button .sb-social.sb-left.sb-top {
+  top: 0;
+  -webkit-transform: translate(calc(-100% + 30px), -100%);
+      -ms-transform: translate(calc(-100% + 30px), -100%);
+          transform: translate(calc(-100% + 30px), -100%);
+}
+share-button .sb-social.sb-left.sb-middle {
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(-100%, -50%);
+      -ms-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+}
+share-button .sb-social.sb-left.sb-bottom {
+  bottom: 0;
+  -webkit-transform: translate(calc(-100% + 30px), 100%);
+      -ms-transform: translate(calc(-100% + 30px), 100%);
+          transform: translate(calc(-100% + 30px), 100%);
+}
+share-button .sb-social.sb-left.active.sb-top {
+  top: -1em;
+}
+share-button .sb-social.sb-left.active.sb-middle {
+  left: -1em;
+}
+share-button .sb-social.sb-left.active.sb-bottom {
+  bottom: -1em;
+}
+share-button .sb-social.sb-right {
+  left: 50%;
+}
+share-button .sb-social.sb-right.sb-top {
+  top: 0;
+  -webkit-transform: translate(-30px, -100%);
+      -ms-transform: translate(-30px, -100%);
+          transform: translate(-30px, -100%);
+}
+share-button .sb-social.sb-right.sb-middle {
+  top: 50%;
+  left: 100%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+share-button .sb-social.sb-right.sb-bottom {
+  bottom: 0;
+  -webkit-transform: translate(-30px, 100%);
+      -ms-transform: translate(-30px, 100%);
+          transform: translate(-30px, 100%);
+}
+share-button .sb-social.sb-right.active.sb-top {
+  top: -1em;
+}
+share-button .sb-social.sb-right.active.sb-middle {
+  left: calc(100% + 1em);
+}
+share-button .sb-social.sb-right.active.sb-bottom {
+  bottom: -1em;
+}
+share-button .sb-social.active {
+  opacity: 1;
+  -webkit-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+  visibility: visible;
+}
+share-button .sb-social.load {
+  -webkit-transition: none !important;
+          transition: none !important;
+}
+@media screen and (max-width: 400px) {
+  share-button .sb-social.networks-6.sb-center {
+    white-space: initial;
+    text-align: center;
+    width: 300px;
+  }
+}
+@media screen and (max-width: 460px) {
+  share-button .sb-social.networks-7.sb-center {
+    white-space: initial;
+    text-align: center;
+    width: 360px;
+  }
+}
+@media screen and (max-width: 400px) {
+  share-button .sb-social.networks-7.sb-center {
+    white-space: initial;
+    text-align: center;
+    width: 300px;
+  }
+}
+@media screen and (max-width: 520px) {
+  share-button .sb-social.networks-8.sb-center {
+    white-space: initial;
+    text-align: center;
+    width: 420px;
+  }
+}
+@media screen and (max-width: 460px) {
+  share-button .sb-social.networks-8.sb-center {
+    white-space: initial;
+    text-align: center;
+    width: 360px;
+  }
+}
+@media screen and (max-width: 400px) {
+  share-button .sb-social.networks-8.sb-center {
+    white-space: initial;
+    text-align: center;
+    width: 300px;
+  }
+}
+share-button .sb-social ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 0;
+}
+share-button .sb-social ul li {
+  position: relative;
+  height: 22px;
+  width: 60px;
+  padding: 12px 0;
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  box-sizing: content-box;
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+}
+share-button .sb-social ul li.enabled {
+  display: inline-block;
+}
+share-button .sb-social ul li.disabled {
+  display: none;
+}
+share-button .sb-social ul li:hover:before {
+  opacity: 0;
+}
+share-button .sb-social ul li:hover:after {
+  opacity: 0.5;
+}
+share-button .sb-social ul li:before,
+share-button .sb-social ul li:after {
+  content: ' ';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  -webkit-transform: translate(-20%, 0);
+      -ms-transform: translate(-20%, 0);
+          transform: translate(-20%, 0);
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+  background-repeat: no-repeat !important;
+}
+share-button .sb-social ul li:before {
+  opacity: 1;
+}
+share-button .sb-social ul li:after {
+  opacity: 0;
+}
+share-button .sb-social ul li a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+share-button .sb-social li[class*='email'] {
+  background: #42c5b0;
+}
+share-button .sb-social li[class*='email']:before {
+  background-image: url("./share-button/svg/email.svg");
+}
+share-button .sb-social li[class*='email']:after {
+  background-image: url("./share-button/svg/email.svg");
+}
+share-button .sb-social li[class*='facebook'] {
+  background: #3b5998;
+}
+share-button .sb-social li[class*='facebook']:before {
+  background-image: url("./share-button/svg/facebook.svg");
+}
+share-button .sb-social li[class*='facebook']:after {
+  background-image: url("./share-button/svg/facebook.svg");
+}
+share-button .sb-social li[class*='googlePlus'] {
+  background: #e34429;
+}
+share-button .sb-social li[class*='googlePlus']:before {
+  background-image: url("./share-button/svg/googlePlus.svg");
+}
+share-button .sb-social li[class*='googlePlus']:after {
+  background-image: url("./share-button/svg/googlePlus.svg");
+}
+share-button .sb-social li[class*='linkedin'] {
+  background: #4875b4;
+}
+share-button .sb-social li[class*='linkedin']:before {
+  background-image: url("./share-button/svg/linkedin.svg");
+}
+share-button .sb-social li[class*='linkedin']:after {
+  background-image: url("./share-button/svg/linkedin.svg");
+}
+share-button .sb-social li[class*='pinterest'] {
+  background: #c5282f;
+}
+share-button .sb-social li[class*='pinterest']:before {
+  background-image: url("./share-button/svg/pinterest.svg");
+}
+share-button .sb-social li[class*='pinterest']:after {
+  background-image: url("./share-button/svg/pinterest.svg");
+}
+share-button .sb-social li[class*='reddit'] {
+  background: #a1caf2;
+}
+share-button .sb-social li[class*='reddit']:before {
+  background-image: url("./share-button/svg/reddit.svg");
+}
+share-button .sb-social li[class*='reddit']:after {
+  background-image: url("./share-button/svg/reddit.svg");
+}
+share-button .sb-social li[class*='twitter'] {
+  background: #6cdfea;
+}
+share-button .sb-social li[class*='twitter']:before {
+  background-image: url("./share-button/svg/twitter.svg");
+}
+share-button .sb-social li[class*='twitter']:after {
+  background-image: url("./share-button/svg/twitter.svg");
+}
+share-button .sb-social li[class*='whatsapp'] {
+  background: #4dc247;
+}
+share-button .sb-social li[class*='whatsapp']:before {
+  background-image: url("./share-button/svg/whatsapp.svg");
+}
+share-button .sb-social li[class*='whatsapp']:after {
+  background-image: url("./share-button/svg/whatsapp.svg");
+}

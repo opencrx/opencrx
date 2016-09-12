@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="1">
+				<void index="0">
+					<string>org:opencrx:kernel:home1:UserHome:alert</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="7">
+
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Created at [reverse chronological order] - New</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_star.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Created at [reverse chronological order] - New</string>
+								</void>
+								<void index="1">
+									<string>Erstellt am [umgekehrt chronologisch] - Neu</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>createdAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>importance</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsGreaterOrEqualCondition">
+										<void property="quantor">
+											<short>1</short>
+										</void>
+										<void property="feature">
+											<string>alertState</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>2</short>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Created at [reverse chronological order] - New / Read</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_star.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Created at [reverse chronological order] - New / Read</string>
+								</void>
+								<void index="1">
+									<string>Erstellt am [umgekehrt chronologisch] - Neu / Gelesen</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>createdAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>importance</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsGreaterOrEqualCondition">
+										<void property="quantor">
+											<short>1</short>
+										</void>
+										<void property="feature">
+											<string>alertState</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>3</short>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Importance</string>
+						</void>
+						<void property="iconKey">
+							<string>prio2_5.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Importance</string>
+								</void>
+								<void index="1">
+									<string>Wichtigkeit</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>importance</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>alertState</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Created at [reverse chronological order] - All</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_star.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Created at [reverse chronological order] - All</string>
+								</void>
+								<void index="1">
+									<string>Erstellt am [umgekehrt chronologisch] - Alle</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>createdAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>importance</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="4">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>° Created At [all / chronological order]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_up_star.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>° Created At [all / chronological order]</string>
+								</void>
+								<void index="1">
+									<string>° Erstellt am [alle / chronologisch]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>createdAt</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="5">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>° Modified At [all / reverse chronological order]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_time.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>° Modified At [all / reverse chronological order]</string>
+								</void>
+								<void index="1">
+									<string>° Modifiziert am [alle / umgekehrt chronologisch]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>modifiedAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="6">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>° Modified At [all / chronological order]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_up_time.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>° Modified At [all / chronological order]</string>
+								</void>
+								<void index="1">
+									<string>° Modifiziert am [alle / chronologisch]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>modifiedAt</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

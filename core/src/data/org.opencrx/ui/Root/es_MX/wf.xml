@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Flujo de trabajo</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Flujo de trabajo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:wfProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Procesos de Flujo de trabajo</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Procesos de Flujo de trabajo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:priority" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Prioridad</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Prioridad</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:AbstractTask:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Proceso de Flujo de trabajo</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Proceso de Flujo de trabajo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:WfProcess:isSynchronous" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Es sincrono</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Es sincrono</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:ExternalTask" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tarea Externa</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tarea Externa</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Segment:topic" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tema</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tema</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tema</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tema</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:topicPathPattern" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Patrón de la ruta del tema</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Patrón de la ruta del tema</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:workflow1:Topic:performAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Acción a ejecutarse</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Acción a ejecutarse</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:PropertySet:property" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedades</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedades</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Property:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad Booleana</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad Booleana</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad Booleana</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad Booleana</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:BooleanProperty:booleanValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valor Booleano</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valor Booleano</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad Entera</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad Entera</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad Entera</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad Entera</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:IntegerProperty:integerValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valor Entero</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valor Entero</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad Decimal</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad Decimal</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad Decimal</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad Decimal</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:DecimalProperty:decimalValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valor Decimal</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valor Decimal</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad de Texto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad de Texto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad de Texto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad de Texto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty:stringValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valor de Texto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valor de Texto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty:Pane:Attr:Tab:0:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad URI</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad URI</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Propiedad URI</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Propiedad URI</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UriProperty:uriValue" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valor URI</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valor URI</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Segment:activityProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivitätsprozesse</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktivitätsprozesse</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Arbeitsschritt</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Arbeitsschritt</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unter-Aktivität</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unter-Aktivität</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:title" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Titel</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Titel der Notiz</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivity:title" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Titel</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Titel der Notiz</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:assignedTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Arbeitsschritt gemeldet von</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Arbeitsschritt gemeldet von</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:transition" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Transition</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Transition</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:formattedNote" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Titel / Text</_item>
+											</toolTip>
+											<label>
+												<_item>Titel / Text</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:createdAt" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>time and date when object was created (never modified)</_item>
+											</toolTip>
+											<label>
+												<_item>Erstellt am</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:modifiedAt" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Modifiziert am</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Datum und Zeit der letzten Objektmodifikation</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:text" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Text</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Text</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivity:text" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Text</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Text</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityFollowUp:activity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivität</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktivität</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivity:activity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivität</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktivität</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivitätsprozess</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktivitätsprozess</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcess:state" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Prozesszustände</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Prozesszustände</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcess:transition" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Transitionen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Transitionen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcess:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcess:startState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Startzustand</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Startzustand</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcess:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivitätsprozesszustand</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktivitätsprozesszustand</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessState:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessState:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Transition</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Transition</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:action" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktionen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktionen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:prevState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vorheriger Zustand</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vorheriger Zustand</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:nextState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nächster Zustand</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nächster Zustand</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:errState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Fehlerzustand</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Fehlerzustand</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:newActivityState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Neuer Aktivitätszustand</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Neuer Aktivitätszustand</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessTransition:newPercentComplete" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Neuer Wert % komplett</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Neuer Wert % komplett</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+									<!-- SubActivityTransition-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivityTransition">
+										<_object>
+											<toolTip>
+												<_item>Unter-Aktivität Transition</_item>
+											</toolTip>
+											<label>
+												<_item>Unter-Aktivität Transition</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivityTransition:subActivityNamePattern">
+										<_object>
+											<toolTip>
+												<_item>${A} Titel Aktivität, ${N} Transitionsname, ${F} Titel Arbeitsschritt, ${G} Aktivitätsgruppenname</_item>
+											</toolTip>
+											<label>
+												<_item>Unter-Aktivität Namensmuster</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivityTransition:templateNamePattern">
+										<_object>
+											<toolTip>
+												<_item>${A} Titel Aktivität, ${N} Transitionsname, ${F} Titel Arbeitsschritt, ${G} Aktivitätsgruppenname</_item>
+											</toolTip>
+											<label>
+												<_item>Vorlage Namensmuster</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivityTransition:activityCreator">
+										<_object>
+											<toolTip>
+												<_item>Aktivitätenerzeuger</_item>
+											</toolTip>
+											<label>
+												<_item>Aktivitätenerzeuger</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SubActivityTransition:useCreatorAsTemplate">
+										<_object>
+											<toolTip>
+												<_item>Erzeuger als Vorlage?</_item>
+											</toolTip>
+											<label>
+												<_item>Erzeuger als Vorlage?</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessAction:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityProcessAction:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetAssignedToAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktion: Setzen von Zuständigkeit</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktion: Setzen von Zuständigkeit</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetAssignedToAction:contactFeatureName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Kontaktname</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Kontaktname</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetAssignedToAction:resourceOrder" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ressourcenreihenfolge</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ressourcenreihenfolge</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetAssignedToAction:resourceRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ressourcenrolle</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ressourcenrolle</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetActualStartAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktion: Effektiven Startzeitpunkt Setzen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktion: Effektiven Startzeitpunkt Setzen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetActualStartAction:resetToNull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Zurücksetzen auf undefiniert</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Zurücksetzen auf undefiniert</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetActualEndAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktion: Effektiven Endzeitpunkt Setzen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktion: Effektiven Endzeitpunkt Setzen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SetActualEndAction:resetToNull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Zurücksetzen auf undefiniert</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Zurücksetzen auf undefiniert</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WfAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktion: Workflow</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktion: Workflow</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WfAction:wfProcess" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Workflow-Prozess</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Workflow-Prozess</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreationAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktion: Aktivität Kreieren</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktion: Aktivität Kreieren</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreationAction:activityCreator" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktivitätenerzeuger</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktivitätenerzeuger</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreationAction:activityName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name der Aktivität</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name der Aktivität</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityCreationAction:activityDescription" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Beschreibung der Aktivität</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Beschreibung der Aktivität</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:LinkedActivityFollowUpAction" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Aktion: Arbeitsschritt</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Aktion: Arbeitsschritt</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:LinkedActivityFollowUpAction:activityLinkType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Typ des Aktivitätsverweises</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Typ des Aktivitätsverweises</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:LinkedActivityFollowUpAction:transition" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Transition</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Transition</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:LinkedActivityFollowUpAction:transitionTitle" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Transitionstitel</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Transitionstitel</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:LinkedActivityFollowUpAction:transitionText" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Transitionstext</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Transitionstext</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Administracja</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Administracja</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:ComponentConfiguration:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:ComponentConfiguration:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Opis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Opis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment:Pane:Op:Tab:createAdministrator" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Utwórz Administratora</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Utwórz Administratora</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment:Pane:Op:Tab:createAdministrator:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wprowadź</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wprowadź</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment:Pane:Op:Tab:createAdministrator:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wynik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wynik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:CreateAdministratorParams:segmentName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa segmentu</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa segmentu</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:CreateAdministratorParams:adminPrincipalName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa administratora princypalnego</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa administratora princypalnego</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:CreateAdministratorParams:initialPassword" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Hasło początkowe</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Hasło początkowe</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:CreateAdministratorParams:initialPasswordVerification" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Powtórz Hasło</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Powtórz Hasło</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:CreateAdministratorResult:status" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Status</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Status</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:CreateAdministratorResult:statusMessage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Status wiadomości</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Status wiadomości</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment:Pane:Op:Tab:importLoginPrincipals" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Importuj dane uczestnika</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Importuj dane uczestnika</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment:Pane:Op:Tab:importLoginPrincipals:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wstaw</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wstaw</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:Segment:Pane:Op:Tab:importLoginPrincipals:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Wynik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Wynik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:ImportLoginPrincipalsParams:item" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Plik</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Plik</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:ImportLoginPrincipalsParams:itemName" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nazwa </_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nazwa</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:admin1:ImportLoginPrincipalsResult:statusMessage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Status wiadomoś</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Status wiadomości</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

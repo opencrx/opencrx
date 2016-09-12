@@ -1,0 +1,74 @@
+digraph "Diagram EMail [Package org:opencrx:kernel:activity1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Segment,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Activity,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:EMail,compartments=true,width=6]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractEMailRecipient,compartments=true,width=6]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:EMailRecipient,compartments=true,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:EMailRecipientGroup,compartments=true,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractActivityParty,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER5[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:AccountAddress,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:AddressGroup,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER6[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:account1:EMailAddress,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER3->LAYER4[style=invis];
+	LAYER4->LAYER5[style=invis];
+	LAYER5->LAYER6[style=invis];
+	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:SegmentContainsActivity,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:EMailContainsRecipient,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:EMailRecipientGroupHasAddress,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:SegmentContainsAddressGroup,style=invis]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

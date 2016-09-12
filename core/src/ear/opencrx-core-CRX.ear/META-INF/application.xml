@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd">
+	<display-name>openCRX EAR</display-name>
+	<module>
+		<ejb>gateway.jar</ejb>
+	</module>
+	<module id="opencrx-core-CRX">
+		<web>
+			<web-uri>opencrx-core-CRX.war</web-uri>
+			<context-root>opencrx-core-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-ical-CRX">
+		<web>
+			<web-uri>opencrx-ical-CRX.war</web-uri>
+			<context-root>opencrx-ical-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-caldav-CRX">
+		<web>
+			<web-uri>opencrx-caldav-CRX.war</web-uri>
+			<context-root>opencrx-caldav-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-carddav-CRX">
+		<web>
+			<web-uri>opencrx-carddav-CRX.war</web-uri>
+			<context-root>opencrx-carddav-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-webdav-CRX">
+		<web>
+			<web-uri>opencrx-webdav-CRX.war</web-uri>
+			<context-root>opencrx-webdav-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-imap-CRX">
+		<web>
+			<web-uri>opencrx-imap-CRX.war</web-uri>
+			<context-root>opencrx-imap-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-vcard-CRX">
+		<web>
+			<web-uri>opencrx-vcard-CRX.war</web-uri>
+			<context-root>opencrx-vcard-CRX</context-root>
+		</web>
+	</module>		
+	<module id="opencrx-spaces-CRX">
+		<web>
+			<web-uri>opencrx-spaces-CRX.war</web-uri>
+			<context-root>opencrx-spaces-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-rest-CRX">
+		<web>
+			<web-uri>opencrx-rest-CRX.war</web-uri>
+			<context-root>opencrx-rest-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-ldap-CRX">
+		<web>
+			<web-uri>opencrx-ldap-CRX.war</web-uri>
+			<context-root>opencrx-ldap-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-bpi-CRX">
+		<web>
+			<web-uri>opencrx-bpi-CRX.war</web-uri>
+			<context-root>opencrx-bpi-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-calendar-CRX">
+		<web>
+			<web-uri>opencrx-calendar-CRX.war</web-uri>
+			<context-root>opencrx-calendar-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-documents-CRX">
+		<web>
+			<web-uri>opencrx-documents-CRX.war</web-uri>
+			<context-root>opencrx-documents-CRX</context-root>
+		</web>
+	</module>
+	<module id="opencrx-contacts-CRX">
+		<web>
+			<web-uri>opencrx-contacts-CRX.war</web-uri>
+			<context-root>opencrx-contacts-CRX</context-root>
+		</web>
+	</module>
+	<security-role id="SecurityRole_OpenCrxUser">
+		<description>openCRX Standard Users</description>
+		<role-name>OpenCrxUser</role-name>
+	</security-role>
+	<security-role id="SecurityRole_OpenCrxAdministrator">
+		<description>openCRX Administrator Users</description>
+		<role-name>OpenCrxAdministrator</role-name>
+	</security-role>
+	<security-role id="SecurityRole_OpenCrxRoot">
+		<description>openCRX Root Users</description>
+		<role-name>OpenCrxRoot</role-name>
+	</security-role>	
+	<library-directory>APP-INF/lib</library-directory>	
+</application>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="OpenCrxAdministrator"/>
+  <role rolename="OpenCrxUser"/>
+  <role rolename="Guest"/>
+  <role rolename="OpenCrxRoot"/>
+  <role rolename="tomcat"/>
+  <role rolename="manager"/>
+  <user username="admin-Root" password="admin-Root" roles="OpenCrxRoot,manager"/>
+  <user username="tomcat" password="tomcat" roles="tomcat"/>
+  <user username="admin-Standard" password="admin-Standard" roles="OpenCrxAdministrator"/>
+  <user username="both" password="tomcat" roles="tomcat"/>
+  <user username="guest" password="guest" roles="OpenCrxUser,Guest"/>
+</tomcat-users>

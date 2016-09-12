@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+				  <formDefinition>
+					  <org.openmdx.ui1.FormDefinition name="CreateContractForm">
+							<_object>
+								<title>
+									<_item>Contracts</_item>
+								</title>
+								<toolTip>
+									<_item>Contracts</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="ContractInformation">
+										<_object>
+											<label>
+												<_item>Contract</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>5</_item>
+												<_item>10</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<!-- Column 1 -->
+												<org.openmdx.ui1.FormFieldDefinition id="name">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>name</featureName>
+														<order>100</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="customer">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>customer</featureName>
+														<order>200</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>					
+												<org.openmdx.ui1.FormFieldDefinition id="activeOn">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>activeOn</featureName>
+														<order>300</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>																											
+												<org.openmdx.ui1.FormFieldDefinition id="contractCurrency">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>contractCurrency</featureName>
+														<order>400</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="priority">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>priority</featureName>
+														<order>500</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="salesRep">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>salesRep</featureName>
+														<order>600</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<!-- Column 2 -->
+												<org.openmdx.ui1.FormFieldDefinition id="contractNumber">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>contractNumber</featureName>
+														<order>700</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>											
+												<org.openmdx.ui1.FormFieldDefinition id="expiresOn">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>expiresOn</featureName>
+														<order>900</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="paymentTerms">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>paymentTerms</featureName>
+														<order>1000</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="origin">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>origin</featureName>
+														<order>1100</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>				
+									<org.openmdx.ui1.FormFieldGroupDefinition name="PricingInformation">
+										<_object>
+											<label>
+												<_item>Pricing</_item>
+											</label>
+											<order>20</order>
+											<columnBreakAtElement>
+												<_item>2</_item>
+												<_item>4</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="pricingRule">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>pricingRule</featureName>
+														<order>100</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="calcRule">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>calcRule</featureName>
+														<order>200</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>												
+									<org.openmdx.ui1.FormFieldGroupDefinition name="AddressInformation">
+										<_object>
+											<label>
+												<_item>Addresses (Shipping / Billing)</_item>
+											</label>
+											<order>30</order>
+											<columnBreakAtElement>
+												<_item>6</_item>
+												<_item>12</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+												<!-- Shipping -->
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="shippingMethod">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:ShippingDetail</forClass>
+														<featureName>shippingMethod</featureName>
+														<order>200</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="shippingPostalAddressLine">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Contact</forClass>
+														<featureName>address!postalAddressLine</featureName>
+														<order>300</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="shippingPostalStreet">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Contact</forClass>
+														<featureName>address!postalStreet</featureName>
+														<order>400</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="shippingPostalCity">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Contact</forClass>
+														<featureName>address!postalCity</featureName>
+														<order>500</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="shippingPostalCode">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Contact</forClass>
+														<featureName>address!postalCode</featureName>
+														<order>600</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="shippingPostalCountry">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Contact</forClass>
+														<featureName>address!postalCountry</featureName>
+														<order>700</order>
+														<skipRow>0</skipRow>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>											
+												<!-- Billing -->
+												<org.openmdx.ui1.FormFieldDefinition id="billingPostalAddressLine">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Account</forClass>
+														<featureName>address*Business!postalAddressLine</featureName>
+														<order>900</order>														
+														<skipRow>1</skipRow>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="billingPostalStreet">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Account</forClass>
+														<featureName>address*Business!postalStreet</featureName>
+														<order>1000</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="billingPostalCity">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Account</forClass>
+														<featureName>address*Business!postalCity</featureName>
+														<order>1100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="billingPostalCode">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Account</forClass>
+														<featureName>address*Business!postalCode</featureName>
+														<order>1200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="billingPostalCountry">
+													<_object>
+														<forClass>org:opencrx:kernel:account1:Account</forClass>
+														<featureName>address*Business!postalCountry</featureName>
+														<order>1300</order>														
+														<skipRow>0</skipRow>
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>											
+											</formFieldDefinition>										
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>
+									<!-- Description -->
+									<org.openmdx.ui1.FormFieldGroupDefinition name="Description">
+										<_object>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>40</order>
+											<columnBreakAtElement>
+												<_item>1</_item>
+												<_item>2</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>											
+												<org.openmdx.ui1.FormFieldDefinition id="description">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>description</featureName>
+														<spanRow>6</spanRow>														
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>																							
+											</formFieldDefinition>										
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>
+						<org.openmdx.ui1.FormDefinition name="CreateContractPositionForm">
+							<_object>
+								<title>
+									<_item>Contract Position</_item>
+								</title>
+								<toolTip>
+									<_item>Contract Position</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="SalesContractPositionInformation">
+										<_object>
+											<label>
+												<_item>Contract Position</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>4</_item>
+												<_item>8</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="quantity">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContractPosition</forClass>
+														<featureName>quantity</featureName>
+														<order>100</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="product">
+													<_object>
+														<forClass>org:opencrx:kernel:product1:ProductDescriptor</forClass>
+														<featureName>product</featureName>
+														<order>200</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+												<org.openmdx.ui1.FormFieldDefinition id="name">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContractPosition</forClass>
+														<featureName>name</featureName>
+														<order>300</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>				
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>
+				  </formDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

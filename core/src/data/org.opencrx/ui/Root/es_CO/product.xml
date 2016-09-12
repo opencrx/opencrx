@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Productos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Productos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:allProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Productos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Productos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:configurationTypeSet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipos de configuración del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipos de configuración del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:productClassification" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Clasificaciones de productos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Clasificaciones de productos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:basePrice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Precion base</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Precion base o de referencia</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:priceUom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>UDMs para precios</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unidades de medida para los precios</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:classification" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Clasificaciones de productos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Clasificaciones de productos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:assignedAccount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cuentas asignadas</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cuentas asignadas</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:Pane:Attr:Tab:0:Group:60" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estado del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estado del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Número de producto</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Producto #</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Número de producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:activeOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Activo/Válido a partir de</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Activo/Válido a partir de</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:expiresOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Expira en</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Expira en</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultPriceLevel" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nivel de precios predeterminado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nivel de precios predeterminado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:salesTaxType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de impuesto a las ventas</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipo de impuesto a las ventas</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultUom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unidad predeterminada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unidad de medida predeterminada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:alternateProductNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Número alternativo del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Número alternativo del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productUsage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Uso del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Uso del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:detailedDescription" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción detallada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción detallada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:relatedProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Productos relacionados</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Productos relacionados</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:isStockItem" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Artículo disponible</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Artículo disponible en inventario</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:pictureContent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Imagen</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Imagen</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:picture" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Título / Fuente</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Título / Fuente</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:productDimension" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dimensiones del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dimensiones del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:grossWeightKilogram" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Peso bruto en Kg</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Peso bruto en Kilogramos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:netWeightKilogram" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Peso neto en Kg</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Peso neto en Kilogramos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Clasificación del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Clasificación del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:relationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Ralaciones</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ralaciones</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Relaciones de clasificación de productos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Relaciones de clasificación de productos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:relationshipTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Relación a</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Relación a</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:relationshipType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de ralación</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipo de ralación</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Producto relacionado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Producto relacionado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:relationshipType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de relación</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipo de relación</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignmentProduct" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Asignación de cuenta</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Asignación de cuenta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignmentProduct:accountRole" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Rol</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Rol</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Attr:Tab:0:Group:15" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:configuration" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Configuraciones de los productos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Configuraciones de los productos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:configType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de configuración</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Tipo config.</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Tipo de configuración</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Conjunto de tipos de configuración de productos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Conjunto de tipos de configuración de productos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:configurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipos de configuración</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipos de configuración</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:isDefault" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Es predeterminada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Es predeterminada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:validFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Válido desde</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Válido desde</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:validTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Válido hasta</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Válido hasta</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de configuración de producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipo de configuración de producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Configuración del producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Configuración del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Attr:Tab:0:Group:15" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:configType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de configuración</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Tipo config.</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Tipo de configuración</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductDescriptor:Pane:Attr:Tab:0:Group:15" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductDescriptor:product" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Producto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:Pane:Attr:Tab:10:Group:20" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Detalles adicionales</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Detalles adicionales del producto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:currentConfig" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Configuración actual</_item>
+                      </label>
+                      <shortLabel>
+                        <_item>Config. actual</_item>
+                      </shortLabel>
+                      <toolTip>
+                        <_item>Configuración actual</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:productSerialNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Número(s) seriales</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Número(s) seriales</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Establecer tipos de configuración</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Establecer los tipos de configuración</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Entrada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Entrada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SetConfigurationTypeParams:configurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de configuración</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipo de configuración</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Quitar tipo de configuración</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Quitar tipo de configuración</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Entrada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Entrada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Quitar tipo de configuración</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Quitar tipo de configuración</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Entrada</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Entrada</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Resultado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Resultado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="13">
+				<void index="0">
+					<string>org:opencrx:kernel:activity1:Resource:workReportEntry</string>
+				</void>
+				<void index="1">
+					<string>org:opencrx:kernel:activity1:ActivityTracker:workReportEntry</string>
+				</void>
+				<void index="2">
+					<string>org:opencrx:kernel:activity1:ActivityCategory:workReportEntry</string>
+				</void>
+				<void index="3">
+					<string>org:opencrx:kernel:activity1:ActivityMilestone:workReportEntry</string>
+				</void>
+				<void index="4">
+					<string>org:opencrx:kernel:activity1:Absence:workReportEntry</string>
+				</void>
+				<void index="5">
+					<string>org:opencrx:kernel:activity1:EMail:workReportEntry</string>
+				</void>
+				<void index="6">
+					<string>org:opencrx:kernel:activity1:ExternalActivity:workReportEntry</string>
+				</void>
+				<void index="7">
+					<string>org:opencrx:kernel:activity1:Incident:workReportEntry</string>
+				</void>
+				<void index="8">
+					<string>org:opencrx:kernel:activity1:Mailing:workReportEntry</string>
+				</void>
+				<void index="9">
+					<string>org:opencrx:kernel:activity1:Meeting:workReportEntry</string>
+				</void>
+				<void index="10">
+					<string>org:opencrx:kernel:activity1:PhoneCall:workReportEntry</string>
+				</void>
+				<void index="11">
+					<string>org:opencrx:kernel:activity1:Task:workReportEntry</string>
+				</void>
+				<void index="12">
+					<string>org:opencrx:kernel:activity1:Segment:workReportEntry</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="2">
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Started at v</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_time.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Started at v</string>
+								</void>
+								<void index="1">
+									<string>Begonnen um v</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>startedAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Started at ^</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_up_time.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Started at ^</string>
+								</void>
+								<void index="1">
+									<string>Begonnen um ^</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>startedAt</string>
+										</void>
+										<void property="order">
+											<short>1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

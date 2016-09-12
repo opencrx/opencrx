@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+				  <formDefinition>
+					  <org.openmdx.ui1.FormDefinition name="CustomerCareCreateFollowUpForm">
+							<_object>
+								<title>
+									<_item>Activities</_item>
+								</title>
+								<toolTip>
+									<_item>Activities</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="FollowUpInformation">
+										<_object>
+											<label>
+												<_item>Follow Up</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>5</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="title">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:ActivityFollowUp</forClass>
+														<featureName>title</featureName>
+														<order>110</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>			
+												<org.openmdx.ui1.FormFieldDefinition id="text">
+													<_object>
+														<forClass>org:opencrx:kernel:activity1:ActivityFollowUp</forClass>
+														<featureName>text</featureName>
+														<order>120</order>
+														<spanRow>5</spanRow>
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>			
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>																					
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>
+				  </formDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object />
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object />
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object />
+							<_content>
+								<formDefinition>
+									<org.openmdx.ui1.FormDefinition name="LegalEntityForm">
+										<_object>
+											<title>
+												<_item>LegalEntities</_item>
+											</title>
+											<toolTip>
+												<_item>LegalEntities</_item>
+											</toolTip>
+										</_object>
+										<_content>
+											<formFieldGroupDefinition>
+												<org.openmdx.ui1.FormFieldGroupDefinition name="LegalEntityInformation">
+													<_object>
+														<label>
+															<_item>Legal Entity</_item>
+														</label>
+														<order>10</order>
+														<columnBreakAtElement>
+															<_item>3</_item>
+														</columnBreakAtElement>
+													</_object>
+													<_content>
+														<formFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="legalName">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>name</featureName>
+																	<order>100</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="aliasName">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>aliasName</featureName>
+																	<order>110</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="industry">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>industry</featureName>
+																	<order>120</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessPhoneNumber">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>address*Business!phoneNumberFull</featureName>
+																	<order>1600</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="mobile">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>address*Mobile!phoneNumberFull</featureName>
+																	<order>1620</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="otherPhoneNumber">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>address*Other!phoneNumberFull</featureName>
+																	<order>1630</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessFaxNumber">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>address*BusinessFax!phoneNumberFull</featureName>
+																	<order>1640</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessEmailAddress">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>address*Business!emailAddress</featureName>
+																	<order>1650</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="otherEmailAddress">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>address*Other!emailAddress</featureName>
+																	<order>1660</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="webUrl">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>address!webUrl</featureName>
+																	<order>1670</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+														</formFieldDefinition>
+													</_content>
+												</org.openmdx.ui1.FormFieldGroupDefinition>
+												<org.openmdx.ui1.FormFieldGroupDefinition name="AddressInformationMain">
+													<_object>
+														<label>
+															<_item>Main Addresses (Business)</_item>
+														</label>
+														<order>20</order>
+														<columnBreakAtElement>
+															<_item>6</_item>
+															<_item>12</_item>
+														</columnBreakAtElement>
+													</_object>
+													<_content>
+														<formFieldDefinition>
+															<!-- Business -->
+															<org.openmdx.ui1.FormFieldDefinition id="businesPostalAddressLineMain">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>address*Business!postalAddressLine</featureName>
+																	<order>100</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessPostalStreetMain">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>address*Business!postalStreet</featureName>
+																	<order>200</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessPostalCityMain">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>address*Business!postalCity</featureName>
+																	<order>300</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessPostalStateMain">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>address*Business!postalState</featureName>
+																	<order>400</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessPostalCodeMain">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>address*Business!postalCode</featureName>
+																	<order>450</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessPostalCountryMain">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:LegalEntity</forClass>
+																	<featureName>address*Business!postalCountry</featureName>
+																	<order>500</order>
+																	<skipRow>0</skipRow>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+														</formFieldDefinition>
+													</_content>
+												</org.openmdx.ui1.FormFieldGroupDefinition>
+												<org.openmdx.ui1.FormFieldGroupDefinition name="DescriptionInformation">
+													<_object>
+														<label>
+															<_item>Description</_item>
+														</label>
+														<order>30</order>
+														<columnBreakAtElement>
+															<_item>6</_item>
+														</columnBreakAtElement>
+													</_object>
+													<_content>
+														<formFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="description">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>description</featureName>
+																	<spanRow>6</spanRow>
+																	<order>100</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+														</formFieldDefinition>
+													</_content>
+												</org.openmdx.ui1.FormFieldGroupDefinition>
+											</formFieldGroupDefinition>
+										</_content>
+									</org.openmdx.ui1.FormDefinition>
+									<org.openmdx.ui1.FormDefinition name="MemberForm">
+										<_object>
+											<title>
+												<_item>Memberships</_item>
+											</title>
+											<toolTip>
+												<_item>Memberships</_item>
+											</toolTip>
+										</_object>
+										<_content>
+											<formFieldGroupDefinition>
+												<org.openmdx.ui1.FormFieldGroupDefinition name="Member">
+													<_object>
+														<label>
+															<_item>&amp;nbsp;</_item>
+														</label>
+														<order>10</order>
+														<columnBreakAtElement>
+															<_item>3</_item>
+														</columnBreakAtElement>
+													</_object>
+													<_content>
+														<formFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="accountTo">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:AccountAssignment</forClass>
+																	<featureName>account</featureName>
+																	<order>100</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="name">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Member</forClass>
+																	<featureName>name</featureName>
+																	<order>200</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="description">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Member</forClass>
+																	<featureName>description</featureName>
+																	<order>300</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="memberRole">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Member</forClass>
+																	<featureName>memberRole</featureName>
+																	<spanRow>3</spanRow>
+																	<order>400</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+														</formFieldDefinition>
+													</_content>
+												</org.openmdx.ui1.FormFieldGroupDefinition>
+											</formFieldGroupDefinition>
+										</_content>
+									</org.openmdx.ui1.FormDefinition>
+									<org.openmdx.ui1.FormDefinition name="LegalEntityMembershipForm">
+										<_object>
+											<title>
+												<_item>Memberships</_item>
+											</title>
+											<toolTip>
+												<_item>Memberships</_item>
+											</toolTip>
+										</_object>
+										<_content>
+											<formFieldGroupDefinition>
+												<org.openmdx.ui1.FormFieldGroupDefinition name="Membership">
+													<_object>
+														<label>
+															<_item>&amp;nbsp;</_item>
+														</label>
+														<order>10</order>
+														<columnBreakAtElement>
+															<_item>1</_item>
+														</columnBreakAtElement>
+													</_object>
+													<_content>
+														<formFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="accountFrom">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:AccountAssignment</forClass>
+																	<featureName>account</featureName>
+																	<order>100</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="memberRole">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:AccountMembership</forClass>
+																	<featureName>memberRole</featureName>
+																	<spanRow>2</spanRow>
+																	<order>200</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+														</formFieldDefinition>
+													</_content>
+												</org.openmdx.ui1.FormFieldGroupDefinition>
+											</formFieldGroupDefinition>
+										</_content>
+									</org.openmdx.ui1.FormDefinition>
+								</formDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

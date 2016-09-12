@@ -1,0 +1,72 @@
+digraph "Diagram ActivityGroup [Package org:opencrx:kernel:activity1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivitiesSource,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityGroup,compartments=true,width=26]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityGroupRelationship,compartments=true,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:AccountAssignmentActivityGroup,compartments=true,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityFilterGroup,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:Activity,compartments=false,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:WorkAndExpenseRecord,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityFollowUp,compartments=false,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:account1:AbstractFilterAccount,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:openmdx:base:ContextCapable,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractFilterActivity,compartments=false,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:account1:AccountAssignment,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:CalcTotalQuantityParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:CalcTotalQuantityResult,compartments=true,fillcolor="#FFECFF",width=4]};
+	}
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER3->LAYER4[style=invis];
+	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityGroupContainsActivityFilter,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityContainsFollowUp,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:FollowUpIsLinkedToActivity,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityContainsWorkReportEntry,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:WorkRecordIsAssignedToActivity,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:FilterIncludesActivity,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityHasCreationContext,style=invis]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Meeting" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Riunione</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Riunione</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Meeting:meetingParty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Contatti Coinvolti</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Contatti Coinvolti</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SalesVisit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Visita Cliente</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Visita Cliente</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:SalesVisit:competitor" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Concorrenti</_item>
+                      </label>
+                      <toolTip>
+                        <_item>tutti i Concorrenti</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MeetingParty" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Contatto Coinvolto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Contatto Coinvolto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MeetingParty:party" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Contatto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Contatto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MeetingParty:partyType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MeetingParty:(party;address)*Business!phoneNumberFull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Telefono Lavoro</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Telefono Lavoro</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MeetingParty:(party;address)*Mobile!phoneNumberFull" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cellulare</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cellulare</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:MeetingParty:(party;address)*Business!emailAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>E-mail Lavoro</_item>
+                      </label>
+                      <toolTip>
+                        <_item>E-mail Lavoro</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

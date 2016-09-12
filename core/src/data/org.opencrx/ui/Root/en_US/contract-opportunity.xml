@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Opportunity</_item>
+											</toolTip>
+											<label>
+												<_item>Opportunity</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<iconKey>Opportunity</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:opportunity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>all opportunities</_item>
+											</toolTip>
+											<label>
+												<_item>Opportunities</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>20</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:position">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Opportunity Positions</_item>
+											</toolTip>
+											<label>
+												<_item>Positions</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>3</_item>
+											</order>
+											<maxMember>25</maxMember>
+											<showMaxMember>13</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:quote">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Related Quotes</_item>
+											</toolTip>
+											<label>
+												<_item>»Related Quotes</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>300</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>20</maxMember>
+											<showMaxMember>9</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name of opportunity</_item>
+											</toolTip>
+											<label>
+												<_item>Name of opportunity</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:contractLanguage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Opportunity language</_item>
+											</toolTip>
+											<label>
+												<_item>Opportunity language</_item>
+											</label>
+											<!--
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											-->
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:contractNumber">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Opportunity number</_item>
+											</toolTip>
+											<label>
+												<_item>Opportunity number</_item>
+											</label>
+											<!--
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+											-->
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>25</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Additional Information -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:opportunitySource">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Opportunity source</_item>
+											</toolTip>
+											<label>
+												<_item>Opportunity source</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:opportunityRating">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Opportunity rating</_item>
+											</toolTip>
+											<label>
+												<_item>Rating</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:closeProbability">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Cose probability (%)</_item>
+											</toolTip>
+											<label>
+												<_item>Close probability (%)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:estimatedValue">
+										<_object>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>estimated value</_item>
+											</toolTip>
+											<label>
+												<_item>Estimated value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:estimatedCloseDate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>estimated close date</_item>
+											</toolTip>
+											<label>
+												<_item>Estimated close date</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:nextStep">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Next steps</_item>
+											</toolTip>
+											<label>
+												<_item>Next steps</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:Pane:Op:Tab:createQuote">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Create Quote</_item>
+											</toolTip>
+											<label>
+												<_item>Create Quote</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:contract1:Quote</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:Pane:Op:Tab:createQuote:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:Pane:Op:Tab:createQuote:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:OpportunityCreateQuoteResult:quote">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Quote</_item>
+											</toolTip>
+											<label>
+												<_item>Quote</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:Pane:Op:Tab:markAsClosed">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Mark as closed</_item>
+											</toolTip>
+											<label>
+												<_item>Mark as closed</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>400</_item>
+											</order>
+											<iconKey>org:opencrx:kernel:OpMarkAsClosed</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:Pane:Op:Tab:markAsClosed:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Please select close state</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Opportunity:Pane:Op:Tab:markAsClosed:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:OpportunityMarkAsClosedParams:opportunityState">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Select close state</_item>
+											</toolTip>
+											<label>
+												<_item>Close state</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

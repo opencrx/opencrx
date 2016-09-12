@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object />
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object />
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object />
+							<_content>
+								<formDefinition>
+									<org.openmdx.ui1.FormDefinition name="CustomerCareSearchContactForm">
+										<_object>
+											<title>
+												<_item>Search Account</_item>
+											</title>
+											<toolTip>
+												<_item>Search Account</_item>
+											</toolTip>
+										</_object>
+										<_content>
+											<formFieldGroupDefinition>
+												<org.openmdx.ui1.FormFieldGroupDefinition name="SearchAccount">
+													<_object>
+														<label>
+															<_item>&amp;nbsp;</_item>
+														</label>
+														<order>10</order>
+													</_object>
+													<_content>
+														<formFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="lastName">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Contact</forClass>
+																	<featureName>lastName</featureName>
+																	<order>100</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="firstName">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Contact</forClass>
+																	<featureName>firstName</featureName>
+																	<order>110</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="aliasName">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>aliasName</featureName>
+																	<order>120</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessEmailAddress">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Contact</forClass>
+																	<featureName>address*Business!emailAddress</featureName>
+																	<order>130</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+															<org.openmdx.ui1.FormFieldDefinition id="businessPhoneNumber">
+																<_object>
+																	<forClass>org:opencrx:kernel:account1:Account</forClass>
+																	<featureName>address*Business!phoneNumberFull</featureName>
+																	<order>140</order>
+																</_object>
+																<_content />
+															</org.openmdx.ui1.FormFieldDefinition>
+														</formFieldDefinition>
+													</_content>
+												</org.openmdx.ui1.FormFieldGroupDefinition>
+											</formFieldGroupDefinition>
+										</_content>
+									</org.openmdx.ui1.FormDefinition>
+								</formDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

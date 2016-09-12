@@ -1,0 +1,2832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object />
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object />
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object />
+							<_content>
+								<elementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklady</_item>
+											</label>
+											<toolTip>
+												<_item>Sklady</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:entity" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladové položky</_item>
+											</label>
+											<toolTip>
+												<_item>Skladové položky</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:entityRelationship" _operation="create">
+										<_object>
+											<label>
+												<_item>Vzťahy</_item>
+											</label>
+											<toolTip>
+												<_item>Vzťahy</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:depotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladové druhy</_item>
+											</label>
+											<toolTip>
+												<_item>Skladové druhy</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:cb" _operation="create">
+										<_object>
+											<label>
+												<_item>Zložené rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Zložené rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:booking" _operation="create">
+										<_object>
+											<label>
+												<_item>Rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:simpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Jednoduché rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Jednoduché rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladová položka</_item>
+											</label>
+											<toolTip>
+												<_item>Skladová položka</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklady</_item>
+											</label>
+											<toolTip>
+												<_item>Sklady</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladové skupiny</_item>
+											</label>
+											<toolTip>
+												<_item>Skladové skupiny</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depotHolder" _operation="create">
+										<_object>
+											<label>
+												<_item>Majiteľia skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Majiteľia skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:bookingPeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Perioda rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Perioda rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Znenie rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Znenie rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:depotEntityNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo položky</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo položky</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship" _operation="create">
+										<_object>
+											<label>
+												<_item>Vzťahy skladovej položky</_item>
+											</label>
+											<toolTip>
+												<_item>Vzťahy skladovej položky</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:relationshipType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh vzťahu</_item>
+											</label>
+											<toolTip>
+												<_item>Druh vzťahu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:entity1" _operation="create">
+										<_object>
+											<label>
+												<_item>Položka 1</_item>
+											</label>
+											<toolTip>
+												<_item>Položka 1</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:entity2" _operation="create">
+										<_object>
+											<label>
+												<_item>Položka 2</_item>
+											</label>
+											<toolTip>
+												<_item>Položka 2</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntityRelationship:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Druh skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:compatibleTo" _operation="create">
+										<_object>
+											<label>
+												<_item>Kompatibilný s</_item>
+											</label>
+											<toolTip>
+												<_item>Kompatibilný s</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:allowDebitBookings" _operation="create">
+										<_object>
+											<label>
+												<_item>Povoliť debetné rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Povoliť debetné rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:allowCreditBookings" _operation="create">
+										<_object>
+											<label>
+												<_item>Povoliť kreditné rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Povoliť kreditné rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotType:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DebitBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Debetná rezervácia</_item>
+											</label>
+											<toolTip>
+												<_item>Debetná rezervácia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreditBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Kreditná rezervácia</_item>
+											</label>
+											<toolTip>
+												<_item>Kreditná rezervácia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:position" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozícia</_item>
+											</label>
+											<toolTip>
+												<_item>Pozícia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:bookingStatus" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DebitBooking:quantityDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Debet</_item>
+											</label>
+											<toolTip>
+												<_item>Debet</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreditBooking:quantityCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Kredit</_item>
+											</label>
+											<toolTip>
+												<_item>Kredit</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Druh rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:bookingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dátum rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Dátum rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dôležitosť dátumu</_item>
+											</label>
+											<toolTip>
+												<_item>Dôležitosť dátumu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBooking:cb" _operation="create">
+										<_object>
+											<label>
+												<_item>Zložená rezervácia</_item>
+											</label>
+											<toolTip>
+												<_item>Zložená rezervácia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBooking:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatok</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Jednoduchá rezervácia</_item>
+											</label>
+											<toolTip>
+												<_item>Jednoduchá rezervácia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Množstvo</_item>
+											</label>
+											<toolTip>
+												<_item>Množstvo</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:quantityUom" _operation="create">
+										<_object>
+											<label>
+												<_item>Merná jednotka (množstvo)</_item>
+											</label>
+											<toolTip>
+												<_item>Merná jednotka (množstvo)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:originId" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatok id</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatok id</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Zložená rezervácia</_item>
+											</label>
+											<toolTip>
+												<_item>Zložená rezervácia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:booking" _operation="create">
+										<_object>
+											<label>
+												<_item>Rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:bookingStatus" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:lockingReason" _operation="create">
+										<_object>
+											<label>
+												<_item>Dôvod uzamknutia</_item>
+											</label>
+											<toolTip>
+												<_item>Dôvod uzamknutia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:bookingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dátum rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Dátum rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Druh rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:isLocked" _operation="create">
+										<_object>
+											<label>
+												<_item>Je uzamknutý</_item>
+											</label>
+											<toolTip>
+												<_item>Je uzamknutý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:lockModifiedAt" _operation="create">
+										<_object>
+											<label>
+												<_item>Uzamknúť modifikované k</_item>
+											</label>
+											<toolTip>
+												<_item>Uzamknúť modifikované k</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:wfProcess" _operation="create">
+										<_object>
+											<label>
+												<_item>Pracovný proces</_item>
+											</label>
+											<toolTip>
+												<_item>Pracovný proces</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:reversalOf" _operation="create">
+										<_object>
+											<label>
+												<_item>Obrátená rezervácia od</_item>
+											</label>
+											<toolTip>
+												<_item>Obrátená rezervácia od</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:acceptedBy" _operation="create">
+										<_object>
+											<label>
+												<_item>Prijatý</_item>
+											</label>
+											<toolTip>
+												<_item>Prijatý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder" _operation="create">
+										<_object>
+											<label>
+												<_item>Majiteľ skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Majiteľ skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklady</_item>
+											</label>
+											<toolTip>
+												<_item>Sklady</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:depotHolderNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo majiteľa skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo majiteľa skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Warehouse" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Site" _operation="create">
+										<_object>
+											<label>
+												<_item>Miesto</_item>
+											</label>
+											<toolTip>
+												<_item>Miesto</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotContract" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladovací kontrakt</_item>
+											</label>
+											<toolTip>
+												<_item>Skladovací kontrakt</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:position" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozície</_item>
+											</label>
+											<toolTip>
+												<_item>Pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Druh skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:report" _operation="create">
+										<_object>
+											<label>
+												<_item>Reporty</_item>
+											</label>
+											<toolTip>
+												<_item>Reporty</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladová skupina</_item>
+											</label>
+											<toolTip>
+												<_item>Skladová skupina</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Otvorený</_item>
+											</label>
+											<toolTip>
+												<_item>Otvorený</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Zavretý</_item>
+											</label>
+											<toolTip>
+												<_item>Zavretý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:isDefault" _operation="create">
+										<_object>
+											<label>
+												<_item>Štandardný sklad</_item>
+											</label>
+											<toolTip>
+												<_item>Štandardný sklad</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:isLocked" _operation="create">
+										<_object>
+											<label>
+												<_item>Uzamknutý</_item>
+											</label>
+											<toolTip>
+												<_item>Uzamknutý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:allowPositionAutoCreate" _operation="create">
+										<_object>
+											<label>
+												<_item>Automatické vytvorenie peródy</_item>
+											</label>
+											<toolTip>
+												<_item>Automatické vytvorenie pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:latestReport" _operation="create">
+										<_object>
+											<label>
+												<_item>Posledný report</_item>
+											</label>
+											<toolTip>
+												<_item>Posledný report</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozícia skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Pozícia skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:booking" _operation="create">
+										<_object>
+											<label>
+												<_item>Rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:simpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Jednoduché rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Jednoduché rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:isLocked" _operation="create">
+										<_object>
+											<label>
+												<_item>Uzamknutý</_item>
+											</label>
+											<toolTip>
+												<_item>Uzamknutý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:qualifier" _operation="create">
+										<_object>
+											<label>
+												<_item>Označenie</_item>
+											</label>
+											<toolTip>
+												<_item>Označenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Otvorený</_item>
+											</label>
+											<toolTip>
+												<_item>Otvorený</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Zavretý</_item>
+											</label>
+											<toolTip>
+												<_item>Zavretý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:ProductDepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozícia skladu s produktom</_item>
+											</label>
+											<toolTip>
+												<_item>Pozícia skladu s produktom</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Perióda rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Perióda rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:isFinal" _operation="create">
+										<_object>
+											<label>
+												<_item>Je ukončený</_item>
+											</label>
+											<toolTip>
+												<_item>Je ukončený</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:periodStartsAt" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatok (vrátane)</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatok (vrátane)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:periodEndsAtExclusive" _operation="create">
+										<_object>
+											<label>
+												<_item>Koniec (exkl.)</_item>
+											</label>
+											<toolTip>
+												<_item>Koniec (exkl.)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:isClosed" _operation="create">
+										<_object>
+											<label>
+												<_item>Je zavretý</_item>
+											</label>
+											<toolTip>
+												<_item>Je zavretý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:closingBookingTypeThreshold" _operation="create">
+										<_object>
+											<label>
+												<_item>Limit typu uzatváracej rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Limit typu uzatváracej rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Znenie rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Znenie rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:Pane:Attr:Tab:0:Group:10" _operation="create">
+										<_object>
+											<label>
+												<_item>Znenia rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Znenia rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:Pane:Attr:Tab:0:Group:15" _operation="create">
+										<_object>
+											<label>
+												<_item>Znenia zloženej rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Znenia zloženej rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:debitBookingNameInfix" _operation="create">
+										<_object>
+											<label>
+												<_item>Infix debet</_item>
+											</label>
+											<toolTip>
+												<_item>Infix debet</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:creditBookingNameInfix" _operation="create">
+										<_object>
+											<label>
+												<_item>Infix kredit</_item>
+											</label>
+											<toolTip>
+												<_item>Infix kredit</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:cbNameInfix1" _operation="create">
+										<_object>
+											<label>
+												<_item>Infix 1</_item>
+											</label>
+											<toolTip>
+												<_item>Infix 1</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:cbNameInfix2" _operation="create">
+										<_object>
+											<label>
+												<_item>Infix 2</_item>
+											</label>
+											<toolTip>
+												<_item>Infix 2</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:creditFirst" _operation="create">
+										<_object>
+											<label>
+												<_item>Kredit prvý</_item>
+											</label>
+											<toolTip>
+												<_item>Kredit prvý</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingText:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladová skupina</_item>
+											</label>
+											<toolTip>
+												<_item>Skladová skupina</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladové skupiny</_item>
+											</label>
+											<toolTip>
+												<_item>Skladové skupiny</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklady</_item>
+											</label>
+											<toolTip>
+												<_item>Sklady</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:parent" _operation="create">
+										<_object>
+											<label>
+												<_item>Nadradený</_item>
+											</label>
+											<toolTip>
+												<_item>Nadradený</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotGroup:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladový report</_item>
+											</label>
+											<toolTip>
+												<_item>Skladový report</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:itemPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Položky pozície</_item>
+											</label>
+											<toolTip>
+												<_item>Položky pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:bookingPeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Perióda rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Perióda rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:isDraft" _operation="create">
+										<_object>
+											<label>
+												<_item>Návrh</_item>
+											</label>
+											<toolTip>
+												<_item>Návrh</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:bookingStatusThreshold" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav hraničnej hodnoty</_item>
+											</label>
+											<toolTip>
+												<_item>Stav hraničnej hodnoty</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Položka reportu (Pozícia)</_item>
+											</label>
+											<toolTip>
+												<_item>Položka reportu (Pozícia)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:singleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:simpleBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Jednoduché rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Jednoduché rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:10" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatok periódy</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatok periódy</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:15" _operation="create">
+										<_object>
+											<label>
+												<_item>&amp;nbsp;&amp;nbsp;&amp;nbsp;Jednoduché rezervácie</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:20" _operation="create">
+										<_object>
+											<label>
+												<_item>Koniec periódy</_item>
+											</label>
+											<toolTip>
+												<_item>Koniec periódy</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:Pane:Attr:Tab:0:Group:25" _operation="create">
+										<_object>
+											<label>
+												<_item>&amp;nbsp;&amp;nbsp;&amp;nbsp;Jednoduché rezervácie</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:positionName" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno pozície</_item>
+											</label>
+											<toolTip>
+												<_item>Meno pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:position" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozícia</_item>
+											</label>
+											<toolTip>
+												<_item>Pozícia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dôležitosť dátumu</_item>
+											</label>
+											<toolTip>
+												<_item>Dôležitosť dátumu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceDebitBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Debet (začiatok periódy)</_item>
+											</label>
+											<toolTip>
+												<_item>Debet (začiatok periódy)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceCreditBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Kredit (začiatok periódy)</_item>
+											</label>
+											<toolTip>
+												<_item>Kredit (začiatok periódy)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Saldo (začiatok periódy)</_item>
+											</label>
+											<toolTip>
+												<_item>Saldo (začiatok periódy)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceSimpleBop" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatočné saldo</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatočné saldo</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Debet (koniec periódy)</_item>
+											</label>
+											<toolTip>
+												<_item>Debet (koniec periódy)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Kredit (koniec periódy)</_item>
+											</label>
+											<toolTip>
+												<_item>Kredit (koniec periódy)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balance" _operation="create">
+										<_object>
+											<label>
+												<_item>Slado (koniec periódy)</_item>
+											</label>
+											<toolTip>
+												<_item>Saldo (koniec periódy)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemPosition:balanceSimple" _operation="create">
+										<_object>
+											<label>
+												<_item>Konečné saldo</_item>
+											</label>
+											<toolTip>
+												<_item>Konečné saldo</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReferenceHolder:depotReference" _operation="create">
+										<_object>
+											<label>
+												<_item>Odkazy skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Odkazy skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference" _operation="create">
+										<_object>
+											<label>
+												<_item>Odkaz skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Odkaz skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:holderQualifiesPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Majiteľ kvalifikuje pozície</_item>
+											</label>
+											<toolTip>
+												<_item>Majiteľ kvalifikuje pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:depotUsage" _operation="create">
+										<_object>
+											<label>
+												<_item>Použitie skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Použitie skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:Pane:Op:Tab:refreshReport" _operation="create">
+										<_object>
+											<label>
+												<_item>Obnoviť report</_item>
+											</label>
+											<toolTip>
+												<_item>Obnoviť report</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:Pane:Op:Tab:refreshReport:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:acceptCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Prijať zloženú rezerváciu</_item>
+											</label>
+											<toolTip>
+												<_item>Prijať zloženú rezerváciu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:acceptCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:finalizeCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Dokončiť zloženú rezerváciu</_item>
+											</label>
+											<toolTip>
+												<_item>Dokončiť zloženú rezerváciu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:finalizeCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:cancelCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Stornovať rezerváciu</_item>
+											</label>
+											<toolTip>
+												<_item>Stornovať rezerváciu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:cancelCb:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:cancelCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CancelCompoundBookingResult:cancelBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Zrušenie rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Zrušenie rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CancelCompoundBookingResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CancelCompoundBookingResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Stavové hlásenie</_item>
+											</label>
+											<toolTip>
+												<_item>Stavové hlásenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:lockCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Uzamknúť zloženú rezerváciu</_item>
+											</label>
+											<toolTip>
+												<_item>Uzamknúť zloženú rezerváciu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:lockCb:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:LockCompoundBookingParams:lockingReason" _operation="create">
+										<_object>
+											<label>
+												<_item>Dôvod uzamknutia</_item>
+											</label>
+											<toolTip>
+												<_item>Dôvod uzamknutia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:lockCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:unlockCb" _operation="create">
+										<_object>
+											<label>
+												<_item>Odomknúť zloženú rezerváciu</_item>
+											</label>
+											<toolTip>
+												<_item>Odomknúť zloženú rezerváciu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking:Pane:Op:Tab:unlockCb:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Vytvoriť rezerváciu podľa pozície</_item>
+											</label>
+											<toolTip>
+												<_item>Vytvoriť rezerváciu podľa pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPosition:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:positionDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozícia pre debet</_item>
+											</label>
+											<toolTip>
+												<_item>Pozícia pre debet</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:positionCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozícia pre kredit</_item>
+											</label>
+											<toolTip>
+												<_item>Pozícia pre kredit</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Množstvo</_item>
+											</label>
+											<toolTip>
+												<_item>Množstvo</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dôležitosť dátumu</_item>
+											</label>
+											<toolTip>
+												<_item>Dôležitosť dátumu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:bookingTextName" _operation="create">
+										<_object>
+											<label>
+												<_item>Názov znenia rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Názov znenia rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Znenie rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Znenie rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Druh rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionParams:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatok</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPosition:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingResult:compoundBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Zložená rezervácia</_item>
+											</label>
+											<toolTip>
+												<_item>Zložená rezervácia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Stavové hlásenie</_item>
+											</label>
+											<toolTip>
+												<_item>Stavové hlásenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPositionName" _operation="create">
+										<_object>
+											<label>
+												<_item>Vytvoriť rezerváciu podľa mena pozície</_item>
+											</label>
+											<toolTip>
+												<_item>Vytvoriť rezerváciu podľa mena pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPositionName:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:positionName" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno pozície</_item>
+											</label>
+											<toolTip>
+												<_item>Meno pozície</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotNumberDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo skladu (debet)</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo skladu (debet)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad (Debet)</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad (Debet)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotNumberCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo skladu (kredit)</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo skladu (kredit)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:depotCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad (Kredit)</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad (Kredit)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Množstvo</_item>
+											</label>
+											<toolTip>
+												<_item>Množstvo</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dôležitosť dátumu</_item>
+											</label>
+											<toolTip>
+												<_item>Dôležitosť dátumu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:bookingTextName" _operation="create">
+										<_object>
+											<label>
+												<_item>Názov znenia rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Názov znenia rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Znenie rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Znenie rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Druh rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByPositionNameParams:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatok</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByPositionName:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByProduct" _operation="create">
+										<_object>
+											<label>
+												<_item>Vytvoriť rezerváciu podľa produktu</_item>
+											</label>
+											<toolTip>
+												<_item>Vytvoriť rezerváciu podľa produktu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByProduct:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:product" _operation="create">
+										<_object>
+											<label>
+												<_item>Produkt</_item>
+											</label>
+											<toolTip>
+												<_item>Produkt</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotNumberDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo skladu (debet)</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo skladu (debet)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotDebit" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad (Debet)</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad (Debet)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotNumberCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo skladu (kredit)</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo skladu (kredit)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:depotCredit" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad (Kredit)</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad (Kredit)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:quantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Množstvo</_item>
+											</label>
+											<toolTip>
+												<_item>Množstvo</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:valueDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dôležitosť dátumu</_item>
+											</label>
+											<toolTip>
+												<_item>Dôležitosť dátumu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:bookingTextName" _operation="create">
+										<_object>
+											<label>
+												<_item>Názov znenia rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Názov znenia rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:bookingText" _operation="create">
+										<_object>
+											<label>
+												<_item>Znenie rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Znenie rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh rezervácie</_item>
+											</label>
+											<toolTip>
+												<_item>Druh rezervácie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CreateBookingByProductParams:origin" _operation="create">
+										<_object>
+											<label>
+												<_item>Začiatok</_item>
+											</label>
+											<toolTip>
+												<_item>Začiatok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotEntity:Pane:Op:Tab:createBookingByProduct:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:closePeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Perióda uzavretia</_item>
+											</label>
+											<toolTip>
+												<_item>Perióda uzavretia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:closePeriod:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:ClosePeriodParams:periodEndsAtExclusive" _operation="create">
+										<_object>
+											<label>
+												<_item>Koniec periódy (exkl.)</_item>
+											</label>
+											<toolTip>
+												<_item>Koniec periódy (exkl.)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:closePeriod:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:finalizePeriod" _operation="create">
+										<_object>
+											<label>
+												<_item>Perióda dokončenia</_item>
+											</label>
+											<toolTip>
+												<_item>Perióda dokončenia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:finalizePeriod:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingPeriod:Pane:Op:Tab:finalizePeriod:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:assertReports" _operation="create">
+										<_object>
+											<label>
+												<_item>Pripravené reporty</_item>
+											</label>
+											<toolTip>
+												<_item>Pripravené reporty</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:assertReports:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:bookingStatusThreshold" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav hraničnej hodnoty</_item>
+											</label>
+											<toolTip>
+												<_item>Stav hraničnej hodnoty</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:assertReports:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:openDepot" _operation="create">
+										<_object>
+											<label>
+												<_item>Otvoriť sklad</_item>
+											</label>
+											<toolTip>
+												<_item>Otvoriť sklad</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:openDepot:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dátum otvorenia</_item>
+											</label>
+											<toolTip>
+												<_item>Dátum otvorenia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:depotNumber" _operation="create">
+										<_object>
+											<label>
+												<_item>Číslo skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Číslo skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:depotType" _operation="create">
+										<_object>
+											<label>
+												<_item>Druh skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Druh skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotParams:depotGroup" _operation="create">
+										<_object>
+											<label>
+												<_item>Skladová skupina</_item>
+											</label>
+											<toolTip>
+												<_item>Skladová skupina</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:openDepot:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotResult:depot" _operation="create">
+										<_object>
+											<label>
+												<_item>Sklad</_item>
+											</label>
+											<toolTip>
+												<_item>Sklad</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Stavové hlásenie</_item>
+											</label>
+											<toolTip>
+												<_item>Stavové hlásenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:assertReports" _operation="create">
+										<_object>
+											<label>
+												<_item>Pripravené reporty</_item>
+											</label>
+											<toolTip>
+												<_item>Pripravené reporty</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:assertReports:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:assertReports:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:openDepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Otvoriť skladovú pozíciu</_item>
+											</label>
+											<toolTip>
+												<_item>Otvoriť skladovú pozíciu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:openDepotPosition:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:openingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dátum otvorenia</_item>
+											</label>
+											<toolTip>
+												<_item>Dátum otvorenia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:name" _operation="create">
+										<_object>
+											<label>
+												<_item>Meno</_item>
+											</label>
+											<toolTip>
+												<_item>Meno</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:description" _operation="create">
+										<_object>
+											<label>
+												<_item>Popis</_item>
+											</label>
+											<toolTip>
+												<_item>Popis</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:qualifier" _operation="create">
+										<_object>
+											<label>
+												<_item>Označenie</_item>
+											</label>
+											<toolTip>
+												<_item>Označenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:product" _operation="create">
+										<_object>
+											<label>
+												<_item>Produkt</_item>
+											</label>
+											<toolTip>
+												<_item>Produkt</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionParams:productRole" _operation="create">
+										<_object>
+											<label>
+												<_item>Rola produktu</_item>
+											</label>
+											<toolTip>
+												<_item>Rola produktu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:openDepotPosition:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionResult:depotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Pozícia skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Pozícia skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:OpenDepotPositionResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Stavové hlásenie</_item>
+											</label>
+											<toolTip>
+												<_item>Stavové hlásenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:closeDepot" _operation="create">
+										<_object>
+											<label>
+												<_item>Ukončenie skladovania</_item>
+											</label>
+											<toolTip>
+												<_item>Ukončenie skladovania</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:closeDepot:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotParams:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dátum uzavretia</_item>
+											</label>
+											<toolTip>
+												<_item>Dátum uzavretia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:Pane:Op:Tab:closeDepot:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Stavové hlásenie</_item>
+											</label>
+											<toolTip>
+												<_item>Stavové hlásenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:Pane:Op:Tab:closeDepotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Zavrieť pozíciu skladu</_item>
+											</label>
+											<toolTip>
+												<_item>Zavrieť pozíciu skladu</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:Pane:Op:Tab:closeDepotPosition:Group:in" _operation="create">
+										<_object>
+											<label>
+												<_item>Vstup</_item>
+											</label>
+											<toolTip>
+												<_item>Vstup</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotPositionParams:closingDate" _operation="create">
+										<_object>
+											<label>
+												<_item>Dátum uzavretia</_item>
+											</label>
+											<toolTip>
+												<_item>Dátum uzavretia</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:Pane:Op:Tab:closeDepotPosition:Group:result" _operation="create">
+										<_object>
+											<label>
+												<_item>Výsledok</_item>
+											</label>
+											<toolTip>
+												<_item>Výsledok</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotPositionResult:status" _operation="create">
+										<_object>
+											<label>
+												<_item>Stav</_item>
+											</label>
+											<toolTip>
+												<_item>Stav</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CloseDepotPositionResult:statusMessage" _operation="create">
+										<_object>
+											<label>
+												<_item>Stavové hlásenie</_item>
+											</label>
+											<toolTip>
+												<_item>Stavové hlásenie</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

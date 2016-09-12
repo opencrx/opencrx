@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+  <package name="org.opencrx.kernel.depot1.jpa3">
+    <class name="BookingOrigin">
+		<field name="bookingEntry" visibility="cci">
+			<join table="OOCKE1_JOIN_BOCONTAINSBKE"/>
+		</field>				        
+		<field name="compoundBooking" visibility="cci">
+			<join table="OOCKE1_JOIN_BOCONTAINSCB"/>
+		</field>				        
+    </class>
+  </package>
+</openmdxjdo>

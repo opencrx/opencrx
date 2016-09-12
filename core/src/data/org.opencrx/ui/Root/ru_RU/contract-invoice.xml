@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Segment:invoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Счета</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Счета</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:position" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Позиции</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Позиции счетов</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Счет</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Счет</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Название счета</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Название счета</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:contractLanguage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Язык счета</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Язык счета</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:contractNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Номер счета</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Номер счета</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:Pane:Op:Tab:markAsClosed" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Пометить как закрытый</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Пометить как закрытый</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:Pane:Op:Tab:markAsClosed:Group:in" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Выберите статус закрытия</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Ввод</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:Invoice:Pane:Op:Tab:markAsClosed:Group:result" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Результат</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Результат</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:InvoiceMarkAsClosedParams:invoiceState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Статус закрытия</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Выберите статус закрытия</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="3">
+				<void index="0">
+					<string>org:opencrx:kernel:home1:UserHome:wfProcessInstance</string>
+				</void>
+				<void index="1">
+					<string>org:opencrx:kernel:workflow1:WfProcess:wfProcessInstance</string>
+				</void>
+				<void index="2">
+					<string>org:opencrx:kernel:home1:WfProcessInstance:childProcessInstance</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="7">
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Created at [reverse chronological order]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_time.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Created at [reverse chronological order]</string>
+								</void>
+								<void index="1">
+									<string>Erstellt am [umgekehrt chronologisch]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>createdAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>stepCounter</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Last execution [reverse chronological order]</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_down_time_excl.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Last execution [reverse chronological order]</string>
+								</void>
+								<void index="1">
+									<string>Letzte Ausführung [umgekehrt chronologisch]</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>lastActivityOn</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>stepCounter</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0"> <!-- lastActivityOn != null -->
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>lastActivityOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.String" length="0">
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Pending - not yet started</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_pending.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Pending - not yet started</string>
+								</void>
+								<void index="1">
+									<string>Pendent - noch nicht gestartet</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>createdAt</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0"> <!-- lastActivityOn == null -->
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- FOR_ALL -->
+										</void>
+										<void property="feature">
+											<string>lastActivityOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.String" length="0" />
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Pending - started</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_pending.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Pending - started</string>
+								</void>
+								<void index="1">
+									<string>Pendent - gestartet</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>lastActivityOn</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0"> <!-- startedOn == null -->
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- FOR_ALL -->
+										</void>
+										<void property="feature">
+											<string>startedOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.String" length="0" />
+										</void>
+									</object>
+								</void>
+								<void index="1"> <!-- lastActivityOn != null -->
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>lastActivityOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.String" length="0">
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="4">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Pending - all</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_pending.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Pending - all</string>
+								</void>
+								<void index="1">
+									<string>Pendent - alle</string>
+								</void>
+							</array>
+						</void>
+						<void property="orderSpecifier">
+							<array class="org.openmdx.base.query.OrderSpecifier" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.OrderSpecifier">
+										<void property="feature">
+											<string>lastActivityOn</string>
+										</void>
+										<void property="order">
+											<short>-1</short>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0"> <!-- startedOn == null -->
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- FOR_ALL -->
+										</void>
+										<void property="feature">
+											<string>startedOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.String" length="0" />
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="5">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Completed - with success</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_ok.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Completed - with success</string>
+								</void>
+								<void index="1">
+									<string>Abgeschlossen - mit Erfolg</string>
+								</void>
+							</array>
+						</void>
+						<!-- <void property="orderSpecifier"> <array class="org.openmdx.base.query.OrderSpecifier" length="1"> <void index="0"> <object class="org.openmdx.base.query.OrderSpecifier"> <void property="feature"> <string>lastActivityOn</string> </void> <void property="order"> 
+							<short>-1</short> </void> </object> </void> </array> </void> -->
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0"> <!-- startedOn != null -->
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- THERE_EXISTS -->
+										</void>
+										<void property="feature">
+											<string>startedOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.String" length="0" />
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>failed</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<void index="6">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Completed - with failure</string>
+						</void>
+						<void property="iconKey">
+							<string>filter_notok.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Completed - with failure</string>
+								</void>
+								<void index="1">
+									<string>Abgeschlossen - mit Fehler</string>
+								</void>
+							</array>
+						</void>
+						<!-- <void property="orderSpecifier"> <array class="org.openmdx.base.query.OrderSpecifier" length="1"> <void index="0"> <object class="org.openmdx.base.query.OrderSpecifier"> <void property="feature"> <string>lastActivityOn</string> </void> <void property="order"> 
+							<short>-1</short> </void> </object> </void> </array> </void> -->
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0"> <!-- startedOn != null -->
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- THERE_EXISTS -->
+										</void>
+										<void property="feature">
+											<string>startedOn</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.String" length="0" />
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>failed</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

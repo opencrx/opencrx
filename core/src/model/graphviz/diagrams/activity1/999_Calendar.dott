@@ -1,0 +1,53 @@
+digraph "Diagram Calendar [Package org:opencrx:kernel:activity1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Segment,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Calendar,compartments=true,width=8]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:WeekDay,compartments=true,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:CalendarDay,compartments=true,width=3]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:WorkingDay,compartments=true,width=2]};	  
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};	  
+	}
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:SegmentContainsCalendar,minlen=3]}	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:CalendarContainsWeekDay,minlen=3]}	
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_vvFywN8HEdmKapscEl8OLg" name="admin1">
+  <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D4167132701FAPPP" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D4167132701FAPP" name="opencrx">
+      <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D4167132701FAP" name="kernel">
+        <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D4167132701FA" name="admin1">
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D416713C40097" name="Segment">
+            <generalization xmi:id="_3C7B8A60016D416713E60118">
+              <general xmi:type="uml:Class" href="org.opencrx.uml#_kAemwPtpEduZnKmt1dsSSQ"/>
+            </generalization>
+            <ownedAttribute xmi:id="_c7Hm8TIhEdulbMY4C1wdZw" name="configuration" type="_agleMDIhEdulbMY4C1wdZw" aggregation="composite" association="_c7Hm8DIhEdulbMY4C1wdZw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c7Hm8zIhEdulbMY4C1wdZw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c7Hm9DIhEdulbMY4C1wdZw" value="1"/>
+              <qualifier xmi:id="_jKzcUDIhEdulbMY4C1wdZw" name="id" visibility="private">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedAttribute>
+            <ownedOperation xmi:id="_3C7B8A60016D4165D0140074" name="createAdministrator">
+              <ownedParameter xmi:id="_INQMlN7NEdmKapscEl8OLg" type="_3C7B8A60016D4165D0650034" direction="return"/>
+              <ownedParameter xmi:id="_3C7B8A60016D4165D0560000" name="in" type="_3C7B8A60016D4165D05A01DD" direction="inout"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_KoUmQEcXEdqY8s66EvOcjQ" name="importLoginPrincipals">
+              <ownedParameter xmi:id="_GNouMEcYEdqY8s66EvOcjQ" name="ReturnResultParameter1" type="_O52F0EcXEdqY8s66EvOcjQ" direction="return"/>
+              <ownedParameter xmi:id="_C70YIEcYEdqY8s66EvOcjQ" name="in" type="_NTd94EcXEdqY8s66EvOcjQ"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_UKH6cOW5EeOyE8SdjHxBeQ" name="convertMediaXriToPath">
+              <ownedParameter xmi:id="_oFgDwOW5EeOyE8SdjHxBeQ" name="in" type="_YP-8kOW5EeOyE8SdjHxBeQ"/>
+              <ownedParameter xmi:id="_r_emAOW5EeOyE8SdjHxBeQ" name="result" type="_gBPSYOW5EeOyE8SdjHxBeQ" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D4165D05A01DD" name="CreateAdministratorParams">
+            <eAnnotations xmi:id="_INQMm97NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_INQMnN7NEdmKapscEl8OLg" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_3C7B8A60016D4165D0880374" name="segmentName">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_eTotkB2GEdqET7ZHRltKzA" name="adminPrincipalName">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D4165D09D00D5" name="initialPassword">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D4165D0A8027F" name="initialPasswordVerification">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D4165D0650034" name="CreateAdministratorResult">
+            <eAnnotations xmi:id="_INQMot7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_INQMo97NEdmKapscEl8OLg" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_3C7B8A60016D4165D0D2029E" name="status">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D4165D0D801B6" name="statusMessage">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_INQMoN7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_INQMod7NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_NTd94EcXEdqY8s66EvOcjQ" name="ImportLoginPrincipalsParams">
+            <eAnnotations xmi:id="_UeLREEcXEdqY8s66EvOcjQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_J4ha0Ec0EdqY8s66EvOcjQ" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_jZgn8EcXEdqY8s66EvOcjQ" name="item">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3E0F6F8900AB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CILrAEc0EdqY8s66EvOcjQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CILrAUc0EdqY8s66EvOcjQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_kEllQEcXEdqY8s66EvOcjQ" name="itemMimeType">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C3jScEc0EdqY8s66EvOcjQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C3jScUc0EdqY8s66EvOcjQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_k3Mt8EcXEdqY8s66EvOcjQ" name="itemName">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DXpHwEc0EdqY8s66EvOcjQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DXpHwUc0EdqY8s66EvOcjQ" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_O52F0EcXEdqY8s66EvOcjQ" name="ImportLoginPrincipalsResult">
+            <eAnnotations xmi:id="_U-70wEcXEdqY8s66EvOcjQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LPPWIEc0EdqY8s66EvOcjQ" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_pjkWcEcXEdqY8s66EvOcjQ" name="statusMessage">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ElGZYEc0EdqY8s66EvOcjQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ElGZYUc0EdqY8s66EvOcjQ" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_agleMDIhEdulbMY4C1wdZw" name="ComponentConfiguration">
+            <generalization xmi:id="_CefhsDIiEdulbMY4C1wdZw">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D42040D6700C9"/>
+            </generalization>
+            <generalization xmi:id="_C1-0oDIiEdulbMY4C1wdZw">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
+            </generalization>
+            <generalization xmi:id="_RvyhgDIiEdulbMY4C1wdZw">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
+            </generalization>
+            <ownedAttribute xmi:id="_0TTY4DIiEdulbMY4C1wdZw" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_05To8DIiEdulbMY4C1wdZw" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6962wDIiEdulbMY4C1wdZw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6962wTIiEdulbMY4C1wdZw" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_c7Hm8DIhEdulbMY4C1wdZw" name="SegmentContainsComponentConfiguration" memberEnd="_c7Hm8TIhEdulbMY4C1wdZw _c7Hm8jIhEdulbMY4C1wdZw">
+            <ownedEnd xmi:id="_c7Hm8jIhEdulbMY4C1wdZw" name="segment" type="_3C7B8A60016D416713C40097" association="_c7Hm8DIhEdulbMY4C1wdZw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_YP-8kOW5EeOyE8SdjHxBeQ" name="ConvertMediaXriToPathParams">
+            <eAnnotations xmi:id="_AbohIOW6EeOyE8SdjHxBeQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_BfbgcOW6EeOyE8SdjHxBeQ" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_s8UBsOW5EeOyE8SdjHxBeQ" name="mediaXri" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t_adcOW5EeOyE8SdjHxBeQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t_brkOW5EeOyE8SdjHxBeQ" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_t_dgwOW5EeOyE8SdjHxBeQ">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_gBPSYOW5EeOyE8SdjHxBeQ" name="ConvertMediaXriToPathResult">
+            <eAnnotations xmi:id="_DO_ZkOW6EeOyE8SdjHxBeQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_D_ykYOW6EeOyE8SdjHxBeQ" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_vIJnIOW5EeOyE8SdjHxBeQ" name="mediaPath" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wJ4w8OW5EeOyE8SdjHxBeQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wJ5_EOW5EeOyE8SdjHxBeQ" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_wJ70QOW5EeOyE8SdjHxBeQ">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

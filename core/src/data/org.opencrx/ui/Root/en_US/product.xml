@@ -1,0 +1,1703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+									<!--Segment Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Products</_item>
+											</toolTip>
+											<label>
+												<_item>Products</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>Product</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:product">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>All Products</_item>
+											</toolTip>
+											<label>
+												<_item>»All Products</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>500</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content>
+											<additionalElementDefinition>
+												<org.openmdx.ui1.AdditionalElementDefinition id="9998" _operation="create">
+													<_object>
+														<toolTip>
+														  <_item>Products</_item>
+														</toolTip>
+														<label>
+														  <_item>Products</_item>
+														</label>
+														<order>
+														  <_item>0</_item>
+														  <_item>0</_item>
+														  <_item>20</_item>
+														</order>
+														<iconKey>Product</iconKey>
+														<maxMember>25</maxMember>
+														<showMaxMember>3</showMaxMember>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+
+												<org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Products (disabled)</_item>
+														</toolTip>
+														<label>
+															<_item>»Products (disabled)</_item>
+														</label>
+														<order>
+															<_item>0</_item>
+															<_item>0</_item>
+															<_item>510</_item>
+														</order>
+														<maxMember>5</maxMember>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+											</additionalElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:configurationTypeSet">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Configuration Types</_item>
+											</toolTip>
+											<label>
+												<_item>Product Configuration Types</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:productClassification">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Classifications</_item>
+											</toolTip>
+											<label>
+												<_item>Product Classifications</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<iconKey>ProductClassification</iconKey>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AbstractProduct -->
+									<!--Inspector Definitions-->
+									<!--Tab Definition-->
+									<!-- AbstractProduct -->
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:basePrice">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Base Prices</_item>
+											</toolTip>
+											<label>
+												<_item>Base Prices</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>8</maxMember>
+										</_object>
+										<_content>
+											<additionalElementDefinition>
+												<org.openmdx.ui1.AdditionalElementDefinition id="0" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Active Base Prices</_item>
+														</toolTip>
+														<label>
+															<_item>Active Base Prices</_item>
+														</label>
+														<order>
+															<_item>0</_item>
+															<_item>0</_item>
+															<_item>10</_item>
+														</order>
+														<maxMember>8</maxMember>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+											</additionalElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:priceUom">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Price UOMs</_item>
+											</toolTip>
+											<label>
+												<_item>Price UOMs</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>7</maxMember>
+											<iconKey>Uom</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:classification">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Classifications</_item>
+											</toolTip>
+											<label>
+												<_item>Product Classifications</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>2</maxMember>
+											<iconKey>ProductClassification</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:assignedAccount">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Account Assignments</_item>
+											</toolTip>
+											<label>
+												<_item>Account Assignments</_item>
+											</label>
+											<order>
+												<_item>40</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<iconKey>Product</iconKey>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in Details Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:Pane:Attr:Tab:0:Group:60">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Element Definitions Details Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productState">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product status</_item>
+											</toolTip>
+											<label>
+												<_item>Product status</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>1</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productNumber">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Product number</_item>
+											</toolTip>
+											<label>
+												<_item>Product number</_item>
+											</label>
+											<shortLabel>
+												<_item>Product #</_item>
+											</shortLabel>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:activeOn">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Active/Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Active/Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:expiresOn">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Expires on</_item>
+											</toolTip>
+											<label>
+												<_item>Expires on</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultPriceLevel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Default Price Level</_item>
+											</toolTip>
+											<label>
+												<_item>Default Price Level</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:salesTaxType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales tax type</_item>
+											</toolTip>
+											<label>
+												<_item>Sales tax type</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultUom">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Unit of measurement</_item>
+											</toolTip>
+											<label>
+												<_item>Unit of measurement</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>25</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:alternateProductNumber">
+										<_object>
+											<spanRow>5</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Alternate product #</_item>
+											</toolTip>
+											<label>
+												<_item>Alternate product #</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- removed since openCRX v1.10
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:competitor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Competitor</_item>
+											</toolTip>
+											<label>
+												<_item>Competitor</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>20</_item>
+												<_item>120</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:productUsage">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Product usage</_item>
+											</toolTip>
+											<label>
+												<_item>Product usage</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:detailedDescription">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Detailed description</_item>
+											</toolTip>
+											<label>
+												<_item>Detailed description</_item>
+											</label>
+											<spanRow>5</spanRow>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>60</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>999</_item>
+											</orderObjectContainer>
+											<!--
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											-->
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Product -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product</_item>
+											</toolTip>
+											<label>
+												<_item>Product</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>Product</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:productPhase">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Phases</_item>
+											</toolTip>
+											<label>
+												<_item>Product Phases</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:relatedProduct">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Related Products</_item>
+											</toolTip>
+											<label>
+												<_item>Related Products</_item>
+											</label>
+											<order>
+												<_item>40</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>9</maxMember>
+											<showMaxMember>4</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Tab Definition-->
+									<!--FieldGroups in General Tab-->
+									<!--FieldGroups in Details Tab-->
+									<!--Element Definitions in Field Group Product-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:isStockItem">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Is stock Item</_item>
+											</toolTip>
+											<label>
+												<_item>Is stock Item</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- picture -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:pictureContent">
+										<_object>
+											<columnBreak>false</columnBreak>
+											<spanRow>6</spanRow>
+											<active>true</active>
+											<changeable>false</changeable>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Picture</_item>
+											</toolTip>
+											<label>
+												<_item>Picture</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:picture">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Title / Source</_item>
+											</toolTip>
+											<label>
+												<_item>Title / Source</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:productDimension">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Dimension</_item>
+											</toolTip>
+											<label>
+												<_item>Product Dimension</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:grossWeightKilogram">
+										<_object>
+											<active>true</active>
+											<decimalPlaces>3</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
+											<toolTip>
+												<_item>Gross Weight Kilogram</_item>
+											</toolTip>
+											<label>
+												<_item>Gross Weight Kilogram</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:netWeightKilogram">
+										<_object>
+											<active>true</active>
+											<decimalPlaces>3</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
+											<toolTip>
+												<_item>Net Weight Kilogram</_item>
+											</toolTip>
+											<label>
+												<_item>Net Weight Kilogram</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>30</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductPhase -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Phase</_item>
+											</toolTip>
+											<label>
+												<_item>Product Phase</_item>
+											</label>
+											<iconKey>ProductPhase</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid -->
+									<!--Tab Definition-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions in Field Group Product-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:productPhaseKey">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product phase key</_item>
+											</toolTip>
+											<label>
+												<_item>Product phase key</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:validFrom">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:validTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:description">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductClassification -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Classification</_item>
+											</toolTip>
+											<label>
+												<_item>Product Classification</_item>
+											</label>
+											<iconKey>ProductClassification</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:relationship">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Relationships</_item>
+											</toolTip>
+											<label>
+												<_item>Relationships</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:product">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Products</_item>
+											</toolTip>
+											<label>
+												<_item>Products</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									-->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:description">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductClassificationRelationship -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Classification Relationship</_item>
+											</toolTip>
+											<label>
+												<_item>Product Classification Relationship</_item>
+											</label>
+											<iconKey>ProductClassificationRelationship</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:relationshipTo">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Relationship to</_item>
+											</toolTip>
+											<label>
+												<_item>Relationship to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassificationRelationship:relationshipType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Relationship type</_item>
+											</toolTip>
+											<label>
+												<_item>Relationship type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Related Product -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Related Product</_item>
+											</toolTip>
+											<label>
+												<_item>Related Product</_item>
+											</label>
+											<iconKey>RelatedProduct</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:relationshipType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Relationship type</_item>
+											</toolTip>
+											<label>
+												<_item>Relationship type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:RelatedProduct:product">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product</_item>
+											</toolTip>
+											<label>
+												<_item>Product</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AccountAssignmentProduct -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignmentProduct">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Account Assignment</_item>
+											</toolTip>
+											<label>
+												<_item>Account Assignment</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>AccountAssignmentProduct</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid Tabs -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definition Contact-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignmentProduct:accountRole">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Role</_item>
+											</toolTip>
+											<label>
+												<_item>Role</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductConfigurationSet -->
+									<!--Inspector Definitions-->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:configuration">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Product Configurations</_item>
+											</toolTip>
+											<label>
+												<_item>Product Configurations</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:configType">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Configuration type</_item>
+											</toolTip>
+											<label>
+												<_item>Configuration type</_item>
+											</label>
+											<shortLabel>
+												<_item>Config type</_item>
+											</shortLabel>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>20</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+
+									<!-- ProductConfigurationTypeSet -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Configuration Type Set</_item>
+											</toolTip>
+											<label>
+												<_item>Product Configuration Type Set</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>ProductConfigurationTypeSet</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Grid -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:configurationType">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Configuration Types</_item>
+											</toolTip>
+											<label>
+												<_item>Configuration Types</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>5</maxMember>
+											<iconKey>ProductConfigurationType</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definition-->
+									<!--FieldGroups in General Tab-->
+									<!--FieldGroups in Details Tab-->
+									<!--Element Definitions in Field Group Product-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationTypeSet:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AbstractProductConfiguration -->
+									<!--Inspector Definitions-->
+									<!-- Grid -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definition -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:isDefault">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Is default</_item>
+											</toolTip>
+											<label>
+												<_item>Is default</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:validFrom">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:validTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductConfiguration:description">
+										<_object>
+											<spanRow>5</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductConfigurationType -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Configuration Type</_item>
+											</toolTip>
+											<label>
+												<_item>Product Configuration Type</_item>
+											</label>
+											<iconKey>ProductConfigurationType</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductConfiguration -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product Configuration</_item>
+											</toolTip>
+											<label>
+												<_item>Product Configuration</_item>
+											</label>
+											<iconKey>ProductConfiguration</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definition -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:configType">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Configuration type</_item>
+											</toolTip>
+											<label>
+												<_item>Configuration type</_item>
+											</label>
+											<shortLabel>
+												<_item>Config type</_item>
+											</shortLabel>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>20</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductDescriptor -->
+									<!--Inspector Definitions-->
+									<!-- Grid -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductDescriptor:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definition -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductDescriptor:product">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Product</_item>
+											</toolTip>
+											<label>
+												<_item>Product</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ConfiguredProduct -->
+									<!--Inspector Definitions-->
+									<!-- Grid -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:Pane:Attr:Tab:0:Group:15">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item/>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:currentConfig">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Current configuration</_item>
+											</toolTip>
+											<label>
+												<_item>Current configuration</_item>
+											</label>
+											<shortLabel>
+												<_item>Current config</_item>
+											</shortLabel>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>20</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ConfiguredProduct:productSerialNumber">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<spanRow>2</spanRow>
+											<toolTip>
+												<_item>Serial number(s)</_item>
+											</toolTip>
+											<label>
+												<_item>Serial number(s)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>15</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Set Configuration Type</_item>
+											</toolTip>
+											<label>
+												<_item>Set Configuration Type</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>ConfigurationType</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SetConfigurationTypeParams:configurationType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Configuration Type</_item>
+											</toolTip>
+											<label>
+												<_item>Configuration Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:Pane:Op:Tab:setConfigurationType:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Unset Configuration Type</_item>
+											</toolTip>
+											<label>
+												<_item>Unset Configuration Type</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>ConfigurationType</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfigurationSet:Pane:Op:Tab:unsetConfigurationType:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Unset Configuration Type</_item>
+											</toolTip>
+											<label>
+												<_item>Unset Configuration Type</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>ConfigurationType</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductConfiguration:Pane:Op:Tab:unsetConfigurationType:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

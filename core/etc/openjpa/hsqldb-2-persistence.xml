@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<persistence-unit name="openjpa">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<properties>
+			<property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO" />
+			<property name="openjpa.jdbc.MappingDefaults" value="IndexLogicalForeignKeys=false,IndexDiscriminator=false"/>
+			<property name="openjpa.jdbc.DBDictionary" value="hsql(CharacterColumnSize=256)"/>								
+			<property name="openjpa.ConnectionURL" value="jdbc:hsqldb:hsql://localhost:9001/CRX"/>
+			<property name="openjpa.ConnectionDriverName" value="org.hsqldb.jdbcDriver"/>
+			<property name="openjpa.ConnectionUserName" value="sa"/>
+			<property name="openjpa.ConnectionPassword" value="manager99"/>
+		</properties>
+	</persistence-unit>
+</persistence>

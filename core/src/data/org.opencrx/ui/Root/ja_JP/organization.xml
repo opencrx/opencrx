@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:organization" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>組織</_item>
+                      </label>
+                      <toolTip>
+                        <_item>全組織</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:organizationalUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>組織単位</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織単位</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:ouRelationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>組織単位の関係</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織単位の関係</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:contactMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>構成員</_item>
+                      </label>
+                      <toolTip>
+                        <_item>構成員</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:creditLimit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>与信限度</_item>
+                      </label>
+                      <toolTip>
+                        <_item>与信限度</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>組織単位コンテナー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織単位コンテナー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名称</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織コンテナ名</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:organizationState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ステータス</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織ステータス</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>補足情報</_item>
+                      </label>
+                      <toolTip>
+                        <_item>補足情報</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>説明</_item>
+                      </label>
+                      <toolTip>
+                        <_item>説明</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>コンタクト先メンバー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>コンタクト先メンバー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership:contact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>メンバー</_item>
+                      </label>
+                      <toolTip>
+                        <_item>メンバー</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership:effectiveOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>有効日</_item>
+                      </label>
+                      <toolTip>
+                        <_item>有効日</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>組織単位</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織単位</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名称</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織単位名</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:costCenter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>コストセンター</_item>
+                      </label>
+                      <toolTip>
+                        <_item>コストセンター</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:organizationalUnitState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ステータス</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ステータス</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>補足情報</_item>
+                      </label>
+                      <toolTip>
+                        <_item>補足情報</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>説明</_item>
+                      </label>
+                      <toolTip>
+                        <_item>説明</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>組織単位の関係</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織単位の関係</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>名称</_item>
+                      </label>
+                      <toolTip>
+                        <_item>名称</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>説明</_item>
+                      </label>
+                      <toolTip>
+                        <_item>説明</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:fromUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>元組織単位</_item>
+                      </label>
+                      <toolTip>
+                        <_item>元組織単位</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:toUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>先組織単位</_item>
+                      </label>
+                      <toolTip>
+                        <_item>先組織単位</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:organizationalUnitRelationshipState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ステータス</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ステータス</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:relationshipType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>関係タイプ</_item>
+                      </label>
+                      <toolTip>
+                        <_item>関係タイプ</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:weight" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>重み</_item>
+                      </label>
+                      <toolTip>
+                        <_item>重み</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:weightIsPercentage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>重みは比率%</_item>
+                      </label>
+                      <toolTip>
+                        <_item>重みは比率%</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:ouMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>構成員</_item>
+                      </label>
+                      <toolTip>
+                        <_item>構成員</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>雇用契約</_item>
+                      </label>
+                      <toolTip>
+                        <_item>雇用契約</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:contact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>従業員</_item>
+                      </label>
+                      <toolTip>
+                        <_item>従業員</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:employmentPosition" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ポジション</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ポジション</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:organizationalUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>組織単位</_item>
+                      </label>
+                      <toolTip>
+                        <_item>組織単位</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:employmentContractState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>ステータス</_item>
+                      </label>
+                      <toolTip>
+                        <_item>ステータス</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:effectiveOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>有効日</_item>
+                      </label>
+                      <toolTip>
+                        <_item>有効日</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>与信限度</_item>
+                      </label>
+                      <toolTip>
+                        <_item>与信限度</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:creditCurrency" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>通貨</_item>
+                      </label>
+                      <toolTip>
+                        <_item>通貨</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:creditLimitAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>総与信供与額</_item>
+                      </label>
+                      <toolTip>
+                        <_item>総与信供与額</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:currentCreditUsageAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>与信状況</_item>
+                      </label>
+                      <toolTip>
+                        <_item>与信状況</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:isCreditOnHold" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>追加与信を拒否</_item>
+                      </label>
+                      <toolTip>
+                        <_item>追加与信を拒否</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount1" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>予想消化額１</_item>
+                      </label>
+                      <toolTip>
+                        <_item>予想消化額１</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount2" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>予想消化額２</_item>
+                      </label>
+                      <toolTip>
+                        <_item>予想消化額２</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount3" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>予想消化額３</_item>
+                      </label>
+                      <toolTip>
+                        <_item>予想消化額３</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

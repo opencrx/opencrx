@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+                <elementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:organization" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Organizaciones</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Todas las organizaciones</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:organizationalUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unidades org.</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unidades organizacionales</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:ouRelationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Relaciones de uni. org.</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Relaciones de unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:contactMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Membresías</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Membresías de contactos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:creditLimit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Límite de crédito</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Límite de crédito</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Empresa / Contenedor de uni. org.</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Contenedor de unidades organizacionales</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre de la organización</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:organizationState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estado de la organización</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Información adicional</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Información adicional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Membresía del contacto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Membresía del contacto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership:contact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Miembro</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Miembro</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership:effectiveOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Vigente desde</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Vigente desde</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unidad organizacional</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre de la unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:costCenter" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Centro de costos</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Centro de costos</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:organizationalUnitState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estado de la unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:Pane:Attr:Tab:0:Group:10" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Información adicional</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Información adicional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Relación de uni. org.</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Relación de unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Nombre</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Nombre</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:description" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Descripción</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Descripción</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:fromUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>De unidad org.</_item>
+                      </label>
+                      <toolTip>
+                        <_item>De unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:toUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>A unidad org.</_item>
+                      </label>
+                      <toolTip>
+                        <_item>A unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:organizationalUnitRelationshipState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estado de la relación con unidades organizacionales</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:relationshipType" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Tipo de ralación</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Tipo de ralación</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:weight" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Peso</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Peso</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:weightIsPercentage" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Peso en %</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Peso en porcentaje (%)</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:ouMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Membresías a uni. org.</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Membresías a unidades organizacionales</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Contrato laboral</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Contrato laboral</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:contact" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Empleado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Empleado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:employmentPosition" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Posición</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Posición</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:organizationalUnit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Unidad organizacional</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Unidad organizacional</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:employmentContractState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Estado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Estado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:effectiveOn" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Válido desde</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Válido desde</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Límite de crédito</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Límite de crédito</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:creditCurrency" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Moneda</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Moneda</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:creditLimitAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Cantidad límite</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Cantidad límite</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:currentCreditUsageAmount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Uso actual</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Uso actual</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:isCreditOnHold" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Incremento de uso negado</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Incremento de uso negado</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount1" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Uso esperado #1</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Uso esperado #1</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount2" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Uso esperado #2</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Uso esperado #2</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount3" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Uso esperado #3</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Uso esperado #3</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                </elementDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

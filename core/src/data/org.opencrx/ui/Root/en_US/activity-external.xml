@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+
+									<!-- disable operation "Clone" -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ExternalActivity:Pane:Op:Tab:clone">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ExternalActivity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>External Activity</_item>
+											</toolTip>
+											<label>
+												<_item>External Activity</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>65</_item>
+											</order>
+											<iconKey>ExternalActivity</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--grid column definition-->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ExternalActivity:Pane:Attr:Tab:0:Group:20">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional Information</_item>
+											</toolTip>
+											<label>
+												<_item>Additional Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ExternalActivity:reference">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reference</_item>
+											</toolTip>
+											<label>
+												<_item>Reference</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

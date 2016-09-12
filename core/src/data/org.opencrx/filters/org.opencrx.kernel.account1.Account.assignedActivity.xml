@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="4">
+				<void index="0">
+					<string>org:opencrx:kernel:account1:Contact:assignedActivity</string>
+				</void>
+				<void index="1">
+					<string>org:opencrx:kernel:account1:LegalEntity:assignedActivity</string>
+				</void>
+				<void index="2">
+					<string>org:opencrx:kernel:account1:Group:assignedActivity</string>
+				</void>
+				<void index="3">
+					<string>org:opencrx:kernel:account1:UnspecifiedAccount:assignedActivity</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="3">
+				<!-- show only activities that are not disabled -->
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>assignedActivity</string>
+						</void>
+						<void property="iconKey">
+							<string>spacer.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<!-- open activities, assigned to account -->
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Open - assigned to account</string>
+						</void>
+						<void property="iconKey">
+							<string>ActivityCreator.gif</string>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS (SELECT 0 FROM OOCKE1_ACTIVITY act WHERE (act.object_id = v.object_id) and (act.object_id IN (
+												SELECT OOCKE1_ACTIVITY.object_id FROM OOCKE1_ACTIVITY, OOCKE1_JOIN_ACCTHASASSACT
+												where (OOCKE1_JOIN_ACCTHASASSACT.assigned_activity=OOCKE1_ACTIVITY.object_id)
+												and (OOCKE1_JOIN_ACCTHASASSACT.account = vj.account)
+												and ((OOCKE1_ACTIVITY.disabled is null) OR (OOCKE1_ACTIVITY.disabled = ?b0))
+												and (OOCKE1_ACTIVITY.percent_complete&lt;100)
+												and (OOCKE1_ACTIVITY.assigned_to = OOCKE1_JOIN_ACCTHASASSACT.account)
+												)))
+											</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>false</boolean>
+												</void>
+											</array>
+										</void>										
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- open activities, reported by account -->
+				<void index="2">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Open - reported by account</string>
+						</void>
+						<void property="iconKey">
+							<string>ActivityProcess.gif</string>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS (SELECT 0 FROM OOCKE1_ACTIVITY act WHERE (act.object_id = v.object_id) and (act.object_id IN (
+												SELECT OOCKE1_ACTIVITY.object_id FROM OOCKE1_ACTIVITY, OOCKE1_JOIN_ACCTHASASSACT
+												where (OOCKE1_JOIN_ACCTHASASSACT.assigned_activity=OOCKE1_ACTIVITY.object_id)
+												and (OOCKE1_JOIN_ACCTHASASSACT.account = vj.account)
+												and ((OOCKE1_ACTIVITY.disabled is null) OR (OOCKE1_ACTIVITY.disabled = ?b0))
+												and (OOCKE1_ACTIVITY.percent_complete&lt;100)
+												and (OOCKE1_ACTIVITY.rep_contact = OOCKE1_JOIN_ACCTHASASSACT.account)
+												)))
+											</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>false</boolean>
+												</void>
+											</array>
+										</void>										
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="4">
+				<void index="0">
+					<string>org:opencrx:kernel:activity1:ActivityGroup:filteredActivity</string>
+				</void>
+				<void index="1">
+					<string>org:opencrx:kernel:activity1:ActivityCategory:filteredActivity</string>
+				</void>
+				<void index="2">
+					<string>org:opencrx:kernel:activity1:ActivityMilestone:filteredActivity</string>
+				</void>
+				<void index="3">
+					<string>org:opencrx:kernel:activity1:ActivityTracker:filteredActivity</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="1">
+				<!-- show only activities that are not disabled with an activity_group_assignment that is also not disabled -->
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>~ [Activity and Assignment active]</string>
+						</void>
+						<void property="iconKey">
+							<string>BooleanProperty.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>~ [Activity and Assignment active]</string>
+								</void>
+								<void index="1">
+									<string>~ [Aktivität und Zuweisung aktik]</string>
+								</void>
+							</array>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS
+												(select 0 from oocke1_activitygroupass ass
+												where v.object_id = ass.p$$parent
+												and vj.activity_group = ass.activity_group
+												and (ass.disabled is null OR ass.disabled = ?b0)
+												)
+											</string>
+										</void>
+										<void property="booleanParam">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>false</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

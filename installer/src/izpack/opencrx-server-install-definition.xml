@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<installation version="1.0">
+	<info>
+		<appname>opencrxServer-@{project.implementation.version}</appname>
+		<appversion>@{project.implementation.version}</appversion>
+		<uninstaller name="Uninstall.jar" path="$INSTALL_PATH/Uninstall" write="yes" />
+	</info>
+	<guiprefs width="700" height="480" resizable="no">
+		<laf name="kunststoff">
+			<os family="unix" />
+		</laf>
+		<modifier key="useHeadingPanel" value="yes" />
+		<modifier key="useHeadingForSummary" value="yes" />
+		<modifier key="headingImageOnLeft" value="yes" />
+		<modifier key="headingLineCount" value="2" />
+		<modifier key="headingFontSize" value="1.5" />
+		<modifier key="headingBackgroundColor" value="0x00ffffff" />
+		<modifier key="headingPanelCounter" value="text" />
+		<modifier key="headingPanelCounterPos" value="inHeading" />
+	</guiprefs>
+	<locale>
+		<langpack iso3="eng" />
+	</locale>
+	<dynamicvariables>
+		<variable name="PROJECT_VERSION" value="@{project.implementation.version}" />
+		<variable name="HSQLDB_PORT" value="9001" />
+		<variable name="TOMCAT_SERVER_PORT" value="8005" />
+		<variable name="TOMCAT_HTTP_PORT" value="8080" />
+		<variable name="TOMEE_BASEDIR" value="apache-tomee-webprofile-1.7.4" />
+	</dynamicvariables>
+	<resources>
+		<res id="splash" src="image/opencrx-server/installer/splash.gif" />
+		<res id="Heading.image" src="image/opencrx-server/installer/logo.png" />
+		<res id="HTMLHelloPanel.info" src="image/opencrx-server/installer/INFO" /> 
+		<res id="LicencePanel.licence" src="image/opencrx-server/installer/LICENSE" />		
+		<res id="HTMLInfoPanel.info" src="image/opencrx-server/installer/README" />
+		<res id="userInputSpec.xml" src="src/izpack/opencrx-server-userinput-spec.xml" />
+		<res id="Unix_shortcutSpec.xml" src="src/izpack/opencrx-server-unix-shortcut-spec.xml" />
+		<res id="shortcutSpec.xml" src="src/izpack/opencrx-server-windows-shortcut-spec.xml" />
+	</resources>
+	<panels>
+		<panel classname="HTMLHelloPanel" />
+		<panel classname="LicencePanel" /> 
+		<panel classname="JDKPathPanel">
+			<variables>
+			  <variable name="JDKPathPanel.minVersion" value="1.8.0" />
+			  <variable name="JDKPathPanel.maxVersion" value="1.8.99" />
+			</variables>
+		</panel>
+		<panel classname="UserInputPanel" />
+		<panel classname="TargetPanel" />
+		<panel classname="SummaryPanel" />
+		<panel classname="InstallPanel" />
+		<panel classname="ShortcutPanel" />
+		<panel classname="HTMLInfoPanel" />
+		<panel classname="SimpleFinishPanel" />
+	</panels>
+	<listeners>
+		<listener installer="SummaryLoggerInstallerListener">
+			<os family="windows" />
+		</listener>
+	</listeners>
+	<packs>
+		<pack name="Main" required="yes" installGroups="New Application">
+			<description>Main tasks.</description>
+			<!-- Image -->
+			<fileset dir="image/opencrx-server" targetdir="$INSTALL_PATH" />
+			<!-- Additional files -->
+			<file src="../@{build.target.platform}/core/deployment-unit/opencrx-core-CRX.ear" targetdir="$INSTALL_PATH/installer/files"/>
+			<file src="../opt/openmdx-2.15.0/@{build.target.platform}/tomcat/lib/catalina-openmdx.jar" targetdir="$INSTALL_PATH/installer/files"/>
+			<!-- Generic -->
+			<parsable targetfile="$INSTALL_PATH/installer/bin/postinstaller.xml" type="xml" encoding="UTF-8" />
+			<parsable targetfile="$INSTALL_PATH/data/hsqldb/sqltool.rc" encoding="UTF-8" />
+			<parsable targetfile="$INSTALL_PATH/installer/files/tomee.xml" type="xml" encoding="UTF-8" />
+			<!-- Unix -->
+			<parsable targetfile="$INSTALL_PATH/installer/bin/postinstallation.sh" encoding="UTF-8" />  
+			<executable targetfile="$INSTALL_PATH/installer/bin/postinstallation.sh" type="bin" stage="postinstall" keep="true" os="unix" />
+			<parsable targetfile="$INSTALL_PATH/installer/files/opencrx.sh" encoding="UTF-8" />  
+			<parsable targetfile="$INSTALL_PATH/installer/files/setenv.sh" encoding="UTF-8" />  
+			<parsable targetfile="$INSTALL_PATH/data/hsqldb/db.sh" encoding="UTF-8" />  
+			<parsable targetfile="$INSTALL_PATH/data/hsqldb/dbmanager.sh" encoding="UTF-8" />  
+			<!-- Windows -->
+			<parsable targetfile="$INSTALL_PATH/installer/bin/postinstallation.bat" encoding="UTF-8" />
+			<executable targetfile="$INSTALL_PATH/installer/bin/postinstallation.bat" type="bin" stage="postinstall" keep="true" os="windows" />
+			<parsable targetfile="$INSTALL_PATH/installer/files/opencrx.bat" encoding="UTF-8" />  
+			<parsable targetfile="$INSTALL_PATH/installer/files/setenv.bat" encoding="UTF-8" />  
+			<parsable targetfile="$INSTALL_PATH/data/hsqldb/db.bat" encoding="UTF-8" />  
+			<parsable targetfile="$INSTALL_PATH/data/hsqldb/dbmanager.bat" encoding="UTF-8" />  
+		</pack>
+		<pack name="PostInstall" required="yes">
+			<description>Post installation tasks.</description>
+			<!-- Unix -->
+			<executable targetfile="$INSTALL_PATH/$TOMEE_BASEDIR/bin/opencrx.sh" type="bin" os="unix" />
+			<executable targetfile="$INSTALL_PATH/$TOMEE_BASEDIR/bin/setenv.sh" type="bin" os="unix" />
+			<executable targetfile="$INSTALL_PATH/data/hsqldb/db.sh" type="bin" os="unix" />
+			<executable targetfile="$INSTALL_PATH/data/hsqldb/dbmanager.sh" type="bin" os="unix" />
+		</pack>
+	</packs>
+	<native type="izpack" name="ShellLink.dll" />
+	<native type="izpack" name="ShellLink_x64.dll" />
+</installation>

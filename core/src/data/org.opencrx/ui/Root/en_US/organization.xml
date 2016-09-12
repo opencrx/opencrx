@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+									<!--keine Segment Definition-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Segment:organization">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>all Organizations</_item>
+											</toolTip>
+											<label>
+												<_item>»Organizations</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>3</maxMember>
+											<iconKey>Organization</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:organizationalUnit">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Org Units</_item>
+											</toolTip>
+											<label>
+												<_item>Org Units</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>12</_item>
+											</order>
+											<maxMember>4</maxMember>
+											<iconKey>OrganizationalUnit</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:ouRelationship">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Org Unit Relationships</_item>
+											</toolTip>
+											<label>
+												<_item>Org Unit Relationships</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>14</_item>
+											</order>
+											<maxMember>8</maxMember>
+											<iconKey>OrganizationalUnitRelationship</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:contactMembership">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Memberships</_item>
+											</toolTip>
+											<label>
+												<_item>Memberships</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>4</maxMember>
+											<iconKey>ContactMembership</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:creditLimit">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Credit Limits</_item>
+											</toolTip>
+											<label>
+												<_item>Credit Limits</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>18</_item>
+											</order>
+											<maxMember>7</maxMember>
+											<iconKey>CreditLimit</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Organization-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Org Unit Container</_item>
+											</toolTip>
+											<label>
+												<_item>Org Unit Container</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:account1:Organization</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Organization Container Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Organization:organizationState">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Organization Status</_item>
+											</toolTip>
+											<label>
+												<_item>Org Status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:Pane:Attr:Tab:0:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional Information</_item>
+											</toolTip>
+											<label>
+												<_item>Additional Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AbstractOrganizationalUnit:description">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Contact Membership-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Contact Membership</_item>
+											</toolTip>
+											<label>
+												<_item>Contact Membership</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:account1:ContactMembership</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--grid column definition-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership:contact">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Member</_item>
+											</toolTip>
+											<label>
+												<_item>Member</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:ContactMembership:effectiveOn">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Effective on</_item>
+											</toolTip>
+											<label>
+												<_item>Effective on</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</orderObjectContainer>
+											<!--
+                                            <order>
+                                                <_item>0</_item>
+                                                <_item>0</_item>
+                                                <_item>90</_item>
+                                            </order>
+-->
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--OrganizationalUnit-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Organizational Unit</_item>
+											</toolTip>
+											<label>
+												<_item>Organizational Unit</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:account1:OrganizationalUnit</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Organizational unit's name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:costCenter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Cost center</_item>
+											</toolTip>
+											<label>
+												<_item>Cost center</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>80</_item>
+												<_item>20</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:organizationalUnitState">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Unit State</_item>
+											</toolTip>
+											<label>
+												<_item>Unit State</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:Pane:Attr:Tab:0:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional Information</_item>
+											</toolTip>
+											<label>
+												<_item>Additional Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnit:description">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--OrganizationalUnitRelationship-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Organizational Unit Relationship</_item>
+											</toolTip>
+											<label>
+												<_item>Organizational Unit Relationship</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:account1:OrganizationalUnitRelationship</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions Field Group Organisational Unit Relationship-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:fromUnit">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>From Organizational Unit</_item>
+											</toolTip>
+											<label>
+												<_item>From Org Unit</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:toUnit">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>To Organizational Unit</_item>
+											</toolTip>
+											<label>
+												<_item>To Org Unit</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:organizationalUnitRelationshipState">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:relationshipType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Relationship Type</_item>
+											</toolTip>
+											<label>
+												<_item>Relationship Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:weight">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Weight</_item>
+											</toolTip>
+											<label>
+												<_item>Weight</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:OrganizationalUnitRelationship:weightIsPercentage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Weight is Percentage</_item>
+											</toolTip>
+											<label>
+												<_item>Weight is Percentage</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ouMembership-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:ouMembership">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Org Unit Memberships</_item>
+											</toolTip>
+											<label>
+												<_item>»Org Unit Memberships</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--EmploymentContract-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Employment Contract</_item>
+											</toolTip>
+											<label>
+												<_item>Employment Contract</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:account1:EmploymentContract</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:contact">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Employee</_item>
+											</toolTip>
+											<label>
+												<_item>Employee</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:employmentPosition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Position</_item>
+											</toolTip>
+											<label>
+												<_item>Position</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:organizationalUnit">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Organizational Unit</_item>
+											</toolTip>
+											<label>
+												<_item>Organizational Unit</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:employmentContractState">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>State</_item>
+											</toolTip>
+											<label>
+												<_item>State</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:EmploymentContract:effectiveOn">
+										<_object>
+											<columnBreak>false</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Effective on</_item>
+											</toolTip>
+											<label>
+												<_item>Effective on</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--CreditLimit-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Credit Limit</_item>
+											</toolTip>
+											<label>
+												<_item>Credit Limit</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:account1:CreditLimit</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:creditCurrency">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Currency</_item>
+											</toolTip>
+											<label>
+												<_item>Currency</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:creditLimitAmount">
+										<_object>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Limit amount</_item>
+											</toolTip>
+											<label>
+												<_item>Limit amount</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:currentCreditUsageAmount">
+										<_object>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Current usage</_item>
+											</toolTip>
+											<label>
+												<_item>Current usage</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:isCreditOnHold">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Deny usage increases</_item>
+											</toolTip>
+											<label>
+												<_item>Deny usage increases</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount1">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Expected Usage #1</_item>
+											</toolTip>
+											<label>
+												<_item>Expected Usage #1</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount2">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Expected Usage #2</_item>
+											</toolTip>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<label>
+												<_item>Expected Usage #2</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:CreditLimit:expectedCreditUsageAmount3">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Expected Usage #3</_item>
+											</toolTip>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<label>
+												<_item>Expected Usage #3</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

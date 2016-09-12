@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+
+								<featureDefinition>							
+								  <!-- 500 = Business -->
+								  <org.openmdx.ui1.StructuralFeatureDefinition qualifiedName="org:opencrx:kernel:account1:LegalEntity:address!webUrl">
+									<_object>
+									  <type>org:w3c:string</type>
+									  <multiplicity>0..1</multiplicity>
+									  <changeable>true</changeable>
+									</_object>
+									<_content/>
+								  </org.openmdx.ui1.StructuralFeatureDefinition>
+
+								</featureDefinition>														
+
+								<elementDefinition>
+									<!--Pane1 Tab Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:revenueReport">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Revenue Reports</_item>
+											</toolTip>
+											<label>
+												<_item>Revenue Reports</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>org:opencrx:kernel:account1:RevenueReport</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Legal Entity</_item>
+											</toolTip>
+											<label>
+												<_item>Legal Entity</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>LegalEntity</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions Field Group Legal Entitiy-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:name">
+										<_object>
+											<active>true</active>
+											<mandatory>true</mandatory>
+											<toolTip>
+												<_item>Legal entity's name</_item>
+											</toolTip>
+											<label>
+												<_item>Legal name</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>19</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:aliasName" _operation="create">
+										<_object/>
+										<_content>
+											<alternateElementDefinition>
+												<org.openmdx.ui1.AlternateElementDefinition id="0">
+													<_object>
+														<columnBreak>false</columnBreak>
+														<orderFieldGroup>
+															<_item>0</_item>
+															<_item>0</_item>
+															<_item>20</_item>
+														</orderFieldGroup>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AlternateElementDefinition>
+											</alternateElementDefinition>
+										</_content>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:tickerSymbol">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Legal entity's ticker symbol</_item>
+											</toolTip>
+											<label>
+												<_item>Ticker symbol</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:stockExchange">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>stock exchange(s) where the legal entity is listed</_item>
+											</toolTip>
+											<label>
+												<_item>Stock exchange</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:establishedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Established at</_item>
+											</toolTip>
+											<label>
+												<_item>Established at</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:dissolvedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Dissolved at</_item>
+											</toolTip>
+											<label>
+												<_item>Dissolved at</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:organizationalUnit">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Organizational Unit</_item>
+											</toolTip>
+											<label>
+												<_item>Organizational Unit</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:industry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Legal entity's industry</_item>
+											</toolTip>
+											<label>
+												<_item>Industry</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:numberOfEmployeesCategory">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>number of employees (category)</_item>
+											</toolTip>
+											<label>
+												<_item>#Employees (code)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:numberOfEmployees">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>number of employees</_item>
+											</toolTip>
+											<label>
+												<_item>#Employees</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:address!webUrl">
+										<_object>
+                      <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:WebAddress;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)500</dataBindingName>
+											<active>true</active>
+											<toolTip>
+												<_item>Web page business</_item>
+											</toolTip>
+											<label>
+												<_item>Web page business</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>150</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+                  <!-- Operation Import Parameters are customized in common.xml -->
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:LegalEntity:Pane:Op:Tab:importItem">
+                    <_object>
+                      <active>true</active>
+                      <toolTip>
+                        <_item>Import vCard</_item>
+                      </toolTip>
+                      <label>
+                        <_item>Import vCard</_item>
+                      </label>
+                      <iconKey>org:opencrx:kernel:Import</iconKey>
+                      <order>
+                        <_item>100</_item>
+                        <_item>0</_item>
+                        <_item>110</_item>
+                      </order>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+
+									<!--RevenueReport-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:RevenueReport">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Revenue Report</_item>
+											</toolTip>
+											<label>
+												<_item>Revenue Report</_item>
+											</label>
+											<iconKey>org:opencrx:kernel:account1:RevenueReport</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:RevenueReport:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Revenue Report</_item>
+											</toolTip>
+											<label>
+												<_item>Revenue Report</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:RevenueReport:reportNumber">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Report number</_item>
+											</toolTip>
+											<label>
+												<_item>Report number</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:RevenueReport:reportingYear">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reporting year</_item>
+											</toolTip>
+											<label>
+												<_item>Reporting year</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:RevenueReport:reportingQuarter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reporting quarter</_item>
+											</toolTip>
+											<label>
+												<_item>Reporting quarter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:RevenueReport:reportingCurrency">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Currency</_item>
+											</toolTip>
+											<label>
+												<_item>Currency</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:RevenueReport:reportedRevenue">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Revenue</_item>
+											</toolTip>
+											<label>
+												<_item>Revenue</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

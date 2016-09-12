@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="1">
+				<void index="0">
+					<string>org:opencrx:kernel:activity1:Segment:activityTracker</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="9">
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>activityTracker:9998</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>activityTracker:9999</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short>  <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<!-- Campaigns Tab -->
+				<void index="2">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>activityTracker:10</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>activityGroupType</string> <!-- 30 = Campaign -->
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>30</short> <!-- Campaign -->
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+				<!-- Agenda Filter -->
+				<void index="3">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Agendas</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Agendas</string>
+								</void>
+								<void index="1">
+									<string>Agenden</string>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>activityGroupType</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>10</short> <!-- Agenda -->
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- Bug Tracker Filter -->
+				<void index="4">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Bug Trackers</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Bug Trackers</string>
+								</void>
+								<void index="1">
+									<string>Bug Trackers</string>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>activityGroupType</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>20</short> <!-- Bug Tracker -->
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- Campaigns Filter -->
+				<void index="5">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Campaigns</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Campaigns</string>
+								</void>
+								<void index="1">
+									<string>Kampagnen</string>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>activityGroupType</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>30</short> <!-- Campaign -->
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- Project Filter -->
+				<void index="6">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Projects</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Projects</string>
+								</void>
+								<void index="1">
+									<string>Projekte</string>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>activityGroupType</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>40</short> <!-- Campaign -->
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- Event Filter -->
+				<void index="7">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Events</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Events</string>
+								</void>
+								<void index="1">
+									<string>Events</string>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>activityGroupType</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>50</short> <!-- Event -->
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+				<!-- Case Filter -->
+				<void index="8">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>Cases</string>
+						</void>
+						<void property="iconKey">
+							<string>default.gif</string>
+						</void>
+						<void property="label">
+							<array class="java.lang.String" length="2">
+								<void index="0">
+									<string>Cases</string>
+								</void>
+								<void index="1">
+									<string>Cases</string>
+								</void>
+							</array>
+						</void>
+						<void property="condition">
+							<array class="org.openmdx.base.query.Condition" length="2">
+								<void index="0">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>1</short> <!-- for all -->
+										</void>
+										<void property="feature">
+											<string>disabled</string>
+										</void>
+										<void property="fulfil">
+											<boolean>false</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Boolean" length="1">
+												<void index="0">
+													<boolean>true</boolean>
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+								<void index="1">
+									<object class="org.openmdx.base.query.IsInCondition">
+										<void property="quantor">
+											<short>2</short> <!-- there exists -->
+										</void>
+										<void property="feature">
+											<string>activityGroupType</string>
+										</void>
+										<void property="fulfil">
+											<boolean>true</boolean>
+										</void>
+										<void property="value">
+											<array class="java.lang.Short" length="1">
+												<void index="0">
+													<short>60</short> <!-- Case -->
+												</void>
+											</array>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>Standard</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

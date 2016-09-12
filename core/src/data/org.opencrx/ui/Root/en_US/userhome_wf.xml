@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+									<!--Workflow Process Instance-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:wfProcessInstance">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Pending / Completed Workflows</_item>
+											</toolTip>
+											<label>
+												<_item>»Pending / Completed Workflows</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>500</_item>
+											</order>
+											<maxMember>8</maxMember>
+											<showMaxMember>7</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Workflow Process</_item>
+											</toolTip>
+											<label>
+												<_item>Workflow Process</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:Pane:Attr:Tab:0:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Additional Information</_item>
+											</toolTip>
+											<label>
+												<_item>Additional Information</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:process">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Workflow</_item>
+											</toolTip>
+											<label>
+												<_item>Workflow</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:targetObject">
+										<_object>
+										    <active>true</active>
+											<toolTip>
+												<_item>Target object</_item>
+											</toolTip>
+											<label>
+												<_item>Target object</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>45</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:parent">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Parent workflow process</_item>
+											</toolTip>
+											<label>
+												<_item>Parent workflow process</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:startedOn">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Started on</_item>
+											</toolTip>
+											<label>
+												<_item>Started on</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>2</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:lastActivityOn">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Last activity on</_item>
+											</toolTip>
+											<label>
+												<_item>Last activity on</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>4</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:stepCounter">
+										<_object>
+                      <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Step counter</_item>
+											</toolTip>
+											<label>
+												<_item>Step counter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>6</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:failed">
+										<_object>
+										  <active>true</active>
+											<toolTip>
+												<_item>Failed</_item>
+											</toolTip>
+											<label>
+												<_item>Failed</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>8</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:actionLog">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Action Log Entries</_item>
+											</toolTip>
+											<label>
+												<_item>Action Log Entries</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<showMaxMember>4</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:parameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Parameters</_item>
+											</toolTip>
+											<label>
+												<_item>Parameters</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>9</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstance:childProcessInstance">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Child Workflow Processes</_item>
+											</toolTip>
+											<label>
+												<_item>Child Workflow Processes</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>8</maxMember>
+											<showMaxMember>7</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Action Log Entries -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfActionLogEntry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Action Log Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Action Log Entry</_item>
+											</label>
+											<iconKey>Wf</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfActionLogEntry:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfActionLogEntry:correlation">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Correlation</_item>
+											</toolTip>
+											<label>
+												<_item>Correlation</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfActionLogEntry:description">
+										<_object>
+											<active>true</active>
+											<sortable>false</sortable>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfActionLogEntry:modifiedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>time and date when object was last modified</_item>
+											</toolTip>
+											<label>
+												<_item>Modified at</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									
+									<!-- WfProcessInstanceParameter -->
+									<!-- Grid -->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfProcessInstanceParameter:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfBooleanParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfBooleanParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Boolean Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Boolean Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfBooleanParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Boolean Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Boolean Parameter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>WfBooleanParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfBooleanParameter:booleanValue">
+										<_object>
+									    <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Boolean value</_item>
+											</toolTip>
+											<label>
+												<_item>Boolean value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>79</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfIntegerParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfIntegerParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Integer Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Integer Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfIntegerParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Integer Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Integer Parameter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>WfIntegerParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfIntegerParameter:integerValue">
+										<_object>
+									    <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Integer value</_item>
+											</toolTip>
+											<label>
+												<_item>Integer value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfDecimalParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDecimalParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Decimal Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Decimal Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDecimalParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Decimal Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Decimal Parameter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<iconKey>WfDecimalParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDecimalParameter:decimalValue">
+										<_object>
+										  <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Decimal value</_item>
+											</toolTip>
+											<label>
+												<_item>Decimal value</_item>
+											</label>
+											<decimalPlaces>9</decimalPlaces>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfStringParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfStringParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>String Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>String Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfStringParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>String Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>String Parameters</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<iconKey>WfStringParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfStringParameter:stringValue">
+										<_object>
+										    <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>String value</_item>
+											</toolTip>
+											<label>
+												<_item>String value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>78</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfDateParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDateParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Date Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Date Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDateParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Date Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Date Parameter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<iconKey>WfDateParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDateParameter:dateValue">
+										<_object>
+										    <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Date value</_item>
+											</toolTip>
+											<label>
+												<_item>Date value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfDateTimeParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDateTimeParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Date/Time Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Date/Time Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDateTimeParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Date/Time Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Date/Time Parameter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<iconKey>WfDateTimeParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfDateTimeParameter:dateTimeValue">
+										<_object>
+										    <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Date/Time value</_item>
+											</toolTip>
+											<label>
+												<_item>Date/Time value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfUriParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfUriParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>URI Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>URI Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfUriParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>URI Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>URI Parameter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+											<iconKey>WfUriParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfUriParameter:uriValue">
+										<_object>
+										    <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>URI value</_item>
+											</toolTip>
+											<label>
+												<_item>URI value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- WfReferenceParameter -->
+									<!--FieldGroups in General Tab-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfReferenceParameter:Pane:Attr:Tab:0:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reference Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Reference Parameter</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfReferenceParameter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reference Parameter</_item>
+											</toolTip>
+											<label>
+												<_item>Reference Parameter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+											<iconKey>WfReferenceParameter</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WfReferenceParameter:referenceValue">
+										<_object>
+										    <columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Reference value</_item>
+											</toolTip>
+											<label>
+												<_item>Reference value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

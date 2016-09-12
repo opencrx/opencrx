@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+  <_object/>
+  <_content>
+    <provider>
+      <org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+        <_object/>
+        <_content>
+          <segment>
+            <org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+              <_object/>
+              <_content>
+				  <formDefinition>
+					  <org.openmdx.ui1.FormDefinition name="CreateLeadForm">
+							<_object>
+								<title>
+									<_item>Leads</_item>
+								</title>
+								<toolTip>
+									<_item>Leads</_item>
+								</toolTip>
+							</_object>
+							<_content>
+								<formFieldGroupDefinition>
+									<org.openmdx.ui1.FormFieldGroupDefinition name="Main">
+										<_object>
+											<label>
+												<_item>Main</_item>
+											</label>
+											<order>10</order>
+											<columnBreakAtElement>
+												<_item>3</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="customer">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>customer</featureName>
+														<order>100</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>																
+												<org.openmdx.ui1.FormFieldDefinition id="name">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>name</featureName>
+														<order>200</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>																
+												<org.openmdx.ui1.FormFieldDefinition id="contractNumber">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>contractNumber</featureName>
+														<order>300</order>			
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>																
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>							
+									<org.openmdx.ui1.FormFieldGroupDefinition name="LeadInformation">
+										<_object>
+											<label>
+												<_item>Lead</_item>
+											</label>
+											<order>20</order>
+											<columnBreakAtElement>
+												<_item>5</_item>
+												<_item>10</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="leadSource">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>leadSource</featureName>
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>					
+												<org.openmdx.ui1.FormFieldDefinition id="leadState">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>contractState</featureName>
+														<order>200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>		
+												<org.openmdx.ui1.FormFieldDefinition id="leadRating">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>leadRating</featureName>
+														<order>300</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>														
+												<org.openmdx.ui1.FormFieldDefinition id="closeProbability">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>closeProbability</featureName>
+														<order>400</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="priority">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>priority</featureName>
+														<order>500</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="contractCurrency">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:SalesContract</forClass>
+														<featureName>contractCurrency</featureName>
+														<order>600</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="estimatedValue">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>estimatedValue</featureName>
+														<order>700</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="estimatedCloseDate">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>estimatedCloseDate</featureName>
+														<order>800</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="estimatedSalesCommission">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>estimatedSalesCommission</featureName>
+														<order>900</order>	
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>							
+									<org.openmdx.ui1.FormFieldGroupDefinition name="LeadDescription">
+										<_object>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>30</order>
+											<columnBreakAtElement>
+												<_item>2</_item>
+											</columnBreakAtElement>
+										</_object>
+										<_content>
+											<formFieldDefinition>
+												<org.openmdx.ui1.FormFieldDefinition id="description">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:AbstractContract</forClass>
+														<featureName>description</featureName>
+														<spanRow>6</spanRow>														
+														<order>100</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+												<org.openmdx.ui1.FormFieldDefinition id="nextSteps">
+													<_object>
+														<forClass>org:opencrx:kernel:contract1:Lead</forClass>
+														<featureName>nextStep</featureName>
+														<spanRow>6</spanRow>														
+														<order>200</order>														
+													</_object>
+													<_content />
+												</org.openmdx.ui1.FormFieldDefinition>												
+											</formFieldDefinition>
+										</_content>
+									</org.openmdx.ui1.FormFieldGroupDefinition>							
+								</formFieldGroupDefinition>
+							</_content>
+						</org.openmdx.ui1.FormDefinition>
+				  </formDefinition>
+              </_content>
+            </org.openmdx.ui1.Segment>
+          </segment>
+        </_content>
+      </org.openmdx.base.Provider>
+    </provider>
+  </_content>
+</org.openmdx.base.Authority>

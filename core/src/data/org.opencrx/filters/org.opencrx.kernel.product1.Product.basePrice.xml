@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_06" class="java.beans.XMLDecoder">
+	<object class="org.openmdx.portal.servlet.Filters">
+		<void property="forReference">
+			<array class="java.lang.String" length="1">
+				<void index="0">
+					<string>org:opencrx:kernel:product1:Product:basePrice</string>
+				</void>
+			</array>
+		</void>
+		<void property="filter">
+			<array class="org.openmdx.portal.servlet.Filter" length="1">
+				<!-- Aktive Grundpreise, d.h. mindestens für einen der zugewiesenen PriceLevel gilt validFromMatches && validToMatches wobei (mit pricingDate = today): boolean validFromMatches = (l.getValidFrom() == null) || l.getValidFrom().compareTo(pricingDate) <= 
+					0; boolean validToMatches = (l.getValidTo() == null) || l.getValidTo().compareTo(pricingDate) >= 0; -->
+				<void index="0">
+					<object class="org.openmdx.portal.servlet.Filter">
+						<void property="name">
+							<string>basePrice:0</string>
+						</void>
+						<void property="iconKey">
+							<string>spacer.gif</string>
+						</void>
+						<void property="extension">
+							<array class="org.openmdx.base.persistence.spi.QueryExtension" length="1">
+								<void index="0">
+									<object class="org.openmdx.base.persistence.spi.QueryExtension">
+										<void property="clause">
+											<string>EXISTS (SELECT 0 FROM OOCKE1_PRODUCTBASEPRICE_ bp, OOCKE1_PRICELEVEL pl WHERE (bp.object_id = v.object_id) and (not bp.price_level is null) and (bp.price_level = pl.object_id) and ((pl.disabled is null) or (not pl.disabled)) and
+												((pl.valid_from is null) or (pl.valid_from &lt; current_timestamp)) and ((pl.valid_to is null) or (pl.valid_to &gt; current_timestamp)))</string>
+										</void>
+									</object>
+								</void>
+							</array>
+						</void>
+						<void property="groupName">
+							<string>~</string>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+	</object>
+</java>

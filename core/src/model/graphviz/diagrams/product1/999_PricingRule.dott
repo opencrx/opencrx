@@ -1,0 +1,57 @@
+digraph "Diagram PricingRule [Package org:opencrx:kernel:product1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:product1:Segment,compartments=false,width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:product1:PricingRule,compartments=true,width=8]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:product1:GetPriceLevelParams,compartments=true,fillcolor="#FFECFF",width=4]};
+	  ${CLASS[name=org:opencrx:kernel:product1:GetPriceLevelResult,compartments=true,fillcolor="#FFECFF",width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  NOTE0[label="{getPriceLevel() returns the best matching price level for the specified contract, product,\lpriceUom, quantity and pricingDate. It also returns the customer and customer-specific\ldiscount if contract.customer is defined and a customer-specific discount is defined for\lthe price level.\l\lThe implementation of the pricing rule defines which is the 'best matching' price level.\lE.g. the 'lowest price' pricing rule returns the price level with the lowest product price for\lthe specified parameters.\l\lThe implemenation of the method getPriceLevel() evaluates the Java script stored in the\lattribute getPriceLevelScript.\l}",fillcolor="#D8F2FA"];
+	}
+    
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER3->LAYER4[style=invis];
+
+	${ASSOCIATION[name=org:opencrx:kernel:product1:SegmentContainsPricingRule,minlen=3]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

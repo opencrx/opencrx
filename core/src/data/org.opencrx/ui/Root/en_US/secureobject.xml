@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+									<!--security fields-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owner">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Object owner</_item>
+											</toolTip>
+											<label>
+												<_item>Object owner</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>30</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owningUser">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Owning user</_item>
+											</toolTip>
+											<label>
+												<_item>Owning user</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>30</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+<!--
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessGrantedByParent">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Access granted by parent</_item>
+											</toolTip>
+											<label>
+												<_item>Access granted by parent</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>30</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelBrowse">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Browse access level</_item>
+											</toolTip>
+											<label>
+												<_item>Browse access level</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>30</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelUpdate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Update access level</_item>
+											</toolTip>
+											<label>
+												<_item>Update access level</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>30</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:accessLevelDelete">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Delete access level</_item>
+											</toolTip>
+											<label>
+												<_item>Delete access level</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>30</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- grid - security tab "Owning Groups"-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:owningGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Owning Groups (Security)</_item>
+											</toolTip>
+											<label>
+												<_item>^</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1600</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Operations-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setOwningUser">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Set Owning User</_item>
+											</toolTip>
+											<label>
+												<_item>Set Owning User</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1000</_item>
+											</order>
+											<iconKey>OpSetOwningUser</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setOwningUser:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:user">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>User</_item>
+											</toolTip>
+											<label>
+												<_item>User</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:mode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Mode</_item>
+											</toolTip>
+											<label>
+												<_item>Mode</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:referenceFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reference filter</_item>
+											</toolTip>
+											<label>
+												<_item>Reference filter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:addOwningGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Add Owning Group</_item>
+											</toolTip>
+											<label>
+												<_item>Add Owning Group</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1010</_item>
+											</order>
+											<iconKey>OpAddOwningGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:addOwningGroup:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeOwningGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Remove Owning Group</_item>
+											</toolTip>
+											<label>
+												<_item>Remove Owning Group</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1020</_item>
+											</order>
+											<iconKey>OpRemoveOwningGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeOwningGroup:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifyOwningGroupParams:group">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Group</_item>
+											</toolTip>
+											<label>
+												<_item>Group</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifyOwningGroupParams:mode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Mode</_item>
+											</toolTip>
+											<label>
+												<_item>Mode</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeAllOwningGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Remove All Owning Groups</_item>
+											</toolTip>
+											<label>
+												<_item>Remove All Owning Groups</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1030</_item>
+											</order>
+											<iconKey>OpRemoveAllOwningGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeAllOwningGroup:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:RemoveAllOwningGroupParams:mode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Mode</_item>
+											</toolTip>
+											<label>
+												<_item>Mode</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:replaceOwningGroup">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Replace Owning Groups</_item>
+											</toolTip>
+											<label>
+												<_item>Replace Owning Groups</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1035</_item>
+											</order>
+											<iconKey>OpRemoveAllOwningGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setAccessLevel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Set Access Level</_item>
+											</toolTip>
+											<label>
+												<_item>Set Access Level</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1040</_item>
+											</order>
+											<iconKey>OpSetAccessLevel</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:setAccessLevel:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelBrowse">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Browse access level</_item>
+											</toolTip>
+											<label>
+												<_item>Browse access level</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelUpdate">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Update access level</_item>
+											</toolTip>
+											<label>
+												<_item>Update access level</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:accessLevelDelete">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Delete access level</_item>
+											</toolTip>
+											<label>
+												<_item>Delete access level</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:mode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Mode</_item>
+											</toolTip>
+											<label>
+												<_item>Mode</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifySecureObjectResult:statusMessage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status message</_item>
+											</toolTip>
+											<label>
+												<_item>Status message</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:checkPermissions">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Check Permissions</_item>
+											</toolTip>
+											<label>
+												<_item>Check Permissions</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1050</_item>
+											</order>
+											<iconKey>OpCheckPermissions</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:checkPermissions:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsParams:principalName">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Principal name</_item>
+											</toolTip>
+											<label>
+												<_item>Principal name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:checkPermissions:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:hasReadPermission">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Has read permission</_item>
+											</toolTip>
+											<label>
+												<_item>Has read permission</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:hasUpdatePermission">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Has update permission</_item>
+											</toolTip>
+											<label>
+												<_item>Has update permission</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:hasDeletePermission">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Has delete permission</_item>
+											</toolTip>
+											<label>
+												<_item>Has delete permission</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:grantedPermissionsRead">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Membership for read</_item>
+											</toolTip>
+											<label>
+												<_item>Membership for read</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:grantedPermissionsUpdate">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Membership for update</_item>
+											</toolTip>
+											<label>
+												<_item>Membership for update</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:grantedPermissionsDelete">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Membership for delete</_item>
+											</toolTip>
+											<label>
+												<_item>Membership for delete</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>
