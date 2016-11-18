@@ -21,6 +21,7 @@ digraph "Diagram DocumentDetail [Package org:opencrx:kernel:document1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:document1:PropertySetHolder,compartments=false,width=2]};	  
 	  ${CLASS[name=org:opencrx:kernel:base:Indexed,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:base:Importer,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:base:Exporter,compartments=false,fillcolor="#FFBD9D",width=2]};
@@ -30,11 +31,12 @@ digraph "Diagram DocumentDetail [Package org:opencrx:kernel:document1]" {
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:document1:Document,compartments=true,width=10]};
+	  ${CLASS[name=org:opencrx:kernel:document1:Document,compartments=true,width=12]};
 	}
 	
 	LAYER0->LAYER1[style=invis];
 
+	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentHasParent,style=invis]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
 

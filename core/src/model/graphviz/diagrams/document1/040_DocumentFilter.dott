@@ -83,13 +83,13 @@ digraph "Diagram DocumentFilter [Package org:opencrx:kernel:document1]" {
 	LAYER6->LAYER7[style=invis];
 	LAYER7->LAYER8[style=invis];
 		
-	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentFilterHasFilteredDocument,minlen=3]}		
-	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentFilterHasFilterProperty,minlen=3]}		
-	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentFolderFilterIncludesFolder,minlen=3]}		
-	${ASSOCIATION[name=org:opencrx:kernel:document1:FolderContainsFolder,style=invis]}		
-	${ASSOCIATION[name=org:opencrx:kernel:document1:FolderHasParentFolder,style=invis]}		
-	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentHasParent,style=invis]}		
-	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentIsMemberOfFolder,style=invis]}		
+	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentFilterHasFilteredDocument,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentFilterHasFilterProperty,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentFolderFilterIncludesFolder,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:document1:FolderContainsFolder,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:document1:FolderHasParentFolder,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentHasParent,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:document1:DocumentIsMemberOfFolder,style=invis]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
 
