@@ -43,20 +43,12 @@ digraph "Diagram SalesContractPositionModification [Package org:opencrx:kernel:c
 	  rank=same;
 	  LAYER3[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:product1:ConfiguredProduct,compartments=false,fillcolor="#FFBD9D",width=2]};
-	  ${CLASS[name=org:opencrx:kernel:base:Auditee,compartments=false,fillcolor="#FFBD9D",width=2]};
-	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:base:Property,compartments=false,fillcolor="#FFBD9D",width=2]};
-	}	
-	{
-	  rank=same;
-	  LAYER4[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
 	}	
 
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
 	LAYER2->LAYER3[style=invis];
-	LAYER3->LAYER4[style=invis];
 
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:ContractContainsRemovedPosition,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:ConfigurationModificationHasInvolvedProperty,minlen=2]}

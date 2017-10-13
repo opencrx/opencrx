@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2012, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2016, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -92,63 +92,91 @@ import org.openmdx.base.text.conversion.Base64;
 
 public abstract class MimeUtils {
 
+	/**
+	 * MimeMessageImpl
+	 *
+	 */
 	public static class MimeMessageImpl extends MimeMessage {
 
-	    //-----------------------------------------------------------------------
 	    public MimeMessageImpl(
 	    ) {
 	        super((Session)null);
 	    }
 	    
-	    //-----------------------------------------------------------------------
 	    public MimeMessageImpl(
 	       InputStream is
 	    ) throws MessagingException {
 	        super(null, is);
 	    }
 	    
-	    //-----------------------------------------------------------------------
 	    public MimeMessageImpl(
 	        MimeMessage message
 	    ) throws MessagingException {
 	        super(message);
 	    }
-	    
-	    //-----------------------------------------------------------------------
+
 	    public long getUid(
 	    ) {
 	        return this.uid;
 	    }
 
-	    //-----------------------------------------------------------------------
 	    public void setUid(
 	        long uid
 	    ) {
 	        this.uid = uid;
 	    }
 
-	    //-----------------------------------------------------------------------
+	    /* (non-Javadoc)
+	     * @see javax.mail.Message#getMessageNumber()
+	     */
+	    @Override
 	    public int getMessageNumber(
 	    ) {
 	        return this.messageNumber;
 	    }
 
-	    //-----------------------------------------------------------------------
+	    /* (non-Javadoc)
+	     * @see javax.mail.Message#setMessageNumber(int)
+	     */
+	    @Override
 	    public void setMessageNumber(
 	        int messageNumber
 	    ) {
 	        this.messageNumber = messageNumber;
 	    }
 
+	    /* (non-Javadoc)
+	     * @see javax.mail.internet.MimeMessage#getHeader(java.lang.String, java.lang.String)
+	     */
+	    @Override
+	    public String getHeader(
+	    	String name,
+	    	String delimiter
+	    ) throws MessagingException {
+	    	String h = this.headers.getHeader(name, delimiter);
+	    	if (h != null) {
+	    		return h.replace('\r', ' ');
+	    	} else {
+	    		return h;
+	    	}
+	    }
+
 	    //-----------------------------------------------------------------------
 	    // Member
-	    
+	    //-----------------------------------------------------------------------	    
 	    protected long uid;
 	    protected int messageNumber;
 	    
 	}
 	
-    //-----------------------------------------------------------------------    
+    /**
+     * Get headers in RFC822 format.
+     * 
+     * @param part
+     * @param fields
+     * @return
+     * @throws MessagingException
+     */
     @SuppressWarnings("unchecked")
     public static String getHeadersAsRFC822(
         Part part,
@@ -166,8 +194,7 @@ public abstract class MimeUtils {
                 part,
                 headerNames.toArray(new String[headerNames.size()])
             );
-        }
-        else {
+        } else {
             StringBuilder header = new StringBuilder();
             for(String field: fields) {
                 String[] values = part.getHeader(field);

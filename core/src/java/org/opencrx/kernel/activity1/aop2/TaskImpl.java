@@ -68,14 +68,18 @@ public class TaskImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see org.opencrx.kernel.activity1.aop2.ActivityImpl#jdoPreStore()
+	 */
 	@Override
     public void jdoPreStore(
     ) {
   		super.jdoPreStore();
     }
        
-    //-----------------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see org.opencrx.kernel.activity1.aop2.ActivityImpl#jdoPreDelete()
+	 */
 	@Override
     public void jdoPreDelete(
     ) {

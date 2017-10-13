@@ -16,7 +16,6 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:salesTaxType">
 										<_object>
 											<active>true</active>
-											<inPlace>true</inPlace>
 											<toolTip>
 												<_item>Sales Tax Types</_item>
 											</toolTip>
@@ -28,11 +27,65 @@
 												<_item>0</_item>
 												<_item>40</_item>
 											</order>
-											<iconKey>SalesTaxType</iconKey>
-											<maxMember>4</maxMember>
+											<maxMember>9</maxMember>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:salesTaxTypeGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Tax Type Groups</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Tax Type Groups</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:salesTransactionType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Transaction Types</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Transaction Types</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:depotAssignmentGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Depot Assignment Groups</_item>
+											</toolTip>
+											<label>
+												<_item>Depot Assignment Groups</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+											<maxMember>7</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+			
 									<!--Inspector Definitions-->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType">
 										<_object>
@@ -43,7 +96,7 @@
 											<label>
 												<_item>Sales Tax Type</_item>
 											</label>
-											<iconKey>org:opencrx:kernel:product1:SalesTaxType</iconKey>
+											<iconKey>SalesTaxType</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -66,6 +119,23 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:shortName">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Short name</_item>
+											</toolTip>
+											<label>
+												<_item>Short name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:description">
 										<_object>
 											<active>true</active>
@@ -78,7 +148,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>20</_item>
+												<_item>30</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -96,7 +166,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>30</_item>
+												<_item>40</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -119,6 +189,400 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:validFrom">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:validTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:salesTaxTypeGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales tax type group</_item>
+											</toolTip>
+											<label>
+												<_item>Sales tax type group</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:parentSalesTaxType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Parent sales tax type</_item>
+											</toolTip>
+											<label>
+												<_item>Parent sales tax type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:salesTransactionType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales transaction types</_item>
+											</toolTip>
+											<label>
+												<_item>Sales transaction types</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Tax Type Group</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Tax Type Group</_item>
+											</label>
+											<iconKey>SalesTaxTypeGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:taxAuthorityCountry">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Tax authority country</_item>
+											</toolTip>
+											<label>
+												<_item>Tax authority country</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:taxAuthorityPostalCode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Tax authority postal code</_item>
+											</toolTip>
+											<label>
+												<_item>Tax authority postal code</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:taxAuthority">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Tax authority</_item>
+											</toolTip>
+											<label>
+												<_item>Tax authority</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTransactionType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Transaction Type</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Transaction Type</_item>
+											</label>
+											<iconKey>SalesTransactionType</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTransactionType:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTransactionType:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Depot Assignment Group</_item>
+											</toolTip>
+											<label>
+												<_item>Depot Assignment Group</_item>
+											</label>
+											<iconKey>DepotAssignmentGroup</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:salesTransactionType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales transaction type</_item>
+											</toolTip>
+											<label>
+												<_item>Sales transaction type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:salesTaxTypeGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales tax type group</_item>
+											</toolTip>
+											<label>
+												<_item>Sales tax type group</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:incomeAccount">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Income account</_item>
+											</toolTip>
+											<label>
+												<_item>Income account</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:costCenter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Cost center</_item>
+											</toolTip>
+											<label>
+												<_item>Cost center</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:costType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Cost type</_item>
+											</toolTip>
+											<label>
+												<_item>Cost type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:authority">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Authority</_item>
+											</toolTip>
+											<label>
+												<_item>Authority</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
 								</elementDefinition>
 							</_content>
 						</org.openmdx.ui1.Segment>

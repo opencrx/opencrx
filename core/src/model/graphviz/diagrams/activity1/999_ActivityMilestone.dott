@@ -26,13 +26,12 @@ digraph "Diagram ActivityMilestone [Package org:opencrx:kernel:activity1]" {
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityMilestone,compartments=true,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityMilestone,compartments=true,width=3]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityGroup,compartments=false,width=2]};
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};	  
 	}
 	
 	LAYER0->LAYER1[style=invis];

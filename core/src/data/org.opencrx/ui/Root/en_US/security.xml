@@ -125,7 +125,6 @@
 									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:authorization1:Policy:description">
 										<_object>
 											<columnBreak>true</columnBreak>
-											<spanRow>2</spanRow>
 											<active>true</active>
 											<toolTip>
 												<_item>Description</_item>
@@ -238,22 +237,16 @@
 											<label>
 												<_item>Name</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>10</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>2</_item>
-											</orderObjectContainer>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:description">
 										<_object>
-											<spanRow>4</spanRow>
 											<active>true</active>
 											<toolTip>
 												<_item>Description</_item>
@@ -261,22 +254,34 @@
 											<label>
 												<_item>Description</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>20</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:type">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>4</_item>
-											</orderObjectContainer>
+												<_item>80</_item>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:action">
 										<_object>
-											<columnBreak>true</columnBreak>
 											<spanRow>5</spanRow>
 											<active>true</active>
 											<toolTip>
@@ -285,16 +290,29 @@
 											<label>
 												<_item>Action</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>80</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Privilege:localizedDescription">
+										<_object>
+											<spanRow>10</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Description (localized)</_item>
+											</toolTip>
+											<label>
+												<_item>Description (localized)</_item>
+											</label>
+											<order>
 												<_item>0</_item>
-												<_item>0</_item>
-												<_item>6</_item>
-											</orderObjectContainer>
+												<_item>30</_item>
+												<_item>10</_item>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -313,7 +331,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<iconKey>org:openmdx:security:realm1:Policy:Role</iconKey>
+											<maxMember>4</maxMember>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -331,8 +349,7 @@
 												<_item>0</_item>
 												<_item>0</_item>
 											</order>
-											<maxMember>3</maxMember>
-											<iconKey>org:openmdx:security:realm1:Policy:Privilege</iconKey>
+											<maxMember>4</maxMember>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -455,7 +472,7 @@
 											<label>
 												<_item>Security Realm</_item>
 											</label>
-											<iconKey>org:openmdx:security:realm1:Realm</iconKey>
+											<iconKey>Realm</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -520,7 +537,7 @@
                         <_item>0</_item>
                         <_item>500</_item>
                       </order>
-                      <maxMember>5</maxMember>
+                      <maxMember>6</maxMember>
                     </_object>
                     <_content>
                       <additionalElementDefinition>
@@ -537,7 +554,7 @@
 															<_item>0</_item>
 															<_item>10</_item>
 														</order>
-														<maxMember>5</maxMember>
+														<maxMember>6</maxMember>
 													</_object>
 													<_content/>
 												</org.openmdx.ui1.AdditionalElementDefinition>
@@ -555,7 +572,7 @@
 															<_item>0</_item>
 															<_item>510</_item>
 														</order>
-														<maxMember>5</maxMember>
+														<maxMember>6</maxMember>
 													</_object>
 													<_content/>
 												</org.openmdx.ui1.AdditionalElementDefinition>
@@ -573,7 +590,11 @@
                               <_item>0</_item>
                               <_item>20</_item>
                             </order>
-                            <maxMember>5</maxMember>
+                            <maxMember>4</maxMember>
+														<showMemberRange>
+															<_item>0:0:0-0:0:2</_item>
+															<_item>0:0:4-0:0:8</_item>
+														</showMemberRange>
                           </_object>
                           <_content/>
                         </org.openmdx.ui1.AdditionalElementDefinition>
@@ -590,7 +611,7 @@
                               <_item>0</_item>
                               <_item>30</_item>
                             </order>
-                            <maxMember>4</maxMember>
+                            <maxMember>5</maxMember>
                           </_object>
                           <_content/>
                         </org.openmdx.ui1.AdditionalElementDefinition>
@@ -608,6 +629,10 @@
                               <_item>40</_item>
                             </order>
                             <maxMember>5</maxMember>
+														<showMemberRange>
+															<_item>0:0:0-0:0:2</_item>
+															<_item>0:0:4-0:0:8</_item>
+														</showMemberRange>
                           </_object>
                           <_content/>
                         </org.openmdx.ui1.AdditionalElementDefinition>
@@ -625,7 +650,11 @@
                               <_item>0</_item>
                               <_item>120</_item>
                             </order>
-                            <maxMember>5</maxMember>
+                            <maxMember>4</maxMember>
+														<showMemberRange>
+															<_item>0:0:0-0:0:2</_item>
+															<_item>0:0:4-0:0:8</_item>
+														</showMemberRange>
                           </_object>
                           <_content/>
                         </org.openmdx.ui1.AdditionalElementDefinition>
@@ -642,7 +671,7 @@
                               <_item>0</_item>
                               <_item>130</_item>
                             </order>
-                            <maxMember>4</maxMember>
+                            <maxMember>5</maxMember>
                           </_object>
                           <_content/>
                         </org.openmdx.ui1.AdditionalElementDefinition>
@@ -659,7 +688,11 @@
                               <_item>0</_item>
                               <_item>140</_item>
                             </order>
-                            <maxMember>4</maxMember>
+                            <maxMember>5</maxMember>
+														<showMemberRange>
+															<_item>0:0:0-0:0:2</_item>
+															<_item>0:0:4-0:0:8</_item>
+														</showMemberRange>
                           </_object>
                           <_content/>
                         </org.openmdx.ui1.AdditionalElementDefinition>
@@ -755,14 +788,14 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:subject">
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:description">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Subject</_item>
+												<_item>Description</_item>
 											</toolTip>
 											<label>
-												<_item>Subject</_item>
+												<_item>Description</_item>
 											</label>
 											<orderFieldGroup>
 												<_item>0</_item>
@@ -772,7 +805,7 @@
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>4</_item>
+												<_item>9</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content/>
@@ -795,31 +828,71 @@
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>8</_item>
+												<_item>6</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:description">
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:subject">
 										<_object>
-											<spanRow>2</spanRow>
 											<active>true</active>
 											<toolTip>
-												<_item>Description</_item>
+												<_item>Subject</_item>
 											</toolTip>
 											<label>
-												<_item>Description</_item>
+												<_item>Subject</_item>
 											</label>
 											<orderFieldGroup>
 												<_item>0</_item>
-												<_item>0</_item>
-												<_item>90</_item>
+												<_item>10</_item>
+												<_item>10</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>9</_item>
+												<_item>4</_item>
 											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:type">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Principal:localizedDescription">
+										<_object>
+											<spanRow>10</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Description (localized)</_item>
+											</toolTip>
+											<label>
+												<_item>Description (localized)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>30</_item>
+												<_item>10</_item>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -926,13 +999,13 @@
 											</label>
 											<orderFieldGroup>
 												<_item>0</_item>
-												<_item>10</_item>
-												<_item>10</_item>
+												<_item>0</_item>
+												<_item>90</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>5</_item>
+												<_item>3</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content/>
@@ -1003,13 +1076,13 @@
 											</label>
 											<orderFieldGroup>
 												<_item>0</_item>
-												<_item>0</_item>
-												<_item>30</_item>
+												<_item>10</_item>
+												<_item>10</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>3</_item>
+												<_item>4</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content/>
@@ -1026,12 +1099,12 @@
 											<orderFieldGroup>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>40</_item>
+												<_item>90</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>6</_item>
+												<_item>8</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content/>
@@ -1079,7 +1152,7 @@
 											<label>
 												<_item>Role</_item>
 											</label>
-											<iconKey>org:openmdx:security:realm1:Role</iconKey>
+											<iconKey>Role</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1106,15 +1179,67 @@
 											<label>
 												<_item>Name</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:disabled">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:type">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>2</_item>
+												<_item>70</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content/>
@@ -1128,62 +1253,29 @@
 											<label>
 												<_item>Scope</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>20</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>4</_item>
-											</orderObjectContainer>
+												<_item>100</_item>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:disabled">
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:localizedDescription">
 										<_object>
+											<spanRow>10</spanRow>
 											<active>true</active>
 											<toolTip>
-												<_item>Disabled</_item>
+												<_item>Description (localized)</_item>
 											</toolTip>
 											<label>
-												<_item>Disabled</_item>
+												<_item>Description (localized)</_item>
 											</label>
-											<orderFieldGroup>
-												<_item>0</_item>
+											<order>
 												<_item>0</_item>
 												<_item>30</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>6</_item>
-											</orderObjectContainer>
-										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Role:description">
-										<_object>
-											<columnBreak>true</columnBreak>
-											<spanRow>3</spanRow>
-											<active>true</active>
-											<toolTip>
-												<_item>Description</_item>
-											</toolTip>
-											<label>
-												<_item>Description</_item>
-											</label>
-											<orderFieldGroup>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>80</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>8</_item>
-											</orderObjectContainer>
+												<_item>10</_item>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1202,7 +1294,6 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<iconKey>org:openmdx:security:realm1:Realm:Principal</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1220,7 +1311,7 @@
 												<_item>0</_item>
 												<_item>20</_item>
 											</order>
-											<showMaxMember>4</showMaxMember>
+											<showMaxMember>5</showMaxMember>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1235,7 +1326,7 @@
 											<label>
 												<_item>Permission</_item>
 											</label>
-											<iconKey>org:openmdx:security:realm1:Permission</iconKey>
+											<iconKey>Permission</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1262,22 +1353,16 @@
 											<label>
 												<_item>Name</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>10</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>2</_item>
-											</orderObjectContainer>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:description">
 										<_object>
-											<spanRow>4</spanRow>
 											<active>true</active>
 											<toolTip>
 												<_item>Description</_item>
@@ -1285,44 +1370,14 @@
 											<label>
 												<_item>Description</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>20</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>4</_item>
-											</orderObjectContainer>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:action">
-										<_object>
-											<columnBreak>true</columnBreak>
-											<spanRow>4</spanRow>
-											<active>true</active>
-											<toolTip>
-												<_item>Action</_item>
-											</toolTip>
-											<label>
-												<_item>Action</_item>
-											</label>
-											<orderFieldGroup>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>80</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>6</_item>
-											</orderObjectContainer>
-										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
-									<!--FieldGroups in General Tab-->
 									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:privilege">
 										<_object>
 											<active>true</active>
@@ -1332,16 +1387,65 @@
 											<label>
 												<_item>Privilege</_item>
 											</label>
-											<orderFieldGroup>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:type">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:action">
+										<_object>
+											<spanRow>4</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Action</_item>
+											</toolTip>
+											<label>
+												<_item>Action</_item>
+											</label>
+											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>90</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:security:realm1:Permission:localizedDescription">
+										<_object>
+											<spanRow>10</spanRow>
+											<active>true</active>
+											<toolTip>
+												<_item>Description (localized)</_item>
+											</toolTip>
+											<label>
+												<_item>Description (localized)</_item>
+											</label>
+											<order>
 												<_item>0</_item>
-												<_item>0</_item>
-												<_item>8</_item>
-											</orderObjectContainer>
+												<_item>30</_item>
+												<_item>10</_item>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1357,7 +1461,7 @@
 											<label>
 												<_item>Subject</_item>
 											</label>
-											<iconKey>org:openmdx:security:realm1:Subject</iconKey>
+											<iconKey>Subject</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1413,7 +1517,7 @@
 												<_item>0</_item>
 												<_item>5</_item>
 											</order>
-											<iconKey>org:openmdx:security:realm1:Principal</iconKey>
+											<iconKey>Principal</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1431,7 +1535,6 @@
 												<_item>0</_item>
 												<_item>20</_item>
 											</order>
-											<iconKey>org:openmdx:security:realm1:Credential</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1467,7 +1570,6 @@
 												<_item>0</_item>
 												<_item>5</_item>
 											</order>
-											<iconKey>org:openmdx:security:realm1:Principal</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1732,7 +1834,6 @@
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:security:realm1:User:description">
 										<_object>
-											<spanRow>3</spanRow>
 											<active>true</active>
 											<toolTip>
 												<_item>Description</_item>
@@ -1740,12 +1841,17 @@
 											<label>
 												<_item>Description</_item>
 											</label>
-											<order>
+											<orderFieldGroup>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>20</_item>
-											</order>
-										</_object>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>9</_item>
+											</orderObjectContainer>
+											</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- tabs -->
@@ -1777,7 +1883,7 @@
 											<label>
 												<_item>Credential</_item>
 											</label>
-											<iconKey>org:openmdx:security:realm1:Credential</iconKey>
+											<iconKey>Credential</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1805,7 +1911,7 @@
 											<label>
 												<_item>Password</_item>
 											</label>
-											<iconKey>org:openmdx:security:authentication1:Password</iconKey>
+											<iconKey>Password</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1863,7 +1969,7 @@
 											<label>
 												<_item>Certificate</_item>
 											</label>
-											<iconKey>org:openmdx:security:authentication1:Certificate</iconKey>
+											<iconKey>Certificate</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -1879,7 +1985,7 @@
 											<label>
 												<_item>ChallengeResponse</_item>
 											</label>
-											<iconKey>org:openmdx:security:authentication1:ChallengeResponse</iconKey>
+											<iconKey>ChallengeResponse</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>

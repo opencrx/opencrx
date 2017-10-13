@@ -48,6 +48,8 @@
         <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[13]" value="org.opencrx.kernel.building1.aop2"/>
         <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[14]" value="org:opencrx:kernel:document1"/>
         <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[14]" value="org.opencrx.kernel.document1.aop2"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.modelPackage[15]" value="org:opencrx:kernel:workflow1"/>
+        <property name="org.opencrx.kernel.aop2.PlugIn.Standard.packageImpl[15]" value="org.opencrx.kernel.workflow1.aop2"/>
     </persistence-manager-factory>
 
     <!-- Data manager -->
@@ -55,7 +57,7 @@
     	name="DataManagerFactory"
     	class="org.openmdx.base.accessor.rest.DataManagerFactory_1"
     >
-        <property name="javax.jdo.option.Multithreaded" value="true"/>
+        <property name="javax.jdo.option.IsolateThreads" value="true"/>
         <property name="org.openmdx.jdo.DataManager.optimalFetchSize" value="(java.lang.Integer)64"/>
         <property name="org.openmdx.jdo.DataManager.cacheThreshold" value="(java.lang.Integer)256"/>
         <property name="org.openmdx.jdo.DataManager.xriPattern[0]" value="xri://@openmdx*org.opencrx.kernel.account1/($...)"/>

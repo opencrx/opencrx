@@ -26,18 +26,17 @@ digraph "Diagram AddressGroup [Package org:opencrx:kernel:activity1]" {
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:activity1:AddressGroup,compartments=true,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:AddressGroup,compartments=true,width=3]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:activity1:AddressGroupMember,compartments=true,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:AddressGroupMember,compartments=true,width=3]};
 	}
 	{
 	  rank=same;
 	  LAYER3[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:account1:AccountAddress,compartments=false,fillcolor="#FFBD9D",width=2]};	  
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};	  
 	}
 	
 	LAYER0->LAYER1[style=invis];

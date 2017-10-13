@@ -107,6 +107,8 @@ public class OpenCrxException {
     public static final int DEPOT_DEPOT_HAS_BOOKINGS = 1230;
     public static final int DEPOT_POSITION_HAS_BOOKINGS = 1231;
     public static final int DEPOT_BALANCE_MISMATCH = 1258;
+    public static final int DEPOT_INVENTORY_LEVEL_STATUS_MUST_BE_PENDING = 1259;
+    public static final int DEPOT_INVENTORY_LEVEL_INVALID_CORRECTION_BOOKING_TEMPLATE = 1260;
 
     // openCRX kernel: Contract
     public static final int CONTRACT_MISSING_PRODUCT_OFFERING = 1232;

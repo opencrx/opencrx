@@ -58,6 +58,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.Reader;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -145,12 +146,17 @@ public class CopyDb {
 			String mappedColumnName = columnName.toUpperCase();
 			if("POSITION".equals(mappedColumnName) || mappedColumnName.indexOf("$") > 0) {
 				return "\"" + mappedColumnName + "\"";
-			}
-			else {
+			} else {
 				return mappedColumnName;
 			}
-		}
-		else {
+		} else if("PostgreSQL".equals(databaseProductName)) {
+			String mappedColumnName = columnName.toLowerCase();
+			if("offset".equals(mappedColumnName) || "end".equals(mappedColumnName) || mappedColumnName.indexOf("-") > 0) {
+				return "\"" + mappedColumnName + "\"";
+			} else {
+				return mappedColumnName;
+			}
+		} else {
 			return columnName.toUpperCase();
 		}
 	}
@@ -231,7 +237,7 @@ public class CopyDb {
 	 * @param out
 	 * @throws SQLException
 	 */
-	private static void copyDbObject(
+	public static void copyDbObject(
 		String dbObject, 
 		boolean useSuffix, 
 		Connection connSource, 
@@ -320,14 +326,19 @@ public class CopyDb {
 							if("oracle.sql.TIMESTAMP".equals(parameter.getClass().getName())) {
 								Method timestampValueMethod = parameter.getClass().getMethod("timestampValue", new Class[] {});
 								parameter = timestampValueMethod.invoke(parameter, new Object[] {});
+							} else if("microsoft.sql.DateTimeOffset".equals(parameter.getClass().getName())) {
+								Method timestampValueMethod = parameter.getClass().getMethod("getTimestamp", new Class[] {});
+								parameter = timestampValueMethod.invoke(parameter, new Object[] {});
 							}
 							if(parameter instanceof java.sql.Timestamp) {
 								t.setTimestamp(j + 1, (java.sql.Timestamp) parameter);
-							}
-							else if(parameter instanceof java.sql.Date) {
+							} else if(parameter instanceof java.sql.Date) {
 								t.setDate(j + 1, (java.sql.Date) parameter);
-							}
-							else {
+							} else if(parameter instanceof Double) {
+								t.setBigDecimal(j + 1, new BigDecimal((Double)parameter));
+							} else if(parameter instanceof Float) {
+								t.setBigDecimal(j + 1, new BigDecimal((Float)parameter));
+							} else {
 								db.getDelegate().setPreparedStatementValue(connTarget, t, j + 1, parameter);
 							}
 						}
@@ -523,24 +534,23 @@ public class CopyDb {
 	    PrintStream out
 	) throws ServiceException {
 		{
-			DBOBJECTS_KERNEL.clear();
-			DBOBJECTS_SECURITY.clear();
+			DBOBJECTS.clear();
 			List<String> tableNames = new ArrayList<String>();
 			try {
 				tableNames = DbSchemaUtils.getTableNames();
 			} catch (Exception e) {
 				new ServiceException(e).log();
 			}
-			for (String tableName : tableNames) {
-				if(tableName.indexOf("_TOBJ_") < 0 && tableName.indexOf("_JOIN_") < 0 && !tableName.endsWith("_")) {
-					if(tableName.startsWith("OOCKE1_")) {
-						DBOBJECTS_KERNEL.add(tableName);
-					}
-					else if(tableName.startsWith("OOMSE2_")) {
-						DBOBJECTS_SECURITY.add(tableName);
-					}
+			for(String tableName : tableNames) {
+				if(
+					tableName.indexOf("_") > 0 &&
+					tableName.indexOf("_TOBJ_") < 0 &&
+					tableName.indexOf("_JOIN_") < 0 &&
+					!tableName.endsWith("_")
+				) {
+					DBOBJECTS.add(tableName);
 				}
-			}			
+			}		
 		}
 		try {
 			// Source connection
@@ -557,12 +567,11 @@ public class CopyDb {
 			props.put("password", passwordTarget);
 			Connection connTarget = DriverManager.getConnection(jdbcUrlTarget, props);
 			connTarget.setAutoCommit(true);
-			// Namespace kernel
 			CopyDb.copyNamespace(
 				connSource, 
 				connTarget,
 				filterDbObjects(
-					DBOBJECTS_KERNEL, 
+					DBOBJECTS, 
 					includeDbObjects, 
 					excludeDbObjects
 				),
@@ -570,21 +579,7 @@ public class CopyDb {
 			    providerNameTarget, 
 			    out
 			);
-			// Namespace security
-			CopyDb.copyNamespace(
-				connSource, 
-				connTarget, 
-				filterDbObjects(
-					DBOBJECTS_SECURITY,
-					includeDbObjects,
-					excludeDbObjects
-				),
-			   	providerNameSource, 
-			   	providerNameTarget, 
-			   	out
-			);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 		out.println();
@@ -594,9 +589,7 @@ public class CopyDb {
 	// -----------------------------------------------------------------------
 	// Members
 	// -----------------------------------------------------------------------
-	static final List<String> DBOBJECTS_KERNEL = new ArrayList<String>();
-
-	static final List<String> DBOBJECTS_SECURITY = new ArrayList<String>();
+	static final List<String> DBOBJECTS = new ArrayList<String>();
 
 	static final Set<String> BOOLEAN_COLUMNS = new HashSet<String>(Arrays.asList(
 	    "DISABLED", "USER_BOOLEAN0", "USER_BOOLEAN1", "USER_BOOLEAN2", "USER_BOOLEAN3", "USER_BOOLEAN4", "DO_NOT_BULK_POSTAL_MAIL", "DO_NOT_E_MAIL", "DO_NOT_FAX", "DO_NOT_PHONE",

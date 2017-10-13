@@ -52,8 +52,12 @@
  */
 package org.opencrx.kernel.base.aop2;
 
-import org.opencrx.kernel.backend.Base;
-import org.opencrx.kernel.backend.Exporter;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.opencrx.kernel.backend.Workflows;
+import org.opencrx.kernel.base.jmi1.ExportItemResult;
+import org.opencrx.kernel.workflow1.jmi1.RunExportResult;
 import org.openmdx.base.accessor.jmi.cci.JmiServiceException;
 import org.openmdx.base.aop2.AbstractObject;
 import org.openmdx.base.exception.ServiceException;
@@ -64,7 +68,6 @@ public class ExporterImpl
 	<S extends org.opencrx.kernel.base.jmi1.Exporter,N extends org.opencrx.kernel.base.cci2.Exporter,C extends Void>
 	extends AbstractObject<S,N,C> {
 
-    //-----------------------------------------------------------------------
     public ExporterImpl(
         S same,
         N next
@@ -72,52 +75,33 @@ public class ExporterImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
-    public org.opencrx.kernel.base.jmi1.ExportItemResult exportItem(
+    /**
+     * Export item.
+     * 
+     * @param params
+     * @return
+     */
+    public ExportItemResult exportItem(
         org.opencrx.kernel.base.jmi1.ExportItemParams params
     ) {
         try {
-            Object[] exportedItem = Exporter.getInstance().exportItem(
-            	this.sameObject(),
-            	params.getExportProfile(),
-            	null,
-            	null
+        	List<String> runExportParams = new ArrayList<String>();
+        	runExportParams.add(this.sameObject().refGetPath().toXRI());
+            RunExportResult result = Workflows.getInstance().runExport(
+            	params.getExporterTask(),
+            	runExportParams
             );
             return Structures.create(
-            	org.opencrx.kernel.base.jmi1.ExportItemResult.class, 
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.item, (byte[])exportedItem[2]),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.itemMimeType, (String)exportedItem[1]),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.itemName, (String)exportedItem[0]),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.status, Base.IMPORT_EXPORT_OK),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.statusMessage, null)            	
-            );            
-        } catch(ServiceException e) {
-            throw new JmiServiceException(e);
-        }                
-    }
-    
-    //-----------------------------------------------------------------------
-    public org.opencrx.kernel.base.jmi1.ExportItemResult exportItemAdvanced(
-        org.opencrx.kernel.base.jmi1.ExportItemAdvancedParams params
-    ) {
-        try {
-            Object[] exportedItem = Exporter.getInstance().exportItem(
-            	this.sameObject(),
-            	null,            	
-            	params.getReferenceFilter() == null ? "" : params.getReferenceFilter(),
-            	params.getItemMimeType()
+            	ExportItemResult.class, 
+            	Datatypes.member(ExportItemResult.Member.item, result.getFile()),
+            	Datatypes.member(ExportItemResult.Member.itemMimeType, result.getFileMimeType()),
+            	Datatypes.member(ExportItemResult.Member.itemName, result.getFileName()),
+            	Datatypes.member(ExportItemResult.Member.status, result.getStatus()),
+            	Datatypes.member(ExportItemResult.Member.statusMessage, result.getStatusMessage())            	
             );
-            return Structures.create(
-            	org.opencrx.kernel.base.jmi1.ExportItemResult.class, 
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.item, (byte[])exportedItem[2]),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.itemMimeType, (String)exportedItem[1]),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.itemName, (String)exportedItem[0]),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.status, Base.IMPORT_EXPORT_OK),
-            	Datatypes.member(org.opencrx.kernel.base.jmi1.ExportItemResult.Member.statusMessage, null)            	
-            );            
         } catch(ServiceException e) {
             throw new JmiServiceException(e);
-        }                
+        }
     }
 
 }

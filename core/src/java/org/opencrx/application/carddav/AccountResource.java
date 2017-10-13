@@ -145,8 +145,12 @@ public class AccountResource extends CardDavResource {
     public static org.opencrx.application.uses.ezvcard.property.Photo getPhoto(
     	Account account
     ) {
-    	if(account.getPicture() != null) {
-    		Media picture = account.getPicture();
+    	Media picture = null;
+    	// Picture may not be accessible
+    	try {
+    		picture = account.getPicture();
+    	} catch(Exception ignore) {}
+    	if(picture != null) {
     		String mimeType = picture.getContentMimeType();
     		if(mimeType != null && mimeType.indexOf("/") > 0) {
     			try {

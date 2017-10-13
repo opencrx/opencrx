@@ -86,6 +86,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.account1.jmi1.Contact;
 import org.opencrx.kernel.account1.jmi1.EMailAddress;
+import org.opencrx.kernel.activity1.cci2.ActivityProcessTransitionQuery;
 import org.opencrx.kernel.activity1.cci2.ActivityQuery;
 import org.opencrx.kernel.activity1.cci2.EMailRecipientQuery;
 import org.opencrx.kernel.activity1.cci2.IncidentPartyQuery;
@@ -97,6 +98,9 @@ import org.opencrx.kernel.activity1.jmi1.AbstractFilterActivity;
 import org.opencrx.kernel.activity1.jmi1.Activity;
 import org.opencrx.kernel.activity1.jmi1.ActivityCreator;
 import org.opencrx.kernel.activity1.jmi1.ActivityGroup;
+import org.opencrx.kernel.activity1.jmi1.ActivityProcess;
+import org.opencrx.kernel.activity1.jmi1.ActivityProcessState;
+import org.opencrx.kernel.activity1.jmi1.ActivityProcessTransition;
 import org.opencrx.kernel.activity1.jmi1.EMail;
 import org.opencrx.kernel.activity1.jmi1.EMailRecipient;
 import org.opencrx.kernel.activity1.jmi1.ExternalActivity;
@@ -115,7 +119,7 @@ import org.opencrx.kernel.backend.Activities.ActivityClass;
 import org.opencrx.kernel.backend.Activities.ActivityState;
 import org.opencrx.kernel.backend.Activities.PartyStatus;
 import org.opencrx.kernel.backend.Activities.PartyType;
-import org.opencrx.kernel.base.jmi1.ImportParams;
+import org.opencrx.kernel.base.jmi1.ImportItemParams;
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.home1.cci2.TimerQuery;
 import org.opencrx.kernel.home1.jmi1.Timer;
@@ -1437,8 +1441,7 @@ public class ICalendar extends AbstractImpl {
             } catch(Exception e) {
                 errors.add("COMPLETED (" + s + ")");
             }
-        }
-        else {
+        } else {
             activity.setActualEnd(null);            
         }
         // PRIORITY
@@ -1532,6 +1535,91 @@ public class ICalendar extends AbstractImpl {
 	            	ICalClass.valueOf(s.toUpperCase()).getValue()
 	            );
         	} catch(Exception e) {}
+        }
+        // STATUS
+        s = ICalField.getFieldValue("STATUS", ical);
+        if((s != null) && !s.isEmpty()) {
+        	if(!JDOHelper.isNew(activity)) {
+	        	Short percentComplete = activity.getPercentComplete();
+	        	if(percentComplete == null) {
+	        		percentComplete = (short)0;
+	        	}
+	        	if(activity.getProcessState() != null) {
+	    			ActivityProcessState processState = activity.getProcessState();
+	    			ActivityProcess activityProcess = (ActivityProcess)pm.getObjectById(processState.refGetPath().getParent().getParent());
+	    			ActivityProcessTransitionQuery processTransitionQuery = (ActivityProcessTransitionQuery)pm.newQuery(ActivityProcessTransition.class);
+		        	if("CANCELLED".equalsIgnoreCase(s)) {
+		        		if(!Boolean.TRUE.equals(activity.isDisabled())) {
+		        			activity.setDisabled(true);
+		        		}
+		        		if(percentComplete < 100) {
+		        			processTransitionQuery.orderByNewActivityState().ascending();
+		        			processTransitionQuery.thereExistsNewPercentComplete().equalTo((short)100);
+		        		} else {
+		        			processTransitionQuery = null;
+		        		}
+		        	} else if("NEEDS-ACTION".equalsIgnoreCase(s) || "TENTATIVE".equalsIgnoreCase(s)) {
+		        		if(Boolean.TRUE.equals(activity.isDisabled())) {
+		        			activity.setDisabled(false);
+		        		}
+		        		if(percentComplete != 0) {	
+		        			processTransitionQuery.orderByNewActivityState().descending();
+		        			processTransitionQuery.thereExistsNewPercentComplete().equalTo((short)0);
+		        		} else {
+		        			processTransitionQuery = null;
+		        		}
+		        	} else if("COMPLETED".equalsIgnoreCase(s)) {
+		        		if(Boolean.TRUE.equals(activity.isDisabled())) {
+		        			activity.setDisabled(false);
+		        		}
+		        		if(percentComplete < 100) {
+		        			processTransitionQuery.orderByNewActivityState().ascending();
+		        			processTransitionQuery.thereExistsNewPercentComplete().equalTo((short)100);
+		        		} else {
+		        			processTransitionQuery = null;
+		        		}
+		        	} else if("IN-PROCESS".equalsIgnoreCase(s) || "CONFIRMED".equalsIgnoreCase(s)) {
+		        		if(Boolean.TRUE.equals(activity.isDisabled())) {
+		        			activity.setDisabled(false);
+		        		}
+		        		if(percentComplete <= 0) {
+		        			processTransitionQuery.orderByNewActivityState().ascending();
+		        			processTransitionQuery.thereExistsNewPercentComplete().greaterThan((short)0);
+		        		} else if(percentComplete >= 100) {
+		        			processTransitionQuery.orderByNewActivityState().descending();
+		        			processTransitionQuery.thereExistsNewPercentComplete().lessThan((short)100);
+		        		} else {
+		        			processTransitionQuery = null;
+		        		}
+		        	}
+		        	if(processTransitionQuery != null) {
+		        		// If possible perform a transition. Also allow transitions not
+		        		// supported by the activity process
+		    			ActivityProcessTransition processTransition = null;		        		
+	        			List<ActivityProcessTransition> processTransitions = activityProcess.getTransition(processTransitionQuery);
+        				for(ActivityProcessTransition candidate: processTransitions) {
+        					if(candidate.getPrevState().equals(activity.getProcessState())) {
+        						processTransition = candidate;
+        						break;
+        					}
+        				}
+        				if(processTransition == null && !processTransitions.isEmpty()) {
+	        				processTransition = processTransitions.iterator().next();
+	        			}
+		        		if(processTransition != null) {
+		        			Activities.getInstance().doFollowUp(
+		        				activity,
+		        				s + " @ " + new Date(),
+		        				"Set STATUS:" + s,
+		        				processTransition,
+		        				null, // assignTo
+		        				null, // parentProcessInstance
+		        				false // validateStates
+		        			);
+		        		}
+		        	}
+	        	}
+        	}
         }
         // ical
         activity.setIcal(icalAsString);
@@ -1931,13 +2019,11 @@ public class ICalendar extends AbstractImpl {
 			            	                		calendar = calendar.replace("BEGIN:VTODO", "BEGIN:VTODO\nCLASS:" + ICalClass.CONFIDENTIAL.name());	                		
 			            	                	}
 			            	                }
-				                            ImportParams importItemParams = Structures.create(
-				                            	ImportParams.class, 
-				                            	Datatypes.member(ImportParams.Member.item, calendar.toString().getBytes("UTF-8")),
-				                            	Datatypes.member(ImportParams.Member.itemMimeType, ICalendar.MIME_TYPE),
-				                            	Datatypes.member(ImportParams.Member.itemName, "import.ics"),
-				                            	Datatypes.member(ImportParams.Member.locale, (short)0)
-				                            	
+				                            ImportItemParams importItemParams = Structures.create(
+				                            	ImportItemParams.class, 
+				                            	Datatypes.member(ImportItemParams.Member.item, calendar.toString().getBytes("UTF-8")),
+				                            	Datatypes.member(ImportItemParams.Member.itemMimeType, ICalendar.MIME_TYPE),
+				                            	Datatypes.member(ImportItemParams.Member.itemName, "import.ics")
 				                            );
 				                            activity.importItem(importItemParams);
 				                            if(isTxLocal) {
@@ -2038,12 +2124,11 @@ public class ICalendar extends AbstractImpl {
 		                                try {
 		                                    activity = (Activity)pm.getObjectById(result.getActivity().refGetPath());
 		                                    pm.currentTransaction().begin();
-		                                    ImportParams importItemParams = Datatypes.create(
-		                                    	ImportParams.class,
-		                                    	Datatypes.member(ImportParams.Member.item, calendar.toString().getBytes("UTF-8")),
-		                                    	Datatypes.member(ImportParams.Member.itemMimeType, ICalendar.MIME_TYPE),
-		                                    	Datatypes.member(ImportParams.Member.itemName, "import.ics"),
-		                                    	Datatypes.member(ImportParams.Member.locale, (short)0)
+		                                    ImportItemParams importItemParams = Datatypes.create(
+		                                    	ImportItemParams.class,
+		                                    	Datatypes.member(ImportItemParams.Member.item, calendar.toString().getBytes("UTF-8")),
+		                                    	Datatypes.member(ImportItemParams.Member.itemMimeType, ICalendar.MIME_TYPE),
+		                                    	Datatypes.member(ImportItemParams.Member.itemName, "import.ics")
 		                                    );
 		                                    activity.importItem(importItemParams);
 		                                    pm.currentTransaction().commit();

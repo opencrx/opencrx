@@ -59,12 +59,16 @@ import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.activity1.jmi1.Activity;
 import org.opencrx.kernel.backend.Base;
 import org.opencrx.kernel.backend.ICalendar;
-import org.opencrx.kernel.backend.XmlImporter;
 import org.opencrx.kernel.backend.VCard;
+import org.opencrx.kernel.backend.Workflows;
+import org.opencrx.kernel.backend.XmlImporter;
+import org.opencrx.kernel.base.jmi1.ImportItemResult;
+import org.opencrx.kernel.workflow1.jmi1.RunImportResult;
 import org.openmdx.base.accessor.jmi.cci.JmiServiceException;
 import org.openmdx.base.aop2.AbstractObject;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.jmi1.BasicObject;
+import org.openmdx.base.text.conversion.Base64;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
 
@@ -72,7 +76,6 @@ public class ImporterImpl
 	<S extends org.opencrx.kernel.base.jmi1.Importer,N extends org.opencrx.kernel.base.cci2.Importer,C extends Void>
 	extends AbstractObject<S,N,C> {
 
-    //-----------------------------------------------------------------------
     public ImporterImpl(
         S same,
         N next
@@ -80,12 +83,16 @@ public class ImporterImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
-    public org.opencrx.kernel.base.jmi1.ImportResult importItem(
-        org.opencrx.kernel.base.jmi1.ImportParams params
+    /**
+     * Import item.
+     * 
+     * @param params
+     * @return
+     */
+    public ImportItemResult importItem(
+        org.opencrx.kernel.base.jmi1.ImportItemParams params
     ) {
         try {
-            short locale = params.getLocale();
             byte[] item = params.getItem();
             String itemName = params.getItemName();
             String itemMimeType = params.getItemMimeType();
@@ -97,7 +104,7 @@ public class ImporterImpl
 	                importedObject = VCard.getInstance().importItem(
 	                	item, 
 	                	(Account)this.sameObject(), 
-	                	locale, 
+	                	(short)0, 
 	                	errors, 
 	                	report
 	                );
@@ -107,40 +114,51 @@ public class ImporterImpl
 	            	importedObject = ICalendar.getInstance().importItem(
 	            		item, 
 	            		(Activity)this.sameObject(), 
-	            		locale, 
-	            		errors, 
+	            		(short)0, 
+	            		errors,
 	            		report
 	            	);
             	}
             } else if(XmlImporter.MIME_TYPE.equals(itemMimeType) || itemName.endsWith(XmlImporter.FILE_EXTENSION)) {
-                importedObject = (BasicObject)XmlImporter.getInstance().importItem(
-                	item,
-                	locale,
-                	(BasicObject)this.sameObject(),
-                	errors,
-                	report
-                );
+            	if(this.sameObject() instanceof org.openmdx.base.jmi1.Segment) {
+	                importedObject = (BasicObject)XmlImporter.getInstance().importItem(
+	                	item,
+	                	(short)0,
+	                	(org.openmdx.base.jmi1.Segment)this.sameObject(),
+	                	errors,
+	                	report
+	                );
+            	}
             } else {
-            	return Structures.create(
-            		org.opencrx.kernel.base.jmi1.ImportResult.class, 
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.importedObject, null),
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.status, Base.IMPORT_EXPORT_FORMAT_NOT_SUPPORTED),
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.statusMessage, null)            		
+            	List<String> runImportParams = new ArrayList<String>();
+            	runImportParams.add(this.sameObject().refGetPath().toXRI());
+            	runImportParams.add(Base64.encode(item));
+            	runImportParams.add(itemName);
+            	runImportParams.add(itemMimeType);
+            	RunImportResult result = Workflows.getInstance().runImport(
+            		params.getImporterTask(),
+            		runImportParams
             	);
+                return Structures.create(
+                	ImportItemResult.class, 
+            		Datatypes.member(ImportItemResult.Member.importedObject, result.getImportedObject()),
+                	Datatypes.member(ImportItemResult.Member.status, result.getStatus()),
+                	Datatypes.member(ImportItemResult.Member.statusMessage, result.getStatusMessage())            	
+                );
             }
             if(importedObject != null) {
             	return Structures.create(
-            		org.opencrx.kernel.base.jmi1.ImportResult.class, 
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.importedObject, importedObject),
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.status, Base.IMPORT_EXPORT_OK),
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.statusMessage, Base.getInstance().analyseReport(report))            		
+            		ImportItemResult.class, 
+            		Datatypes.member(ImportItemResult.Member.importedObject, importedObject),
+            		Datatypes.member(ImportItemResult.Member.status, Base.IMPORT_EXPORT_OK),
+            		Datatypes.member(ImportItemResult.Member.statusMessage, Base.getInstance().analyseReport(report))            		
             	);
             } else {
             	return Structures.create(
-            		org.opencrx.kernel.base.jmi1.ImportResult.class, 
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.importedObject, null),
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.status, Base.IMPORT_EXPORT_ITEM_NOT_VALID),
-            		Datatypes.member(org.opencrx.kernel.base.jmi1.ImportResult.Member.statusMessage, Base.getInstance().analyseReport(errors))            		
+            		ImportItemResult.class, 
+            		Datatypes.member(ImportItemResult.Member.importedObject, null),
+            		Datatypes.member(ImportItemResult.Member.status, Base.IMPORT_EXPORT_ITEM_NOT_VALID),
+            		Datatypes.member(ImportItemResult.Member.statusMessage, Base.getInstance().analyseReport(errors))            		
             	);
             }
         } catch(ServiceException e) {

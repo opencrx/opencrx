@@ -21,18 +21,17 @@ digraph "Diagram AccountAssignment [Package org:opencrx:kernel:contract1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractContract,compartments=false,width=6]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractContract,compartments=false,width=2]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:contract1:AccountAssignmentContract,compartments=true,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:AccountAssignmentContract,compartments=true,width=3]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:account1:AccountAssignment,compartments=false,fillcolor="#FFBD9D",width=2]};
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
 	}
 	
 	LAYER0->LAYER1[style=invis];

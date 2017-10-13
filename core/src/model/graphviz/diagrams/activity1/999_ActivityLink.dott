@@ -29,14 +29,8 @@ digraph "Diagram ActivityLink [Package org:opencrx:kernel:activity1]" {
 	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityRelationship,compartments=true,width=6]};
 	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityLinkTo,compartments=true,width=4]};
 	}
-	{
-	  rank=same;
-	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=2]};
-	}
 	
 	LAYER0->LAYER1[style=invis];
-	LAYER1->LAYER2[style=invis];
 	
 	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityHasRelationship,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityRelationshipIsBasedOnLink,minlen=9]}

@@ -52,13 +52,19 @@
  */
 package org.opencrx.kernel.backend;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import javax.jdo.PersistenceManager;
+
+import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
+import org.openmdx.base.persistence.cci.ConfigurableProperty;
 import org.openmdx.base.text.conversion.UUIDConversion;
 import org.openmdx.kernel.exception.BasicException;
 import org.openmdx.kernel.id.UUIDs;
@@ -159,6 +165,27 @@ public abstract class AbstractImpl {
     public void preStore(
     	RefObject_1_0 object
     ) throws ServiceException {    	
+    }
+
+    /**
+     * Get a persistence manager joining the current transaction with the user matching the
+     * owner of the given object.
+     * 
+     * @param secureObject
+     * @return
+     * @throws ServiceException
+     */
+    public PersistenceManager getPersistenceManager(
+    	org.opencrx.kernel.base.jmi1.SecureObject secureObject
+    ) throws ServiceException {
+		String owningUserName = secureObject.getOwningUser().getName();
+		String ownerPrincipal = owningUserName.substring(0, owningUserName.lastIndexOf("."));
+		Map<String,Object> props = new HashMap<String,Object>();
+		props.put(ConfigurableProperty.ContainerManaged.qualifiedName(), Boolean.TRUE);
+		return Utils.getPersistenceManagerFactory(props).getPersistenceManager(
+			ownerPrincipal,
+			null
+		);
     }
 
 	//-------------------------------------------------------------------------

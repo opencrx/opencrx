@@ -74,6 +74,8 @@ import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.rest.cci.QueryExtensionRecord;
 import org.w3c.cci2.BinaryLargeObject;
+import org.w3c.spi2.Datatypes;
+import org.w3c.spi2.Structures;
 
 /**
  * Default documents backend class.
@@ -179,8 +181,7 @@ public class Documents extends AbstractImpl {
 	  			documentFolder
 	  		);
 			pm.currentTransaction().commit();
-		}
-		catch(Exception e) {
+		} catch(Exception e) {
 			new ServiceException(e).log();
 			try {
 				pm.currentTransaction().rollback();
@@ -278,6 +279,40 @@ public class Documents extends AbstractImpl {
 		return null;
 	}
 
+	/**
+	 * Init document.
+	 * 
+	 * @param documentName
+	 * @param revisionURL
+	 * @param revisionMimeType
+	 * @param revisionName
+	 * @param documentFolder
+	 * @param segment
+	 * @param allUsers
+	 * @return
+	 * @throws ServiceException
+	 */
+	public org.opencrx.kernel.document1.jmi1.Document initDocument(
+		String documentName,
+		URL revisionURL,
+		String revisionMimeType,
+		String revisionName,
+		org.opencrx.kernel.document1.jmi1.DocumentFolder documentFolder,
+		org.opencrx.kernel.document1.jmi1.Segment segment,
+		List<org.opencrx.security.realm1.jmi1.PrincipalGroup> allUsers
+	) throws ServiceException {
+		return Documents.getInstance().initDocument(
+			documentName,
+			documentName,
+			revisionURL,
+			revisionMimeType,
+			revisionName,
+			documentFolder,
+			segment,
+			allUsers
+		);
+	}
+	
     /**
      * Count documents of given document filter.
      * 
@@ -397,6 +432,32 @@ public class Documents extends AbstractImpl {
     			folderShare.setActive(false);
     		}
     	}
+    }
+
+    /**
+     * Validate document schema.
+     * 
+     * @param document
+     * @return
+     * @throws ServiceException
+     */
+    public org.opencrx.kernel.document1.jmi1.ValidateSchemaResult validateSchema(
+    	Document document
+    ) throws ServiceException {
+    	short statusCode = -1;
+    	String statusMessage = null;
+    	if(document.getDocumentSchema() == null) {
+    		statusCode = 0;
+    		statusMessage = "Valid. No schema";
+    	} else {
+    		statusCode = -1;
+        	statusMessage = "not implemented";
+    	}
+        return Structures.create(
+        	org.opencrx.kernel.document1.jmi1.ValidateSchemaResult.class, 
+        	Datatypes.member(org.opencrx.kernel.document1.jmi1.ValidateSchemaResult.Member.statusCode, statusCode),
+        	Datatypes.member(org.opencrx.kernel.document1.jmi1.ValidateSchemaResult.Member.statusMessage, statusMessage)
+        );
     }
 
     //-------------------------------------------------------------------------

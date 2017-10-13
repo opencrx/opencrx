@@ -142,10 +142,16 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	            model.objectIsSubtypeOf(obj, "org:openmdx:security:realm1:Role") ||
 	            model.objectIsSubtypeOf(obj, "org:openmdx:security:realm1:Policy")
 	        ) {
-	        	objFacade.attributeValuesAsList("name").clear();
-	        	objFacade.attributeValuesAsList("name").add(
-	        		objFacade.getPath().getLastSegment().toClassicRepresentation()
-	        	);
+	        	if(
+	        		objFacade.attributeValue("name") == null ||
+	        		((String)objFacade.attributeValue("name")).isEmpty()
+	        	) {
+	        		// Derive name from qualifier if not supplied
+		        	objFacade.attributeValuesAsList("name").clear();
+		        	objFacade.attributeValuesAsList("name").add(
+		        		objFacade.getPath().getLastSegment().toClassicRepresentation()
+		        	);
+	        	}
 	        } else if(
 	        	model.objectIsSubtypeOf(obj, "org:openmdx:security:realm1:Credential")
 	        ) {
@@ -354,19 +360,41 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
          * @param request
          * @throws ServiceException
          */
-        protected void checkPermission(
+        protected boolean checkPermission(
             RestInteractionSpec ispec,
             Path path
         ) throws ResourceException {
+            String principalName = this.getPrincipalName(ispec);
+            // principal is memberOf Administrators if principalName starts with admin-...
+            boolean principalIsMemberOfAdministrators = principalName.startsWith("admin" + SecurityKeys.ID_SEPARATOR);
+            // Check group membership
+            if(!principalIsMemberOfAdministrators) {
+	            try {
+	                Path principalsPath = (path.startsWith(REALM_AUTHORITY) || path.startsWith(AUTHORIZATION_AUTHORITY)) && path.size() >= 7
+	                	? REALM_AUTHORITY.getDescendant("provider", path.getSegment(2).toClassicRepresentation(), "segment", "Root", "realm", path.getSegment(6).toClassicRepresentation(), "principal")
+	            		: REALM_AUTHORITY.getDescendant("provider", path.getSegment(2).toClassicRepresentation(), "segment", "Root", "realm", path.getSegment(4).toClassicRepresentation(), "principal");
+	            	Object_2Facade principal = Facades.asObject(
+		            	this.retrieveObject(
+		            		principalsPath.getDescendant(principalName),
+		            		FetchGroup.ALL
+		            	)
+		            );
+	            	if(principal != null) {
+	                    Path principalGroupAdministrators = principalsPath.getDescendant(SecurityKeys.PRINCIPAL_GROUP_ADMINISTRATORS);
+	                    principalIsMemberOfAdministrators = principal.attributeValuesAsListContains("isMemberOf", principalGroupAdministrators);
+	            	}
+	            } catch(Exception e) {
+	            	new ServiceException(e).log();
+	            }
+            }
             // read allowed for everybody
             if(ispec.getFunction() == RestFunction.GET) {
-                return;
+                return principalIsMemberOfAdministrators;
             }
             // 1) All other operations only allowed for admin principals
             // 2) Principal is allowed to update its principal objects
-            String principalName = this.getPrincipalName(ispec);
             if((
-                !principalName.startsWith("admin" + SecurityKeys.ID_SEPARATOR) &&
+                !principalIsMemberOfAdministrators &&
                 !(path.getParent().isLike(PATH_PATTERN_PRINCIPALS) && path.getLastSegment().toClassicRepresentation().equals(principalName)))
             ) {
     			throw ResourceExceptions.initHolder(
@@ -381,6 +409,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 		            )
                 );
             }
+            return principalIsMemberOfAdministrators;
         }
 
 		private boolean failForUnknownOperation(
@@ -464,7 +493,6 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 		            ispec,
 		            request.getResourceIdentifier()
 		        );
-		        OpenCrxSecurity_2.this.setDerivedAttributes(request);
 		        // Only mark realm as dirty if group memberships are modified
 		        // E.g. modifying lastLoginAt does not require to refresh the realm
 		        if(request.getValue().containsKey("isMemberOf")) {
@@ -574,14 +602,11 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 			ResultRecord response
 		) throws ResourceException {
 	    	Path path = request.getResourceIdentifier();
-            this.checkPermission(
+            boolean principalIsMemberOfAdministrators = this.checkPermission(
             	ispec,
 	            request.getResourceIdentifier()
 	        );
 	        String principalName = this.getPrincipalName(ispec);
-	        String requestingUserRealmName = principalName.startsWith("admin" + SecurityKeys.ID_SEPARATOR) ? 
-	        	principalName.substring(principalName.indexOf("-") + 1) : 
-	        		"";
 	        // Restrict browsing on principals
 	        if(path.isLike(PATH_PATTERN_PRINCIPALS)) {
 	            boolean containsSubjectFilter = false;
@@ -595,8 +620,8 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	            // Return users and groups only if requesting principal is not admin-Root or segment admin
 	            if(
 	                !containsSubjectFilter &&
-	                !"Root".equals(requestingUserRealmName) &&
-	                !requestingUserRealmName.equals(path.getSegment(path.size()-2).toClassicRepresentation())
+	                !principalName.equals(SecurityKeys.ROOT_PRINCIPAL) &&
+	                !principalIsMemberOfAdministrators
 	            ) {
 	            	request.getQueryFilter().getCondition().add(
 	            		new IsInCondition(
@@ -611,7 +636,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	        } else if(path.isLike(PATH_PATTERN_SUBJECTS)) {
 		        // Restrict browsing on subjects
 	            // Do not restrict Root            
-	            if(!"Root".equals(requestingUserRealmName)) {
+	            if(!principalName.equals(SecurityKeys.ROOT_PRINCIPAL)) {
 	            	request.getQueryFilter().getCondition().add(
 	            		new IsInCondition(
 	            			Quantifier.FOR_ALL,
@@ -623,7 +648,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	        } else if(path.isLike(PATH_PATTERN_POLICIES)) {
 		        // Restrict browsing on policies
 	            // Do not restrict Root            
-	            if(!"Root".equals(requestingUserRealmName)) {
+	            if(!principalName.equals(SecurityKeys.ROOT_PRINCIPAL)) {
 	            	request.getQueryFilter().getCondition().add(
 	            		new IsInCondition(
 	            			Quantifier.FOR_ALL,
@@ -646,12 +671,16 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
     //-------------------------------------------------------------------------
     protected final InteractionSpecs SUPER = InteractionSpecs.getRestInteractionSpecs(false);
     
+    protected static final Path AUTHORIZATION_AUTHORITY =
+    	new Path("xri://@openmdx*org.openmdx.security.authorization1");
+    protected static final Path REALM_AUTHORITY =
+    	new Path("xri://@openmdx*org.openmdx.security.realm1");
     protected static final Path PATH_PATTERN_PRINCIPALS = 
-        new Path("xri://@openmdx*org.openmdx.security.realm1/provider/:*/segment/:*/realm/:*/principal");
+    	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*", "principal");
     protected static final Path PATH_PATTERN_REALM =
-        new Path("xri://@openmdx*org.openmdx.security.realm1/provider/:*/segment/:*/realm/:*");        
+    	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*");        
     protected static final Path PATH_PATTERN_REALM_COMPOSITES =
-        new Path("xri://@openmdx*org.openmdx.security.realm1/provider/:*/segment/:*/realm/:*/:*");        
+    	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*", ":*");        
     protected static final Path PATH_PATTERN_SUBJECTS = 
         new Path("xri://@openmdx*org.opencrx.security.identity1/provider/:*/segment/:*/subject");
     protected static final Path PATH_PATTERN_POLICIES = 

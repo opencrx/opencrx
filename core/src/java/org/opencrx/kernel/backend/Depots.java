@@ -55,6 +55,7 @@ package org.opencrx.kernel.backend;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -72,11 +73,13 @@ import org.opencrx.kernel.depot1.cci2.DepotPositionQuery;
 import org.opencrx.kernel.depot1.cci2.DepotQuery;
 import org.opencrx.kernel.depot1.cci2.DepotReportItemPositionQuery;
 import org.opencrx.kernel.depot1.cci2.DepotReportQuery;
+import org.opencrx.kernel.depot1.cci2.InventoryLevelQuery;
 import org.opencrx.kernel.depot1.cci2.ProductDepotPositionQuery;
 import org.opencrx.kernel.depot1.cci2.SimpleBookingQuery;
 import org.opencrx.kernel.depot1.cci2.SingleBookingQuery;
 import org.opencrx.kernel.depot1.jmi1.BookingOrigin;
 import org.opencrx.kernel.depot1.jmi1.BookingPeriod;
+import org.opencrx.kernel.depot1.jmi1.BookingTemplate;
 import org.opencrx.kernel.depot1.jmi1.BookingText;
 import org.opencrx.kernel.depot1.jmi1.CompoundBooking;
 import org.opencrx.kernel.depot1.jmi1.CreditBooking;
@@ -89,11 +92,13 @@ import org.opencrx.kernel.depot1.jmi1.DepotPosition;
 import org.opencrx.kernel.depot1.jmi1.DepotReport;
 import org.opencrx.kernel.depot1.jmi1.DepotReportItemPosition;
 import org.opencrx.kernel.depot1.jmi1.DepotType;
+import org.opencrx.kernel.depot1.jmi1.InventoryLevel;
 import org.opencrx.kernel.depot1.jmi1.PhoneNumber;
 import org.opencrx.kernel.depot1.jmi1.ProductDepotPosition;
 import org.opencrx.kernel.depot1.jmi1.SimpleBooking;
 import org.opencrx.kernel.depot1.jmi1.SingleBooking;
 import org.opencrx.kernel.generic.OpenCrxException;
+import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.generic.jmi1.CrxObject;
 import org.opencrx.kernel.product1.jmi1.Product;
 import org.opencrx.kernel.utils.Utils;
@@ -387,6 +392,60 @@ public class Depots extends AbstractImpl {
     }
     
     /**
+     * Get name for CreditBooking.
+     * 
+     * @param depotPosition
+     * @param bookingText
+     * @param bookingTextSuffix
+     * @return
+     * @throws ServiceException
+     */
+    public String getCreditBookingName(
+    	DepotPosition depotPosition,
+    	BookingText bookingText,
+    	String bookingTextSuffix
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(depotPosition);
+        String positionName = depotPosition.getName();                        
+        Depot depot = (Depot)pm.getObjectById(
+            depotPosition.refGetPath().getParent().getParent()
+        );
+        String depotNumber = depot.getDepotNumber();
+    	return 
+            (depotNumber + " " + 
+            bookingText.getCreditBookingNameInfix() + " " + 
+            positionName + 
+            (bookingTextSuffix == null ? "" : bookingTextSuffix)).trim();
+    }
+
+    /**
+     * Get name for DebitBooking.
+     * 
+     * @param depotPosition
+     * @param bookingText
+     * @param bookingTextSuffix
+     * @return
+     * @throws ServiceException
+     */
+    public String getDebitBookingName(
+    	DepotPosition depotPosition,
+    	BookingText bookingText,
+    	String bookingTextSuffix
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(depotPosition);
+        String positionName = depotPosition.getName();                        
+        Depot depot = (Depot)pm.getObjectById(
+            depotPosition.refGetPath().getParent().getParent()
+        );
+        String depotNumber = depot.getDepotNumber();
+        return
+            (depotNumber + " " + 
+            bookingText.getDebitBookingNameInfix() + " " + 
+            positionName + 
+            (bookingTextSuffix == null ? "" : bookingTextSuffix)).trim();
+    }
+
+    /**
      * Create a credit / debit booking as compound booking for the given quantity.
      * 
      * @param depotEntity
@@ -457,6 +516,7 @@ public class Depots extends AbstractImpl {
         	new DepotPosition[]{positionCredit, positionDebit}, 
         	new BookingOrigin[]{originIdentity, originIdentity},
         	new String[]{bookingTextSuffix, bookingTextSuffix},
+        	null, // bookingIds
         	errors
         );
         return compoundBooking;
@@ -555,10 +615,11 @@ public class Depots extends AbstractImpl {
      * @param depotPositions
      * @param origins
      * @param bookingTextSuffixes
+     * @param bookingIds
      * @param errors
      * @throws ServiceException
      */
-    public void appendBookings(
+    public List<SingleBooking> appendBookings(
     	CompoundBooking compoundBooking,
         Date valueDate,
         short bookingType,
@@ -569,6 +630,7 @@ public class Depots extends AbstractImpl {
         DepotPosition[] depotPositions,
         BookingOrigin[] origins,
         String[] bookingTextSuffixes,
+        String[] bookingIds,
         List<String> errors
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(compoundBooking);
@@ -617,17 +679,11 @@ public class Depots extends AbstractImpl {
                 position
             );
         }
-        List<CreditBooking> creditBookings = new ArrayList<CreditBooking>();
-        List<DebitBooking> debitBookings = new ArrayList<DebitBooking>();
+        List<SingleBooking> bookings = new ArrayList<SingleBooking>();
         Date bookingDate = new Date();
         // Create bookings
         for(int i = 0; i < depotPositions.length; i++) {
         	DepotPosition depotPosition = depotPositions[i];
-            String positionName = depotPosition.getName();                        
-            Depot depot = (Depot)pm.getObjectById(
-                depotPosition.refGetPath().getParent().getParent()
-            );
-            String depotNumber = depot.getDepotNumber();
             SingleBooking booking = null;
             String bookingTextSuffix = bookingTextSuffixes == null 
             	? null 
@@ -638,17 +694,25 @@ public class Depots extends AbstractImpl {
             	CreditBooking creditBooking = pm.newInstance(CreditBooking.class);
             	creditBooking.setQuantityCredit(quantities[i]);
             	creditBooking.setName(
-                    (depotNumber + " " + bookingTexts[i].getCreditBookingNameInfix() + " " + positionName + (bookingTextSuffix == null ? "" : bookingTextSuffix)).trim()
-                );
-                creditBookings.add(creditBooking);
+            		this.getCreditBookingName(
+            			depotPosition, 
+            			bookingTexts[i], 
+            			bookingTextSuffix
+            		)
+            	);
+            	bookings.add(creditBooking);
                 booking = creditBooking;
             } else {
             	DebitBooking debitBooking = pm.newInstance(DebitBooking.class);
             	debitBooking.setQuantityDebit(quantities[i]);
             	debitBooking.setName(
-                    (depotNumber + " " + bookingTexts[i].getDebitBookingNameInfix() + " " + positionName + (bookingTextSuffix == null ? "" : bookingTextSuffix)).trim()
-                );
-            	debitBookings.add(debitBooking);
+            		this.getDebitBookingName(
+            			depotPosition, 
+            			bookingTexts[i], 
+            			bookingTextSuffix
+            		)
+            	);
+            	bookings.add(debitBooking);
             	booking = debitBooking;
             }
             booking.setValueDate(valueDate);
@@ -661,10 +725,11 @@ public class Depots extends AbstractImpl {
                 booking.setOrigin(origins[i]);
             }
             depotSegment.addBooking(
-            	this.getUidAsString(),
+            	bookingIds == null ? this.getUidAsString() : bookingIds[i],
             	booking
             );
-        }    	
+        }
+        return bookings;
     }
 
     /**
@@ -1106,7 +1171,9 @@ public class Depots extends AbstractImpl {
     public void refreshReport(
         Depot depot,
         DepotReport report,
-        DepotReport reportPreviousPeriod
+        DepotReport reportPreviousPeriod,
+        List<DepotPosition> includePositions,
+        List<DepotPosition> excludePositions
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(depot);
         org.opencrx.kernel.depot1.jmi1.Segment depotSegment = this.getDepotSegment(pm, depot.refGetPath().getSegment(2).toClassicRepresentation(), depot.refGetPath().getSegment(4).toClassicRepresentation());    	
@@ -1117,17 +1184,28 @@ public class Depots extends AbstractImpl {
         	DepotReportItemPositionQuery depotReportItemPositionQuery = (DepotReportItemPositionQuery)pm.newQuery(DepotReportItemPosition.class);
         	((Query)depotReportItemPositionQuery).getFetchPlan().setFetchSize(FETCH_SIZE);  	
         	for(DepotReportItemPosition depotReportItemPosition: report.<DepotReportItemPosition>getItemPosition(depotReportItemPositionQuery)) {
-        		depotReportItemPositions.put(
-        			depotReportItemPosition.getPosition(), 
-        			depotReportItemPosition
-        		);
+				if(
+					(includePositions.isEmpty() || includePositions.contains(depotReportItemPosition.getPosition())) &&
+					(excludePositions.isEmpty() || !excludePositions.contains(depotReportItemPosition.getPosition()))
+				) {
+					depotReportItemPositions.put(
+						depotReportItemPosition.getPosition(),
+						depotReportItemPosition
+					);
+				}
         	}
             BookingPeriod bookingPeriod = report.getBookingPeriod();
             Date periodStartsAt = bookingPeriod.getPeriodStartsAt();
             // Set beginning of report balances to end of period balances of previous report 
             Map<DepotPosition,DepotReportItem> reportItems = new HashMap<DepotPosition,DepotReportItem>();
             DepotPositionQuery depotPositionQuery = (DepotPositionQuery)pm.newQuery(DepotPosition.class);
-            ((Query)depotPositionQuery).getFetchPlan().setFetchSize(FETCH_SIZE);   
+            if(!includePositions.isEmpty()) {
+            	depotPositionQuery.elementOf(includePositions);
+            }
+            if(!excludePositions.isEmpty()) {
+            	depotPositionQuery.notAnElementOf(excludePositions);
+            }
+            ((Query)depotPositionQuery).getFetchPlan().setFetchSize(FETCH_SIZE);
             for(DepotPosition position: depot.<DepotPosition>getPosition(depotPositionQuery)) {
         		DepotReportItem depotReportItem = new DepotReportItem();
                 reportItems.put(position, depotReportItem);
@@ -1150,12 +1228,19 @@ public class Depots extends AbstractImpl {
             // Sum up single bookings for all positions of depot within booking period
             {    	
             	SingleBookingQuery singleBookingQuery = (SingleBookingQuery)pm.newQuery(SingleBooking.class);
-            	singleBookingQuery.thereExistsPosition().elementOf(
-            		PersistenceHelper.getCandidates(
-            			pm.getExtent(DepotPosition.class),
-            			depot.refGetPath().getDescendant(new String[]{"position", "%"})
-            		)
-		    	);
+            	if(!includePositions.isEmpty()) {
+            		singleBookingQuery.thereExistsPosition().elementOf(includePositions);
+            	} else {
+	            	singleBookingQuery.thereExistsPosition().elementOf(
+	            		PersistenceHelper.getCandidates(
+	            			pm.getExtent(DepotPosition.class),
+	            			depot.refGetPath().getDescendant(new String[]{"position", "%"})
+	            		)
+			    	);
+            	}
+            	if(!excludePositions.isEmpty()) {
+            		singleBookingQuery.thereExistsPosition().notAnElementOf(excludePositions);
+            	}
                 singleBookingQuery.bookingStatus().greaterThanOrEqualTo(report.getBookingStatusThreshold());
                 if(bookingPeriod.getPeriodStartsAt() != null) {
                 	singleBookingQuery.valueDate().greaterThanOrEqualTo(bookingPeriod.getPeriodStartsAt());
@@ -1193,12 +1278,19 @@ public class Depots extends AbstractImpl {
             // Sum up simple bookings for all positions of depot within booking period
             {
             	SimpleBookingQuery simpleBookingQuery = (SimpleBookingQuery)pm.newQuery(SimpleBooking.class);
-            	simpleBookingQuery.thereExistsPosition().elementOf(
-            		PersistenceHelper.getCandidates(
-            			pm.getExtent(DepotPosition.class),
-            			depot.refGetPath().getDescendant(new String[]{"position", "%"})
-            		)
-		    	);
+            	if(!includePositions.isEmpty()) {
+            		simpleBookingQuery.thereExistsPosition().elementOf(includePositions);
+            	} else {            	
+	            	simpleBookingQuery.thereExistsPosition().elementOf(
+	            		PersistenceHelper.getCandidates(
+	            			pm.getExtent(DepotPosition.class),
+	            			depot.refGetPath().getDescendant(new String[]{"position", "%"})
+	            		)
+			    	);
+            	}
+            	if(!excludePositions.isEmpty()) {
+            		simpleBookingQuery.thereExistsPosition().notAnElementOf(excludePositions);
+            	}   	
                 simpleBookingQuery.bookingStatus().greaterThanOrEqualTo(report.getBookingStatusThreshold());
                 if(bookingPeriod.getPeriodStartsAt() != null) {
                 	simpleBookingQuery.valueDate().greaterThanOrEqualTo(bookingPeriod.getPeriodStartsAt());
@@ -1306,7 +1398,9 @@ public class Depots extends AbstractImpl {
      */
     public void assertReports(
         Depot depot,
-        short bookingStatusThreshold
+        short bookingStatusThreshold,
+        List<DepotPosition> includePositions,
+        List<DepotPosition> excludePositions
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(depot);    	
         DepotEntity depotEntity = (DepotEntity)pm.getObjectById(
@@ -1355,7 +1449,9 @@ public class Depots extends AbstractImpl {
             this.refreshReport(
                 depot,
                 report,
-                reportPreviousPeriod
+                reportPreviousPeriod,
+                includePositions,
+                excludePositions
             );
             reportPreviousPeriod = report;
         }
@@ -1484,6 +1580,29 @@ public class Depots extends AbstractImpl {
     }
     
     /**
+     * Accept inventory level.
+     * 
+     * @param inventoryLevel
+     * @throws ServiceException
+     */
+    public void acceptInventoryLevel(
+        InventoryLevel inventoryLevel
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(inventoryLevel);    	
+        boolean isPending = inventoryLevel.getInventoryLevelStatus() == InventoryLevelStatus.PENDING.getValue();
+        if(!isPending) {
+            throw new ServiceException(
+                OpenCrxException.DOMAIN,
+                OpenCrxException.DEPOT_INVENTORY_LEVEL_STATUS_MUST_BE_PENDING,
+                "Inventory level status must be pending. Accept is not allowed."
+            );                                                
+        }
+        List<String> principals = UserObjects.getPrincipalChain(pm);
+        String acceptedBy = principals.isEmpty() ? "NA" : principals.get(0) + " @ " + DateTimeFormat.BASIC_UTC_FORMAT.format(new Date());
+        inventoryLevel.getAcceptedBy().add(acceptedBy);
+    }
+
+    /**
      * Finalize compound booking.
      * 
      * @param cb
@@ -1515,6 +1634,26 @@ public class Depots extends AbstractImpl {
             booking.setBookingStatus(BookingStatus.FINAL.getValue());
         }
         cb.setBookingStatus(BookingStatus.FINAL.getValue());
+    }
+
+    /**
+     * Finalize inventory level.
+     * 
+     * @param inventoryLevel
+     * @throws ServiceException
+     */
+    public void finalizeInventoryLevel(
+        InventoryLevel inventoryLevel
+    ) throws ServiceException {
+        boolean isPending = inventoryLevel.getInventoryLevelStatus() == InventoryLevelStatus.PENDING.getValue();
+        if(!isPending) {
+            throw new ServiceException(
+                OpenCrxException.DOMAIN,
+                OpenCrxException.DEPOT_INVENTORY_LEVEL_STATUS_MUST_BE_PENDING,
+                "Inventory level status must be pending. Finalize is not allowed."
+            );                                                
+        }
+        inventoryLevel.setInventoryLevelStatus(InventoryLevelStatus.FINAL.getValue());
     }
 
     /**
@@ -1962,6 +2101,30 @@ public class Depots extends AbstractImpl {
     }
     
     /**
+     * Set the lock flag for the given inventory level to true.
+     * 
+     * @param inventoryLevel
+     * @param lockingReason
+     * @throws ServiceException
+     */
+    public void lockInventoryLevel(
+        InventoryLevel inventoryLevel,
+        short lockingReason
+    ) throws ServiceException {
+        boolean isPending = inventoryLevel.getInventoryLevelStatus() == InventoryLevelStatus.PENDING.getValue();
+        if(!isPending) {
+            throw new ServiceException(
+                OpenCrxException.DOMAIN,
+                OpenCrxException.DEPOT_INVENTORY_LEVEL_STATUS_MUST_BE_PENDING,
+                "Inventory level status is not pending. Locking is not allowed."
+            );                                                
+        }
+        inventoryLevel.setLocked(Boolean.TRUE);
+        inventoryLevel.setLockingReason(new Short(lockingReason));
+        inventoryLevel.setLockModifiedAt(new Date());
+    }
+
+    /**
      * Set the lock flag of the given compound booking to false.
      * 
      * @param cb
@@ -1983,6 +2146,387 @@ public class Depots extends AbstractImpl {
         cb.setLockModifiedAt(new Date());
     }
     
+    /**
+     * Set the lock flag of the given inventory level to false.
+     * 
+     * @param inventoryLevel
+     * @throws ServiceException
+     */
+    public void unlockInventoryLevel(
+        InventoryLevel inventoryLevel
+    ) throws ServiceException {
+        boolean isPending = inventoryLevel.getInventoryLevelStatus() == InventoryLevelStatus.PENDING.getValue();
+        if(!isPending) {
+            throw new ServiceException(
+                OpenCrxException.DOMAIN,
+                OpenCrxException.DEPOT_INVENTORY_LEVEL_STATUS_MUST_BE_PENDING,
+                "Inventory level status is not pending. Unlocking is not allowed."
+            );                                                
+        }
+        inventoryLevel.setLocked(Boolean.FALSE);
+        inventoryLevel.setLockingReason(new Short((short)0));
+        inventoryLevel.setLockModifiedAt(new Date());
+    }
+
+    /**
+     * Create or update inventory level correction booking.
+     * 
+     * @param inventoryLevel
+     * @throws ServiceException
+     */
+    protected void createOrUpdateInventoryLevelCorrectionBooking(
+    	InventoryLevel inventoryLevel
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(inventoryLevel);
+    	PersistenceManager pmBooking = null;
+    	try {
+	    	String providerName = inventoryLevel.refGetPath().getSegment(2).toClassicRepresentation();
+	    	String segmentName = inventoryLevel.refGetPath().getSegment(4).toClassicRepresentation();
+	    	if(
+	    		inventoryLevel.getPosition() != null &&
+	    		inventoryLevel.getCorrectionBookingTemplate() != null &&
+	    		inventoryLevel.getCorrectionBookingTemplate().getPositionDebit() != null &&
+	    		inventoryLevel.getCorrectionBookingTemplate().getPositionCredit() != null &&
+	    		inventoryLevel.getCorrectionBookingTemplate().getBookingText() != null
+	    	) {
+	    		List<CompoundBooking> correctionBookings = new ArrayList<CompoundBooking>();
+	    		if(!JDOHelper.isNew(inventoryLevel)) {
+	    			CompoundBookingQuery compoundBookingQuery = (CompoundBookingQuery)pm.newQuery(CompoundBooking.class);
+	    			compoundBookingQuery.bookingType().equalTo(BookingType.INVENTORY_CORRECTION.getValue());
+	    			compoundBookingQuery.orderByDescription().ascending();
+	    			correctionBookings = inventoryLevel.<CompoundBooking>getCompoundBooking(compoundBookingQuery);
+	    		}
+	    		CompoundBooking correctionBooking = null;
+	    		BookingTemplate bookingTemplate = null;
+	    		List<SingleBooking> bookings = Collections.emptyList();
+	    		if(correctionBookings.isEmpty()) {
+		    		bookingTemplate = inventoryLevel.getCorrectionBookingTemplate();
+		        	List<String> errors = new ArrayList<String>();
+		            DepotEntity depotEntity = (DepotEntity)pm.getObjectById(inventoryLevel.getPosition().refGetPath().getPrefix(7));
+	    			correctionBooking = this.createCompoundBooking(
+	    		        depotEntity,
+	    		        bookingTemplate.getName() + " / " + inventoryLevel.getName(),
+	    		        bookingTemplate.getBookingType()
+	    		    );
+	    			correctionBooking.setOrigin(inventoryLevel);
+	    			BookingText bookingText = bookingTemplate.getBookingText();
+	    			String bookingTextSuffix = bookingTemplate.getBookingTextSuffix();
+	    			String correctionBookingId = correctionBooking.refGetPath().getLastSegment().toClassicRepresentation();
+	    			bookings = this.appendBookings(
+	    				correctionBooking,
+	    				inventoryLevel.getValueDate(), 
+	    				BookingType.INVENTORY_CORRECTION.getValue(), 
+	    				false, 
+	    				new Boolean[]{true, false, true, false}, 
+	    				new BigDecimal[]{BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO}, 
+	    				new BookingText[]{bookingText, bookingText, bookingText, bookingText}, 
+	    				new DepotPosition[]{inventoryLevel.getPosition(), bookingTemplate.getPositionDebit(), bookingTemplate.getPositionCredit(), inventoryLevel.getPosition()},
+	    				new BookingOrigin[]{inventoryLevel, inventoryLevel, inventoryLevel, inventoryLevel}, 
+	    				new String[]{bookingTextSuffix, bookingTextSuffix, bookingTextSuffix, bookingTextSuffix},
+	    				new String[]{correctionBookingId + ":0", correctionBookingId + ":1", correctionBookingId + ":2", correctionBookingId + ":3"},
+	    				errors
+	    			);
+	        	} else {
+	        		correctionBooking = correctionBookings.iterator().next();
+					pmBooking = this.getPersistenceManager(correctionBooking);
+			        org.opencrx.kernel.depot1.jmi1.Segment depotSegment = this.getDepotSegment(pmBooking, providerName, segmentName);
+		    		bookingTemplate = (BookingTemplate)pmBooking.getObjectById(inventoryLevel.getCorrectionBookingTemplate().refGetPath());			        
+	        		correctionBooking = (CompoundBooking)pmBooking.getObjectById(correctionBooking.refGetPath());
+	        		bookings = new ArrayList<SingleBooking>();
+	    	        if(Boolean.TRUE.equals(correctionBooking.isLocked())) {
+	    	            throw new ServiceException(
+	    	                OpenCrxException.DOMAIN,
+	    	                OpenCrxException.DEPOT_POSITION_IS_LOCKED,
+	    	                "Booking is locked. Correction booking can not be updated."
+	    	            );
+	    	        }
+	    	        if(correctionBooking.getBookingStatus() != BookingStatus.PENDING.getValue()) {
+	    	            throw new ServiceException(
+	    	                OpenCrxException.DOMAIN,
+	    	                OpenCrxException.BOOKING_STATUS_MUST_BE_PENDING,
+	    	                "Booking status must be pending. Correction booking can not be updated."
+	    	            );
+	    	        }
+	    	        correctionBooking.setName(bookingTemplate.getName() + " / " + inventoryLevel.getName());
+	    			String correctionBookingId = correctionBooking.refGetPath().getLastSegment().toClassicRepresentation();
+	    			BookingText bookingText = bookingTemplate.getBookingText();
+	    			String bookingTextSuffix = bookingTemplate.getBookingTextSuffix();
+	    	        {
+	        			this.assertOpenPosition(
+	        				inventoryLevel.getValueDate(), 
+	        				BookingType.INVENTORY_CORRECTION.getValue(), 
+	        				inventoryLevel.getPosition()
+	        			);      			
+		    	        SingleBooking singleBooking = depotSegment.getBooking(correctionBookingId + ":0");
+		    	        bookings.add(singleBooking);
+		    	        singleBooking.setName(
+		    	        	this.getCreditBookingName(
+		    	        		inventoryLevel.getPosition(), 
+		    	        		bookingText, 
+		    	        		bookingTextSuffix
+		    	        	)
+		    	        );
+		    	        singleBooking.setPosition(
+		    	        	inventoryLevel.getPosition() == null
+		    	        		? null
+		    	        		: (DepotPosition)pmBooking.getObjectById(inventoryLevel.getPosition().refGetPath()
+		    	        	)
+		    	        );
+		    	        singleBooking.setValueDate(inventoryLevel.getValueDate());
+	    	        }
+	    	        {
+	        			this.assertOpenPosition(
+	        				inventoryLevel.getValueDate(), 
+	        				BookingType.INVENTORY_CORRECTION.getValue(), 
+	        				bookingTemplate.getPositionDebit()
+	        			);      			
+		    	        SingleBooking singleBooking = depotSegment.getBooking(correctionBookingId + ":1");
+		    	        bookings.add(singleBooking);
+		    	        singleBooking.setName(
+		    	        	this.getDebitBookingName(
+		    	        		bookingTemplate.getPositionDebit(), 
+		    	        		bookingText, 
+		    	        		bookingTextSuffix
+		    	        	)
+		    	        );
+		    	        singleBooking.setPosition(
+		    	        	bookingTemplate.getPositionDebit() == null
+		    	        		? null
+		    	        		: (DepotPosition)pmBooking.getObjectById(bookingTemplate.getPositionDebit().refGetPath()
+		    	        	)
+		    	        );
+		    	        singleBooking.setValueDate(inventoryLevel.getValueDate());
+	    	        }
+	    	        {
+	        			this.assertOpenPosition(
+	        				inventoryLevel.getValueDate(), 
+	        				BookingType.INVENTORY_CORRECTION.getValue(), 
+	        				bookingTemplate.getPositionCredit()
+	        			);      			
+		    	        SingleBooking singleBooking = depotSegment.getBooking(correctionBookingId + ":2");
+		    	        bookings.add(singleBooking);
+		    	        singleBooking.setName(
+		    	        	this.getCreditBookingName(
+		    	        		bookingTemplate.getPositionCredit(), 
+		    	        		bookingText, 
+		    	        		bookingTextSuffix
+		    	        	)
+		    	        );
+		    	        singleBooking.setPosition(
+		    	        	bookingTemplate.getPositionCredit() == null 
+		    	        		? null 
+		    	        		: (DepotPosition)pmBooking.getObjectById(bookingTemplate.getPositionCredit().refGetPath()
+		    	        	)
+		    	        );
+		    	        singleBooking.setValueDate(inventoryLevel.getValueDate());
+	    	        }
+	    	        {
+	        			this.assertOpenPosition(
+	        				inventoryLevel.getValueDate(), 
+	        				BookingType.INVENTORY_CORRECTION.getValue(), 
+	        				inventoryLevel.getPosition()
+	        			);      			
+		    	        SingleBooking singleBooking = depotSegment.getBooking(correctionBookingId + ":3");
+		    	        bookings.add(singleBooking);
+		    	        singleBooking.setName(
+		    	        	this.getDebitBookingName(
+		    	        		inventoryLevel.getPosition(), 
+		    	        		bookingText,
+		    	        		bookingTextSuffix
+		    	        	)
+		    	        );
+		    	        singleBooking.setPosition(
+		    	        	inventoryLevel.getPosition() == null 
+		    	        		? null 
+		    	        		: (DepotPosition)pmBooking.getObjectById(inventoryLevel.getPosition().refGetPath()
+		    	        	)
+		    	        );
+		    	        singleBooking.setValueDate(inventoryLevel.getValueDate());
+	    	        }
+	        	}
+				correctionBooking.setOwningUser(bookingTemplate.getOwningUser());
+				correctionBooking.getOwningGroup().clear();
+				correctionBooking.getOwningGroup().addAll(bookingTemplate.getOwningGroup());
+				correctionBooking.setAccessLevelBrowse(bookingTemplate.getAccessLevelBrowse());
+				correctionBooking.setAccessLevelUpdate(bookingTemplate.getAccessLevelUpdate());
+				correctionBooking.setAccessLevelDelete(bookingTemplate.getAccessLevelDelete());
+				for(SingleBooking booking: bookings) {
+					booking.setOwningUser(bookingTemplate.getOwningUser());
+					booking.getOwningGroup().clear();
+					booking.getOwningGroup().addAll(bookingTemplate.getOwningGroup());
+					booking.setAccessLevelBrowse(bookingTemplate.getAccessLevelBrowse());
+					booking.setAccessLevelUpdate(bookingTemplate.getAccessLevelUpdate());
+					booking.setAccessLevelDelete(bookingTemplate.getAccessLevelDelete());    				
+				}
+	        }
+    	} finally {
+    		if(pmBooking != null) {
+    	        pmBooking.flush();
+    			pmBooking.close();
+    		}
+    	}
+    }
+
+    /**
+     * Update inventory level.
+     * 
+     * @param inventoryLevel
+     * @throws ServiceException
+     */
+    public void updateInventoryLevel(
+    	InventoryLevel inventoryLevel
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(inventoryLevel);
+        // Invalid correction booking template: depot position of correction booking template and inventory level must be equal
+        if(
+        	inventoryLevel.getCorrectionBookingTemplate() != null &&
+        	inventoryLevel.getPosition() != null &&
+        	!Utils.areEqual(inventoryLevel.getCorrectionBookingTemplate().refGetPath().getParent().getParent(), inventoryLevel.getPosition().refGetPath())
+        ) {
+            throw new ServiceException(
+                OpenCrxException.DOMAIN,
+                OpenCrxException.DEPOT_INVENTORY_LEVEL_INVALID_CORRECTION_BOOKING_TEMPLATE,
+                "Invalid correction booking template: depot position of booking template and inventory level are not equal."
+            );
+        }
+        // Invalid correction booking template: bookingType must be BookingType.INVENTORY_CORRECTION
+        if(
+        	inventoryLevel.getCorrectionBookingTemplate() != null &&
+        	inventoryLevel.getCorrectionBookingTemplate().getBookingType() != BookingType.INVENTORY_CORRECTION.getValue()
+        ) {
+            throw new ServiceException(
+                OpenCrxException.DOMAIN,
+                OpenCrxException.DEPOT_INVENTORY_LEVEL_INVALID_CORRECTION_BOOKING_TEMPLATE,
+                "Invalid correction booking template: booking type must be INVENTORY_CORRECTION."
+            );
+        }
+        boolean createOrUpdateCorrectionBooking = false;
+        boolean removeCorrectionBooking = false; 
+        // Test whether correction booking must be create, updated, removed
+		if(JDOHelper.isNew(inventoryLevel)) {
+			createOrUpdateCorrectionBooking = true;
+		} else {
+			PersistenceManager pmOld = null;
+	    	InventoryLevel inventoryLevelOld = null;
+	    	try {
+		    	pmOld = pm.getPersistenceManagerFactory().getPersistenceManager(
+		    		SecurityKeys.ROOT_PRINCIPAL,
+		    		null
+		    	);
+	    		inventoryLevelOld = (InventoryLevel)pmOld.getObjectById(inventoryLevel.refGetPath());
+		    	// Update if template has been changed
+	    		createOrUpdateCorrectionBooking = !Utils.areEqual(
+		    		inventoryLevelOld == null || inventoryLevelOld.getCorrectionBookingTemplate() == null ? null : inventoryLevelOld.getCorrectionBookingTemplate().refGetPath(),
+		    		inventoryLevel.getCorrectionBookingTemplate() == null ? null : inventoryLevel.getCorrectionBookingTemplate().refGetPath()
+		    	);
+		    	// Update if valueDate has been changed
+	    		createOrUpdateCorrectionBooking |= !Utils.areEqual(
+		    		inventoryLevelOld == null ? null : inventoryLevelOld.getValueDate(),
+		    		inventoryLevel.getValueDate()
+		    	);
+		    	// Update if disabled has been changed
+	    		createOrUpdateCorrectionBooking |= !Utils.areEqual(
+		    		inventoryLevelOld == null ? null : inventoryLevelOld.isDisabled(),
+		    		inventoryLevel.isDisabled()
+		    	);
+	    		removeCorrectionBooking =
+	    			Boolean.TRUE.equals(inventoryLevel.isDisabled()) ||
+	    			inventoryLevel.getCorrectionBookingTemplate() == null;
+	    	} catch(Exception ignore) {
+	    	} finally {
+	    		try {
+	    			if(pmOld != null) {
+	    				pmOld.close();
+	    			}
+	    		} catch(Exception ignore) {}
+	    	}
+		}
+		if(removeCorrectionBooking) {
+    		CompoundBookingQuery compoundBookingQuery = (CompoundBookingQuery)pm.newQuery(CompoundBooking.class);
+			compoundBookingQuery.bookingType().equalTo(BookingType.INVENTORY_CORRECTION.getValue());
+			compoundBookingQuery.orderByDescription().ascending();
+			for(CompoundBooking correctionBooking: inventoryLevel.<CompoundBooking>getCompoundBooking(compoundBookingQuery)) {
+				PersistenceManager pmBooking = null;
+				try {
+					pmBooking = this.getPersistenceManager(correctionBooking);
+					this.removeCompoundBooking(
+						(CompoundBooking)pmBooking.getObjectById(correctionBooking.refGetPath()),
+						false
+					);
+					pmBooking.flush();
+				} catch(Exception e) {
+					throw new ServiceException(e);
+				} finally {
+					if(pmBooking != null) {
+						pmBooking.close();
+					}
+				}
+			}
+		} else if(createOrUpdateCorrectionBooking) {
+			this.createOrUpdateInventoryLevelCorrectionBooking(inventoryLevel);
+		}
+    }
+
+    /**
+     * Remove inventory level.
+     * 
+     * @param inventoryLevel
+     * @param preDelete
+     * @throws ServiceException
+     */
+    public void removeInventoryLevel(
+    	InventoryLevel inventoryLevel,
+    	boolean preDelete
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(inventoryLevel);
+		CompoundBookingQuery compoundBookingQuery = (CompoundBookingQuery)pm.newQuery(CompoundBooking.class);
+		compoundBookingQuery.bookingType().equalTo(BookingType.INVENTORY_CORRECTION.getValue());
+		compoundBookingQuery.orderByDescription().ascending();
+		for(CompoundBooking correctionBooking: inventoryLevel.<CompoundBooking>getCompoundBooking(compoundBookingQuery)) {
+			PersistenceManager pmBooking = null;
+			try {
+				pmBooking = this.getPersistenceManager(correctionBooking);
+				this.removeCompoundBooking(
+					(CompoundBooking)pmBooking.getObjectById(correctionBooking.refGetPath()),
+					false
+				);
+				pmBooking.flush();
+			} finally {
+				if(pmBooking != null) {
+					pmBooking.close();
+				}
+			}
+		}
+        if(!preDelete) {
+        	inventoryLevel.refDelete();
+        }
+    }
+
+    /**
+     * Update booking template.
+     * 
+     * @param bookingTemplate
+     * @throws ServiceException
+     */
+    public void updateBookingTemplate(
+    	BookingTemplate bookingTemplate
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(bookingTemplate);
+    	String providerName = bookingTemplate.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = bookingTemplate.refGetPath().getSegment(4).toClassicRepresentation();    	
+        org.opencrx.kernel.depot1.jmi1.Segment depotSegment = this.getDepotSegment(pm, providerName, segmentName); 
+        if(bookingTemplate.getBookingType() == BookingType.INVENTORY_CORRECTION.getValue()) {
+			if(JDOHelper.isPersistent(bookingTemplate) || !JDOHelper.isNew(bookingTemplate)) {
+				// Update inventory levels depending on booking template
+				InventoryLevelQuery inventoryLevelQuery = (InventoryLevelQuery)pm.newQuery(InventoryLevel.class);
+				inventoryLevelQuery.thereExistsCorrectionBookingTemplate().equalTo(bookingTemplate);
+				for(InventoryLevel inventoryLevel: depotSegment.getInventoryLevel(inventoryLevelQuery)) {
+					this.createOrUpdateInventoryLevelCorrectionBooking(inventoryLevel);
+				}
+			}
+        }
+    }
+
 	/* (non-Javadoc)
 	 * @see org.opencrx.kernel.backend.AbstractImpl#preDelete(org.opencrx.kernel.generic.jmi1.CrxObject, boolean)
 	 */
@@ -2008,6 +2552,8 @@ public class Depots extends AbstractImpl {
 			this.removeSimpleBooking((SimpleBooking)object, preDelete);
 		} else if(object instanceof SingleBooking) {
 			this.removeSingleBooking((SingleBooking)object, preDelete);
+		} else if(object instanceof InventoryLevel) {
+			this.removeInventoryLevel((InventoryLevel)object, preDelete);
 		}
 	}
 
@@ -2021,6 +2567,10 @@ public class Depots extends AbstractImpl {
 		super.preStore(object);
 		if(object instanceof PhoneNumber) {
 			Addresses.getInstance().updatePhoneNumber((PhoneNumber)object);
+		} else if(object instanceof InventoryLevel) {
+			this.updateInventoryLevel((InventoryLevel)object);
+		} else if(object instanceof BookingTemplate) {
+			this.updateBookingTemplate((BookingTemplate)object);			
 		}
 	}
 
@@ -2031,8 +2581,9 @@ public class Depots extends AbstractImpl {
 	public enum BookingType {
 		STANDARD((short)10),
 		CLOSING((short)20),
-		REVERSAL((short)30);
-		
+		REVERSAL((short)30),
+		INVENTORY_CORRECTION((short)40);
+
 		private BookingType(
 			short value
 		) {
@@ -2052,10 +2603,34 @@ public class Depots extends AbstractImpl {
 	 *
 	 */
 	public enum BookingStatus {
+		NONE((short)0),
 		PENDING((short)1),
 		FINAL((short)2);
 		
 		private BookingStatus(
+			short value
+		) {
+			this.value = value;
+		}
+		
+		public short getValue(
+		) {
+			return this.value;
+		}
+		
+		private final short value;
+	}
+
+	/**
+	 * InventoryLevelStatus
+	 *
+	 */
+	public enum InventoryLevelStatus {
+		NONE((short)0),
+		PENDING((short)1),
+		FINAL((short)2);
+		
+		private InventoryLevelStatus(
 			short value
 		) {
 			this.value = value;

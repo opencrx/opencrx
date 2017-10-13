@@ -31,22 +31,19 @@ digraph "Diagram Main [Package org:opencrx:kernel:document1]" {
 	{
 	  rank=same;
 	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:document1:DocumentFolder,compartments=true,width=7]};
+	  ${CLASS[name=org:opencrx:kernel:document1:DocumentSchema,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentFilterGlobal,compartments=true,width=3]};	  
 	}
 	{
 	  rank=same;
 	  LAYER3[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:document1:DocumentFolder,compartments=true,width=7]};
-	}
-	{
-	  rank=same;
-	  LAYER4[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:document1:Document,compartments=true,width=6]};
+	  ${CLASS[name=org:opencrx:kernel:document1:Document,compartments=false,width=10]};
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentFolderAssignment,compartments=true,width=4]};
 	}
 	{
 	  rank=same;
-	  LAYER5[style=invis];
+	  LAYER4[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:document1:FolderAssignment,compartments=true,width=6]};
 	}
 
@@ -54,8 +51,8 @@ digraph "Diagram Main [Package org:opencrx:kernel:document1]" {
 	LAYER1->LAYER2[style=invis];
 	LAYER2->LAYER3[style=invis];
 	LAYER3->LAYER4[style=invis];
-	LAYER4->LAYER5[style=invis];
 
+	${ASSOCIATION[name=org:opencrx:kernel:document1:AssignmentHasAssignedDocumentFolder,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:document1:SegmentContainsDocumentFilter,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:document1:SegmentContainsDocument,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:document1:SegmentContainsFolder,minlen=3]}

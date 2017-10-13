@@ -88,18 +88,15 @@ import org.opencrx.kernel.backend.Accounts;
 import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.backend.Addresses;
 import org.opencrx.kernel.backend.Base;
-import org.opencrx.kernel.backend.Depots.BookingStatus;
-import org.opencrx.kernel.backend.Depots.BookingType;
-import org.opencrx.kernel.backend.Exporter;
 import org.opencrx.kernel.backend.SecureObject;
+import org.opencrx.kernel.backend.Workflows;
+import org.opencrx.kernel.backend.XmlExporter;
 import org.opencrx.kernel.code1.jmi1.AbstractEntry;
 import org.opencrx.kernel.code1.jmi1.CodeValueContainer;
 import org.opencrx.kernel.contract1.jmi1.ContractCreator;
 import org.opencrx.kernel.contract1.jmi1.ContractType;
 import org.opencrx.kernel.contract1.jmi1.SalesContract;
 import org.opencrx.kernel.generic.SecurityKeys;
-import org.opencrx.kernel.home1.cci2.ExportProfileQuery;
-import org.opencrx.kernel.home1.jmi1.ExportProfile;
 import org.opencrx.kernel.portal.AbstractPropertyDataBinding.PropertySetHolderType;
 import org.opencrx.kernel.portal.action.CreateSubfolderAction;
 import org.opencrx.kernel.portal.action.DisableObjectsAction;
@@ -119,6 +116,8 @@ import org.opencrx.kernel.portal.action.PriceLevelResetValidToAction;
 import org.opencrx.kernel.utils.QueryBuilderUtil;
 import org.opencrx.kernel.utils.ScriptUtils;
 import org.opencrx.kernel.utils.Utils;
+import org.opencrx.kernel.workflow1.cci2.ExporterTaskQuery;
+import org.opencrx.kernel.workflow1.jmi1.ExporterTask;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.accessor.jmi.spi.RefMetaObject_1;
 import org.openmdx.base.exception.ServiceException;
@@ -575,6 +574,22 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
     		elementName.indexOf("WorkspaceDashboardWizard") > 0)
     	) {
     		return action.startsWith(WebKeys.REVOKE_PREFIX);
+    	} else if(elementName.equals("org:opencrx:kernel:base:Exporter:exportItem")) {
+    		boolean hasExporter = false;
+            try {
+            	PersistenceManager pm = JDOHelper.getPersistenceManager(refObj);
+            	org.opencrx.kernel.workflow1.jmi1.Segment workflowSegment = Workflows.getInstance().getWorkflowSegment(
+            		pm,
+            		refObj.refGetPath().getSegment(2).toClassicRepresentation(), 
+            		refObj.refGetPath().getSegment(4).toClassicRepresentation()
+            	);
+                ExporterTaskQuery exporterTaskQuery = (ExporterTaskQuery)pm.newQuery(ExporterTask.class);
+                exporterTaskQuery.orderByName().ascending();
+                exporterTaskQuery.forAllDisabled().isFalse();
+                exporterTaskQuery.thereExistsForClass().equalTo(refObj.refClass().refMofId());
+                hasExporter = !workflowSegment.<org.opencrx.kernel.workflow1.jmi1.ExporterTask>getWfProcess(exporterTaskQuery).isEmpty();
+            } catch(Exception ignore) {}
+            return action.startsWith(WebKeys.REVOKE_PREFIX) && !hasExporter; 
     	}
     	if(refObj != null) {
 	    	PersistenceManager pm = JDOHelper.getPersistenceManager(refObj);
@@ -842,6 +857,14 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 		    	clause = "EXISTS (SELECT 0 FROM OOCKE1_ADDRESS a INNER JOIN OOCKE1_ADDRESS_ a_ ON a.object_id = a_.object_id WHERE v.object_id = a.p$$parent AND " + (negate ? "NOT" : "") + " (UPPER(a.postal_city) LIKE UPPER(" + s0 + ") OR UPPER(a.postal_city) LIKE " + s1 + ") AND a_.objusage = " + Addresses.USAGE_BUSINESS + ")";
 	            stringParams.add(stringParam0);
 	            stringParams.add(stringParam1);
+		    } else if("org:opencrx:kernel:account1:Account:address*Business!postalStreet".equals(qualifiedFeatureName)) {
+		    	clause = "EXISTS (SELECT 0 FROM OOCKE1_ADDRESS a INNER JOIN OOCKE1_ADDRESS_ a_ ON a.object_id = a_.object_id WHERE v.object_id = a.p$$parent AND " + (negate ? "NOT" : "") + " (UPPER(a.postal_street_0) LIKE UPPER(" + s0 + ") OR UPPER(a.postal_street_0) LIKE " + s1 + ") AND a_.objusage = " + Addresses.USAGE_BUSINESS + ")";
+	            stringParams.add(stringParam0);
+	            stringParams.add(stringParam1);
+		    } else if("org:opencrx:kernel:account1:Account:address*Business!postalAddressLine".equals(qualifiedFeatureName)) {
+		    	clause = "EXISTS (SELECT 0 FROM OOCKE1_ADDRESS a INNER JOIN OOCKE1_ADDRESS_ a_ ON a.object_id = a_.object_id WHERE v.object_id = a.p$$parent AND " + (negate ? "NOT" : "") + " (UPPER(a.postal_address_line_0) LIKE UPPER(" + s0 + ") OR UPPER(a.postal_address_line_0) LIKE " + s1 + ") AND a_.objusage = " + Addresses.USAGE_BUSINESS + ")";
+	            stringParams.add(stringParam0);
+	            stringParams.add(stringParam1);
 		    } else if("org:opencrx:kernel:account1:Account:address*Business!region1".equals(qualifiedFeatureName)) {
 		    	clause = "EXISTS (SELECT 0 FROM OOCKE1_ADDRESS a INNER JOIN OOCKE1_ADDRESS_ a_ ON a.object_id = a_.object_id WHERE v.object_id = a.p$$parent AND " + (negate ? "NOT" : "") + " (UPPER(a.region1) LIKE UPPER(" + s0 + ") OR UPPER(a.region1) LIKE " + s1 + ") AND a_.objusage = " + Addresses.USAGE_BUSINESS + ")";
 	            stringParams.add(stringParam0);
@@ -870,7 +893,10 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 	            stringParams.add(stringParam1);
 		    } else if("org:opencrx:kernel:account1:Account:address*Business!postalCountry".equals(qualifiedFeatureName)) {
 		    	clause = "EXISTS (SELECT 0 FROM OOCKE1_ADDRESS a INNER JOIN OOCKE1_ADDRESS_ a_ ON a.object_id = a_.object_id WHERE v.object_id = a.p$$parent AND " + (negate ? "NOT" : "") + " (a.postal_country IN (" + filterValue + ")) AND a_.objusage = " + Addresses.USAGE_BUSINESS + ")";
-		    } else if("org:opencrx:kernel:depot1:DepotReportItemPosition:position".equals(qualifiedFeatureName)) {
+		    } else if(
+		    	"org:opencrx:kernel:depot1:DepotReportItemPosition:position".equals(qualifiedFeatureName) ||
+		    	"org:opencrx:kernel:depot1:InventoryLevel:position".equals(qualifiedFeatureName)
+		    ) {
 		    	clause = "EXISTS (SELECT 0 FROM OOCKE1_DEPOTPOSITION dp WHERE v.position = dp.object_id AND " + (negate ? "NOT" : "") + " (UPPER(dp.name) LIKE UPPER(" + s0 + ") OR UPPER(dp.name) LIKE " + s1 + "))";
 	            stringParams.add(stringParam0);
 	            stringParams.add(stringParam1);
@@ -1101,68 +1127,33 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
             // org:opencrx:kernel:base:ExportItemParams:itemMimeType
             List<String> selectableValues = new ArrayList<String>();
             selectableValues.add("application/x-excel");
-            selectableValues.add(Exporter.MIME_TYPE_XML);
+            selectableValues.add(XmlExporter.MIME_TYPE_XML);
             return selectableValues == null 
             	? null 
             	: new ValueListAutocompleter(selectableValues);
-        } else if("org:opencrx:kernel:base:ExportItemParams:exportProfile".equals(qualifiedFeatureName)) {
-            // org:opencrx:kernel:base:ExportItemParams:exportProfile
-            List<ObjectReference> selectableValues = null;
+        } else if("org:opencrx:kernel:base:ExportItemParams:exporterTask".equals(qualifiedFeatureName)) {
+            // org:opencrx:kernel:base:ExportItemParams:exporterTask
+            List<ObjectReference> selectableValues = new ArrayList<ObjectReference>();
             if(context instanceof org.opencrx.kernel.base.jmi1.Exporter) {
-                String providerName = context.refGetPath().getSegment(2).toClassicRepresentation();
-                String segmentName = context.refGetPath().getSegment(4).toClassicRepresentation();
-                String currentPrincipal = app.getUserHomeIdentityAsPath().getLastSegment().toClassicRepresentation();
-                String adminPrincipal = SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR + segmentName;
-                // Collect export profiles from current user
+                // Collect matching ExporterTasks
                 try {
-                    org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(
-                        new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", segmentName, "userHome", currentPrincipal)
-                    );
-                    ExportProfileQuery exportProfileQuery = (ExportProfileQuery)pm.newQuery(ExportProfile.class);
-                    exportProfileQuery.orderByName().ascending();
-                    Collection<org.opencrx.kernel.home1.jmi1.ExportProfile> exportProfiles = userHome.getExportProfile();
-                    for(org.opencrx.kernel.home1.jmi1.ExportProfile exportProfile: exportProfiles) {
-                        for(String forClass: exportProfile.getForClass()) {
-                            if(app.getModel().isSubtypeOf(context.refClass().refMofId(), forClass)) {
-                                if(selectableValues == null) {
-                                    selectableValues = new ArrayList<ObjectReference>();
-                                }
-                                selectableValues.add(
-                                    new ObjectReference(exportProfile, app)
-                                );
-                                break;
-                            }
-                        }
-                    }
-                } catch(Exception e) {}
-                // Collect shared export profiles from segment admin
-                try {
-                    if(!currentPrincipal.equals(adminPrincipal)) {
-                        org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(
-                            new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", segmentName, "userHome", adminPrincipal)
+                	org.opencrx.kernel.workflow1.jmi1.Segment workflowSegment = Workflows.getInstance().getWorkflowSegment(
+                		pm,
+	                	context.refGetPath().getSegment(2).toClassicRepresentation(), 
+	                	context.refGetPath().getSegment(4).toClassicRepresentation()
+                	);
+                    ExporterTaskQuery exporterTaskQuery = (ExporterTaskQuery)pm.newQuery(ExporterTask.class);
+                    exporterTaskQuery.orderByName().ascending();
+                    exporterTaskQuery.forAllDisabled().isFalse();
+                    exporterTaskQuery.thereExistsForClass().equalTo(context.refClass().refMofId());
+                    for(org.opencrx.kernel.workflow1.jmi1.ExporterTask exporterTask: workflowSegment.<org.opencrx.kernel.workflow1.jmi1.ExporterTask>getWfProcess(exporterTaskQuery)) {
+                        selectableValues.add(
+                            new ObjectReference(exporterTask, app)
                         );
-                        ExportProfileQuery exportProfileQuery = (ExportProfileQuery)pm.newQuery(ExportProfile.class);
-                        exportProfileQuery.orderByName().ascending();
-                        Collection<org.opencrx.kernel.home1.jmi1.ExportProfile> exportProfiles = userHome.getExportProfile();
-                        for(org.opencrx.kernel.home1.jmi1.ExportProfile exportProfile: exportProfiles) {
-                            for(String forClass: exportProfile.getForClass()) {
-                                if(app.getModel().isSubtypeOf(context.refClass().refMofId(), forClass)) {
-                                    if(selectableValues == null) {
-                                        selectableValues = new ArrayList<ObjectReference>();
-                                    }
-                                    selectableValues.add(
-                                        new ObjectReference(exportProfile, app)
-                                    );
-                                    break;
-                                }
-                            }
-                        }
                     }
                 } catch(Exception ignore) {}
             }
-            return selectableValues == null 
-            	? null 
-            	: new ValueListAutocompleter(selectableValues);
+            return selectableValues.isEmpty() ? null : new ValueListAutocompleter(selectableValues); 
         } else if("org:opencrx:kernel:address1:Addressable:tz".equals(qualifiedFeatureName)) {
             // org:opencrx:kernel:address1:Addressable:tz
         	Set<String> selectableValues = new TreeSet<String>();

@@ -161,11 +161,19 @@ org.openmdx.base.naming.*
 									<h3>Options:</h3>
 								</td>
 							</tr>
-							<tr>
+							<tr title="enter
+.*
+to copy all tables or enter a list of RegExp (1 RegExp per line) to specify the tables that should be copied, e.g.
+OOCKE1_ACCOUNT
+OOCKE1_CONTRACT*
+">
 								<td>Include Objects:</td>
 								<td><textarea rows="10" name="includeDbObjects" id="includeDbObjects" tabIndex="9020" style="width:50em;"><%=  wc.getFormFields().getIncludeDbObjects() == null ? "" :  wc.getFormFields().getIncludeDbObjects() %></textarea></td>
 							</tr>
-							<tr>
+							<tr title="enter a list of RegExp (1 RegExp per line) to specify the tables that should NOT be copied, e.g.
+OOCKE1_PRODUCT*
+OOMSE2*
+">
 								<td>Exclude Objects:</td>
 								<td><textarea rows="10" name="excludeObjects" id="excludeObjects" tabIndex="9021" style="width:50em;"><%=  wc.getFormFields().getExcludeDbObjects() == null ? "" :  wc.getFormFields().getExcludeDbObjects() %></textarea></td>
 							</tr>

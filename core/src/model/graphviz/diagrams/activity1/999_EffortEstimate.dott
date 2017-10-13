@@ -28,14 +28,8 @@ digraph "Diagram EffortEstimate [Package org:opencrx:kernel:activity1]" {
 	  LAYER1[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:activity1:EffortEstimate,compartments=true,width=3]};
 	}
-	{
-	  rank=same;
-	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};	  
-	}
 	
 	LAYER0->LAYER1[style=invis];
-	LAYER1->LAYER2[style=invis];
 	
 	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityHasEffortEstimate,minlen=3]}	
 	${ASSOCIATION[name=*]}

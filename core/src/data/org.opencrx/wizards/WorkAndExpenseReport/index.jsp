@@ -9,7 +9,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2011-2014, CRIXP Corp., Switzerland
+ * Copyright (c) 2011-2016, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -249,7 +249,7 @@ org.apache.poi.hssf.util.*
 	final String WIZARD_NAME = FORM_NAME + ".jsp";
 	final String SUBMIT_HANDLER = "javascript:$('command').value=this.name;";
 	final String CAUTION = "<img border='0' alt='' height='16px' src='../../images/caution.gif' />";
-	final String SPREADSHEET = "<img border='0' alt=''	height='64px' src='../../images/spreadsheet.png' />";
+	final String SPREADSHEET = "<img border='0' alt=''	height='32px' src='../../images/spreadsheet.png' />";
 	final String GAP_BEFORE_XRI = "		 ";
 
 	final String ACTIVITY_FILTER_SEGMENT = "Segment";
@@ -663,7 +663,6 @@ org.apache.poi.hssf.util.*
 	String recordType	= request.getParameter("recordType")	== null ? "0" : request.getParameter("recordType");	// Parameter recordType [default "0 - N/A"]
 	String isBillable	= isFirstCall ? "" : request.getParameter("isBillable");
 	String isReimbursable = isFirstCall ? "" : request.getParameter("isReimbursable");
-	String usePageBreak = isFirstCall ? "" : request.getParameter("usePageBreak");
 	
 	short priority = isFirstCall || request.getParameter("priority") == null ?
 		//Activities.PRIORITY_NORMAL :
@@ -808,13 +807,12 @@ org.apache.poi.hssf.util.*
 			padding:5px;
 			overflow:hidden;
 		}
-		TD.smallheader{border-bottom:1px solid black;padding:0px 8px 0px 0px;font-weight:bold;}
 		TD.total{border-top:1px solid black;border-bottom:1px solid black;padding:0px 8px 0px 0px;font-weight:bold;}
 		TD.totalR{border-top:1px solid black;border-bottom:1px solid black;padding:0px 16px 0px 0px;font-weight:bold;text-align:right;}
-		TD.smallheaderR{border-bottom:1px solid black;padding:0px 16px 0px 0px;font-weight:bold;text-align:right;}
 		TD.miniheader{font-size:7pt;}
-		TD.padded{padding:0px 15px 0px 0px;white-space:nowrap;}
-		TD.padded_r{padding:0px 15px 0px 0px;text-align:right;white-space:nowrap;}
+		TD.padded{padding:0px 15px 0px 0px;}
+		TD.padded_r{text-align:right;}
+		TH.padded_r{text-align:right;}
 		TR.centered TD {text-align:center;}
 		TR.even TD {background-color:#EEEEFF;}
 		TR.match TD {background-color:#FFFE70;}
@@ -1551,6 +1549,16 @@ org.apache.poi.hssf.util.*
 										</td>
 										<td class="addon"></td>
 									</tr>
+									<!-- showStartedAtTime -->
+									<tr <%= isWorkRecordInPercent ? "style='display:none;'" : "" %>>
+										<td class="<%= CssClass.fieldLabel %>">
+											<span class="nw">Show started at time:</span>
+										</td>
+										<td>
+											<input type="checkbox" name="isFullStartedAtDate" <%= (isFullStartedAtDate != null) && (isFullStartedAtDate.length() > 0) ? "checked" : "" %> tabindex="<%= tabIndex++ %>" value="isFullStartedAtDate" onchange="javascript:$('reload.button').click();" />
+										</td>
+										<td class="addon"></td>
+									</tr>									
 									<!--	priority -->
 									<tr <%= isWorkRecordInPercent ? "style='display:none;'" : "" %>>
 										<td class="<%= CssClass.fieldLabel %>">
@@ -1583,7 +1591,7 @@ org.apache.poi.hssf.util.*
 								<input type="submit" id="cancel.button" name="cancel.button" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCloseText() %>" onclick="<%= SUBMIT_HANDLER %>" /><br /><br />
 								<div id="WaitIndicator" style="float:left;width:50px;height:24px;" class="wait">&nbsp;</div>
 								<div id="SubmitArea" style="float:left;display:none;">
-									<input type="submit" id="ShowReport.button" name="ShowReport.button" tabindex="<%= tabIndex++ %>" value="Show Report" onclick="<%= SUBMIT_HANDLER %>;$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';" />
+									<input type="submit" id="ShowReport.button" name="ShowReport.button" tabindex="<%= tabIndex++ %>" value="Show Report" onclick="<%= SUBMIT_HANDLER %>;$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';" />									
 								</div>
 							</td>
 						</tr>
@@ -2175,35 +2183,8 @@ org.apache.poi.hssf.util.*
 					);
 
 %>
+					<div><a href="<%= request.getContextPath() %>/<%= downloadAction.getEncodedHRef(requestId) %>"><%= SPREADSHEET %></a></div>
 					<hr>
-					<h2 style="padding-left:5px;">
-						<%= app.getLabel(WORKANDEXPENSERECORD_CLASS) %>	<%= reportBeginOfPeriod != null ? datef.format(reportBeginOfPeriod.getTime()) : "--" %> &mdash; <%= reportEndOfPeriod != null ? datef.format(reportEndOfPeriod.getTime()) : "--" %><br>
-					</h2>
-
-					<table id="reportHeader" style="padding:5px;border:1px solid #ddd;float:left;margin:0 0 12px 5px;">
-						<tr>
-							<td class="padded"><%= app.getLabel(CONTACT_CLASS)				%>:</td><td><%= contact != null ? contactHref : "*" %></td>
-						</tr>
-						<tr>
-							<td class="padded"><%= app.getLabel(RESOURCE_CLASS)			 %>:</td><td><%= hasMultipleResources ? "*" : (resource != null ? resHref : "*") %></td>
-						</tr>
-<%
-						if (isProjectReporting) {
-%>
-							<tr>
-								<td class="padded"><%= userView.getFieldLabel(ACTIVITYTRACKER_CLASS, "userString0", app.getCurrentLocaleAsIndex()) %>:</td><td><%= (projectMain != null ? app.getHtmlEncoder().encode(projectMain, false) : "--") %></td>
-							</tr>
-<%
-						} else {
-%>
-							<tr>
-								<td class="padded"><%= app.getLabel(ACTIVITYFILTER_CLASS) %>:</td><td><%= activityGroupHref %> (<%= actHref %>)</td>
-							</tr>
-<%
-						}
-%>
-					</table>
-					<div style="float:left;"><a href="<%= request.getContextPath() %>/<%= downloadAction.getEncodedHRef(requestId) %>"><%= SPREADSHEET %></a></div>
 					<div style="clear:left;"></div>
 <%
 /*---------------------------------------------------------------------------------------------------------------------
@@ -2358,42 +2339,44 @@ org.apache.poi.hssf.util.*
 | R E C	O R D S
 \--------------------------------------------------------------*/
 %>
-							<table><tr><td style="padding-left:5px;">
-							<table class="gridTable">
-								<tr class="gridTableHeader">
-									<td class="smallheaderR" colspan="2">
-										<%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "startedAt", app.getCurrentLocaleAsIndex()) %>
-										<input type="checkbox" name="isFullStartedAtDate" <%= showFullStartedAtDate ? "checked" : "" %> <%= isWorkRecordInPercent ? "style='display:none;'" : "" %> tabindex="<%= tabIndex++ %>" value="isFullStartedAtDate" onchange="javascript:$('reload.button').click();" />
-									</td>
-									<td class="smallheaderR <%= showFullStartedAtDate ? "" : "hidden" %>" colspan="2"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "endedAt", app.getCurrentLocaleAsIndex()) %></td>
-									<td class="smallheader"></td>
-									<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "activity", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
-									<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "name", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
-									<td class="smallheader" <%= hasMultipleResources ? "" : "style='display:none;'" %>><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "resource", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
-									<td class="smallheaderR"><%= isWorkRecord ? (isWorkRecordInPercent ? "%" : "hh:mm") : userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "quantity", app.getCurrentLocaleAsIndex()) %></td>
+
+							<table class="table table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="" colspan="2">
+											<%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "startedAt", app.getCurrentLocaleAsIndex()) %>
+										</th>
+										<th class="<%= showFullStartedAtDate ? "" : "hidden" %>" colspan="2"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "endedAt", app.getCurrentLocaleAsIndex()) %></th>
+										<th class=""></td>
+										<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "activity", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
+										<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "name", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
+										<th class="" <%= hasMultipleResources ? "" : "style='display:none;'" %>><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "resource", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
+										<th class=""><%= isWorkRecord ? (isWorkRecordInPercent ? "%" : "hh:mm") : userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "quantity", app.getCurrentLocaleAsIndex()) %></th>
 <%
-									if (!isWorkRecord) {
+										if (!isWorkRecord) {
 %>
-										<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "recordType", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
-										<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "quantityUom", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
+											<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "recordType", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
+											<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "quantityUom", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
 <%
-									}
-									if (isWorkRecord && !isWorkRecordInPercent) {
+										}
+										if (isWorkRecord && !isWorkRecordInPercent) {
 %>
-											<td class="smallheader">&nbsp;</td>
-											<td class="smallheaderR" colspan="2"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "billableAmount", app.getCurrentLocaleAsIndex()) %></td>
-											<td class="smallheaderR" title="<%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "isBillable", app.getCurrentLocaleAsIndex()) %>">$&nbsp;</td>
-											<td class="smallheaderR" title="<%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "isReimbursable", app.getCurrentLocaleAsIndex()) %>">*&nbsp;</td>
-											<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "recordType", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
+											<th class="">&nbsp;</th>
+											<th class="" colspan="2"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "billableAmount", app.getCurrentLocaleAsIndex()) %></th>
+											<th class="" title="<%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "isBillable", app.getCurrentLocaleAsIndex()) %>">$&nbsp;</th>
+											<th class="" title="<%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "isReimbursable", app.getCurrentLocaleAsIndex()) %>">*&nbsp;</th>
+											<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "recordType", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
 <%
-									}
+										}
 %>
-									<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "description", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
-									<td class="smallheader"><%= userView.getFieldLabel(ACTIVITY_CLASS, "reportingAccount", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
-									<td class="smallheaderR"><%= isWorkRecordInPercent ? "Day Load" : "" %></td>
-									<td class="smallheaderR"><%= isWorkRecordInPercent && !hasMultipleResources ? "&sum; [%]" : "" %></td>
-									<td class="smallheaderR"><%= isWorkRecordInPercent && !hasMultipleResources ? "#days" : "" %></td>
-								</tr>
+										<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "description", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
+										<th class=""><%= userView.getFieldLabel(ACTIVITY_CLASS, "reportingAccount", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
+										<th class=""><%= isWorkRecordInPercent ? "Day Load" : "" %></th>
+										<th class=""><%= isWorkRecordInPercent && !hasMultipleResources ? "&sum; [%]" : "" %></th>
+										<th class=""><%= isWorkRecordInPercent && !hasMultipleResources ? "#days" : "" %></th>
+									</tr>
+								</thead>
+								<tbody>
 <%
 								boolean isEvenRow = false;
 								boolean isFirstRow = true;
@@ -2715,14 +2698,14 @@ org.apache.poi.hssf.util.*
 										}
 
 %>
-										<tr <%=isEvenRow ? "class='even'" : "" %>>
+										<tr>
 											<td><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getStartedAt() != null ? weekdayf.format(workAndExpenseRecord.getStartedAt()) : "--" %>&nbsp;</a></td>
 											<td class="padded_r"><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getStartedAt() != null ? (showFullStartedAtDate ? datetimef.format(workAndExpenseRecord.getStartedAt()) : dateonlyf.format(workAndExpenseRecord.getStartedAt())) : "--" %></a></td>
 											<td <%= showFullStartedAtDate ? "" : "class='hidden'" %>"><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getEndedAt() != null ? weekdayf.format(workAndExpenseRecord.getEndedAt()) : "--" %>&nbsp;</a></td>
 											<td class="padded_r <%= showFullStartedAtDate ? "" : "hidden" %>"><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getEndedAt() != null ? datetimef.format(workAndExpenseRecord.getEndedAt()) : "--" %></a></td>
 											<td><%= recordsWithoutAssignedActivityGroup.contains(workAndExpenseRecord) ? CAUTION : "" %></td>
-											<td class="padded"><a href='<%= activityHref %>' target='_blank'>#<%= activity != null ? app.getHtmlEncoder().encode(new ObjectReference(activity, app).getTitle(), false) : "--" %>&nbsp;</a></td>
-											<td class="padded"><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getName() != null ? app.getHtmlEncoder().encode(workAndExpenseRecord.getName(), false) : "" %></a></td>
+											<td class="padded" style="white-space: nowrap;"><a href='<%= activityHref %>' target='_blank'>#<%= activity != null ? app.getHtmlEncoder().encode(new ObjectReference(activity, app).getTitle(), false) : "--" %>&nbsp;</a></td>
+											<td class="padded" style="white-space: nowrap;"><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getName() != null ? app.getHtmlEncoder().encode(workAndExpenseRecord.getName(), false) : "" %></a></td>
 											<td class="padded" <%= hasMultipleResources ? "" : "style='display:none;'" %>><a href='<%= resourceHref %>' target='_blank'><%= workAndExpenseRecord.getResource() != null ? app.getHtmlEncoder().encode(new ObjectReference(workAndExpenseRecord.getResource(), app).getTitle(), false) : "" %>&nbsp;</a></td>
 											<td class="padded_r"><a href='<%= recordHref %>' target='_blank'><%=	workAndExpenseRecord.getQuantity() == null ? "--" : (isWorkRecord ? (isWorkRecordInPercent ? formatter0.format(workAndExpenseRecord.getQuantity()) : decimalMinutesToHhMm(workAndExpenseRecord.getQuantity().doubleValue() * 60.0)) : quantityf.format(workAndExpenseRecord.getQuantity())) %></a></td>
 <%
@@ -2739,11 +2722,11 @@ org.apache.poi.hssf.util.*
 												<td class="padded_r" <%= quantityError ? ERROR_STYLE : "" %>><a href='<%= recordHref %>' target='_blank'><%= ratesepf.format(recordTotal) %></a></td>
 												<td class="padded"><a href='<%= recordHref %>' target='_blank'><img src="../../images/<%= workAndExpenseRecord.isBillable() != null && workAndExpenseRecord.isBillable().booleanValue() ? "" : "not" %>checked_r.gif" /></a></td>
 												<td class="padded"><a href='<%= recordHref %>' target='_blank'><img src="../../images/<%= workAndExpenseRecord.isReimbursable() != null && workAndExpenseRecord.isReimbursable().booleanValue() ? "" : "not" %>checked_r.gif" /></a></td>
-												<td class="padded"><a href='<%= recordHref %>' target='_blank'><%= (codes.getLongTextByCode(FEATURE_RECORD_TYPE, app.getCurrentLocaleAsIndex(), true).get(new Short(workAndExpenseRecord.getRecordType()))) %></a></td>
+												<td class="padded" style="white-space: nowrap;"><a href='<%= recordHref %>' target='_blank'><%= (codes.getLongTextByCode(FEATURE_RECORD_TYPE, app.getCurrentLocaleAsIndex(), true).get(new Short(workAndExpenseRecord.getRecordType()))) %></a></td>
 <%
 											}
 %>
-											<td class="padded"><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getDescription() != null ? workAndExpenseRecord.getDescription() : "" %></a></td>
+											<td class="padded"><%= workAndExpenseRecord.getDescription() != null ? app.getHtmlEncoder().encode(workAndExpenseRecord.getDescription().replace("\n", "<br />"), false) : "" %></td>
 											<td class="padded"><a href='<%= activityHref %>' target='_blank'><%= reportingAccount %></a></td>
 <%
 											if (isWorkRecordInPercent) {
@@ -2815,27 +2798,14 @@ org.apache.poi.hssf.util.*
 <%
 								}
 %>
+								</tbody>
 							</table>
-							</td></tr></table>
-							<br>
-							<input type="checkbox" name="usePageBreak" title="page break before" <%= (usePageBreak != null && !usePageBreak.isEmpty()) ? "checked" : "" %> tabindex="<%= tabIndex++ %>" value="usePageBreak" onchange="javascript:$('reload.button').click();" />							
-<%
-							if(usePageBreak != null && !usePageBreak.isEmpty()) {
-%>							
-								<p style="page-break-before: always;">
-<%
-							} else {
-%>
-								<p>
-<%								
-							}
-%>
-							<table><tr><td style="padding-left:5px;">
-							<table class="gridTable">
 <%
 							if (!isWorkRecordInPercent) {
 %>
-
+								<br />
+								<p>
+								<table class="table table-hover table-striped" style="width:70%">
 <!-- totals per week -->
 <%
 								GregorianCalendar calendarBeginOfWeek = null;
@@ -2860,36 +2830,39 @@ org.apache.poi.hssf.util.*
 								sheetWeeks.setColumnWidth(nCell++, (short)12000);
 
 %>
-								<tr class="gridTableHeader">
-									<td class="smallheader"><%= app.getLabel(CALENDAR_CLASS) %></td>
+								<thead>
+									<tr class="">
+										<th class="padded">&sum; by week</th>
 <%
-									int dayCounter = 0;
-									if (isWorkRecord && calendarBeginOfWeek != null) {
-											GregorianCalendar wd = (GregorianCalendar)calendarBeginOfWeek.clone();
-											for (int i = wd.get(GregorianCalendar.DAY_OF_WEEK); dayCounter < 7; dayCounter++) {
+										int dayCounter = 0;
+										if (isWorkRecord && calendarBeginOfWeek != null) {
+												GregorianCalendar wd = (GregorianCalendar)calendarBeginOfWeek.clone();
+												for (int i = wd.get(GregorianCalendar.DAY_OF_WEEK); dayCounter < 7; dayCounter++) {
 %>
-												<td class="smallheaderR"><%= weekdayf.format(wd.getTime()) %></td>
+													<th class="padded_r"><%= weekdayf.format(wd.getTime()) %></th>
 <%
-												cell = row.createCell(nCell);	cell.setCellValue(weekdayf.format(wd.getTime())); cell.setCellStyle(rightAlignStyle);
-												sheetWeeks.setColumnWidth(nCell++, (short)2000);
-												wd.add(GregorianCalendar.DAY_OF_MONTH, 1);
-											}
-									} else {
+													cell = row.createCell(nCell);	cell.setCellValue(weekdayf.format(wd.getTime())); cell.setCellStyle(rightAlignStyle);
+													sheetWeeks.setColumnWidth(nCell++, (short)2000);
+													wd.add(GregorianCalendar.DAY_OF_MONTH, 1);
+												}
+										} else {
 %>
-										<td class="smallheaderR" colspan="7"></td>
+											<th class="padded_r" colspan="7"></th>
 <%
-									}
-									for (Iterator i = totals.keySet().iterator(); i.hasNext();) {
-										String key = (String)i.next();
-										if (!isWorkRecord && key.compareTo(timeKey) == 0) {continue;}
+										}
+										for (Iterator i = totals.keySet().iterator(); i.hasNext();) {
+											String key = (String)i.next();
+											if (!isWorkRecord && key.compareTo(timeKey) == 0) {continue;}
 %>
-										<td class="smallheaderR"><%= key %></td>
+											<th class="padded_r"><%= key %></th>
 <%
-										cell = row.createCell(nCell);	cell.setCellValue(key); cell.setCellStyle(rightAlignStyle);
-										sheetWeeks.setColumnWidth(nCell++, (short)3000);
-									}
+											cell = row.createCell(nCell);	cell.setCellValue(key); cell.setCellStyle(rightAlignStyle);
+											sheetWeeks.setColumnWidth(nCell++, (short)3000);
+										}
 %>
-								</tr>
+									</tr>
+								</thead>
+								<tbody>
 <%
 								double[] sumDays = new double[7 + totals.keySet().size()];
 								for(int i = 0; i < sumDays.length; i++) {
@@ -2904,7 +2877,7 @@ org.apache.poi.hssf.util.*
 										endOfCurrentWeek.add(GregorianCalendar.DAY_OF_MONTH, 6);
 %>
 										<tr>
-											<td class="padded"><%= yyyyf.format(beginOfCurrentWeek.getTime()) %> #<%= formatter2.format(beginOfCurrentWeek.get(GregorianCalendar.WEEK_OF_YEAR)) %> [<%= datef.format(beginOfCurrentWeek.getTime()) %> / <%= datef.format(endOfCurrentWeek.getTime()) %>]</td>
+											<td class="padded" style="white-space: nowrap;"><%= yyyyf.format(beginOfCurrentWeek.getTime()) %> #<%= formatter2.format(beginOfCurrentWeek.get(GregorianCalendar.WEEK_OF_YEAR)) %> [<%= datef.format(beginOfCurrentWeek.getTime()) %> / <%= datef.format(endOfCurrentWeek.getTime()) %>]</td>
 <%
 											row = sheetWeeks.createRow(nRow++);
 											nCell = 0;
@@ -3062,20 +3035,23 @@ org.apache.poi.hssf.util.*
 %>
 								</tr>
 <!-- end simple totals -->
-
-								<tr>
-									<td colspan="<%= totals.keySet().size() + 9 %>" style="padding:5px;">&nbsp;</td>
-								</tr>
 <%
-							}
+								}
 
 /*--------------------------------------------------------------
 | A C T I V I T I E S
 \--------------------------------------------------------------*/
 %>
 <!-- totals per activity -->
-								<tr class="gridTableHeader">
-									<td class="smallheader" colspan="8"><%= app.getLabel(ACTIVITYSEGMENT_CLASS) %></td>
+							</tbody>
+							</table>
+
+							<br />
+							<p>
+							<table class="table table-hover table-striped" style="width:70%">
+								<thead>
+								<tr class="">
+									<th class="" colspan="8">&sum; by activity</th>
 <%
 									nRow = REPORT_STARTING_ROW;
 									row = sheetActivities.createRow(nRow++);
@@ -3084,9 +3060,9 @@ org.apache.poi.hssf.util.*
 									sheetActivities.setColumnWidth(nCell++, (short)12000);
 									if (isWorkRecordInPercent) {
 %>
-											<td class="smallheader"><%= app.getLabel(RESOURCE_CLASS) %></td>
-											<td class="smallheaderR">%</td>
-											<td class="smallheaderR">#days</td>
+											<th class=""><%= app.getLabel(RESOURCE_CLASS) %></th>
+											<th class="padded_r">%</th>
+											<th class="padded_r">#days</th>
 <%
 											cell = row.createCell(nCell);	cell.setCellValue(app.getLabel(RESOURCE_CLASS)); 
 											sheetActivities.setColumnWidth(nCell++, (short)5000);
@@ -3099,7 +3075,7 @@ org.apache.poi.hssf.util.*
 												String key = (String)i.next();
 												if (!isWorkRecord && key.compareTo(timeKey) == 0) {continue;}
 %>
-												<td class="smallheaderR"><%= key %></td>
+												<th class="padded_r"><%= key %></th>
 <%
 												cell = row.createCell(nCell);	cell.setCellValue(key); cell.setCellStyle(rightAlignStyle);
 												sheetActivities.setColumnWidth(nCell++, (short)3000);
@@ -3107,6 +3083,8 @@ org.apache.poi.hssf.util.*
 									}
 %>
 								</tr>
+								</thead>
+								<tbody>
 <%
 								for (Iterator a = activities.keySet().iterator(); a.hasNext();) {
 										String activityNumber = (String)a.next();
@@ -3247,17 +3225,14 @@ org.apache.poi.hssf.util.*
 								}
 %>
 <!--	end totals per activity -->
-
-								<tr>
-									<td colspan="<%= totals.keySet().size() + 9 %>" style="padding:5px;">&nbsp;</td>
-								</tr>
+							</tbody>
+							</table>							
 <%
 							if (isWorkRecordInPercent && hasMultipleResources) {
 /*--------------------------------------------------------------
 | A C T I V I T Y	 /	 R E S O U R C E	 M A T R I X
 \--------------------------------------------------------------*/
 %>
-<!-- totals per activity/resource / spreadsheet only -->
 <%
 								nRow = REPORT_STARTING_ROW;
 								row = sheetResources.createRow(nRow++);
@@ -3352,27 +3327,32 @@ org.apache.poi.hssf.util.*
 
 							if (!isWorkRecordInPercent) {
 %>
-
 <!-- totals per activityGroup -->
-								<tr class="gridTableHeader">
-									<td class="smallheader" colspan="8"><%= app.getLabel(ACTIVITYTRACKER_CLASS) %> / <%= app.getLabel(ACTIVITYCATEGORY_CLASS) %> / <%= app.getLabel(ACTIVITYMILESTONE_CLASS) %></td>
+								<br />
+								<p>
+								<table class="table table-hover table-striped" style="width:70%">
+								<thead>
+									<tr class="">
+										<th class="" colspan="8">&sum; by activity group</th>
 <%
-									nRow = REPORT_STARTING_ROW;
-									row = sheetActivityGroups.createRow(nRow++);
-									nCell = 0;
-									cell = row.createCell(nCell);	cell.setCellValue(app.getLabel(ACTIVITYTRACKER_CLASS) + " / " + app.getLabel(ACTIVITYCATEGORY_CLASS) + " / " + app.getLabel(ACTIVITYMILESTONE_CLASS));
-									sheetActivityGroups.setColumnWidth(nCell++, (short)12000);
-									for (Iterator i = totals.keySet().iterator(); i.hasNext();) {
-										String key = (String)i.next();
-										if (!isWorkRecord && key.compareTo(timeKey) == 0) {continue;}
-										cell = row.createCell(nCell);	cell.setCellValue(key); cell.setCellStyle(rightAlignStyle);
-										sheetActivityGroups.setColumnWidth(nCell++, (short)3000);
+										nRow = REPORT_STARTING_ROW;
+										row = sheetActivityGroups.createRow(nRow++);
+										nCell = 0;
+										cell = row.createCell(nCell);	cell.setCellValue(app.getLabel(ACTIVITYTRACKER_CLASS) + " / " + app.getLabel(ACTIVITYCATEGORY_CLASS) + " / " + app.getLabel(ACTIVITYMILESTONE_CLASS));
+										sheetActivityGroups.setColumnWidth(nCell++, (short)12000);
+										for (Iterator i = totals.keySet().iterator(); i.hasNext();) {
+											String key = (String)i.next();
+											if (!isWorkRecord && key.compareTo(timeKey) == 0) {continue;}
+											cell = row.createCell(nCell);	cell.setCellValue(key); cell.setCellStyle(rightAlignStyle);
+											sheetActivityGroups.setColumnWidth(nCell++, (short)3000);
 %>
-										<td class="smallheaderR"><%= key %></td>
+											<th class="padded_r"><%= key %></th>
 <%
-									}
+										}
 %>
-								</tr>
+									</tr>
+								</thead>
+								<tbody>
 <%
 								for (Iterator a = activityGroups.keySet().iterator(); a.hasNext();) {
 										String agkey = (String)a.next();
@@ -3422,11 +3402,8 @@ org.apache.poi.hssf.util.*
 
 %>
 <!-- totals per projectPhase -->
-										<tr>
-											<td colspan="<%= totals.keySet().size() + 9 %>" style="padding:5px;">&nbsp;</td>
-										</tr>
-										<tr class="gridTableHeader">
-											<td class="smallheader" colspan="8"><%= userView.getFieldLabel(ACTIVITYTRACKER_CLASS, "userBoolean0", app.getCurrentLocaleAsIndex()) %>: <%= projectTracker.getName() != null ? app.getHtmlEncoder().encode(projectTracker.getName(), false) : "?" %></td>
+										<tr class="">
+											<td class="" colspan="8"><%= userView.getFieldLabel(ACTIVITYTRACKER_CLASS, "userBoolean0", app.getCurrentLocaleAsIndex()) %>: <%= projectTracker.getName() != null ? app.getHtmlEncoder().encode(projectTracker.getName(), false) : "?" %></td>
 <%
 											nRow = REPORT_STARTING_ROW;
 											row = sheetProject.createRow(nRow++);
@@ -3441,7 +3418,7 @@ org.apache.poi.hssf.util.*
 												cell = row.createCell(nCell);	cell.setCellValue(key); cell.setCellStyle(rightAlignStyle);
 												sheetProject.setColumnWidth(nCell++, (short)3000);
 %>
-												<td class="smallheaderR"><%= key %></td>
+												<td class="padded_r"><%= key %></td>
 <%
 											}
 											sheetProject.setColumnWidth(nCell++, (short)2000);
@@ -3519,19 +3496,20 @@ org.apache.poi.hssf.util.*
 								}
 							}
 %>
+							</tbody>
 							</table>
-							</td></tr></table>
 <%
 							if (isProjectReporting) {
 %>
 <!-- totals per projectReportingLine -->
-									<br>
-									<table><tr><td style="padding-left:5px;">
-									<table class="gridTable">
-										<tr class="gridTableHeader">
-											<td class="smallheader"><%= userView.getFieldLabel(ACTIVITYTRACKER_CLASS, "userBoolean0", app.getCurrentLocaleAsIndex()) %>: <%= projectTracker.getName() != null ? app.getHtmlEncoder().encode(projectTracker.getName(), false) : "?" %></td>
-											<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "activity", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
-											<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "resource", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
+									<br />
+									<p>
+									<table class="table table-hover table-striped">
+										<thead>
+											<tr class="">
+												<th class=""><%= userView.getFieldLabel(ACTIVITYTRACKER_CLASS, "userBoolean0", app.getCurrentLocaleAsIndex()) %>: <%= projectTracker.getName() != null ? app.getHtmlEncoder().encode(projectTracker.getName(), false) : "?" %></th>
+												<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "activity", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
+												<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "resource", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
 <%
 											row = sheetProject.createRow(nRow++);
 											row = sheetProject.createRow(nRow++);
@@ -3548,23 +3526,25 @@ org.apache.poi.hssf.util.*
 												if (!isWorkRecord && key.compareTo(timeKey) == 0) {continue;}
 												cell = row.createCell(nCell++);	cell.setCellValue(key); cell.setCellStyle(rightAlignStyle);
 %>
-												<td class="smallheaderR"><%= key %></td>
+												<th class=""><%= key %></th>
 <%
 											}
 											if (!isWorkRecord) {
 												cell = row.createCell(nCell++);
 												cell = row.createCell(nCell++); cell.setCellValue(userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "recordType", app.getCurrentLocaleAsIndex()));
 %>
-												<td class="smallheader"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "recordType", app.getCurrentLocaleAsIndex()) %>&nbsp;</td>
+												<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "recordType", app.getCurrentLocaleAsIndex()) %>&nbsp;</th>
 <%
 											} else {
 												cell = row.createCell(nCell++);	cell.setCellValue(userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "rate", app.getCurrentLocaleAsIndex())); cell.setCellStyle(rightAlignStyle);
 %>
-												<td class="smallheaderR"><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "rate", app.getCurrentLocaleAsIndex()) %></td>
+												<th class=""><%= userView.getFieldLabel(WORKANDEXPENSERECORD_CLASS, "rate", app.getCurrentLocaleAsIndex()) %></th>
 <%
 											}
 %>
-										</tr>
+											</tr>
+										</thead>
+										<tbody>
 <%
 										for (Iterator r = reportingLines.values().iterator(); r.hasNext();) {
 												String key = (String)r.next();
@@ -3705,8 +3685,8 @@ org.apache.poi.hssf.util.*
 %>
 											<td class="total"></td>
 										</tr>
+									</tbody>
 									</table>
-									</td></tr></table>
 <!--	end totals per projectReportingLine -->
 <%
 							}

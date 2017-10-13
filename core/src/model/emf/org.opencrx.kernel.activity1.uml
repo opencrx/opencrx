@@ -2125,6 +2125,40 @@
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y3cQkLntEeC7jOJfhKgIeA"/>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_MyZhMBIBEee_O9QR2Jj6hA" name="activityPartyGroup" type="_vb_A0BIAEee_O9QR2Jj6hA" association="_MyavUBIBEee_O9QR2Jj6hA">
+              <eAnnotations xmi:id="_8ugU4BICEee_O9QR2Jj6hA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_9pIxIBICEee_O9QR2Jj6hA" key="list"/>
+              </eAnnotations>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyZhMRIBEee_O9QR2Jj6hA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyZhMhIBEee_O9QR2Jj6hA" value="1"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_g7P-cBIEEee_O9QR2Jj6hA" name="index">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
+              </qualifier>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_4JelIELDEeeJrtoL7PBcrQ" name="validFrom" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5KpuQELDEeeJrtoL7PBcrQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5KpuQULDEeeJrtoL7PBcrQ" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_5Kq8YELDEeeJrtoL7PBcrQ">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_6TLckELDEeeJrtoL7PBcrQ" name="validTo" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6eTugELDEeeJrtoL7PBcrQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6eU8oELDEeeJrtoL7PBcrQ" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_6eWKwELDEeeJrtoL7PBcrQ">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_vcRfQITAEeeKeqBYmTAU7Q" name="description" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vqYMsITAEeeKeqBYmTAU7Q"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vqaB4ITAEeeKeqBYmTAU7Q" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_vqb3EITAEeeKeqBYmTAU7Q">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D424DE2EF015D" name="ActivityIsAssignedToGroup" memberEnd="_3C7B8A60016D424DE2EF03D4 _3C7B8A60016D424DE2F00000">
             <ownedEnd xmi:id="_3C7B8A60016D424DE2F00000" name="groupAssignment" type="_3C7B8A60016D424D8474010E" isUnique="false" association="_3C7B8A60016D424DE2EF015D">
@@ -3102,6 +3136,46 @@
             <ownedEnd xmi:id="_OeiTtHSGEeOFTcUBkaKZGQ" name="activityRelationship" type="_Qw5zMHRrEeOFTcUBkaKZGQ" association="_OeiTs3SGEeOFTcUBkaKZGQ">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OeiTtXSGEeOFTcUBkaKZGQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OeiTtnSGEeOFTcUBkaKZGQ" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_vb_A0BIAEee_O9QR2Jj6hA" name="ActivityPartyGroup">
+            <generalization xmi:id="_Ebv_UBIBEee_O9QR2Jj6hA">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_zPLloBIAEee_O9QR2Jj6hA" name="name" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zZ_ugBIAEee_O9QR2Jj6hA" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zaA8oBIAEee_O9QR2Jj6hA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_zaCKwBIAEee_O9QR2Jj6hA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_z6XQoBIAEee_O9QR2Jj6hA" name="description" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0EXhMBIAEee_O9QR2Jj6hA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0EYvUBIAEee_O9QR2Jj6hA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_0EZWYBIAEee_O9QR2Jj6hA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_MyavUBIBEee_O9QR2Jj6hA" name="ActivityPartyHasActivityPartyGroup" memberEnd="_MyavURIBEee_O9QR2Jj6hA _MyZhMBIBEee_O9QR2Jj6hA">
+            <ownedEnd xmi:id="_MyavURIBEee_O9QR2Jj6hA" name="abstractActivityParty" type="_S0AG0HFfEdqn-eNyJZtHUw" association="_MyavUBIBEee_O9QR2Jj6hA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyavUhIBEee_O9QR2Jj6hA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyavUxIBEee_O9QR2Jj6hA" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_hIGPAxIBEee_O9QR2Jj6hA" name="ActivityContainsActivityPartyGroup" memberEnd="_hIGPBBIBEee_O9QR2Jj6hA _hIGPABIBEee_O9QR2Jj6hA" navigableOwnedEnd="_hIGPBBIBEee_O9QR2Jj6hA">
+            <ownedEnd xmi:id="_hIGPBBIBEee_O9QR2Jj6hA" name="activityPartyGroup" type="_vb_A0BIAEee_O9QR2Jj6hA" aggregation="composite" association="_hIGPAxIBEee_O9QR2Jj6hA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hIGPBRIBEee_O9QR2Jj6hA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hIGPBhIBEee_O9QR2Jj6hA" value="1"/>
+              <qualifier xmi:id="_pvlCMBIBEee_O9QR2Jj6hA" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_hIGPABIBEee_O9QR2Jj6hA" name="activity" type="_3C7B8A60016D3F40064D035D" association="_hIGPAxIBEee_O9QR2Jj6hA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hIGPARIBEee_O9QR2Jj6hA" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hIGPAhIBEee_O9QR2Jj6hA" value="1"/>
             </ownedEnd>
           </packagedElement>
         </packagedElement>

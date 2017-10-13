@@ -365,6 +365,7 @@ public class DoPropfind extends WebDavMethod {
 	                this.writeCollectionType(requestContext, writer, res);
 	                writer.writeElement("DAV::resourcetype", XMLWriter.CLOSING);
 	            }
+	            writeSupportedPrivilegeElements(requestContext, writer, path);
 	            writeSupportedLockElements(requestContext, writer, path);
 	            writeLockDiscoveryElements(requestContext, writer, path, depth);
 	            writer.writeProperty("DAV::source", "");
@@ -492,6 +493,34 @@ public class DoPropfind extends WebDavMethod {
         writer.writeElement("DAV::response", XMLWriter.CLOSING);
     }
 
+    /**
+     * Write supported privilege elements.
+     *
+     * @param requestContext
+     * @param writer
+     * @param path
+     */
+    protected void writeSupportedPrivilegeElements(
+    	RequestContext requestContext,
+    	XMLWriter writer,
+    	String path
+    ) {
+    	writer.writeElement("DAV::current-user-privilege-set", XMLWriter.OPENING);
+    	writer.writeElement("DAV::privilege", XMLWriter.OPENING);
+    	writer.writeElement("DAV::all", XMLWriter.NO_CONTENT);
+    	writer.writeElement("DAV::read", XMLWriter.NO_CONTENT);
+    	writer.writeElement("DAV::write", XMLWriter.NO_CONTENT);
+    	writer.writeElement("DAV::privilege", XMLWriter.CLOSING);
+    	writer.writeElement("DAV::current-user-privilege-set", XMLWriter.CLOSING);
+    }
+
+    /**
+     * Write supported lock elements.
+     *
+     * @param requestContext
+     * @param writer
+     * @param path
+     */
     protected void writeSupportedLockElements(
     	RequestContext requestContext,
         XMLWriter writer, 
@@ -525,8 +554,7 @@ public class DoPropfind extends WebDavMethod {
 
             writer.writeElement("DAV::lockentry", XMLWriter.CLOSING);
 
-        } 
-        else {
+        } else {
         	for(Lock lo: los) {
 	            // LockObject exists, checking lock state
 	            // if an exclusive lock exists, no further lock is possible
@@ -545,6 +573,14 @@ public class DoPropfind extends WebDavMethod {
         writer.writeElement("DAV::supportedlock", XMLWriter.CLOSING);
     }
 
+    /**
+     * Write supported lock discovery elements.
+     * 
+     * @param requestContext
+     * @param writer
+     * @param path
+     * @param _depth
+     */
     protected void writeLockDiscoveryElements(
     	RequestContext requestContext,
         XMLWriter writer, 

@@ -27,7 +27,7 @@ digraph "Diagram Prices [Package org:opencrx:kernel:product1]" {
 	  rank=same;
 	  LAYER1[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:product1:AbstractProduct,compartments=false,width=6]};
-	  ${CLASS[name=org:opencrx:kernel:product1:SalesTaxType,compartments=true,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:product1:SalesTaxType,compartments=false,width=2]};
 	}
 	{
 	  rank=same;
@@ -60,6 +60,7 @@ digraph "Diagram Prices [Package org:opencrx:kernel:product1]" {
 	${ASSOCIATION[name=org:opencrx:kernel:product1:ProductHasAllowedPriceUom,style=invis]}
 	${ASSOCIATION[name=org:opencrx:kernel:product1:PriceLevelIsBasedOn,style=invis]}
 	${ASSOCIATION[name=org:opencrx:kernel:product1:ProductHasDefaultUom,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:product1:SalesTaxTypeHasParent,style=invis]}
 	${ASSOCIATION[name=org:opencrx:kernel:uom1:UomIsBasedOnUom,style=invis]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}

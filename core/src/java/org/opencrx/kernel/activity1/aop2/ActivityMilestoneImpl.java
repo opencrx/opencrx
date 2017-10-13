@@ -53,13 +53,13 @@
 package org.opencrx.kernel.activity1.aop2;
 
 import javax.jdo.listener.DeleteCallback;
+import javax.jdo.listener.StoreCallback;
 
 public class ActivityMilestoneImpl
 	<S extends org.opencrx.kernel.activity1.jmi1.ActivityMilestone,N extends org.opencrx.kernel.activity1.cci2.ActivityMilestone,C extends Void>
 	extends ActivityGroupImpl<S,N,C> 
-	implements DeleteCallback {
+	implements StoreCallback, DeleteCallback {
 
-    //-----------------------------------------------------------------------
     public ActivityMilestoneImpl(
         S same,
         N next
@@ -67,7 +67,15 @@ public class ActivityMilestoneImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see org.opencrx.kernel.activity1.aop2.ActivityGroupImpl#jdoPreStore()
+	 */
+	@Override
+    public void jdoPreStore(
+    ) {
+  		super.jdoPreStore();
+    }
+
     @Override    
 	public void jdoPreDelete(
 	) {

@@ -1,14 +1,14 @@
 /*
  * ====================================================================
  * Project:     openCRX/Core, http://www.opencrx.org/
- * Description: openCRX application plugin
+ * Description: SalesContractCreatorImpl
  * Owner:       CRIXP AG, Switzerland, http://www.crixp.com
  * ====================================================================
  *
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2007, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2017, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -60,11 +60,23 @@ import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
 
 
+/**
+ * SalesContractCreatorImpl
+ *
+ * @param <S>
+ * @param <N>
+ * @param <C>
+ */
 public class SalesContractCreatorImpl
 	<S extends org.opencrx.kernel.contract1.jmi1.SalesContractCreator,N extends org.opencrx.kernel.contract1.cci2.SalesContractCreator,C extends Void>
 	extends ContractCreatorImpl<S,N,C> {
 
-    //-----------------------------------------------------------------------
+    /**
+     * Constructor.
+     * 
+     * @param same
+     * @param next
+     */
     public SalesContractCreatorImpl(
         S same,
         N next
@@ -72,7 +84,12 @@ public class SalesContractCreatorImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Create sales contract.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.contract1.jmi1.CreateContractResult createSalesContract(
         org.opencrx.kernel.contract1.jmi1.CreateSalesContractParams params
     ) {
@@ -86,10 +103,12 @@ public class SalesContractCreatorImpl
                 params.getPriority(),
                 params.getPricingDate(),
                 params.getContractCurrency(),
+                params.getPaymentTerms(),
                 params.getCustomer(),
                 params.getSalesRep(),
                 params.getBroker(),
                 params.getSupplier(),
+                params.getSalesTaxTypeGroup(),
                 params.getBasedOn()
             );
             return Structures.create(

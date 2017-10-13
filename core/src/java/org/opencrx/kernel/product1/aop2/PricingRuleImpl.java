@@ -95,6 +95,7 @@ public class PricingRuleImpl
             GetPriceLevelResult result = Products.getInstance().getPriceLevel(
                 this.sameObject(),
                 params.getContract(),
+                params.getPosition(),
                 params.getProduct(),
                 params.getPriceUom(),
                 params.getQuantity(),
@@ -103,7 +104,7 @@ public class PricingRuleImpl
             return result;
         } catch(ServiceException e) {
             throw new JmiServiceException(e);
-        }             
+        }
     }
     
 }

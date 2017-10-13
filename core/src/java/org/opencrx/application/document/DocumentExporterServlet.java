@@ -370,14 +370,24 @@ public class DocumentExporterServlet extends HttpServlet {
 	    				{providerName + "." + segmentName + "." + OPTION_SYNC_KEY, "0"}
 	            	}
 	            );
-            StringProperty baseDirProperty = ComponentConfigHelper.getComponentConfigProperty(
-            	providerName + "." + segmentName + "." + OPTION_BASE_DIR,
-            	componentConfig
-            );
+            String docDirName = null;
+            if(System.getProperty(DOCDIR_PROPERTY_NAME + "." + providerName) != null) {
+            	docDirName = System.getProperty(DOCDIR_PROPERTY_NAME + "." + providerName);
+            } else if(System.getProperty(DOCDIR_PROPERTY_NAME) != null) {
+                docDirName = System.getProperty(DOCDIR_PROPERTY_NAME);
+            } else {
+                StringProperty docDirProperty = ComponentConfigHelper.getComponentConfigProperty(
+                	providerName + "." + segmentName + "." + OPTION_BASE_DIR,
+                	componentConfig
+                );
+                if(docDirProperty != null) {
+                	docDirName = docDirProperty.getStringValue();
+                }
+            }
             StringProperty syncKeyProperty = ComponentConfigHelper.getComponentConfigProperty(
             	providerName + "." + segmentName + "." + OPTION_SYNC_KEY,
             	componentConfig
-            );            
+            );         
             long newSyncKey = System.currentTimeMillis();
             // Get all folder shares and export documents
             {
@@ -393,7 +403,7 @@ public class DocumentExporterServlet extends HttpServlet {
 	            folderShareQuery.orderByCreatedAt().ascending();
 	            Map<File,DocumentFolderShare> exportedShares = new HashMap<File,DocumentFolderShare>();
 	            for(DocumentFolderShare folderShare: documentSegment.<DocumentFolderShare>getExtent(folderShareQuery)) {
-	            	File baseDir = new File(baseDirProperty.getStringValue() == null || baseDirProperty.getStringValue().isEmpty() ? "./docdir" : baseDirProperty.getStringValue());
+	            	File baseDir = new File(docDirName == null || docDirName.isEmpty() ? "./docdir" : docDirName);
 	            	File hooksDir = new File(baseDir, "hooks");
 	            	DocumentFolder documentFolder = (DocumentFolder)pm.getObjectById(folderShare.refGetPath().getParent().getParent());
 	            	File userDir = new File(baseDir, providerName);
@@ -572,6 +582,7 @@ public class DocumentExporterServlet extends HttpServlet {
     private static final String OPTION_BASE_DIR = "baseDir";
     private static final String OPTION_SYNC_KEY = "syncKey";
     private static final long STARTUP_DELAY = 180000L;
+    private static final String DOCDIR_PROPERTY_NAME = "org.opencrx.docdir";
     
     private PersistenceManagerFactory pmf = null;
     private static final Map<String,Thread> runningSegments = new ConcurrentHashMap<String,Thread>();

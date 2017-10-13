@@ -55,7 +55,7 @@ package org.opencrx.kernel.portal.action;
 import java.util.List;
 import java.util.Map;
 
-import org.opencrx.kernel.backend.Exporter;
+import org.opencrx.kernel.backend.XmlExporter;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.mof.cci.AggregationKind;
 import org.openmdx.base.mof.cci.ModelElement_1_0;
@@ -75,7 +75,7 @@ public class ExportIncludingCompositesAsXmlAction extends ExportObjectsAction {
 		return new ModelBasedGridExporter(
 			grid,
 			selectedObjectIdentities,
-			Exporter.MIME_TYPE_XML,
+			XmlExporter.MIME_TYPE_XML,
 			this.getReferenceFilter(grid),
 			maxItems
 		);

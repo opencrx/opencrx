@@ -67,6 +67,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
@@ -80,6 +81,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jmi.reflect.RefObject;
 import javax.naming.NamingException;
+import javax.resource.cci.MappedRecord;
 
 import org.oasisopen.jmi1.RefContainer;
 import org.opencrx.kernel.account1.jmi1.Account1Package;
@@ -110,6 +112,7 @@ import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.ConfigurableProperty;
 import org.openmdx.base.persistence.cci.UserObjects;
 import org.openmdx.base.rest.spi.ConnectionFactoryAdapter;
+import org.openmdx.base.rest.spi.Object_2Facade;
 import org.openmdx.base.text.conversion.UUIDConversion;
 import org.openmdx.base.transaction.TransactionAttributeType;
 import org.openmdx.kernel.id.UUIDs;
@@ -146,8 +149,29 @@ public abstract class Utils {
      * @throws ServiceException
      */
     public static PersistenceManagerFactory getPersistenceManagerFactory(
-    ) throws NamingException, ServiceException {
-        return JDOHelper.getPersistenceManagerFactory("EntityManagerFactory");
+    ) throws ServiceException {
+    	try {
+    		return JDOHelper.getPersistenceManagerFactory("EntityManagerFactory");
+    	} catch(Exception e) {
+    		throw new ServiceException(e);
+    	}
+    }
+
+    /**
+     * Get persistence manager factory for local access.
+     * 
+     * @return
+     * @throws NamingException
+     * @throws ServiceException
+     */
+    public static PersistenceManagerFactory getPersistenceManagerFactory(
+    	Map<String,Object> overrides
+    ) throws ServiceException {
+    	try {
+    		return JDOHelper.getPersistenceManagerFactory(overrides, "EntityManagerFactory");
+    	} catch(Exception e) {
+    		throw new ServiceException(e);
+    	}
     }
 
     /**
@@ -599,8 +623,6 @@ public abstract class Utils {
         Object v1,
         Object v2
     ) {
-        if(v1 == null) return v2 == null;
-        if(v2 == null) return v1 == null;
         if(
             (v1 instanceof Comparable) && 
             (v2 instanceof Comparable) &&
@@ -608,7 +630,7 @@ public abstract class Utils {
         ) {
             return ((Comparable<Object>)v1).compareTo(v2) == 0;
         }
-        return v1.equals(v2);
+        return Objects.equals(v1,  v2);
     }
 
     /**
@@ -1021,6 +1043,26 @@ public abstract class Utils {
     		s += alphabet.charAt(random.nextInt(62));
     	}
     	return s;
+    }
+
+    /**
+     * Return true if object is instanceof given type.
+     * 
+     * @param object
+     * @param qualifiedTypeName
+     * @return
+     * @throws ServiceException
+     */
+    public static boolean isInstanceOf(
+    	MappedRecord object,
+    	String qualifiedTypeName
+    ) throws ServiceException {
+    	Model_1_0 model = Utils.getModel();
+        String objectClass = Object_2Facade.getObjectClass(object);
+        return model.isSubtypeOf(
+            objectClass,
+            qualifiedTypeName
+        );
     }
 
     //-------------------------------------------------------------------------

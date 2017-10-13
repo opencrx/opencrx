@@ -1,0 +1,126 @@
+---
+title: "Sales Report 2010-01-01 to 2016-06-30"
+author: "www.opencrx.org"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    social: menu
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+require(lubridate)
+library(highcharter)
+library(dplyr)
+library(viridisLite)
+library(forecast)
+library(treemap)
+library(flexdashboard)
+library(RCurl)
+
+thm <- 
+  hc_theme(
+    colors = c("#1a6ecc", "#434348", "#90ed7d"),
+    chart = list(
+      backgroundColor = "transparent",
+      style = list(fontFamily = "Source Sans Pro")
+    ),
+    xAxis = list(
+      gridLineWidth = 1
+    )
+  )
+
+data <- getURL("http://guest:guest@localhost:8080/opencrx-bpi-CRX/org.opencrx.application.bpi1/provider/CRX/segment/Standard/exporter/InvoicePositionExporter/file/data.csv")
+sales = read.csv(text = data, sep = ",")
+sales <- sales[order(sales$invoicedate), ]
+
+```
+
+Column {data-width=1000}
+-----------------------------------------------------------------------
+
+### Sales By Quarter
+
+```{r}
+salesByQuarter <- aggregate(
+  list("salesAmount" = apply(sales[,c("productid","quantity","priceperunit")],1,function(x){as.numeric(x["quantity"]) * as.numeric(x["priceperunit"])})), 
+  by=list("salesDate" = apply(sales[,c("productid","invoicedate")],1,function(x){invoicedate=x["invoicedate"];year=as.numeric(substr(invoicedate,1,4));month=as.numeric(substr(invoicedate,6,7));paste(year, "Q", floor((month - 1) / 3) + 1)})),
+  sum
+)
+
+highchart() %>% 
+  hc_xAxis(categories = salesByQuarter$salesDate) %>%
+  hc_add_series(name = "Sales by Quarter", data = salesByQuarter$salesAmount, type="spline")
+```
+
+### Sales by Region
+
+```{r, fig.keep='none'}
+salesByPostalCode <- aggregate(
+  list("salesAmount" = apply(sales[,c("productid","quantity","priceperunit")],1,function(x){as.numeric(x["quantity"]) * as.numeric(x["priceperunit"])})), 
+  by=list("postalCode" = apply(sales[,c("productid","postalcountry","postalcode")],1,function(x){postalcode=x["postalcode"];if(nchar(postalcode)<3) "00" else substr(postalcode, 1, 2)})), 
+  sum
+)
+
+salesByPostalCodeTm <- treemap(
+  salesByPostalCode, 
+  index = c("postalCode"),
+  vSize = "salesAmount", 
+  vColor = "salesAmount",
+  type = "value", 
+  palette = rev(viridis(6))
+)
+
+highchart() %>% 
+  hc_add_series_treemap(salesByPostalCodeTm, allowDrillToNode = TRUE, layoutAlgorithm = "squarified") %>% 
+  hc_add_theme(thm)
+```
+
+Column {data-width=1000}
+-----------------------------------------------------------------------
+
+### Sales by Product Line
+
+```{r, fig.keep='none'}
+salesByProductLine <- aggregate(
+  list("salesAmount" = apply(sales[,c("productid","quantity","priceperunit")],1,function(x){as.numeric(x["quantity"]) * as.numeric(x["priceperunit"])})), 
+  by=list("productLine" = sales$productline), 
+  sum
+)
+
+salesByProductLineTm <- treemap(
+  salesByProductLine, 
+  index = c("productLine"),
+  vSize = "salesAmount", 
+  vColor = "salesAmount",
+  type = "value", 
+  palette = rev(viridis(6))
+)
+
+highchart() %>% 
+  hc_add_series_treemap(salesByProductLineTm, allowDrillToNode = TRUE, layoutAlgorithm = "squarified") %>% 
+  hc_add_theme(thm)
+```
+
+### Sales by Sales Rep
+
+```{r, fig.keep='none'}
+salesBySalesRep <- aggregate(
+  list("salesAmount" = apply(sales[,c("productid","quantity","priceperunit")],1,function(x){as.numeric(x["quantity"]) * as.numeric(x["priceperunit"])})), 
+  by=list("salesRep" = sales$salesrep), 
+  sum
+)
+
+salesBySalesRepTm <- treemap(
+  salesBySalesRep, 
+  index = c("salesRep"), 
+  vSize = "salesAmount", 
+  vColor = "salesAmount", 
+  type = "value", 
+  palette = rev(viridis(6))
+)
+
+highchart() %>% 
+  hc_add_series_treemap(salesBySalesRepTm, allowDrillToNode = TRUE, layoutAlgorithm = "squarified") %>% 
+  hc_add_theme(thm)
+```

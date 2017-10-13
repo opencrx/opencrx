@@ -175,6 +175,33 @@ public class AccessControl_2 extends AbstractRestPort {
 	public class CachedPrincipal {
 	
 		/**
+		 * Get permissions for given principal.
+		 * 
+		 * @param principal
+		 * @return
+		 */
+		protected Set<String[]> getPermissions(
+			Principal principal
+		) {
+			Set<String[]> permissions = new HashSet<String[]>();
+			List<Role> roles = principal instanceof org.opencrx.security.realm1.jmi1.Principal
+				? ((org.opencrx.security.realm1.jmi1.Principal)principal).<Role>getGrantedRole()
+				: principal instanceof org.opencrx.security.realm1.jmi1.PrincipalGroup 
+					? ((org.opencrx.security.realm1.jmi1.PrincipalGroup)principal).<Role>getGrantedRole()
+					: Collections.<Role>emptyList();
+			for(Role role: roles) {
+				for(Permission permission: role.<Permission>getPermission()) {
+					for(String action: permission.getAction()) {
+						permissions.add(
+							new String[]{permission.getName(), action}
+						);
+					}
+				}
+			}
+			return permissions;
+		}
+
+		/**
 		 * Constructor.
 		 * 
 		 * @param realm
@@ -185,7 +212,6 @@ public class AccessControl_2 extends AbstractRestPort {
 		public CachedPrincipal(
 			DefaultRealm realm,
 			Principal principal,
-			Set<String> allSupergroups,
 			long expiresAt
 		) {
 			this.realm = realm;
@@ -207,24 +233,42 @@ public class AccessControl_2 extends AbstractRestPort {
 					e0.log();
 				}
 			}
-			this.permissions = new HashSet<String[]>();
-			if(principal instanceof org.opencrx.security.realm1.jmi1.Principal) {
-				List<Role> roles = ((org.opencrx.security.realm1.jmi1.Principal)principal).getGrantedRole();
-				for(Role role: roles) {
-					Collection<Permission> permissions = role.getPermission();
-					for(Permission permission: permissions) {
-						for(String action: permission.getAction()) {
-							this.permissions.add(
-								new String[]{permission.getName(), action}
-							);
-						}
-					}
-				}
-			}
+			PersistenceManager pm = JDOHelper.getPersistenceManager(principal);
+            Set<String> allSupergroups = new HashSet<String>();
+            allSupergroups.add(
+            	AccessControl_2.this.getQualifiedPrincipalName(principal.refGetPath())
+            );
+			Set<String[]> permissions = new HashSet<String[]>();
+			permissions.addAll(this.getPermissions(principal));
+            List<Group> supergroups = principal.getIsMemberOf();
+            for(Iterator<Group> i = supergroups.iterator(); i.hasNext(); ) {
+            	try {
+            		Group supergroup = i.next();
+                	String qualifiedGroupName = AccessControl_2.this.getQualifiedPrincipalName(
+                		supergroup.refGetPath()
+                	);
+                	if(!allSupergroups.contains(qualifiedGroupName)) {
+	                	allSupergroups.addAll(
+	                		realm.getPrincipal(qualifiedGroupName, pm).getAllSupergroups()
+	                	);
+                	}
+                	permissions.addAll(this.getPermissions(supergroup));
+            	} catch(Exception e) {
+					ServiceException e0 = new ServiceException(
+						e,
+						OpenCrxException.DOMAIN,
+						BasicException.Code.GENERIC,
+						"Unable to principal's group membership",
+						new BasicException.Parameter("principal", principal.refGetPath())
+					);
+					e0.log();
+            	}
+            }
+            this.permissions = permissions;
 			this.allSupergroups = allSupergroups;
 			this.expiresAt = expiresAt;
 		}
-		
+
 		public Path getIdentity(
 		) {
 			return this.principalIdentity;
@@ -372,37 +416,11 @@ public class AccessControl_2 extends AbstractRestPort {
                     principal = (Principal)pm.getObjectById(
                         this.realmIdentity.getDescendant(new String[]{"principal", principalName})
                     );
-                    Set<String> allSupergroups = new HashSet<String>();
-                    allSupergroups.add(AccessControl_2.this.getQualifiedPrincipalName(principal.refGetPath()));
-                    List<Group> supergroups = principal.getIsMemberOf();
-                    for(Iterator<Group> i = supergroups.iterator(); i.hasNext(); ) {
-                    	try {
-                    		Group supergroup = i.next();
-    	                	String qualifiedGroupName = AccessControl_2.this.getQualifiedPrincipalName(
-    	                		supergroup.refGetPath()
-    	                	);
-    	                	if(!allSupergroups.contains(qualifiedGroupName)) {
-    		                	allSupergroups.addAll(
-    		                		this.getPrincipal(qualifiedGroupName, pm).getAllSupergroups()
-    		                	);
-    	                	}
-                    	} catch(Exception e) {
-        					ServiceException e0 = new ServiceException(
-        						e,
-        						OpenCrxException.DOMAIN,
-        						BasicException.Code.GENERIC,
-        						"Unable to principal's group membership",
-        						new BasicException.Parameter("principal", principal.refGetPath())
-        					);
-        					e0.log();
-                    	}
-                    }
                     this.cachedPrincipals.put(
                         principalName,
                         cachedPrincipal = new CachedPrincipal(
                         	this,
                         	principal,
-                        	allSupergroups,
                         	System.currentTimeMillis() + this.cachedPrincipalsTTL
                         )
                     );

@@ -26,44 +26,39 @@ digraph "Diagram Workflow [Package org:opencrx:kernel:home1]" {
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:home1:WfProcessInstance,compartments=true,width=16]};
+	  ${CLASS[name=org:opencrx:kernel:home1:WfProcessInstance,compartments=true,width=10]};
+	  ${CLASS[name=org:opencrx:kernel:home1:Subscription,compartments=true,width=8]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:home1:Subscription,compartments=true,width=8]};
 	  ${CLASS[name=org:opencrx:kernel:workflow1:WfProcess,compartments=true,fillcolor="#FFBD9D",width=4]};
 	  ${CLASS[name=org:opencrx:kernel:home1:WfActionLogEntry,compartments=true,width=4]};
-	  ${CLASS[name=org:opencrx:kernel:home1:WfProcessInstanceParameter,compartments=true,width=4]};
 	}
 	{
 	  rank=same;
 	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:home1:WfProcessInstanceParameter,compartments=true,width=12]};
+	  ${CLASS[name=org:opencrx:kernel:base:Subscription,compartments=true,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:workflow1:Topic,compartments=false,fillcolor="#FFBD9D",width=5]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:home1:WfStringParameter,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:home1:WfIntegerParameter,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:home1:WfBooleanParameter,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:home1:WfDecimalParameter,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:home1:WfUriParameter,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:home1:WfReferenceParameter,compartments=true]};
-	  ${CLASS[name=org:opencrx:kernel:base:Subscription,compartments=true,fillcolor="#FFBD9D"]};
-	}
-	{
-	  rank=same;
-	  LAYER4[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:workflow1:Topic,compartments=false,fillcolor="#FFBD9D",width=3]};
-	}
-	{
-	  rank=same;
-	  LAYER5[style=invis];
-	  ${CLASS[name=org:openmdx:base:BasicObject,compartments=false,fillcolor="#FFBD9D",width=12]};
 	}
 
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
 	LAYER2->LAYER3[style=invis];
 	LAYER3->LAYER4[style=invis];
-	LAYER4->LAYER5[style=invis];
 
+	${ASSOCIATION[name=org:opencrx:kernel:workflow1:OnMessagePerformsAction,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:home1:WfProcessInstanceHasActionLogEntry,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:home1:UserHomeContainsWfProcessInstance,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:home1:LogEntryCorrelatesWithObject,minlen=3]}

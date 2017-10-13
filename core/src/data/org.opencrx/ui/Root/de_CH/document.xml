@@ -59,7 +59,19 @@
 										</_content>
                   </org.openmdx.ui1.ElementDefinition>
 
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:documentSchema" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Dokumentschemata</_item>
+											</toolTip>
+											<label>
+												<_item>Dokumentschemata</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Ordnerfreigaben</_item>
@@ -649,6 +661,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentSchema" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Dokumentschema</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Dokumentschema</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:searchText" _operation="create">
                     <_object>
                       <label>
@@ -760,6 +783,62 @@
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Dokumentschema</_item>
+											</toolTip>
+											<label>
+												<_item>Dokumentschema</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:schema" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Schema</_item>
+											</toolTip>
+											<label>
+												<_item>Schema</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:schemaType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Schematyp</_item>
+											</toolTip>
+											<label>
+												<_item>Schematyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:FolderAssignment">
 										<_object>
 											<toolTip>
@@ -1237,6 +1316,61 @@
 									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:Pane:Op:Tab:validateSchema">
+										<_object>
+											<toolTip>
+												<_item>Schema validieren</_item>
+											</toolTip>
+											<label>
+												<_item>Schema validieren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:Pane:Op:Tab:validateSchema:Group:in">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:Pane:Op:Tab:validateSchema:Group:result">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ValidateSchemaResult:statusCode">
+										<_object>
+											<toolTip>
+												<_item>Statusode</_item>
+											</toolTip>
+											<label>
+												<_item>Statuscode</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ValidateSchemaResult:statusMessage">
+										<_object>
+											<toolTip>
+												<_item>Statusmeldung</_item>
+											</toolTip>
+											<label>
+												<_item>Statusmeldung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:createDefaultShare">
 										<_object>
 											<toolTip>

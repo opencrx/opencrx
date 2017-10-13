@@ -142,12 +142,12 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
     		UserHome userHome = (UserHome)pm.getObjectById(
     			syncProfile.refGetPath().getParent().getParent()
     		);
-    		String providerName = userHome.refGetPath().get(2);
-    		String segmentName = userHome.refGetPath().get(4);
+    		String providerName = userHome.refGetPath().getSegment(2).toClassicRepresentation();
+    		String segmentName = userHome.refGetPath().getSegment(4).toClassicRepresentation();
 			if(property.indexOf("current-user-principal") > 0) {
                 writer.writeElement("DAV::principal-URL", XMLWriter.OPENING);
                 writer.writeElement("DAV::href", XMLWriter.OPENING);
-                writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getBase() + "/profile/" + syncProfile.getName(), true)));
+                writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true)));
                 writer.writeElement("DAV::href", XMLWriter.CLOSING);
                 writer.writeElement("DAV::principal-URL", XMLWriter.CLOSING);
                 return true;
@@ -161,7 +161,7 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
         			: emailAccounts.iterator().next();
 	            writer.writeElement("urn:ietf:params:xml:ns:caldav:calendar-user-address-set", XMLWriter.OPENING);
 	            writer.writeElement("DAV::href", XMLWriter.OPENING);
-	            writer.writeData("mailto:" + (defaultEMailAccount == null ? userHome.refGetPath().getBase() + "@" + req.getServerName() : defaultEMailAccount.getName()));
+	            writer.writeData("mailto:" + (defaultEMailAccount == null ? userHome.refGetPath().getLastSegment() + "@" + req.getServerName() : defaultEMailAccount.getName()));
 	            writer.writeElement("DAV::href", XMLWriter.CLOSING);
 	            writer.writeElement("DAV::href", XMLWriter.OPENING);
 	            writer.writeText(this.encodeURL(resp, this.getHRef(req, req.getServletPath(), true)));
@@ -171,14 +171,14 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 			} else if(property.indexOf("calendar-home-set") > 0) {
 	            writer.writeElement("urn:ietf:params:xml:ns:caldav:calendar-home-set", XMLWriter.OPENING);
 	            writer.writeElement("DAV::href", XMLWriter.OPENING);
-	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/" + userHome.refGetPath().getBase() + "/" + res.getName(), true)));
+	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/" + userHome.refGetPath().getLastSegment() + "/" + res.getName(), true)));
 	            writer.writeElement("DAV::href", XMLWriter.CLOSING);
 	            writer.writeElement("urn:ietf:params:xml:ns:caldav:calendar-home-set", XMLWriter.CLOSING);
 	            return true;
 			} else if(property.indexOf("principal-URL") > 0) {
 	            writer.writeElement("DAV::principal-URL", XMLWriter.OPENING);
 	            writer.writeElement("DAV::href", XMLWriter.OPENING);
-	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getBase() + "/profile/" + syncProfile.getName(), true)));
+	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true)));
 	            writer.writeElement("DAV::href", XMLWriter.CLOSING);
 	            writer.writeElement("DAV::principal-URL", XMLWriter.CLOSING);
 	            return true;				
@@ -204,6 +204,20 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 					writer.writeElement("http://apple.com/ns/ical/:calendar-color", XMLWriter.CLOSING);
 					return true;
 				}
+			} else if(property.indexOf("current-user-privilege-set") > 0) {
+				writer.writeElement("DAV::current-user-privilege-set", XMLWriter.OPENING);
+				writer.writeElement("DAV::privilege", XMLWriter.OPENING);
+				if(
+					Boolean.TRUE.equals(activityCollectionResource.allowAddDelete()) &&
+					Boolean.TRUE.equals(activityCollectionResource.allowChange())
+				) {
+					writer.writeElement("DAV::all", XMLWriter.NO_CONTENT);
+				} else {
+					writer.writeElement("DAV::read", XMLWriter.NO_CONTENT);
+				}
+				writer.writeElement("DAV::privilege", XMLWriter.CLOSING);
+				writer.writeElement("DAV::current-user-privilege-set", XMLWriter.CLOSING);
+				return true;
 			} else if(property.indexOf("supported-calendar-component-set") > 0) {
 				writer.writeElement("urn:ietf:params:xml:ns:caldav:supported-calendar-component-set", XMLWriter.OPENING);
 				if(activityCollectionResource.getType() == ActivityCollectionResource.Type.VEVENT) {

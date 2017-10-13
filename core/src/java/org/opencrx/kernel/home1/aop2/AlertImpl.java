@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2007, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2017, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -52,6 +52,9 @@
  */
 package org.opencrx.kernel.home1.aop2;
 
+import javax.jdo.JDOUserException;
+import javax.jdo.listener.StoreCallback;
+
 import org.opencrx.kernel.backend.UserHomes;
 import org.openmdx.base.accessor.jmi.cci.JmiServiceException;
 import org.openmdx.base.aop2.AbstractObject;
@@ -59,9 +62,9 @@ import org.openmdx.base.exception.ServiceException;
 
 public class AlertImpl
 	<S extends org.opencrx.kernel.home1.jmi1.Alert,N extends org.opencrx.kernel.home1.cci2.Alert,C extends Void>
-	extends AbstractObject<S,N,C> {
+	extends AbstractObject<S,N,C>
+	implements StoreCallback {
 
-    //-----------------------------------------------------------------------
     public AlertImpl(
         S same,
         N next
@@ -69,7 +72,11 @@ public class AlertImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Mark alert as accepted.
+     * 
+     * @return
+     */
     public org.openmdx.base.jmi1.Void markAsAccepted(
     ) {
         try {       
@@ -77,13 +84,16 @@ public class AlertImpl
                 this.sameObject()
             );
             return super.newVoid();
-        }
-        catch(ServiceException e) {
+        } catch(ServiceException e) {
             throw new JmiServiceException(e);
         }                        
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Mark alert as read.
+     * 
+     * @return
+     */
     public org.openmdx.base.jmi1.Void markAsRead(
     ) {
         try {        
@@ -91,10 +101,29 @@ public class AlertImpl
                 this.sameObject()
             );
             return super.newVoid();
-        }
-        catch(ServiceException e) {
+        } catch(ServiceException e) {
             throw new JmiServiceException(e);
         }                        
+    }
+        
+	/* (non-Javadoc)
+	 * @see org.openmdx.base.aop2.AbstractObject#jdoPreStore()
+	 */
+	@Override
+    public void jdoPreStore(
+    ) {
+    	try {
+    		UserHomes.getInstance().preStore(
+    			this.sameObject() 
+    		);
+    		super.jdoPreStore();
+    	} catch(ServiceException e) {
+    		throw new JDOUserException(
+    			"jdoPreStore failed",
+    			e,
+    			this.sameObject()
+    		);
+    	}
     }
         
 }

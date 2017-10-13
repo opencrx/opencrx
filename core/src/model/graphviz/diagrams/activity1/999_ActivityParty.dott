@@ -1,4 +1,4 @@
-digraph "Diagram ActivityMilestone [Package org:opencrx:kernel:activity1]" {
+digraph "Diagram ActivityParty [Package org:opencrx:kernel:activity1]" {
 
 	graph[
 	  splines=ortho;
@@ -21,16 +21,24 @@ digraph "Diagram ActivityMilestone [Package org:opencrx:kernel:activity1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractActivityParty,compartments=true,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:Activity,compartments=false,width=4]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};	  
+	  ${CLASS[name=org:opencrx:kernel:activity1:ActivityPartyGroup,compartments=false,width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractActivityParty,compartments=true,width=4]};
 	}
 	
 	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
 	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityContainsActivityPartyGroup,minlen=3]}	
+	${ASSOCIATION[name=org:opencrx:kernel:activity1:ActivityPartyHasActivityPartyGroup,minlen=3]}	
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
 

@@ -306,6 +306,12 @@ public class DbSchemaUtils {
 				else if(targetDatabaseName.indexOf("HSQL") >=0) {
 					if(replaceObject) {
 						command = command.replace("CREATE VIEW ", "ALTER VIEW ");
+						// View specification for ALTER VIEW does not work since 2.4.0
+						int pos1 = command.indexOf("(");
+						if(pos1 > 0) {
+							int pos2 = command.indexOf(")", pos1);
+							command = command.substring(0,  pos1) + command.substring(pos2 + 1);
+						}
 					}
 				}
 				// MySQL
@@ -376,8 +382,8 @@ public class DbSchemaUtils {
 			command = command.replace("\"ACTION\"", "ACTION");
 			command = command.replace("\"TEXT\"", "TEXT");
 		}
-		// PostgreSQL
 		if(targetDatabaseName.indexOf("PostgreSQL") >=0) {
+			// PostgreSQL
 			command = command.replace(" TIMESTAMP", " TIMESTAMP WITH TIME ZONE");
 			command = command.replace(" CLOB,", " TEXT,");
 			command = command.replace(" VARBINARY,", " BYTEA,");
@@ -386,12 +392,22 @@ public class DbSchemaUtils {
 			command = command.replace("'\\'", "E'\\\\'");
 			command = command.replace("'AS DTYPE", "'::text AS DTYPE");
 			command = command.replace(" CHAR(", " CHR(");
-		}
-		// HSQLDB
-		else if(targetDatabaseName.indexOf("HSQL") >=0) {
-		}		
-		// MySQL
-		else if(targetDatabaseName.indexOf("MySQL") >=0) {
+			while(command.indexOf("ROW_NUMBER()OVER()") > 0) {
+				int pos = command.indexOf("ROW_NUMBER()OVER()");
+				// Get next ORDER BY and use it as OVER() argument
+				int posOrderBy1 = command.indexOf("ORDER BY", pos);
+				int posOrderBy2 = command.indexOf(")", posOrderBy1);
+				String orderBy = command.substring(posOrderBy1, posOrderBy2);
+				command =
+					command.substring(0, pos) +
+					"ROW_NUMBER()OVER(" + orderBy + ")" +
+					command.substring(pos + 18, posOrderBy1) +
+					command.substring(posOrderBy2);
+			}
+		} else if(targetDatabaseName.indexOf("HSQL") >=0) {
+			// HSQLDB
+		} else if(targetDatabaseName.indexOf("MySQL") >=0) {
+			// MySQL
 			command = command.replace(" TIMESTAMP", " DATETIME");					
 			command = command.replace(" BOOLEAN,", " BIT,");
 			command = command.replace(" CLOB,", " LONGTEXT,");
@@ -400,9 +416,8 @@ public class DbSchemaUtils {
 			command = command.replace(" CLOB)", " LONGTEXT)");
 			command = command.replace(" VARBINARY)", " BLOB)");
 			command = command.replace("'\\'", "'\\\\'");
-		}
-		// DB2		
-		else if(targetDatabaseName.indexOf("DB2") >=0) {
+		} else if(targetDatabaseName.indexOf("DB2") >=0) {
+			// DB2		
 			command = command.replace(" BOOLEAN,", " SMALLINT,");
 			command = command.replace(" VARBINARY,", " BLOB,");
 			command = command.replace(" BOOLEAN)", " SMALLINT)");
@@ -410,9 +425,8 @@ public class DbSchemaUtils {
 			command = command.replace("SUBSTRING(", "SUBSTR(");
 			command = command.replace(" CHAR(", "CHR(");					
 			command = command.replace(" WITH RECURSIVE", " WITH");
-		}
-		// Oracle
-		else if(targetDatabaseName.indexOf("Oracle") >=0) {
+		} else if(targetDatabaseName.indexOf("Oracle") >=0) {
+			// Oracle
 			command = command.replace(" VARCHAR(", " VARCHAR2(");
 			command = command.replace(" SMALLINT,", " NUMBER,");
 			command = command.replace(" BOOLEAN,", " NUMBER,");					
@@ -430,22 +444,34 @@ public class DbSchemaUtils {
 			command = command.replace("SUBSTRING(", "SUBSTR(");
 			command = command.replace(" CHAR(", "CHR(");						
 			command = command.replace(" WITH RECURSIVE", " WITH");
-		}		
-		// Microsoft
-		else if(targetDatabaseName.indexOf("Microsoft") >=0) {
+		} else if(targetDatabaseName.indexOf("Microsoft") >=0) {
+			// Microsoft
 			command = command.replace("||", "+");
+			command = command.replace(" VARCHAR(", " NVARCHAR(");
 			command = command.replace(" DATE,", " DATETIME,");					
 			command = command.replace(" TIMESTAMP", " DATETIME");					
 			command = command.replace(" BOOLEAN,", " BIT,");
 			command = command.replace(" CLOB,", " NTEXT,");
 			command = command.replace(" VARBINARY,", " IMAGE,");					
-			command = command.replace(" DATE)", " DATETIME)");					
+			command = command.replace(" DATE)", " DATETIME)");			
 			command = command.replace(" BOOLEAN)", " BIT)");
 			command = command.replace(" CLOB)", " NTEXT)");
 			command = command.replace(" VARBINARY)", " IMAGE)");
 			command = command.replace(" WITH RECURSIVE", " WITH");
 			command = command.replace("(ASS0.OBJECT_ID)+'*+1'", " CAST(ASS0.OBJECT_ID+'*+1' AS VARCHAR)");
 			command = command.replace("(ASS1.OBJECT_ID)+'*+'+(TEMP.DISTANCE+1)", " CAST(ASS1.OBJECT_ID+'*+'+(TEMP.DISTANCE+1) AS VARCHAR)");
+			while(command.indexOf("ROW_NUMBER()OVER()") > 0) {
+				int pos = command.indexOf("ROW_NUMBER()OVER()");
+				// Get next ORDER BY and use it as OVER() argument				
+				int posOrderBy1 = command.indexOf("ORDER BY", pos);
+				int posOrderBy2 = command.indexOf(")", posOrderBy1);
+				String orderBy = command.substring(posOrderBy1, posOrderBy2);
+				command =
+					command.substring(0, pos) +
+					"ROW_NUMBER()OVER(" + orderBy + ")" +
+					command.substring(pos + 18, posOrderBy1) +
+					command.substring(posOrderBy2);
+			}
 		}
 		return command;
 	}
@@ -1180,6 +1206,16 @@ public class DbSchemaUtils {
 					"  r.OVERTIME_RATE IS NOT NULL"
 				)
 			),
+			new MigrationDefinition(
+				"4.0 -> 4.1",
+				"SELECT QUICK_ACCESS_STATUS FROM OOCKE1_QUICKACCESS WHERE 1=0",
+				Arrays.asList(
+					"UPDATE OOCKE1_QUICKACCESS SET QUICK_ACCESS_STATUS = 0 WHERE QUICK_ACCESS_STATUS IS NULL",
+					"UPDATE OOCKE1_ACCESSHISTORY SET ACCESS_HISTORY_STATUS = 0 WHERE ACCESS_HISTORY_STATUS IS NULL",
+					"UPDATE OOCKE1_CONTRACT SET FREIGHT_TERMS = 0 WHERE FREIGHT_TERMS IS NULL AND DTYPE IN ('org:opencrx:kernel:contract1:Lead','org:opencrx:kernel:contract1:Opportunity','org:opencrx:kernel:contract1:Quote','org:opencrx:kernel:contract1:SalesOrder','org:opencrx:kernel:contract1:Invoice')",
+					"UPDATE OOCKE1_CONTRACT SET SUBMIT_STATUS = 0 WHERE SUBMIT_STATUS IS NULL AND DTYPE IN ('org:opencrx:kernel:contract1:Lead','org:opencrx:kernel:contract1:Opportunity','org:opencrx:kernel:contract1:Quote','org:opencrx:kernel:contract1:SalesOrder','org:opencrx:kernel:contract1:Invoice')"
+				)
+			),	
 		};
 		String targetDatabaseName = "";
 		try {
@@ -1560,6 +1596,7 @@ public class DbSchemaUtils {
 						message.indexOf("Duplicate key name") >= 0 || // MySQL
 						message.indexOf("ORA-01408") >= 0 || // Oracle
 						message.indexOf("ORA-00955") >= 0 || // Oracle
+						errorCode == 0 || // PostgreSQL
 						errorCode == 1913; // SQL Server
 					if(alreadyExists) {
 						if(!fix) {
@@ -1606,10 +1643,7 @@ public class DbSchemaUtils {
 			for(String sequenceName: sequenceNames) {
 				String statement = getObjectDefinition(CREATE_SEQUENCE_PREFIX, sequenceName, schema, databaseProductName, false);
 				PreparedStatement psT = null;
-				if(
-					databaseProductName.indexOf("Microsoft") >= 0 ||
-					databaseProductName.indexOf("MySQL") >= 0
-				) {
+				if(databaseProductName.indexOf("MySQL") >= 0) {
 					statement = "SELECT * FROM " + sequenceName + " WHERE 1=0";
 					try {
 						psT = connT.prepareStatement(statement);
@@ -1654,7 +1688,9 @@ public class DbSchemaUtils {
 							message.indexOf("ORA-01408") >= 0 ||
 							message.indexOf("ORA-00955") >= 0 ||
 							message.indexOf("SQLSTATE=42710") >= 0 ||
-							errorCode == 99999;
+							message.indexOf("errorCode=2714") >= 0 ||
+							errorCode == 99999 ||
+							errorCode == 2714;
 						if(alreadyExists) {
 							if(!fix) {
 								report.add("OK: Sequence " + sequenceName);

@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2013, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2017, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -137,12 +137,12 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
     		UserHome userHome = (UserHome)pm.getObjectById(
     			syncProfile.refGetPath().getParent().getParent()
     		);
-    		String providerName = userHome.refGetPath().get(2);
-    		String segmentName = userHome.refGetPath().get(4);
+    		String providerName = userHome.refGetPath().getSegment(2).toClassicRepresentation();
+    		String segmentName = userHome.refGetPath().getSegment(4).toClassicRepresentation();
 			if(property.indexOf("current-user-principal") > 0) {
                 writer.writeElement("DAV::principal-URL", XMLWriter.OPENING);
                 writer.writeElement("DAV::href", XMLWriter.OPENING);
-                writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getBase() + "/profile/" + syncProfile.getName(), true)));
+                writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true)));
                 writer.writeElement("DAV::href", XMLWriter.CLOSING);
                 writer.writeElement("DAV::principal-URL", XMLWriter.CLOSING);
                 return true;
@@ -156,14 +156,14 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 			} else if(property.indexOf("addressbook-home-set") > 0) {
 	            writer.writeElement("urn:ietf:params:xml:ns:carddav:addressbook-home-set", XMLWriter.OPENING);
 	            writer.writeElement("DAV::href", XMLWriter.OPENING);
-	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/" + userHome.refGetPath().getBase() + "/" + res.getName(), true)));
+	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/" + userHome.refGetPath().getLastSegment() + "/" + res.getName(), true)));
 	            writer.writeElement("DAV::href", XMLWriter.CLOSING);
 	            writer.writeElement("urn:ietf:params:xml:ns:carddav:addressbook-home-set", XMLWriter.CLOSING);
 	            return true;
 			} else if(property.indexOf("principal-URL") > 0) {
 	            writer.writeElement("DAV::principal-URL", XMLWriter.OPENING);
 	            writer.writeElement("DAV::href", XMLWriter.OPENING);
-	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getBase() + "/profile/" + syncProfile.getName(), true)));
+	            writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true)));
 	            writer.writeElement("DAV::href", XMLWriter.CLOSING);
 	            writer.writeElement("DAV::principal-URL", XMLWriter.CLOSING);
 	            return true;				
@@ -172,6 +172,7 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 				return false;
 			}
 		} else if(res instanceof AccountCollectionResource) {
+			AccountCollectionResource accountCollectionResource = (AccountCollectionResource)res;
 			if(property.indexOf("addressbook-description") > 0) {
 				writer.writeElement("urn:ietf:params:xml:ns:carddav:addressbook-description", XMLWriter.OPENING);
 	            writer.writeData(res.getDisplayName());				
@@ -186,6 +187,20 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 				writer.writeElement("http://calendarserver.org/ns/:getctag", XMLWriter.OPENING);
 	            writer.writeText(Long.toString(System.currentTimeMillis()));				
 				writer.writeElement("http://calendarserver.org/ns/:getctag", XMLWriter.CLOSING);				
+				return true;
+			} else if(property.indexOf("current-user-privilege-set") > 0) {
+				writer.writeElement("DAV::current-user-privilege-set", XMLWriter.OPENING);
+				writer.writeElement("DAV::privilege", XMLWriter.OPENING);
+				if(
+					Boolean.TRUE.equals(accountCollectionResource.getObject().isAllowAddDelete()) &&
+					Boolean.TRUE.equals(accountCollectionResource.getObject().isAllowChange())
+				) {
+					writer.writeElement("DAV::all", XMLWriter.NO_CONTENT);
+				} else {
+					writer.writeElement("DAV::read", XMLWriter.NO_CONTENT);
+				}
+				writer.writeElement("DAV::privilege", XMLWriter.CLOSING);
+				writer.writeElement("DAV::current-user-privilege-set", XMLWriter.CLOSING);
 				return true;
 			} else {
 				return false;

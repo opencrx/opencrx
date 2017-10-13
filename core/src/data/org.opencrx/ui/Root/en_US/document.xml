@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
-	<_object/>
+	<_object />
 	<_content>
 		<provider>
 			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
-				<_object/>
+				<_object />
 				<_content>
 					<segment>
 						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
-							<_object/>
+							<_object />
 							<_content>
 								<elementDefinition>
-									<!--Segment Definitions-->
+									<!--Segment Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment">
 										<_object>
 											<active>true</active>
@@ -29,9 +29,9 @@
 											</order>
 											<iconKey>org:opencrx:kernel:document1:Document</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<!--Pane1 Tab Definitions-->
+									<!--Pane1 Tab Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:folder">
 										<_object>
 											<active>true</active>
@@ -48,7 +48,7 @@
 											</order>
 											<maxMember>3</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:document">
 										<_object>
@@ -82,16 +82,34 @@
 															<_item>0</_item>
 															<_item>20</_item>
 														</order>
-                            <maxMember>20</maxMember>
-                            <showMaxMember>8</showMaxMember>
+														<maxMember>20</maxMember>
+														<showMaxMember>8</showMaxMember>
 													</_object>
-													<_content/>
+													<_content />
 												</org.openmdx.ui1.AdditionalElementDefinition>
 											</additionalElementDefinition>
 										</_content>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Segment:documentSchema">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Document Schemas</_item>
+											</toolTip>
+											<label>
+												<_item>Document Schemas</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  DocumentFolderShare -->
+									<!-- DocumentFolderShare -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare">
 										<_object>
@@ -104,11 +122,11 @@
 											</label>
 											<iconKey>DocumentFolderShare</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:name">
 										<_object>
 											<active>true</active>
@@ -124,7 +142,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:description">
 										<_object>
@@ -141,7 +159,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:isActive">
 										<_object>
@@ -159,7 +177,7 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderShare:shareForUser">
 										<_object>
@@ -176,10 +194,10 @@
 												<_item>90</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  DocumentFolder -->
+									<!-- DocumentFolder -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder">
 										<_object>
@@ -192,7 +210,7 @@
 											</label>
 											<iconKey>DocumentFolder</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:subFolder">
@@ -211,7 +229,7 @@
 											</order>
 											<maxMember>3</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:folderShare">
 										<_object>
@@ -229,7 +247,7 @@
 											</order>
 											<maxMember>4</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:propertySet">
 										<_object>
@@ -248,7 +266,7 @@
 											</order>
 											<maxMember>2</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:folderEntry">
 										<_object>
@@ -283,13 +301,13 @@
 														</order>
 														<maxMember>6</maxMember>
 													</_object>
-													<_content/>
+													<_content />
 												</org.openmdx.ui1.AdditionalElementDefinition>
 											</additionalElementDefinition>
 										</_content>
 									</org.openmdx.ui1.ElementDefinition>
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:name">
 										<_object>
 											<active>true</active>
@@ -305,7 +323,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:description">
 										<_object>
@@ -322,7 +340,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:parent">
 										<_object>
@@ -340,7 +358,7 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:disabled">
 										<_object>
@@ -357,10 +375,10 @@
 												<_item>100</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  DocumentFolderEntry -->
+									<!-- DocumentFolderEntry -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry">
 										<_object>
@@ -374,7 +392,7 @@
 											</label>
 											<iconKey>DocumentFolderEntry</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:AssignmentBasedFolderEntry">
 										<_object>
@@ -388,7 +406,7 @@
 											</label>
 											<iconKey>AssignmentBasedFolderEntry</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentBasedFolderEntry">
 										<_object>
@@ -402,11 +420,11 @@
 											</label>
 											<iconKey>DocumentBasedFolderEntry</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:document">
 										<_object>
 											<active>true</active>
@@ -424,7 +442,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:name">
 										<_object>
@@ -441,7 +459,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:description">
 										<_object>
@@ -458,7 +476,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:assignmentRole">
 										<_object>
@@ -475,43 +493,43 @@
 												<_item>30</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:validFrom">
-                    <_object>
-                      <columnBreak>true</columnBreak>
-                      <active>true</active>
-                      <toolTip>
-                        <_item>Valid from</_item>
-                      </toolTip>
-                      <label>
-                        <_item>Valid from</_item>
-                      </label>
-                      <order>
-                        <_item>0</_item>
-                        <_item>10</_item>
-                        <_item>80</_item>
-                      </order>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:validTo">
-                    <_object>
-                      <active>true</active>
-                      <toolTip>
-                        <_item>Valid to</_item>
-                      </toolTip>
-                      <label>
-                        <_item>Valid to</_item>
-                      </label>
-                      <order>
-                        <_item>0</_item>
-                        <_item>10</_item>
-                        <_item>90</_item>
-                      </order>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:validFrom">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:validTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:basedOn">
 										<_object>
 											<active>true</active>
@@ -527,7 +545,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderEntry:disabled">
 										<_object>
@@ -544,10 +562,10 @@
 												<_item>100</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  Document -->
+									<!-- Document -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document">
 										<_object>
@@ -560,7 +578,7 @@
 											</label>
 											<iconKey>Document</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:folder">
@@ -579,7 +597,7 @@
 											</order>
 											<maxMember>3</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentReference">
 										<_object>
@@ -597,7 +615,7 @@
 											</order>
 											<maxMember>4</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentFolderAssignment">
 										<_object>
@@ -615,7 +633,7 @@
 											</order>
 											<maxMember>5</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:revision">
 										<_object>
@@ -633,7 +651,7 @@
 											</order>
 											<maxMember>10</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:propertySet">
 										<_object>
@@ -652,7 +670,7 @@
 											</order>
 											<maxMember>2</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:link">
 										<_object>
@@ -670,7 +688,7 @@
 											</order>
 											<maxMember>3</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:lock">
 										<_object>
@@ -688,7 +706,7 @@
 											</order>
 											<maxMember>4</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:attachment">
 										<_object>
@@ -706,10 +724,10 @@
 											</order>
 											<maxMember>4</maxMember>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:name">
 										<_object>
 											<active>true</active>
@@ -725,7 +743,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:description">
 										<_object>
@@ -742,7 +760,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:parent">
 										<_object>
@@ -764,7 +782,7 @@
 												<_item>0</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentState">
 										<_object>
@@ -787,7 +805,7 @@
 												<_item>36</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:activeOn">
 										<_object>
@@ -804,7 +822,7 @@
 												<_item>90</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:activeUntil">
 										<_object>
@@ -821,7 +839,7 @@
 												<_item>100</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:headRevision">
 										<_object>
@@ -843,7 +861,7 @@
 												<_item>12</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:contentLength">
 										<_object>
@@ -860,7 +878,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:contentType">
 										<_object>
@@ -877,7 +895,7 @@
 												<_item>30</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:contentLanguage">
 										<_object>
@@ -896,7 +914,7 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentType">
 										<_object>
@@ -913,7 +931,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:literatureType">
 										<_object>
@@ -930,7 +948,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:location">
 										<_object>
@@ -953,7 +971,7 @@
 											</orderObjectContainer>
 											<maxLength>200</maxLength>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:qualifiedName">
 										<_object>
@@ -971,7 +989,7 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:searchText">
 										<_object>
@@ -988,7 +1006,7 @@
 												<_item>90</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentSize">
 										<_object>
@@ -1005,7 +1023,7 @@
 												<_item>100</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentNumber">
 										<_object>
@@ -1022,7 +1040,7 @@
 												<_item>100</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:author">
 										<_object>
@@ -1039,7 +1057,7 @@
 												<_item>0</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:title">
 										<_object>
@@ -1061,7 +1079,7 @@
 												<_item>14</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentAbstract">
 										<_object>
@@ -1084,7 +1102,7 @@
 												<_item>15</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:keywords">
 										<_object>
@@ -1107,9 +1125,55 @@
 												<_item>0</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:Pane:Attr:Tab:0:Group:40">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item />
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:documentSchema">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Document schema</_item>
+											</toolTip>
+											<label>
+												<_item>Document schema</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>40</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsMeta">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Meta data</_item>
+											</toolTip>
+											<label>
+												<_item>Meta data</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>40</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsLanguage">
 										<_object>
 											<active>true</active>
@@ -1125,7 +1189,7 @@
 												<_item>0</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsDefaultLanguage">
 										<_object>
@@ -1142,7 +1206,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsTranslation">
 										<_object>
@@ -1159,11 +1223,11 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsClass">
 										<_object>
-                      <columnBreak>true</columnBreak>
+											<columnBreak>true</columnBreak>
 											<active>true</active>
 											<toolTip>
 												<_item>CMS class</_item>
@@ -1177,7 +1241,7 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsTemplate">
 										<_object>
@@ -1194,24 +1258,7 @@
 												<_item>90</_item>
 											</order>
 										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:cmsMeta">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>CMS meta</_item>
-											</toolTip>
-											<label>
-												<_item>CMS meta</_item>
-											</label>
-											<order>
-												<_item>10</_item>
-												<_item>0</_item>
-												<_item>100</_item>
-											</order>
-										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:disabled">
 										<_object>
@@ -1228,10 +1275,116 @@
 												<_item>100</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  FolderAssignment -->
+									<!-- DocumentSchema -->
+									<!-- Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Document Schema</_item>
+											</toolTip>
+											<label>
+												<_item>Document Schema</_item>
+											</label>
+											<iconKey>DocumentSchema</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:schemaText">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Schema</_item>
+											</toolTip>
+											<label>
+												<_item>Schema</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:schemaType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Schema type</_item>
+											</toolTip>
+											<label>
+												<_item>Schema type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentSchema:propertySet">
+										<_object>
+											<active>true</active>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Property Sets</_item>
+											</toolTip>
+											<label>
+												<_item>»Property Sets</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1040</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- FolderAssignment -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:FolderAssignment">
 										<_object>
@@ -1244,11 +1397,11 @@
 											</label>
 											<iconKey>DocumentFolderAssignment</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:FolderAssignment:name">
 										<_object>
 											<active>true</active>
@@ -1264,7 +1417,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:FolderAssignment:description">
 										<_object>
@@ -1281,11 +1434,11 @@
 												<_item>30</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<!--see document.xml for Document details-->
+									<!--see document.xml for Document details -->
 
-									<!--  DocumentReference -->
+									<!-- DocumentReference -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference">
 										<_object>
@@ -1299,11 +1452,11 @@
 											</label>
 											<iconKey>DocumentReference</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:name">
 										<_object>
 											<active>true</active>
@@ -1319,7 +1472,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:description">
 										<_object>
@@ -1337,7 +1490,7 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:basedOn">
 										<_object>
@@ -1354,7 +1507,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:object">
 										<_object>
@@ -1371,13 +1524,13 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!-- DocumentRevision-->
+									<!-- DocumentRevision -->
 									<!-- Inspector -->
 									<!-- Grid -->
-									<!--Element Definitions-->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentRevision:name">
 										<_object>
 											<active>true</active>
@@ -1393,7 +1546,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentRevision:author">
 										<_object>
@@ -1410,7 +1563,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentRevision:version">
 										<_object>
@@ -1428,10 +1581,10 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  Media -->
+									<!-- Media -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:MediaContent">
 										<_object>
@@ -1449,11 +1602,11 @@
 											</order>
 											<iconKey>MediaContent</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:contentName">
 										<_object>
 											<active>true</active>
@@ -1469,7 +1622,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:contentLength">
 										<_object>
@@ -1486,7 +1639,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:contentMimeType">
 										<_object>
@@ -1504,7 +1657,7 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:description">
 										<_object>
@@ -1522,7 +1675,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Media:content">
 										<_object>
@@ -1539,10 +1692,10 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  MediaReference -->
+									<!-- MediaReference -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:MediaReference">
 										<_object>
@@ -1560,11 +1713,11 @@
 											</order>
 											<iconKey>MediaReference</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:MediaReference:media">
 										<_object>
 											<active>true</active>
@@ -1585,10 +1738,10 @@
 												<_item>20</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  ResourceIdentifier -->
+									<!-- ResourceIdentifier -->
 									<!-- Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ResourceIdentifier">
 										<_object>
@@ -1606,11 +1759,11 @@
 											</order>
 											<iconKey>ResourceIdentifier</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--FieldGroups in General Tab-->
-									<!--Element Definitions-->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ResourceIdentifier:uri">
 										<_object>
 											<active>true</active>
@@ -1631,7 +1784,7 @@
 												<_item>30</_item>
 											</orderObjectContainer>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- PropertySet -->
@@ -1647,10 +1800,10 @@
 											</label>
 											<iconKey>PropertySet</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--Element Definitions-->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:PropertySet:name">
 										<_object>
 											<active>true</active>
@@ -1666,7 +1819,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:PropertySet:description">
 										<_object>
@@ -1684,7 +1837,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- DocumentLink -->
@@ -1700,10 +1853,10 @@
 											</label>
 											<iconKey>DocumentLink</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--Element Definitions-->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink:name">
 										<_object>
 											<active>true</active>
@@ -1719,7 +1872,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink:description">
 										<_object>
@@ -1736,7 +1889,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink:linkUri">
 										<_object>
@@ -1753,7 +1906,7 @@
 												<_item>30</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- DocumentLock -->
@@ -1769,10 +1922,10 @@
 											</label>
 											<iconKey>DocumentLock</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--Element Definitions-->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:name">
 										<_object>
 											<active>true</active>
@@ -1788,7 +1941,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:description">
 										<_object>
@@ -1805,7 +1958,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:lockedAt">
 										<_object>
@@ -1822,11 +1975,11 @@
 												<_item>30</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLock:lockedBy">
 										<_object>
-                      <spanRow>10</spanRow>
+											<spanRow>10</spanRow>
 											<active>true</active>
 											<toolTip>
 												<_item>Locked by</_item>
@@ -1840,7 +1993,7 @@
 												<_item>40</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- DocumentAttachment -->
@@ -1856,10 +2009,10 @@
 											</label>
 											<iconKey>Media</iconKey>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grid -->
-									<!--Element Definitions-->
+									<!--Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentAttachment:name">
 										<_object>
 											<active>true</active>
@@ -1875,7 +2028,7 @@
 												<_item>10</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentAttachment:author">
 										<_object>
@@ -1892,7 +2045,7 @@
 												<_item>20</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentAttachment:version">
 										<_object>
@@ -1910,84 +2063,84 @@
 												<_item>80</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
-									<!--  DocumentFolderAssignment -->
-                  <!--Inspector Definitions-->
-                  <!-- Grid Tabs -->
-                  <!--FieldGroups in General Tab-->
-                  <!--Element Definition Contact-->
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:documentFolder">
-                    <_object>
-                      <active>true</active>
-                      <filterable>true</filterable>
-                      <toolTip>
-                        <_item>Folder</_item>
-                      </toolTip>
-                      <label>
-                        <_item>Folder</_item>
-                      </label>
-                      <order>
-                        <_item>0</_item>
-                        <_item>0</_item>
-                        <_item>10</_item>
-                      </order>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:assignmentRole">
-                    <_object>
-                      <active>true</active>
-                      <toolTip>
-                        <_item>Role</_item>
-                      </toolTip>
-                      <label>
-                        <_item>Role</_item>
-                      </label>
-                      <order>
-                        <_item>0</_item>
-                        <_item>0</_item>
-                        <_item>20</_item>
-                      </order>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:validFrom">
-                    <_object>
-                      <columnBreak>true</columnBreak>
-                      <active>true</active>
-                      <toolTip>
-                        <_item>Valid from</_item>
-                      </toolTip>
-                      <label>
-                        <_item>Valid from</_item>
-                      </label>
-                      <order>
-                        <_item>0</_item>
-                        <_item>0</_item>
-                        <_item>80</_item>
-                      </order>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:validTo">
-                    <_object>
-                      <active>true</active>
-                      <toolTip>
-                        <_item>Valid to</_item>
-                      </toolTip>
-                      <label>
-                        <_item>Valid to</_item>
-                      </label>
-                      <order>
-                        <_item>0</_item>
-                        <_item>0</_item>
-                        <_item>90</_item>
-                      </order>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
+									<!-- DocumentFolderAssignment -->
+									<!--Inspector Definitions -->
+									<!-- Grid Tabs -->
+									<!--FieldGroups in General Tab -->
+									<!--Element Definition Contact -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:documentFolder">
+										<_object>
+											<active>true</active>
+											<filterable>true</filterable>
+											<toolTip>
+												<_item>Folder</_item>
+											</toolTip>
+											<label>
+												<_item>Folder</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:assignmentRole">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Role</_item>
+											</toolTip>
+											<label>
+												<_item>Role</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:validFrom">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:validTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolderAssignment:disabled">
 										<_object>
 											<active>true</active>
@@ -2003,10 +2156,91 @@
 												<_item>100</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:Pane:Op:Tab:validateSchema">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Validate Schema</_item>
+											</toolTip>
+											<label>
+												<_item>Validate Schema</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:Pane:Op:Tab:validateSchema:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:Pane:Op:Tab:validateSchema:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ValidateSchemaResult:statusCode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status code</_item>
+											</toolTip>
+											<label>
+												<_item>Status code</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:ValidateSchemaResult:statusMessage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status message</_item>
+											</toolTip>
+											<label>
+												<_item>Status message</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentFolder:Pane:Op:Tab:createDefaultShare">
 										<_object>
 											<active>true</active>

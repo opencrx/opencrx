@@ -54,7 +54,7 @@ package org.opencrx.kernel.portal.action;
 
 import java.util.List;
 
-import org.opencrx.kernel.backend.Exporter;
+import org.opencrx.kernel.backend.XmlExporter;
 import org.openmdx.base.naming.Path;
 import org.openmdx.portal.servlet.component.UiGrid;
 
@@ -69,7 +69,7 @@ public class ExportAsXlsAction extends ExportObjectsAction {
 		return new ModelBasedGridExporter(
 			grid,
 			selectedObjectIdentities,
-			Exporter.MIME_TYPE_EXCEL,
+			XmlExporter.MIME_TYPE_EXCEL,
 			grid.getReferenceName(),
 			maxItems
 		);

@@ -104,6 +104,7 @@ import org.opencrx.kernel.product1.jmi1.ProductFilterProperty;
 import org.opencrx.kernel.product1.jmi1.ProductPhasePriceLevel;
 import org.opencrx.kernel.product1.jmi1.ProductQueryFilterProperty;
 import org.opencrx.kernel.product1.jmi1.RelatedProduct;
+import org.opencrx.kernel.product1.jmi1.SalesTaxType;
 import org.opencrx.kernel.uom1.jmi1.Uom;
 import org.opencrx.kernel.utils.ScriptUtils;
 import org.opencrx.kernel.utils.Utils;
@@ -298,7 +299,6 @@ public class Products extends AbstractImpl {
             : pricingRules.iterator().next();
     }
 
-    //-------------------------------------------------------------------------
     protected PricingRule getDefaultPricingRule(
         org.opencrx.kernel.product1.jmi1.Segment productSegment
     ) throws ServiceException {
@@ -310,8 +310,71 @@ public class Products extends AbstractImpl {
     		null :
     			pricingRules.iterator().next();
     }
-        
-    //-----------------------------------------------------------------------
+
+	/**
+	 * Init sales tax type.
+	 * 
+	 * @param name
+	 * @param segment
+	 * @param pm
+	 * @return
+	 */
+	public org.opencrx.kernel.product1.jmi1.SalesTaxType findSalesTaxType(
+		String name,
+		org.opencrx.kernel.product1.jmi1.Segment segment
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);
+		org.opencrx.kernel.product1.cci2.SalesTaxTypeQuery query =
+		    (org.opencrx.kernel.product1.cci2.SalesTaxTypeQuery)pm.newQuery(org.opencrx.kernel.product1.jmi1.SalesTaxType.class);
+		query.name().equalTo(name);
+		Collection<SalesTaxType> salesTaxTypes = segment.getSalesTaxType(query);
+		if(!salesTaxTypes.isEmpty()) {
+			return (org.opencrx.kernel.product1.jmi1.SalesTaxType)salesTaxTypes.iterator().next();
+		}
+		return null;
+	}
+    
+	/**
+	 * Init sales tax type.
+	 * 
+	 * @param name
+	 * @param rate
+	 * @param segment
+	 * @param pm
+	 * @return
+	 */
+	public org.opencrx.kernel.product1.jmi1.SalesTaxType initSalesTaxType(
+		String name,
+		java.math.BigDecimal rate,
+		org.opencrx.kernel.product1.jmi1.Segment segment
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);		
+		org.opencrx.kernel.product1.jmi1.SalesTaxType salesTaxType = this.findSalesTaxType(
+		    name,
+			segment
+		);
+		if(salesTaxType != null) return salesTaxType;
+		try {
+			pm.currentTransaction().begin();
+			salesTaxType = pm.newInstance(org.opencrx.kernel.product1.jmi1.SalesTaxType.class);
+			salesTaxType.setName(name);
+			salesTaxType.setRate(rate);
+			salesTaxType.getOwningGroup().addAll(
+				segment.getOwningGroup()
+			);
+			segment.addSalesTaxType(
+				Contracts.getInstance().getUidAsString(),
+				salesTaxType
+			);
+			pm.currentTransaction().commit();
+		} catch(Exception e) {
+			try {
+				pm.currentTransaction().rollback();
+			} catch(Exception e0) {}
+		}
+		return salesTaxType;
+	}
+
     /**
      * @return Returns the product segment.
      */
@@ -1391,66 +1454,31 @@ public class Products extends AbstractImpl {
     }
     
     /**
-     * Get price level for given product and context.
+     * Get price level.
      * 
-     * @param pricingRule
-     * @param contract
-     * @param product
-     * @param priceUom
-     * @param quantity
-     * @param pricingDate
+     * @param clazz
+     * @param signature
+     * @param params
      * @return
      * @throws ServiceException
+     * @throws NoSuchMethodException
      */
-    public GetPriceLevelResult getPriceLevel(
-        PricingRule pricingRule,
-        AbstractContract contract,
-        AbstractProduct product,
-        Uom priceUom,
-        BigDecimal quantity,
-        Date pricingDate
-    ) throws ServiceException {
-    	PersistenceManager pm = JDOHelper.getPersistenceManager(pricingRule);
-        String script = pricingRule.getGetPriceLevelScript() == null || pricingRule.getGetPriceLevelScript().isEmpty() 
-        	? PRICING_RULE_GET_PRICE_LEVEL_SCRIPT_LOWEST_PRICE 
-        	: pricingRule.getGetPriceLevelScript().intern();
+    protected GetPriceLevelResult getPriceLevel(
+    	Class<?> clazz,
+    	Class<?>[] signature,
+    	Object[] params
+    ) throws ServiceException, NoSuchMethodException {
         try {
-            Class<?> clazz = ScriptUtils.getClass(script);
             Method m = clazz.getMethod(
-                "getPriceLevel", 
-                new Class[] {
-                    RefPackage_1_0.class,
-                    PricingRule.class, 
-                    AbstractContract.class,
-                    AbstractProduct.class,
-                    Uom.class,
-                    java.math.BigDecimal.class,
-                    java.util.Date.class
-                }
+                "getPriceLevel",
+                signature
             );
             org.opencrx.kernel.product1.jmi1.GetPriceLevelResult result = 
                 (org.opencrx.kernel.product1.jmi1.GetPriceLevelResult)m.invoke(
-                    null, 
-                    new Object[] {
-                        Utils.getProductPackage(pm).refOutermostPackage(),
-                        pricingRule,
-                        contract,
-                        product,
-                        priceUom,
-                        quantity,
-                        pricingDate
-                    }
+                    null,
+                    params
                 );
             return result;
-        } catch(NoSuchMethodException e) {
-            ServiceException e0 = new ServiceException(
-                OpenCrxException.DOMAIN,
-                OpenCrxException.PRODUCT_GET_PRICELEVEL_SCRIPT_ERROR,
-                "Missing method getPriceLevel",
-                new BasicException.Parameter("param0", e.getMessage())
-            );
-            e0.log();
-            throw e0;
         } catch(InvocationTargetException e) {
         	ServiceException e0 = new ServiceException(
             	BasicException.toStackedException(
@@ -1472,6 +1500,92 @@ public class Products extends AbstractImpl {
             );
             e0.log();
             throw e0;
+        }    	
+    }
+
+    /**
+     * Get price level for given product and context.
+     * 
+     * @param pricingRule
+     * @param contract
+     * @param product
+     * @param priceUom
+     * @param quantity
+     * @param pricingDate
+     * @return
+     * @throws ServiceException
+     */
+    public GetPriceLevelResult getPriceLevel(
+        PricingRule pricingRule,
+        SalesContract contract,
+        SalesContractPosition position,
+        AbstractProduct product,
+        Uom priceUom,
+        BigDecimal quantity,
+        Date pricingDate
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(pricingRule);
+        String script = pricingRule.getGetPriceLevelScript() == null || pricingRule.getGetPriceLevelScript().isEmpty() 
+        	? PRICING_RULE_GET_PRICE_LEVEL_SCRIPT_LOWEST_PRICE 
+        	: pricingRule.getGetPriceLevelScript().intern();
+        Class<?> clazz = ScriptUtils.getClass(script);
+        try {
+        	return this.getPriceLevel(
+        		clazz,
+        		new Class[] {
+                    RefPackage_1_0.class,
+                    PricingRule.class,
+                    SalesContract.class,
+                    SalesContractPosition.class,
+                    AbstractProduct.class,
+                    Uom.class,
+                    java.math.BigDecimal.class,
+                    java.util.Date.class
+                },
+        		new Object[] {
+                    Utils.getProductPackage(pm).refOutermostPackage(),
+                    pricingRule,
+                    contract,
+                    position,
+                    product,
+                    priceUom,
+                    quantity,
+                    pricingDate
+                }
+        	);
+        } catch(NoSuchMethodException ignore) {
+        	try {
+	        	return this.getPriceLevel(
+	        		clazz,
+	        		new Class[] {
+	                    RefPackage_1_0.class,
+	                    PricingRule.class, 
+	                    AbstractContract.class,
+	                    AbstractProduct.class,
+	                    Uom.class,
+	                    java.math.BigDecimal.class,
+	                    java.util.Date.class
+	                },
+	        		new Object[] {
+	                    Utils.getProductPackage(pm).refOutermostPackage(),
+	                    pricingRule,
+	                    contract,
+	                    product,
+	                    priceUom,
+	                    quantity,
+	                    pricingDate
+	                }
+	        	);
+	        } catch(NoSuchMethodException e) {
+	            ServiceException e0 = new ServiceException(
+	                OpenCrxException.DOMAIN,
+	                OpenCrxException.PRODUCT_GET_PRICELEVEL_SCRIPT_ERROR,
+	                "Missing method getPriceLevel",
+	                new BasicException.Parameter("param0", e.getMessage())
+	            );
+	            e0.log();
+	            throw e0;
+	        }
         }
     }
 
@@ -1841,16 +1955,17 @@ public class Products extends AbstractImpl {
     public static final String PRICING_RULE_DESCRIPTION_LOWEST_PRICE = "Get price level which returns the lowest price of the given product, contract currency, pricing date and quantity. If the product is not defined return the price level which matches the contract currency, price uom and pricing date.";
     public static final String PRICING_RULE_GET_PRICE_LEVEL_SCRIPT_LOWEST_PRICE = 
     "//<pre>\n" + 
-    "    public static org.opencrx.kernel.product1.jmi1.GetPriceLevelResult getPriceLevel(\n" + 
-    "    org.openmdx.base.accessor.jmi.cci.RefPackage_1_0 rootPkg,\n" + 
-    "    org.opencrx.kernel.product1.jmi1.PricingRule pricingRule,\n" + 
-    "    org.opencrx.kernel.contract1.jmi1.AbstractContract contract,\n" +         
-    "    org.opencrx.kernel.product1.jmi1.AbstractProduct product,\n" +         
-    "    org.opencrx.kernel.uom1.jmi1.Uom priceUom,\n" +         
-    "    java.math.BigDecimal quantity,\n" +         
-    "    java.util.Date pricingDate\n" +         
+    "    public static org.opencrx.kernel.product1.jmi1.GetPriceLevelResult getPriceLevel(\n" +
+    "    org.openmdx.base.accessor.jmi.cci.RefPackage_1_0 rootPkg,\n" +
+    "    org.opencrx.kernel.product1.jmi1.PricingRule pricingRule,\n" +
+    "    org.opencrx.kernel.contract1.jmi1.SalesContract contract,\n" +
+    "    org.opencrx.kernel.contract1.jmi1.SalesContractPosition position,\n" +
+    "    org.opencrx.kernel.product1.jmi1.AbstractProduct product,\n" +
+    "    org.opencrx.kernel.uom1.jmi1.Uom priceUom,\n" +
+    "    java.math.BigDecimal quantity,\n" +
+    "    java.util.Date pricingDate\n" +
     ") {\n" +
-    "    return org.opencrx.kernel.backend.Products.getLowestPricePriceLevel(\n" + 
+    "    return org.opencrx.kernel.backend.Products.getLowestPricePriceLevel(\n" +
     "        rootPkg,\n" +
     "        pricingRule,\n" +
     "        contract,\n" +
@@ -1859,8 +1974,6 @@ public class Products extends AbstractImpl {
     "        quantity,\n" +
     "        pricingDate\n" +
     "    );\n" +
-    "}//</pre>";        
+    "}//</pre>";   
     
 }
-
-//--- End of File -----------------------------------------------------------

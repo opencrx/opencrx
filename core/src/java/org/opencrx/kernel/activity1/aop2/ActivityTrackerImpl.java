@@ -53,6 +53,7 @@
 package org.opencrx.kernel.activity1.aop2;
 
 import javax.jdo.listener.DeleteCallback;
+import javax.jdo.listener.StoreCallback;
 
 import org.opencrx.kernel.backend.Activities;
 import org.openmdx.base.accessor.jmi.cci.JmiServiceException;
@@ -61,9 +62,14 @@ import org.openmdx.base.exception.ServiceException;
 public class ActivityTrackerImpl
 	<S extends org.opencrx.kernel.activity1.jmi1.ActivityTracker,N extends org.opencrx.kernel.activity1.cci2.ActivityTracker,C extends Void>
 	extends ActivityGroupImpl<S,N,C> 
-	implements DeleteCallback {
+	implements StoreCallback, DeleteCallback {
 
-    //-----------------------------------------------------------------------
+    /**
+     * Constructor.
+     * 
+     * @param same
+     * @param next
+     */
     public ActivityTrackerImpl(
         S same,
         N next
@@ -71,7 +77,6 @@ public class ActivityTrackerImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
     public org.openmdx.base.jmi1.Void refreshItems(
     ) {
         try {
@@ -85,7 +90,18 @@ public class ActivityTrackerImpl
         }            
     }
     
-    //-----------------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see org.opencrx.kernel.activity1.aop2.ActivityGroupImpl#jdoPreStore()
+	 */
+	@Override
+    public void jdoPreStore(
+    ) {
+  		super.jdoPreStore();
+    }
+
+	/* (non-Javadoc)
+     * @see org.opencrx.kernel.activity1.aop2.ActivityGroupImpl#jdoPreDelete()
+     */
     @Override
 	public void jdoPreDelete(
 	) {

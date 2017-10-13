@@ -59,6 +59,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.math.BigDecimal;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -135,6 +137,7 @@ import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.action.SelectObjectAction;
 import org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding;
 import org.openmdx.security.realm1.jmi1.Realm;
+import org.w3c.cci2.BinaryLargeObjects;
 import org.w3c.format.DateTimeFormat;
 
 /**
@@ -1644,6 +1647,34 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 					contact.setNickName(fieldValue.toString()); 
 					isOk = true;
 				}
+			} else if(fieldName.equalsIgnoreCase(this.ATTR_PICTURE)) {
+				if(fieldValue instanceof String) {
+					try {
+						URL pictureUrl = new URL(fieldValue.toString());
+			        	org.opencrx.kernel.generic.jmi1.Media picture = null;
+			        	try {
+			        		picture = (org.opencrx.kernel.generic.jmi1.Media)pm.getObjectById(contact.refGetPath().getDescendant("media", "PHOTO"));
+			        	} catch(Exception e) {}
+			        	if(picture == null) {
+			        		picture = pm.newInstance(org.opencrx.kernel.generic.jmi1.Media.class);
+			        		contact.addMedia(
+			        			"PHOTO",
+			            		picture
+			            	);
+			        	}
+			        	URLConnection pictureUrlConnection = pictureUrl.openConnection();
+			        	picture.setContentName("PHOTO");
+			        	picture.setContentMimeType(pictureUrlConnection.getContentType());
+			        	picture.setContent(BinaryLargeObjects.valueOf(pictureUrlConnection.getInputStream()));
+			        	contact.setPicture(picture);
+						isOk = true;
+					} catch(Exception ignore) {}
+				}
+			} else if(fieldName.equalsIgnoreCase(this.ATTR_GENDER)) {
+				if(fieldValue instanceof String) {
+					contact.setGender(codes.findCodeFromValue((String)fieldValue, "gender"));
+					isOk = true;
+				}
 			} else if(fieldName.equalsIgnoreCase(this.ATTR_COMPANY)) {
 				if(fieldValue != null) {
 					String memberRole = null;
@@ -1908,6 +1939,16 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 					account,
 					"org:opencrx:kernel:account1:Contact:address!postalStreet",
 					postalStreetLines
+				);
+				isOk = true;
+			}
+		} else if(fieldName.equalsIgnoreCase(this.ATTR_HOMESTREETNUMBER)) {
+			postalAddressHomeDataBinding = this.getPostalAddressDataBinding(Addresses.USAGE_HOME, fieldParameters, postalAddressHomeDataBinding);
+			if(fieldValue != null) {
+				postalAddressHomeDataBinding.setValue(
+					account,
+					"org:opencrx:kernel:account1:Contact:address!postalStreetNumber",
+					fieldValue.toString()
 				);
 				isOk = true;
 			}
@@ -2213,6 +2254,16 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 					account,
 					"org:opencrx:kernel:account1:Account:address*Business!postalStreet",
 					postalStreetLines
+				);
+				isOk = true;
+			}
+		} else if(fieldName.equalsIgnoreCase(this.ATTR_BUSINESSSTREETNUMBER)) {
+			postalAddressBusinessDataBinding = this.getPostalAddressDataBinding(Addresses.USAGE_BUSINESS, fieldParameters, postalAddressBusinessDataBinding);
+			if(fieldValue != null) {
+				postalAddressBusinessDataBinding.setValue(
+					account,
+					"org:opencrx:kernel:account1:Account:address*Business!postalStreetNumber",
+					fieldValue.toString()
 				);
 				isOk = true;
 			}
@@ -3475,6 +3526,8 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 	private String ATTR_MIDDLENAME = "middleName";
 	private String ATTR_SUFFIX = "suffix";
 	private String ATTR_NICKNAME = "nickName";
+	private String ATTR_GENDER = "gender";
+	private String ATTR_PICTURE = "picture";
 	private String ATTR_COMPANYROLE = "companyRole";
 	private String ATTR_JOBTITLE = "jobTitle";
 	private String ATTR_DEPARTMENT = "DEPARTMENT";
@@ -3507,6 +3560,7 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 	private String ATTR_HOMEPOSTAL_AUTHORITY = "HOMEPOSTAL_AUTHORITY";
 	private String ATTR_HOMEADDRESSLINE = "HOMEADDRESSLINE";
 	private String ATTR_HOMESTREET = "HOMESTREET";
+	private String ATTR_HOMESTREETNUMBER = "HOMESTREETNUMBER";
 	private String ATTR_HOMECITY = "HOMECITY";
 	private String ATTR_HOMEPOSTALCODE = "HOMEPOSTALCODE";
 	private String ATTR_HOMESTATE = "HOMESTATE";
@@ -3516,6 +3570,7 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 	private String ATTR_BUSINESSPOSTAL_AUTHORITY = "BUSINESSPOSTAL_AUTHORITY";
 	private String ATTR_BUSINESSADDRESSLINE = "BUSINESSADDRESSLINE";
 	private String ATTR_BUSINESSSTREET = "BUSINESSSTREET";
+	private String ATTR_BUSINESSSTREETNUMBER = "BUSINESSSTREETNUMBER";
 	private String ATTR_BUSINESSCITY = "BUSINESSCITY";
 	private String ATTR_BUSINESSPOSTALCODE = "BUSINESSPOSTALCODE";
 	private String ATTR_BUSINESSSTATE = "BUSINESSSTATE";

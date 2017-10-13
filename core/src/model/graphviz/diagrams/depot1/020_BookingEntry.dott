@@ -1,0 +1,68 @@
+digraph "Diagram BookingEntry [Package org:opencrx:kernel:depot1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:Segment,compartments=false,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:BookingOrigin,compartments=false,width=8]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:SingleBookingEntry,compartments=true,width=8]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:SingleBooking,compartments=false,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:CompoundBooking,compartments=false,width=6]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:Booking,compartments=false,width=2]};	  
+	}	
+	
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SegmentContainsSingleBookingEntry,minlen=3]}	
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SingleBookingEntryHasSingleBooking,minlen=3]}	
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:DepotPositionHasSingleBooking,style=invis]}	
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:DepotHolderHasDepot,style=invis]}	
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:IsReversalOfCompoundBooking,style=invis]}	
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SegmentContainsDepotEntity,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SegmentContainsBooking,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SegmentContainsCompoundBooking,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:EntityContainsDepotHolder,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:EntityContainsDepot,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SimpleBookingHasOrigin,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:BookingMemberOfCompoundBooking,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:CompoundBookingHasBooking,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:DepotHasDepotPosition,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:BookingHasOrigin,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:BookingPosition,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SingleBookingEntryHasSingleBooking,style=invis]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

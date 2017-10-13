@@ -21,21 +21,15 @@ digraph "Diagram ResourceRate [Package org:opencrx:kernel:activity1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:activity1:Resource,compartments=true,width=11]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:Resource,compartments=true,width=10]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:activity1:ResourceRate,compartments=true,width=4]};
 	}
-	{
-	  rank=same;
-	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
-	}
 	
 	LAYER0->LAYER1[style=invis];
-	LAYER1->LAYER2[style=invis];
 	
 	${ASSOCIATION[name=org:opencrx:kernel:activity1:ResourceHasRate,minlen=3]}	
 	${ASSOCIATION[name=*]}

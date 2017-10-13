@@ -54,6 +54,7 @@ digraph "Diagram PriceList [Package org:opencrx:kernel:product1]" {
 	${ASSOCIATION[name=org:opencrx:kernel:product1:PriceListEntryIsBasedOnPrice,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:product1:ProductHasSalesTaxType,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:product1:ProductHasProductBasePricePerUom,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:product1:SalesTaxTypeHasParent,style=invis]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
 

@@ -187,22 +187,15 @@ public class FreeBusyServlet extends HttpServlet {
             try {
                 Utils.getModel();
                 this.pmf = Utils.getPersistenceManagerFactory();
-            }
-            catch (NamingException e) {
-                throw new ServletException( 
-                    "Can not get the initial context", 
-                    e
-                );                
-            }
-            catch(ServiceException e) {
+            } catch(ServiceException e) {
                 throw new ServletException( 
                     "Can not get persistence manager", 
                     e
                 );                
-            }   
-        }            
+            }  
+        }        
     }
-    
+
     /**
      * Get persistence manager for root user.
      * 

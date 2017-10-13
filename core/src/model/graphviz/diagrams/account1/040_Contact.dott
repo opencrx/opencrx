@@ -22,7 +22,6 @@ digraph "Diagram Contact [Package org:opencrx:kernel:account1]" {
 	  rank=same;
 	  LAYER0[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:account1:Contact,compartments=true,width=2]};
-	  ${CLASS[name=org:opencrx:kernel:account1:AbstractOrganizationalUnit,compartments=true,width=2]};
 	}
 	{
 	  rank=same;
@@ -31,7 +30,6 @@ digraph "Diagram Contact [Package org:opencrx:kernel:account1]" {
 	
 	LAYER0->LAYER1[style=invis];
 	
-	${ASSOCIATION[name=org:opencrx:kernel:account1:ContactIsMemberOf,minlen=3]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
 

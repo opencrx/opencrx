@@ -78,7 +78,7 @@ org.openmdx.base.naming.*
 	
 	DbSchemaWizardController wc = new DbSchemaWizardController();
 %>
-	<t:wizardHandleCommand controller='<%= wc %>' defaultCommand='Refresh' />
+	<t:wizardHandleCommand controller='<%= wc %>' defaultCommand='Refresh' assertRequestId='false' />
 <%
 	if(response.getStatus() != HttpServletResponse.SC_OK) {
 		wc.close();		

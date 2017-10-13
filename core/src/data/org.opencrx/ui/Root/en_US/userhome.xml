@@ -231,6 +231,24 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:propertySet">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Property Sets</_item>
+											</toolTip>
+											<label>
+												<_item>»Property Sets</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1040</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:objectFinder">
 										<_object>
 											<active>true</active>
@@ -244,24 +262,6 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>540</_item>
-											</order>
-											<maxMember>5</maxMember>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:exportProfile">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Export Profiles</_item>
-											</toolTip>
-											<label>
-												<_item>»Export Profiles</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>550</_item>
 											</order>
 											<maxMember>5</maxMember>
 										</_object>
@@ -622,7 +622,7 @@
 											</orderObjectContainer>
 										</_object>
 										<_content />
-									</org.openmdx.ui1.ElementDefinition>									
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:storeSettingsOnLogoff">
 										<_object>
 											<active>true</active>
@@ -748,6 +748,23 @@
 												<_item>0</_item>
 												<_item>5</_item>
 											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Alert:referencedObjectType">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Referenced object type</_item>
+											</toolTip>
+											<label>
+												<_item>Referenced object type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -1177,6 +1194,23 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:QuickAccess:referencedObjectType">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Referenced object type</_item>
+											</toolTip>
+											<label>
+												<_item>Referenced object type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:QuickAccess:name">
 										<_object>
 											<active>true</active>
@@ -1189,7 +1223,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>20</_item>
+												<_item>30</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1206,7 +1240,24 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>30</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:QuickAccess:quickAccessState">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Access state</_item>
+											</toolTip>
+											<label>
+												<_item>Access state</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1223,7 +1274,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>40</_item>
+												<_item>60</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1312,6 +1363,40 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:AccessHistory:referencedObjectType">
+										<_object>
+											<active>false</active>
+											<toolTip>
+												<_item>Referenced object type</_item>
+											</toolTip>
+											<label>
+												<_item>Referenced object type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:AccessHistory:accessHistoryState">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Access state</_item>
+											</toolTip>
+											<label>
+												<_item>Access state</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1424,6 +1509,55 @@
 												<_item>0</_item>
 												<_item>10</_item>
 												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- PropertySet -->
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:PropertySet">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Property Set</_item>
+											</toolTip>
+											<label>
+												<_item>Property Set</_item>
+											</label>
+											<iconKey>PropertySet</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:PropertySet:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:PropertySet:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1658,187 +1792,12 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<!-- ExportProfile -->
 									<!--Inspector Definitions -->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:ExportProfile">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Export Profile</_item>
-											</toolTip>
-											<label>
-												<_item>Export Profile</_item>
-											</label>
-											<iconKey>ExportProfile</iconKey>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
 									<!--FieldGroups in General Tab -->
 									<!--FieldGroups in Details Tab -->
 									<!--Element Definitions -->
 									<!-- customized in common.xml -->
 									<!-- Operations -->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:Pane:Op:Tab:importItem">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Import Item</_item>
-											</toolTip>
-											<label>
-												<_item>Import</_item>
-											</label>
-											<iconKey>org:opencrx:kernel:Import</iconKey>
-											<order>
-												<_item>100</_item>
-												<_item>0</_item>
-												<_item>100</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:Pane:Op:Tab:importItem:Group:in">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Input</_item>
-											</toolTip>
-											<label>
-												<_item>Input</_item>
-											</label>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:ImportParams:locale">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Language</_item>
-											</toolTip>
-											<label>
-												<_item>Language</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>10</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:ImportParams:item">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Item</_item>
-											</toolTip>
-											<label>
-												<_item>Item</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>20</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:ImportParams:itemMimeType">
-										<_object>
-											<active>false</active>
-											<toolTip>
-												<_item>MIME type</_item>
-											</toolTip>
-											<label>
-												<_item>MIME type</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>30</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:ImportParams:itemName">
-										<_object>
-											<active>false</active>
-											<toolTip>
-												<_item>Item name</_item>
-											</toolTip>
-											<label>
-												<_item>Item name</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>40</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:Pane:Op:Tab:importItem:Group:result">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Result</_item>
-											</toolTip>
-											<label>
-												<_item>Result</_item>
-											</label>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:ImportResult:status">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Status</_item>
-											</toolTip>
-											<label>
-												<_item>Status</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>10</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:ImportResult:statusMessage">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Status message</_item>
-											</toolTip>
-											<label>
-												<_item>Status message</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>20</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:ImportResult:importedObject">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Imported object</_item>
-											</toolTip>
-											<label>
-												<_item>Imported object</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>30</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Segment:Pane:Op:Tab:createUser">
 										<_object>
 											<active>true</active>

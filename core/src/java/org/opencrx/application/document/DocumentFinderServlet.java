@@ -73,7 +73,6 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.mail.internet.MimeUtility;
-import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -504,18 +503,13 @@ public class DocumentFinderServlet extends HttpServlet {
         if(this.pmf == null) {                    
             try {
                 Utils.getModel();
-                this.pmf = Utils.getPersistenceManagerFactory();
-            } catch (NamingException e) {
-                throw new ServletException( 
-                    "Can not get the initial context", 
-                    e
-                );                
+                this.pmf = Utils.getPersistenceManagerFactory();      
             } catch(ServiceException e) {
                 throw new ServletException( 
                     "Can not get persistence manager", 
                     e
                 );                
-            }   
+            }
         }
         this.tempdir = (File)config.getServletContext().getAttribute("javax.servlet.context.tempdir");
         this.isDebug = Boolean.valueOf(config.getInitParameter("debug"));

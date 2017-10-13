@@ -88,6 +88,7 @@ import org.opencrx.kernel.contract1.jmi1.AccountAssignmentContract;
 import org.opencrx.kernel.contract1.jmi1.CalculationRule;
 import org.opencrx.kernel.contract1.jmi1.Contract1Package;
 import org.opencrx.kernel.contract1.jmi1.ContractCreator;
+import org.opencrx.kernel.contract1.jmi1.ContractFilterGlobal;
 import org.opencrx.kernel.contract1.jmi1.ContractGroup;
 import org.opencrx.kernel.contract1.jmi1.ContractGroupAssignment;
 import org.opencrx.kernel.contract1.jmi1.ContractType;
@@ -114,6 +115,8 @@ import org.opencrx.kernel.contract1.jmi1.SalesContractPosition;
 import org.opencrx.kernel.contract1.jmi1.SalesOrder;
 import org.opencrx.kernel.contract1.jmi1.SalesOrderPosition;
 import org.opencrx.kernel.contract1.jmi1.SalesVolumeContract;
+import org.opencrx.kernel.depot1.jmi1.Depot;
+import org.opencrx.kernel.depot1.jmi1.DepotReference;
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.generic.SecurityKeys.Action;
 import org.opencrx.kernel.generic.jmi1.CrxObject;
@@ -122,11 +125,17 @@ import org.opencrx.kernel.generic.jmi1.DescriptionContainer;
 import org.opencrx.kernel.generic.jmi1.PropertySet;
 import org.opencrx.kernel.product1.cci2.PricingRuleQuery;
 import org.opencrx.kernel.product1.cci2.ProductBasePriceQuery;
+import org.opencrx.kernel.product1.cci2.SalesTaxTypeAssignmentQuery;
+import org.opencrx.kernel.product1.cci2.SalesTaxTypeQuery;
 import org.opencrx.kernel.product1.jmi1.AbstractPriceLevel;
 import org.opencrx.kernel.product1.jmi1.ConfiguredProduct;
 import org.opencrx.kernel.product1.jmi1.PricingRule;
 import org.opencrx.kernel.product1.jmi1.Product;
 import org.opencrx.kernel.product1.jmi1.ProductBasePrice;
+import org.opencrx.kernel.product1.jmi1.SalesTaxType;
+import org.opencrx.kernel.product1.jmi1.SalesTaxTypeAssignment;
+import org.opencrx.kernel.product1.jmi1.SalesTaxTypeGroup;
+import org.opencrx.kernel.product1.jmi1.SalesTransactionType;
 import org.opencrx.kernel.uom1.jmi1.Uom;
 import org.opencrx.kernel.utils.ScriptUtils;
 import org.opencrx.kernel.utils.Utils;
@@ -287,7 +296,80 @@ public class Contracts extends AbstractImpl {
         pm.currentTransaction().commit();        
         return calculationRule;
     }
-        
+       
+	/**
+	 * Find contract filter.
+	 * 
+	 * @param contractFilterName
+	 * @param segment
+	 * @param pm
+	 * @return
+	 */
+	public org.opencrx.kernel.contract1.jmi1.ContractFilterGlobal findContractFilter(
+		String contractFilterName,
+		org.opencrx.kernel.contract1.jmi1.Segment segment
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);		
+		org.opencrx.kernel.contract1.cci2.ContractFilterGlobalQuery query =
+		    (org.opencrx.kernel.contract1.cci2.ContractFilterGlobalQuery)pm.newQuery(org.opencrx.kernel.contract1.jmi1.ContractFilterGlobal.class);
+		query.name().equalTo(contractFilterName);
+		Collection<ContractFilterGlobal> contractFilters = segment.getContractFilter(query);
+		if(!contractFilters.isEmpty()) {
+			return (org.opencrx.kernel.contract1.jmi1.ContractFilterGlobal)contractFilters.iterator().next();
+		}
+		return null;
+	}
+    
+	/**
+	 * Init contract filter.
+	 * 
+	 * @param filterName
+	 * @param filterProperties
+	 * @param pm
+	 * @param segment
+	 * @param allUsers
+	 * @return
+	 */
+	public org.opencrx.kernel.contract1.jmi1.ContractFilterGlobal initContractFilter(
+		String filterName,
+		org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[] filterProperties,
+		org.opencrx.kernel.contract1.jmi1.Segment segment,
+		List<PrincipalGroup> allUsers
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);
+		org.opencrx.kernel.contract1.jmi1.ContractFilterGlobal contractFilter = this.findContractFilter(
+			filterName,
+			segment
+		);
+		if(contractFilter != null) return contractFilter;
+		try {
+			pm.currentTransaction().begin();
+			contractFilter = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractFilterGlobal.class);
+			contractFilter.setName(filterName);
+			contractFilter.getOwningGroup().addAll(allUsers);
+			segment.addContractFilter(
+				false,
+				Contracts.getInstance().getUidAsString(),
+				contractFilter
+			);
+			for(int i = 0; i < filterProperties.length; i++) {
+				filterProperties[i].getOwningGroup().addAll(allUsers);
+				contractFilter.addFilterProperty(
+					false,
+					Contracts.getInstance().getUidAsString(),
+					filterProperties[i]
+				);
+			}
+			pm.currentTransaction().commit();
+		} catch(Exception e) {
+			new ServiceException(e).log();
+			try {
+				pm.currentTransaction().rollback();
+			} catch(Exception e0) {}
+		}
+		return contractFilter;
+	}
+    
     /**
      * Copy contract specific attributes from source to target.
      * 
@@ -388,6 +470,8 @@ public class Contracts extends AbstractImpl {
         target.getExternalLink().addAll(source.getExternalLink());
         target.getCategory().clear();
         target.getCategory().addAll(source.getCategory());
+        target.setCarrier(source.getCarrier());
+        target.setFreightTerms(source.getFreightTerms());
     	copyCrxObject(
     		source,
     		target
@@ -1120,7 +1204,7 @@ public class Contracts extends AbstractImpl {
      */
     public BigDecimal[] calculateAmounts(
         SalesContract contract
-    ) throws ServiceException {        
+    ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(contract);
     	String providerName = contract.refGetPath().getSegment(2).toClassicRepresentation();
     	String segmentName = contract.refGetPath().getSegment(4).toClassicRepresentation();    	
@@ -1252,7 +1336,7 @@ public class Contracts extends AbstractImpl {
         	totalSalesCommission
         };
     }
-    
+
     /**
      * Update contract callback. Override for custom-specific behaviour.
      * 
@@ -1272,7 +1356,7 @@ public class Contracts extends AbstractImpl {
     }
 
     /**
-     * Update sales contract callback. Override for custom-specific behaviour.
+     * Update sales contract callback.
      * 
      * @param contract
      * @throws ServiceException
@@ -1283,17 +1367,41 @@ public class Contracts extends AbstractImpl {
     	if(JDOHelper.isNew(contract)) {
     		contract.setPricingState(PRICING_STATE_NA);
     	}
-		BigDecimal[] amounts = Contracts.getInstance().calculateAmounts(
-			contract
-		);
-		contract.setTotalBaseAmount(amounts[0]);
-		contract.setTotalDiscountAmount(amounts[1]);
-		contract.setTotalAmount(amounts[2]);
-		contract.setTotalTaxAmount(amounts[3]);
-		contract.setTotalAmountIncludingTax(amounts[4]);
-		contract.setTotalSalesCommission(amounts[5]);    		    	
+    	if(!Boolean.TRUE.equals(contract.isNoAutoRecalc())) {
+    		this.recalcSalesContract(contract);
+    	}
     }
-    
+
+    /**
+     * Recalc sales contract.
+     * 
+     * @param contract
+     * @throws ServiceException
+     */
+    public void recalcSalesContract(
+    	SalesContract contract
+    ) throws ServiceException {
+		BigDecimal[] amounts = Contracts.getInstance().calculateAmounts(contract);
+		if(!Utils.areEqual(contract.getTotalBaseAmount(), amounts[0])) {
+			contract.setTotalBaseAmount(amounts[0]);
+		}
+		if(!Utils.areEqual(contract.getTotalDiscountAmount(), amounts[1])) {
+			contract.setTotalDiscountAmount(amounts[1]);
+		}
+		if(!Utils.areEqual(contract.getTotalAmount(), amounts[2])) {
+			contract.setTotalAmount(amounts[2]);
+		}
+		if(!Utils.areEqual(contract.getTotalTaxAmount(), amounts[3])) {		
+			contract.setTotalTaxAmount(amounts[3]);
+		}
+		if(!Utils.areEqual(contract.getTotalAmountIncludingTax(), amounts[4])) {		
+			contract.setTotalAmountIncludingTax(amounts[4]);
+		}
+		if(!Utils.areEqual(contract.getTotalSalesCommission(), amounts[5])) {		
+			contract.setTotalSalesCommission(amounts[5]);
+		}
+    }
+
     /**
      * Create a new invoice based on the given sales order.
      * 
@@ -1605,14 +1713,24 @@ public class Contracts extends AbstractImpl {
         Product product,
         boolean overrideExistingPrice
     ) throws ServiceException {
-        if(contract == null) return;
+        if(contract == null) {
+        	return;
+        }
         PersistenceManager pm = JDOHelper.getPersistenceManager(contract);
-        if(position == null) return;
-        if(product == null) return;        
+        if(position == null) {
+        	return;
+        }
+        if(product == null) {
+        	return;        
+        }
         PricingRule pricingRule = position.getPricingRule();
-        if(pricingRule == null) return;       
+        if(pricingRule == null) {
+        	return;       
+        }
         BigDecimal quantity = position.getQuantity();
-        if(quantity == null) return;
+        if(quantity == null) {
+        	return;
+        }
         Date pricingDate = position.getPricingDate() != null 
         	? position.getPricingDate() 
         	: contract.getPricingDate() != null 
@@ -1620,21 +1738,20 @@ public class Contracts extends AbstractImpl {
         		: contract.getActiveOn() != null 
         			? contract.getActiveOn() 
         			: new Date();
-        org.opencrx.kernel.uom1.jmi1.Uom priceUom = position.getPriceUom() != null 
+        Uom priceUom = position.getPriceUom() != null 
         	? position.getPriceUom() 
         	: position.getUom() != null 
         		? position.getUom() 
         		: null;
         AbstractPriceLevel priceLevel = null;
         BigDecimal customerDiscount = null;
-        Boolean customerDiscountIsPercentage = null;        
-        if(position.getPriceLevel() != null) {
-            priceLevel = position.getPriceLevel();
-        } else {
+        Boolean customerDiscountIsPercentage = null;
+        if(overrideExistingPrice || position.getPriceLevel() == null) {
             org.opencrx.kernel.product1.jmi1.GetPriceLevelResult result = 
                 Products.getInstance().getPriceLevel(
                     pricingRule,       
                     contract,
+                    position,
                     product,
                     priceUom,
                     quantity, 
@@ -1654,8 +1771,12 @@ public class Contracts extends AbstractImpl {
             	: (AbstractPriceLevel)pm.getObjectById(result.getPriceLevel().refGetPath());
             customerDiscount = result.getCustomerDiscount();
             customerDiscountIsPercentage = result.isCustomerDiscountIsPercentage();
+        } else {
+            priceLevel = position.getPriceLevel();
         }
-        position.setPriceLevel(priceLevel);
+        if(!Utils.areEqual(priceLevel, position.getPriceLevel())) {
+        	position.setPriceLevel(priceLevel);
+        }
         // Find price matching price list and quantity
         List<ProductBasePrice> prices = new ArrayList<ProductBasePrice>();
         ProductBasePrice listPrice = null;
@@ -1690,91 +1811,101 @@ public class Contracts extends AbstractImpl {
         }
         // List price found?
         SysLog.trace("List price found", "" + (listPrice != null));
-        position.setListPrice(listPrice);
-        position.setPricingState(PRICING_STATE_NA);
-        if(listPrice != null) {
-            BigDecimal listPriceDiscount = listPrice.getDiscount();
-            Boolean listPriceDiscountIsPercentage = listPrice.isDiscountIsPercentage();
-            BigDecimal discount = position.getDiscount();
-            Boolean discountIsPercentage = position.isDiscountIsPercentage();
-            // Recalc discount if not already set on position
-            if(discount == null) {
-                // Accumulate list price discount and customer discount
-                if(customerDiscount == null) {
-                    discount = listPriceDiscount;
-                    discountIsPercentage = listPriceDiscountIsPercentage;
-                } else {
-                    BigDecimal price = listPrice.getPrice();
-                    price = price == null ? 
-                    	BigDecimal.ZERO : 
-                    	price;
-                    listPriceDiscount = listPriceDiscount == null ? 
-                    	BigDecimal.ZERO : 
-                    	listPriceDiscount;
-                    customerDiscount = customerDiscount == null ? 
-                    	BigDecimal.ZERO : 
-                    	customerDiscount;                    
-                    if(
-                        (listPriceDiscount.compareTo(BigDecimal.ZERO) == 0) ||
-                        ((listPriceDiscountIsPercentage != null) &&
-                        listPriceDiscountIsPercentage.booleanValue())
-                    ) {
-                        // listPriceDiscountIsPercentage=true, customerDiscountIsPercentage=true
-                        // totalDiscount = 1 - (1-listPriceDiscount) * (1-customerDiscount)
-                        if(
-                            (customerDiscount.compareTo(BigDecimal.ZERO) == 0) ||
-                            ((customerDiscountIsPercentage != null) &&
-                            customerDiscountIsPercentage.booleanValue())
-                        ) {
-                            discountIsPercentage = Boolean.TRUE;
-                            discount =
-                                BigDecimal.ONE.subtract(
-                                    BigDecimal.ONE.subtract(listPriceDiscount.divide(HUNDRED, BigDecimal.ROUND_FLOOR)).multiply(
-                                        BigDecimal.ONE.subtract(customerDiscount.divide(HUNDRED, BigDecimal.ROUND_FLOOR))
-                                    )
-                                ).multiply(HUNDRED);
-                        } else {
-                            // listPriceDiscountIsPercentage=true, customerDiscountIsPercentage=false
-                            // totalDiscount = price*listPriceDiscount + customerDiscount
-                            discountIsPercentage = Boolean.FALSE;
-                            discount = price.multiply(
-                                listPriceDiscount.divide(HUNDRED, BigDecimal.ROUND_DOWN)
-                            ).add(customerDiscount);
-                        }
-                    } else {
-                        // listPriceDiscountIsPercentage=false, customerDiscountIsPercentage=true
-                        // totalDiscount = listPriceDiscount + (price - listPriceDiscount)*customerDiscount
-                        if(
-                            (customerDiscount.compareTo(BigDecimal.ZERO) == 0) ||
-                            (customerDiscountIsPercentage != null) &&
-                            customerDiscountIsPercentage.booleanValue()
-                        ) {
-                            discountIsPercentage = Boolean.FALSE;
-                            discount = listPriceDiscount.add(
-                                price.subtract(listPriceDiscount).multiply(customerDiscount.divide(HUNDRED, BigDecimal.ROUND_FLOOR))
-                            );
-                        } else {
-                            // listPriceDiscountIsPercentage=false, customerDiscountIsPercentage=false
-                            // totalDiscount = listPriceDiscount + customerDiscount
-                            discountIsPercentage = Boolean.FALSE;
-                            discount = listPriceDiscount.add(customerDiscount);
-                        }
-                    }
-                }
-            }
-            if(overrideExistingPrice) {
-                position.setPricePerUnit(
-                    listPrice.getPrice()
-                );
-                position.setDiscount(discount);
-                position.setDiscountIsPercentage(
-                	discountIsPercentage
-                );
-                position.setPriceUom(
-                	listPrice.getUom()
-                );
-            }
-            position.setPricingState(PRICING_STATE_OK);            
+        if(!Utils.areEqual(listPrice, position.getListPrice())) {
+        	position.setListPrice(listPrice);
+            position.setPricingState(PRICING_STATE_NA);
+	        if(listPrice != null) {
+	            BigDecimal listPriceDiscount = listPrice.getDiscount();
+	            Boolean listPriceDiscountIsPercentage = listPrice.isDiscountIsPercentage();
+	            BigDecimal discount = position.getDiscount();
+	            Boolean discountIsPercentage = position.isDiscountIsPercentage();
+	            // Recalc discount if not already set on position
+	            if(discount == null) {
+	                // Accumulate list price discount and customer discount
+	                if(customerDiscount == null) {
+	                    discount = listPriceDiscount;
+	                    discountIsPercentage = listPriceDiscountIsPercentage;
+	                } else {
+	                    BigDecimal price = listPrice.getPrice();
+	                    price = price == null ? 
+	                    	BigDecimal.ZERO : 
+	                    	price;
+	                    listPriceDiscount = listPriceDiscount == null ? 
+	                    	BigDecimal.ZERO : 
+	                    	listPriceDiscount;
+	                    customerDiscount = customerDiscount == null ? 
+	                    	BigDecimal.ZERO : 
+	                    	customerDiscount;                    
+	                    if(
+	                        (listPriceDiscount.compareTo(BigDecimal.ZERO) == 0) ||
+	                        ((listPriceDiscountIsPercentage != null) &&
+	                        listPriceDiscountIsPercentage.booleanValue())
+	                    ) {
+	                        // listPriceDiscountIsPercentage=true, customerDiscountIsPercentage=true
+	                        // totalDiscount = 1 - (1-listPriceDiscount) * (1-customerDiscount)
+	                        if(
+	                            (customerDiscount.compareTo(BigDecimal.ZERO) == 0) ||
+	                            ((customerDiscountIsPercentage != null) &&
+	                            customerDiscountIsPercentage.booleanValue())
+	                        ) {
+	                            discountIsPercentage = Boolean.TRUE;
+	                            discount =
+	                                BigDecimal.ONE.subtract(
+	                                    BigDecimal.ONE.subtract(listPriceDiscount.divide(HUNDRED, BigDecimal.ROUND_FLOOR)).multiply(
+	                                        BigDecimal.ONE.subtract(customerDiscount.divide(HUNDRED, BigDecimal.ROUND_FLOOR))
+	                                    )
+	                                ).multiply(HUNDRED);
+	                        } else {
+	                            // listPriceDiscountIsPercentage=true, customerDiscountIsPercentage=false
+	                            // totalDiscount = price*listPriceDiscount + customerDiscount
+	                            discountIsPercentage = Boolean.FALSE;
+	                            discount = price.multiply(
+	                                listPriceDiscount.divide(HUNDRED, BigDecimal.ROUND_DOWN)
+	                            ).add(customerDiscount);
+	                        }
+	                    } else {
+	                        // listPriceDiscountIsPercentage=false, customerDiscountIsPercentage=true
+	                        // totalDiscount = listPriceDiscount + (price - listPriceDiscount)*customerDiscount
+	                        if(
+	                            (customerDiscount.compareTo(BigDecimal.ZERO) == 0) ||
+	                            (customerDiscountIsPercentage != null) &&
+	                            customerDiscountIsPercentage.booleanValue()
+	                        ) {
+	                            discountIsPercentage = Boolean.FALSE;
+	                            discount = listPriceDiscount.add(
+	                                price.subtract(listPriceDiscount).multiply(customerDiscount.divide(HUNDRED, BigDecimal.ROUND_FLOOR))
+	                            );
+	                        } else {
+	                            // listPriceDiscountIsPercentage=false, customerDiscountIsPercentage=false
+	                            // totalDiscount = listPriceDiscount + customerDiscount
+	                            discountIsPercentage = Boolean.FALSE;
+	                            discount = listPriceDiscount.add(customerDiscount);
+	                        }
+	                    }
+	                }
+	            }
+	            if(overrideExistingPrice) {
+	            	if(!Utils.areEqual(listPrice.getPrice(), position.getPricePerUnit())) {
+	            		position.setPricePerUnit(listPrice.getPrice());
+	            	}
+	            	if(!Utils.areEqual(discount, position.getDiscount())) {
+	            		position.setDiscount(discount);
+	            	}
+	            	if(!Utils.areEqual(discountIsPercentage, position.isDiscountIsPercentage())) {
+		                position.setDiscountIsPercentage(discountIsPercentage);
+	            	}
+	            	if(!Utils.areEqual(listPrice.getUom(), position.getPriceUom())) {
+	            		position.setPriceUom(listPrice.getUom());
+	            	}
+	            }
+	            if(!Utils.areEqual(PRICING_STATE_OK, position.getPricingState())) {
+	            	position.setPricingState(PRICING_STATE_OK);
+	            }
+	        }
+        } else {
+            if(!Utils.areEqual(PRICING_STATE_OK, position.getPricingState())) {
+            	position.setPricingState(PRICING_STATE_OK);
+            }        	
         }
     }
 
@@ -1834,37 +1965,107 @@ public class Contracts extends AbstractImpl {
     	        );
         	}
         } else {
-            // Update
-        	PersistenceManager pmOld = pm.getPersistenceManagerFactory().getPersistenceManager(
-        		SecurityKeys.ROOT_PRINCIPAL,
-        		null
-        	);
-            BigDecimal quantityOld = ((SalesContractPosition)pmOld.getObjectById(
-            	position.refGetPath())
-            ).getQuantity();
-            BigDecimal quantityNew = position.getQuantity();
-            if(quantityOld.compareTo(quantityNew) != 0) {
-            	if(this.isEnabledContractPositionModifications()) {        	
-                	QuantityModification quantityModification = pm.newInstance(QuantityModification.class);
-                	quantityModification.setInvolved(position);
-                	quantityModification.setQuantity(quantityOld);
-                    contract.addPositionModification(
-                    	this.getUidAsString(),
-                    	quantityModification
-                    );            	
-            	}
-            }                            	
+        	if(this.isEnabledContractPositionModifications()) {
+        		PersistenceManager pmOld = null;
+        		try {
+	            	pmOld = pm.getPersistenceManagerFactory().getPersistenceManager(
+	            		SecurityKeys.ROOT_PRINCIPAL,
+	            		null
+	            	);
+	                BigDecimal quantityOld = ((SalesContractPosition)pmOld.getObjectById(
+	                	position.refGetPath())
+	                ).getQuantity();
+	                BigDecimal quantityNew = position.getQuantity();
+	                if(!Utils.areEqual(quantityOld, quantityNew)) {
+		            	QuantityModification quantityModification = pm.newInstance(QuantityModification.class);
+		            	quantityModification.setInvolved(position);
+		            	quantityModification.setQuantity(quantityOld);
+		                contract.addPositionModification(
+		                	this.getUidAsString(),
+		                	quantityModification
+		                );
+	                }
+        		} finally {
+        			if(pmOld != null) {
+                        pmOld.close();        				
+        			}
+        		}
+        	}
         }
         if(reprice) {
-        	this.updateListPrice(
-                position, 
-                contract,
-                product,
-                true
+    		this.updateListPrice(
+    			position,
+    			contract,
+    			product,
+    			true
             );
         }
     }
-    
+
+    /**
+     * Get sales tax type for given sales contract position.
+     * 
+     * @param contract
+     * @param position
+     * @param product
+     * @return
+     */
+    public SalesTaxType getSalesTaxType(
+    	SalesContract contract,
+    	SalesContractPosition position,
+    	Product product
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(contract);
+    	String providerName = contract.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = contract.refGetPath().getSegment(4).toClassicRepresentation();
+    	org.opencrx.kernel.product1.jmi1.Segment productSegment = Products.getInstance().getProductSegment(pm, providerName, segmentName);
+    	SalesTaxType salesTaxType = null;
+    	SalesTransactionType salesTransactionType = position.getSalesTransactionType();
+    	Uom priceUom = position.getPriceUom();
+    	// SalesTaxType defined by Product
+    	if(product.getSalesTaxType() != null) {
+    		salesTaxType = product.getSalesTaxType();
+    	} else {
+    		SalesTaxTypeAssignmentQuery salesTaxTypeAssignmentQuery = (SalesTaxTypeAssignmentQuery)pm.newQuery(SalesTaxTypeAssignment.class);
+    		salesTaxTypeAssignmentQuery.forAllDisabled().isFalse();
+    		salesTaxTypeAssignmentQuery.thereExistsSalesTaxType().forAllDisabled().isFalse();
+    		if(priceUom != null) {
+    			salesTaxTypeAssignmentQuery.thereExistsUom().equalTo(priceUom);
+    		}
+    		if(contract.getSalesTaxTypeGroup() != null) {
+    			salesTaxTypeAssignmentQuery.thereExistsSalesTaxType().thereExistsSalesTaxTypeGroup().equalTo(contract.getSalesTaxTypeGroup());
+    		}
+    		if(salesTransactionType != null) {
+    			salesTaxTypeAssignmentQuery.thereExistsSalesTaxType().thereExistsSalesTransactionType().equalTo(salesTransactionType);        			
+    		}
+    		List<SalesTaxTypeAssignment> salesTaxTypeAssignments = product.getSalesTaxTypeAssignment(salesTaxTypeAssignmentQuery);
+    		if(!salesTaxTypeAssignments.isEmpty()) {
+    			// SalesTaxType defined by SalesTaxTypeAssignment
+    			salesTaxType = salesTaxTypeAssignments.iterator().next().getSalesTaxType();
+    		} else {
+    			SalesTaxTypeQuery salesTaxTypeQuery = (SalesTaxTypeQuery)pm.newQuery(SalesTaxType.class);
+    			salesTaxTypeQuery.forAllDisabled().isFalse();
+    			salesTaxTypeQuery.orderByValidFrom().descending();
+        		if(contract.getSalesTaxTypeGroup() != null) {
+        			salesTaxTypeQuery.thereExistsSalesTaxTypeGroup().equalTo(contract.getSalesTaxTypeGroup());
+        		}
+        		if(salesTransactionType != null) {
+        			salesTaxTypeQuery.thereExistsSalesTransactionType().equalTo(salesTransactionType);        			
+        		}
+        		List<SalesTaxType> salesTaxTypes = productSegment.getSalesTaxType(salesTaxTypeQuery);
+        		if(!salesTaxTypes.isEmpty()) {
+        			// SalesTaxType defined globally (by segment)
+        			salesTaxType = salesTaxTypes.iterator().next();
+        		}
+    		}
+    	}
+    	if(salesTaxType != null) {
+    		position.setSalesTaxType(salesTaxType);
+    		
+    	}
+    	return salesTaxType;
+    }
+
     /**
      * Create sales contract position.
      * 
@@ -1888,7 +2089,9 @@ public class Contracts extends AbstractImpl {
         Product product,
         Uom uom,
         Uom priceUom,
-        PricingRule pricingRule
+        SalesTransactionType salesTransactionType,
+        PricingRule pricingRule,
+        AbstractPriceLevel priceLevel
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(contract);
     	SalesContractPosition position = null;
@@ -1978,16 +2181,33 @@ public class Contracts extends AbstractImpl {
         if(priceUom != null) {
             position.setPriceUom(priceUom);
         }
+        // salesTransactionType
+        if(salesTransactionType != null) {
+        	position.setSalesTransactionType(salesTransactionType);
+        }
         // pricingRule
         if(pricingRule != null) {
             position.setPricingRule(pricingRule);
         }
+        // pricingLevel
+        if(priceLevel != null) {
+            position.setPriceLevel(priceLevel);
+        }
         // calcRule
         position.setCalcRule(
             contract.getCalcRule()
-        );            
+        );
         // Update position
         if(product != null) {
+        	SalesTaxType salesTaxType = this.getSalesTaxType(
+        		contract, 
+        		position, 
+        		product
+        	);
+        	if(salesTaxType != null) {
+        		position.setSalesTaxType(salesTaxType);
+        		
+        	}            	
             this.updateSalesContractPosition(
                 contract,
                 position,
@@ -2008,6 +2228,30 @@ public class Contracts extends AbstractImpl {
                     JDOHelper.isNew(contract) ? null : contract.getOwningGroup()
                 );
             }
+	        // Update DepotReferences
+            // Collect from product and salesTaxType
+	        Collection<DepotReference> existingDepotReferences = position.getDepotReference();
+	        List<Depot> excludeDepotReferences = new ArrayList<Depot>();
+	        for(DepotReference existingDepotReference: existingDepotReferences) {
+	        	excludeDepotReferences.add(existingDepotReference.getDepot());
+	        }
+	        Collection<DepotReference> depotReferences = new ArrayList<DepotReference>(product.<DepotReference>getDepotReference());
+	        if(salesTaxType != null) {
+	        	depotReferences.addAll(salesTaxType.<DepotReference>getDepotReference());
+	        }
+	        for(DepotReference depotReference: depotReferences) {
+	        	if(!excludeDepotReferences.contains(depotReference.getDepot())) {
+	                Cloneable.getInstance().cloneObject(
+	                    depotReference,
+	                    position,
+	                    "depotReference",
+	                    null,
+	                    "property",
+	                    contract.getOwningUser(),
+	                    contract.getOwningGroup()
+	                );		
+	        	}
+	        }   
         }
         // Touch contract --> jdoPreStore will be invoked
         this.markContractAsDirty(
@@ -2209,7 +2453,6 @@ public class Contracts extends AbstractImpl {
         if(position instanceof ConfiguredProduct) {
         	Product product = ((ConfiguredProduct)position).getProduct();
         	if(product != null) {
-	            position.setPriceLevel(null);
 	            this.updateSalesContractPosition(
 	                contract,
 	                position,
@@ -2459,6 +2702,7 @@ public class Contracts extends AbstractImpl {
 	        	this.getUidAsString(),
 	        	(Lead)contract
 	        );  	     
+	        contract.setOrigin(basedOn);
     	} else if(contractType == CONTRACT_TYPE_OPPORTUNITY) {
         	// Opportunity
     		if(basedOn instanceof Lead) {
@@ -2479,6 +2723,7 @@ public class Contracts extends AbstractImpl {
     	        	this.getUidAsString(),
     	        	(Opportunity)contract
     	        );    			
+    	        contract.setOrigin(basedOn);
     		}
     	} else if(contractType == CONTRACT_TYPE_QUOTE) {
         	// Quote
@@ -2499,7 +2744,8 @@ public class Contracts extends AbstractImpl {
     	        contractSegment.addQuote(
     	        	this.getUidAsString(),
     	        	(Quote)contract
-    	        );    			
+    	        );
+    	        contract.setOrigin(basedOn);
     		}
     	} else if(contractType == CONTRACT_TYPE_SALES_ORDER) {
         	// SalesOrder
@@ -2521,6 +2767,7 @@ public class Contracts extends AbstractImpl {
     	        	this.getUidAsString(),
     	        	(SalesOrder)contract
     	        );
+    	        contract.setOrigin(basedOn);
     		}
     	} else if(contractType == CONTRACT_TYPE_INVOICE) {
         	// Invoice
@@ -2542,6 +2789,7 @@ public class Contracts extends AbstractImpl {
     	        	this.getUidAsString(),
     	        	(Invoice)contract
     	        );
+    	        contract.setOrigin(basedOn);
     		}
     	} else if(contractType == CONTRACT_TYPE_SALESVOLUME_CONTRACT) {
         	// SalesVolumeContract
@@ -2561,6 +2809,7 @@ public class Contracts extends AbstractImpl {
     	        	this.getUidAsString(),
     	        	(SalesVolumeContract)contract
     	        );
+    	        contract.setOrigin(basedOn);
     		}
     	} else if(contractType == CONTRACT_TYPE_GENERIC_CONTRACT) {
         	// GenericContract
@@ -2580,6 +2829,7 @@ public class Contracts extends AbstractImpl {
     	        	this.getUidAsString(),
     	        	(GenericContract)contract
     	        );
+    	        contract.setOrigin(basedOn);
     		}
     	}
     	if(contract != null) {
@@ -2666,6 +2916,21 @@ public class Contracts extends AbstractImpl {
     }
 
     /**
+     * Get sales tax type group for given contract.
+     * 
+     * @param contract
+     * @param contractCreator
+     * @return
+     * @throws ServiceException
+     */
+    public SalesTaxTypeGroup getSalesTaxTypeGroup(
+    	AbstractContract contract,
+    	SalesContractCreator contractCreator
+    ) throws ServiceException {
+    	return contractCreator.getSalesTaxTypeGroup();
+    }
+
+    /**
      * Create sales contract based on given contract creator.
      * 
      * @param contractCreator
@@ -2693,10 +2958,12 @@ public class Contracts extends AbstractImpl {
         Short priority,
         Date pricingDate,
         Short contractCurrency,
+        Short paymentTerms,
         Account customer,
         Account salesRep,
         Account broker,
         Account supplier,
+        SalesTaxTypeGroup salesTaxTypeGroup,
         AbstractContract basedOn
     ) throws ServiceException {
 		PersistenceManager pm = JDOHelper.getPersistenceManager(contractCreator);
@@ -2745,6 +3012,10 @@ public class Contracts extends AbstractImpl {
     		if(contractCurrency != null) {
     			salesContract.setContractCurrency(contractCurrency);
     		}
+    		paymentTerms = paymentTerms == null ? contractCreator.getPaymentTerms() : paymentTerms;
+    		if(paymentTerms != null) {
+    			salesContract.setPaymentTerms(paymentTerms);
+    		}
     		customer = customer == null ? contractCreator.getCustomer() : customer;
     		if(customer != null) {
 	    		salesContract.setCustomer(customer);
@@ -2761,6 +3032,12 @@ public class Contracts extends AbstractImpl {
     		if(supplier != null) {
     			salesContract.setSupplier(supplier);
     		}
+    		salesTaxTypeGroup = salesTaxTypeGroup == null 
+    			? this.getSalesTaxTypeGroup(contract, contractCreator)
+    			: salesTaxTypeGroup;
+    		if(salesTaxTypeGroup != null) {
+    			salesContract.setSalesTaxTypeGroup(salesTaxTypeGroup);
+    		}	
     	}
     	return contract;
     }
@@ -2823,6 +3100,26 @@ public class Contracts extends AbstractImpl {
 	    				assignment
 	    			);
 	            }
+	        }
+	        // Update DepotReferences
+	        Collection<DepotReference> existingDepotReferences = contract.getDepotReference();
+	        List<Depot> excludeDepotReferences = new ArrayList<Depot>();
+	        for(DepotReference existingDepotReference: existingDepotReferences) {
+	        	excludeDepotReferences.add(existingDepotReference.getDepot());
+	        }
+	        Collection<DepotReference> depotReferences = contractCreator.getDepotReference();
+	        for(DepotReference depotReference: depotReferences) {
+	        	if(!excludeDepotReferences.contains(depotReference.getDepot())) {
+	                Cloneable.getInstance().cloneObject(
+	                    depotReference,
+	                    contract,
+	                    "depotReference",
+	                    null,
+	                    "property",
+	                    contract.getOwningUser(),
+	                    contract.getOwningGroup()
+	                );	        		
+	        	}
 	        }
 	        // Update PropertySet
 	        Collection<PropertySet> existingPropertySets = contract.getPropertySet();

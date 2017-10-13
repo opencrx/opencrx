@@ -169,6 +169,9 @@ java.net.URL
 			System.out.println(new java.util.Date().toString() + ": " + rc + " - (" + url + ")");
 			System.out.println("<---------" + request.getServletPath() + "----------(invocationEnd)");
 		}
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		org.w3c.cci2.BinaryLargeObjects.streamCopy(connection.getInputStream(), 0L, bos);
+		out.print(bos.toString("UTF-8"));
 		connection.disconnect();
 	}
 	catch (Exception ex) {

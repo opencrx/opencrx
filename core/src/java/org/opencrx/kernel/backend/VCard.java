@@ -54,7 +54,6 @@ package org.opencrx.kernel.backend;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -89,8 +88,7 @@ import org.opencrx.kernel.account1.jmi1.EMailAddress;
 import org.opencrx.kernel.account1.jmi1.PhoneNumber;
 import org.opencrx.kernel.account1.jmi1.PostalAddress;
 import org.opencrx.kernel.account1.jmi1.WebAddress;
-import org.opencrx.kernel.base.jmi1.ImportParams;
-import org.opencrx.kernel.document1.jmi1.Media;
+import org.opencrx.kernel.base.jmi1.ImportItemParams;
 import org.opencrx.kernel.generic.jmi1.Note;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.io.QuotaByteArrayOutputStream;
@@ -1898,12 +1896,11 @@ public class VCard extends AbstractImpl {
                             	if(!pm.currentTransaction().isActive()) {
                             		pm.currentTransaction().begin();
                             	}
-                                ImportParams importItemParams = Structures.create(
-                                	ImportParams.class, 
-                                	Datatypes.member(ImportParams.Member.item, vcard.toString().getBytes("UTF-8")),
-                                	Datatypes.member(ImportParams.Member.itemMimeType, VCard.MIME_TYPE),                                	
-                                	Datatypes.member(ImportParams.Member.itemName, "import.vcf"),                                	
-                                	Datatypes.member(ImportParams.Member.locale, (short)0)                       	
+                                ImportItemParams importItemParams = Structures.create(
+                                	ImportItemParams.class, 
+                                	Datatypes.member(ImportItemParams.Member.item, vcard.toString().getBytes("UTF-8")),
+                                	Datatypes.member(ImportItemParams.Member.itemMimeType, VCard.MIME_TYPE),                                	
+                                	Datatypes.member(ImportItemParams.Member.itemName, "import.vcf")                                	
                                 );
                                 account.importItem(importItemParams);
                                 if(isTxLocal) {

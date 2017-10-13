@@ -11,7 +11,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2009-2013, CRIXP Corp., Switzerland
+ * Copyright (c) 2009-2016, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -953,7 +953,7 @@ org.openmdx.base.naming.*
 																<span class="nw"><%=wc.getFieldLabel(CreateWorkAndExpenseRecordController.WORKANDEXPENSERECORD_CLASS, "description", app.getCurrentLocaleAsIndex())%>:</span>
 															</td>
 															<td>
-																<input type="text" class="valueL" name="description" id="description" tabindex="<%=tabIndex++%>" value="<%=app.getHtmlEncoder().encode(wc.getFormFields().getDescription(), false)%>" onfocus="<%=ONFOCUS_HANDLER%>" />
+																<textarea rows="4" class="valueL" name="description" id="description" tabindex="<%=tabIndex++%>" onfocus="<%=ONFOCUS_HANDLER%>"><%=app.getHtmlEncoder().encode(wc.getFormFields().getDescription(), false) %></textarea>
 															</td>
 															<td class="addon"></td>
 														</tr>
@@ -1356,7 +1356,7 @@ org.openmdx.base.naming.*
 															<td class="padded"><a href='<%= recordHref %>' target='_blank'><%= app.getHtmlEncoder().encode(workAndExpenseRecord.getName(), false) %></a></td>
 															<td class="padded"><a href='<%= activityHref %>' target='_blank'>#<%= app.getHtmlEncoder().encode(new ObjectReference(activity, app).getTitle(), false) %>&nbsp;</a></td>
 															<td class="padded" <%= isWorkRecordInPercent ? "style='display:none;'" : "" %>><a href='<%= recordHref %>' target='_blank'><%= (wc.getCodes().getLongTextByCode(featureRecordType, app.getCurrentLocaleAsIndex(), true).get(new Short(workAndExpenseRecord.getRecordType()))) %></a></td>
-															<td class="padded"><a href='<%= recordHref %>' target='_blank'><%= workAndExpenseRecord.getDescription() != null ? app.getHtmlEncoder().encode(workAndExpenseRecord.getDescription(), false) : "" %></a></td>
+															<td class="padded"><%= workAndExpenseRecord.getDescription() != null ? app.getHtmlEncoder().encode(workAndExpenseRecord.getDescription().replace("\n", "<br />"), false) : "" %></td>
 															<td class="padded">
 																<img src="../../images/deletesmall.gif" style="cursor:pointer;" onclick="javascript:$('deleteWorkRecordXri').value='<%= app.getHtmlEncoder().encode(workAndExpenseRecord.refGetPath().toXRI(), false) %>';$('Command').value='DeleteWorkRecord';$('Reload.button').click();" />
 <%

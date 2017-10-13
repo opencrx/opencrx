@@ -52,43 +52,26 @@
  */
 package org.opencrx.kernel.layer.persistence;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
-import java.util.zip.ZipInputStream;
 
 import javax.jdo.FetchGroup;
 import javax.resource.ResourceException;
 import javax.resource.cci.Interaction;
-import javax.resource.cci.MappedRecord;
 
+import org.opencrx.kernel.backend.Base;
 import org.opencrx.kernel.generic.SecurityKeys;
-import org.opencrx.kernel.text.ExcelToText;
-import org.opencrx.kernel.text.OpenOfficeToText;
-import org.opencrx.kernel.text.PDFToText;
-import org.opencrx.kernel.text.RTFToText;
-import org.opencrx.kernel.text.WordToText;
-import org.opencrx.kernel.text.XmlDocToText;
 import org.openmdx.application.dataprovider.cci.AttributeSpecifier;
 import org.openmdx.application.dataprovider.cci.FilterProperty;
 import org.openmdx.base.accessor.cci.SystemAttributes;
 import org.openmdx.base.dataprovider.layer.persistence.jdbc.spi.Database_1_Attributes;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.base.mof.cci.ModelElement_1_0;
-import org.openmdx.base.mof.cci.Model_1_0;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.query.ConditionType;
 import org.openmdx.base.query.IsInCondition;
@@ -109,7 +92,6 @@ import org.openmdx.base.rest.spi.Object_2Facade;
 import org.openmdx.kernel.exception.BasicException;
 import org.openmdx.kernel.id.UUIDs;
 import org.openmdx.kernel.log.SysLog;
-import org.w3c.cci2.BinaryLargeObject;
 
 /**
  * Indexer plug-in.
@@ -125,52 +107,11 @@ public class Indexed_2 extends Media_2 {
 	public Indexed_2(
 	) {
 		super();
-        // Types to be indexed
-        this.indexableTypes = new TreeSet<Path>();
-        Model_1_0 model = this.getModel();
-        try {
-	        for(ModelElement_1_0 element: model.getContent()) {
-	        	if(
-	        		element.isClassType() &&
-	        		model.isSubtypeOf(element, "org:opencrx:kernel:base:Indexed") &&
-	        		!model.isSubtypeOf(element, "org:openmdx:base:Segment")
-	        	) {
-		            Path type = model.getIdentityPattern(element);	    
-		            if(type != null) {
-		            	this.indexableTypes.add(type);
-		            }
-	        	}
-	        }
-        } catch(ServiceException e) {
-        	e.log();
-        }
-        // Manually add some more
-        this.indexableTypes.addAll(
-            Arrays.asList(
-                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activityTracker/:*/followUp/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activityMilestone/:*/followUp/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activityCategory/:*/followUp/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.account1/provider/:*/segment/:*/account/:*/address/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/lead/:*/address/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/opportunity/:*/address/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/quote/:*/address/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/salesOrder/:*/address/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/invoice/:*/address/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.account1/provider/:*/segment/:*/account/:*/note/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/lead/:*/note/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/opportunity/:*/note/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/quote/:*/note/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/salesOrder/:*/note/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/invoice/:*/note/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.account1/provider/:*/segment/:*/account/:*/media/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activity/:*/media/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/lead/:*/media/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/opportunity/:*/media/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/quote/:*/media/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/salesOrder/:*/media/:*"),
-                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/invoice/:*/media/:*")
-            )
-        );		
+		try {
+			this.indexableTypes = Base.getInstance().getIndexableTypes();
+		} catch(Exception e) {
+			new ServiceException(e).log();
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -214,202 +155,6 @@ public class Indexed_2 extends Media_2 {
     }
     
     /**
-     * Extract keywords from object.
-     * 
-     * @param obj
-     * @return
-     * @throws ServiceException
-     */
-    protected Set<String> getKeywords(
-    	MappedRecord obj,
-        Integer keywordLengthMin,
-        Integer keywordLengthMax,
-        Set<String> indexedAttributes
-    ) throws ServiceException {
-    	Object_2Facade objFacade;
-        try {
-	        objFacade = Object_2Facade.newInstance(obj);
-        }
-        catch (ResourceException e) {
-        	throw new ServiceException(e);
-        }
-        Set<String> keywords = new HashSet<String>();
-        for(String attribute: indexedAttributes) {
-            if(objFacade.getValue().keySet().contains(attribute)) {
-                for(
-                    Iterator<Object> j = objFacade.attributeValuesAsList(attribute).iterator(); 
-                    j.hasNext(); 
-                ) {
-                    Object value = j.next();
-                    Reader text = null;
-                    boolean isXml = false;
-                    if(value instanceof String) {
-                        text = new StringReader((String)value);
-                    } else if(value instanceof InputStream || value instanceof byte[] || value instanceof BinaryLargeObject) {
-                    	if(value instanceof byte[]) {
-                    		value = new ByteArrayInputStream((byte[])value);
-                    	} else if(value instanceof BinaryLargeObject) {
-                    		try {
-                    			value = ((BinaryLargeObject)value).getContent();
-                    		} catch(Exception e) {}
-                    	}
-                        String contentName = (String)objFacade.attributeValuesAsList(attribute + "Name").get(0);
-                        String contentMimeType = (String)objFacade.attributeValuesAsList(attribute + "MimeType").get(0);
-                        if(contentName != null) { 
-                            if(
-                                "text/rtf".equals(contentMimeType) ||
-                                contentName.endsWith(".rtf")
-                            ) {
-                                 try {
-                                     text = RTFToText.toTextAsReader(
-                                         (InputStream)value
-                                     );
-                                 } catch(Exception e) {
-                                	 SysLog.warning("Cannot extract text from a RTF document", Arrays.asList(new String[]{contentName, e.getMessage()}));
-                                 }
-                            } else if(
-                                "application/pdf".equals(contentMimeType) ||
-                                contentName.endsWith(".pdf")
-                            ) {
-                                try {
-                                    text = new PDFToText().parse(
-                                        (InputStream)value
-                                    );
-                                } catch(Exception e) {
-                                	SysLog.warning("Can not extract text from PDF document", Arrays.asList(new String[]{contentName, e.getMessage()}));
-                                }
-                            } else if(
-                               "application/vnd.ms-excel".equals(contentMimeType) ||
-                               "application/ms-excel".equals(contentMimeType) ||
-                                contentName.endsWith(".xls")
-                            ) {
-                                try {
-                                    text = new ExcelToText().parse(
-                                        (InputStream)value
-                                    );
-                                } catch(Exception e) {
-                                	SysLog.warning("Can not extract text from Excel document", Arrays.asList(new String[]{contentName, e.getMessage()}));
-                                }
-                            } else if(
-                               "application/vnd.ms-word".equals(contentMimeType) ||
-                               "application/ms-word".equals(contentMimeType) ||
-                                contentName.endsWith(".doc")
-                            ) {
-                                try {
-                                    text = new WordToText().parse(
-                                        (InputStream)value
-                                    );
-                                } catch(Exception e) {
-                                	SysLog.warning("Can not extract text from Word document", Arrays.asList(new String[]{contentName, e.getMessage()}));
-                                }
-                            } else if(
-                            	(contentMimeType != null && contentMimeType.startsWith("application/vnd.openxmlformats")) ||
-                                contentName.endsWith(".docx") ||
-                                contentName.endsWith(".dotx") ||
-                                contentName.endsWith(".xlsx") ||
-                                contentName.endsWith(".xltx")
-                            ) {
-                                try {
-                                    text = new XmlDocToText().parse(
-                                        (InputStream)value
-                                    );
-                                } catch(Exception e) {
-                                	SysLog.warning("Can not extract text from XML document", Arrays.asList(new String[]{contentName, e.getMessage()}));
-                                }
-                            } else if(
-                                contentName.endsWith(".odt") ||
-                                contentName.endsWith(".odp") ||
-                                contentName.endsWith(".ods")
-                            ) {
-                                try {
-                                    ZipInputStream document = new ZipInputStream((InputStream)value);
-                                    text = new OpenOfficeToText().parse(
-                                        document
-                                    );
-                                    isXml = true;
-                                } catch(Exception e) {
-                                	SysLog.warning("Can not extract text from OpenOffice document", Arrays.asList(new String[]{contentName, e.getMessage()}));
-                                }
-                            } else if(
-                                "text/plain".equals(contentMimeType) ||
-                                contentName.endsWith(".txt")
-                            ) {
-                                text = new InputStreamReader((InputStream)value);                                
-                            } else if(
-                                "text/html".equals(contentMimeType) ||
-                                "text/xml".equals(contentMimeType) ||
-                                "application/xml".equals(contentMimeType) ||
-                                contentName.endsWith(".xml") || 
-                                contentName.endsWith(".html") || 
-                                contentName.endsWith(".htm")
-                            ) {
-                                text = new InputStreamReader((InputStream)value);           
-                                isXml = true;
-                            }                           
-                        }
-                    }
-                    if(text != null) {
-                        try {
-                            int ch = text.read();
-                            while(ch != -1) {
-                                // Skip tags if xml
-                                if(isXml && (ch == '<')) {
-                                    while(
-                                        (ch != -1) &&
-                                        (ch != '>')
-                                    ) {
-                                        ch = text.read();
-                                    }
-                                    if(ch != -1) {
-                                        ch = text.read();
-                                    }
-                                }
-                                StringBuilder keyword = new StringBuilder();
-                                boolean isKeyword = false;
-                                while(
-                                    (ch != -1) && 
-                                    (!isXml || (isXml && ch != '<')) &&
-                                    Character.isLetterOrDigit((char)ch) || (ch == '-') || (ch == '_')                                    
-                                ) {
-                                    keyword.append((char)ch);
-                                    ch = text.read();        
-                                    isKeyword = true;
-                                }
-                                if(!isKeyword && (!isXml || (ch != '<'))) {
-                                    ch = text.read();
-                                } else if(
-                                    (keyword.length() > keywordLengthMin) &&
-                                    (keyword.length() < keywordLengthMax)
-                                ) {
-                                    keywords.add(keyword.toString().toLowerCase());
-                                }
-                            }
-                        } catch(Exception e) {}
-                    }
-                }
-            }
-        }
-        return keywords;
-    }
-
-    /**
-     * Test whether object is instanceof of AccountAddress.
-     * 
-     * @param object
-     * @return
-     * @throws ServiceException
-     */
-    public boolean isAccountAddress(
-    	MappedRecord object
-    ) throws ServiceException {
-        String objectClass = Object_2Facade.getObjectClass(object);
-        return this.getModel().isSubtypeOf(
-            objectClass,
-            "org:opencrx:kernel:account1:AccountAddress"
-        );
-    }
-
-    /**
      * RestInteraction
      *
      */
@@ -442,6 +187,52 @@ public class Indexed_2 extends Media_2 {
 	        Set<String> indexedAttributes
 	    ) throws ServiceException {
 	    	try {
+		        Base.RestInteractionCallback restInteractionCallback = new Base.RestInteractionCallback(){
+					@Override
+					public void get(
+						QueryRecord query, 
+						ResultRecord result
+					) throws ResourceException {
+						RestInteraction.super.get(
+							SUPER.GET,
+							query,
+							result
+						);
+					}
+					@Override
+					public void find(
+						QueryRecord query, 
+						ResultRecord result
+					) throws ResourceException {
+						RestInteraction.super.find(
+							SUPER.GET,
+							query,
+							result
+						);				
+					}
+					@Override
+					public void create(
+						ObjectRecord query, 
+						ResultRecord result
+					) throws ResourceException {
+						RestInteraction.super.create(
+							SUPER.CREATE,
+							query,
+							result
+						);
+					}
+					@Override
+					public void update(
+						ObjectRecord object, 
+						ResultRecord result
+					) throws ResourceException {
+						RestInteraction.super.update(
+							SUPER.UPDATE,
+							object,
+							result
+						);
+					}
+	            };
 		    	Path indexedPath = Object_2Facade.getPath(indexed);
 		    	Object_2Facade indexedFacade = Object_2Facade.newInstance(indexed);
 		    	ObjectRecord indexEntry = Object_2Facade.newInstance(
@@ -452,29 +243,13 @@ public class Indexed_2 extends Media_2 {
 		        indexEntryFacade.attributeValuesAsList("indexedObject").add(
 		            indexedPath
 		        );
-		        Set<String> keywords = Indexed_2.this.getKeywords(
+		        List<String> keywords = Base.getInstance().getKeywords(
 		            indexed,
 		            keywordLengthMin,
 		            keywordLengthMax,
-		            indexedAttributes
+		            indexedAttributes,
+		            restInteractionCallback
 		        );
-		        // AccountAddress: add keywords of account
-		        if(Indexed_2.this.isAccountAddress(indexed)) {
-		        	ObjectRecord account = this.retrieveObject(
-		        		indexedPath.getPrefix(indexedPath.size() - 2), 
-		        		FetchGroup.ALL
-		        	);
-		        	if(account != null) {
-			            keywords.addAll(	            	
-			            	Indexed_2.this.getKeywords(
-			            		account,
-			            		keywordLengthMin,
-			            		keywordLengthMax,
-			            		indexedAttributes
-			            	)
-			            );
-		        	}
-		        }
 		        indexEntryFacade.attributeValuesAsList("keywords").add(
 		            keywords.toString()
 		        );
@@ -501,12 +276,10 @@ public class Indexed_2 extends Media_2 {
 		        );
 		        indexEntryFacade.attributeValuesAsList("accessLevelDelete").add(
 		            new Short(SecurityKeys.ACCESS_LEVEL_NA)
-		        );                
-		        // Create entry
-		        super.create(
-		        	SUPER.CREATE, 
-		        	indexEntry, 
-		        	this.newResult()
+		        );
+		        Base.getInstance().updateIndexEntry(
+		        	restInteractionCallback,
+		        	indexEntry
 		        );
 	    	} catch(ResourceException e) {
 	    		throw new ServiceException(e);
@@ -599,64 +372,6 @@ public class Indexed_2 extends Media_2 {
 		        return findResult;
 	    	} catch(ResourceException e) {
 	    		throw new ServiceException(e);
-	    	}
-	    }
-	    
-	    /* (non-Javadoc)
-	     * @see org.opencrx.kernel.layer.persistence.Media_1.LayerInteraction#find(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, javax.resource.cci.IndexedRecord)
-	     */
-	    @SuppressWarnings("unchecked")
-	    @Override
-        public boolean find(
-            RestInteractionSpec ispec, 
-            QueryRecord request, 
-            ResultRecord response
-        ) throws ResourceException {
-	    	Path path = request.getResourceIdentifier();
-	    	try {
-		        // If indexEntry is segment do not rewrite find request. Otherwise filter
-		        // index entries with indexedObject = requested reference
-		        if(
-		            (path.size() > 6) &&
-		            "indexEntry".equals(path.getLastSegment().toClassicRepresentation())
-		        ) {
-		        	ResultRecord indexEntries = this.findIndexEntries(
-		                path.getParent(),
-		                request
-		            );
-		            // Remap index entries so that the parent of the mapped
-		            // index entries is the requesting object, i.e. the indexed object
-		            List<ObjectRecord> mappedIndexEntries = new ArrayList<ObjectRecord>();
-		            for(Object entry: indexEntries) {
-		            	ObjectRecord indexEntry = (ObjectRecord)entry;
-		            	ObjectRecord mappedIndexEntry = Object_2Facade.cloneObject(indexEntry);
-		            	Object_2Facade.newInstance(mappedIndexEntry).setPath(
-		                    path.getChild(Object_2Facade.getPath(indexEntry).getLastSegment().toClassicRepresentation())
-		                );
-		                mappedIndexEntries.add(
-		                    mappedIndexEntry
-		                );
-		            }
-		            // reply
-	            	response.addAll(
-	            		mappedIndexEntries
-	            	);
-		            response.setHasMore(Boolean.FALSE);
-		            response.setTotal(new Integer(mappedIndexEntries.size()));
-		            return true;
-		        } else {
-		            return super.find(
-		                ispec,
-		                request,
-		                response
-		            );
-		        }
-	    	} catch(ServiceException e) {
-                throw ResourceExceptions.initHolder(
-                    new ResourceException(
-                        BasicException.newEmbeddedExceptionStack(e)
-                    )
-                );
 	    	}
 	    }
 	    
@@ -860,9 +575,9 @@ public class Indexed_2 extends Media_2 {
     public static final int STANDARD_KEYWORD_LENGTH_MAX = 40;
     protected static final int BATCH_SIZE = 50;
     
-    protected Set<Path> indexableTypes;
+    protected List<Path> indexableTypes;
 	protected Map<Path,Date> syncKeys = new ConcurrentHashMap<Path,Date>();
-    
+
     protected static final Set<String> STANDARD_INDEXED_ATTRIBUTES =
         new HashSet<String>(
             Arrays.asList(

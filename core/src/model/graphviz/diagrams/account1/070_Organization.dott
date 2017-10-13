@@ -26,7 +26,7 @@ digraph "Diagram Organization [Package org:opencrx:kernel:account1]" {
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:account1:Organization,compartments=true,width=13]};
+	  ${CLASS[name=org:opencrx:kernel:account1:Organization,compartments=true,width=10]};
 	}
 	{
 	  rank=same;
@@ -39,20 +39,13 @@ digraph "Diagram Organization [Package org:opencrx:kernel:account1]" {
 	  ${CLASS[name=org:opencrx:kernel:account1:OrganizationalUnit,compartments=true,width=4,height=1]};
 	  ${CLASS[name=org:opencrx:kernel:account1:OrganizationalUnitRelationship,compartments=true,width=4]};
 	}
-	{
-	  rank=same;
-	  LAYER4[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:account1:LegalEntity,compartments=true,width=4]};
-	}
 
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
 	LAYER2->LAYER3[style=invis];
-	LAYER3->LAYER4[style=invis];
 
-	${ASSOCIATION[name=org:opencrx:kernel:account1:OuHasRelationshipFrom,minlen=10]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:OuHasRelationshipFrom,minlen=8]}
 	${ASSOCIATION[name=org:opencrx:kernel:account1:SegmentContainsOrganization,minlen=3]}
-	${ASSOCIATION[name=org:opencrx:kernel:account1:LegalEntityHasOrganization,minlen=3]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
 

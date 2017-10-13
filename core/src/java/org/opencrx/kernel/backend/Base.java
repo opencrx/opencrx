@@ -52,21 +52,32 @@
  */
 package org.opencrx.kernel.backend;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.zip.ZipInputStream;
 
+import javax.jdo.FetchGroup;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
+import javax.resource.ResourceException;
+import javax.resource.cci.MappedRecord;
 import javax.servlet.http.HttpServletRequest;
 
 import org.opencrx.kernel.account1.jmi1.Account;
@@ -131,6 +142,12 @@ import org.opencrx.kernel.product1.jmi1.AbstractPriceLevel;
 import org.opencrx.kernel.product1.jmi1.AbstractProduct;
 import org.opencrx.kernel.product1.jmi1.PriceListEntry;
 import org.opencrx.kernel.product1.jmi1.ProductBasePrice;
+import org.opencrx.kernel.text.ExcelToText;
+import org.opencrx.kernel.text.OpenOfficeToText;
+import org.opencrx.kernel.text.PDFToText;
+import org.opencrx.kernel.text.RTFToText;
+import org.opencrx.kernel.text.WordToText;
+import org.opencrx.kernel.text.XmlDocToText;
 import org.opencrx.kernel.uom1.jmi1.Uom;
 import org.opencrx.kernel.utils.TinyUrlUtils;
 import org.opencrx.kernel.utils.Utils;
@@ -143,9 +160,20 @@ import org.openmdx.base.mof.cci.Model_1_0;
 import org.openmdx.base.mof.spi.Model_1Factory;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.UserObjects;
+import org.openmdx.base.query.IsInCondition;
+import org.openmdx.base.query.Quantifier;
+import org.openmdx.base.resource.Records;
+import org.openmdx.base.rest.cci.ObjectRecord;
+import org.openmdx.base.rest.cci.QueryFilterRecord;
+import org.openmdx.base.rest.cci.QueryRecord;
+import org.openmdx.base.rest.cci.ResultRecord;
+import org.openmdx.base.rest.spi.Facades;
+import org.openmdx.base.rest.spi.Object_2Facade;
+import org.openmdx.kernel.log.SysLog;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.WebKeys;
 import org.openmdx.portal.servlet.action.SelectObjectAction;
+import org.w3c.cci2.BinaryLargeObject;
 import org.w3c.cci2.BinaryLargeObjects;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
@@ -184,6 +212,30 @@ public class Base extends AbstractImpl {
 		
 	}
 	
+	public static interface RestInteractionCallback {
+
+		public void get(
+			QueryRecord query,
+			ResultRecord result
+		) throws ResourceException;
+		
+		public void find(
+			QueryRecord query,
+			ResultRecord result
+		) throws ResourceException;
+		
+		public void create(
+			ObjectRecord object,
+			ResultRecord result
+		) throws ResourceException;
+
+		public void update(
+			ObjectRecord object,
+			ResultRecord result
+		) throws ResourceException;
+
+	}
+
     /**
      * Send alert to given users.
      * 
@@ -974,6 +1026,7 @@ public class Base extends AbstractImpl {
 							} else {
 								if(Boolean.TRUE.equals(crxObject.isDisabled())) {
 									crxObject.setDisabled(false);									
+									crxObject.setDisabledReason(reason);
 									if(context instanceof Counter) {
 										((Counter)context).increment();
 									}
@@ -1082,7 +1135,7 @@ public class Base extends AbstractImpl {
 				status = this.enableDisableCrxObject(
 					object, 
 					false, 
-					null, 
+					reason, 
 					counter
 				);
 			}
@@ -1092,13 +1145,409 @@ public class Base extends AbstractImpl {
 			try {
 				pm.currentTransaction().rollback();
 			} catch(Exception e0) {}
-		}	
+		}
 		pm.close();
         return Structures.create(
         	EnableDisableCrxObjectResult.class, 
         	Datatypes.member(EnableDisableCrxObjectResult.Member.status, status),
         	Datatypes.member(EnableDisableCrxObjectResult.Member.count, counter.getValue())
         );
+    }
+
+    /**
+     * Get list of types which are subject to be indexed.
+     *
+     * @return
+     */
+    public List<Path> getIndexableTypes(
+    ) {
+    	List<Path> indexableTypes = new ArrayList<Path>();
+        Model_1_0 model = Utils.getModel();
+        try {
+	        for(ModelElement_1_0 element: model.getContent()) {
+	        	if(
+	        		element.isClassType() &&
+	        		model.isSubtypeOf(element, "org:opencrx:kernel:base:Indexed") &&
+	        		!model.isSubtypeOf(element, "org:openmdx:base:Segment")
+	        	) {
+		            Path type = model.getIdentityPattern(element);	    
+		            if(type != null) {
+		            	indexableTypes.add(type);
+		            }
+	        	}
+	        }
+        } catch(ServiceException e) {
+        	e.log();
+        }
+        // Manually add some more
+        indexableTypes.addAll(
+            Arrays.asList(
+                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activityTracker/:*/followUp/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activityMilestone/:*/followUp/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activityCategory/:*/followUp/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.account1/provider/:*/segment/:*/account/:*/address/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/lead/:*/address/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/opportunity/:*/address/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/quote/:*/address/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/salesOrder/:*/address/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/invoice/:*/address/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.account1/provider/:*/segment/:*/account/:*/note/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/lead/:*/note/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/opportunity/:*/note/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/quote/:*/note/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/salesOrder/:*/note/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/invoice/:*/note/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.account1/provider/:*/segment/:*/account/:*/media/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.activity1/provider/:*/segment/:*/activity/:*/media/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/lead/:*/media/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/opportunity/:*/media/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/quote/:*/media/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/salesOrder/:*/media/:*"),
+                new Path("xri://@openmdx*org.opencrx.kernel.contract1/provider/:*/segment/:*/invoice/:*/media/:*")
+            )
+        );
+        return indexableTypes;
+    }
+
+    /**
+     * Create new result record.
+     * 
+     * @return
+     * @throws ResourceException
+     */
+    protected ResultRecord newResult(
+    ) throws ResourceException {
+    	return Records.getRecordFactory().createIndexedRecord(ResultRecord.class);
+    }
+    
+    /**
+     * Create new query record.
+     * 
+     * @param resourceIdentifier
+     * @return
+     */
+    protected QueryRecord newQuery(
+        Path resourceIdentifier
+    ){
+        QueryRecord query = new org.openmdx.base.rest.spi.QueryRecord();
+        query.setResourceIdentifier(resourceIdentifier);
+        return query;
+    }
+   
+    /**
+     * Retrieve object with given identity.
+     * 
+     * @param resourceIdentifier
+     * @param fetchGroupName
+     * @return
+     * @throws ResourceException
+     */
+    protected ObjectRecord retrieveObject(
+    	RestInteractionCallback restInteractionCallback,
+    	Path resourceIdentifier,
+    	String fetchGroupName
+    ) throws ResourceException {
+    	ResultRecord result = this.newResult();
+    	QueryRecord query = this.newQuery(resourceIdentifier);
+    	query.setFetchGroupName(fetchGroupName);
+    	restInteractionCallback.get(
+    		query, 
+    		result
+    	);
+    	return result.isEmpty() ? null : (ObjectRecord)result.get(0);
+    }
+
+    /**
+     * Retrieve objects with given identity matching the given query.
+     * 
+     * @param resourceIdentifier
+     * @param query
+     * @param fetchGroupName
+     * @return
+     * @throws ResourceException
+     */
+    protected ResultRecord retrieveObjects(
+    	RestInteractionCallback restInteractionCallback,
+    	Path resourceIdentifier,
+    	QueryRecord query,
+    	String fetchGroupName
+    ) throws ResourceException {
+    	ResultRecord result = this.newResult();
+    	query.setFetchGroupName(fetchGroupName);
+    	restInteractionCallback.find(
+    		query, 
+    		result
+    	);
+    	return result;
+    }
+
+    /**
+     * Extract keywords from object.
+     * 
+     * @param object
+     * @return
+     * @throws ServiceException
+     */
+    public List<String> getKeywords(
+    	MappedRecord object,
+        Integer keywordLengthMin,
+        Integer keywordLengthMax,
+        Set<String> indexedAttributes,
+        RestInteractionCallback restInteractionCallback
+    ) throws ServiceException, ResourceException {
+    	Object_2Facade objectFacade = Facades.asObject(object);
+    	Path objPath = Object_2Facade.getPath(object);
+        List<String> keywords = new ArrayList<String>();
+        for(String attribute: indexedAttributes) {
+            if(objectFacade.getValue().keySet().contains(attribute)) {
+                for(
+                    Iterator<Object> j = objectFacade.attributeValuesAsList(attribute).iterator(); 
+                    j.hasNext(); 
+                ) {
+                    Object value = j.next();
+                    Reader text = null;
+                    boolean isXml = false;
+                    if(value instanceof String) {
+                        text = new StringReader((String)value);
+                    } else if(value instanceof InputStream || value instanceof byte[] || value instanceof BinaryLargeObject) {
+                    	if(value instanceof byte[]) {
+                    		value = new ByteArrayInputStream((byte[])value);
+                    	} else if(value instanceof BinaryLargeObject) {
+                    		try {
+                    			value = ((BinaryLargeObject)value).getContent();
+                    		} catch(Exception e) {}
+                    	}
+                        String contentName = (String)objectFacade.attributeValuesAsList(attribute + "Name").get(0);
+                        String contentMimeType = (String)objectFacade.attributeValuesAsList(attribute + "MimeType").get(0);
+                        if(contentName != null) { 
+                            if(
+                                "text/rtf".equals(contentMimeType) ||
+                                contentName.endsWith(".rtf")
+                            ) {
+                                 try {
+                                     text = RTFToText.toTextAsReader(
+                                         (InputStream)value
+                                     );
+                                 } catch(Exception e) {
+                                	 SysLog.warning("Cannot extract text from a RTF document", Arrays.asList(new String[]{contentName, e.getMessage()}));
+                                 }
+                            } else if(
+                                "application/pdf".equals(contentMimeType) ||
+                                contentName.endsWith(".pdf")
+                            ) {
+                                try {
+                                    text = new PDFToText().parse(
+                                        (InputStream)value
+                                    );
+                                } catch(Exception e) {
+                                	SysLog.warning("Can not extract text from PDF document", Arrays.asList(new String[]{contentName, e.getMessage()}));
+                                }
+                            } else if(
+                               "application/vnd.ms-excel".equals(contentMimeType) ||
+                               "application/ms-excel".equals(contentMimeType) ||
+                                contentName.endsWith(".xls")
+                            ) {
+                                try {
+                                    text = new ExcelToText().parse(
+                                        (InputStream)value
+                                    );
+                                } catch(Exception e) {
+                                	SysLog.warning("Can not extract text from Excel document", Arrays.asList(new String[]{contentName, e.getMessage()}));
+                                }
+                            } else if(
+                               "application/vnd.ms-word".equals(contentMimeType) ||
+                               "application/ms-word".equals(contentMimeType) ||
+                                contentName.endsWith(".doc")
+                            ) {
+                                try {
+                                    text = new WordToText().parse(
+                                        (InputStream)value
+                                    );
+                                } catch(Exception e) {
+                                	SysLog.warning("Can not extract text from Word document", Arrays.asList(new String[]{contentName, e.getMessage()}));
+                                }
+                            } else if(
+                            	(contentMimeType != null && contentMimeType.startsWith("application/vnd.openxmlformats")) ||
+                                contentName.endsWith(".docx") ||
+                                contentName.endsWith(".dotx") ||
+                                contentName.endsWith(".xlsx") ||
+                                contentName.endsWith(".xltx")
+                            ) {
+                                try {
+                                    text = new XmlDocToText().parse(
+                                        (InputStream)value
+                                    );
+                                } catch(Exception e) {
+                                	SysLog.warning("Can not extract text from XML document", Arrays.asList(new String[]{contentName, e.getMessage()}));
+                                }
+                            } else if(
+                                contentName.endsWith(".odt") ||
+                                contentName.endsWith(".odp") ||
+                                contentName.endsWith(".ods")
+                            ) {
+                                try {
+                                    ZipInputStream document = new ZipInputStream((InputStream)value);
+                                    text = new OpenOfficeToText().parse(
+                                        document
+                                    );
+                                    isXml = true;
+                                } catch(Exception e) {
+                                	SysLog.warning("Can not extract text from OpenOffice document", Arrays.asList(new String[]{contentName, e.getMessage()}));
+                                }
+                            } else if(
+                                "text/plain".equals(contentMimeType) ||
+                                contentName.endsWith(".txt")
+                            ) {
+                                text = new InputStreamReader((InputStream)value);                                
+                            } else if(
+                                "text/html".equals(contentMimeType) ||
+                                "text/xml".equals(contentMimeType) ||
+                                "application/xml".equals(contentMimeType) ||
+                                contentName.endsWith(".xml") || 
+                                contentName.endsWith(".html") || 
+                                contentName.endsWith(".htm")
+                            ) {
+                                text = new InputStreamReader((InputStream)value);           
+                                isXml = true;
+                            }                           
+                        }
+                    }
+                    if(text != null) {
+                        try {
+                            int ch = text.read();
+                            while(ch != -1) {
+                                // Skip tags if xml
+                                if(isXml && (ch == '<')) {
+                                    while(
+                                        (ch != -1) &&
+                                        (ch != '>')
+                                    ) {
+                                        ch = text.read();
+                                    }
+                                    if(ch != -1) {
+                                        ch = text.read();
+                                    }
+                                }
+                                StringBuilder keyword = new StringBuilder();
+                                boolean isKeyword = false;
+                                while(
+                                    (ch != -1) && 
+                                    (!isXml || (isXml && ch != '<')) &&
+                                    Character.isLetterOrDigit((char)ch) || (ch == '-') || (ch == '_') || (ch == '@') || (ch == '.')                                   
+                                ) {
+                                    keyword.append((char)ch);
+                                    ch = text.read();        
+                                    isKeyword = true;
+                                }
+                                if(!isKeyword && (!isXml || (ch != '<'))) {
+                                    ch = text.read();
+                                } else if(
+                                    (keyword.length() >= keywordLengthMin) &&
+                                    (keyword.length() < keywordLengthMax)
+                                ) {        
+                                	String normalizedKeyword = keyword.toString().toLowerCase();
+                                	while(normalizedKeyword.endsWith("-") || normalizedKeyword.endsWith("_") || normalizedKeyword.endsWith("@") || normalizedKeyword.endsWith(".")) {
+                                		normalizedKeyword = normalizedKeyword.substring(0, normalizedKeyword.length() - 1);
+                                	}
+                                	if(!keywords.contains(normalizedKeyword)) {
+                                		keywords.add(normalizedKeyword);
+                                	}
+                                }
+                            }
+                        } catch(Exception e) {}
+                    }
+                }
+            }
+        }
+        if(Utils.isInstanceOf(object, "org:opencrx:kernel:account1:Account")) {
+            // Account: include address keywords
+        	QueryRecord query = this.newQuery(objPath.getDescendant("address"));
+        	query.setQueryFilter(Records.getRecordFactory().createMappedRecord(QueryFilterRecord.class));
+        	query.getQueryFilter().getCondition().add(
+        		new IsInCondition(
+        	        Quantifier.FOR_ALL,        	        
+        	        "disabled",
+        	        true,
+        	        Boolean.FALSE        			
+        		)
+        	);
+        	ResultRecord addresses = this.retrieveObjects(
+        		restInteractionCallback, 
+        		objPath.getDescendant("address"), 
+        		query, 
+        		FetchGroup.ALL
+        	);
+        	for(Object address: addresses) {
+        		if(address instanceof MappedRecord) {
+    	            keywords.addAll(	            	
+    	            	this.getKeywords(
+    	            		(MappedRecord)address,
+    	            		keywordLengthMin,
+    	            		keywordLengthMax,
+    	            		indexedAttributes,
+    	            		restInteractionCallback
+    	            	)
+    	            );
+        		}
+        	}
+        }
+        return keywords;
+    }
+
+    /**
+     * Return true if updating of existing index entries is allowed.
+     * 
+     * @return
+     */
+    public boolean allowUpdateExistingIndexEntries(
+    ) {
+    	return true;
+    }
+    
+    /**
+     * Create a new index entry or update existing.
+     * 
+     * @param restInteractionCallback
+     * @param indexEntry
+     * @throws ServiceException
+     * @throws ResourceException
+     */
+    public void updateIndexEntry(
+    	RestInteractionCallback restInteractionCallback,
+    	ObjectRecord indexEntry
+    ) throws ServiceException, ResourceException {
+    	ResultRecord existingIndexEntries = this.newResult();
+    	if(this.allowUpdateExistingIndexEntries()) {
+	    	QueryRecord query = this.newQuery(indexEntry.getResourceIdentifier().getParent());
+	    	query.setQueryFilter(Records.getRecordFactory().createMappedRecord(QueryFilterRecord.class));
+	    	query.getQueryFilter().getCondition().add(
+	    		new IsInCondition(
+	    	        Quantifier.THERE_EXISTS,        	        
+	    	        "indexedObject",
+	    	        true,
+	    	        Facades.asObject(indexEntry).attributeValue("indexedObject")
+	    		)
+	    	);
+	    	existingIndexEntries = this.retrieveObjects(
+	    		restInteractionCallback, 
+	    		indexEntry.getResourceIdentifier().getParent(), 
+	    		query, 
+	    		FetchGroup.ALL
+	    	);
+    	}
+    	if(!existingIndexEntries.isEmpty()) {
+    		ObjectRecord existingIndexEntry = (ObjectRecord)existingIndexEntries.get(0);
+    		indexEntry.setResourceIdentifier(existingIndexEntry.getResourceIdentifier());
+	    	restInteractionCallback.update(
+		    	indexEntry, 
+		    	this.newResult()
+		    );
+    	} else {
+	    	restInteractionCallback.create(
+		    	indexEntry, 
+		    	this.newResult()
+		    );
+    	}
     }
 
 	//-------------------------------------------------------------------------
@@ -1119,5 +1568,3 @@ public class Base extends AbstractImpl {
 	public static final List<String> ASSIGN_TO_ME_ATTRIBUTES = Arrays.asList("assignedTo", "salesRep", "ratedBy");
 
 }
-
-//--- End of File -----------------------------------------------------------

@@ -31,24 +31,18 @@ digraph "Diagram SalesVolumeContract [Package org:opencrx:kernel:contract1]" {
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:contract1:SalesVolumeTarget,compartments=true,width=6]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:SalesVolumeTarget,compartments=true,width=4]};
 	}
 	{
 	  rank=same;
 	  LAYER3[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};	  
 	  ${CLASS[name=org:opencrx:kernel:product1:AbstractFilterProduct,compartments=false,fillcolor="#FFBD9D",width=2]};
-	}
-	{
-	  rank=same;
-	  LAYER4[style=invis];
 	  NOTE0[label="The SalesVolumeContract allows to specify\lspecial prices for customers when they meet\lsales volume targets. The targets can either be\lspecified by\l- quote positions and/or (use contract relationship to specify quote)\l- SalesVolumeTarget\l}",fillcolor="#D8F2FA"];	  
 	}
 
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
 	LAYER2->LAYER3[style=invis];
-	LAYER3->LAYER4[style=invis];
 
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:ContractContainsSalesVolumeTarget,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:SalesVolumeTargetHasProductFilter,minlen=3]}

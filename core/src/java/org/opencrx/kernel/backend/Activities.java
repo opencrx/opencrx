@@ -128,6 +128,7 @@ import org.opencrx.kernel.activity1.jmi1.ActivityCategory;
 import org.opencrx.kernel.activity1.jmi1.ActivityCreationAction;
 import org.opencrx.kernel.activity1.jmi1.ActivityCreator;
 import org.opencrx.kernel.activity1.jmi1.ActivityDoFollowUpParams;
+import org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal;
 import org.opencrx.kernel.activity1.jmi1.ActivityFollowUp;
 import org.opencrx.kernel.activity1.jmi1.ActivityGroup;
 import org.opencrx.kernel.activity1.jmi1.ActivityGroupAssignment;
@@ -977,7 +978,7 @@ public class Activities extends AbstractImpl {
         	owningGroups = activitySegment.getOwningGroup();
         }
         ActivityProcess process = null;
-        if((process = this.findActivityProcess(ACTIVITY_PROCESS_NAME_BULK_EMAILS, activitySegment, pm)) != null) {
+        if((process = this.findActivityProcess(ACTIVITY_PROCESS_NAME_BULK_EMAILS, activitySegment)) != null) {
             return process;            
         }                
         // Create process
@@ -1503,22 +1504,25 @@ public class Activities extends AbstractImpl {
     }
 
     /**
-     * Creates a new activity type or updates an existing.
+     * Init activity type.
      * 
      * @param activityProcess
      * @param activityTypeName
      * @param activityClass
+     * @param activityClassName
      * @param owningGroups
      * @param accessLevelUpdateDelete
      * @return
+     * @throws ServiceException
      */
     public ActivityType initActivityType(
         ActivityProcess activityProcess,
         String activityTypeName,
         short activityClass,
+        String activityClassName,
         List<PrincipalGroup> owningGroups,
         short accessLevelUpdateDelete
-    ) {
+    ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(activityProcess);
     	boolean isTxLocal = !pm.currentTransaction().isActive();
     	String providerName = activityProcess.refGetPath().get(2);
@@ -1541,6 +1545,7 @@ public class Activities extends AbstractImpl {
         activityType = pm.newInstance(ActivityType.class);
         activityType.setName(activityTypeName);
         activityType.setActivityClass(activityClass);
+        activityType.setActivityClassName(activityClassName);
         activityType.setControlledBy(activityProcess);
         activityType.getOwningGroup().addAll(owningGroups);
         activityType.setAccessLevelUpdate(accessLevelUpdateDelete);
@@ -1552,7 +1557,34 @@ public class Activities extends AbstractImpl {
         if(isTxLocal) {
         	pm.currentTransaction().commit();
         }
-        return activityType;
+        return activityType;    	
+    }
+
+    /**
+     * Creates a new activity type or updates an existing.
+     * 
+     * @param activityProcess
+     * @param activityTypeName
+     * @param activityClass
+     * @param owningGroups
+     * @param accessLevelUpdateDelete
+     * @return
+     */
+    public ActivityType initActivityType(
+        ActivityProcess activityProcess,
+        String activityTypeName,
+        short activityClass,
+        List<PrincipalGroup> owningGroups,
+        short accessLevelUpdateDelete
+    ) throws ServiceException {
+    	return this.initActivityType(
+    		activityProcess, 
+    		activityTypeName, 
+    		activityClass, 
+    		null, // activityClassName
+    		owningGroups, 
+    		accessLevelUpdateDelete
+    	);
     }
 
     /**
@@ -1813,6 +1845,79 @@ public class Activities extends AbstractImpl {
         activityCreator.setIcalClass(icalClass.getValue());
     }
 
+	/**
+	 * Find activity filter.
+	 * 
+	 * @param activityFilterName
+	 * @param segment
+	 * @param pm
+	 * @return
+	 */
+	public org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal findActivityFilter(
+		String activityFilterName,
+		org.opencrx.kernel.activity1.jmi1.Segment segment
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);		
+		org.opencrx.kernel.activity1.cci2.ActivityFilterGlobalQuery query =
+		    (org.opencrx.kernel.activity1.cci2.ActivityFilterGlobalQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal.class);
+		query.name().equalTo(activityFilterName);
+		Collection<ActivityFilterGlobal> activityFilters = segment.getActivityFilter(query);
+		if(!activityFilters.isEmpty()) {
+			return (org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal)activityFilters.iterator().next();
+		}
+		return null;
+	}
+    
+	/**
+	 * Init activity filter.
+	 * 
+	 * @param filterName
+	 * @param filterProperties
+	 * @param pm
+	 * @param segment
+	 * @param allUsers
+	 * @return
+	 */
+	public org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal initActivityFilter(
+		String filterName,
+		org.opencrx.kernel.activity1.jmi1.ActivityFilterProperty[] filterProperties,
+		org.opencrx.kernel.activity1.jmi1.Segment segment,
+		List<PrincipalGroup> allUsers
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);
+		org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal activityFilter = findActivityFilter(
+			filterName,
+			segment
+		);
+		if(activityFilter != null) return activityFilter;
+		try {
+			pm.currentTransaction().begin();
+			activityFilter = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal.class);
+			activityFilter.setName(filterName);
+			activityFilter.getOwningGroup().addAll(allUsers);
+			segment.addActivityFilter(
+				false,
+				Activities.getInstance().getUidAsString(),
+				activityFilter
+			);
+			for(int i = 0; i < filterProperties.length; i++) {
+				filterProperties[i].getOwningGroup().addAll(allUsers);
+				activityFilter.addFilterProperty(
+					false,
+					Activities.getInstance().getUidAsString(),
+					filterProperties[i]
+				);
+			}
+			pm.currentTransaction().commit();
+		} catch(Exception e) {
+			new ServiceException(e).log();
+			try {
+				pm.currentTransaction().rollback();
+			} catch(Exception e0) {}
+		}
+		return activityFilter;
+	}
+    
     /**
      * Refreshes an activity tracker. Currently recalculates the effort estimates.
      * 
@@ -2432,6 +2537,7 @@ public class Activities extends AbstractImpl {
      * @param followUpText
      * @param processTransition
      * @param assignTo
+     * @param parentProcessInstance
      * @return
      * @throws ServiceException
      */
@@ -2443,9 +2549,42 @@ public class Activities extends AbstractImpl {
         Contact assignTo,
         WfProcessInstance parentProcessInstance
     ) throws ServiceException {
+    	return this.doFollowUp(
+    		activity,
+    		followUpTitle,
+    		followUpText,
+    		processTransition,
+    		assignTo,
+    		parentProcessInstance,
+    		true // validateStates
+    	);
+    }
+    
+    /**
+     * Perform a follow up on an activity.
+
+     * @param activity
+     * @param followUpTitle
+     * @param followUpText
+     * @param processTransition
+     * @param assignTo
+     * @param parentProcessInstance
+     * @param validateStates
+     * @return
+     * @throws ServiceException
+     */
+    public ActivityFollowUp doFollowUp(
+        Activity activity,
+        String followUpTitle,
+        String followUpText,
+        ActivityProcessTransition processTransition,
+        Contact assignTo,
+        WfProcessInstance parentProcessInstance,
+        boolean validateStates    
+    ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(activity);    	
-    	String providerName = activity.refGetPath().get(2);
-    	String segmentName = activity.refGetPath().get(4);
+    	String providerName = activity.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = activity.refGetPath().getSegment(4).toClassicRepresentation();
     	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = this.getActivitySegment(pm, providerName, segmentName);
         ActivityProcessState processState = activity.getProcessState();
         if(processTransition != null) {
@@ -2462,16 +2601,18 @@ public class Activities extends AbstractImpl {
                 ((processTransition.getPrevState() == null) && (processState == null)) ||
                 ((processTransition.getPrevState() != null) && processTransition.getPrevState().equals(processState))
             ) {
-                
+                // valid
             } else {
-                throw new ServiceException(
-                    OpenCrxException.DOMAIN,
-                    OpenCrxException.ACTIVITY_TRANSITION_NOT_VALID_FOR_STATE, 
-                    "Transition is not valid for current state",
-                     new BasicException.Parameter("param0", processTransition.refGetPath()),
-                     new BasicException.Parameter("param1", processState.refGetPath())
-                );
-            } 
+            	if(validateStates) {
+	                throw new ServiceException(
+	                    OpenCrxException.DOMAIN,
+	                    OpenCrxException.ACTIVITY_TRANSITION_NOT_VALID_FOR_STATE, 
+	                    "Transition is not valid for current state",
+	                     new BasicException.Parameter("param0", processTransition.refGetPath()),
+	                     new BasicException.Parameter("param1", processState.refGetPath())
+	                );
+            	}
+            }
             // Apply transition to activity
             activity.setLastTransition(
                 processTransition         
@@ -3180,7 +3321,8 @@ public class Activities extends AbstractImpl {
     }
 
     /**
-     * Update calculated and derived fields of given activity.
+     * Update calculated and derived fields of given activity. Override for custom-
+     * specific behaviour.
      * 
      * @param activity
      * @throws ServiceException
@@ -3256,6 +3398,18 @@ public class Activities extends AbstractImpl {
         		linkFrom.getLinkTo()
         	);
         }
+    }
+
+    /**
+     * Update calculated and derived fields of given activity group. Override for
+     * custom-specific behaviour.
+     * 
+     * @param activity
+     * @throws ServiceException
+     */    
+    protected void updateActivityGroup(
+    	ActivityGroup activityGroup
+    ) throws ServiceException {    	
     }
 
     /**
@@ -5607,6 +5761,8 @@ public class Activities extends AbstractImpl {
 			this.markActivityAsDirty(activity);
 		} else if(object instanceof WorkAndExpenseRecord) {
 			this.updateWorkAndExpenseRecord((WorkAndExpenseRecord)object);
+		} else if(object instanceof ActivityGroup) {
+			this.updateActivityGroup((ActivityGroup)object);
 		}
 	}
 	

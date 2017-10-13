@@ -117,6 +117,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:salesTaxTypeAssignment" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Zuweisungen Verkaufssteuertyp</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Zuweisungen Verkaufssteuertyp</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:classification" _operation="create">
                     <_object>
                       <label>
@@ -227,6 +238,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:depotAssignmentGroup" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Depotzuweisungsgruppe</_item>
+											</toolTip>
+											<label>
+												<_item>Depotzuweisungsgruppe</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultUom" _operation="create">
                     <_object>
                       <label>
@@ -289,6 +311,17 @@
                       </label>
                       <toolTip>
                         <_item>Produkte mit Bezug</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:productMembership" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Produkte mit Bezug (Eingehend)</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Produkte mit Bezug (Eingehend)</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -371,7 +404,7 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
 
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Produktphase</_item>
@@ -382,7 +415,7 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:name">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:name" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Name</_item>
@@ -393,7 +426,7 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:description">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:description" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Beschreibung</_item>
@@ -404,7 +437,7 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:productPhaseKey">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:productPhaseKey" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Produktphasenschlüssel</_item>
@@ -415,7 +448,7 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:validFrom">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:validFrom" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Gültig ab</_item>
@@ -426,13 +459,69 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:validTo">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhase:validTo" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Gültig bis</_item>
 											</toolTip>
 											<label>
 												<_item>Gültig bis</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Zuweisung Verkaufssteuertyp</_item>
+											</toolTip>
+											<label>
+												<_item>Zuweisung Verkaufssteuertyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:salesTaxType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufssteuertyp</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufssteuertyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:uom" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Masseinheit</_item>
+											</toolTip>
+											<label>
+												<_item>Masseinheit</_item>
 											</label>
 										</_object>
 										<_content/>
@@ -592,6 +681,85 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<!-- ProductMembership -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Produkt mit Bezug (Eingehend)</_item>
+											</toolTip>
+											<label>
+												<_item>Produkt mit Bezug (Eingehend)</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:relationshipType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beziehungstyp</_item>
+											</toolTip>
+											<label>
+												<_item>Beziehungstyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:productFrom" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Produkt von</_item>
+											</toolTip>
+											<label>
+												<_item>Produkt von</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:productTo" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Produkt nach</_item>
+											</toolTip>
+											<label>
+												<_item>Produkt nach</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:relatedProduct" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Produktebeziehung</_item>
+											</toolTip>
+											<label>
+												<_item>Produktebeziehung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignmentProduct" _operation="create">
                     <_object>
                       <label>

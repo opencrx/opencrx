@@ -151,12 +151,7 @@ public class DocumentSpaceServlet extends HttpServlet {
         if(this.pmf == null) {                    
             try {
                 Utils.getModel();
-                this.pmf = Utils.getPersistenceManagerFactory();
-            } catch (NamingException e) {
-                throw new ServletException( 
-                    "Can not get the initial context", 
-                    e
-                );                
+                this.pmf = Utils.getPersistenceManagerFactory();             
             } catch(ServiceException e) {
                 throw new ServletException( 
                     "Can not get persistence manager", 

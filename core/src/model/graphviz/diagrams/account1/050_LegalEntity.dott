@@ -27,18 +27,18 @@ digraph "Diagram LegalEntity [Package org:opencrx:kernel:account1]" {
 	  rank=same;
 	  LAYER1[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:account1:LegalEntity,compartments=true,width=2]};
-	  ${CLASS[name=org:opencrx:kernel:account1:OrganizationalUnit,compartments=true,width=2]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:account1:RevenueReport,compartments=true,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:account1:AbstractOrganizationalUnit,compartments=true,width=2]};
 	}
 	
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
 	
-	${ASSOCIATION[name=org:opencrx:kernel:account1:LegalEntityHasOrganization,constraint=true,minlen=7]}
+	${ASSOCIATION[name=org:opencrx:kernel:account1:LegalEntityHasOrganization,constraint=true,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:account1:LegalEntityHasRevenueReport,minlen=3]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}

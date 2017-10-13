@@ -22,6 +22,40 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:salesTaxTypeGroup" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufssteuertypgruppen</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufssteuertypgruppen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:salesTransactionType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufstransaktionstypen</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufstransaktionstypen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:depotAssignmentGroup" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Depotzuweisungsgruppen</_item>
+											</toolTip>
+											<label>
+												<_item>Depotzuweisungsgruppen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType" _operation="create">
                     <_object>
                       <label>
@@ -44,6 +78,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:shortName" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Kurzname</_item>
+											</toolTip>
+											<label>
+												<_item>Kurzname</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:description" _operation="create">
                     <_object>
                       <label>
@@ -77,7 +122,273 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-                </elementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:validFrom" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Gültig ab</_item>
+											</toolTip>
+											<label>
+												<_item>Gültig ab</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:validTo" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Gültig bis</_item>
+											</toolTip>
+											<label>
+												<_item>Gültig bis</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:salesTaxTypeGroup" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufssteuertypgruppe</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufssteuertypgruppe</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:parentSalesTaxType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übergeordneter Verkaufssteuertyp</_item>
+											</toolTip>
+											<label>
+												<_item>Übergeordneter Verkaufssteuertyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxType:salesTransactionType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufstransaktionstypen</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufstransaktionstypen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufssteuertypgruppe</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufssteuertypgruppe</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:taxAuthorityCountry" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Land Steuerbehörde</_item>
+											</toolTip>
+											<label>
+												<_item>Land Steuerbehörde</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:taxAuthorityPostalCode" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Postleitzahl Steuerbehörde</_item>
+											</toolTip>
+											<label>
+												<_item>Postleitzahl Steuerbehörde</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeGroup:taxAuthority" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Tax authority</_item>
+											</toolTip>
+											<label>
+												<_item>Tax authority</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+ 
+ 									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTransactionType">
+										<_object>
+											<toolTip>
+												<_item>Verkaufstransaktionstyp</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufstransaktionstyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTransactionType:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTransactionType:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Depotzuweisungsgruppe</_item>
+											</toolTip>
+											<label>
+												<_item>Depotzuweisungsgruppe</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:salesTransactionType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufstransaktionstyp</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufstransaktionstyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:salesTaxTypeGroup" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verkaufssteuertypgruppe</_item>
+											</toolTip>
+											<label>
+												<_item>Verkaufssteuertypgruppe</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:incomeAccount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Ertragskonto</_item>
+											</toolTip>
+											<label>
+												<_item>Ertragskonto</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:costCenter" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Kostenstelle</_item>
+											</toolTip>
+											<label>
+												<_item>Kostenstelle</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:costType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Kostenart</_item>
+											</toolTip>
+											<label>
+												<_item>Kostenart</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DepotAssignmentGroup:authority">
+										<_object>
+											<toolTip>
+												<_item>Verwaltet durch</_item>
+											</toolTip>
+											<label>
+												<_item>Verwaltet durch</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+               </elementDefinition>
               </_content>
             </org.openmdx.ui1.Segment>
           </segment>

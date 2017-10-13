@@ -120,7 +120,7 @@
 											<order>
 												<_item>10</_item>
 												<_item>0</_item>
-												<_item>50</_item>
+												<_item>100</_item>
 											</order>
 											<iconKey>ProductClassification</iconKey>
 											<maxMember>2</maxMember>
@@ -194,6 +194,29 @@
 											</orderObjectContainer>
 											<maxMember>7</maxMember>
 											<iconKey>Uom</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:salesTaxTypeAssignment">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Tax Type Assignments</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Tax Type Assignments</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>99</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</orderObjectContainer>
+											<maxMember>4</maxMember>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -414,6 +437,23 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:depotAssignmentGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Depot assignment group</_item>
+											</toolTip>
+											<label>
+												<_item>Depot assignment group</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProduct:defaultUom">
 										<_object>
 											<columnBreak>true</columnBreak>
@@ -579,6 +619,25 @@
 											</order>
 											<maxMember>9</maxMember>
 											<showMaxMember>4</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Product:productMembership">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Related Products (Inbound)</_item>
+											</toolTip>
+											<label>
+												<_item>Related Products (Inbound)</_item>
+											</label>
+											<order>
+												<_item>40</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>9</maxMember>
+											<showMaxMember>5</showMaxMember>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -808,6 +867,93 @@
 												<_item>0</_item>
 												<_item>10</_item>
 												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- SalesTaxTypeAssignment -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales Tax Type Assignment</_item>
+											</toolTip>
+											<label>
+												<_item>Sales Tax Type Assignment</_item>
+											</label>
+											<iconKey>SalesTaxTypeAssignment</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:description">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:salesTaxType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Sales tax type</_item>
+											</toolTip>
+											<label>
+												<_item>Sales tax type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:SalesTaxTypeAssignment:uom">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UOM</_item>
+											</toolTip>
+											<label>
+												<_item>UOM</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -1075,6 +1221,145 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- ProductMembership -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Related Product (Inbound)</_item>
+											</toolTip>
+											<label>
+												<_item>Related Product (Inbound)</_item>
+											</label>
+											<iconKey>ProductMembership</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!-- Tab Definitions -->
+									<!-- Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:name">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:description">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:relationshipType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Relationship type</_item>
+											</toolTip>
+											<label>
+												<_item>Relationship type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:productFrom">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Product from</_item>
+											</toolTip>
+											<label>
+												<_item>Product from</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>25</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:productTo">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Product to</_item>
+											</toolTip>
+											<label>
+												<_item>Product to</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>28</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductMembership:relatedProduct">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Related Product</_item>
+											</toolTip>
+											<label>
+												<_item>Related Product</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
 											</order>
 										</_object>
 										<_content/>

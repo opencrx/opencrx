@@ -60,6 +60,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -69,9 +70,12 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 
 import org.opencrx.kernel.account1.jmi1.Contact;
+import org.opencrx.kernel.activity1.jmi1.ActivityProcessState;
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
+import org.openmdx.base.query.ConditionType;
+import org.openmdx.base.query.Quantifier;
 import org.openmdx.kernel.log.SysLog;
 
 /**
@@ -99,6 +103,24 @@ public class Admin extends AbstractImpl {
 	) throws ServiceException {
 		return getInstance(Admin.class);
 	}
+
+	public static final String SALES_TAX_TYPE_NAME_8_5 = "Sales Tax 8.5%";
+	//-----------------------------------------------------------------------
+	// Members
+	//-----------------------------------------------------------------------
+	public static final String ACCOUNT_FILTER_NAME_ALL = "All Accounts";
+	public static final String ACCOUNT_FILTER_NAME_NO_OR_BROKEN_VCARD = "Accounts with missing or broken vCard";
+	public static final String ADDRESS_FILTER_NAME_ALL = "All Addresses";
+	public static final String CONTRACT_FILTER_NAME_LEAD_FORECAST = "Lead Forecast";
+	public static final String CONTRACT_FILTER_NAME_OPPORTUNITY_FORECAST = "Opportunity Forecast";
+	public static final String CONTRACT_FILTER_NAME_QUOTE_FORECAST = "Quote Forecast";
+	public static final String CONTRACT_FILTER_NAME_WON_LEADS = "Won Leads";
+	public static final String CONTRACT_FILTER_NAME_WON_OPPORTUNITIES = "Won Opportunities";
+	public static final String CONTRACT_FILTER_NAME_WON_QUOTES = "Won Quotes";
+	public static final String ACTIVITY_FILTER_NAME_PHONE_CALLS = "Phone Calls";
+	public static final String ACTIVITY_FILTER_NAME_NEW_ACTIVITIES = "New Activities";
+	public static final String ACTIVITY_FILTER_NAME_OPEN_ACTIVITIES = "Open Activities";
+	public static final String ACTIVITY_FILTER_NAME_MEETINGS = "Meetings";
 
 	/**
 	 * Constructor.
@@ -239,8 +261,8 @@ public class Admin extends AbstractImpl {
      * Create or update principal. In case the principal already exists only the
      * group memberships are updated.
      * 
-     * @param principalName
-     * @param principalDescription
+     * @param id
+     * @param description
      * @param realm
      * @param principalType
      * @param memberOfGroups
@@ -248,15 +270,48 @@ public class Admin extends AbstractImpl {
      * @return
      */
     public org.openmdx.security.realm1.jmi1.Principal createPrincipal(
-        String principalName,
-        String principalDescription,
+        String id,
+        String description,
+        org.openmdx.security.realm1.jmi1.Realm realm,
+        PrincipalType principalType,
+        List<org.openmdx.security.realm1.jmi1.Group> memberOfGroups,
+        org.openmdx.security.realm1.jmi1.Subject subject
+    ) {
+    	return this.createPrincipal(
+    		id,
+    		null, // name
+    		description,
+    		realm,
+    		principalType,
+    		memberOfGroups,
+    		subject
+    	);
+    }
+
+    /**
+     * Create or update principal. In case the principal already exists only the
+     * group memberships are updated.
+     * 
+     * @param id
+     * @param name
+     * @param description
+     * @param realm
+     * @param principalType
+     * @param memberOfGroups
+     * @param subject
+     * @return
+     */
+    public org.openmdx.security.realm1.jmi1.Principal createPrincipal(
+        String id,
+        String name,
+        String description,
         org.openmdx.security.realm1.jmi1.Realm realm,
         PrincipalType principalType,
         List<org.openmdx.security.realm1.jmi1.Group> memberOfGroups,
         org.openmdx.security.realm1.jmi1.Subject subject
     ) {
         PersistenceManager pm = JDOHelper.getPersistenceManager(realm);
-        org.openmdx.security.realm1.jmi1.Principal principal = realm.getPrincipal(principalName);
+        org.openmdx.security.realm1.jmi1.Principal principal = realm.getPrincipal(id);
         if(principal != null) {
             Set<org.openmdx.security.realm1.jmi1.Group> mergedGroups = new LinkedHashSet<org.openmdx.security.realm1.jmi1.Group>(
             	principal.<org.openmdx.security.realm1.jmi1.Group>getIsMemberOf()
@@ -276,10 +331,15 @@ public class Admin extends AbstractImpl {
 	        		principal = pm.newInstance(org.opencrx.security.realm1.jmi1.PrincipalGroup.class);
 	        		break;
         	}
+        	principal.setName(
+            	name == null ?
+            		id :
+            	    name
+        	);
             principal.setDescription(
-            	principalDescription == null ?
-            		realm.refGetPath().getBase() + "\\\\" + principalName :
-            	    principalDescription
+            	description == null ?
+            		realm.refGetPath().getLastSegment().toClassicRepresentation() + "\\\\" + id :
+            	    description
             );
             principal.setDisabled(Boolean.FALSE);
             principal.getIsMemberOf().addAll(
@@ -287,7 +347,7 @@ public class Admin extends AbstractImpl {
             );
             principal.setSubject(subject);
             realm.addPrincipal(
-            	principalName,
+            	id,
             	principal
             );
         }
@@ -335,7 +395,7 @@ public class Admin extends AbstractImpl {
      *  
      * @param adminSegment
      * @param segmentName
-     * @param principalName
+     * @param principalId
      * @param initialPassword
      * @param initialPasswordVerification
      * @param errors
@@ -344,7 +404,7 @@ public class Admin extends AbstractImpl {
     public void createAdministrator(
         org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
         String segmentName,
-        String principalName,
+        String principalId,
         String initialPassword,
         String initialPasswordVerification,
         List<String> errors
@@ -367,9 +427,9 @@ public class Admin extends AbstractImpl {
 	        	loginRealmIdentity
 	        );
 	        org.openmdx.security.realm1.jmi1.Subject segmentAdminSubject = null;
-	    	if(loginRealm.getPrincipal(principalName) != null) {
+	    	if(loginRealm.getPrincipal(principalId) != null) {
 	            try {
-	            	segmentAdminSubject = loginRealm.getPrincipal(principalName).getSubject();
+	            	segmentAdminSubject = loginRealm.getPrincipal(principalId).getSubject();
 	            } catch(Exception ignore) {}
 	    	}
 	        if(segmentAdminSubject == null) {
@@ -392,8 +452,9 @@ public class Admin extends AbstractImpl {
 	            	(org.openmdx.security.realm1.jmi1.Group)loginRealm.getPrincipal(SecurityKeys.PRINCIPAL_GROUP_ADMINISTRATORS)
 	            );
 	            this.createPrincipal(
-	                principalName,
-	                null,
+	                principalId,
+	                null, // name
+	                null, // description
 	                loginRealm,
 	                PrincipalType.PRINCIPAL,
 	                groups,
@@ -404,14 +465,14 @@ public class Admin extends AbstractImpl {
 	        // segment administrator can be created
 	        if(loginRealm.getPrincipal(adminPrincipalName) == null) {
 	            // admin-<segment name> does not exist --> principalName must match segment administrator
-	            if(!principalName.equals(adminPrincipalName)) {
+	            if(!principalId.equals(adminPrincipalName)) {
 	                errors.add("primary principal name must match " + adminPrincipalName);
 	                return;
 	            }
 	        }
 	        if(
-	            (principalName.startsWith(SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR)) &&
-	            !principalName.equals(adminPrincipalName)
+	            (principalId.startsWith(SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR)) &&
+	            !principalId.equals(adminPrincipalName)
 	        ) {
 	            errors.add("admin principal for segment " + segmentName + " must match " + adminPrincipalName);
 	            return;            
@@ -440,8 +501,9 @@ public class Admin extends AbstractImpl {
 	            );
 	        }
 	        org.opencrx.security.realm1.jmi1.User adminUser = (org.opencrx.security.realm1.jmi1.User)this.createPrincipal(
-	        	principalName + "." + SecurityKeys.USER_SUFFIX,
-	        	null, 
+	        	principalId + "." + SecurityKeys.USER_SUFFIX,
+	        	null, // name
+	        	null, // description
 	        	realm, 
 	        	PrincipalType.USER, 
 	        	new ArrayList<org.openmdx.security.realm1.jmi1.Group>(), 
@@ -450,8 +512,9 @@ public class Admin extends AbstractImpl {
 	        List<org.openmdx.security.realm1.jmi1.Group> groups = new ArrayList<org.openmdx.security.realm1.jmi1.Group>();
 	        groups.add(adminUser);
 	        this.createPrincipal(
-	        	principalName, 
-	        	null, 
+	        	principalId,
+	        	null, // name
+	        	null, // description
 	        	realm, 
 	        	PrincipalType.PRINCIPAL, 
 	        	groups, 
@@ -459,7 +522,8 @@ public class Admin extends AbstractImpl {
 	        );
 	        org.opencrx.security.realm1.jmi1.PrincipalGroup groupUnspecified = (org.opencrx.security.realm1.jmi1.PrincipalGroup)this.createPrincipal(
 	            SecurityKeys.USER_GROUP_UNSPECIFIED,
-	            null,
+	            null, // name
+	            null, // description
 	            realm,
 	            PrincipalType.GROUP,
 	            new ArrayList<org.openmdx.security.realm1.jmi1.Group>(),
@@ -469,7 +533,8 @@ public class Admin extends AbstractImpl {
 	        groups.add(groupUnspecified);
 	        org.opencrx.security.realm1.jmi1.PrincipalGroup groupAdministrators = (org.opencrx.security.realm1.jmi1.PrincipalGroup)this.createPrincipal(
 	            SecurityKeys.USER_GROUP_ADMINISTRATORS,
-	            null,
+	            null, // name
+	            null, // description
 	            realm,
 	            PrincipalType.GROUP,
 	            groups,
@@ -478,7 +543,8 @@ public class Admin extends AbstractImpl {
 	        groupAdministratorsIdentity = groupAdministrators.refGetPath();
 	        org.opencrx.security.realm1.jmi1.PrincipalGroup groupUsers = (org.opencrx.security.realm1.jmi1.PrincipalGroup)this.createPrincipal(
 	            SecurityKeys.USER_GROUP_USERS,
-	            null,
+	            null, // name
+	            null, // description
 	            realm,
 	            PrincipalType.GROUP,
 	            groups,
@@ -488,7 +554,8 @@ public class Admin extends AbstractImpl {
 	        groups.add(groupUsers);
 	        this.createPrincipal(
 	            SecurityKeys.USER_GROUP_UNASSIGNED,
-	            null,
+	            null, // name
+	            null, // description
 	            realm,
 	            PrincipalType.GROUP,
 	            groups,
@@ -496,7 +563,8 @@ public class Admin extends AbstractImpl {
 	        );
 	        this.createPrincipal(
 	            SecurityKeys.USER_GROUP_PUBLIC,
-	            null,
+	            null, // name
+	            null, // description
 	            realm,
 	            PrincipalType.GROUP,
 	            groups,
@@ -612,7 +680,7 @@ public class Admin extends AbstractImpl {
 	        Contact contact = this.createContact(
 	            (org.opencrx.kernel.admin1.jmi1.Segment)pmRoot.getObjectById(adminSegment.refGetPath()), 
 	            segmentName, 
-	            principalName, 
+	            principalId, 
 	            adminUser,
 	            Arrays.asList(groupUsers, groupAdministrators),
 	            errors
@@ -627,7 +695,7 @@ public class Admin extends AbstractImpl {
 	            (org.openmdx.security.realm1.jmi1.Realm)pm.getObjectById(realmIdentity),
 	            (Contact)pm.getObjectById(contactIdentity),
 	            (org.opencrx.security.realm1.jmi1.PrincipalGroup)pm.getObjectById(groupAdministratorsIdentity),
-	            principalName,
+	            principalId,
 	            new ArrayList<org.openmdx.security.realm1.jmi1.Group>(),            
 	            true,
 	            initialPassword,
@@ -676,19 +744,20 @@ public class Admin extends AbstractImpl {
                 if(l.indexOf("Principal;") >= 0) {
                     StringTokenizer t = new StringTokenizer(l, ";");
                     t.nextToken();
-                    String principalName = t.nextToken();
+                    String principalId = t.nextToken();
                     String principalDescription = t.nextToken();
                     String subjectName = t.nextToken();
                     String groups = t.nextToken();                       
                     org.openmdx.security.realm1.jmi1.Principal principal = null;
                     try {
-                    	principal = loginRealm.getPrincipal(principalName);
+                    	principal = loginRealm.getPrincipal(principalId);
                     } catch(Exception e) {}
                     if(principal == null) {
                         try {
                         	principal = this.createPrincipal(
-                        		principalName, 
-                        		principalDescription,
+                        		principalId,
+                        		principalId, // name
+                        		principalDescription, // description
                         		loginRealm, 
                         		PrincipalType.PRINCIPAL, 
                         		new ArrayList<org.openmdx.security.realm1.jmi1.Group>(),
@@ -747,7 +816,546 @@ public class Admin extends AbstractImpl {
             "Principals=(created:" + nCreatedPrincipals + ",existing:" + nExistingPrincipals + ",failed:" + nFailedPrincipals + "); " +
             "Subjects:(created:" + nCreatedSubjects + ",existing:" + nExistingSubjects + ",failed:" + nFailedSubjects + ")";
     }
-                
-}
 
-//--- End of File -----------------------------------------------------------
+    /**
+     * Init all segments for given segment administrator.
+     * 
+     * @param segmentAdminHome
+     */
+    public void initSegments(
+    	org.opencrx.kernel.home1.jmi1.UserHome segmentAdminHome
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(segmentAdminHome);
+    	String providerName = segmentAdminHome.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = segmentAdminHome.refGetPath().getSegment(4).toClassicRepresentation();
+    	org.opencrx.kernel.account1.jmi1.Segment accountSegment = Accounts.getInstance().getAccountSegment(pm, providerName, segmentName);
+    	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = Activities.getInstance().getActivitySegment(pm, providerName, segmentName);
+    	org.opencrx.kernel.contract1.jmi1.Segment contractSegment = Contracts.getInstance().getContractSegment(pm, providerName, segmentName);
+    	org.opencrx.kernel.product1.jmi1.Segment productSegment = Products.getInstance().getProductSegment(pm, providerName, segmentName);
+		org.opencrx.security.realm1.jmi1.PrincipalGroup publicPrincipalGroup =
+			SecureObject.getInstance().initPrincipalGroup(
+				"Public",
+				pm,
+				providerName,
+				segmentName
+			);
+		org.opencrx.security.realm1.jmi1.PrincipalGroup usersPrincipalGroup =
+			SecureObject.getInstance().initPrincipalGroup(
+				"Users",
+				pm,
+				providerName,
+				segmentName
+			);
+		org.opencrx.security.realm1.jmi1.PrincipalGroup administratorsPrincipalGroup =
+			SecureObject.getInstance().initPrincipalGroup(
+				"Administrators",
+				pm,
+				providerName,
+				segmentName
+			);
+		List<org.opencrx.security.realm1.jmi1.PrincipalGroup> allUsers = new ArrayList<org.opencrx.security.realm1.jmi1.PrincipalGroup>();
+		allUsers.add(usersPrincipalGroup);
+		allUsers.add(administratorsPrincipalGroup);
+		Workflows.getInstance().initWorkflows(
+			pm,
+			providerName,
+			segmentName
+		);
+		org.opencrx.kernel.activity1.jmi1.ActivityProcess bulkEmailProcess =
+			Activities.getInstance().initBulkEmailProcess(
+				pm,
+				providerName,
+				segmentName,
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityProcess emailProcess =
+			Activities.getInstance().initEmailProcess(
+				pm,
+				providerName,
+				segmentName,
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityProcessState emailProcessStateNew = null;
+		org.opencrx.kernel.activity1.jmi1.ActivityProcessState emailProcessStateOpen = null;
+		for(Iterator<ActivityProcessState> i = emailProcess.<ActivityProcessState>getState().iterator(); i.hasNext(); ) {
+			org.opencrx.kernel.activity1.jmi1.ActivityProcessState state = i.next();
+			if("New".equals(state.getName())) {
+				emailProcessStateNew = state;
+			}
+			if("Open".equals(state.getName())) {
+				emailProcessStateOpen = state;
+			}
+		}
+		org.opencrx.kernel.activity1.jmi1.ActivityProcess bugAndFeatureTrackingProcess =
+			Activities.getInstance().initBugAndFeatureTrackingProcess(
+				pm,
+				providerName,
+				segmentName,
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityProcessState bugAndFeatureTrackingProcessStateNew = null;
+		org.opencrx.kernel.activity1.jmi1.ActivityProcessState bugAndFeatureTrackingProcessStateInProgress  = null;
+		for(Iterator<ActivityProcessState> i = bugAndFeatureTrackingProcess.<ActivityProcessState>getState().iterator(); i.hasNext(); ) {
+			org.opencrx.kernel.activity1.jmi1.ActivityProcessState state = i.next();
+			if("New".equals(state.getName())) {
+				bugAndFeatureTrackingProcessStateNew = state;
+			}
+			if("In Progress".equals(state.getName())) {
+				bugAndFeatureTrackingProcessStateInProgress = state;
+			}
+		}
+		Activities.getInstance().initCalendar(
+			Activities.CALENDAR_NAME_DEFAULT_BUSINESS,
+			pm,
+			providerName,
+			segmentName,
+			allUsers,
+			SecurityKeys.ACCESS_LEVEL_PRIVATE
+		);
+		// Activity Types
+		org.opencrx.kernel.activity1.jmi1.ActivityType bugsAndFeaturesType =
+			Activities.getInstance().initActivityType(
+				bugAndFeatureTrackingProcess,
+				Activities.ACTIVITY_TYPE_NAME_BUGS_AND_FEATURES,
+				Activities.ActivityClass.INCIDENT.getValue(),
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		@SuppressWarnings("unused")
+        org.opencrx.kernel.activity1.jmi1.ActivityType bulkEmailsType =
+			Activities.getInstance().initActivityType(
+				bulkEmailProcess,
+				Activities.ACTIVITY_TYPE_NAME_BULK_EMAILS,
+				Activities.ActivityClass.EMAIL.getValue(),
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityType emailsType =
+			Activities.getInstance().initActivityType(
+				emailProcess,
+				Activities.ACTIVITY_TYPE_NAME_EMAILS,
+				Activities.ActivityClass.EMAIL.getValue(),
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityType tasksType =
+			Activities.getInstance().initActivityType(
+				bugAndFeatureTrackingProcess,
+				Activities.ACTIVITY_TYPE_NAME_TASKS,
+				Activities.ActivityClass.TASK.getValue(),
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityType meetingsType =
+			Activities.getInstance().initActivityType(
+				bugAndFeatureTrackingProcess,
+				Activities.ACTIVITY_TYPE_NAME_MEETINGS,
+				Activities.ActivityClass.MEETING.getValue(),
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityType phoneCallsType =
+			Activities.getInstance().initActivityType(
+				bugAndFeatureTrackingProcess,
+				Activities.ACTIVITY_TYPE_NAME_PHONE_CALLS,
+				Activities.ActivityClass.PHONE_CALL.getValue(),
+				allUsers,
+				SecurityKeys.ACCESS_LEVEL_PRIVATE
+			);
+		// Activity Trackers
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker bugsAndFeaturesTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_BUGS_AND_FEATURES,
+				allUsers,
+				activitySegment
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker emailsTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_EMAILS,
+				allUsers,
+				activitySegment
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker tasksTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_TASKS,
+				allUsers,
+				activitySegment
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker pollsTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_POLLS,
+				allUsers,
+				activitySegment
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker meetingRoomsTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_MEETING_ROOMS,
+				allUsers,
+				activitySegment
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker meetingsTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_MEETINGS,
+				allUsers,
+				activitySegment
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker phoneCallsTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_PHONE_CALLS,
+				allUsers,
+				activitySegment
+			);
+		org.opencrx.kernel.activity1.jmi1.ActivityTracker publicTracker =
+			Activities.getInstance().initActivityTracker(
+				Activities.ACTIVITY_TRACKER_NAME_PUBLIC,
+				Arrays.asList(new org.opencrx.security.realm1.jmi1.PrincipalGroup[]{publicPrincipalGroup}),
+				activitySegment
+			);
+		// Activity Creators
+		try {
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_BUGS_AND_FEATURES,					
+				bugsAndFeaturesType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{bugsAndFeaturesTracker}),
+				allUsers
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_EMAILS,
+				emailsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{emailsTracker}),
+				allUsers
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_TASKS,
+				tasksType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{tasksTracker}),
+				allUsers
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_POLLS,
+				emailsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{pollsTracker}),
+				allUsers
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_MEETING_ROOMS,
+				emailsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{meetingRoomsTracker}),
+				allUsers
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_MEETINGS,
+				meetingsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{meetingsTracker}),
+				allUsers
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_PHONE_CALLS,
+				phoneCallsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{phoneCallsTracker}),
+				allUsers
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_PUBLIC_EMAILS,
+				emailsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{publicTracker}),
+				Arrays.asList(new org.opencrx.security.realm1.jmi1.PrincipalGroup[]{publicPrincipalGroup})
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_PUBLIC_TASKS,
+				tasksType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{publicTracker}),
+				Arrays.asList(new org.opencrx.security.realm1.jmi1.PrincipalGroup[]{publicPrincipalGroup})
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_PUBLIC_MEETINGS,
+				meetingsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{publicTracker}),
+				Arrays.asList(new org.opencrx.security.realm1.jmi1.PrincipalGroup[]{publicPrincipalGroup})
+			);
+			Activities.getInstance().initActivityCreator(
+				Activities.ACTIVITY_CREATOR_NAME_PUBLIC_PHONE_CALLS,
+				phoneCallsType,
+				Arrays.asList(new org.opencrx.kernel.activity1.jmi1.ActivityGroup[]{publicTracker}),
+				Arrays.asList(new org.opencrx.security.realm1.jmi1.PrincipalGroup[]{publicPrincipalGroup})
+			);
+		} catch (Exception e) {
+			new ServiceException(e).log();
+			try {
+				pm.currentTransaction().rollback();
+			} catch (Exception re) {}
+		}
+		// PricingRule
+		Products.getInstance().initPricingRule(
+			Products.PRICING_RULE_NAME_LOWEST_PRICE,
+			Products.PRICING_RULE_DESCRIPTION_LOWEST_PRICE,
+			Products.PRICING_RULE_GET_PRICE_LEVEL_SCRIPT_LOWEST_PRICE,
+			pm,
+			providerName,
+			segmentName
+		);
+		// SalesTaxType
+		Products.getInstance().initSalesTaxType(
+		    SALES_TAX_TYPE_NAME_8_5,
+		    new java.math.BigDecimal(8.5),
+		    productSegment
+		);
+		// CalculationRule
+		Contracts.getInstance().initCalculationRule(
+			Contracts.CALCULATION_RULE_NAME_DEFAULT,
+			null,
+			Contracts.DEFAULT_GET_POSITION_AMOUNTS_SCRIPT,
+			Contracts.DEFAULT_GET_CONTRACT_AMOUNTS_SCRIPT,
+			pm,
+			providerName,
+			segmentName
+		);
+		// AccountFilter
+		// ACCOUNT_FILTER_NAME_ALL
+		Accounts.getInstance().initAccountFilter(
+			ACCOUNT_FILTER_NAME_ALL,
+			new org.opencrx.kernel.account1.jmi1.AccountFilterProperty[]{},
+			accountSegment,
+			allUsers
+		);
+		// ACCOUNT_FILTER_NAME_NO_OR_BROKEN_VCARD
+		org.opencrx.kernel.account1.jmi1.AccountQueryFilterProperty accountQueryFilterProperty = pm.newInstance(org.opencrx.kernel.account1.jmi1.AccountQueryFilterProperty .class);
+		accountQueryFilterProperty.setName("external_link is null or vcard is null");
+		accountQueryFilterProperty.setActive(new Boolean (true));
+		accountQueryFilterProperty.setClause("object_id IN (\n" +
+          "  select oocke1_account.object_id from oocke1_account, oocke1_account_\n" +
+          "  where oocke1_account.object_id = oocke1_account_.object_id\n" +
+          "  and oocke1_account_.idx=0\n" +
+          "  and ((oocke1_account_.external_link is null) or (oocke1_account.vcard is null))\n" +
+          "  )"
+		);
+		@SuppressWarnings("unused")
+        org.opencrx.kernel.account1.jmi1.AccountFilterGlobal accountFilterBrokenVcard = Accounts.getInstance().initAccountFilter(
+        	ACCOUNT_FILTER_NAME_NO_OR_BROKEN_VCARD,
+        	new org.opencrx.kernel.account1.jmi1.AccountFilterProperty[]{
+		      accountQueryFilterProperty
+        	},
+        	accountSegment,
+        	allUsers
+		);
+		// ADDRESS_FILTER_NAME_ALL
+		Accounts.getInstance().initAddressFilter(
+			ADDRESS_FILTER_NAME_ALL,
+			new org.opencrx.kernel.account1.jmi1.AddressFilterProperty[]{},
+			accountSegment,
+			allUsers
+		);
+		// ContractFilter
+		// CONTRACT_FILTER_NAME_LEAD_FORECAST
+		org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty.class);
+		contractTypeFilterProperty.setName("Lead");
+		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Lead");
+		org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty contractQueryFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty .class);
+		contractQueryFilterProperty.setName("Estimated close date >= Today");
+		contractQueryFilterProperty.setActive(new Boolean (true));
+		contractQueryFilterProperty.setClause("(v.estimated_close_date >= now())");
+		Contracts.getInstance().initContractFilter(
+			CONTRACT_FILTER_NAME_LEAD_FORECAST,
+			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
+				contractTypeFilterProperty,
+				contractQueryFilterProperty
+			},
+			contractSegment,
+			allUsers
+		);
+		// CONTRACT_FILTER_NAME_WON_LEADS
+		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
+		contractTypeFilterProperty.setName("Lead");
+		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Lead");
+		org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty contractStateFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty.class);
+		contractStateFilterProperty.setName("Won");
+		contractStateFilterProperty.setActive(new Boolean (true));
+		contractStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractStateFilterProperty.getContractState().add(new Short((short)1110));
+		Contracts.getInstance().initContractFilter(
+			CONTRACT_FILTER_NAME_WON_LEADS,
+			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
+				contractTypeFilterProperty,
+				contractStateFilterProperty
+			},
+			contractSegment,
+			allUsers
+		);
+		// CONTRACT_FILTER_NAME_OPPORTUNITY_FORECAST
+		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
+		contractTypeFilterProperty.setName("Opportunity");
+		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Opportunity");
+		contractQueryFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty .class);
+		contractQueryFilterProperty.setName("Estimated close date >= Today");
+		contractQueryFilterProperty.setActive(new Boolean (true));
+		contractQueryFilterProperty.setClause("(v.estimated_close_date >= now())");
+		Contracts.getInstance().initContractFilter(
+			CONTRACT_FILTER_NAME_OPPORTUNITY_FORECAST,
+			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
+				contractTypeFilterProperty,
+				contractQueryFilterProperty
+			},
+			contractSegment,
+			allUsers
+		);
+		// CONTRACT_FILTER_NAME_WON_OPPORTUNITIES
+		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
+		contractTypeFilterProperty.setName("Opportunity");
+		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Opportunity");
+		contractStateFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty.class);
+		contractStateFilterProperty.setName("Won");
+		contractStateFilterProperty.setActive(new Boolean (true));
+		contractStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractStateFilterProperty.getContractState().add(new Short((short)1210));
+		Contracts.getInstance().initContractFilter(
+			CONTRACT_FILTER_NAME_WON_OPPORTUNITIES,
+			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
+				contractTypeFilterProperty,
+				contractStateFilterProperty
+			},
+			contractSegment,
+			allUsers
+		);
+		// CONTRACT_FILTER_NAME_QUOTE_FORECAST
+		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
+		contractTypeFilterProperty.setName("Quote");
+		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Quote");
+		contractQueryFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty .class);
+		contractQueryFilterProperty.setName("Estimated close date >= Today");
+		contractQueryFilterProperty.setActive(new Boolean (true));
+		contractQueryFilterProperty.setClause("(v.estimated_close_date >= now())");
+		Contracts.getInstance().initContractFilter(
+			CONTRACT_FILTER_NAME_QUOTE_FORECAST,
+			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
+				contractTypeFilterProperty,
+				contractQueryFilterProperty
+			},
+			contractSegment,
+			allUsers
+		);
+		// CONTRACT_FILTER_NAME_WON_QUOTES
+		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
+		contractTypeFilterProperty.setName("Quote");
+		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Quote");
+		contractStateFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty.class);
+		contractStateFilterProperty.setName("Won");
+		contractStateFilterProperty.setActive(new Boolean (true));
+		contractStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		contractStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		contractStateFilterProperty.getContractState().add(new Short((short)1310));
+		Contracts.getInstance().initContractFilter(
+			CONTRACT_FILTER_NAME_WON_QUOTES,
+			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
+				contractTypeFilterProperty,
+				contractStateFilterProperty
+			},
+			contractSegment,
+			allUsers
+		);
+		// ActivityFilter
+		// ACTIVITY_FILTER_NAME_PHONE_CALLS
+		org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
+		activityTypeFilterProperty.setName("Phone Calls");
+		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		activityTypeFilterProperty.getActivityType().add(phoneCallsType);
+		Activities.getInstance().initActivityFilter(
+			ACTIVITY_FILTER_NAME_PHONE_CALLS,
+			new org.opencrx.kernel.activity1.jmi1.ActivityFilterProperty[]{
+				activityTypeFilterProperty
+			},
+			activitySegment,
+			allUsers
+		);
+		// ACTIVITY_FILTER_NAME_MEETINGS
+		activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
+		activityTypeFilterProperty.setName("Meetings");
+		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		activityTypeFilterProperty.getActivityType().add(meetingsType);
+		Activities.getInstance().initActivityFilter(
+			ACTIVITY_FILTER_NAME_MEETINGS,
+			new org.opencrx.kernel.activity1.jmi1.ActivityFilterProperty[]{
+				activityTypeFilterProperty
+			},
+			activitySegment,
+			allUsers
+		);
+		// ACTIVITY_FILTER_NAME_NEW_ACTIVITIES
+		activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
+		activityTypeFilterProperty.setName("All Types");
+		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		activityTypeFilterProperty.getActivityType().add(bugsAndFeaturesType);
+		activityTypeFilterProperty.getActivityType().add(meetingsType);
+		activityTypeFilterProperty.getActivityType().add(emailsType);
+		activityTypeFilterProperty.getActivityType().add(phoneCallsType);
+		org.opencrx.kernel.activity1.jmi1.ActivityProcessStateFilterProperty activityProcessStateFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityProcessStateFilterProperty.class);
+		activityProcessStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		activityProcessStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		activityProcessStateFilterProperty.getProcessState().add(bugAndFeatureTrackingProcessStateNew);
+		activityProcessStateFilterProperty.getProcessState().add(emailProcessStateNew);
+		Activities.getInstance().initActivityFilter(
+			ACTIVITY_FILTER_NAME_NEW_ACTIVITIES,
+			new org.opencrx.kernel.activity1.jmi1.ActivityFilterProperty[]{
+				activityTypeFilterProperty,
+				activityProcessStateFilterProperty
+			},
+			activitySegment,
+			allUsers
+		);
+		// ACTIVITY_FILTER_NAME_OPEN_ACTIVITIES
+		activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
+		activityTypeFilterProperty.setName("All Types");
+		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		activityTypeFilterProperty.getActivityType().add(bugsAndFeaturesType);
+		activityTypeFilterProperty.getActivityType().add(meetingsType);
+		activityTypeFilterProperty.getActivityType().add(emailsType);
+		activityTypeFilterProperty.getActivityType().add(phoneCallsType);
+		activityProcessStateFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityProcessStateFilterProperty.class);
+		activityProcessStateFilterProperty.setName("Open");
+		activityProcessStateFilterProperty.setActive(new Boolean (true));
+		activityProcessStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
+		activityProcessStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
+		activityProcessStateFilterProperty.getProcessState().add(bugAndFeatureTrackingProcessStateInProgress);
+		activityProcessStateFilterProperty.getProcessState().add(emailProcessStateOpen);
+		Activities.getInstance().initActivityFilter(
+			ACTIVITY_FILTER_NAME_OPEN_ACTIVITIES,
+			new org.opencrx.kernel.activity1.jmi1.ActivityFilterProperty[]{
+				activityTypeFilterProperty,
+				activityProcessStateFilterProperty
+			},
+			activitySegment,
+			allUsers
+		);
+    }
+    
+}

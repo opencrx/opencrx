@@ -18,6 +18,12 @@
 		<field name="bookingEntry" visibility="cci">
 			<join table="OOCKE1_JOIN_DEPPOSCONTAINSBKE"/>
 		</field>			            
+		<field name="inventoryLevel" visibility="cci">
+			<join table="OOCKE1_JOIN_DEPPOSCONTAINSINVL"/>
+		</field>
+		<field name="depotReportItem" visibility="cci">
+			<join table="OOCKE1_JOIN_DEPPOSHASDEPREPITM"/>
+		</field>					            
     </class>
   </package>
 </openmdxjdo>

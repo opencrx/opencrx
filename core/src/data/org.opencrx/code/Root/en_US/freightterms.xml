@@ -15,8 +15,7 @@
 										<_object>
 											<name>
 												<_item>freightTerms</_item>
-												<_item>org:opencrx:kernel:contract1:Quote:freightTerms</_item>
-												<_item>org:opencrx:kernel:contract1:SalesOrder:freightTerms</_item>
+												<_item>org:opencrx:kernel:contract1:SalesContract:freightTerms</_item>
 												<_item>org:opencrx:kernel:address1:PostalAddressable:postalFreightTerms</_item>
 											</name>
 										</_object>
@@ -41,6 +40,8 @@
 														<longText>
 															<_item>[01] F.O.B. Destination, freight prepaid</_item>
 														</longText>
+														<validFrom>2003-01-01T00:00:00.000Z</validFrom>
+														<validTo>2008-01-01T00:00:00.000Z</validTo>
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
@@ -52,6 +53,8 @@
 														<longText>
 															<_item>[02] F.O.B. Destination, freight collect</_item>
 														</longText>
+														<validFrom>2003-01-01T00:00:00.000Z</validFrom>
+														<validTo>2008-01-01T00:00:00.000Z</validTo>
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
@@ -63,6 +66,8 @@
 														<longText>
 															<_item>[03] F.O.B. Destination, freight collect and allowed</_item>
 														</longText>
+														<validFrom>2003-01-01T00:00:00.000Z</validFrom>
+														<validTo>2008-01-01T00:00:00.000Z</validTo>
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
@@ -74,6 +79,8 @@
 														<longText>
 															<_item>[04] F.O.B. Origin, freigth prepaid</_item>
 														</longText>
+														<validFrom>2003-01-01T00:00:00.000Z</validFrom>
+														<validTo>2008-01-01T00:00:00.000Z</validTo>
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
@@ -85,6 +92,8 @@
 														<longText>
 															<_item>[05] F.O.B. Origin, freigth collect</_item>
 														</longText>
+														<validFrom>2003-01-01T00:00:00.000Z</validFrom>
+														<validTo>2008-01-01T00:00:00.000Z</validTo>
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
@@ -95,6 +104,130 @@
 														</shortText>
 														<longText>
 															<_item>[06] F.O.B. Origin, freigth prepaid and charged back</_item>
+														</longText>
+														<validFrom>2003-01-01T00:00:00.000Z</validFrom>
+														<validTo>2008-01-01T00:00:00.000Z</validTo>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<!-- IncoTerms 2010 (International Commercial Terms) see also https://en.wikipedia.org/wiki/Incoterms -->
+												<org.opencrx.kernel.code1.CodeValueEntry code="11" _operation="set">
+													<_object>
+														<shortText>
+															<_item>EXW</_item>
+														</shortText>
+														<longText>
+															<_item>[11] EXW - Ex Works (named place of delivery)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="12" _operation="set">
+													<_object>
+														<shortText>
+															<_item>FCA</_item>
+														</shortText>
+														<longText>
+															<_item>[12] FCA - Free Carrier (named place of delivery)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="13" _operation="set">
+													<_object>
+														<shortText>
+															<_item>CPT</_item>
+														</shortText>
+														<longText>
+															<_item>[13] CPT - Carriage Paid To (named place of destination)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="14" _operation="set">
+													<_object>
+														<shortText>
+															<_item>CIP</_item>
+														</shortText>
+														<longText>
+															<_item>[14] CIP - Carriage and Insurance Paid to (named place of destination)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="15" _operation="set">
+													<_object>
+														<shortText>
+															<_item>DAT</_item>
+														</shortText>
+														<longText>
+															<_item>[15] DAT - Delivered At Terminal (named terminal at port or place of destination)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="16" _operation="set">
+													<_object>
+														<shortText>
+															<_item>DAP</_item>
+														</shortText>
+														<longText>
+															<_item>[16] DAP - Delivered at Place (named place of destination)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="17" _operation="set">
+													<_object>
+														<shortText>
+															<_item>DDP</_item>
+														</shortText>
+														<longText>
+															<_item>[17] DDP - Delivered Duty Paid (named place of destination)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="21" _operation="set">
+													<_object>
+														<shortText>
+															<_item>FAS</_item>
+														</shortText>
+														<longText>
+															<_item>[21] FAS - Free Alongside Ship (named port of shipment)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="22" _operation="set">
+													<_object>
+														<shortText>
+															<_item>FOB</_item>
+														</shortText>
+														<longText>
+															<_item>[22] FOB - Free On Board (named port of shipment)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="23" _operation="set">
+													<_object>
+														<shortText>
+															<_item>CFR</_item>
+														</shortText>
+														<longText>
+															<_item>[23] CFR - Cost and Freight (named port of destination)</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="24" _operation="set">
+													<_object>
+														<shortText>
+															<_item>CIF</_item>
+														</shortText>
+														<longText>
+															<_item>[24] CIF - Cost, Insurance &amp; Freight (named port of destination)</_item>
 														</longText>
 													</_object>
 													<_content/>

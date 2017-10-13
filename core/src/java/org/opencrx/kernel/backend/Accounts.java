@@ -56,6 +56,7 @@ import java.io.BufferedReader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -77,6 +78,8 @@ import org.opencrx.kernel.account1.jmi1.AbstractFilterAddress;
 import org.opencrx.kernel.account1.jmi1.AbstractGroup;
 import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.account1.jmi1.AccountAddress;
+import org.opencrx.kernel.account1.jmi1.AccountFilterGlobal;
+import org.opencrx.kernel.account1.jmi1.AddressFilterGlobal;
 import org.opencrx.kernel.account1.jmi1.CheckForAutoUpdateResult;
 import org.opencrx.kernel.account1.jmi1.Contact;
 import org.opencrx.kernel.account1.jmi1.EMailAddress;
@@ -396,6 +399,152 @@ public class Accounts extends AbstractImpl {
         return contract;
     }
     
+	/**
+	 * Find account filter.
+	 * 
+	 * @param accountFilterName
+	 * @param segment
+	 * @param pm
+	 * @return
+	 */
+	public org.opencrx.kernel.account1.jmi1.AccountFilterGlobal findAccountFilter(
+		String accountFilterName,
+		org.opencrx.kernel.account1.jmi1.Segment segment
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);
+		org.opencrx.kernel.account1.cci2.AccountFilterGlobalQuery query =
+		    (org.opencrx.kernel.account1.cci2.AccountFilterGlobalQuery)pm.newQuery(org.opencrx.kernel.account1.jmi1.AccountFilterGlobal.class);
+		query.name().equalTo(accountFilterName);
+		Collection<AccountFilterGlobal> accountFilters = segment.getAccountFilter(query);
+		if(!accountFilters.isEmpty()) {
+			return (org.opencrx.kernel.account1.jmi1.AccountFilterGlobal)accountFilters.iterator().next();
+		}
+		return null;
+	}
+
+	/**
+	 * Find address filter.
+	 * 
+	 * @param accountFilterName
+	 * @param segment
+	 * @param pm
+	 * @return
+	 */
+	public org.opencrx.kernel.account1.jmi1.AddressFilterGlobal findAddressFilter(
+		String accountFilterName,
+		org.opencrx.kernel.account1.jmi1.Segment segment
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);		
+		org.opencrx.kernel.account1.cci2.AddressFilterGlobalQuery query =
+		    (org.opencrx.kernel.account1.cci2.AddressFilterGlobalQuery)pm.newQuery(org.opencrx.kernel.account1.jmi1.AddressFilterGlobal.class);
+		query.name().equalTo(accountFilterName);
+		Collection<AddressFilterGlobal> addressFilters = segment.getAddressFilter(query);
+		if(!addressFilters.isEmpty()) {
+			return (org.opencrx.kernel.account1.jmi1.AddressFilterGlobal)addressFilters.iterator().next();
+		}
+		return null;
+	}
+    
+	/**
+	 * Init account filter.
+	 * 
+	 * @param filterName
+	 * @param filterProperties
+	 * @param pm
+	 * @param segment
+	 * @param allUsers
+	 * @return
+	 */
+	public org.opencrx.kernel.account1.jmi1.AccountFilterGlobal initAccountFilter(
+		String filterName,
+		org.opencrx.kernel.account1.jmi1.AccountFilterProperty[] filterProperties,
+		org.opencrx.kernel.account1.jmi1.Segment segment,
+		List<org.opencrx.security.realm1.jmi1.PrincipalGroup> allUsers
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);
+		org.opencrx.kernel.account1.jmi1.AccountFilterGlobal accountFilter = this.findAccountFilter(
+			filterName,
+			segment
+		);
+		if(accountFilter != null) return accountFilter;
+		try {
+			pm.currentTransaction().begin();
+			accountFilter = pm.newInstance(org.opencrx.kernel.account1.jmi1.AccountFilterGlobal.class);
+			accountFilter.setName(filterName);
+			accountFilter.getOwningGroup().addAll(allUsers);
+			segment.addAccountFilter(
+				false,
+				Accounts.getInstance().getUidAsString(),
+				accountFilter
+			);
+			for(int i = 0; i < filterProperties.length; i++) {
+				filterProperties[i].getOwningGroup().addAll(allUsers);
+				accountFilter.addAccountFilterProperty(
+					false,
+					Accounts.getInstance().getUidAsString(),
+					filterProperties[i]
+				);
+			}
+			pm.currentTransaction().commit();
+		} catch(Exception e) {
+			new ServiceException(e).log();
+			try {
+				pm.currentTransaction().rollback();
+			} catch(Exception e0) {}
+		}
+		return accountFilter;
+	}
+
+	/**
+	 * Init address filter.
+	 * 
+	 * @param filterName
+	 * @param filterProperties
+	 * @param pm
+	 * @param segment
+	 * @param allUsers
+	 * @return
+	 */
+	public org.opencrx.kernel.account1.jmi1.AddressFilterGlobal initAddressFilter(
+		String filterName,
+		org.opencrx.kernel.account1.jmi1.AddressFilterProperty[] filterProperties,
+		org.opencrx.kernel.account1.jmi1.Segment segment,
+		List<org.opencrx.security.realm1.jmi1.PrincipalGroup> allUsers
+	) {
+		PersistenceManager pm = JDOHelper.getPersistenceManager(segment);
+		org.opencrx.kernel.account1.jmi1.AddressFilterGlobal addressFilter = this.findAddressFilter(
+			filterName,
+			segment
+		);
+		if(addressFilter != null) return addressFilter;
+		try {
+			pm.currentTransaction().begin();
+			addressFilter = pm.newInstance(org.opencrx.kernel.account1.jmi1.AddressFilterGlobal.class);
+			addressFilter.setName(filterName);
+			addressFilter.getOwningGroup().addAll(allUsers);
+			segment.addAddressFilter(
+				false,
+				Accounts.getInstance().getUidAsString(),
+				addressFilter
+			);
+			for(int i = 0; i < filterProperties.length; i++) {
+				filterProperties[i].getOwningGroup().addAll(allUsers);
+				addressFilter.addAddressFilterProperty(
+					false,
+					Accounts.getInstance().getUidAsString(),
+					filterProperties[i]
+				);
+			}
+			pm.currentTransaction().commit();
+		} catch(Exception e) {
+			new ServiceException(e).log();
+			try {
+				pm.currentTransaction().rollback();
+			} catch(Exception e0) {}
+		}
+		return addressFilter;
+	}
+    
     /**
      * Update derived attribute full name of given account.
      * 
@@ -407,16 +556,18 @@ public class Accounts extends AbstractImpl {
     ) throws ServiceException {
         if(account instanceof Contact) {
         	Contact contact = (Contact)account;
-            contact.setFullName(
-                ( (contact.getLastName() == null ? "" : contact.getLastName()) + ", "
-                  + (contact.getFirstName() == null ? "" : contact.getFirstName() + " ")
-                  + (contact.getMiddleName() == null ? "" : contact.getMiddleName() + "") ).trim()
-            );
+        	String fullName = ( (contact.getLastName() == null ? "" : contact.getLastName()) + ", "
+                + (contact.getFirstName() == null ? "" : contact.getFirstName() + " ")
+                + (contact.getMiddleName() == null ? "" : contact.getMiddleName() + "") ).trim();
+        	if(!Utils.areEqual(fullName, contact.getFullName())) {
+        		contact.setFullName(fullName);
+        	}
         } else if(account instanceof AbstractGroup) {
         	AbstractGroup group = (AbstractGroup)account;
-            group.setFullName(
-                group.getName() == null ? "" : group.getName()
-            );
+        	String fullName = group.getName() == null ? "" : group.getName();
+        	if(!Utils.areEqual(fullName, group.getFullName())) {
+        		group.setFullName(fullName);
+        	}
         }
     }
 
@@ -571,17 +722,27 @@ public class Accounts extends AbstractImpl {
     }
 
     /**
-     * Update derived attributes of given account. E.g. invoked by jdoPreStore().
+     * Update search address fields on account. Implement for custom-specific behaviour.
      * 
      * @param account
      * @throws ServiceException
      */
-    protected void updateAccount(
-        Account account
+    protected void updateSearchAddressFields(
+    	Account account
     ) throws ServiceException {
-        this.updateAccountFullName(account);
-        this.updatePostalAddressLine(account);
-        List<String> statusMessage = new ArrayList<String>();
+    }
+
+    /**
+     * Update account's vcard.
+     * 
+     * @param account
+     * @param statusMessage
+     * @throws ServiceException
+     */
+    protected void updateVCard(
+    	Account account,
+    	List<String> statusMessage
+    ) throws ServiceException {
         String oldVCardAsString = account.getVcard();
         String newVCardAsString = VCard.getInstance().mergeVcard(
             account,
@@ -647,7 +808,23 @@ public class Accounts extends AbstractImpl {
         	);
         	SysLog.warning("Accounts's external link does not contain vcard UID", account.refGetPath());
         	SysLog.detail(e.getMessage(), e.getCause());
-        }
+        }    	
+    }
+    
+    /**
+     * Update derived attributes of given account. E.g. invoked by jdoPreStore().
+     * 
+     * @param account
+     * @throws ServiceException
+     */
+    protected void updateAccount(
+        Account account
+    ) throws ServiceException {
+        this.updateAccountFullName(account);
+        this.updatePostalAddressLine(account);
+        List<String> statusMessage = new ArrayList<String>();
+        this.updateSearchAddressFields(account);
+        this.updateVCard(account, statusMessage);
     }
 
     /**

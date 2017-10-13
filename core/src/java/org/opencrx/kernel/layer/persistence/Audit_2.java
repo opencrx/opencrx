@@ -588,7 +588,9 @@ public class Audit_2 extends Indexed_2 {
 		            }
 		            return true;
 		        } else {
-	        		response.add(request);
+		        	if(response != null) {
+		        		response.add(request);
+		        	}
 		        	return true;
 		        }
 	    	} catch(ServiceException e) {

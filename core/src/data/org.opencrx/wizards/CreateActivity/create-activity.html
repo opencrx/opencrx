@@ -123,8 +123,8 @@ openMDX (http://www.openmdx.org/)
 	    		<div class="field-group-header card-header">{{metaInf.labelFieldGroupDetails}}</div>
 				<div class="card-content horizontal justified layout">   	
 		    		<div class="field-group vertical layout flex one">
-				    	<paper-dropdown-menu label="{{metaInf.labelPriority}}:" always-float-label="true" on-iron-select="prioritySelected">
-				    		<paper-menu class="dropdown-content">
+				    	<paper-dropdown-menu label="{{metaInf.labelPriority}}:" always-float-label="true" no-animations>
+				    		<paper-menu class="dropdown-content" on-iron-select="prioritySelected">
 								<template is="dom-repeat" items="{{metaInf.optionsPriority}}">
 									<paper-item value="{{item.value}}">{{item.title}}</paper-item>
 								</template>

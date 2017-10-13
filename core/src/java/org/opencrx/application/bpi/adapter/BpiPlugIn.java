@@ -57,6 +57,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.jdo.FetchGroup;
@@ -113,11 +114,14 @@ import org.opencrx.kernel.activity1.jmi1.TaskParty;
 import org.opencrx.kernel.backend.Accounts;
 import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.backend.Addresses;
+import org.opencrx.kernel.backend.Workflows;
 import org.opencrx.kernel.code1.cci2.CodeValueContainerQuery;
 import org.opencrx.kernel.code1.cci2.CodeValueEntryQuery;
 import org.opencrx.kernel.code1.jmi1.CodeValueContainer;
 import org.opencrx.kernel.code1.jmi1.CodeValueEntry;
 import org.opencrx.kernel.generic.jmi1.LocalizedField;
+import org.opencrx.kernel.workflow1.cci2.ExporterTaskQuery;
+import org.opencrx.kernel.workflow1.jmi1.ExporterTask;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.jmi1.BasicObject;
 import org.openmdx.base.naming.Path;
@@ -1184,6 +1188,30 @@ public class BpiPlugIn {
     	contactQuery.orderByCreatedAt().ascending();
     	contactQuery.forAllDisabled().isFalse();
     	return accountSegment.getAccount(contactQuery);
+    }
+
+    /**
+     * Find exporter tasks matching path component 6.
+     * 
+     * @param path
+     * @param pm
+     * @return
+     * @throws ServiceException
+     */
+    public List<ExporterTask> findExporterTasks(
+    	Path path,
+    	PersistenceManager pm
+    ) throws ServiceException {
+    	String id = path.getSegment(6).toClassicRepresentation();
+    	org.opencrx.kernel.workflow1.jmi1.Segment workflowSegment = Workflows.getInstance().getWorkflowSegment(pm, path.getSegment(2).toClassicRepresentation(), path.getSegment(4).toClassicRepresentation());
+    	ExporterTask exporterTask = (ExporterTask)workflowSegment.getWfProcess(id);
+    	if(exporterTask != null) {
+    		return Collections.singletonList(exporterTask);
+    	} else {
+	    	ExporterTaskQuery exporterTaskQuery = (ExporterTaskQuery)pm.newQuery(ExporterTask.class);
+	    	exporterTaskQuery.name().equalTo(path.getSegment(6).toClassicRepresentation());
+	    	return workflowSegment.getWfProcess(exporterTaskQuery);
+    	}
     }
 
     /**

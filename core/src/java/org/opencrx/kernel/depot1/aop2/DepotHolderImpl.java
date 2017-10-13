@@ -53,7 +53,6 @@
 package org.opencrx.kernel.depot1.aop2;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.jdo.JDOUserException;
@@ -61,6 +60,7 @@ import javax.jdo.listener.DeleteCallback;
 
 import org.opencrx.kernel.backend.Depots;
 import org.opencrx.kernel.depot1.jmi1.Depot;
+import org.opencrx.kernel.depot1.jmi1.DepotPosition;
 import org.openmdx.base.accessor.jmi.cci.JmiServiceException;
 import org.openmdx.base.aop2.AbstractObject;
 import org.openmdx.base.exception.ServiceException;
@@ -116,25 +116,51 @@ public class DepotHolderImpl
         }
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Assert reports of all depots of the depot holder.
+     * 
+     * @param params
+     * @return
+     */
     public org.openmdx.base.jmi1.Void assertReports(
         org.opencrx.kernel.depot1.jmi1.AssertReportsParams params
     ) {
         try {
-            Collection<Depot> depots = this.sameObject().getDepot();
+            List<Depot> depots = new ArrayList<Depot>(this.sameObject().<Depot>getDepot());
+            List<DepotPosition> includePositions = new ArrayList<DepotPosition>();
+            if(params.getIncludePosition0() != null) {
+            	includePositions.add(params.getIncludePosition0());
+            }
+            if(params.getIncludePosition1() != null) {
+            	includePositions.add(params.getIncludePosition1());
+            }
+            if(params.getIncludePosition2() != null) {
+            	includePositions.add(params.getIncludePosition2());
+            }
+            List<DepotPosition> excludePositions = new ArrayList<DepotPosition>();
+            if(params.getExcludePosition0() != null) {
+            	includePositions.add(params.getExcludePosition0());
+            }
+            if(params.getExcludePosition1() != null) {
+            	includePositions.add(params.getExcludePosition1());
+            }
+            if(params.getExcludePosition2() != null) {
+            	includePositions.add(params.getExcludePosition2());
+            }
             for(Depot depot: depots) {
                 Depots.getInstance().assertReports(
                     depot,
-                    params.getBookingStatusThreshold()
+                    params.getBookingStatusThreshold(),
+                    includePositions,
+                    excludePositions
                 );            
             }
             return super.newVoid();  
-        }
-        catch(ServiceException e) {
+        } catch(ServiceException e) {
             throw new JmiServiceException(e);
         }                            
     }
-    
+
     /* (non-Javadoc)
      * @see org.openmdx.base.aop2.AbstractObject#jdoPreDelete()
      */

@@ -78,6 +78,9 @@ public class ScriptUtils {
 		String script
 	) throws ServiceException {
 		try {
+			if(!script.endsWith("\n")) {
+				script += "\n";
+			}			
 			for(String invalidWord: INVALID_WORDS) {
 				if(script.indexOf(invalidWord) >= 0) {
 					throw new ServiceException(
@@ -105,7 +108,7 @@ public class ScriptUtils {
         		e,
         		BasicException.Code.DEFAULT_DOMAIN,
         		BasicException.Code.PARSE_FAILURE,
-        		"Script compile error",
+        		"Script compile error: " + e.getMessage(),
         		new BasicException.Parameter("script", script)
         	);
         } catch(Exception e) {
@@ -118,6 +121,7 @@ public class ScriptUtils {
 		"begin(", "begin ",
 		"getPersistenceManagerFactory",
 		"System.", "System ",
+		"Runtime.", "Runtime ",
 		"InitialContext"
 	);
 

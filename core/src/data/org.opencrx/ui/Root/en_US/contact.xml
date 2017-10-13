@@ -317,6 +317,23 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:originalName">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Person's original or maiden name</_item>
+											</toolTip>
+											<label>
+												<_item>Original Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>45</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:suffix">
 										<_object>
 											<active>true</active>
@@ -579,7 +596,7 @@
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:address!authority">
 										<_object>
-											 <dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PostalAddress;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)400?zeroAsNull=true</dataBindingName>										
+											<dataBindingName>org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding?type=org:opencrx:kernel:account1:PostalAddress;disabled=(boolean)false;[isMain=(boolean)true];usage=(short)400?zeroAsNull=true</dataBindingName>
 											<active>true</active>
 											<toolTip>
 												<_item>Authority</_item>
@@ -593,7 +610,7 @@
 												<_item>140</_item>
 											</order>
 										</_object>
-										<_content/>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!--Contact Info -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:preferredContactMethod">
@@ -1000,6 +1017,41 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:placeOfOrigin">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Place of origin</_item>
+											</toolTip>
+											<label>
+												<_item>Place of origin</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:citizenship">
+										<_object>
+											<active>true</active>
+											<spanRow>2</spanRow>
+											<toolTip>
+												<_item>Citizenships</_item>
+											</toolTip>
+											<label>
+												<_item>Citizenships</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:education">
 										<_object>
 											<active>true</active>
@@ -1061,12 +1113,29 @@
 												<_item>Person's birth date/time (local time place of birth!)</_item>
 											</toolTip>
 											<label>
-												<_item>Birth Date</_item>
+												<_item>Birth date</_item>
 											</label>
 											<order>
 												<_item>10</_item>
 												<_item>0</_item>
 												<_item>110</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:placeOfBirth">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Person's place of birth</_item>
+											</toolTip>
+											<label>
+												<_item>Place of birth</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>120</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1078,12 +1147,29 @@
 												<_item>Person's death date/time (local time place of death!)</_item>
 											</toolTip>
 											<label>
-												<_item>Death Date</_item>
+												<_item>Death date</_item>
 											</label>
 											<order>
 												<_item>10</_item>
 												<_item>0</_item>
-												<_item>115</_item>
+												<_item>130</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:placeOfDeath">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Person's place of death</_item>
+											</toolTip>
+											<label>
+												<_item>Place of death</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>140</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1100,25 +1186,7 @@
 											<order>
 												<_item>10</_item>
 												<_item>0</_item>
-												<_item>120</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:Contact:citizenship">
-										<_object>
-											<active>true</active>
-											<spanRow>2</spanRow>
-											<toolTip>
-												<_item>Citizenships</_item>
-											</toolTip>
-											<label>
-												<_item>Citizenships</_item>
-											</label>
-											<order>
-												<_item>10</_item>
-												<_item>0</_item>
-												<_item>140</_item>
+												<_item>150</_item>
 											</order>
 										</_object>
 										<_content />

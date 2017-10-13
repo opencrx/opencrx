@@ -55,6 +55,18 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:inventoryLevel" _operation="create">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Inventarpunkte</_item>
+											</toolTip>
+											<label>
+												<_item>Inventarpunkte</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:cb" _operation="create">
 										<_object>
 											<label>
@@ -96,6 +108,17 @@
 											<toolTip>
 												<_item>Einfache Buchungen</_item>
 											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:fxRate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Wechselkurse</_item>
+											</toolTip>
+											<label>
+												<_item>Wechselkurse</_item>
+											</label>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -529,6 +552,28 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:bookingEntry" _operation="create">
+										<_object>
+											<label>
+												<_item>Buchungseinträge</_item>
+											</label>
+											<toolTip>
+												<_item>Buchungseinträge</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:compoundBooking" _operation="create">
+										<_object>
+											<label>
+												<_item>Sammelbuchungen</_item>
+											</label>
+											<toolTip>
+												<_item>Sammelbuchungen</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:bookingEntry" _operation="create">
 										<_object>
 											<label>
@@ -938,6 +983,419 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Inventarpunkt</_item>
+											</toolTip>
+											<label>
+												<_item>Inventarpunkt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:position" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Depotposition</_item>
+											</toolTip>
+											<label>
+												<_item>Depotposition</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:correctionBookingTemplate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Vorlage Korrekturbuchung</_item>
+											</toolTip>
+											<label>
+												<_item>Vorlage Korrekturbuchung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:inventoryLevelStatus" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:quantity" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Anzahl</_item>
+											</toolTip>
+											<label>
+												<_item>Anzahl</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:inventoryLevelType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Typ</_item>
+											</toolTip>
+											<label>
+												<_item>Typ</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:entryDate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Erfassungsdatum</_item>
+											</toolTip>
+											<label>
+												<_item>Erfassungsdatum</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:valueDate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Valutadatum</_item>
+											</toolTip>
+											<label>
+												<_item>Valutadatum</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:isLocked" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Gesperrt</_item>
+											</toolTip>
+											<label>
+												<_item>Gesperrt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:lockingReason" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Grund für Sperre</_item>
+											</toolTip>
+											<label>
+												<_item>Grund für Sperre</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:lockModifiedAt" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Sperre modifiziert am</_item>
+											</toolTip>
+											<label>
+												<_item>Sperre modifiziert am</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:acceptedBy" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Akzeptiert von</_item>
+											</toolTip>
+											<label>
+												<_item>Akzeptiert von</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:originId" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>ID Herkunft / Ursprung</_item>
+											</toolTip>
+											<label>
+												<_item>ID Herkunft / Ursprung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:originContext" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verweise Herkunft / Ursprung</_item>
+											</toolTip>
+											<label>
+												<_item>Verweise Herkunft / Ursprung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:originContextParams" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Parameter Herkunft / Ursprung</_item>
+											</toolTip>
+											<label>
+												<_item>Parameter Herkunft / Ursprung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:acceptInventoryLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Inventarpunkt akzeptieren</_item>
+											</toolTip>
+											<label>
+												<_item>Inventarpunkt akzeptieren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:acceptInventoryLevel:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:finalizeInventoryLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Inventarpunkt finalisieren</_item>
+											</toolTip>
+											<label>
+												<_item>Inventarpunkt finalisieren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:finalizeInventoryLevel:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:lockInventoryLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Inventarpunkt sperren</_item>
+											</toolTip>
+											<label>
+												<_item>Inventarpunkt sperren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:lockInventoryLevel:Group:in" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:LockInventoryLevelParams:lockingReason" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Grund für Sperre</_item>
+											</toolTip>
+											<label>
+												<_item>Grund für Sperre</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:lockInventoryLevel:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:unlockInventoryLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Inventarpunkt entsperren</_item>
+											</toolTip>
+											<label>
+												<_item>Inventarpunkt entsperren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel:Pane:Op:Tab:unlockInventoryLevel:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate" _operation="create">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Buchungsvorlage</_item>
+											</toolTip>
+											<label>
+												<_item>Buchungsvorlage</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:positionDebit" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Position Belastung</_item>
+											</toolTip>
+											<label>
+												<_item>Position Belastung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:positionCredit" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Position Gutschrift</_item>
+											</toolTip>
+											<label>
+												<_item>Position Gutschrift</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:bookingBookingText" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Buchungstext</_item>
+											</toolTip>
+											<label>
+												<_item>Buchungstext</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:bookingTextSuffix" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Buchungstext Suffix</_item>
+											</toolTip>
+											<label>
+												<_item>Buchungstext Suffix</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:bookingType" _operation="create">
+										<_object>
+											<label>
+												<_item>Buchungstyp</_item>
+											</label>
+											<toolTip>
+												<_item>Buchungstyp</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:disabledReason" _operation="create">
+										<_object>
+											<label>
+												<_item>Begründung</_item>
+											</label>
+											<toolTip>
+												<_item>Begründung für Deaktivierung</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BookingTemplate:disabled" _operation="create">
+										<_object>
+											<label>
+												<_item>Deaktiviert</_item>
+											</label>
+											<toolTip>
+												<_item>Objekt ist deaktiviert</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBooking" _operation="create">
 										<_object>
 											<label>
@@ -1367,6 +1825,39 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:inventoryLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Inventarpunkte</_item>
+											</toolTip>
+											<label>
+												<_item>Inventarpunkte</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:bookingTemplate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Buchungsvorlagen</_item>
+											</toolTip>
+											<label>
+												<_item>Buchungsvorlagen</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:depotReportItem" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Positionsreports</_item>
+											</toolTip>
+											<label>
+												<_item>Positionsreports</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:booking" _operation="create">
 										<_object>
 											<label>
@@ -1455,6 +1946,17 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:initialBalance" _operation="create">
+										<_object>
+											<label>
+												<_item>Anfangsbestand</_item>
+											</label>
+											<toolTip>
+												<_item>Anfangsbestand</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:description" _operation="create">
 										<_object>
 											<label>
@@ -1469,10 +1971,10 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:ProductOfferingDepotPosition" _operation="create">
 										<_object>
 											<label>
-												<_item>Deoptposition mit Produkteangebot</_item>
+												<_item>Depotposition mit Produkteangebot</_item>
 											</label>
 											<toolTip>
-												<_item>Deoptposition mit Produkteangebot</_item>
+												<_item>Depotposition mit Produkteangebot</_item>
 											</toolTip>
 										</_object>
 										<_content />
@@ -1491,10 +1993,10 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:ProductBundleDepotPosition" _operation="create">
 										<_object>
 											<label>
-												<_item>Deoptposition mit Produktebündel</_item>
+												<_item>Depotposition mit Produktebündel</_item>
 											</label>
 											<toolTip>
-												<_item>Deoptposition mit Produktebündel</_item>
+												<_item>Depotposition mit Produktebündel</_item>
 											</toolTip>
 										</_object>
 										<_content />
@@ -1502,10 +2004,10 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:BundledProductDepotPosition" _operation="create">
 										<_object>
 											<label>
-												<_item>Deoptposition mit gebündeltem Produkt</_item>
+												<_item>Depotposition mit gebündeltem Produkt</_item>
 											</label>
 											<toolTip>
-												<_item>Deoptposition mit gebündeltem Produkt</_item>
+												<_item>Depotposition mit gebündeltem Produkt</_item>
 											</toolTip>
 										</_object>
 										<_content />
@@ -1513,10 +2015,10 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:ProductDepotPosition" _operation="create">
 										<_object>
 											<label>
-												<_item>Deoptposition mit Produkt</_item>
+												<_item>Depotposition mit Produkt</_item>
 											</label>
 											<toolTip>
-												<_item>Deoptposition mit Produkt</_item>
+												<_item>Depotposition mit Produkt</_item>
 											</toolTip>
 										</_object>
 										<_content />
@@ -2072,39 +2574,6 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemBooking:cb" _operation="create">
-										<_object>
-											<label>
-												<_item>Sammelbuchung</_item>
-											</label>
-											<toolTip>
-												<_item>Sammelbuchung</_item>
-											</toolTip>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemBooking:booking" _operation="create">
-										<_object>
-											<label>
-												<_item>Einzelbuchung</_item>
-											</label>
-											<toolTip>
-												<_item>Einzelbuchung</_item>
-											</toolTip>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemBooking:bookingDate" _operation="create">
-										<_object>
-											<label>
-												<_item>Buchungsdatum</_item>
-											</label>
-											<toolTip>
-												<_item>Buchungsdatum</_item>
-											</toolTip>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemDebit:quantityDebit" _operation="create">
 										<_object>
 											<label>
@@ -2123,39 +2592,6 @@
 											</label>
 											<toolTip>
 												<_item>Betrag Gutschrift</_item>
-											</toolTip>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemBooking:balanceDebit" _operation="create">
-										<_object>
-											<label>
-												<_item>Total aller Belastungen</_item>
-											</label>
-											<toolTip>
-												<_item>Total aller Belastungen</_item>
-											</toolTip>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemBooking:balanceCredit" _operation="create">
-										<_object>
-											<label>
-												<_item>Total aller Gutschriften</_item>
-											</label>
-											<toolTip>
-												<_item>Total aller Gutschriften</_item>
-											</toolTip>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReportItemBooking:balance" _operation="create">
-										<_object>
-											<label>
-												<_item>Saldo</_item>
-											</label>
-											<toolTip>
-												<_item>Saldo</_item>
 											</toolTip>
 										</_object>
 										<_content />
@@ -2336,7 +2772,18 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:name" _operation="create">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPositionReference" _operation="create">
+										<_object>
+											<label>
+												<_item>Depotpositionsreferenz</_item>
+											</label>
+											<toolTip>
+												<_item>Depotpositionsreferenz</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractDepotReference:name" _operation="create">
 										<_object>
 											<label>
 												<_item>Name</_item>
@@ -2347,7 +2794,7 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:description" _operation="create">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractDepotReference:description" _operation="create">
 										<_object>
 											<label>
 												<_item>Beschreibung</_item>
@@ -2380,7 +2827,18 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:depotUsage" _operation="create">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPositionReference:depotPosition" _operation="create">
+										<_object>
+											<label>
+												<_item>Depotposition</_item>
+											</label>
+											<toolTip>
+												<_item>Depotposition</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractDepotReference:depotUsage" _operation="create">
 										<_object>
 											<label>
 												<_item>Depotverwendung</_item>
@@ -2391,6 +2849,124 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Wechselkurs</_item>
+											</toolTip>
+											<label>
+												<_item>Wechselkurs</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:currencyBuy" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Währung Kauf</_item>
+											</toolTip>
+											<label>
+												<_item>Währung Kauf</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:currencySell" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Währung Verkauf</_item>
+											</toolTip>
+											<label>
+												<_item>Währung Verkauf</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:transactionSizeFrom" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Transaktionsgrösse min.</_item>
+											</toolTip>
+											<label>
+												<_item>Transaktionsgrösse min.</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:transactionSizeTo" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Transaktionsgrösse max.</_item>
+											</toolTip>
+											<label>
+												<_item>Transaktionsgrösse max.</_item>
+											</label>
+										</_object>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:rate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Kurs</_item>
+											</toolTip>
+											<label>
+												<_item>Kurs</_item>
+											</label>
+										</_object>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:fxRateType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Kurstyp</_item>
+											</toolTip>
+											<label>
+												<_item>Kurstyp</_item>
+											</label>
+										</_object>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:valueDate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Zeitstempel</_item>
+											</toolTip>
+											<label>
+												<_item>Zeitstempel</_item>
+											</label>
+										</_object>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:fxRateProvider" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Quelle</_item>
+											</toolTip>
+											<label>
+												<_item>Quelle</_item>
+											</label>
+										</_object>
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:Pane:Op:Tab:refreshReport" _operation="create">
 										<_object>
 											<label>
@@ -3683,10 +4259,10 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotHolder:Pane:Op:Tab:assertReports" _operation="create">
 										<_object>
 											<label>
-												<_item>Berichte aufbereiten</_item>
+												<_item>Berichte für alle Depots aufbereiten</_item>
 											</label>
 											<toolTip>
-												<_item>Berichte aufbereiten</_item>
+												<_item>Berichte für alle Depots aufbereiten</_item>
 											</toolTip>
 										</_object>
 										<_content />
@@ -3709,6 +4285,72 @@
 											</toolTip>
 											<label>
 												<_item>Grenzwert Status</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:includePosition0">
+										<_object>
+											<toolTip>
+												<_item>Einschluss Position 0</_item>
+											</toolTip>
+											<label>
+												<_item>Einschluss Position 0</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:includePosition1">
+										<_object>
+											<toolTip>
+												<_item>Einschluss Position 1</_item>
+											</toolTip>
+											<label>
+												<_item>Einschluss Position 1</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:includePosition2">
+										<_object>
+											<toolTip>
+												<_item>Einschluss Position 2</_item>
+											</toolTip>
+											<label>
+												<_item>Einschluss Position 2</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:excludePosition0">
+										<_object>
+											<toolTip>
+												<_item>Ausschluss Position 0</_item>
+											</toolTip>
+											<label>
+												<_item>Ausschluss Position 0</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:excludePosition1">
+										<_object>
+											<toolTip>
+												<_item>Ausschluss Position 1</_item>
+											</toolTip>
+											<label>
+												<_item>Ausschluss Position 1</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AssertReportsParams:excludePosition2">
+										<_object>
+											<toolTip>
+												<_item>Ausschluss Position 2</_item>
+											</toolTip>
+											<label>
+												<_item>Ausschluss Position 2</_item>
 											</label>
 										</_object>
 										<_content />
@@ -4153,6 +4795,7 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+
 								</elementDefinition>
 							</_content>
 						</org.openmdx.ui1.Segment>

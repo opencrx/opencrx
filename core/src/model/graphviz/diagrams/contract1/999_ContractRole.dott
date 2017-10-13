@@ -22,7 +22,6 @@ digraph "Diagram ContractRole [Package org:opencrx:kernel:contract1]" {
 	  rank=same;
 	  LAYER0[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:contract1:Segment,compartments=false,width=2]};
-	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=2]};
 	}
 	{
 	  rank=same;
@@ -35,17 +34,11 @@ digraph "Diagram ContractRole [Package org:opencrx:kernel:contract1]" {
 	  ${CLASS[name=org:opencrx:kernel:contract1:AbstractContract,compartments=false,width=3]};
 	  ${CLASS[name=org:opencrx:kernel:contract1:ContractReferenceHolder,compartments=false,width=3]};
 	  ${CLASS[name=org:opencrx:kernel:contract1:CustomerContractRole,compartments=true,width=3]};
-	  ${CLASS[name=org:opencrx:kernel:account1:Account,compartments=false,fillcolor="#FFBD9D",width=4]};	  
+	  ${CLASS[name=org:opencrx:kernel:account1:Account,compartments=false,fillcolor="#FFBD9D",width=3]};	  
 	}
-	{
-	  rank=same;
-	  LAYER3[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
-	}	
 
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
-	LAYER2->LAYER3[style=invis];
 
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:SegmentContainsContractRole,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:ContractRoleReferencesContract,minlen=3]}

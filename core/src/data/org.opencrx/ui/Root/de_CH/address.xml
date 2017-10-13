@@ -1020,6 +1020,28 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddressable:postalCodeAddOn" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Postleitzahl Zusatzcode</_item>
+											</toolTip>
+											<label>
+												<_item>Postleitzahl Zusatzcode</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddressable:postalCodeId" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Postleitzahl ID</_item>
+											</toolTip>
+											<label>
+												<_item>Postleitzahl ID</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddressable:postalFreightTerms" _operation="create">
                     <_object>
                       <label>
@@ -1291,6 +1313,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:salutationForCorrespondance">
+										<_object>
+											<toolTip>
+												<_item>Anrede für Korrespondenz</_item>
+											</toolTip>
+											<label>
+												<_item>Anrede für Korrespondenz</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:usage" _operation="create">
                     <_object>
                       <label>
@@ -1324,6 +1357,39 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:validFrom" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Gültig von</_item>
+											</toolTip>
+											<label>
+												<_item>Gültig von</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:validTo" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Gültig bis</_item>
+											</toolTip>
+											<label>
+												<_item>Gültig bis</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:region1" _operation="create">
 										<_object>
 											<toolTip>
@@ -1390,28 +1456,6 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:validFrom" _operation="create">
-                    <_object>
-                      <label>
-                        <_item>Gültig ab</_item>
-                      </label>
-                      <toolTip>
-                        <_item>Gültig ab</_item>
-                      </toolTip>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:validTo" _operation="create">
-                    <_object>
-                      <label>
-                        <_item>Gültig bis</_item>
-                      </label>
-                      <toolTip>
-                        <_item>Gültig bis</_item>
-                      </toolTip>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AccountAddress:address" _operation="create">
                     <_object>
                       <label>

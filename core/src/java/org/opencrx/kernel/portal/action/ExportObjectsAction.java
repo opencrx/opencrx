@@ -54,8 +54,10 @@ package org.opencrx.kernel.portal.action;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -72,7 +74,10 @@ import org.apache.poi.hssf.usermodel.HSSFRichTextString;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.opencrx.kernel.backend.Exporter;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.opencrx.kernel.backend.Base;
+import org.opencrx.kernel.backend.XmlExporter;
+import org.opencrx.kernel.base.jmi1.ExportItemResult;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.io.QuotaByteArrayOutputStream;
@@ -90,6 +95,8 @@ import org.openmdx.portal.servlet.component.ObjectView;
 import org.openmdx.portal.servlet.component.ReferencePane;
 import org.openmdx.portal.servlet.component.ShowObjectView;
 import org.openmdx.portal.servlet.component.UiGrid;
+import org.w3c.spi2.Datatypes;
+import org.w3c.spi2.Structures;
 
 /**
  * GridExportObjectsAction
@@ -110,7 +117,7 @@ public abstract class ExportObjectsAction extends BoundAction {
 		 * @return
 		 * @throws ServiceException
 		 */
-		Object[] exportItem(
+		ExportItemResult exportItem(
 			RefObject_1_0 startFrom
 		) throws ServiceException ;
 		
@@ -121,7 +128,7 @@ public abstract class ExportObjectsAction extends BoundAction {
 	 * selected grid objects according the model information.
 	 *
 	 */
-	static class ModelBasedGridExporter extends Exporter implements GridExporter {
+	static class ModelBasedGridExporter extends XmlExporter implements GridExporter {
 
 		/**
 		 * Constructor.
@@ -150,12 +157,11 @@ public abstract class ExportObjectsAction extends BoundAction {
 		 * @see org.opencrx.kernel.portal.action.GridExportObjectsAction.GridExporter#exportItem(org.openmdx.base.accessor.jmi.cci.RefObject_1_0)
 		 */
 		@Override
-        public Object[] exportItem(
+        public ExportItemResult exportItem(
         	RefObject_1_0 startFrom 
         ) throws ServiceException {
 			return super.exportItem(
 				startFrom, 
-				null, // exportProfile
 				this.referenceFilter, 
 				this.mimeType
 			);
@@ -260,6 +266,8 @@ public abstract class ExportObjectsAction extends BoundAction {
 			int rowNum,
 			List<Object> cells
 		) throws ServiceException {
+			CellStyle defaultDateStyle = sheet.getWorkbook().createCellStyle();
+		    defaultDateStyle.setDataFormat((short)14);			
 			// Prepare heading
 			if(rowNum == 0) {
 				// Prepare heading
@@ -287,16 +295,32 @@ public abstract class ExportObjectsAction extends BoundAction {
 			}
 			for(int i = 1; i < cells.size(); i++) {
 				AttributeValue valueHolder = (AttributeValue)cells.get(i);
+				Object value = valueHolder.getRawValue();
 				HSSFCell cell = row.createCell(i);
-				String stringifiedValue = valueHolder == null ? null : valueHolder.toString();
-				stringifiedValue = stringifiedValue == null ? "" : stringifiedValue;
-				// Remove brackets for collections
-				if(stringifiedValue.startsWith("[") && stringifiedValue.endsWith("]")) {
-					stringifiedValue = stringifiedValue.substring(1, stringifiedValue.length() - 1);
+				if(value instanceof Boolean) {
+					cell.setCellValue((Boolean)value);
+				} else if(value instanceof Double) {
+					cell.setCellValue(((Double)value).doubleValue());
+				} else if(value instanceof Float) {
+					cell.setCellValue(((Float)value).floatValue());
+				} else if(value instanceof Integer) {
+					cell.setCellValue(((Integer)value).intValue());
+				} else if(value instanceof Long) {
+					cell.setCellValue(((Long)value).longValue());
+				} else if(value instanceof BigDecimal) {
+					cell.setCellValue(((BigDecimal)value).doubleValue());
+				} else if(value instanceof Date) {
+					cell.setCellValue((Date)value);
+					cell.setCellStyle(defaultDateStyle);
+				} else {
+					String stringifiedValue = valueHolder == null ? null : valueHolder.toString();
+					stringifiedValue = stringifiedValue == null ? "" : stringifiedValue;
+					// Remove brackets for collections
+					if(stringifiedValue.startsWith("[") && stringifiedValue.endsWith("]")) {
+						stringifiedValue = stringifiedValue.substring(1, stringifiedValue.length() - 1);
+					}
+					cell.setCellValue(new HSSFRichTextString(stringifiedValue));
 				}
-				cell.setCellValue(
-					new HSSFRichTextString(stringifiedValue)
-				);
 			}
 		}
 
@@ -304,7 +328,7 @@ public abstract class ExportObjectsAction extends BoundAction {
 		 * @see org.opencrx.kernel.portal.action.GridExportObjectsAction.GridExporter#exportItem(org.openmdx.base.accessor.jmi.cci.RefObject_1_0)
 		 */
 		@Override
-        public Object[] exportItem(
+        public ExportItemResult exportItem(
         	RefObject_1_0 startFrom
         ) throws ServiceException {
 			PersistenceManager pm = JDOHelper.getPersistenceManager(startFrom);
@@ -385,18 +409,21 @@ public abstract class ExportObjectsAction extends BoundAction {
 				);
 				this.grid.setShowRows(showRows);
 			}
-			QuotaByteArrayOutputStream bs = new QuotaByteArrayOutputStream(Exporter.class.getName());
+			QuotaByteArrayOutputStream bs = new QuotaByteArrayOutputStream(XmlExporter.class.getName());
 			try {
 				wb.write(bs);
 				bs.close();
 			} catch(Exception ignore) {}
 			String contentMimeType = this.mimeType;
-			String contentName = "Export" + Exporter.FILE_EXT_XLS;
-			return new Object[] {
-			    contentName, 
-			    contentMimeType, 
-			    bs.toByteArray()
-			};
+			String contentName = "Export" + XmlExporter.FILE_EXT_XLS;
+            return Structures.create(
+            	ExportItemResult.class, 
+            	Datatypes.member(ExportItemResult.Member.item, bs.toByteArray()),
+            	Datatypes.member(ExportItemResult.Member.itemMimeType, contentMimeType),
+            	Datatypes.member(ExportItemResult.Member.itemName, contentName),
+            	Datatypes.member(ExportItemResult.Member.status, Base.IMPORT_EXPORT_OK),
+            	Datatypes.member(ExportItemResult.Member.statusMessage, null)            	
+            );            
         }
 
 		private final UiGrid grid;
@@ -475,14 +502,14 @@ public abstract class ExportObjectsAction extends BoundAction {
 			    			maxItems
 			    		);
 			    		String referenceName = uiGrid.getReferenceName();
-			    		Object[] item = exporter.exportItem(
+			    		ExportItemResult exportItemResult = exporter.exportItem(
 			    			view.getObject()
 			    		);
-			    		if(item != null) {
-					        response.setContentType((String)item[1]);
-					        response.setHeader("Content-disposition", "attachment;filename=" + referenceName + "-" + item[0]);            
+			    		if(exportItemResult != null) {
+					        response.setContentType(exportItemResult.getItemMimeType());
+					        response.setHeader("Content-disposition", "attachment;filename=" + referenceName + "-" + exportItemResult.getItemName());            
 					        OutputStream os = response.getOutputStream();
-					        byte[] bytes = (byte[])item[2];
+					        byte[] bytes = exportItemResult.getItem();
 					        for(int i = 0; i < bytes.length; i++) {
 					            os.write(bytes[i]);
 					        }

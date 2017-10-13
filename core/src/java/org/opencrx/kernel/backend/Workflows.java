@@ -56,6 +56,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -67,9 +68,11 @@ import javax.jdo.PersistenceManager;
 import org.opencrx.application.mail.exporter.ExportMailWorkflow;
 import org.opencrx.application.mail.exporter.SendMailNotificationWorkflow;
 import org.opencrx.application.mail.exporter.SendMailWorkflow;
+import org.opencrx.kernel.base.cci2.StringPropertyQuery;
 import org.opencrx.kernel.base.jmi1.ObjectCreationAuditEntry;
 import org.opencrx.kernel.base.jmi1.ObjectModificationAuditEntry;
 import org.opencrx.kernel.base.jmi1.ObjectRemovalAuditEntry;
+import org.opencrx.kernel.base.jmi1.StringProperty;
 import org.opencrx.kernel.base.jmi1.WorkflowTarget;
 import org.opencrx.kernel.generic.OpenCrxException;
 import org.opencrx.kernel.home1.jmi1.UserHome;
@@ -87,6 +90,11 @@ import org.opencrx.kernel.workflow.PrintConsole;
 import org.opencrx.kernel.workflow.SendAlert;
 import org.opencrx.kernel.workflow1.cci2.TopicQuery;
 import org.opencrx.kernel.workflow1.cci2.WfProcessQuery;
+import org.opencrx.kernel.workflow1.jmi1.ExporterTask;
+import org.opencrx.kernel.workflow1.jmi1.ImporterExporterTask;
+import org.opencrx.kernel.workflow1.jmi1.ImporterTask;
+import org.opencrx.kernel.workflow1.jmi1.RunExportResult;
+import org.opencrx.kernel.workflow1.jmi1.RunImportResult;
 import org.opencrx.kernel.workflow1.jmi1.Topic;
 import org.opencrx.kernel.workflow1.jmi1.WfProcess;
 import org.openmdx.base.exception.ServiceException;
@@ -446,6 +454,24 @@ public class Workflows extends AbstractImpl {
             org.opencrx.kernel.workflow.PrintConsole.class.getName(),
             "Print to console",
             Boolean.TRUE,
+            null
+        );
+        // RunExport
+        this.initWorkflow(
+            workflowSegment,
+            WORKFLOW_RUN_EXPORT,
+            org.opencrx.kernel.workflow.RunExport.class.getName(),
+            "Run export",
+            Boolean.FALSE,
+            null
+        );
+        // RunImport
+        this.initWorkflow(
+            workflowSegment,
+            WORKFLOW_RUN_IMPORT,
+            org.opencrx.kernel.workflow.RunImport.class.getName(),
+            "Run import",
+            Boolean.FALSE,
             null
         );
         // BulkCreateActivityWorkflow
@@ -907,6 +933,105 @@ public class Workflows extends AbstractImpl {
     }
 
     /**
+     * Get task parameters and override with supplied params.
+     * 
+     * @param task
+     * @param params
+     * @return
+     */
+    protected List<String> getTaskParams(
+    	ImporterExporterTask task,
+    	List<String> params
+    ) {
+        // Get default parameters from task properties
+        PersistenceManager pm = JDOHelper.getPersistenceManager(task);
+        List<String> importExportParams = new ArrayList<String>();
+        StringPropertyQuery propertyQuery = (StringPropertyQuery)pm.newQuery(StringProperty.class);
+        propertyQuery.orderByName().ascending();
+        for(StringProperty property: task.<StringProperty>getProperty(propertyQuery)) {
+        	importExportParams.add(property.getStringValue());
+        }
+        // Override with supplied params
+        for(int i = 0; i < params.size(); i++) {
+        	if(i >= importExportParams.size()) {
+        		importExportParams.add(params.get(i));
+        	} else if(params.get(i) != null) {
+        		importExportParams.set(i, params.get(i));
+        	}
+        }
+        return importExportParams;
+    }
+
+	/**
+	 * Run exporter task on target with given parameters.
+	 * 
+	 * @param exporterTask
+	 * @param params
+	 * @return
+	 * @throws ServiceException
+	 */
+	public RunExportResult runExport(
+		ExporterTask exporterTask,
+		List<String> params
+	) throws ServiceException {
+		try {
+	    	Class<?> clazz = ScriptUtils.getClass(exporterTask.getExecuteScript());
+	        Method runExportMethod = clazz.getMethod(
+	            "runExport",
+	            new Class[] {
+	            	ExporterTask.class,
+	            	String[].class
+	            }
+	        );
+	        List<String> exportParams = this.getTaskParams(exporterTask, params);
+	        return (RunExportResult)runExportMethod.invoke(
+	            null,
+	            new Object[] {
+	            	exporterTask,
+	            	exportParams.toArray(new String[exportParams.size()])
+	            }
+	        );
+		} catch(Exception e) {
+			throw new ServiceException(e);
+		}
+	}
+
+	/**
+	 * Run importer task on target with given parameters.
+	 * 
+	 * @param importerTask
+	 * @param target
+	 * @param params
+	 * @return
+	 * @throws ServiceException
+	 */
+	public RunImportResult runImport(
+		ImporterTask importerTask,
+		List<String> params
+	) throws ServiceException {
+		try {
+	    	Class<?> clazz = ScriptUtils.getClass(importerTask.getExecuteScript());
+	        Method runImportMethod = clazz.getMethod(
+	            "runImport",
+	            new Class[] {
+	            	ImporterTask.class,
+	            	String[].class
+	            }
+	        );
+	        List<String> importParams = this.getTaskParams(importerTask, params);
+	        return (RunImportResult)runImportMethod.invoke(
+	            null,
+	            new Object[] {
+	            	importerTask,
+	            	importParams.toArray(new String[importParams.size()])
+	            }
+	        );
+		} catch(Exception e) {
+			throw new ServiceException(e);
+		}
+	}
+
+    /**
      * EventType
      *
      */
@@ -946,19 +1071,17 @@ public class Workflows extends AbstractImpl {
     public static final String WORKFLOW_EXPORT_MAIL = "ExportMail";
     public static final String WORKFLOW_SEND_MAIL = "SendMail";
     public static final String WORKFLOW_SEND_MAIL_NOTIFICATION = "SendMailNotification";
-    public static final String WORKFLOW_SEND_ALERT = "SendAlert";
-    public static final String WORKFLOW_PRINT_CONSOLE = "PrintConsole";
-    public static final String WORKFLOW_SEND_DIRECT_MESSAGE_TWITTER = "SendDirectMessage";
-    public static final String WORKFLOW_SEND_MESSAGE_JABBER = "SendMessageJabber";
+    public static final String WORKFLOW_SEND_ALERT = SendAlert.class.getName();
+    public static final String WORKFLOW_PRINT_CONSOLE = PrintConsole.class.getName();
     public static final String WORKFLOW_BULK_ACTIVITY_FOLLOWUP = "BulkActivityFollowUp";
     public static final String WORKFLOW_BULK_CREATE_ACTIVITY = "BulkCreateActivity";
+    public static final String WORKFLOW_RUN_EXPORT = org.opencrx.kernel.workflow.RunExport.class.getName();
+    public static final String WORKFLOW_RUN_IMPORT = org.opencrx.kernel.workflow.RunImport.class.getName();
 
     public static final String TOPIC_NAME_ACCOUNT_MODIFICATIONS = "Account Modifications";
     public static final String TOPIC_NAME_ACTIVITY_FOLLOWUP_MODIFICATIONS = "Activity Follow Up Modifications";
     public static final String TOPIC_NAME_ACTIVITY_MODIFICATIONS = "Activity Modifications";
     public static final String TOPIC_NAME_ALERT_MODIFICATIONS_EMAIL = "Alert Modifications";
-    public static final String TOPIC_NAME_ALERT_MODIFICATIONS_TWITTER = "Alert Modifications (Twitter)";
-    public static final String TOPIC_NAME_ALERT_MODIFICATIONS_JABBER = "Alert Modifications (Jabber)";
     public static final String TOPIC_NAME_BOOKING_MODIFICATIONS = "Booking Modifications";
     public static final String TOPIC_NAME_COMPETITOR_MODIFICATIONS = "Competitor Modifications";
     public static final String TOPIC_NAME_COMPOUND_BOOKING_MODIFICATIONS = "Compound Booking Modifications";
@@ -978,5 +1101,7 @@ public class Workflows extends AbstractImpl {
     public static final String WORKFLOW_NAME_SEND_MAIL = SendMailWorkflow.class.getName();
     public static final String WORKFLOW_NAME_BULK_ACTIVITY_FOLLOWUP = org.opencrx.kernel.workflow.BulkActivityFollowUpWorkflow.class.getName();
     public static final String WORKFLOW_NAME_BULK_CREATE_ACTIVITY = org.opencrx.kernel.workflow.BulkCreateActivityWorkflow.class.getName();
+    public static final String WORKFLOW_NAME_RUN_EXPORT = org.opencrx.kernel.workflow.RunExport.class.getName();
+    public static final String WORKFLOW_NAME_RUN_IMPORT = org.opencrx.kernel.workflow.RunImport.class.getName();
 
 }

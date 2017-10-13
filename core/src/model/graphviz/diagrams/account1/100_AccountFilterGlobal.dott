@@ -21,17 +21,16 @@ digraph "Diagram AccountFilterGlobal [Package org:opencrx:kernel:account1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:account1:Segment,compartments=false]};
+	  ${CLASS[name=org:opencrx:kernel:account1:Segment,compartments=false,width=2]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:account1:AccountFilterGlobal,compartments=true,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:account1:AccountFilterGlobal,compartments=true,width=3]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D"]};
 	  ${CLASS[name=org:opencrx:kernel:account1:AbstractFilterAccount,compartments=false,width=2]};	  
 	}
 	

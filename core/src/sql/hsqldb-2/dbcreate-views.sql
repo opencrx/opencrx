@@ -76,12 +76,18 @@
 -- openMDX (http://www.openmdx.org/)                                         
 DROP VIEW OOCKE1_JOIN_ACCTHASASSADDRESS ;
 DROP VIEW OOCKE1_JOIN_ACCTHASASSACT ;
+DROP VIEW OOCKE1_JOIN_ACCTHASASSBUDGET ;
+DROP VIEW OOCKE1_JOIN_ACCTHASASSCONTR ;
 DROP VIEW OOCKE1_JOIN_ACCTHASPROD ;
 DROP VIEW OOCKE1_JOIN_ACTGCONTAINSACT ;
 DROP VIEW OOCKE1_JOIN_ACTGCONTAINSFLUP ;
 DROP VIEW OOCKE1_JOIN_ACTGCONTAINSNOTE ;
+DROP VIEW OOCKE1_JOIN_ACTCONTAINSWRE ;
+DROP VIEW OOCKE1_JOIN_ACTGCONTAINSWRE ;
+DROP VIEW OOCKE1_JOIN_ACTGISCREATEDBY ;
 DROP VIEW OOCKE1_JOIN_BOCONTAINSBKE ;
 DROP VIEW OOCKE1_JOIN_BOCONTAINSCB ;
+DROP VIEW OOCKE1_JOIN_BUHASADR ;
 DROP VIEW OOCKE1_JOIN_CBHASBK ;
 DROP VIEW OOCKE1_JOIN_CLFCLASSIFIESTELT ;
 DROP VIEW OOCKE1_JOIN_CONTACTISMEMBEROF ;
@@ -91,33 +97,30 @@ DROP VIEW OOCKE1_JOIN_DEPGCONTAINSDEP ;
 DROP VIEW OOCKE1_JOIN_DEPGCONTAINSDEPG ;
 DROP VIEW OOCKE1_JOIN_DEPPOSHASSBK ;
 DROP VIEW OOCKE1_JOIN_DEPPOSHASBK ;
+DROP VIEW OOCKE1_JOIN_DEPPOSHASDEPREPITM ;
 DROP VIEW OOCKE1_JOIN_DEPCONTAINSBKE ;
 DROP VIEW OOCKE1_JOIN_DEPENTCONTAINSBKE ;
 DROP VIEW OOCKE1_JOIN_DEPHOLCONTAINSBKE ;
 DROP VIEW OOCKE1_JOIN_DEPPOSCONTAINSBKE ;
-DROP VIEW OOCKE1_JOIN_ENTITYCONTAINSDEP ;
-DROP VIEW OOCKE1_JOIN_FLDCONTAINSFLD ;
-DROP VIEW OOCKE1_JOIN_HOMEHASASSACT ;
-DROP VIEW OOCKE1_JOIN_NSCONTAINSELT ;
-DROP VIEW OOCKE1_JOIN_OBJHASASSTIMER ;
-DROP VIEW OOCKE1_JOIN_SEGCONTAINSFAC ;
-DROP VIEW OOCKE1_JOIN_HOMEHASASSCONTR ;
-DROP VIEW OOCKE1_JOIN_ACCTHASASSCONTR ;
-DROP VIEW OOCKE1_JOIN_ACCTHASASSBUDGET ;
-DROP VIEW OOCKE1_JOIN_SEGCONTAINSBU ;
-DROP VIEW OOCKE1_JOIN_BUHASADR ;
-DROP VIEW OOCKE1_JOIN_IITEMHASBOOKING ;
-DROP VIEW OOCKE1_JOIN_RESHASASSIGNEDACT ;
-DROP VIEW OOCKE1_JOIN_SEGCONTAINSADR ;
-DROP VIEW OOCKE1_JOIN_ACTGISCREATEDBY ;
-DROP VIEW OOMSE2_TOBJ_USERS ;
-DROP VIEW OOMSE2_TOBJ_ROLES ;
+DROP VIEW OOCKE1_JOIN_DEPPOSCONTAINSINVL ;
 DROP VIEW OOCKE1_JOIN_DEPREPITMHASBK ;
 DROP VIEW OOCKE1_JOIN_DEPREPITMHASSBK ;
+DROP VIEW OOCKE1_JOIN_ENTITYCONTAINSDEP ;
 DROP VIEW OOCKE1_JOIN_FILTERINCLDESCONTR ;
+DROP VIEW OOCKE1_JOIN_FLDCONTAINSFLD ;
+DROP VIEW OOCKE1_JOIN_IITEMHASBOOKING ;
+DROP VIEW OOCKE1_JOIN_HOMEHASASSACT ;
+DROP VIEW OOCKE1_JOIN_HOMEHASASSCONTR ;
+DROP VIEW OOCKE1_JOIN_NSCONTAINSELT ;
+DROP VIEW OOCKE1_JOIN_OBJHASASSTIMER ;
+DROP VIEW OOCKE1_JOIN_OBJHASIDXENTRY ;
 DROP VIEW OOCKE1_JOIN_RESCONTAINSWRE ;
-DROP VIEW OOCKE1_JOIN_ACTCONTAINSWRE ;
-DROP VIEW OOCKE1_JOIN_ACTGCONTAINSWRE ;
+DROP VIEW OOCKE1_JOIN_RESHASASSIGNEDACT ;
+DROP VIEW OOMSE2_TOBJ_ROLES ;
+DROP VIEW OOCKE1_JOIN_SEGCONTAINSFAC ;
+DROP VIEW OOCKE1_JOIN_SEGCONTAINSBU ;
+DROP VIEW OOCKE1_JOIN_SEGCONTAINSADR ;
+DROP VIEW OOMSE2_TOBJ_USERS ;
 DROP VIEW OOCKE1_JOIN_SEGCONTAINSWRE ;
 DROP VIEW OOCKE1_JOIN_WFPROCHASPROCINST ;
 DROP VIEW OOCKE1_JOIN_WFPROCINSTHASCHILD ;
@@ -145,13 +148,15 @@ DROP VIEW OOCKE1_TOBJ_LNKITEMLNKFROM ;
 DROP VIEW OOCKE1_TOBJ_LNKITEMLNKFROM_ ;
 DROP VIEW OOCKE1_TOBJ_PRICELISTENTRY ;
 DROP VIEW OOCKE1_TOBJ_PRICELISTENTRY_ ;
+DROP VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP ;
+DROP VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP_ ;
 DROP VIEW OOCKE1_TOBJ_PROPERTYSETENTRY ;
 DROP VIEW OOCKE1_TOBJ_PROPERTYSETENTRY_ ;
 DROP VIEW OOCKE1_TOBJ_SEARCHINDEXENTRY ;
 DROP VIEW OOCKE1_TOBJ_SEARCHINDEXENTRY_ ;
 DROP VIEW OOCKE1_TOBJ_WORKRECORD ;
-DROP VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY ;
-DROP VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY_ ;
+DROP VIEW OOCKE1_TOBJ_SINGLEBKE ;
+DROP VIEW OOCKE1_TOBJ_SINGLEBKE_ ;
 CREATE VIEW OOCKE1_JOIN_ACCTHASASSACT AS
 SELECT
     act.object_id AS assigned_activity,
@@ -259,7 +264,7 @@ SELECT
     be.origin AS booking_origin,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be ;
+    OOCKE1_TOBJ_SINGLEBKE be ;
 CREATE VIEW OOCKE1_JOIN_BOCONTAINSCB AS
 SELECT
     cb.origin AS booking_origin,
@@ -289,7 +294,7 @@ ON
 CREATE VIEW OOCKE1_JOIN_CONTACTISMEMBEROF AS
 SELECT
     cm.contact AS contact,
-    cm."P$$PARENT" AS ou_membership
+    cm.object_id AS ou_membership
 FROM
     OOCKE1_CONTACTMEMBERSHIP cm ;
 CREATE VIEW OOCKE1_JOIN_CPOSHASPOSMOD AS
@@ -328,6 +333,12 @@ SELECT
     b.position AS depot_position
 FROM
     OOCKE1_BOOKING b ;
+CREATE VIEW OOCKE1_JOIN_DEPPOSHASDEPREPITM AS
+SELECT
+    dri.object_id AS depot_report_item,
+    dri.position AS depot_position
+FROM
+    OOCKE1_DEPOTREPORTITEM dri ;
 CREATE VIEW OOCKE1_JOIN_DEPPOSHASSBK AS
 SELECT
     b.object_id AS simple_booking,
@@ -438,6 +449,12 @@ SELECT
     t.object_id AS assigned_timer
 FROM
     OOCKE1_TIMER t ;
+CREATE VIEW OOCKE1_JOIN_OBJHASIDXENTRY AS
+SELECT
+    e.indexed_object AS indexed,
+    e.object_id AS index_entry
+FROM
+    OOCKE1_INDEXENTRY e ;
 CREATE VIEW OOCKE1_JOIN_RESHASASSIGNEDACT AS
 SELECT
     a.object_id AS assigned_activity,
@@ -673,25 +690,31 @@ SELECT
     be.depot AS depot,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be ;
+    OOCKE1_TOBJ_SINGLEBKE be ;
 CREATE VIEW OOCKE1_JOIN_DEPENTCONTAINSBKE AS
 SELECT
     be.depot_entity AS depot_entity,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be ;
+    OOCKE1_TOBJ_SINGLEBKE be ;
 CREATE VIEW OOCKE1_JOIN_DEPHOLCONTAINSBKE AS
 SELECT
     be.depot_holder AS depot_holder,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be ;
+    OOCKE1_TOBJ_SINGLEBKE be ;
 CREATE VIEW OOCKE1_JOIN_DEPPOSCONTAINSBKE AS
 SELECT
     be.position AS position,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be ;
+    OOCKE1_TOBJ_SINGLEBKE be ;
+CREATE VIEW OOCKE1_JOIN_DEPPOSCONTAINSINVL AS
+SELECT
+    l.position AS position,
+    l.object_id AS inventory_level
+FROM
+    OOCKE1_INVENTORYLEVEL l ;
 CREATE VIEW OOCKE1_JOIN_FILTERINCLDESCONTR AS
 SELECT
     f.object_id AS contract_filter,
@@ -1344,7 +1367,7 @@ INNER JOIN
 ON
     ass0.account = acct.object_id
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT DISTINCT
     (ass0.account) || '*' || (ass0.object_id) || '*-1' AS object_id,
@@ -1413,7 +1436,7 @@ INNER JOIN
 ON
    ass0.account = acct.object_id
 WHERE
-    ass0.object_id LIKE 'accountMember%' ;
+    ass0."P$$PARENT" LIKE 'account/%' ;
 CREATE VIEW OOCKE1_TOBJ_ACCTMEMBERSHIP_TO AS
 WITH RECURSIVE TEMP (
     object_id,
@@ -1539,7 +1562,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT
     (ass1.object_id) || '*+' || (TEMP.distance + 1) AS object_id,
@@ -1735,7 +1758,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT
     (ass1.object_id) || '*' || (TEMP.distance - 1) AS object_id,
@@ -1875,7 +1898,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT
     (ass0.object_id) || '*-1' AS object_id,
@@ -1940,7 +1963,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT
     (ass0.object_id) || '*' || (ass1.object_id) || '*2A' AS object_id,
@@ -2009,7 +2032,7 @@ INNER JOIN
 ON
     ass0."P$$PARENT" = ass1.account
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT
     (ass0.object_id) || '*' || (ass1.object_id) || '*' || (ass2.object_id) || '*2B' AS object_id,
@@ -2082,7 +2105,7 @@ INNER JOIN
 ON
     ass2.account = ass1."P$$PARENT"
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT
     (ass0.object_id) || '*' || (ass1.object_id) || '*-2A' AS object_id,
@@ -2151,7 +2174,7 @@ INNER JOIN
 ON
     ass0.account = ass1."P$$PARENT"
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0."P$$PARENT" LIKE 'account/%'
 UNION ALL
 SELECT
     (ass0.object_id) || '*' || (ass1.object_id) || '*' || (ass2.object_id) || '*-2B' AS object_id,
@@ -2224,7 +2247,7 @@ INNER JOIN
 ON
     ass1.account = ass2."P$$PARENT"
 WHERE
-    ass0.object_id LIKE 'accountMember%' ;
+    ass1."P$$PARENT" LIKE 'account/%' ;
 CREATE VIEW OOCKE1_TOBJ_ACCTMEMBERSHIP_ AS
 SELECT
     ass_.object_id,
@@ -2413,6 +2436,74 @@ INNER JOIN
     OOCKE1_PRODUCTBASEPRICE bp
 ON
     (bp_.object_id = bp.object_id) ;
+CREATE VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP AS
+SELECT
+    REPLACE(r.product, 'product/', 'productMembership/') || '/' || REPLACE(r.object_id, '/', ':') AS object_id,
+    r.product AS "P$$PARENT",
+    r."P$$PARENT" AS product_from,
+    r.product AS product_to,
+    r.modified_at AS created_at,
+    r.created_by_,
+    r.modified_at,
+    r.modified_by_,
+    REPLACE(r.dtype, 'RelatedProduct', 'ProductMembership') AS dtype,
+    r.access_level_browse,
+    r.access_level_update,
+    r.access_level_delete,
+    r.owner_,
+    r.name,
+    r.description,
+    r.object_id AS related_product,
+    r.relationship_type,
+    r.disabled,
+    r.user_boolean0,
+    r.user_boolean1,
+    r.user_boolean2,
+    r.user_boolean3,
+    r.user_boolean4_,
+    r.user_code0,
+    r.user_code1,
+    r.user_code2,
+    r.user_code3,
+    r.user_code4_,
+    r.user_date0,
+    r.user_date1,
+    r.user_date2,
+    r.user_date3,
+    r.user_date4_,
+    r.user_date_time0,
+    r.user_date_time1,
+    r.user_date_time2,
+    r.user_date_time3,
+    r.user_date_time4_,
+    r.user_number0,
+    r.user_number1,
+    r.user_number2,
+    r.user_number3,
+    r.user_number4_,
+    r.user_string0,
+    r.user_string1,
+    r.user_string2,
+    r.user_string3,
+    r.user_string4_
+FROM
+    OOCKE1_RELATEDPRODUCT r ;
+CREATE VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP_ AS
+SELECT
+    rp_.object_id,
+    rp_.idx,
+    rp_.created_by,
+    rp_.modified_by,
+    rp_.owner,
+    rp_.dtype,
+    rp_.user_boolean4,
+    rp_.user_code4,
+    rp_.user_date4,
+    rp_.user_date_time4,
+    rp_.user_number4,
+    rp_.user_string4
+FROM
+    OOCKE1_RELATEDPRODUCT_ rp_ ;
 CREATE VIEW OOCKE1_TOBJ_PROPERTYSETENTRY AS
 SELECT
     REPLACE(p.object_id, 'p2/', 'propertySetEntry1/') AS object_id,
@@ -2543,7 +2634,7 @@ SELECT
     dtype
 FROM
     OOCKE1_ACCOUNT_ ;
-CREATE VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY AS
+CREATE VIEW OOCKE1_TOBJ_SINGLEBKE AS
 SELECT
     REPLACE(b.object_id, 'booking/', 'bookingEntry/') AS object_id,
     b."P$$PARENT" AS "P$$PARENT",
@@ -2558,9 +2649,9 @@ SELECT
     b.cb AS cb,
     b.created_at AS created_at,
     b.created_by_ AS created_by_,
-    d.object_id AS depot,
-    de.object_id AS depot_entity,
-    dh.object_id AS depot_holder,
+    (SELECT dp."P$$PARENT" FROM OOCKE1_DEPOTPOSITION dp WHERE b.position = dp.object_id) AS depot,
+    (SELECT dh."P$$PARENT" FROM OOCKE1_DEPOTHOLDER dh INNER JOIN OOCKE1_DEPOT d ON d."P$$PARENT" = dh.object_id INNER JOIN OOCKE1_DEPOTPOSITION dp ON dp."P$$PARENT" = d.object_id WHERE b.position = dp.object_id) AS depot_entity,
+    (SELECT d."P$$PARENT" FROM OOCKE1_DEPOT d INNER JOIN OOCKE1_DEPOTPOSITION dp ON dp."P$$PARENT" = d.object_id WHERE b.position = dp.object_id) AS depot_holder,
     b.description AS description,
     b.modified_by_ AS modified_by_,
     b.name AS name,
@@ -2574,24 +2665,8 @@ SELECT
     b.quantity_debit AS quantity_debit,
     b.quantity_credit AS quantity_credit
 FROM
-    OOCKE1_BOOKING b
-INNER JOIN
-   OOCKE1_DEPOTPOSITION dp
-ON
-   b.position = dp.object_id
-INNER JOIN
-   OOCKE1_DEPOT d
-ON
-   dp."P$$PARENT" = d.object_id
-INNER JOIN
-   OOCKE1_DEPOTHOLDER dh
-ON
-   d."P$$PARENT" = dh.object_id
-INNER JOIN
-   OOCKE1_DEPOTENTITY de
-ON
-   dh."P$$PARENT" = de.object_id ;
-CREATE VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY_ AS
+    OOCKE1_BOOKING b ;
+CREATE VIEW OOCKE1_TOBJ_SINGLEBKE_ AS
 SELECT
     REPLACE(b_.object_id, 'booking/', 'bookingEntry/') AS object_id,
     b_.idx AS idx,

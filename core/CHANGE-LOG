@@ -1,4 +1,211 @@
 ﻿==============================================================================
+Version 4.1.0                                                       2017-10-12
+==============================================================================
+
+1.    NEW FEATURES
+      
+      CR10013725
+      GetPriceLevelParams: optional parameter contract position. The getPriceLevel
+      script has the contract position as optional parameter. This allows to
+      configure rules returning contract position specific price levels.
+      
+      CR10013556
+      PostalAddress: postalCodeAddOn, postalCodeId. ostalCodeAddOn, postalCodeId
+      in order to support country-specific add-ons for postal codes. 
+      E.g. https://www.unitedstateszipcodes.org/
+
+      CR10013547
+      DocumentExporterServlet: docdir as system property. The DocumentExporterServlet
+      allows to configure the baseDir (or docDir) as follows:
+      * as system property with name org.opencrx.docdir.{provider name}
+      * as system property with name org.opencrx.docdir
+      * as component configuration property with name {providerName} + "." + {segmentName} + "." + baseDir 
+      
+      CR10013529
+      DepotAssignmentGroup. Add new class DepotAssignmentGroup to product1. This
+      class allows group sales tax type group, transaction type, income account
+      and cost center and assign to a product.
+      
+      CR10013539
+      SQL Server: SEQUENCE support. The helper _SEQ tables are replace by
+      SQL server sequences (for more information see 
+      https://docs.microsoft.com/en-us/sql/t-sql/statements/create-sequence-transact-sql).
+      The following database tables must be migrated to a corresponding database sequence:
+      * OOCKE1_ACTIVITY_NUMBER_SEQ
+      * OOCKE1_POSITION_NUMBER_SEQ
+      
+      CR10013370
+      product1: extend SalesTaxType. A SalesTaxType is assigned to 0..n 
+      SalesTransactions (on premise, take way, standard, ...) and 0..1 
+      SalesTaxTypeGroup (CH.standard, CH.reduced, ...). Also add
+      SalesContract::salesContractGroup, SalesContractPosition::salesTrasactionType 
+      and Product::salesTaxTypeAssignment. This extension allows 
+      Contract::createPosition() to automatically set the sales tax on a sales 
+      contract position.
+            
+      CR10013369
+      depot1: fxRate to manage fx rates for currencies.
+
+      CR10013358
+      account1: MemberGroup. Support grouping of Members per account.
+      
+      CR10013357
+      activity1: ActivityPartyGroup. Support of grouping of ActivityParties 
+      per activity.
+      
+      CR10013233
+      document1: DocumentSchema. Document::documentSchema is a reference to a 
+      DocumentSchema containing the schema definition of the document. 
+      It describes the data stored in Document::cmsMeta:
+      Examples:
+      * Document::cmsMeta contains the document's meta-data in JSON notation. Then 
+        the schema definition is a JSON schema (http://json-schema.org)
+      * Document::cmsMeta contains the document's meta-data in XML notation. Then 
+        the schema-definition is an XML schema.
+      In order to support efficient storage and fast queries the column type 
+      OOCKE1_DOCUMENT.cms_meta can be set (manually) to a native database type.
+      E.g. when using PostgreSQL, the column type of cms_meta can be changed to 
+      jsonb. As a consequence only JSON-compliant data can then be stored in 
+      Document::cmsMeta. JSON queries are then supported and have then the form: 
+      thereExistsCmsMeta().like("(?j){\"x\":2}").
+
+      CR10013182
+      BPI: RunExportAction. The RunExportAction allows to invoke ExporterTask::runExport() 
+      with a GET request. The parameters param0..param9 are supplied as URL parameters. 
+      The request pattern is 
+      xri://@openmdx*org.opencrx.application.bpi1/provider/:*/segment/:*/exporter/:*/file/:*
+      The last component is ignored by RunExportAction. However, it should denote a file name 
+      where the extension matches the mime type of the returned file, e.g. test.csv if the 
+      exporter returns as CSV formatted file. 
+      
+      The RunExportAction simplifies client programming. E.g. an R program can download and
+      parse the file as follows:
+      
+      > download.file("http://guest:guest@localhost:8080/opencrx-bpi-CRX/org.opencrx.application.bpi1/provider/CRX/segment/Standard/exporter/Test/file/test.csv", destfile="/tmp/test.csv")
+      > read.csv("/tmp/test.csv")
+      
+      OR
+      
+      > read.csv(textConnection(getURL("http://guest:guest@localhost:8080/opencrx-bpi-CRX/org.opencrx.application.bpi1/provider/CRX/segment/Standard/exporter/Test/file/test.csv")))
+
+      CR10013163
+      workflow1: ImporterTask / ExporterTask. The new classes allow to configure
+      script-based importer and exporter tasks. ImporterTask:runImport() invokes
+      the method runImport() of the configured script. runImport() has the 
+      following signature:
+      
+      [%
+      import org.opencrx.kernel.workflow1.jmi1.RunExportResult;
+      import org.opencrx.kernel.workflow1.jmi1.ExporterTask;
+      import  org.openmdx.base.exception.ServiceException;
+      import org.w3c.spi2.Structures;
+      import org.w3c.spi2.Datatypes;
+
+      public static RunExportResult runExport(
+          ExporterTask exporterTask,
+          String[] params
+      ) throws ServiceException {
+          try {
+              String file =
+                  "top100_repository_name,month,monthly_increase,monthly_begin_at,monthly_end_with\n" +
+                  "Bukkit,2012-03,9,431,440\n" +
+                  "Bukkit,2012-04,19,438,457\n" +
+                  "Bukkit,2012-05,19,455,474\n" +
+                  "Bukkit,2012-06,18,475,493\n" +
+                  "Bukkit,2012-07,15,492,507\n" +
+                  "Bukkit,2012-08,50,506,556\n" +
+                  "Bukkit,2012-09,19,555,574\n" +
+                  "Bukkit,2012-10,26,573,599\n" +
+                  "Bukkit,2012-11,21,600,621\n" +
+                  "Bukkit,2012-12,21,621,642\n" +
+                  "CodeIgniter,2012-03,55,708,763\n" +
+                  "CodeIgniter,2012-04,75,763,838\n" +
+                  "CodeIgniter,2012-05,92,837,929";
+              return (RunExportResult)Structures.create(
+            	  RunExportResult.class, 
+            	  Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.file, file.getBytes("UTF-8")),
+            	  Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.fileMimeType, "text/csv"),
+            	  Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.fileName, "test.csv"),
+            	  Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.status, (short)0),
+            	  Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.statusMessage, "")            	
+              );
+          } catch(Exception e) {
+              throw new ServiceException(e);
+          }
+      }
+      %]
+
+      The operation Import:importItem(importerTask, item, itemName, itemMimeType) delegates 
+      importerTask.runImport(params) with params[0] = 'xri of invoked object', params[1]=item,
+      param[2]=itemName, param[3]=itemMimeType.
+
+      ExporterTask:runExport() invokes the method runImport() of the configured script. 
+      The methods runExport() has the following signature:
+      
+      [%
+      import org.opencrx.kernel.workflow1.jmi1.RunExportResult;
+      import org.opencrx.kernel.workflow1.jmi1.ExporterTask;
+      import  org.openmdx.base.exception.ServiceException;
+      import org.w3c.spi2.Structures;
+      import org.w3c.spi2.Datatypes;
+
+      public static RunExportResult runExport(
+          ExporterTask exporterTask,
+          String[] params
+      ) throws ServiceException {
+          return (RunExportResult)Structures.create(
+              RunExportResult.class, 
+              Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.file, null),
+              Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.fileMimeType, null),
+              Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.fileName, null),
+              Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.status, (short)1),
+              Datatypes.member(org.opencrx.kernel.workflow1.cci2.RunExportResult.Member.statusMessage, "no file")            	
+          );
+      }
+      %]
+      
+      The operation Export:exportItem(exporterTask) delegates exporterTask.runExport(params) with
+      params[0] = 'xri of invoked object'.
+             
+2.    CHANGES
+
+2.0.  CHANGED FEATURES
+      
+      CR10013385
+      Indexer: configurable object set. Indexed_2 now delegates to org.opencrx.kernel.backend.Base.
+      This allows custom-implementations for updateIndexEntry(), allowUpdateExistingIndexEntries(), 
+      getKeywords(), getIndexableTypes().  
+      
+      CR10013351
+      document1: DocumentFolder, Document are UserDefined. document1:DocumentFolder and document1:Document 
+      are UserDefined. At the same time UserDefined was moved from Package org:opencrx:kernel:generic to 
+      org:opencrx:kernel:base. 
+      
+      CR10013273
+      UserHome::createUser: Added methods validateCredential() and getSubjectName() to backend class
+      UserHomes. Overriding these methods allows to customize the user home creation.
+
+      CR10013204
+      Rename OOCKE1_TOBJ_SINGLEBOOKINGENTRY. Rename OOCKE1_TOBJ_SINGLEBOOKINGENTRY to OOCKE1_TOBJ_SINGLEBKE
+      Reference: https://sourceforge.net/p/opencrx/discussion/general/thread/b4816f24/.
+
+2.1.  FIXED BUGS
+      
+      CR10013300
+      CardDAV Servlet Unrecoverable Exception (picture of account defined, but media missing). If an 
+      account's picture attribute is set, but the referenced media is not available (e.g. because it 
+      was deleted) the caldav servlet throws an exception that breaks/aborts the sync process - 
+      depending on the caldav client it's not possible to sync at all anymore until the account is 
+      either fixed or removed from the collection.
+      
+2.2   REMOVED FEATURES
+      
+      CR10013178
+      @deprecate ExportProfile. The class is removed and replaced by org:opencrx:kernel:workflow1:ExporterTask.
+      As a result the signature of Exporter:exportItem(exportProfile) changed to Exporter:exportItem(exporterTask).
+
+
+﻿==============================================================================
 Version 4.0.0                                                       2016-09-05
 ==============================================================================
 

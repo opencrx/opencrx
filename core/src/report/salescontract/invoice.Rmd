@@ -1,0 +1,50 @@
+---
+classoption: landscape
+output: pdf_document
+params:
+  invoiceNumber: 1000086-1022I-6857
+---
+
+```{r setup, include=FALSE}
+require(lubridate)
+library(dplyr)
+library(RCurl)
+library(jsonlite)
+library(countrycode)
+library(knitr)
+
+data <- getURL(
+  paste(
+    "guest:guest@localhost:8080/opencrx-bpi-CRX/org.opencrx.application.bpi1/provider/CRX/segment/Standard/exporter/SalesContractExporter/file/invoice.json?param1=INVOICE&param2=", 
+    params$invoiceNumber, 
+    sep=""
+  )
+)
+invoice <- fromJSON(data)
+
+```
+
+# INVOICE `r invoice$contractNumber`
+
+**To:**
+
+~~~~~~~
+`r invoice$shippingAddress$postalAddressLine0`                  
+`r invoice$shippingAddress$postalAddressLine1`
+`r invoice$shippingAddress$postalStreet0`
+`r invoice$shippingAddress$postalStreet1`
+`r invoice$shippingAddress$postalCode` `r invoice$shippingAddress$postalCity`
+`r countrycode(invoice$shippingAddress$postalCountry,"iso3n","country.name")`
+~~~~~~~
+
+**Date:** `r as.Date(invoice$activeOn, "%Y%m%d")`
+
+**Summary:** `r invoice$name`.
+
+```{r, echo=FALSE}
+knitr::kable(invoice$positions)
+```
+
+**Total Amount:** `r sprintf("%5.2f", invoice$totalAmount, digits=2)`
+
+**Total Tax:** `r sprintf("%5.2f", invoice$totalTaxAmount, digits=2)`

@@ -4,6 +4,10 @@ DROP VIEW OOCKE1_JOIN_ACCTHASASSADDRESS COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_ACCTHASASSACT COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_ACCTHASASSBUDGET COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_ACCTHASASSCONTR COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_ACCTHASPROD COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_ACTGCONTAINSACT COMMAND_TERMINATOR 
@@ -12,9 +16,17 @@ DROP VIEW OOCKE1_JOIN_ACTGCONTAINSFLUP COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_ACTGCONTAINSNOTE COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_ACTCONTAINSWRE COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_ACTGCONTAINSWRE COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_ACTGISCREATEDBY COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_BOCONTAINSBKE COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_BOCONTAINSCB COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_BUHASADR COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_CBHASBK COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -34,6 +46,8 @@ DROP VIEW OOCKE1_JOIN_DEPPOSHASSBK COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPPOSHASBK COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_DEPPOSHASDEPREPITM COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPCONTAINSBKE COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPENTCONTAINSBKE COMMAND_TERMINATOR 
@@ -42,51 +56,43 @@ DROP VIEW OOCKE1_JOIN_DEPHOLCONTAINSBKE COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPPOSCONTAINSBKE COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_ENTITYCONTAINSDEP COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_FLDCONTAINSFLD COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_HOMEHASASSACT COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_NSCONTAINSELT COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_OBJHASASSTIMER COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_SEGCONTAINSFAC COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_HOMEHASASSCONTR COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_ACCTHASASSCONTR COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_ACCTHASASSBUDGET COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_SEGCONTAINSBU COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_BUHASADR COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_IITEMHASBOOKING COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_RESHASASSIGNEDACT COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_SEGCONTAINSADR COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_ACTGISCREATEDBY COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOMSE2_TOBJ_USERS COMMAND_TERMINATOR 
-#include "sql-command-separator.tsql"
-DROP VIEW OOMSE2_TOBJ_ROLES COMMAND_TERMINATOR 
+DROP VIEW OOCKE1_JOIN_DEPPOSCONTAINSINVL COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPREPITMHASBK COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPREPITMHASSBK COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_ENTITYCONTAINSDEP COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_FILTERINCLDESCONTR COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_FLDCONTAINSFLD COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_IITEMHASBOOKING COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_HOMEHASASSACT COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_HOMEHASASSCONTR COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_NSCONTAINSELT COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_OBJHASASSTIMER COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_OBJHASIDXENTRY COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_RESCONTAINSWRE COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_ACTCONTAINSWRE COMMAND_TERMINATOR
+DROP VIEW OOCKE1_JOIN_RESHASASSIGNEDACT COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_ACTGCONTAINSWRE COMMAND_TERMINATOR
+DROP VIEW OOMSE2_TOBJ_ROLES COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_SEGCONTAINSFAC COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_SEGCONTAINSBU COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_SEGCONTAINSADR COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOMSE2_TOBJ_USERS COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_SEGCONTAINSWRE COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
@@ -142,6 +148,10 @@ DROP VIEW OOCKE1_TOBJ_PRICELISTENTRY COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_TOBJ_PRICELISTENTRY_ COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP_ COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_TOBJ_PROPERTYSETENTRY COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_TOBJ_PROPERTYSETENTRY_ COMMAND_TERMINATOR 
@@ -152,9 +162,9 @@ DROP VIEW OOCKE1_TOBJ_SEARCHINDEXENTRY_ COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_TOBJ_WORKRECORD COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY COMMAND_TERMINATOR
+DROP VIEW OOCKE1_TOBJ_SINGLEBKE COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY_ COMMAND_TERMINATOR
+DROP VIEW OOCKE1_TOBJ_SINGLEBKE_ COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_ACCTHASASSACT AS
@@ -284,7 +294,7 @@ SELECT
     be.origin AS booking_origin, 
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be COMMAND_TERMINATOR 
+    OOCKE1_TOBJ_SINGLEBKE be COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_BOCONTAINSCB AS
@@ -322,7 +332,7 @@ ON
 CREATE VIEW OOCKE1_JOIN_CONTACTISMEMBEROF AS
 SELECT
     cm.contact AS contact,
-    cm.P_PARENT AS ou_membership
+    cm.object_id AS ou_membership
 FROM
     OOCKE1_CONTACTMEMBERSHIP cm COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -369,6 +379,14 @@ SELECT
     b.position AS depot_position
 FROM
     OOCKE1_BOOKING b COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_DEPPOSHASDEPREPITM AS
+SELECT
+    dri.object_id AS depot_report_item,
+    dri.position AS depot_position
+FROM
+    OOCKE1_DEPOTREPORTITEM dri COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_DEPPOSHASSBK AS
@@ -499,6 +517,14 @@ SELECT
     t.object_id AS assigned_timer
 FROM
     OOCKE1_TIMER t COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_OBJHASIDXENTRY AS
+SELECT
+    e.indexed_object AS indexed,
+    e.object_id AS index_entry
+FROM
+    OOCKE1_INDEXENTRY e COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_RESHASASSIGNEDACT AS
@@ -776,7 +802,7 @@ SELECT
     be.depot AS depot, 
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be COMMAND_TERMINATOR 
+    OOCKE1_TOBJ_SINGLEBKE be COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_DEPENTCONTAINSBKE AS
@@ -784,7 +810,7 @@ SELECT
     be.depot_entity AS depot_entity,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be COMMAND_TERMINATOR 
+    OOCKE1_TOBJ_SINGLEBKE be COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_DEPHOLCONTAINSBKE AS
@@ -792,7 +818,7 @@ SELECT
     be.depot_holder AS depot_holder,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be COMMAND_TERMINATOR 
+    OOCKE1_TOBJ_SINGLEBKE be COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_DEPPOSCONTAINSBKE AS
@@ -800,7 +826,15 @@ SELECT
     be.position AS position,
     be.object_id AS booking_entry
 FROM
-    OOCKE1_TOBJ_SINGLEBOOKINGENTRY be COMMAND_TERMINATOR 
+    OOCKE1_TOBJ_SINGLEBKE be COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_DEPPOSCONTAINSINVL AS
+SELECT
+    l.position AS position,
+    l.object_id AS inventory_level
+FROM
+    OOCKE1_INVENTORYLEVEL l COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_FILTERINCLDESCONTR AS
@@ -1515,7 +1549,7 @@ INNER JOIN
 ON
     ass0.account = acct.object_id
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -1586,7 +1620,7 @@ INNER JOIN
 ON
    ass0.account = acct.object_id
 WHERE
-    ass0.object_id LIKE 'accountMember%' COMMAND_TERMINATOR 
+    ass0.P_PARENT LIKE 'account/%' COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_ACCTMEMBERSHIP_TO AS
@@ -1714,7 +1748,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -1914,7 +1948,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -2060,7 +2094,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -2127,7 +2161,7 @@ SELECT
 FROM
     OOCKE1_ACCOUNTASSIGNMENT ass0
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -2198,7 +2232,7 @@ INNER JOIN
 ON
     ass0.P_PARENT = ass1.account
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -2273,7 +2307,7 @@ INNER JOIN
 ON
     ass2.account = ass1.P_PARENT
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -2344,7 +2378,7 @@ INNER JOIN
 ON
     ass0.account = ass1.P_PARENT
 WHERE
-    ass0.object_id LIKE 'accountMember%'
+    ass0.P_PARENT LIKE 'account/%'
 
 UNION ALL
 
@@ -2419,7 +2453,7 @@ INNER JOIN
 ON
     ass1.account = ass2.P_PARENT
 WHERE
-    ass0.object_id LIKE 'accountMember%' COMMAND_TERMINATOR 
+    ass1.P_PARENT LIKE 'account/%' COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_ACCTMEMBERSHIP_ AS
@@ -2626,6 +2660,78 @@ ON
     (bp_.object_id = bp.object_id) COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
+CREATE VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP AS
+SELECT
+    STRCAT_PREFIX REPLACE(r.product, 'product/', 'productMembership/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(r.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    r.product AS P_PARENT,
+    r.P_PARENT AS product_from,
+    r.product AS product_to,
+    r.modified_at AS created_at, 
+    r.created_by_,
+    r.modified_at, 
+    r.modified_by_,
+    REPLACE(r.dtype, 'RelatedProduct', 'ProductMembership') AS dtype,
+    r.access_level_browse, 
+    r.access_level_update, 
+    r.access_level_delete,
+    r.owner_,
+    r.name, 
+    r.description, 
+    r.object_id AS related_product,
+    r.relationship_type,
+    r.disabled,
+    r.user_boolean0, 
+    r.user_boolean1, 
+    r.user_boolean2, 
+    r.user_boolean3, 
+    r.user_boolean4_, 
+    r.user_code0, 
+    r.user_code1, 
+    r.user_code2, 
+    r.user_code3, 
+    r.user_code4_, 
+    r.user_date0, 
+    r.user_date1, 
+    r.user_date2, 
+    r.user_date3, 
+    r.user_date4_, 
+    r.user_date_time0, 
+    r.user_date_time1, 
+    r.user_date_time2, 
+    r.user_date_time3, 
+    r.user_date_time4_, 
+    r.user_number0, 
+    r.user_number1, 
+    r.user_number2, 
+    r.user_number3, 
+    r.user_number4_, 
+    r.user_string0, 
+    r.user_string1, 
+    r.user_string2, 
+    r.user_string3, 
+    r.user_string4_
+FROM
+    OOCKE1_RELATEDPRODUCT r COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP_ AS
+SELECT
+    rp_.object_id,
+    rp_.idx,
+    rp_.created_by,
+    rp_.modified_by,
+    rp_.owner,
+    rp_.dtype,
+    rp_.user_boolean4, 
+    rp_.user_code4,
+    rp_.user_date4,
+    rp_.user_date_time4,
+    rp_.user_number4,
+    rp_.user_string4
+FROM
+    OOCKE1_RELATEDPRODUCT_ rp_ COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+
 CREATE VIEW OOCKE1_TOBJ_PROPERTYSETENTRY AS
 SELECT
     REPLACE(p.object_id, 'p2/', 'propertySetEntry1/') AS object_id,
@@ -2768,7 +2874,7 @@ FROM
     OOCKE1_ACCOUNT_ COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
-CREATE VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY AS
+CREATE VIEW OOCKE1_TOBJ_SINGLEBKE AS
 SELECT
     REPLACE(b.object_id, 'booking/', 'bookingEntry/') AS object_id,
     b.P_PARENT AS P_PARENT,
@@ -2783,9 +2889,9 @@ SELECT
     b.cb AS cb,
     b.created_at AS created_at,
     b.created_by_ AS created_by_,
-    d.object_id AS depot,
-    de.object_id AS depot_entity,
-    dh.object_id AS depot_holder,
+    (SELECT dp.P_PARENT FROM OOCKE1_DEPOTPOSITION dp WHERE b.position = dp.object_id) AS depot,
+    (SELECT dh.P_PARENT FROM OOCKE1_DEPOTHOLDER dh INNER JOIN OOCKE1_DEPOT d ON d.P_PARENT = dh.object_id INNER JOIN OOCKE1_DEPOTPOSITION dp ON dp.P_PARENT = d.object_id WHERE b.position = dp.object_id) AS depot_entity,
+    (SELECT d.P_PARENT FROM OOCKE1_DEPOT d INNER JOIN OOCKE1_DEPOTPOSITION dp ON dp.P_PARENT = d.object_id WHERE b.position = dp.object_id) AS depot_holder,
     b.description AS description,
     b.modified_by_ AS modified_by_,
     b.name AS name,
@@ -2799,26 +2905,10 @@ SELECT
     b.quantity_debit AS quantity_debit,
     b.quantity_credit AS quantity_credit
 FROM
-    OOCKE1_BOOKING b
-INNER JOIN
-   OOCKE1_DEPOTPOSITION dp
-ON
-   b.position = dp.object_id
-INNER JOIN
-   OOCKE1_DEPOT d
-ON
-   dp.P_PARENT = d.object_id
-INNER JOIN
-   OOCKE1_DEPOTHOLDER dh
-ON
-   d.P_PARENT = dh.object_id
-INNER JOIN
-   OOCKE1_DEPOTENTITY de
-ON
-   dh.P_PARENT = de.object_id COMMAND_TERMINATOR 
+    OOCKE1_BOOKING b COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
-CREATE VIEW OOCKE1_TOBJ_SINGLEBOOKINGENTRY_ AS
+CREATE VIEW OOCKE1_TOBJ_SINGLEBKE_ AS
 SELECT
     REPLACE(b_.object_id, 'booking/', 'bookingEntry/') AS object_id,
     b_.idx AS idx,

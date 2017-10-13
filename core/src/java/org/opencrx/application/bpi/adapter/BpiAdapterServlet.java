@@ -110,11 +110,6 @@ public class BpiAdapterServlet extends HttpServlet {
             try {
                 Utils.getModel();
                 this.pmf = Utils.getPersistenceManagerFactory();
-            } catch (NamingException e) {
-                throw new ServletException( 
-                    "Can not get the initial context", 
-                    e
-                );
             } catch(ServiceException e) {
                 throw new ServletException( 
                     "Can not get persistence manager", 
@@ -193,6 +188,10 @@ public class BpiAdapterServlet extends HttpServlet {
         this.registerAction(
         	new Path("xri://@openmdx*org.opencrx.application.bpi1").getDescendant("provider", ":*", "segment", ":*", "accountFilter", ":*", "organization"),
         	new GetOrganizationsAction()
+        );
+        this.registerAction(
+        	new Path("xri://@openmdx*org.opencrx.application.bpi1").getDescendant("provider", ":*", "segment", ":*", "exporter", ":*", "file", ":*"),
+        	new RunExportAction()
         );
         this.plugIn = this.newPlugIn();
     }

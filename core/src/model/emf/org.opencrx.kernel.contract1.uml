@@ -87,24 +87,6 @@
               </specification>
             </ownedRule>
             <generalization xmi:id="_3C7B8A60016D3F40E30D019B" general="_AXG8wHvQEeCMZbE2Hqxetw"/>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F40E3620003" name="submitStatus">
-              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H59dOd7NEdmKapscEl8OLg" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H59dOt7NEdmKapscEl8OLg" value="1"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F40E3680124" name="submitDate">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H59dPN7NEdmKapscEl8OLg"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H59dPd7NEdmKapscEl8OLg" value="1"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F40E385032E" name="submitStatusDescription">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H59dP97NEdmKapscEl8OLg"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H59dQN7NEdmKapscEl8OLg" value="1"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F40E3B000AF" name="freightTerms">
-              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
-            </ownedAttribute>
             <ownedAttribute xmi:id="_3C7B8A60016D3F40E44D0097" name="position" type="_3C7B8A60016D3F3EBF2C0025" isUnique="false" aggregation="composite" association="_3C7B8A60016D3F40E44C0302">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H7AmMN7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H7AmMd7NEdmKapscEl8OLg" value="1"/>
@@ -139,9 +121,6 @@
               </specification>
             </ownedRule>
             <generalization xmi:id="_3C7B8A60016D3F40D55703A7" general="_AXG8wHvQEeCMZbE2Hqxetw"/>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F40DC3402BD" name="freightTerms">
-              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
-            </ownedAttribute>
             <ownedAttribute xmi:id="_3C7B8A60016D3FD3D9CA02EE" name="estimatedCloseDate">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H6Dj0t7NEdmKapscEl8OLg"/>
@@ -418,6 +397,16 @@
             <ownedAttribute xmi:id="_RK4JYfGyEdqZ9bQgjiojug" name="calcRule" type="_X3c-0PGhEdqZ9bQgjiojug" association="_RK4JYPGyEdqZ9bQgjiojug">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RLEWoPGyEdqZ9bQgjiojug"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RLQj4PGyEdqZ9bQgjiojug" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_uAxSUBcqEeeOArGMvuBMWQ" name="salesTransactionType" association="_uAx5YBcqEeeOArGMvuBMWQ">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_2V1xwBcoEeeOArGMvuBMWQ"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uAxSURcqEeeOArGMvuBMWQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uAxSUhcqEeeOArGMvuBMWQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D417265E5017C" name="estimatedCloseDate">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H66fg97NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H66fhN7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
             <ownedOperation xmi:id="_80zUsLhkEdqLOvgpfwvg1Q" name="reprice">
               <ownedParameter xmi:id="_-kES4LhkEdqLOvgpfwvg1Q" name="ReturnResultParameter1" direction="return">
@@ -729,6 +718,33 @@
                 <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
               </qualifier>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_QA5lQBcqEeeOArGMvuBMWQ" name="salesTaxTypeGroup" association="_QA6MUBcqEeeOArGMvuBMWQ">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_6nC9sBcnEeeOArGMvuBMWQ"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QA5lQRcqEeeOArGMvuBMWQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QA5lQhcqEeeOArGMvuBMWQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_WxSe0EkNEeeA_pdsIthsbQ" name="noAutoRecalc">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y45EgEkNEeeA_pdsIthsbQ"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F40E3B000AF" name="freightTerms">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F40E3620003" name="submitStatus">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H59dOd7NEdmKapscEl8OLg" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H59dOt7NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F40E3680124" name="submitDate">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H59dPN7NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H59dPd7NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3C7B8A60016D3F40E385032E" name="submitStatusDescription">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H59dP97NEdmKapscEl8OLg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H59dQN7NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
             <ownedOperation xmi:id="_K_Hn0BgTEdqX8-3bnaVzdg" name="createPosition">
               <ownedParameter xmi:id="_VookMBgTEdqX8-3bnaVzdg" name="ReturnResultParameter1" type="_3C7B8A60016D3F4892270132" direction="return"/>
               <ownedParameter xmi:id="_L4gt8BgTEdqX8-3bnaVzdg" name="in" type="_3C7B8A60016D3F4891AD01EB"/>
@@ -736,6 +752,11 @@
             <ownedOperation xmi:id="_EeOAAItpEdqT-YHfpV38vQ" name="reprice">
               <ownedParameter xmi:id="_H-dzoItpEdqT-YHfpV38vQ" name="ReturnResultParameter1" direction="return">
                 <type xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3E40433402E1"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_pURAAEn4Eee_VYV6Op-UEg" name="recalc">
+              <ownedParameter xmi:id="_yRYE8En4Eee_VYV6Op-UEg" name="" direction="return">
+                <type xmi:type="uml:Class" href="../openMDX 2 ~ Core (EMF)/org.openmdx.base.uml#_3C7B8A60016D3E40433402E1"/>
               </ownedParameter>
             </ownedOperation>
           </packagedElement>
@@ -1048,11 +1069,6 @@
             <generalization xmi:id="_Z5Fd0BChEdqkPJXkv5zljQ">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_kpFuUOryEdm0QOOG5_-fRw"/>
             </generalization>
-            <ownedAttribute xmi:id="_3C7B8A60016D417265810223" name="estimatedCloseDate">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H66fdd7NEdmKapscEl8OLg"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H66fdt7NEdmKapscEl8OLg" value="1"/>
-            </ownedAttribute>
             <ownedAttribute xmi:id="_3C7B8A60016D417265910334" name="closeProbability">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63110001"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H66feN7NEdmKapscEl8OLg"/>
@@ -1078,11 +1094,6 @@
             <generalization xmi:id="_TvIyIBCjEdqkPJXkv5zljQ">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_kpFuUOryEdm0QOOG5_-fRw"/>
             </generalization>
-            <ownedAttribute xmi:id="_3C7B8A60016D417265E5017C" name="estimatedCloseDate">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H66fg97NEdmKapscEl8OLg"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H66fhN7NEdmKapscEl8OLg" value="1"/>
-            </ownedAttribute>
             <ownedAttribute xmi:id="_3C7B8A60016D417265EF01C7" name="closeProbability">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63110001"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H66fht7NEdmKapscEl8OLg"/>
@@ -1132,6 +1143,22 @@
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WKLtsLexEd26L5Ju7ZekCw"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WKLtsbexEd26L5Ju7ZekCw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_Zg7g4Be1Eee9cp__ilKBiw" name="salesTransactionType" visibility="public">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_2V1xwBcoEeeOArGMvuBMWQ"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZwNTABe1Eee9cp__ilKBiw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZwPIMBe1Eee9cp__ilKBiw" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_ZwRkcBe1Eee9cp__ilKBiw">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_uLiaMKqeEee7YKcUh8Yx1A" name="priceLevel" visibility="public">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_3C7B8A60016D3F3EBE6A01E9"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uXYd0KqeEee7YKcUh8Yx1A"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uXaTAKqeEee7YKcUh8Yx1A" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_uXa6EKqeEee7YKcUh8Yx1A">
+                <value xsi:nil="true"/>
+              </defaultValue>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F4892270132" name="CreatePositionResult">
@@ -2041,6 +2068,9 @@
             <generalization xmi:id="_ztuIUH1ZEeC-utRUvNogqA">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
             </generalization>
+            <generalization xmi:id="_cAa84BYaEeeDJITrBX95JQ">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.depot1.uml#_ilenMBV4EdqX8-3bnaVzdg"/>
+            </generalization>
             <ownedAttribute xmi:id="_d5xwUH1YEeC-utRUvNogqA" name="name" aggregation="composite">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
             </ownedAttribute>
@@ -2130,6 +2160,19 @@
             <ownedAttribute xmi:id="_A9exYH1eEeCLNog4vQmJNg" name="contractCurrency" aggregation="composite">
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_yruBsBcuEeeOArGMvuBMWQ" name="salesTaxTypeGroup" association="_yrvP0BcuEeeOArGMvuBMWQ">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_6nC9sBcnEeeOArGMvuBMWQ"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yruBsRcuEeeOArGMvuBMWQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yruBshcuEeeOArGMvuBMWQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_msd8sEeaEee_gqQfL47_tw" name="paymentTerms" visibility="public">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m1DQ8EeaEee_gqQfL47_tw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m1D4AEeaEee_gqQfL47_tw" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_m1FGIEeaEee_gqQfL47_tw">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
             <ownedOperation xmi:id="_FJb70H1bEeCLNog4vQmJNg" name="createSalesContract">
               <ownedParameter xmi:id="_HkpaAH1bEeCLNog4vQmJNg" type="_2OmFcH1gEeCLNog4vQmJNg" direction="return"/>
               <ownedParameter xmi:id="_lHPRAH1iEeCLNog4vQmJNg" name="in" type="_wlK-0H1gEeCLNog4vQmJNg"/>
@@ -2183,6 +2226,18 @@
             </ownedAttribute>
             <ownedAttribute xmi:id="_7CAZYIUcEeC466jW2e67wA" name="basedOn" type="_3C7B8A60016D3F40D53501B3" aggregation="composite">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-DnJMIUcEeC466jW2e67wA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_grY1EBe4Eee9cp__ilKBiw" name="salesTaxTypeGroup" visibility="public">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.product1.uml#_6nC9sBcnEeeOArGMvuBMWQ"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g5oFYBe4Eee9cp__ilKBiw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g5pTgBe4Eee9cp__ilKBiw" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_g5qhoBe4Eee9cp__ilKBiw">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_aSnZMEecEee_gqQfL47_tw" name="paymentTerms">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B63110001"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cXkTgEecEee_gqQfL47_tw"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_zMzIYH1gEeCLNog4vQmJNg" name="CreateContractParams">
@@ -2513,6 +2568,24 @@
             <ownedEnd xmi:id="_ugf9VBMtEeWtd9BVPBdsHg" name="deliveryInformation" type="_3C7B8A60016D3FD3CF93017B" association="_ugf9UxMtEeWtd9BVPBdsHg">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ugf9VRMtEeWtd9BVPBdsHg" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ugf9VhMtEeWtd9BVPBdsHg" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_QA6MUBcqEeeOArGMvuBMWQ" name="SalesContractHasSalesTaxTypeGroup" memberEnd="_QA6MURcqEeeOArGMvuBMWQ _QA5lQBcqEeeOArGMvuBMWQ">
+            <ownedEnd xmi:id="_QA6MURcqEeeOArGMvuBMWQ" name="salesContract" type="_AXG8wHvQEeCMZbE2Hqxetw" association="_QA6MUBcqEeeOArGMvuBMWQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QA6MUhcqEeeOArGMvuBMWQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QA6MUxcqEeeOArGMvuBMWQ" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_uAx5YBcqEeeOArGMvuBMWQ" name="SalesContractPositionHasSalesTransactionType" memberEnd="_uAx5YRcqEeeOArGMvuBMWQ _uAxSUBcqEeeOArGMvuBMWQ">
+            <ownedEnd xmi:id="_uAx5YRcqEeeOArGMvuBMWQ" name="salesContractPosition" type="_3C7B8A60016D3F40D5460149" association="_uAx5YBcqEeeOArGMvuBMWQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uAx5YhcqEeeOArGMvuBMWQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uAx5YxcqEeeOArGMvuBMWQ" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_yrvP0BcuEeeOArGMvuBMWQ" name="SalesContractCreatorHasSalesTaxTypeGroup" memberEnd="_yrvP0RcuEeeOArGMvuBMWQ _yruBsBcuEeeOArGMvuBMWQ">
+            <ownedEnd xmi:id="_yrvP0RcuEeeOArGMvuBMWQ" name="salesContractCreator" type="__BNZUH1aEeCLNog4vQmJNg" association="_yrvP0BcuEeeOArGMvuBMWQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yrvP0hcuEeeOArGMvuBMWQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yrvP0xcuEeeOArGMvuBMWQ" value="*"/>
             </ownedEnd>
           </packagedElement>
         </packagedElement>

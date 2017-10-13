@@ -196,6 +196,7 @@ public class CompoundBookingImpl
 	            	arrDepotPositions, 
 	            	arrBookingOrigins,
 	            	arrBookingTextSuffixes,
+	            	null, // bookingIds
 	            	errors
 	            );
             }
@@ -303,6 +304,7 @@ public class CompoundBookingImpl
 	            	arrDepotPositions, 
 	            	arrBookingOrigins,
 	            	arrBookingTextSuffixes,
+	            	null, // bookingIds
 	            	errors
 	            );
             }

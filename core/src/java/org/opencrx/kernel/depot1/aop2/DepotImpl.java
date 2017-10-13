@@ -140,9 +140,31 @@ public class DepotImpl
         org.opencrx.kernel.depot1.jmi1.AssertReportsParams params
     ) {
         try {
+            List<DepotPosition> includePositions = new ArrayList<DepotPosition>();
+            if(params.getIncludePosition0() != null) {
+            	includePositions.add(params.getIncludePosition0());
+            }
+            if(params.getIncludePosition1() != null) {
+            	includePositions.add(params.getIncludePosition1());
+            }
+            if(params.getIncludePosition2() != null) {
+            	includePositions.add(params.getIncludePosition2());
+            }
+            List<DepotPosition> excludePositions = new ArrayList<DepotPosition>();
+            if(params.getExcludePosition0() != null) {
+            	includePositions.add(params.getExcludePosition0());
+            }
+            if(params.getExcludePosition1() != null) {
+            	includePositions.add(params.getExcludePosition1());
+            }
+            if(params.getExcludePosition2() != null) {
+            	includePositions.add(params.getExcludePosition2());
+            }        	
             Depots.getInstance().assertReports(
                 this.sameObject(),
-                params.getBookingStatusThreshold()
+                params.getBookingStatusThreshold(),
+                includePositions,
+                excludePositions
             );
             return super.newVoid();            
         }

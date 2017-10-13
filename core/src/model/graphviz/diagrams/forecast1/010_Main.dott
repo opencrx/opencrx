@@ -28,14 +28,8 @@ digraph "Diagram Main [Package org:opencrx:kernel:forecast1]" {
 	  LAYER1[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:forecast1:AbstractBudget,compartments=true,width=2]};
 	}
-	{
-	  rank=same;
-	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
-	}
 
 	LAYER0->LAYER1[style=invis];
-	LAYER1->LAYER2[style=invis];
 
 	${ASSOCIATION[name=org:opencrx:kernel:forecast1:SegmentContainsBudget,minlen=3]}
 	${ASSOCIATION[name=*]}

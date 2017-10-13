@@ -61,6 +61,8 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
@@ -96,6 +98,7 @@ import org.opencrx.kernel.product1.cci2.ProductConfigurationTypeQuery;
 import org.opencrx.kernel.product1.cci2.ProductConfigurationTypeSetQuery;
 import org.opencrx.kernel.product1.jmi1.ProductConfigurationType;
 import org.opencrx.kernel.product1.jmi1.ProductConfigurationTypeSet;
+import org.opencrx.kernel.workflow1.jmi1.AbstractTask;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.jmi1.BasicObject;
@@ -122,7 +125,8 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
 		ProductConfigurationTypeSet,
 		ProductConfigurationType,
 		PropertySet,
-		CrxObject		
+		CrxObject,
+		AbstractTask
 	}
 
 	/**
@@ -288,28 +292,27 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
      * @param productSegment
      * @return
      */
-    public Property createOrUpdatePropertyOfPropertySet(
+    public Property createOrUpdateProperty(
+    	PersistenceManager pm,
         ProductConfigurationTypeSet prodConfTypeSet,
         String productConfigurationTypeSetName,
         String productConfigurationTypeSetDescription,
         ProductConfigurationType prodConfType,
         String productConfigurationTypeName,
         String productConfigurationTypeDescription,
-        CrxObject crxObject,
-        PropertySet propSet,
+        RefObject_1_0 targetObject,
         String propertySetName,
         String propertySetDescription,
         String propertyType,
         String propertyName,
         String propertyDescription,
         HSSFCell propertyValue,
-        org.opencrx.kernel.product1.jmi1.Segment productSegment,
-        ApplicationContext app
-    ) {
-    	PersistenceManager pm = JDOHelper.getPersistenceManager(productSegment);
+        String currentTimeZone,
+        Locale currentLocale
+    ) throws ServiceException {
         ProductConfigurationTypeSet productConfigurationTypeSet = prodConfTypeSet;
         ProductConfigurationType productConfigurationType = prodConfType;
-        PropertySet propertySet = propSet;
+        org.opencrx.kernel.base.jmi1.PropertySet propertySet = null;
         Property property = null;
         if (
             prodConfTypeSet != null || productConfigurationTypeSetName != null ||
@@ -319,85 +322,68 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
                 productConfigurationTypeSet == null &&
                 productConfigurationTypeSetName != null && !productConfigurationTypeSetName.isEmpty()
             ) {
-                // try to locate productConfigurationTypeSet with respective name (or create new productConfigurationTypeSet)
+				org.opencrx.kernel.product1.jmi1.Segment productSegment = Products.getInstance().getProductSegment(pm, this.getProviderName(), this.getSegmentName());											            	
                 ProductConfigurationTypeSetQuery productConfigurationTypeSetQuery = (ProductConfigurationTypeSetQuery)pm.newQuery(ProductConfigurationTypeSet.class);
                 productConfigurationTypeSetQuery.name().equalTo(productConfigurationTypeSetName);
-                try {
-                    pm.currentTransaction().begin();
-                    Iterator<ProductConfigurationTypeSet> pcts = productSegment.getConfigurationTypeSet(productConfigurationTypeSetQuery).iterator();
-                    if (pcts.hasNext()) {
-                        productConfigurationTypeSet = pcts.next();
-                    } else {
-                        // create new ProductConfigurationTypeSet
-                        productConfigurationTypeSet = pm.newInstance(ProductConfigurationTypeSet.class);
-                        productConfigurationTypeSet.setName(productConfigurationTypeSetName);
-                        productSegment.addConfigurationTypeSet(
-                            getUidAsString(),
-                            productConfigurationTypeSet
-                        );
-                    }
+            	List<ProductConfigurationTypeSet> productConfigurationTypeSets = productSegment.getConfigurationTypeSet(productConfigurationTypeSetQuery);
+            	if(productConfigurationTypeSets.isEmpty()) {
+            		pm.currentTransaction().begin();
+                    productConfigurationTypeSet = pm.newInstance(ProductConfigurationTypeSet.class);
+                    productConfigurationTypeSet.setName(productConfigurationTypeSetName);
+                    productSegment.addConfigurationTypeSet(
+                        getUidAsString(),
+                        productConfigurationTypeSet
+                    );
                     productConfigurationTypeSet.setDescription(productConfigurationTypeSetDescription);
                     pm.currentTransaction().commit();
-                    //System.out.println("productConfigurationTypeSet found/committed name=" + productConfigurationTypeSet.getName());
-                } catch (Exception e) {
-                    new ServiceException(e).log();
-                    try {
-                        pm.currentTransaction().rollback();
-                    } catch(Exception e1) {}
-                }
+            	} else {
+            		productConfigurationTypeSet = productConfigurationTypeSets.iterator().next();
+            	}
             }
             if (
                 productConfigurationTypeSet != null &&
                 productConfigurationType == null &&
                 productConfigurationTypeName != null && !productConfigurationTypeName.isEmpty()
             ) {
-                // try to locate productConfigurationType with respective name (or create new productConfigurationType)
                 ProductConfigurationTypeQuery productConfigurationTypeFilter = (ProductConfigurationTypeQuery)pm.newQuery(ProductConfigurationType.class);
                 productConfigurationTypeFilter.name().equalTo(productConfigurationTypeName);
-                try {
+                List<ProductConfigurationType> productConfigurationTypes =  productConfigurationTypeSet.getConfigurationType(productConfigurationTypeFilter);
+                if(productConfigurationTypes == null) {
                     pm.currentTransaction().begin();
-                    Iterator<ProductConfigurationType> pct = productConfigurationTypeSet.getConfigurationType(productConfigurationTypeFilter).iterator();
-                    if (pct.hasNext()) {
-                        productConfigurationType = (ProductConfigurationType)pct.next();
-                    } else {
-                        // create new ProductConfigurationType
-                        productConfigurationType = pm.newInstance(ProductConfigurationType.class);
-                        productConfigurationType.setName(productConfigurationTypeName);
-                        productConfigurationTypeSet.addConfigurationType(
-                            getUidAsString(),
-                            productConfigurationType
-                        );
-                    }
+                    productConfigurationType = pm.newInstance(ProductConfigurationType.class);
+                    productConfigurationType.setName(productConfigurationTypeName);
+                    productConfigurationTypeSet.addConfigurationType(
+                        getUidAsString(),
+                        productConfigurationType
+                    );
                     productConfigurationType.setDescription(productConfigurationTypeDescription);
-                    pm.currentTransaction().commit();
-                    //System.out.println("productConfigurationType found/committed name=" + productConfigurationTypeSet.getName());
-                } catch (Exception e) {
-                    new ServiceException(e).log();
-                    try {
-                        pm.currentTransaction().rollback();
-                    } catch(Exception e1) {}
+                    pm.currentTransaction().commit();                	 
+                } else {
+                	productConfigurationType = productConfigurationTypes.iterator().next();
                 }
             }
-        } else if (crxObject != null) {
-            // try to locate PropertySet with same parent and name (or create new PropertySet)
-            PropertySetQuery propertySetFilter = (PropertySetQuery)pm.newQuery(PropertySet.class);
-            propertySetFilter.name().equalTo(propertySetName);
+        } else if(targetObject instanceof org.opencrx.kernel.base.jmi1.PropertySet) {
+        	propertySet = (org.opencrx.kernel.base.jmi1.PropertySet)targetObject;
+        } else if(targetObject instanceof CrxObject) {
+        	CrxObject crxObject = (CrxObject)targetObject;
+            PropertySetQuery propertySetQuery = (PropertySetQuery)pm.newQuery(PropertySet.class);
+            propertySetQuery.name().equalTo(propertySetName);
             try {
-                pm.currentTransaction().begin();
-                Iterator<PropertySet> ps = crxObject.getPropertySet(propertySetFilter).iterator();
-                if (ps.hasNext()) {
-                    propertySet = (PropertySet)ps.next();
-                } else {
-                    // create new PropertySet
-                    propertySet = pm.newInstance(PropertySet.class);
-                    propertySet.setName(propertySetName);
+            	List<PropertySet> propertySets = crxObject.getPropertySet(propertySetQuery);
+            	if(propertySets.isEmpty()) {
+                    pm.currentTransaction().begin();
+                    PropertySet newPropertySet = pm.newInstance(PropertySet.class);
+                    newPropertySet.setName(propertySetName);
                     crxObject.addPropertySet(
                         getUidAsString(),
-                        propertySet
+                        newPropertySet
                     );
-                }
-                propertySet.setDescription(propertySetDescription);
-                pm.currentTransaction().commit();
+                    newPropertySet.setDescription(propertySetDescription);
+                    pm.currentTransaction().commit();
+                    propertySet = newPropertySet;
+            	} else {
+            		propertySet = propertySets.iterator().next();
+            	}
             } catch (Exception e) {
                 new ServiceException(e).log();
                 try {
@@ -405,6 +391,7 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
                 } catch(Exception e1) {}
             }
         }
+        // Create/update properties
         if (
             (propertySet != null || productConfigurationType != null) &&
             propertyType != null && !propertyType.isEmpty() &&
@@ -561,8 +548,8 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
                     if (property != null) {
                         property.setDescription(propertyDescription);
                         if (propertyValue != null) {
-                            TimeZone timezone = TimeZone.getTimeZone(app.getCurrentTimeZone());
-                            SimpleDateFormat dateonlyf = new SimpleDateFormat("yyyyMMdd", app.getCurrentLocale()); dateonlyf.setTimeZone(timezone);
+                            TimeZone timezone = TimeZone.getTimeZone(currentTimeZone);
+                            SimpleDateFormat dateonlyf = new SimpleDateFormat("yyyyMMdd", currentLocale); dateonlyf.setTimeZone(timezone);
                             String date =
     				        	dateonlyf.format(HSSFDateUtil.getJavaDate(propertyValue.getNumericCellValue())).substring(0, 8);
                             XMLGregorianCalendar cal = org.w3c.spi2.Datatypes.create(
@@ -705,7 +692,7 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
 						ProductConfigurationTypeSet productConfigurationTypeSet = null;
 						ProductConfigurationType productConfigurationType = null;
 						PropertySet propertySet = null;
-						CrxObject crxObject = null;
+						CrxObject targetObject = null;
 						String callerName = null;
 						String callerParentName = null;
 						ImportTarget importTarget = ImportTarget.NA;
@@ -747,14 +734,19 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
 							callerName = propertySet.getName();
 						} 
 						// case 5:
+						// required: Property_name
+						else if(this.getObject() instanceof AbstractTask) {
+							importTarget = ImportTarget.AbstractTask;
+							targetObject = (AbstractTask)this.getObject();
+						}
+						// case 6:
 						// required: PropertySet_name
 						//           Property_name
 						else if (this.getObject() instanceof CrxObject) {
 							importTarget = ImportTarget.CrxObject;
-							crxObject = (CrxObject)this.getObject();
+							targetObject = (CrxObject)this.getObject();
 						}
 						// Get product segment
-						org.opencrx.kernel.product1.jmi1.Segment productSegment = Products.getInstance().getProductSegment(pm, this.getProviderName(), this.getSegmentName());
 						int idxProperty_dtype = -1;
 						int idxProperty_name = -1;
 						int idxProperty_description = -1;
@@ -959,23 +951,23 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
 										) {
 											jsBuffer += "$('r" + nRow + "').title += 'Property Of ProductConfigurationTypeSet (called from Product Segment)';";
 											if (propertySetName == null || propertySetName.isEmpty()) {
-												property = this.createOrUpdatePropertyOfPropertySet(
+												property = this.createOrUpdateProperty(
+													pm,
 													productConfigurationTypeSet,
 													productConfigurationTypeSetName,
 													productConfigurationTypeSetDescription,
 													productConfigurationType,
 													productConfigurationTypeName,
 													productConfigurationTypeDescription,
-													null,
-													null,
+													null, // targetObject
 													null,
 													null,
 													propertyType,
 													propertyName,
 													propertyDescription,
 													propertyValue,
-													productSegment,
-													app
+													app.getCurrentTimeZone(),
+													app.getCurrentLocale()
 												);
 												if (property != null) {
 													this.updateProductConfigurationType(
@@ -986,156 +978,186 @@ public class ImportPropertiesFromXlsController extends AbstractWizardController 
 											} else {
 												jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
 											}
-											/* case 2 */                                  
-											} else if (
-												importTarget == ImportTarget.ProductConfigurationTypeSet &&
-												propertyName != null && !propertyName.isEmpty() &&
-												productConfigurationTypeName != null && !productConfigurationTypeName.isEmpty()
+										/* case 2 */                                  
+										} else if (
+											importTarget == ImportTarget.ProductConfigurationTypeSet &&
+											propertyName != null && !propertyName.isEmpty() &&
+											productConfigurationTypeName != null && !productConfigurationTypeName.isEmpty()
+										) {
+											jsBuffer += "$('r" + nRow + "').title += 'Property Of ProductConfigurationTypeSet (called from ProductConfigurationTypeSet)';";
+											if (
+												((productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) ||
+												(callerName != null && productConfigurationTypeSetName != null && callerName.equals(productConfigurationTypeSetName))) &&
+												(propertySetName == null || propertySetName.isEmpty())
 											) {
-												jsBuffer += "$('r" + nRow + "').title += 'Property Of ProductConfigurationTypeSet (called from ProductConfigurationTypeSet)';";
-												if (
-													((productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) ||
-													(callerName != null && productConfigurationTypeSetName != null && callerName.equals(productConfigurationTypeSetName))) &&
-													(propertySetName == null || propertySetName.isEmpty())
-												) {
-													property = this.createOrUpdatePropertyOfPropertySet(
-														productConfigurationTypeSet,
-														productConfigurationTypeSetName,
-														productConfigurationTypeSetDescription,
-														productConfigurationType,
-														productConfigurationTypeName,
-														productConfigurationTypeDescription,
-														null,
-														null,
-														null,
-														null,
-														propertyType,
-														propertyName,
-														propertyDescription,
-														propertyValue,
-														productSegment,
-														app
+												property = this.createOrUpdateProperty(
+													pm,
+													productConfigurationTypeSet,
+													productConfigurationTypeSetName,
+													productConfigurationTypeSetDescription,
+													productConfigurationType,
+													productConfigurationTypeName,
+													productConfigurationTypeDescription,
+													null, // targetObject
+													null,
+													null,
+													propertyType,
+													propertyName,
+													propertyDescription,
+													propertyValue,
+													app.getCurrentTimeZone(),
+													app.getCurrentLocale()
+												);
+												if (property != null) {
+													this.updateProductConfigurationType(
+														(ProductConfigurationType)pm.getObjectById(new Path(property.refMofId()).getParent().getParent()),
+														valueMap
 													);
-													if (property != null) {
-														this.updateProductConfigurationType(
-															(ProductConfigurationType)pm.getObjectById(new Path(property.refMofId()).getParent().getParent()),
-															valueMap
-														);
-													}
-												} else {
-													jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
 												}
-												/* case 3 */                                  
-												} else if (
-													importTarget == ImportTarget.ProductConfigurationType &&
-													propertyName != null && !propertyName.isEmpty()
-												) {
-													jsBuffer += "$('r" + nRow + "').title += 'Property Of ProductConfigurationTypeSet (called from ProductConfigurationType)';";
-													if (
-														((productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) ||
-														(callerParentName != null && productConfigurationTypeSetName != null && callerParentName.equals(productConfigurationTypeSetName))) &&
-														((productConfigurationTypeName == null || productConfigurationTypeName.isEmpty()) ||
-														(callerName != null && productConfigurationTypeName != null && callerName.equals(productConfigurationTypeName))) &&
-														(propertySetName == null || propertySetName.isEmpty())
-													) {
-														property = this.createOrUpdatePropertyOfPropertySet(
-															productConfigurationTypeSet,
-															productConfigurationTypeSetName,
-															productConfigurationTypeSetDescription,
-															productConfigurationType,
-															productConfigurationTypeName,
-															productConfigurationTypeDescription,
-															null,
-															null,
-															null,
-															null,
-															propertyType,
-															propertyName,
-															propertyDescription,
-															propertyValue,
-															productSegment,
-															app
-														);
-														if (property != null) {
-															this.updateProductConfigurationType(
-																(ProductConfigurationType)pm.getObjectById(property.refGetPath().getParent().getParent()),
-																valueMap
-															);
-														}
-													} else {
-														jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
-													}
-													/* case 4 */                                  
-													} else if (
-														importTarget == ImportTarget.PropertySet &&
-														propertyName != null && !propertyName.isEmpty()
-													) {
-														jsBuffer += "$('r" + nRow + "').title += 'Property Of PropertySet (called from PropertySet)';";
-														if (
-															((propertySetName == null || propertySetName.isEmpty()) ||
-															(callerName != null && propertySetName != null && callerName.equals(propertySetName))) &&
-															(productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) &&
-															(productConfigurationTypeName == null || productConfigurationTypeName.isEmpty())
-														) {
-															property = this.createOrUpdatePropertyOfPropertySet(
-																null,
-																null,
-																null,
-																null,
-																null,
-																null,
-																null,
-																propertySet,
-																propertySetName,
-																propertySetDescription,
-																propertyType,
-																propertyName,
-																propertyDescription,
-																propertyValue,
-																productSegment,
-																app
-															);
-														} else {
-															jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
-														}
-														/* case 5 */                                  
-														} else if (
-															importTarget == ImportTarget.CrxObject &&
-															propertyName != null && !propertyName.isEmpty() &&
-															propertySetName != null && !propertySetName.isEmpty()
-														) {
-															jsBuffer += "$('r" + nRow + "').title += 'Property Of PropertySet (called from CrxObject)';";
-															if (
-																(productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) &&
-																(productConfigurationTypeName == null || productConfigurationTypeName.isEmpty())
-															) {
-																//createOrUpdatePropertyOfPropertySet
-																property = this.createOrUpdatePropertyOfPropertySet(
-																	null,
-																	null,
-																	null,
-																	null,
-																	null,
-																	null,
-																	crxObject,
-																	null,
-																	propertySetName,
-																	propertySetDescription,
-																	propertyType,
-																	propertyName,
-																	propertyDescription,
-																	propertyValue,
-																	productSegment,
-																	app
-																);
-															} else {
-																jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
-															}
-														} else {
-															// incomplete and/or inconsistent row --> disregard this row
-															jsBuffer += "$('r" + nRow + "').title += 'incomplete and/or inconsistent row';";
+											} else {
+												jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
+											}
+										/* case 3 */                                  
+										} else if (
+											importTarget == ImportTarget.ProductConfigurationType &&
+											propertyName != null && !propertyName.isEmpty()
+										) {
+											jsBuffer += "$('r" + nRow + "').title += 'Property Of ProductConfigurationTypeSet (called from ProductConfigurationType)';";
+											if (
+												((productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) ||
+												(callerParentName != null && productConfigurationTypeSetName != null && callerParentName.equals(productConfigurationTypeSetName))) &&
+												((productConfigurationTypeName == null || productConfigurationTypeName.isEmpty()) ||
+												(callerName != null && productConfigurationTypeName != null && callerName.equals(productConfigurationTypeName))) &&
+												(propertySetName == null || propertySetName.isEmpty())
+											) {
+												property = this.createOrUpdateProperty(
+													pm,
+													productConfigurationTypeSet,
+													productConfigurationTypeSetName,
+													productConfigurationTypeSetDescription,
+													productConfigurationType,
+													productConfigurationTypeName,
+													productConfigurationTypeDescription,
+													null, // targetObject
+													null,
+													null,
+													propertyType,
+													propertyName,
+													propertyDescription,
+													propertyValue,
+													app.getCurrentTimeZone(),
+													app.getCurrentLocale()
+												);
+												if (property != null) {
+													this.updateProductConfigurationType(
+														(ProductConfigurationType)pm.getObjectById(property.refGetPath().getParent().getParent()),
+														valueMap
+													);
+												}
+											} else {
+												jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
+											}
+										/* case 4 */                                  
+										} else if (
+											importTarget == ImportTarget.PropertySet &&
+											propertyName != null && !propertyName.isEmpty()
+										) {
+											jsBuffer += "$('r" + nRow + "').title += 'Property Of PropertySet (called from PropertySet)';";
+											if (
+												((propertySetName == null || propertySetName.isEmpty()) ||
+												(callerName != null && propertySetName != null && callerName.equals(propertySetName))) &&
+												(productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) &&
+												(productConfigurationTypeName == null || productConfigurationTypeName.isEmpty())
+											) {
+												property = this.createOrUpdateProperty(
+													pm,
+													null,
+													null,
+													null,
+													null,
+													null,
+													null,
+													propertySet,
+													propertySetName,
+													propertySetDescription,
+													propertyType,
+													propertyName,
+													propertyDescription,
+													propertyValue,
+													app.getCurrentTimeZone(),
+													app.getCurrentLocale()
+												);
+											} else {
+												jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
+											}
+										/* case 5 */                                  
+										} else if (
+											importTarget == ImportTarget.CrxObject &&
+											propertyName != null && !propertyName.isEmpty() &&
+											propertySetName != null && !propertySetName.isEmpty()
+										) {
+											jsBuffer += "$('r" + nRow + "').title += 'Property Of PropertySet (called from CrxObject)';";
+											if (
+												(productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) &&
+												(productConfigurationTypeName == null || productConfigurationTypeName.isEmpty())
+											) {
+												property = this.createOrUpdateProperty(
+													pm,
+													null,
+													null,
+													null,
+													null,
+													null,
+													null,
+													targetObject,
+													propertySetName,
+													propertySetDescription,
+													propertyType,
+													propertyName,
+													propertyDescription,
+													propertyValue,
+													app.getCurrentTimeZone(),
+													app.getCurrentLocale()
+												);
+											} else {
+												jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
+											}
+										/* case 6 */                                  
+										} else if (
+											importTarget == ImportTarget.AbstractTask &&
+											propertyName != null && !propertyName.isEmpty()
+										) {
+											jsBuffer += "$('r" + nRow + "').title += 'Property Of AbstractTask (called from CrxObject)';";
+											if (
+												(productConfigurationTypeSetName == null || productConfigurationTypeSetName.isEmpty()) &&
+												(productConfigurationTypeName == null || productConfigurationTypeName.isEmpty())
+											) {
+												property = this.createOrUpdateProperty(
+													pm,
+													null,
+													null,
+													null,
+													null,
+													null,
+													null,
+													targetObject,
+													propertySetName,
+													propertySetDescription,
+													propertyType,
+													propertyName,
+													propertyDescription,
+													propertyValue,
+													app.getCurrentTimeZone(),
+													app.getCurrentLocale()
+												);
+											} else {
+												jsBuffer += "$('r" + nRow + "').title += ' - verify data row';";
+											}
+										} else {
+											// incomplete and/or inconsistent row --> disregard this row
+											jsBuffer += "$('r" + nRow + "').title += 'incomplete and/or inconsistent row';";
 
-														}
+										}
 									} else {
 										appendErrorRow = "<tr class='gridTableRowFull'><td class='err' colspan='" + (maxCell+2) + "'>CELL VALUE TYPE NOT SUPPORTED</td></tr>";
 									}

@@ -58,6 +58,7 @@ import java.util.List;
 
 import javax.jdo.JDOUserException;
 import javax.jdo.listener.DeleteCallback;
+import javax.jdo.listener.StoreCallback;
 
 import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.generic.jmi1.CrxObject;
@@ -78,7 +79,7 @@ import org.w3c.spi2.Structures;
 public class ActivityGroupImpl
 	<S extends org.opencrx.kernel.activity1.jmi1.ActivityGroup,N extends org.opencrx.kernel.activity1.cci2.ActivityGroup,C extends Void> 
 	extends AbstractObject<S,N,C>
-	implements DeleteCallback {
+	implements StoreCallback, DeleteCallback {
 
     /**
      * Constructor.
@@ -144,4 +145,24 @@ public class ActivityGroupImpl
         }
     }
 
+	/* (non-Javadoc)
+	 * @see org.openmdx.base.aop2.AbstractObject#jdoPreStore()
+	 */
+	@Override
+    public void jdoPreStore(
+    ) {
+    	try {
+    		Activities.getInstance().preStore(
+    			this.sameObject() 
+    		);
+    		super.jdoPreStore();
+    	} catch(ServiceException e) {
+    		throw new JDOUserException(
+    			"jdoPreStore failed",
+    			e,
+    			this.sameObject()
+    		);
+    	}
+    }
+    
 }

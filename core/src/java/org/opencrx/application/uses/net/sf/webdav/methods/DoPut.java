@@ -140,7 +140,13 @@ public class DoPut extends WebDavMethod {
             	req.getContentType() 
             );
             if(putResult == WebDavStore.Status.FORBIDDEN) {
-            	resp.sendError(HttpServletResponse.SC_FORBIDDEN);
+            	// Should not happen if the DAV client does not 
+            	// ignore the read/write privileges.
+            	// In any case do not return SC_FORBIDDEN. This confuses many
+            	// DAV clients. Instead, ignore the PUT request and return SC_OK.
+            	// resp.sendError(HttpServletResponse.SC_FORBIDDEN);            	
+            	resp.sendError(HttpServletResponse.SC_OK);
+            	resp.setHeader("ETag", Long.toString(System.currentTimeMillis()));
             } else {
                 resp.setCharacterEncoding("UTF-8");
                 if(putResult != WebDavStore.Status.OK_CREATED) {

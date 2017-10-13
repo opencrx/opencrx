@@ -32,17 +32,11 @@ digraph "Diagram ContractLink [Package org:opencrx:kernel:contract1]" {
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:contract1:ContractLink,compartments=true,width=6]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:ContractLink,compartments=true,width=4]};
 	}
-	{
-	  rank=same;
-	  LAYER3[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
-	}	
 
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
-	LAYER2->LAYER3[style=invis];
 
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:ContractHasLinkFrom,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:LinkFromIsBasedOnLinkTo,minlen=6]}

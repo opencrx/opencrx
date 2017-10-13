@@ -1573,7 +1573,6 @@
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PhoneNumberAddressable:automaticParsing">
 										<_object>
-											<columnBreak>true</columnBreak>
                       <defaultValue>true</defaultValue>
 											<active>true</active>
 											<toolTip>
@@ -1585,7 +1584,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>80</_item>
+												<_item>90</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -1737,7 +1736,6 @@
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddressable:postalState">
 										<_object>
-											<columnBreak>true</columnBreak>
 											<active>true</active>
 											<toolTip>
 												<_item>State</_item>
@@ -1748,7 +1746,7 @@
 											<orderFieldGroup>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>80</_item>
+												<_item>90</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
@@ -1770,7 +1768,7 @@
 											<orderFieldGroup>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>90</_item>
+												<_item>100</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
@@ -1792,12 +1790,56 @@
 											<orderFieldGroup>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>95</_item>
+												<_item>105</_item>
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>13</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddressable:postalCodeAddOn">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Postal code add-on</_item>
+											</toolTip>
+											<label>
+												<_item>Postal code add-on</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>106</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>19</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddressable:postalCodeId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Postal code id</_item>
+											</toolTip>
+											<label>
+												<_item>Postal code id</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>107</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>19</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content/>
@@ -1814,7 +1856,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>100</_item>
+												<_item>110</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -1831,7 +1873,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>110</_item>
+												<_item>120</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -1848,14 +1890,14 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>120</_item>
+												<_item>130</_item>
 											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddressable:postalUtcOffset">
 										<_object>
-											<active>false</active>
+											<active>true</active>
 											<toolTip>
 												<_item>UTC offset</_item>
 											</toolTip>
@@ -1865,7 +1907,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>131</_item>
+												<_item>140</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -2209,19 +2251,20 @@
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<!--Additional Addressable Information-->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:tz">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:salutationForCorrespondance">
 										<_object>
+											<columnBreak>true</columnBreak>
 											<active>true</active>
 											<toolTip>
-												<_item>Timezone</_item>
+												<_item>Salutation for correspondence</_item>
 											</toolTip>
 											<label>
-												<_item>Timezone</_item>
+												<_item>Salutation for correspondence</_item>
 											</label>
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>130</_item>
+												<_item>80</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -2296,6 +2339,75 @@
 												<_item>0</_item>
 												<_item>3</_item>
 											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:tz">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Timezone</_item>
+											</toolTip>
+											<label>
+												<_item>Timezone</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:validFrom">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:validTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:description">
+										<_object>
+											<active>true</active>
+											<spanRow>2</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>120</_item>
+											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -2400,51 +2512,6 @@
 												<_item>20</_item>
 												<_item>100</_item>
 											</order>
-										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
-
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:validFrom">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Valid from</_item>
-											</toolTip>
-											<label>
-												<_item>Valid from</_item>
-											</label>
-											<orderFieldGroup>
-												<_item>0</_item>
-												<_item>10</_item>
-												<_item>90</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>5</_item>
-											</orderObjectContainer>
-										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:validTo">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Valid to</_item>
-											</toolTip>
-											<label>
-												<_item>Valid to</_item>
-											</label>
-											<orderFieldGroup>
-												<_item>0</_item>
-												<_item>10</_item>
-												<_item>100</_item>
-											</orderFieldGroup>
-											<orderObjectContainer>
-												<_item>0</_item>
-												<_item>0</_item>
-												<_item>6</_item>
-											</orderObjectContainer>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>

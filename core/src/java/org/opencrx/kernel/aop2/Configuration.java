@@ -68,7 +68,7 @@ public class Configuration {
 			org.opencrx.kernel.backend.Contracts.register();
 			org.opencrx.kernel.backend.Depots.register();
 			org.opencrx.kernel.backend.Documents.register();
-			org.opencrx.kernel.backend.Exporter.register();
+			org.opencrx.kernel.backend.XmlExporter.register();
 			org.opencrx.kernel.backend.Forecasts.register();
 			org.opencrx.kernel.backend.ICalendar.register();
 			org.opencrx.kernel.backend.XmlImporter.register();

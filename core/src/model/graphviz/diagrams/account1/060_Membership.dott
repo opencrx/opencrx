@@ -21,17 +21,18 @@ digraph "Diagram Membership [Package org:opencrx:kernel:account1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:account1:Account,compartments=false,width=15]};
+	  ${CLASS[name=org:opencrx:kernel:account1:Account,compartments=false,width=16]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:UserDefined,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:UserDefined,compartments=false,fillcolor="#FFBD9D",width=2]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:account1:AccountMembership,compartments=true,width=9]};
+	  ${CLASS[name=org:opencrx:kernel:account1:MemberGroup,compartments=true,width=3]};
 	}
 	{
 	  rank=same;

@@ -27,6 +27,11 @@
 											<entry>
 <!--
 sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
+https://www.loc.gov/standards/iso639-2/php/code_list.php
+note: ISO 639-2 is the alpha-3 code in Codes for the representation of names of languages
+      There are 21 languages that have alternative codes for bibliographic or terminology
+      purposes. In those cases, the code for "B" (bibliographic) is used
+      the numerical codes reflects the approximate location in the alphabetically sorted list
 -->											
 												<org.opencrx.kernel.code1.CodeValueEntry code="000" _operation="set">
 													<_object>
@@ -39,10 +44,21 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="010" _operation="set">
+													<_object>
+														<shortText>
+															<_item>sq</_item>
+														</shortText>
+														<longText>
+															<_item>Albanian [sq/alb]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="018" _operation="set">
 													<_object>
 														<shortText>
-															<_item>ara</_item>
+															<_item>ar</_item>
 														</shortText>
 														<longText>
 															<_item>Arabic [ar/ara]</_item>
@@ -50,13 +66,46 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="056" _operation="set">
+													<_object>
+														<shortText>
+															<_item>bs</_item>
+														</shortText>
+														<longText>
+															<_item>Bosnian [bs/bos]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="062" _operation="set">
+													<_object>
+														<shortText>
+															<_item>bg</_item>
+														</shortText>
+														<longText>
+															<_item>Bulgarian [bg/bul]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="075" _operation="set">
 													<_object>
 														<shortText>
-															<_item>chi/zho</_item>
+															<_item>zh</_item>
 														</shortText>
 														<longText>
-															<_item>Chinese [zh/chi/zho]</_item>
+															<_item>Chinese [zh/chi]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="090" _operation="set">
+													<_object>
+														<shortText>
+															<_item>hr</_item>
+														</shortText>
+														<longText>
+															<_item>Croatian [hr/hrv]</_item>
 														</longText>
 													</_object>
 													<_content/>
@@ -64,10 +113,10 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="092" _operation="set">
 													<_object>
 														<shortText>
-															<_item>cze/ces</_item>
+															<_item>cs</_item>
 														</shortText>
 														<longText>
-															<_item>Czech [cz/cze/ces]</_item>
+															<_item>Czech [cs/cze]</_item>
 														</longText>
 													</_object>
 													<_content/>
@@ -75,7 +124,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="100" _operation="set">
 													<_object>
 														<shortText>
-															<_item>dan</_item>
+															<_item>da</_item>
 														</shortText>
 														<longText>
 															<_item>Danish [da/dan]</_item>
@@ -86,10 +135,10 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="102" _operation="set">
 													<_object>
 														<shortText>
-															<_item>dut/nld</_item>
+															<_item>nl</_item>
 														</shortText>
 														<longText>
-															<_item>Dutch [nl/dut/nld]</_item>
+															<_item>Dutch [nl/dut]</_item>
 														</longText>
 													</_object>
 													<_content/>
@@ -97,7 +146,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="110" _operation="set">
 													<_object>
 														<shortText>
-															<_item>eng</_item>
+															<_item>en</_item>
 														</shortText>
 														<longText>
 															<_item>English [en/eng]</_item>
@@ -108,7 +157,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="114" _operation="set">
 													<_object>
 														<shortText>
-															<_item>est</_item>
+															<_item>et</_item>
 														</shortText>
 														<longText>
 															<_item>Estonian [et/est]</_item>
@@ -119,10 +168,10 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="126" _operation="set">
 													<_object>
 														<shortText>
-															<_item>fra/fre</_item>
+															<_item>fr</_item>
 														</shortText>
 														<longText>
-															<_item>French [fr/fra/fre]</_item>
+															<_item>French [fr/fre]</_item>
 														</longText>
 													</_object>
 													<_content/>
@@ -130,10 +179,21 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="138" _operation="set">
 													<_object>
 														<shortText>
-															<_item>ger/deu</_item>
+															<_item>de</_item>
 														</shortText>
 														<longText>
-															<_item>German [de/ger/deu]</_item>
+															<_item>German [de/ger]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="150" _operation="set">
+													<_object>
+														<shortText>
+															<_item>el</_item>
+														</shortText>
+														<longText>
+															<_item>Greek [el/gre]</_item>
 														</longText>
 													</_object>
 													<_content/>
@@ -141,7 +201,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="156" _operation="set">
 													<_object>
 														<shortText>
-															<_item>heb</_item>
+															<_item>he</_item>
 														</shortText>
 														<longText>
 															<_item>Hebrew [he/heb]</_item>
@@ -149,10 +209,32 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="174" _operation="set">
+													<_object>
+														<shortText>
+															<_item>hu</_item>
+														</shortText>
+														<longText>
+															<_item>Hungarian [hu/hun]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="178" _operation="set">
+													<_object>
+														<shortText>
+															<_item>is</_item>
+														</shortText>
+														<longText>
+															<_item>Icelandic [is/ice]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="183" _operation="set">
 													<_object>
 														<shortText>
-															<_item>ita</_item>
+															<_item>it</_item>
 														</shortText>
 														<longText>
 															<_item>Italian [it/ita]</_item>
@@ -163,7 +245,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="184" _operation="set">
 													<_object>
 														<shortText>
-															<_item>jpn</_item>
+															<_item>ja</_item>
 														</shortText>
 														<longText>
 															<_item>Japanese [ja/jpn]</_item>
@@ -171,10 +253,32 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="187" _operation="set">
+													<_object>
+														<shortText>
+															<_item>ko</_item>
+														</shortText>
+														<longText>
+															<_item>Korean [ko/kor]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="189" _operation="set">
+													<_object>
+														<shortText>
+															<_item>ku</_item>
+														</shortText>
+														<longText>
+															<_item>Kurdish [ku/kur]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="190" _operation="set">
 													<_object>
 														<shortText>
-															<_item>lav</_item>
+															<_item>lv</_item>
 														</shortText>
 														<longText>
 															<_item>Latvian [lv/lav]</_item>
@@ -185,7 +289,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="195" _operation="set">
 													<_object>
 														<shortText>
-															<_item>lit</_item>
+															<_item>lt</_item>
 														</shortText>
 														<longText>
 															<_item>Lithuanian [lt/lit]</_item>
@@ -193,10 +297,32 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="206" _operation="set">
+													<_object>
+														<shortText>
+															<_item>mk</_item>
+														</shortText>
+														<longText>
+															<_item>Macedonian [mk/mac]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="260" _operation="set">
+													<_object>
+														<shortText>
+															<_item>no</_item>
+														</shortText>
+														<longText>
+															<_item>Norwegian [no/nor]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="311" _operation="set">
 													<_object>
 														<shortText>
-															<_item>per</_item>
+															<_item>fa</_item>
 														</shortText>
 														<longText>
 															<_item>Farsi/Persian [fa/per]</_item>
@@ -207,7 +333,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="312" _operation="set">
 													<_object>
 														<shortText>
-															<_item>fin</_item>
+															<_item>fi</_item>
 														</shortText>
 														<longText>
 															<_item>Finnish [fi/fin]</_item>
@@ -218,7 +344,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="314" _operation="set">
 													<_object>
 														<shortText>
-															<_item>pol</_item>
+															<_item>pl</_item>
 														</shortText>
 														<longText>
 															<_item>Polish [pl/pol]</_item>
@@ -229,7 +355,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="316" _operation="set">
 													<_object>
 														<shortText>
-															<_item>por</_item>
+															<_item>pt</_item>
 														</shortText>
 														<longText>
 															<_item>Portuguese [pt/por]</_item>
@@ -237,10 +363,21 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="320" _operation="set">
+													<_object>
+														<shortText>
+															<_item>rm</_item>
+														</shortText>
+														<longText>
+															<_item>Romansh [rm/roh]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="325" _operation="set">
 													<_object>
 														<shortText>
-															<_item>rum</_item>
+															<_item>ro</_item>
 														</shortText>
 														<longText>
 															<_item>Romanian [ro/rum]</_item>
@@ -251,7 +388,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="328" _operation="set">
 													<_object>
 														<shortText>
-															<_item>rus</_item>
+															<_item>ru</_item>
 														</shortText>
 														<longText>
 															<_item>Russian [ru/rus]</_item>
@@ -259,10 +396,32 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="342" _operation="set">
+												  <_object>
+													<shortText>
+													  <_item>so</_item>
+													</shortText>
+													<longText>
+													  <_item>Somali [so/som]</_item>
+													</longText>
+												  </_object>
+												  <_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="348" _operation="set">
+												  <_object>
+													<shortText>
+													  <_item>sr</_item>
+													</shortText>
+													<longText>
+													  <_item>Serbian [sr/srp]</_item>
+													</longText>
+												  </_object>
+												  <_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="352" _operation="set">
 												  <_object>
 													<shortText>
-													  <_item>slo</_item>
+													  <_item>sk</_item>
 													</shortText>
 													<longText>
 													  <_item>Slovak [sk/slo]</_item>
@@ -270,10 +429,21 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												  </_object>
 												  <_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="353" _operation="set">
+												  <_object>
+													<shortText>
+													  <_item>sl</_item>
+													</shortText>
+													<longText>
+													  <_item>Slovenian [sl/slv]</_item>
+													</longText>
+												  </_object>
+												  <_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="361" _operation="set">
 													<_object>
 														<shortText>
-															<_item>spa</_item>
+															<_item>es</_item>
 														</shortText>
 														<longText>
 															<_item>Spanish [es/spa]</_item>
@@ -284,7 +454,7 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 												<org.opencrx.kernel.code1.CodeValueEntry code="368" _operation="set">
 													<_object>
 														<shortText>
-															<_item>swe</_item>
+															<_item>sv</_item>
 														</shortText>
 														<longText>
 															<_item>Swedish [sv/swe]</_item>
@@ -292,10 +462,32 @@ sources: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 													</_object>
 													<_content/>
 												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="378" _operation="set">
+													<_object>
+														<shortText>
+															<_item>ta</_item>
+														</shortText>
+														<longText>
+															<_item>Tamil [ta/tam]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+												<org.opencrx.kernel.code1.CodeValueEntry code="382" _operation="set">
+													<_object>
+														<shortText>
+															<_item>th</_item>
+														</shortText>
+														<longText>
+															<_item>Thai [th/tha]</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
 												<org.opencrx.kernel.code1.CodeValueEntry code="392" _operation="set">
 													<_object>
 														<shortText>
-															<_item>tur</_item>
+															<_item>tr</_item>
 														</shortText>
 														<longText>
 															<_item>Turkish [tr/tur]</_item>

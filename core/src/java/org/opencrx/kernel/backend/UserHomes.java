@@ -102,12 +102,14 @@ import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.home1.cci2.AlertQuery;
 import org.opencrx.kernel.home1.cci2.EMailAccountQuery;
 import org.opencrx.kernel.home1.cci2.SubscriptionQuery;
+import org.opencrx.kernel.home1.jmi1.AccessHistory;
 import org.opencrx.kernel.home1.jmi1.ActivityGroupCalendarFeed;
 import org.opencrx.kernel.home1.jmi1.Alert;
 import org.opencrx.kernel.home1.jmi1.ContactsFeed;
 import org.opencrx.kernel.home1.jmi1.DocumentFeed;
 import org.opencrx.kernel.home1.jmi1.EMailAccount;
 import org.opencrx.kernel.home1.jmi1.ObjectFinder;
+import org.opencrx.kernel.home1.jmi1.QuickAccess;
 import org.opencrx.kernel.home1.jmi1.Subscription;
 import org.opencrx.kernel.home1.jmi1.Timer;
 import org.opencrx.kernel.home1.jmi1.UserHome;
@@ -684,11 +686,53 @@ public class UserHomes extends AbstractImpl {
             SysLog.warning(e0.getMessage(), e0.getCause());
             return CAN_NOT_RETRIEVE_REQUESTED_PRINCIPAL;
         }
-        return this.changePassword(
-            (org.openmdx.security.authentication1.jmi1.Password)principal.getCredential(),
-            verifyOldPassword ? oldPassword : null,
-            newPassword
-        );
+        if(principal.getCredential() != null) {
+	        return this.changePassword(
+	            (org.openmdx.security.authentication1.jmi1.Password)principal.getCredential(),
+	            verifyOldPassword ? oldPassword : null,
+	            newPassword
+	        );
+        } else {
+            List<String> errors = new ArrayList<String>();
+            this.validateCredential(principal, errors);
+            if(errors.isEmpty()) {
+            	return CHANGE_PASSWORD_OK;            	
+            } else {
+	        	SysLog.warning("Principal has no credential. Unable to change password", errors);
+	        	return CAN_NOT_CHANGE_PASSWORD;
+            }
+        }
+    }
+
+    /**
+     * Get subjectName for given principal / contact.
+     * 
+     * @param principalName
+     * @param contact
+     * @return
+     * @throws ServiceException
+     */
+    protected String getSubjectName(
+    	String principalName,
+    	Contact contact
+    ) throws ServiceException {
+    	return principalName;
+    }
+
+    /**
+     * Validate the credential of the given principal.
+     * 
+     * @param principal
+     * @param errors
+     * @throws ServiceException
+     */
+    protected void validateCredential(
+    	org.openmdx.security.realm1.jmi1.Principal principal,
+    	List<String> errors
+    ) {
+        if((principal.getCredential() == null)) {
+            errors.add("ERROR: No credential specified for principal '" + principal.refGetPath().getLastSegment() + "'");                
+        }
     }
 
     /**
@@ -697,7 +741,7 @@ public class UserHomes extends AbstractImpl {
      * @param realm
      * @param contact
      * @param primaryGroup
-     * @param principalName
+     * @param principalId
      * @param requiredGroups
      * @param isAdministrator
      * @param initialPassword
@@ -712,7 +756,7 @@ public class UserHomes extends AbstractImpl {
         org.openmdx.security.realm1.jmi1.Realm realm,
         Contact contact,
         PrincipalGroup primaryGroup,
-        String principalName,
+        String principalId,
         List<org.openmdx.security.realm1.jmi1.Group> requiredGroups,
         boolean isAdministrator,
         String initialPassword,
@@ -721,7 +765,7 @@ public class UserHomes extends AbstractImpl {
         String timezone,
         List<String> errors
     ) throws ServiceException {
-        if(principalName == null) {
+        if(principalId == null) {
             errors.add("ERROR: Missing principal name");
             return null;
         }
@@ -736,6 +780,10 @@ public class UserHomes extends AbstractImpl {
         PersistenceManager pm = JDOHelper.getPersistenceManager(realm); 
         String providerName = contact.refGetPath().getSegment(2).toClassicRepresentation();
         String segmentName = contact.refGetPath().getSegment(4).toClassicRepresentation();
+        String subjectName = this.getSubjectName(
+        	principalId,
+        	contact
+        );
         org.opencrx.security.realm1.jmi1.User user = null;
         PrincipalGroup groupAdministrators = null;
         // --- BEGIN pmRoot
@@ -756,23 +804,23 @@ public class UserHomes extends AbstractImpl {
             // Send a CreateUserRequest alert to the user in all realms and check for at least one 
             // acceptance.
             if(
-            	loginRealm.getPrincipal(principalName) != null &&
-            	realm.getPrincipal(principalName) == null
+            	loginRealm.getPrincipal(principalId) != null &&
+            	realm.getPrincipal(principalId) == null
             ) {
             	boolean hasAcceptedCreateUserConfirmations = false;
             	// Check for accepted CreateUserRequests 
             	Set<String> realmNames = new TreeSet<String>();
                 org.openmdx.security.realm1.jmi1.Segment realmSegment =  (org.openmdx.security.realm1.jmi1.Segment)pmRoot.getObjectById(loginRealm.refGetPath().getParent().getParent());
                 for(org.openmdx.security.realm1.jmi1.Realm aRealm: realmSegment.<org.openmdx.security.realm1.jmi1.Realm>getRealm()) {
-                	if(aRealm.getPrincipal(principalName) != null) {
-                		Path userHomeIdentity = new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", aRealm.getName(), "userHome", principalName);
+                	if(aRealm.getPrincipal(principalId) != null) {
+                		Path userHomeIdentity = new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", aRealm.getName(), "userHome", principalId);
                 		UserHome userHome = null;
                 		try {
                 			userHome = (UserHome)pmRoot.getObjectById(userHomeIdentity);
                 		} catch(Exception ignore) {}
                 		if(userHome != null) {
                 			realmNames.add(aRealm.getName());
-                			String alertName = "CreateUserConfirmationRequest " + principalName + "@" + realm.refGetPath().getLastSegment().toClassicRepresentation();
+                			String alertName = "CreateUserConfirmationRequest " + principalId + "@" + realm.refGetPath().getLastSegment().toClassicRepresentation();
                     		AlertQuery alertQuery = (AlertQuery)pm.newQuery(Alert.class);
                     		alertQuery.name().equalTo(alertName);
                     		alertQuery.alertState().equalTo(AlertState.ACCEPTED.getValue());
@@ -789,21 +837,21 @@ public class UserHomes extends AbstractImpl {
                 if(!hasAcceptedCreateUserConfirmations) {
                 	String users = "";
                 	for(String realmName: realmNames) {
-                		Path userHomeIdentity = new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", realmName, "userHome", principalName);
+                		Path userHomeIdentity = new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", realmName, "userHome", principalId);
                			UserHome userHome = (UserHome)pmRoot.getObjectById(userHomeIdentity);
     	            	// Send CreateUserConfirmationRequest to principal
             			Base.getInstance().sendAlert(
             				userHome,
-            				principalName, 
-            				"CreateUserConfirmationRequest " + principalName + "@" + realm.refGetPath().getLastSegment().toClassicRepresentation(),
-            				"[%\nMessage from '" + (SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR + realm.refGetPath().getLastSegment().toClassicRepresentation()) + "': Mark this alert as accepted to allow the creation of user '" + principalName + "' in segment '" + segmentName + "'.\n\nIMPORTANT: ONLY accept if you requested that '" + principalName + "' is to be added to segment '" + segmentName + "'!\n%]", 
+            				principalId, 
+            				"CreateUserConfirmationRequest " + principalId + "@" + realm.refGetPath().getLastSegment().toClassicRepresentation(),
+            				"[%\nMessage from '" + (SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR + realm.refGetPath().getLastSegment().toClassicRepresentation()) + "': Mark this alert as accepted to allow the creation of user '" + principalId + "' in segment '" + segmentName + "'.\n\nIMPORTANT: ONLY accept if you requested that '" + principalId + "' is to be added to segment '" + segmentName + "'!\n%]", 
             				(short)2, // importance 
             				0, // resendDelayInSeconds
             				null // reference
             			);
             			users +=
             				(users.isEmpty() ? "" : ", ") +
-            				principalName + "@" + realmName;
+            				principalId + "@" + realmName;
             		}
 	            	errors.add("ERROR: Principal already in use. CreateUserConfirmationRequests are sent to users {" + users + "}. Waiting for acceptance.");
 	            	pmRoot.close();
@@ -817,8 +865,8 @@ public class UserHomes extends AbstractImpl {
 	            // an import stream containing the principal and subject to be imported
 	            QuotaByteArrayOutputStream item = new QuotaByteArrayOutputStream(UserHomes.class.getName());
 	            PrintWriter pw = new PrintWriter(item);
-	            pw.println("Subject;" + principalName + ";" + contact.getFullName());
-	            pw.println("Principal;" + principalName + ";" + segmentName + "\\\\" + principalName + ";" + principalName + ";Users");
+	            pw.println("Subject;" + subjectName + ";" + contact.getFullName());
+	            pw.println("Principal;" + principalId + ";" + segmentName + "\\\\" + principalId + ";" + subjectName + ";Users");
 	            pw.close();
 	            Admin.getInstance().importLoginPrincipals(
 	                (org.opencrx.kernel.admin1.jmi1.Segment)pmRoot.getObjectById(
@@ -827,9 +875,9 @@ public class UserHomes extends AbstractImpl {
 	                item.toByteArray()
 	            );
 	            // Get login principal and subject
-	            org.openmdx.security.realm1.jmi1.Principal loginPrincipal = loginRealm.getPrincipal(principalName);
+	            org.openmdx.security.realm1.jmi1.Principal loginPrincipal = loginRealm.getPrincipal(principalId);
 	            if(loginPrincipal.getSubject() == null) {
-	                errors.add("ERROR: Undefined subject for principal '" + principalName + "'");
+	                errors.add("ERROR: Undefined subject for principal '" + principalId + "'");
 	                return null;
 	            }
 	            subject = loginPrincipal.getSubject();            
@@ -840,7 +888,7 @@ public class UserHomes extends AbstractImpl {
 	                    errors
 	                );
 	                if(passwordCredential == null) {
-	                	errors.add("ERROR: Creation of password credential failed for principal '" + principalName + "'");
+	                	errors.add("ERROR: Creation of password credential failed for principal '" + principalId + "'");
 	                    return null;
 	                }
 	                // Set initial password
@@ -856,13 +904,11 @@ public class UserHomes extends AbstractImpl {
 	                // Update principal's credential
 	                loginPrincipal.setCredential(passwordCredential);
 	            }
-	            if((loginPrincipal.getCredential() == null)) {
-	                errors.add("ERROR: No credential specified for principal '" + principalName + "'");                
-	            }
+	            this.validateCredential(loginPrincipal, errors);
 	        } catch(Exception e) {
 	            ServiceException e1 = new ServiceException(e);
 	            SysLog.warning(e1.getMessage(), e1.getCause());
-	            errors.add("ERROR: Can not retrieve principal '" + principalName + "' in realm '" + segmentName + "'");
+	            errors.add("ERROR: Can not retrieve principal '" + principalId + "' in realm '" + segmentName + "'");
 	            errors.add("reason is " + e.getMessage());
 	            return null;
 	        }
@@ -870,8 +916,9 @@ public class UserHomes extends AbstractImpl {
 	        org.openmdx.security.realm1.jmi1.Realm realmByRoot = 
 	        	(org.openmdx.security.realm1.jmi1.Realm)pmRoot.getObjectById(realm.refGetPath());
 	        user = (org.opencrx.security.realm1.jmi1.User)Admin.getInstance().createPrincipal(
-	            principalName + "." + SecurityKeys.USER_SUFFIX,
-	            null,
+	            principalId + "." + SecurityKeys.USER_SUFFIX,
+	            null, // name
+	            null, // description
 	            realmByRoot,
 	            PrincipalType.USER,
 	            new ArrayList<org.openmdx.security.realm1.jmi1.Group>(),
@@ -895,8 +942,9 @@ public class UserHomes extends AbstractImpl {
 	        }
 	        // Add principal
 	        Admin.getInstance().createPrincipal(
-	            principalName, 
-	            null,
+	            principalId,
+	            null, // name
+	            null, // description
 	            realmByRoot,
 	            PrincipalType.PRINCIPAL,
 	            groups,
@@ -906,8 +954,9 @@ public class UserHomes extends AbstractImpl {
 	        // in the Root realm because the Root segment provides data common
 	        // to all segments, e.g. code tables
 	        Admin.getInstance().createPrincipal(
-	            principalName, 
-	            null,
+	            principalId,
+	            null, // name
+	            null, // description
 	            (org.openmdx.security.realm1.jmi1.Realm)pmRoot.getObjectById(realm.refGetPath().getParent().getChild("Root")),
 	            PrincipalType.PRINCIPAL,
 	            new ArrayList<org.openmdx.security.realm1.jmi1.Group>(),
@@ -915,8 +964,9 @@ public class UserHomes extends AbstractImpl {
 	        );
 	        // Add user principal to Root realm 
 	        Admin.getInstance().createPrincipal(
-	            principalName + "." + SecurityKeys.USER_SUFFIX,
-	            null,
+	            principalId + "." + SecurityKeys.USER_SUFFIX,
+	            null, // name
+	            null, // description
 	            (org.openmdx.security.realm1.jmi1.Realm)pmRoot.getObjectById(realm.refGetPath().getParent().getChild("Root")),
 	            PrincipalType.USER,
 	            new ArrayList<org.openmdx.security.realm1.jmi1.Group>(),
@@ -952,7 +1002,7 @@ public class UserHomes extends AbstractImpl {
 		        user = (org.opencrx.security.realm1.jmi1.User)pmAdmin.getObjectById(user.refGetPath());
 		        groupAdministrators = (PrincipalGroup)pmAdmin.getObjectById(groupAdministrators.refGetPath());
 		        primaryGroup = primaryGroup == null ? null : (PrincipalGroup)pmAdmin.getObjectById(primaryGroup.refGetPath());
-		        userHome = userHomeSegment.getUserHome(principalName);
+		        userHome = userHomeSegment.getUserHome(principalId);
 		        if(userHome != null) {
 		        	if(primaryGroup != null) {
 		        		userHome.setPrimaryGroup(primaryGroup);
@@ -961,7 +1011,7 @@ public class UserHomes extends AbstractImpl {
 		        } else {
 		            userHome = pmAdmin.newInstance(UserHome.class);
 		            userHomeSegment.addUserHome(
-		            	principalName,
+		            	principalId,
 		            	userHome
 		            );
 		            // owning user of home is user itself
@@ -2408,9 +2458,36 @@ public class UserHomes extends AbstractImpl {
 		super.preStore(object);
 		if(object instanceof Timer) {
 			this.updateTimer((Timer)object);
+		} else if(object instanceof Alert) {
+			try {
+				Alert alert = (Alert)object;
+				alert.setReferencedObjectType(
+					alert.getReference() == null 
+						? null 
+						: alert.getReference().refClass().refMofId()
+				);
+			} catch(Exception ignore) {}
+		} else if(object instanceof AccessHistory) {
+			try {
+				AccessHistory accessHistory = (AccessHistory)object;
+				accessHistory.setReferencedObjectType(
+					accessHistory.getReference() == null 
+						? null 
+						: accessHistory.getReference().refClass().refMofId()
+				);
+			} catch(Exception ignore) {}
+		} else if(object instanceof QuickAccess) {
+			try {
+				QuickAccess quickAccess = (QuickAccess)object;
+				quickAccess.setReferencedObjectType(
+					quickAccess.getReference() == null 
+						? null 
+						: quickAccess.getReference().refClass().refMofId()
+				);			
+			} catch(Exception ignore) {}
 		}
 	}
-	
+
 	//-------------------------------------------------------------------------
     // Members
     //-------------------------------------------------------------------------    

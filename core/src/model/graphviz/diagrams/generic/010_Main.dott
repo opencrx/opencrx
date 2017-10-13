@@ -21,12 +21,12 @@ digraph "Diagram Main [Package org:opencrx:kernel:generic]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,width=20]};
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,width=18]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:Note,compartments=true,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:generic:Note,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:generic:Rating,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:generic:AdditionalExternalLink,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:generic:DocumentAttachment,compartments=true,width=3]};
@@ -36,11 +36,8 @@ digraph "Diagram Main [Package org:opencrx:kernel:generic]" {
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:UserDefined,compartments=false,width=2]};
-	  ${CLASS[name=org:opencrx:kernel:base:SecureObject,compartments=false,fillcolor="#FFBD9D",width=8]};
-	  ${CLASS[name=org:opencrx:kernel:base:Indexed,compartments=false,fillcolor="#FFBD9D",width=3]};
-	  ${CLASS[name=org:opencrx:kernel:base:Note,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:document1:Document,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:base:Note,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentFolderAssignment,compartments=false,fillcolor="#FFBD9D",width=2]};
 	}
 

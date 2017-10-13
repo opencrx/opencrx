@@ -95,22 +95,15 @@ public class VCardServlet extends HttpServlet {
             try {
                 Utils.getModel();
                 this.persistenceManagerFactory = Utils.getPersistenceManagerFactory();
-            }
-            catch (NamingException e) {
-                throw new ServletException( 
-                    "Can not get the initial context", 
-                    e
-                );                
-            }
-            catch(ServiceException e) {
+            } catch(ServiceException e) {
                 throw new ServletException( 
                     "Can not get persistence manager", 
                     e
                 );                
-            }        
-        }            
+            }       
+        }        
     }
-    
+
     //-----------------------------------------------------------------------
     protected PersistenceManager getPersistenceManager(
         HttpServletRequest req

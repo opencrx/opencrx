@@ -132,7 +132,7 @@ public class XmlImporter extends AbstractImpl {
     public RefObject importItem(
         byte[] item,
         short locale,
-        BasicObject targetSegment,
+        org.openmdx.base.jmi1.Segment targetSegment,
         List<String> errors,
         List<String> report
     ) throws ServiceException {    	    	

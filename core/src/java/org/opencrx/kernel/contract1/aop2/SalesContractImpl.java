@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2016, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2017, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -59,11 +59,23 @@ import org.openmdx.base.exception.ServiceException;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
 
+/**
+ * SalesContractImpl
+ *
+ * @param <S>
+ * @param <N>
+ * @param <C>
+ */
 public class SalesContractImpl
 	<S extends org.opencrx.kernel.contract1.jmi1.SalesContract,N extends org.opencrx.kernel.contract1.cci2.SalesContract,C extends Void>
 	extends AbstractContractImpl<S,N,C> {
 
-    //-----------------------------------------------------------------------
+    /**
+     * Constructor.
+     * 
+     * @param same
+     * @param next
+     */
     public SalesContractImpl(
         S same,
         N next
@@ -71,7 +83,11 @@ public class SalesContractImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Reprice the contract.
+     * 
+     * @return
+     */
     public org.openmdx.base.jmi1.Void reprice(
     ) {
         try {
@@ -85,7 +101,30 @@ public class SalesContractImpl
         }                
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Recalc the contract.
+     * 
+     * @return
+     */
+    public org.openmdx.base.jmi1.Void recalc(
+    ) {
+        try {
+            Contracts.getInstance().recalcSalesContract(
+                this.sameObject()
+            );
+            return super.newVoid();
+        }
+        catch(ServiceException e) {
+            throw new JmiServiceException(e);
+        }                
+    }
+
+    /**
+     * Create sales contract position.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.contract1.jmi1.CreatePositionResult createPosition(
         org.opencrx.kernel.contract1.jmi1.CreatePositionParams params
     ) {
@@ -99,7 +138,9 @@ public class SalesContractImpl
 	            params.getProduct(),
 	            params.getUom(),
 	            params.getPriceUom(),
-	            params.getPricingRule()            
+	            params.getSalesTransactionType(),
+	            params.getPricingRule(),
+	            params.getPriceLevel()
 	        );
             return Structures.create(
             	org.opencrx.kernel.contract1.jmi1.CreatePositionResult.class, 
@@ -110,7 +151,11 @@ public class SalesContractImpl
     	}
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Set pricing date. 
+     * 
+     * @param pricingDate
+     */
     public void setPricingDate(
         java.util.Date pricingDate
     ) {
@@ -126,7 +171,11 @@ public class SalesContractImpl
         }        	    	
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Set activeOn. 
+     * 
+     * @param activeOn
+     */
     public void setActiveOn(
         java.util.Date activeOn
     ) {
