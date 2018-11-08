@@ -7,6 +7,7 @@ ENV TOMEE_BASEDIR apache-tomee-webprofile-1.7.4
 
 # Install ant, apache2, nullmailer
 RUN apt-get update && apt-get -y install \
+  net-tools \
   openjdk-8-jdk \
   wget \
   unzip \
@@ -28,10 +29,11 @@ RUN echo "<VirtualHost *:80>" > /etc/apache2/sites-available/000-default.conf \
 # Get and install openCRX
 RUN mkdir $HOME/opt \
   && mkdir $HOME/temp \
-  && wget -O $HOME/temp/opencrxServer-$VERSION-installer.$PLATFORM.jar https://10gbps-io.dl.sourceforge.net/project/opencrx/opencrx/$VERSION/opencrxServer-$VERSION-installer.$PLATFORM.jar \
+  && wget -O $HOME/temp/opencrxServer-$VERSION-installer.$PLATFORM.jar https://sourceforge.net/projects/opencrx/files/opencrx/$VERSION/opencrxServer-$VERSION-installer.$PLATFORM.jar/download \
   && echo "INSTALL_PATH=$HOME/opt/opencrx" > $HOME/temp/opencrx-install.properties \
   && echo "JDKPath=/usr/lib/jvm/java-8-openjdk-amd64" >> $HOME/temp/opencrx-install.properties \
   && echo "ANTPath=/usr/bin/ant" >> $HOME/temp/opencrx-install.properties \
+  && cat $HOME/temp/opencrx-install.properties \
   && java -jar $HOME/temp/opencrxServer-$VERSION-installer.$PLATFORM.jar -options $HOME/temp/opencrx-install.properties \
   && ls -al $HOME/opt/opencrx \
   && rm -rf $HOME/temp
@@ -41,4 +43,4 @@ COPY ./docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 EXPOSE 80 8001 8009
-CMD cd /root/opt/opencrx/$TOMEE_BASEDIR/bin;./opencrx.sh run
+CMD cd /root/opt/opencrx/$TOMEE_BASEDIR/bin;export JDKPath=/usr/lib/jvm/java-8-openjdk-amd64;./opencrx.sh run
