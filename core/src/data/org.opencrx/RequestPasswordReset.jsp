@@ -61,8 +61,7 @@ java.io.PrintWriter,
 org.w3c.spi2.*,
 org.openmdx.portal.servlet.*,
 org.openmdx.base.naming.*,
-org.opencrx.kernel.generic.*,
-org.opencrx.kernel.backend.*
+org.opencrx.kernel.generic.*
 "%>
 <%
 	Boolean success = null;
@@ -101,7 +100,7 @@ org.opencrx.kernel.backend.*
     					SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR + currentSegmentName, 
     					null
     				);
-	            	org.opencrx.kernel.home1.jmi1.Segment userHomeSegment = UserHomes.getInstance().getUserHomeSegment(pm, currentProviderName, currentSegmentName);
+	            	org.opencrx.kernel.home1.jmi1.Segment userHomeSegment = org.opencrx.kernel.backend.UserHomes.getInstance().getUserHomeSegment(pm, currentProviderName, currentSegmentName);
 	            	org.opencrx.kernel.home1.cci2.EMailAccountQuery emailAccountQuery = (org.opencrx.kernel.home1.cci2.EMailAccountQuery)org.openmdx.base.persistence.cci.PersistenceHelper.newQuery(
 			    		pm.getExtent(org.opencrx.kernel.home1.jmi1.EMailAccount.class),
 			    		userHomeSegment.refGetPath().getDescendant("userHome", ":*", "eMailAccount", ":*")
@@ -136,7 +135,7 @@ org.opencrx.kernel.backend.*
 	        int count = 0;
 	        for(org.openmdx.security.realm1.jmi1.Realm realm: realmSegment.<org.openmdx.security.realm1.jmi1.Realm>getRealm()) {
 	            if(!realm.refGetPath().equals(LOGIN_REALM_IDENTITY) && !"Root".equals(realm.refGetPath().getLastSegment().toClassicRepresentation())) {
-	           		org.openmdx.security.realm1.jmi1.Principal principal = SecureObject.getInstance().findPrincipal(id, realm);
+	           		org.openmdx.security.realm1.jmi1.Principal principal = org.opencrx.kernel.backend.SecureObject.getInstance().findPrincipal(id, realm);
 	           		if(principal != null && !Boolean.TRUE.equals(principal.isDisabled())) {
 	           			principalName = id;
 	           			providerName = realm.refGetPath().getSegment(2).toClassicRepresentation();

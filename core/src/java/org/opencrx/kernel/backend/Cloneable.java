@@ -251,7 +251,7 @@ public class Cloneable extends AbstractImpl {
     // Variables
     //-------------------------------------------------------------------------    
     public static final Set<String> CLONE_EXCLUDE_ATTRIBUTES =
-        new HashSet<String>(Arrays.asList("activityNumber"));
+        new HashSet<String>(Arrays.asList("activityNumber", "contractNumber"));
     
     public static final Set<String> CLONE_EXCLUDE_COMPOSITE_REFERENCES =
         new HashSet<String>(Arrays.asList("view"));

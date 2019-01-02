@@ -2,12 +2,12 @@
 <!--
  * =======================================================================
  * = Description: openCRX/sql build.xml
- * = Copyright:   (c) 2003-2016 CRIXP AG
+ * = Copyright:   (c) 2003-2018 CRIXP AG
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2016, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2018, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -54,7 +54,7 @@
 		  <arg line="-E -C -P -I. -xc -DHSQLDB_2 -ohsqldb-2/dbcreate-views.sql dbcreate-views.tsql"/>
 		</exec>
 		<exec executable="gcc">
-		  <arg line="-E -C -P -I. -xc -DHSQLDB_2 -ohsqldb-2/drop-from-4.0-to-4.1.sql drop-from-4.0-to-4.1.tsql"/>
+		  <arg line="-E -C -P -I. -xc -DHSQLDB_2 -ohsqldb-2/drop-from-4.1-to-4.2.sql drop-from-4.1-to-4.2.tsql"/>
 		</exec>
 		<exec executable="gcc">
 		  <arg line="-E -C -P -I. -xc -DHSQLDB_2 -ohsqldb-2/delete-segment.sql delete-segment.tsql"/>

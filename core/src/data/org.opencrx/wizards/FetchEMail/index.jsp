@@ -58,8 +58,7 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
-org.opencrx.kernel.portal.wizard.*,
+org.opencrx.portal.wizard.*,
 org.opencrx.kernel.generic.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
@@ -162,7 +161,7 @@ org.openmdx.base.naming.*
 					activityCreatorFilter.forAllActivityType().activityClass().equalTo(new Short((short)0));
 					int maxCreator = 200;
 					int counter = 0;
-					org.opencrx.kernel.activity1.jmi1.Segment activitySegment = Activities.getInstance().getActivitySegment(pm, wc.getProviderName(), wc.getSegmentName());
+					org.opencrx.kernel.activity1.jmi1.Segment activitySegment = org.opencrx.kernel.backend.Activities.getInstance().getActivitySegment(pm, wc.getProviderName(), wc.getSegmentName());
 					for(org.opencrx.kernel.activity1.jmi1.ActivityCreator activityCreator: activitySegment.getActivityCreator(activityCreatorFilter)) {
 						String selectedModifier = "";
                         counter++;

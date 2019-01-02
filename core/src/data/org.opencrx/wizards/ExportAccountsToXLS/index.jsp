@@ -62,7 +62,6 @@ java.net.URL,
 java.net.URLEncoder,
 java.net.MalformedURLException,
 java.io.UnsupportedEncodingException,
-org.opencrx.kernel.backend.*,
 org.opencrx.kernel.portal.*,
 org.openmdx.kernel.id.*,
 org.openmdx.portal.servlet.databinding.*,
@@ -76,6 +75,7 @@ org.openmdx.portal.servlet.wizards.*,
 org.openmdx.base.naming.*,
 org.openmdx.base.query.*,
 org.openmdx.kernel.log.*,
+org.apache.poi.ss.usermodel.*,
 org.apache.poi.hssf.usermodel.*,
 org.apache.poi.hssf.util.*,
 org.apache.poi.poifs.filesystem.POIFSFileSystem
@@ -860,22 +860,22 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
 			HSSFFont headerfont = wb.createFont();
 			headerfont.setFontHeightInPoints((short)10);
 			headerfont.setFontName("Tahoma");
-			headerfont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+			headerfont.setBold(true);
 			headerfont.setColor(HSSFColor.ORANGE.index);
 
 			HSSFCellStyle headerStyle = wb.createCellStyle();
 			headerStyle.setFillForegroundColor(HSSFColor.BLACK.index);
-			headerStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+			headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 			headerStyle.setFont(headerfont);
 			
 			// Wrapped Style
 			HSSFCellStyle wrappedStyle = wb.createCellStyle();
-			wrappedStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+			wrappedStyle.setVerticalAlignment(VerticalAlignment.TOP);
 			wrappedStyle.setWrapText(true);
 			
 			// TopAligned Style
 			HSSFCellStyle topAlignedStyle = wb.createCellStyle();
-			topAlignedStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+			topAlignedStyle.setVerticalAlignment(VerticalAlignment.TOP);
 			
 			HSSFSheet sheetAccounts = addSheet(wb, "Accounts", true, headerStyle);
       short spreadSheetRow = 1;

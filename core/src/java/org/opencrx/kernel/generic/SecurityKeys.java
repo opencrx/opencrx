@@ -112,6 +112,8 @@ public class SecurityKeys {
     	
     }
 
+    public static final String PERMISSION_ACTION_SEPARATOR = "|";
+    
     // Access levels
     public static final short ACCESS_LEVEL_NA = 0;
     public static final short ACCESS_LEVEL_PRIVATE = 1;
@@ -120,5 +122,3 @@ public class SecurityKeys {
     public static final short ACCESS_LEVEL_GLOBAL = 4;
     
 }
-
-//--- End of File -----------------------------------------------------------

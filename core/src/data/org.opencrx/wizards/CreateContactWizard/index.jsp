@@ -58,10 +58,8 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
 org.opencrx.kernel.portal.*,
-org.opencrx.kernel.backend.*,
-org.opencrx.kernel.portal.wizard.*,
+org.opencrx.portal.wizard.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
 org.openmdx.base.text.conversion.*,
@@ -90,8 +88,8 @@ org.openmdx.base.naming.*
 	RefObject_1_0 obj = wc.getObject();
 	ViewPort viewPort = wc.getViewPort(out);
 	int tabIndex = 100;
-	org.opencrx.kernel.account1.jmi1.Segment accountSegment = Accounts.getInstance().getAccountSegment(pm, wc.getProviderName(), wc.getSegmentName());
-	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = Activities.getInstance().getActivitySegment(pm,  wc.getProviderName(), wc.getSegmentName());
+	org.opencrx.kernel.account1.jmi1.Segment accountSegment = org.opencrx.kernel.backend.Accounts.getInstance().getAccountSegment(pm, wc.getProviderName(), wc.getSegmentName());
+	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = org.opencrx.kernel.backend.Activities.getInstance().getActivitySegment(pm,  wc.getProviderName(), wc.getSegmentName());
 %>
 <div class="OperationDialogTitle"><%= wc.getToolTip() %></div>
 <form id="<%= FORM_NAME %>" name="<%= FORM_NAME %>" accept-charset="UTF-8" action="<%= wc.getServletPath() %>" style="padding-top:8px;">
@@ -347,17 +345,17 @@ org.openmdx.base.naming.*
 						int count = 0;
 						for(Iterator i = wc.getMatchingAccounts().iterator(); i.hasNext(); ) {
 						    org.opencrx.kernel.account1.jmi1.Contact contact = ( org.opencrx.kernel.account1.jmi1.Contact)i.next();
-						    org.opencrx.kernel.account1.jmi1.AccountAddress[] addresses = Accounts.getInstance().getMainAddresses(contact);
+						    org.opencrx.kernel.account1.jmi1.AccountAddress[] addresses = org.opencrx.kernel.backend.Accounts.getInstance().getMainAddresses(contact);
 %>
 							<tr class="gridTableRowFull">
 								<td><img style="cursor: pointer;" src="images/Contact.gif" onclick="javascript:jQuery.ajax({type: 'get', url: '<%= wc.getServletPath() + "?" + Action.PARAMETER_OBJECTXRI + "=" + java.net.URLEncoder.encode(contact.refMofId(), "UTF-8") + "&" + Action.PARAMETER_REQUEST_ID + "=" + wc.getRequestId() %>', dataType: 'html', success: function(data){$('UserDialog').innerHTML=data;evalScripts(data);}});"/></td>
 								<td><%= contact.getFullName() == null ? "" : contact.getFullName() %></td>
 								<td><%= contact.getAliasName() == null ? "" : contact.getAliasName() %></td>
-								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[Accounts.POSTAL_BUSINESS], app).getTitle() %></td>
-								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[Accounts.POSTAL_HOME], app).getTitle() %></td>
-								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[Accounts.PHONE_BUSINESS], app).getTitle() %></td>
-								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[Accounts.MOBILE], app).getTitle() %></td>
-								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[Accounts.MAIL_BUSINESS], app).getTitle() %></td>
+								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[org.opencrx.kernel.backend.Accounts.POSTAL_BUSINESS], app).getTitle() %></td>
+								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[org.opencrx.kernel.backend.Accounts.POSTAL_HOME], app).getTitle() %></td>
+								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[org.opencrx.kernel.backend.Accounts.PHONE_BUSINESS], app).getTitle() %></td>
+								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[org.opencrx.kernel.backend.Accounts.MOBILE], app).getTitle() %></td>
+								<td><%= new org.openmdx.portal.servlet.ObjectReference(addresses[org.opencrx.kernel.backend.Accounts.MAIL_BUSINESS], app).getTitle() %></td>
 								<td><%= contact.getOrganization() == null ? "" : contact.getOrganization() %></td>
 								<td class="addon"/>
 							</tr>

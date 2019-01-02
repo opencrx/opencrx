@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://java.sun.com/jsf/composite/opencrx">
+<f:metadata>
+	<f:event type="preRenderView" listener="#{createActivityController.init}" />
+</f:metadata>
+<h:head>
+</h:head>
+<h:body>	
+	<f:view>
+		<div class="OperationDialogTitle">#{createActivityController.toolTip}</div>
+		<h:form id="form">
+			<input id="requestId" name="requestId" type="hidden" value="#{createActivityController.requestId}" />
+			<input id="xri" name="xri" type="hidden" value="#{createActivityController.objectIdentity}" />
+			<table class="tableLayout">
+				<tr>
+					<td class="cellObject">
+						<div class="fieldGroupName">#{createActivityController.metaInf.labelFieldGroupActivity}</div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-6">
+									<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,inherit">
+										<h:outputLabel for="name">#{createActivityController.metaInf.labelName}:</h:outputLabel>
+										<h:inputText id="name" styleClass="valueL" value="#{createActivityController.data.name}" />
+										<h:outputLabel for="activityCreator:activityCreator">#{createActivityController.metaInf.labelActivityCreator}:</h:outputLabel>
+										<p:autocomplete
+											id="activityCreator"
+											valueTitle="#{createActivityController.data.activityCreator.title}"
+											valueXri="#{createActivityController.data.activityCreator.xri}"
+											findMethod="#{createActivityController.findActivityCreator}"
+											findResult="#{createActivityController.data.findActivityCreatorResult}" />
+										<h:outputLabel for="assignedTo:assignedTo">#{createActivityController.metaInf.labelAssignedTo}:</h:outputLabel>
+										<p:autocomplete
+											id="assignedTo"
+											valueTitle="#{createActivityController.data.assignedTo.title}"
+											valueXri="#{createActivityController.data.assignedTo.xri}"
+											findMethod="#{createActivityController.findAssignedTo}"
+											findResult="#{createActivityController.data.findAssignedToResult}" />
+									</h:panelGrid>
+								</div>
+								<div class="col-lg-6">
+									<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,inherit,addon">
+										<h:outputLabel for="reportingContact:reportingContact">#{createActivityController.metaInf.labelReportingContact}:</h:outputLabel>
+										<p:autocomplete
+											id="reportingContact"
+											valueTitle="#{createActivityController.data.reportingContact.title}"
+											valueXri="#{createActivityController.data.reportingContact.xri}"
+											findMethod="#{createActivityController.findReportingContact}"
+											findResult="#{createActivityController.data.findReportingContactResult}" />
+										<h:outputLabel for="reportingAccount:reportingAccount">#{createActivityController.metaInf.labelReportingAccount}:</h:outputLabel>
+										<p:autocomplete
+											id="reportingAccount"
+											valueTitle="#{createActivityController.data.reportingAccount.title}"
+											valueXri="#{createActivityController.data.reportingAccount.xri}"
+											findMethod="#{createActivityController.findReportingAccount}"
+											findResult="#{createActivityController.data.findReportingAccountResult}" />
+									</h:panelGrid>
+								</div>
+							</div>
+						</div>
+						<div class="fieldGroupName">#{createActivityController.metaInf.labelFieldGroupDetails}</div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-6">
+									<h:panelGrid styleClass="fieldGroup" columns="3" columnClasses="fieldLabel,inherit,addon">
+										<h:outputLabel for="priority">#{createActivityController.metaInf.labelPriority}:</h:outputLabel>
+										<h:selectOneMenu id="priority" class="valueL" value="#{createActivityController.data.priority}" converter="javax.faces.Short">
+											<f:selectItems value="#{createActivityController.metaInf.optionsPriority}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
+										</h:selectOneMenu>
+										<div></div>
+							    		<h:outputLabel for="dueBy">#{createActivityController.metaInf.labelDueBy}:</h:outputLabel>
+										<h:inputText id="dueBy" class="valueR" value="#{createActivityController.data.dueBy}" binding="#{dueBy}">
+										   <f:convertDateTime pattern="#{createActivityController.metaInf.dateFormatDueBy}"/>
+										</h:inputText>
+										<h:panelGroup>
+									        <a><h:graphicImage id="dueByTrigger" styleClass="popUpButton" value="./images/cal.gif" border="0" binding="#{dueByTrigger}"/></a>
+									        <script>
+									        	Calendar.setup({inputField: "#{dueBy.clientId}", ifFormat: "#{createActivityController.metaInf.calendarFormatDueBy}", firstDay: 0, timeFormat: "24", button: "#{dueByTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true});
+									        </script>
+										</h:panelGroup>
+							    		<h:outputLabel for="scheduledStart">#{createActivityController.metaInf.labelScheduledStart}:</h:outputLabel>
+										<h:inputText id="scheduledStart" class="valueR" value="#{createActivityController.data.scheduledStart}" binding="#{scheduledStart}">
+										   <f:convertDateTime pattern="#{createActivityController.metaInf.dateFormatScheduledStart}"/>
+										</h:inputText>
+										<h:panelGroup>
+									        <a><h:graphicImage id="scheduledStartTrigger" styleClass="popUpButton" value="./images/cal.gif" border="0" binding="#{scheduledStartTrigger}"/></a>
+									        <script>
+									        	Calendar.setup({inputField: "#{scheduledStart.clientId}", ifFormat: "#{createActivityController.metaInf.calendarFormatScheduledStart}", firstDay: 0, timeFormat: "24", button: "#{scheduledStartTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true});
+									        </script>
+										</h:panelGroup>
+							    		<h:outputLabel for="scheduledEnd">#{createActivityController.metaInf.labelScheduledEnd}:</h:outputLabel>
+										<h:inputText id="scheduledEnd" class="valueR" value="#{createActivityController.data.scheduledEnd}" binding="#{scheduledEnd}">
+										   <f:convertDateTime pattern="#{createActivityController.metaInf.dateFormatScheduledEnd}"/>
+										</h:inputText>
+										<h:panelGroup>
+									        <a><h:graphicImage id="scheduledEndTrigger" styleClass="popUpButton" value="./images/cal.gif" border="0" binding="#{scheduledEndTrigger}"/></a>
+									        <script>
+									        	Calendar.setup({inputField: "#{scheduledEnd.clientId}", ifFormat: "#{createActivityController.metaInf.calendarFormatScheduledEnd}", firstDay: 0, timeFormat: "24", button: "#{scheduledEndTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true});
+									        </script>
+										</h:panelGroup>
+								    </h:panelGrid>
+								</div>
+								<div class="col-lg-6">
+									<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL" rendered="#{not empty createActivityController.metaInf.labelMisc1}">
+										<h:outputLabel for="misc1">#{createActivityController.metaInf.labelMisc1}:</h:outputLabel>
+										<h:inputText id="misc1" styleClass="valueL" value="#{createActivityController.data.misc1}" />
+										<h:outputLabel for="misc2">#{createActivityController.metaInf.labelMisc2}:</h:outputLabel>
+										<h:inputText id="misc2" styleClass="valueL" value="#{createActivityController.data.misc2}" />
+										<h:outputLabel for="misc3">#{createActivityController.metaInf.labelMisc3}:</h:outputLabel>
+										<h:inputText id="misc3" styleClass="valueL" value="#{createActivityController.data.misc3}" />
+									</h:panelGrid>
+								</div>
+							</div>
+						</div>								
+						<div class="fieldGroupName"><h:outputText value="&#160;" escape="false"/></div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-12">
+									<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL">
+										<h:outputLabel for="description">#{createActivityController.metaInf.labelDescription}:</h:outputLabel>
+										<h:inputTextarea id="description" value="#{createActivityController.data.description}"></h:inputTextarea>
+										<h:outputLabel for="detailedDescription">#{createActivityController.metaInf.labelDetailedDescription}:</h:outputLabel>
+										<h:inputTextarea id="detailedDescription" value="#{createActivityController.data.detailedDescription}"></h:inputTextarea>
+									</h:panelGrid>
+								</div>
+							</div>
+						</div>
+						<div class="fieldGroupName"><h:outputText value="&#160;" escape="false"/></div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-12">
+									<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL">
+										<h:outputLabel for="activityGroup1:activityGroup1">#{createActivityController.metaInf.labelActivityGroup} #1:</h:outputLabel>
+										<p:autocomplete
+											id="activityGroup1"
+											valueTitle="#{createActivityController.data.activityGroup1.title}"
+											valueXri="#{createActivityController.data.activityGroup1.xri}"
+											findMethod="#{createActivityController.findActivityGroup1}"
+											findResult="#{createActivityController.data.findActivityGroup1Result}" />
+										<h:outputLabel for="activityGroup2:activityGroup2">#{createActivityController.metaInf.labelActivityGroup} #2:</h:outputLabel>
+										<p:autocomplete
+											id="activityGroup2"
+											valueTitle="#{createActivityController.data.activityGroup2.title}"
+											valueXri="#{createActivityController.data.activityGroup2.xri}"
+											findMethod="#{createActivityController.findActivityGroup2}"
+											findResult="#{createActivityController.data.findActivityGroup2Result}" />
+										<h:outputLabel for="activityGroup3:activityGroup3">#{createActivityController.metaInf.labelActivityGroup} #3:</h:outputLabel>
+										<p:autocomplete
+											id="activityGroup3"
+											valueTitle="#{createActivityController.data.activityGroup3.title}"
+											valueXri="#{createActivityController.data.activityGroup3.xri}"
+											findMethod="#{createActivityController.findActivityGroup3}"
+											findResult="#{createActivityController.data.findActivityGroup3Result}" />
+									</h:panelGrid>
+								</div>
+							</div>
+						</div>
+						<div class="fieldGroupName"><h:outputText value="&#160;" escape="false"/></div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-12">
+									<ui:repeat value="#{createActivityController.data.errors}" var="item">
+										<pre class="alert alert-danger">#{item}</pre>
+									</ui:repeat>
+								</div>
+							</div>
+						</div>
+						<div id="SubmitArea" style="float:left;">
+							<h:commandButton styleClass="btn" style="margin:5px;" value="#{createActivityController.app.texts.newText}" update="form">
+								<f:ajax execute="form" listener="#{createActivityController.doCreate}" render="form" />							
+							</h:commandButton>
+							<h:commandButton styleClass="btn" style="margin:5px;" value="#{createActivityController.app.texts.cancelTitle}" update="form">
+								<f:ajax execute="form" listener="#{createActivityController.doCancel}" render="form" />							
+							</h:commandButton>
+		      			</div>
+					</td>
+				</tr>
+			</table>
+		</h:form>
+		<br />
+	</f:view>
+</h:body>
+</html>

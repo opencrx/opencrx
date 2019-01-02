@@ -33,13 +33,24 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:CodeValueContainer:entry" _operation="create">
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:valueRange" _operation="create">
                     <_object>
                       <label>
-                        <_item>Einträge</_item>
+                        <_item>Wertebereiche</_item>
                       </label>
                       <toolTip>
-                        <_item>Einträge</_item>
+                        <_item>Wertebereiche</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:objectValidator" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Objektprüfer</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Objektprüfer</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -51,6 +62,17 @@
                       </label>
                       <toolTip>
                         <_item>Code Wert Container</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:CodeValueContainer:entry" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Einträge</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Einträge</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -220,7 +242,597 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-                </elementDefinition>
+
+									<!--Inspector Definition-->
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:queryType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Querytyp</_item>
+											</toolTip>
+											<label>
+												<_item>Querytyp</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:objectType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekttypen</_item>
+											</toolTip>
+											<label>
+												<_item>Objekttypen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:storagePath" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Speicherpfad</_item>
+											</toolTip>
+											<label>
+												<_item>Speicherpfad</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:identityPattern" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Muster für Identity</_item>
+											</toolTip>
+											<label>
+												<_item>Muster für Identity</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:format" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Format</_item>
+											</toolTip>
+											<label>
+												<_item>Format</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:nextValue" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Nächster Wert</_item>
+											</toolTip>
+											<label>
+												<_item>Nächster Wert</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:disabled" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekt ist deaktiviert</_item>
+											</toolTip>
+											<label>
+												<_item>Deaktiviert</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:SequenceBasedValueRange" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Wertebereich (Sequenz)</_item>
+											</toolTip>
+											<label>
+												<_item>Wertebereich (Sequenz)</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:SequenceBasedValueRange:startValue" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Startwert</_item>
+											</toolTip>
+											<label>
+												<_item>Startwert</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:SequenceBasedValueRange:incrementValue" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Schrittgrösse</_item>
+											</toolTip>
+											<label>
+												<_item>Schrittgrösse</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:UriBasedValueRange" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Wertebereich (URI)</_item>
+											</toolTip>
+											<label>
+												<_item>Wertebereich (URI)</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:UriBasedValueRange:sequenceProviderUri" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>URI des Sequenzanbieters</_item>
+											</toolTip>
+											<label>
+												<_item>URI des Sequenzanbieters</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objektprüfer</_item>
+											</toolTip>
+											<label>
+												<_item>Objektprüfer</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:condition" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Bedingungen</_item>
+											</toolTip>
+											<label>
+												<_item>Bedingungen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:objectType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekttypen</_item>
+											</toolTip>
+											<label>
+												<_item>Objekttypen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:mainCondition" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Hauptbedingung</_item>
+											</toolTip>
+											<label>
+												<_item>Hauptbedingung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:disabled" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekt ist deaktiviert</_item>
+											</toolTip>
+											<label>
+												<_item>Deaktiviert</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Einfache Prüfbedingung</_item>
+											</toolTip>
+											<label>
+												<_item>Einfache Prüfbedingung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:scope" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Geltungsbereich</_item>
+											</toolTip>
+											<label>
+												<_item>Geltungsbereich</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ComplexValidatorCondition" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Komplexe Prüfbedingung</_item>
+											</toolTip>
+											<label>
+												<_item>Komplexe Prüfbedingung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ComplexValidatorCondition:operand" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Operanden</_item>
+											</toolTip>
+											<label>
+												<_item>Operanden</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:validFrom" _operation="create">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Gültig ab</_item>
+											</toolTip>
+											<label>
+												<_item>Gültig ab</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:validTo" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Gültig bis</_item>
+											</toolTip>
+											<label>
+												<_item>Gültig bis</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:disabled" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekt ist deaktiviert</_item>
+											</toolTip>
+											<label>
+												<_item>Deaktiviert</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:aggregateFunction" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Aggregatsfunktion</_item>
+											</toolTip>
+											<label>
+												<_item>Aggregatsfunktion</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:condition" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Bedingung</_item>
+											</toolTip>
+											<label>
+												<_item>Bedingung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:conditionArgument" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Argument für Bedingung</_item>
+											</toolTip>
+											<label>
+												<_item>Argument für Bedingung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:featurePath" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Feature-Pfad</_item>
+											</toolTip>
+											<label>
+												<_item>Feature-Pfad</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:objectQuery" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekt-Query</_item>
+											</toolTip>
+											<label>
+												<_item>Objekt-Query</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ComplexValidatorCondition:operator" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Operator</_item>
+											</toolTip>
+											<label>
+												<_item>Operator</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+										<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:Pane:Op:Tab:updateValues" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Werte aktualisieren</_item>
+											</toolTip>
+											<label>
+												<_item>Werte aktualisieren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:Pane:Op:Tab:updateValues:Group:in" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesParams:batchSize" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Anzahl zu verarbeiten</_item>
+											</toolTip>
+											<label>
+												<_item>Anzahl zu verarbeiten</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:Pane:Op:Tab:updateValues:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesResult:numberProcessed" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Anzahl verarbeitet</_item>
+											</toolTip>
+											<label>
+												<_item>Anzahl verarbeitet</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesResult:statusCode" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Statuscode</_item>
+											</toolTip>
+											<label>
+												<_item>Statuscode</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesResult:statusMessage" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Statusmeldung</_item>
+											</toolTip>
+											<label>
+												<_item>Statusmeldung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+ 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:Pane:Op:Tab:validateObject" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekt Validieren</_item>
+											</toolTip>
+											<label>
+												<_item>Objekt Validieren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:Pane:Op:Tab:validateObject:Group:in" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectParams:object" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Objekt</_item>
+											</toolTip>
+											<label>
+												<_item>Objekt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectParams:validationTime" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Zeitpunkt Validierung</_item>
+											</toolTip>
+											<label>
+												<_item>Zeitpunkt Validierung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:Pane:Op:Tab:validateObject:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectResult:isValid" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Ist gültig</_item>
+											</toolTip>
+											<label>
+												<_item>Ist gültig</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectResult:statusCode" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Statuscode</_item>
+											</toolTip>
+											<label>
+												<_item>Statuscode</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectResult:statusMessage" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Statusmeldung</_item>
+											</toolTip>
+											<label>
+												<_item>Statusmeldung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+               </elementDefinition>
               </_content>
             </org.openmdx.ui1.Segment>
           </segment>

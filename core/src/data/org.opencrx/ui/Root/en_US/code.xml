@@ -50,6 +50,63 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:valueRange">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Value Ranges</_item>
+											</toolTip>
+											<label>
+												<_item>Value Ranges</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>Code</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:Segment:objectValidator">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object Validators</_item>
+											</toolTip>
+											<label>
+												<_item>Object Validators</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:CodeValueContainer">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Code Value Container</_item>
+											</toolTip>
+											<label>
+												<_item>Code Value Container</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>CodeValueContainer</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:CodeValueContainer:entry">
 										<_object>
 											<active>true</active>
@@ -66,20 +123,6 @@
 											</order>
 											<maxMember>7</maxMember>
 											<iconKey>CodeValueEntry</iconKey>
-										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
-									<!--Inspector Definitions-->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:CodeValueContainer">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Code Value Container</_item>
-											</toolTip>
-											<label>
-												<_item>Code Value Container</_item>
-											</label>
-											<iconKey>CodeValueContainer</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -101,6 +144,7 @@
 										<_object>
 											<active>true</active>
 											<sortable>false</sortable>
+											<spanRow>5</spanRow>
 											<toolTip>
 												<_item>Name</_item>
 											</toolTip>
@@ -379,6 +423,1036 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definition-->
+									<!-- Grids -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:queryType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Query type</_item>
+											</toolTip>
+											<label>
+												<_item>Query type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:query">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Query</_item>
+											</toolTip>
+											<label>
+												<_item>Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:objectType">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>											
+											<toolTip>
+												<_item>Object types</_item>
+											</toolTip>
+											<label>
+												<_item>Object types</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:identityPattern">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Identity pattern</_item>
+											</toolTip>
+											<label>
+												<_item>Identity pattern</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:storagePath">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Storage path</_item>
+											</toolTip>
+											<label>
+												<_item>Storage path</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:format">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Format</_item>
+											</toolTip>
+											<label>
+												<_item>Format</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:argument">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Arguments</_item>
+											</toolTip>
+											<label>
+												<_item>Arguments</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:nextValue">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Next value</_item>
+											</toolTip>
+											<label>
+												<_item>Next value</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>30</_item>
+												<_item>10</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>25</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:disabled">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object is disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:SequenceBasedValueRange">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Value Range (Sequence)</_item>
+											</toolTip>
+											<label>
+												<_item>Value Range (Sequence)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>SequenceBasedValueRange</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:SequenceBasedValueRange:startValue">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Start value</_item>
+											</toolTip>
+											<label>
+												<_item>Start value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>30</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:SequenceBasedValueRange:incrementValue">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Increment</_item>
+											</toolTip>
+											<label>
+												<_item>Increment</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>30</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:UriBasedValueRange">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Value Range (URI)</_item>
+											</toolTip>
+											<label>
+												<_item>Value Range (URI)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>UriBasedValueRange</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:UriBasedValueRange:sequenceProviderUri">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Sequence provider URI</_item>
+											</toolTip>
+											<label>
+												<_item>Sequence provider URI</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>28</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object Validator</_item>
+											</toolTip>
+											<label>
+												<_item>Object Validator</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>ObjectValidator</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:condition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Conditions</_item>
+											</toolTip>
+											<label>
+												<_item>Conditions</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:mainCondition">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Main condition</_item>
+											</toolTip>
+											<label>
+												<_item>Main condition</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:anchor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Anchor</_item>
+											</toolTip>
+											<label>
+												<_item>Anchor</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:objectType">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Object types</_item>
+											</toolTip>
+											<label>
+												<_item>Object types</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:disabled">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object is disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Basic Validator Condition</_item>
+											</toolTip>
+											<label>
+												<_item>Basic Validator Condition</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>BasicValidatorCondition</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:scope">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Scope</_item>
+											</toolTip>
+											<label>
+												<_item>Scope</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>1</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definition-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ComplexValidatorCondition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Complex Validator Condition</_item>
+											</toolTip>
+											<label>
+												<_item>Complex Validator Condition</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>ComplexValidatorCondition</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ComplexValidatorCondition:operand">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Operands</_item>
+											</toolTip>
+											<label>
+												<_item>Operands</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>85</_item>
+											</order>
+											<maxMember>7</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:validFrom">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Valid from</_item>
+											</toolTip>
+											<label>
+												<_item>Valid from</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:validTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Valid to</_item>
+											</toolTip>
+											<label>
+												<_item>Valid to</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:selector">
+										<_object>
+											<active>true</active>
+											<spanRow>6</spanRow>
+											<toolTip>
+												<_item>Selector</_item>
+											</toolTip>
+											<label>
+												<_item>Selector</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidatorCondition:disabled">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object is disabled</_item>
+											</toolTip>
+											<label>
+												<_item>Disabled</_item>
+											</label>
+											<order>
+												<_item>900100</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:objectQuery">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>Object query</_item>
+											</toolTip>
+											<label>
+												<_item>Object query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:featurePath">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Feature path</_item>
+											</toolTip>
+											<label>
+												<_item>Feature path</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:aggregateFunction">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Aggregate function</_item>
+											</toolTip>
+											<label>
+												<_item>Aggregate function</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:condition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Condition</_item>
+											</toolTip>
+											<label>
+												<_item>Condition</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>23</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:BasicValidatorCondition:conditionArgument">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Condition argument</_item>
+											</toolTip>
+											<label>
+												<_item>Condition argument</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>30</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ComplexValidatorCondition:operator">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Operator</_item>
+											</toolTip>
+											<label>
+												<_item>Operator</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:Pane:Op:Tab:updateValues">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Update Values</_item>
+											</toolTip>
+											<label>
+												<_item>Update Values</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:Pane:Op:Tab:updateValues:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesParams:batchSize">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Batch size</_item>
+											</toolTip>
+											<label>
+												<_item>Batch size</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRange:Pane:Op:Tab:updateValues:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesResult:numberProcessed">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Number processed</_item>
+											</toolTip>
+											<label>
+												<_item>Number processed</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesResult:statusCode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status code</_item>
+											</toolTip>
+											<label>
+												<_item>Status code</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValueRangeUpdateValuesResult:statusMessage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status message</_item>
+											</toolTip>
+											<label>
+												<_item>Status message</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:Pane:Op:Tab:validateObject">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Validate Object</_item>
+											</toolTip>
+											<label>
+												<_item>Validate Object</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:Pane:Op:Tab:validateObject:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectParams:object">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object</_item>
+											</toolTip>
+											<label>
+												<_item>Object</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectParams:include">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Include</_item>
+											</toolTip>
+											<label>
+												<_item>Include</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectParams:exclude">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Exclude</_item>
+											</toolTip>
+											<label>
+												<_item>Exclude</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectParams:selector">
+										<_object>
+											<active>true</active>
+											<spanRow>5</spanRow>
+											<toolTip>
+												<_item>Selector</_item>
+											</toolTip>
+											<label>
+												<_item>Selector</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectParams:validationTime">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Validation time</_item>
+											</toolTip>
+											<label>
+												<_item>Validation time</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ObjectValidator:Pane:Op:Tab:validateObject:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectResult:isValid">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Is valid</_item>
+											</toolTip>
+											<label>
+												<_item>Is valid</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectResult:statusCode">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status code</_item>
+											</toolTip>
+											<label>
+												<_item>Status code</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:code1:ValidateObjectResult:statusMessage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Status message</_item>
+											</toolTip>
+											<label>
+												<_item>Status message</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
 								</elementDefinition>
 							</_content>
 						</org.openmdx.ui1.Segment>

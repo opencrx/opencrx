@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:metadata>
+	<f:event type="preRenderView" listener="#{sessionInfoController.init}" />
+</f:metadata>	
+<h:head>
+</h:head>
+<h:body>	
+	<f:view>
+		<div class="OperationDialogTitle">#{sessionInfoController.toolTip}</div>
+		<h:form id="form">
+			<input id="requestId" name="requestId" type="hidden" value="#{sessionInfoController.requestId}" />
+			<input id="xri" name="xri" type="hidden" value="#{sessionInfoController.objectIdentity}" />
+			<table class="tableLayout">
+				<tr>
+					<td class="cellObject">
+						<div class="fieldGroupName">&nbsp;</div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-12">
+									<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL">
+							        	<h:outputLabel for="provider" value="#{sessionInfoController.metaInf.labelProvider}:" />
+							        	<h:outputText id="provider" value="#{sessionInfoController.providerName}" />
+							        	<h:outputLabel for="segment" value="#{sessionInfoController.metaInf.labelSegment}:" />
+							        	<h:outputText id="segment" value="#{sessionInfoController.segmentName}" />
+							        	<h:outputLabel for="loginPrincipal" value="#{sessionInfoController.metaInf.labelLoginPrincipal}:" />
+							        	<h:outputText id="loginPrincipal" value="#{sessionInfoController.data.loginPrincipal}" />
+							        	<h:outputLabel for="locale" value="#{sessionInfoController.metaInf.labelLocale}:" />
+							        	<h:outputText id="locale" value="#{sessionInfoController.data.locale}" />
+							        	<h:outputLabel for="userRole" value="#{sessionInfoController.metaInf.labelUserRole}:" />
+							        	<h:outputText id="userRole" value="#{sessionInfoController.data.userRole}" />
+							        	<h:outputLabel for="timeZone" value="#{sessionInfoController.metaInf.labelTimeZone}:" />
+							        	<h:outputText id="timeZone" value="#{sessionInfoController.data.timeZone}" />
+							        	<h:outputLabel for="sessionId" value="#{sessionInfoController.metaInf.labelSessionId}:" />
+							        	<h:outputText id="sessionId" value="#{sessionInfoController.data.sessionId}" />
+							        </h:panelGrid>
+							    </div>
+						     </div>
+						</div>
+						<div id="SubmitArea" style="float:left;">
+							<h:commandButton styleClass="btn" style="margin:5px;" value="#{sessionInfoController.app.texts.reloadText}" update="form">
+								<f:ajax execute="form" listener="#{sessionInfoController.doRefresh}" render="form" />							
+							</h:commandButton>
+							<h:commandButton styleClass="btn" style="margin:5px;" value="#{sessionInfoController.app.texts.cancelTitle}" update="form">
+								<f:ajax execute="form" listener="#{sessionInfoController.doCancel}" render="form" />							
+							</h:commandButton>
+		      			</div>
+					</td>
+				</tr>
+			</table>
+		</h:form>
+		<br />
+	</f:view>
+</h:body>
+</html>

@@ -107,7 +107,7 @@ public class Audit_2 extends Indexed_2 {
     public Interaction getInteraction(
         RestConnection connection
     ) throws ResourceException {
-        return new RestInteraction(connection);
+        return new RestInteraction(this, connection);
     }
 
     /**
@@ -286,9 +286,10 @@ public class Audit_2 extends Indexed_2 {
          * @throws ResourceException
          */
         public RestInteraction(
+        	Audit_2 audit,
             RestConnection connection
         ) throws ResourceException {
-            super(connection);
+            super(audit, connection);
         }
 
         /**

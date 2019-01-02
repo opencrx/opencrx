@@ -1370,6 +1370,39 @@ public class Products extends AbstractImpl {
     }
 
     /**
+     * Propagate validity to price level and dependent price levels, recursively.
+     * 
+     * @param priceLevel
+     * @param validFrom
+     * @param validTo
+     * @throws ServiceException
+     */
+    public void propagateValidity(
+        AbstractPriceLevel priceLevel,
+        Date validFrom,
+        Date validTo
+    ) throws ServiceException {
+    	if(validFrom != null) {
+    		priceLevel.setValidFrom(validFrom);
+    	}
+    	if(validTo != null) {
+    		priceLevel.setValidTo(validTo);
+    	}
+        List<AbstractPriceLevel> dependentPriceLevels = this.getDependentPriceLevels(
+            priceLevel, 
+            true // recursive
+        );
+        for(AbstractPriceLevel dependentPriceLevel: dependentPriceLevels) {
+        	if(validFrom != null) {
+        		dependentPriceLevel.setValidFrom(validFrom);
+        	}
+        	if(validTo != null) {
+        		dependentPriceLevel.setValidTo(validTo);
+        	}
+        }
+    }
+
+    /**
      * Create initial prices for price level.
      * 
      * @param priceLevel

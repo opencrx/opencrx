@@ -27,8 +27,8 @@ openCRX is an open source CRM solution that meets the needs of organizations req
 ## Inspect logs
 
     docker logs -f opencrx4
-    docker exec -i opencrx4 cat /root/opt/opencrx/apache-tomee-webprofile-1.7.4/logs/catalina.yyyy-mm-dd.log
-    docker cp opencrx4:/root/opt/opencrx/apache-tomee-webprofile-1.7.4/logs/catalina.yyyy-mm-dd.log .
+    docker exec -i opencrx4 cat /root/opt/opencrx/apache-tomee-plus-7.0.5/logs/catalina.yyyy-mm-dd.log
+    docker cp opencrx4:/root/opt/opencrx/apache-tomee-plus-7.0.5/logs/catalina.yyyy-mm-dd.log .
 
 # How to extend this image
 
@@ -36,4 +36,4 @@ Here is an example of a custom Dockerfile which replaces the default tomee.xml b
 
     FROM opencrx4:latest
     MAINTAINER demo@opencrx.org
-    COPY ./tomee.xml $HOME/opt/opencrx/apache-tomee-webprofile-1.7.4/conf/
+    COPY ./tomee.xml $HOME/opt/opencrx/apache-tomee-plus-7.0.5/conf/

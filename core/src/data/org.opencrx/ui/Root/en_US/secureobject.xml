@@ -156,7 +156,6 @@
 												<_item>0</_item>
 												<_item>1000</_item>
 											</order>
-											<iconKey>OpSetOwningUser</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -243,7 +242,6 @@
 												<_item>0</_item>
 												<_item>1010</_item>
 											</order>
-											<iconKey>OpAddOwningGroup</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -279,7 +277,6 @@
 												<_item>0</_item>
 												<_item>1020</_item>
 											</order>
-											<iconKey>OpRemoveOwningGroup</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -349,7 +346,6 @@
 												<_item>0</_item>
 												<_item>1030</_item>
 											</order>
-											<iconKey>OpRemoveAllOwningGroup</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -402,7 +398,6 @@
 												<_item>0</_item>
 												<_item>1035</_item>
 											</order>
-											<iconKey>OpRemoveAllOwningGroup</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -421,7 +416,6 @@
 												<_item>0</_item>
 												<_item>1040</_item>
 											</order>
-											<iconKey>OpSetAccessLevel</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -529,6 +523,53 @@
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:assertOwningGroup">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Assert Owning Group</_item>
+											</toolTip>
+											<label>
+												<_item>Assert Owning Group</_item>
+											</label>
+											<order>
+												<_item>600</_item>
+												<_item>0</_item>
+												<_item>1050</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:assertOwningGroup:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:assertOwningGroup:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:checkPermissions">
 										<_object>
 											<active>true</active>
@@ -541,9 +582,8 @@
 											<order>
 												<_item>600</_item>
 												<_item>0</_item>
-												<_item>1050</_item>
+												<_item>1060</_item>
 											</order>
-											<iconKey>OpCheckPermissions</iconKey>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -649,10 +689,10 @@
 											<active>true</active>
 											<spanRow>10</spanRow>
 											<toolTip>
-												<_item>Membership for read</_item>
+												<_item>Granted permissions for read</_item>
 											</toolTip>
 											<label>
-												<_item>Membership for read</_item>
+												<_item>Granted permissions for read</_item>
 											</label>
 											<order>
 												<_item>0</_item>
@@ -667,10 +707,10 @@
 											<active>true</active>
 											<spanRow>10</spanRow>
 											<toolTip>
-												<_item>Membership for update</_item>
+												<_item>Granted permissions for update</_item>
 											</toolTip>
 											<label>
-												<_item>Membership for update</_item>
+												<_item>Granted permissions for update</_item>
 											</label>
 											<order>
 												<_item>0</_item>
@@ -685,15 +725,34 @@
 											<active>true</active>
 											<spanRow>10</spanRow>
 											<toolTip>
-												<_item>Membership for delete</_item>
+												<_item>Granted permissions for delete</_item>
 											</toolTip>
 											<label>
-												<_item>Membership for delete</_item>
+												<_item>Granted permissions for delete</_item>
 											</label>
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>60</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:grantedPermissionsAll">
+										<_object>
+											<active>true</active>
+											<spanRow>10</spanRow>
+											<toolTip>
+												<_item>All granted permissions</_item>
+											</toolTip>
+											<label>
+												<_item>All granted permissions</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
 											</order>
 										</_object>
 										<_content/>

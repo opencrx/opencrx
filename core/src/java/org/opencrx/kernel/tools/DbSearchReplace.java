@@ -69,8 +69,10 @@ import java.util.regex.Pattern;
 
 import org.opencrx.kernel.utils.DbSchemaUtils;
 import org.openmdx.application.configuration.Configuration;
-import org.openmdx.application.dataprovider.layer.persistence.jdbc.Database_1;
+import org.openmdx.application.dataprovider.cci.SharedConfigurationEntries;
 import org.openmdx.application.dataprovider.layer.persistence.jdbc.LayerConfigurationEntries;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.Database_2;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.Database_2Configuration;
 import org.openmdx.base.exception.ServiceException;
 
 public class DbSearchReplace {
@@ -148,12 +150,12 @@ public class DbSearchReplace {
 		PrintStream out
 	) throws SQLException {
 		String currentStatement = null;
-		Database_1 db = new Database_1();
+		Database_2 db = new Database_2();
 		try {
 			Configuration configuration = new Configuration();
 			configuration.values(LayerConfigurationEntries.BOOLEAN_TYPE).put(0, LayerConfigurationEntries.BOOLEAN_TYPE_STANDARD);
-			configuration.values(LayerConfigurationEntries.DATABASE_CONNECTION_FACTORY);
-			db.activate((short) 0, configuration, null);
+			configuration.values(SharedConfigurationEntries.DATABASE_CONNECTION_FACTORY);
+			Database_2Configuration.activate(db, configuration);
 		} catch (Exception e) {
 			out.println("Can not activate database plugin: " + e.getMessage());
 		}
@@ -217,7 +219,7 @@ public class DbSearchReplace {
 								PreparedStatement t = conn.prepareStatement(currentStatement = statement);
 								for(int j = 0; j < statementParameters.size(); j++) {
 									Object parameter = statementParameters.get(j);
-									db.getDelegate().setPreparedStatementValue(conn, t, j + 1, parameter);
+									db.setPreparedStatementValue(conn, t, j + 1, parameter);
 								}
 								t.executeUpdate();
 								t.close();

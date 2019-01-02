@@ -71,7 +71,6 @@ public class SecureObjectImpl
 	extends AbstractObject<S,N,C>
 	implements StoreCallback {
 	
-    //-----------------------------------------------------------------------
     public SecureObjectImpl(
         S same,
         N next
@@ -79,7 +78,12 @@ public class SecureObjectImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Set owning user.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.base.jmi1.ModifySecureObjectResult setOwningUser(
         org.opencrx.kernel.base.jmi1.SetOwningUserParams params
     ) {
@@ -89,7 +93,8 @@ public class SecureObjectImpl
             	this.sameObject(),
             	params.getUser(),
             	params.getMode(),
-            	report
+            	report,
+            	null // filter
             );
             return Structures.create(
             	org.opencrx.kernel.base.jmi1.ModifySecureObjectResult.class, 
@@ -100,7 +105,12 @@ public class SecureObjectImpl
         }         
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Add owning groups.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.base.jmi1.ModifySecureObjectResult addOwningGroup(
         org.opencrx.kernel.base.jmi1.ModifyOwningGroupParams params
     ) {
@@ -110,7 +120,8 @@ public class SecureObjectImpl
             	this.sameObject(),
             	params.getGroup(),
             	params.getMode(),
-            	report
+            	report,
+            	null // filter
             );
             return Structures.create(
             	org.opencrx.kernel.base.jmi1.ModifySecureObjectResult.class, 
@@ -121,7 +132,12 @@ public class SecureObjectImpl
         }            
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Remove owning groups.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.base.jmi1.ModifySecureObjectResult removeOwningGroup(
         org.opencrx.kernel.base.jmi1.ModifyOwningGroupParams params
     ) {
@@ -131,7 +147,8 @@ public class SecureObjectImpl
             	this.sameObject(),
             	params.getGroup(),
             	params.getMode(),
-            	report
+            	report,
+            	null // filter
             );
             return Structures.create(
             	org.opencrx.kernel.base.jmi1.ModifySecureObjectResult.class, 
@@ -142,7 +159,12 @@ public class SecureObjectImpl
         }            
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Remove all owning groups.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.base.jmi1.ModifySecureObjectResult removeAllOwningGroup(
         org.opencrx.kernel.base.jmi1.RemoveAllOwningGroupParams params
     ) {
@@ -151,7 +173,8 @@ public class SecureObjectImpl
             SecureObject.getInstance().removeAllOwningGroup(
             	this.sameObject(),
             	params.getMode(),
-            	report
+            	report,
+            	null // filter
             );
             return Structures.create(
             	org.opencrx.kernel.base.jmi1.ModifySecureObjectResult.class, 
@@ -162,7 +185,12 @@ public class SecureObjectImpl
         }            
     }   
     
-    //-----------------------------------------------------------------------
+    /**
+     * Set access level.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.base.jmi1.ModifySecureObjectResult setAccessLevel(
         org.opencrx.kernel.base.jmi1.SetAccessLevelParams params
     ) {
@@ -174,7 +202,8 @@ public class SecureObjectImpl
                 params.getAccessLevelUpdate(),
                 params.getAccessLevelDelete(),
                 params.getMode(),
-                report
+                report,
+                null // filter
             );
             return Structures.create(
             	org.opencrx.kernel.base.jmi1.ModifySecureObjectResult.class, 
@@ -185,18 +214,24 @@ public class SecureObjectImpl
         }            
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Replace owning group.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.base.jmi1.ModifySecureObjectResult replaceOwningGroup(
         org.opencrx.kernel.base.jmi1.ModifyOwningGroupsParams params
     ) {
         try {
             List<String> report = new ArrayList<String>();
             List<org.opencrx.security.realm1.jmi1.PrincipalGroup> groups = params.getGroup();            
-            SecureObject.getInstance().replaceOwningGroups(
+            SecureObject.getInstance().replaceOwningGroup(
             	this.sameObject(),
             	groups,
             	params.getMode(),
-            	report
+            	report,
+            	null // filter
             );
             return Structures.create(
             	org.opencrx.kernel.base.jmi1.ModifySecureObjectResult.class, 
@@ -207,7 +242,26 @@ public class SecureObjectImpl
         }                   
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Assert owning group.
+     * 
+     * @return
+     */
+    public org.openmdx.base.jmi1.Void assertOwningGroup(
+    ) {
+        try {
+            SecureObject.getInstance().assertOwningGroup(
+            	this.sameObject()
+            );
+            return this.newVoid();
+        } catch(ServiceException e) {
+            throw new JmiServiceException(e);
+        }    	
+    }
+
+	/* (non-Javadoc)
+	 * @see org.openmdx.base.aop2.AbstractObject#jdoPreStore()
+	 */
 	@Override
     public void jdoPreStore(
     ) {
@@ -216,8 +270,7 @@ public class SecureObjectImpl
     			this.sameObject() 
     		);
     		super.jdoPreStore();
-    	}
-    	catch(ServiceException e) {
+    	} catch(ServiceException e) {
     		throw new JDOUserException(
     			"jdoPreStore failed",
     			e,

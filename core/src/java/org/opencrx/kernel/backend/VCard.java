@@ -403,7 +403,7 @@ public class VCard extends AbstractImpl {
         org.opencrx.kernel.code1.jmi1.Segment codeSegment = null;
         try {
         	codeSegment = (org.opencrx.kernel.code1.jmi1.Segment)pm.getObjectById(
-        		new Path("xri://@openmdx*org.opencrx.kernel.code1").getDescendant("provider", account.refGetPath().get(2), "segment", "Root")        		
+        		new Path("xri://@openmdx*org.opencrx.kernel.code1").getDescendant("provider", account.refGetPath().getSegment(2).toClassicRepresentation(), "segment", "Root")        		
         	);
         } catch(Exception e) {}    	
     	boolean isContact = account instanceof Contact;
@@ -639,7 +639,7 @@ public class VCard extends AbstractImpl {
             // Empty template
             UUID uid = null;
             try {
-                uid = UUIDConversion.fromString(account.refGetPath().getBase());
+                uid = UUIDConversion.fromString(account.refGetPath().getLastSegment().toClassicRepresentation());
             } catch(Exception e) {
                 uid = UUIDs.newUUID();
             }
@@ -1171,7 +1171,7 @@ public class VCard extends AbstractImpl {
         String name = VCardField.getFieldValue("N", vcard);
         if(isContact) {
         	Contact contact = (Contact)account;
-            if((name != null) && (name.indexOf(";") >= 0)) {
+            if(name != null) {
                 String[] nameTokens = new String[]{"", "", "", "", ""};
                 StringTokenizer tokenizer = new StringTokenizer(name, ";", true);
                 int ii = 0;
@@ -1477,6 +1477,10 @@ public class VCard extends AbstractImpl {
         }
         // update telHomeVoice
         s = VCardField.getFieldValue("TEL", "TYPE", Arrays.asList("HOME", "VOICE"), vcard);
+        if(s == null || s.isEmpty()) {
+        	// VOICE as default fall-back
+            s = VCardField.getFieldValue("TEL", "TYPE", Arrays.asList("HOME"), vcard);
+        }
         if((s != null) && !s.isEmpty()) {
             if(telHomeVoice == null) {
                 telHomeVoice = pm.newInstance(PhoneNumber.class);
@@ -1496,6 +1500,10 @@ public class VCard extends AbstractImpl {
         }
         // update telWorkVoice
         s = VCardField.getFieldValue("TEL", "TYPE", Arrays.asList("WORK", "VOICE"), vcard);
+        if(s == null || s.isEmpty()) {
+        	// VOICE as default fall-back
+            s = VCardField.getFieldValue("TEL", "TYPE", Arrays.asList("WORK"), vcard);        	
+        }
         if((s != null) && !s.isEmpty()) {        
             if(telWorkVoice == null) {
             	telWorkVoice = pm.newInstance(PhoneNumber.class);
@@ -1553,6 +1561,10 @@ public class VCard extends AbstractImpl {
         }
         // update telCellVoice
         s = VCardField.getFieldValue("TEL", "TYPE", Arrays.asList("CELL", "VOICE"), vcard);
+        if(s == null || s.isEmpty()) {
+        	// VOICE as default fall-back
+            s = VCardField.getFieldValue("TEL", "TYPE", Arrays.asList("CELL"), vcard);        	
+        }
         if((s != null) && !s.isEmpty()) {                
             if(telCellVoice == null) {
             	telCellVoice = pm.newInstance(PhoneNumber.class);

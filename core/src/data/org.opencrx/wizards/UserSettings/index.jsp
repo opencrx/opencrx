@@ -57,9 +57,8 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
 org.opencrx.kernel.generic.*,
-org.opencrx.kernel.portal.wizard.*,
+org.opencrx.portal.wizard.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
 org.openmdx.base.exception.*,
@@ -270,7 +269,7 @@ org.openmdx.base.naming.*
 						<td style="text-align:center;">Removal</td>
 					</tr>
 <%
-					org.opencrx.kernel.workflow1.jmi1.Segment workflowSegment = Workflows.getInstance().getWorkflowSegment(pm, wc.getProviderName(), wc.getSegmentName());
+					org.opencrx.kernel.workflow1.jmi1.Segment workflowSegment = org.opencrx.kernel.backend.Workflows.getInstance().getWorkflowSegment(pm, wc.getProviderName(), wc.getSegmentName());
 					org.opencrx.kernel.workflow1.cci2.TopicQuery topicQuery =
 						(org.opencrx.kernel.workflow1.cci2.TopicQuery)pm.newQuery(org.opencrx.kernel.workflow1.jmi1.Topic.class);
 					topicQuery.orderByName().ascending();

@@ -11,7 +11,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2011-2013, CRIXP Corp., Switzerland
+ * Copyright (c) 2011-2018, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -58,8 +58,7 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
-org.opencrx.kernel.portal.wizard.*,
+org.opencrx.portal.wizard.*,
 org.opencrx.kernel.generic.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
@@ -167,15 +166,23 @@ to copy all tables or enter a list of RegExp (1 RegExp per line) to specify the 
 OOCKE1_ACCOUNT
 OOCKE1_CONTRACT*
 ">
-								<td>Include Objects:</td>
+								<td>Include objects:</td>
 								<td><textarea rows="10" name="includeDbObjects" id="includeDbObjects" tabIndex="9020" style="width:50em;"><%=  wc.getFormFields().getIncludeDbObjects() == null ? "" :  wc.getFormFields().getIncludeDbObjects() %></textarea></td>
 							</tr>
 							<tr title="enter a list of RegExp (1 RegExp per line) to specify the tables that should NOT be copied, e.g.
 OOCKE1_PRODUCT*
 OOMSE2*
 ">
-								<td>Exclude Objects:</td>
-								<td><textarea rows="10" name="excludeObjects" id="excludeObjects" tabIndex="9021" style="width:50em;"><%=  wc.getFormFields().getExcludeDbObjects() == null ? "" :  wc.getFormFields().getExcludeDbObjects() %></textarea></td>
+								<td>Exclude objects:</td>
+								<td><textarea rows="10" name="excludeDbObjects" id="excludeDbObjects" tabIndex="9021" style="width:50em;"><%=  wc.getFormFields().getExcludeDbObjects() == null ? "" :  wc.getFormFields().getExcludeDbObjects() %></textarea></td>
+							</tr>
+							<tr title="enter a list of RegExp (1 RegExp per line) patterns for column value replacements, e.g. «/CRX»">
+								<td>Value patterns:</td>
+								<td><textarea rows="10" name="valuePatterns" id="valuePatterns" tabIndex="9021" style="width:50em;"><%=  wc.getFormFields().getValuePatterns() == null ? "" :  wc.getFormFields().getValuePatterns() %></textarea></td>
+							</tr>
+							<tr title="enter a list value replacements, e.g. «/MYAPP»">
+								<td>Value replacements:</td>
+								<td><textarea rows="10" name="valueReplacements" id="valueReplacements" tabIndex="9022" style="width:50em;"><%=  wc.getFormFields().getValueReplacements() == null ? "" :  wc.getFormFields().getValueReplacements() %></textarea></td>
 							</tr>
 						</table>
 						<div style="float:left;">															

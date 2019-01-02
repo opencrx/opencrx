@@ -63,7 +63,6 @@ org.openmdx.base.accessor.jmi.cci.*,
 org.openmdx.base.naming.*,
 org.openmdx.base.exception.*,
 org.openmdx.portal.servlet.*,
-org.opencrx.kernel.backend.*,
 org.opencrx.kernel.generic.*,
 org.openmdx.kernel.log.*
 " %>
@@ -75,7 +74,7 @@ org.openmdx.kernel.log.*
 		String documentName,
 		org.opencrx.kernel.document1.jmi1.Segment segment
 	) throws ServiceException {
-		return Documents.getInstance().findDocument(
+		return org.opencrx.kernel.backend.Documents.getInstance().findDocument(
 			documentName,
 			segment
 		);
@@ -142,7 +141,7 @@ org.openmdx.kernel.log.*
 				RefObject_1_0 obj = (RefObject_1_0)pm.getObjectById(new Path(xri));
 				String providerName = obj.refGetPath().get(2);
 				String segmentName = obj.refGetPath().get(4);
-				org.opencrx.kernel.document1.jmi1.Segment documentSegment = Documents.getInstance().getDocumentSegment(pm, providerName, segmentName);
+				org.opencrx.kernel.document1.jmi1.Segment documentSegment = org.opencrx.kernel.backend.Documents.getInstance().getDocumentSegment(pm, providerName, segmentName);
 				List<String> documentNames = new ArrayList<String>();
 				documentNames.add(MESSAGE_OF_THE_DAY_DOCUMENT_NAME);
 				String messageOfTheDay = "";

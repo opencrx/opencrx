@@ -1,4 +1,169 @@
 ﻿==============================================================================
+Version 4.2.0                                                       2018-12-31
+==============================================================================
+
+1.    NEW FEATURES
+
+      CR10014852
+      WorkList. Work lists allow to create static snapshots of object collections
+      for a given set of (changing) object collections (feeds), e.g. filtered
+      objects defined by a saved search.
+
+      CR10014845
+      Product, Document, CompoundBooking are BookingOrigins.
+      
+      CR10014839
+      Multiple filter property 'owner'. The AccessControl plug-in overrides a
+      client-supplied property «owner» with its own principals derived from
+      the security settings. AccessControl now adds a new property «owner»
+      which is then ANDed with the supplied property. 
+
+      CR10014724
+      ObjectValidator. Generic pattern for validating objects.
+      ObjectValidator::validateObject() works an a given object as follows:
+      * evaluate ::mainCondition recursively
+      * if condition is of type ComplexValidatorCondition evaluate all operands and
+        apply ::operator (AND, OR)
+      * if condition is of type BasicValidatorCondition evaluate as follows:
+        - execute ::query → «list» ContextCapable
+        - for each of these objects get the feature value defined by ::featurePath.
+          The format of ::featurePath is a «.»-separated list of feature names,
+          e.g. «activityNumber», «processState.name». The values are retrieved with
+          .refGetValue(featureName). If the (intermediate) value is of type
+          RefObject it is matched against ::scope. If the value is not in ::scope it
+          is ignored. The values are sorted by ::scope.
+        - apply ::aggregateFunction (count, sum, min, max, stringify, ...) on these
+          values which results in a value of primitive type.
+        - apply ::condition (equalTo, lessThan, greaterThan, between, matches, ...)
+          with ::conditionParameter.     
+     
+      CR10014667
+      PriceLevel::propgateValidity. Propagate ::validFrom, ::validTo to dependent
+      price levels, recursively. At the same time remove grid operations
+      PriceLevelCloneValidToAction, PriceLevelResetValidToAction. 
+      
+      CR10014695
+      ValueRange. The class code1:ValueRange allows to manage value ranges
+      for the attributes of a given object set. The operation updateValues
+      performs the following operations:
+      * Retrieve all objects of the extent (specified by ::identityPattern,
+        ::queryType, ::objectType, ::query) ordered by createdAt not having a value at
+        ::storagePath. ::query is optional. The default value is '{::storagePath}().isNull();',
+        i.e. select all objects having not value set at ::storagePath.
+      * For each of these objects get a value from the value provider. The value
+        provider must be implemented by the concrete sub-class of ValueRange.
+        The SequenceBasedValueRange implements the SequenceBasedValueProvider
+        which returns values starting from a ::startValue and then are incremented
+        by ::increment.
+      * Format the value with String.format(::format, ::argument[]) and save it 
+        to object's ::storagePath. ::argument is a list of feature paths. A feature
+        path is a «.»-separated list of feature names, e.g. «name», «processState.name».
+        In addition the literals $nextValue and $date are supported.
+        NOTE: The values are retrieved with .refGetValue(featureName).
+      * Update ::nextValue      
+      updateValues() takes a batch size as parameter.
+      Example:
+      * Name: CustomerNumber
+      * Query type: org:opencrx:kernel:account1:Contact
+      * Object type: []
+      * Query: null (→ default aliasName().isNull();)
+      * Storage path: aliasName
+      * Identity pattern: xri://@openmdx*org.opencrx.kernel.account1/provider/:*/segment/:*/account/:*
+      * Format: P-%07d-S
+      * Arguments: [$currentValue]
+      * Start value: 1000000
+      * Increment: 1
+      * Next value: 1000000
+
+      CR10014709
+      ReferenceProperty has «weight». The attribute ReferenceProperty::weight
+      allows to assign a numeric weight for the referenced object. 
+
+      CR10014688
+      code1:AbstractEntry is a PropertySet.
+      
+      CR10014673
+      DbCopyWizard: value replacements. Allow to specify a list of value
+      patterns / replacements. E.g. with patterns such as «TEST» and the 
+      corresponding replacement «MYCOMPANY», a database can be migrated from
+      segment «TEST» to segment «MYCOMPANY».
+
+      CR10014554
+      Property is UserDefined. Class Property has new attributes validFrom,
+      validTo and inherits from UserDefined. 
+
+      CR10014413
+      Booking::bookingText. Store bookingText as text and reference when
+      booking is created.  
+
+      CR10014412
+      Shared association ProductClassificationHasAssignedProduct.
+
+      CR10014100
+      Indexed::searchFields. Generic search fields searchString0..9,
+      searchNumber0..9, searchDateTime0..9. These search fields can be
+      used to store denormalized values in order to support fast queries
+      and sorting. The search fields are typically updated by SQL triggers
+      but can also be updated by a custom-specific implementation of
+      Indexed::updateIndex().
+
+      CR10014050
+      contract1: PaymentRecord. Contracts have PaymentRecords which
+      is a BookingOrigin. PaymentRecords track inbound and outbound
+      payments.
+
+      CR10014030
+      New operation SecureObject::assertOwningGroups allows to implement
+      custom-specific logic in order to assert owning groups.
+ 
+      CR10013963
+      checkPermissions: Return all granted permissions in addition to granted
+      read, update and delete permissions.
+
+      CR10013878
+      UriAddress. Support for schema and URI components according to 
+      * https://tools.ietf.org/html/rfc3986 
+      * https://docs.oracle.com/javase/7/docs/api/java/net/URI.html
+      
+      CR10013842
+      Support TomEE 7.0.4. Configure CredentialHandler in context.xml of all
+      web applications. This allows to properly digest the b64-encoded, MD5-
+      hashed credentials delivered by the database view oomse2_tobj_users.
+
+      CR10013611
+      CodeValueEntry::orderIndex. Allows custom-ordering of code entries.
+
+2.    CHANGES
+
+2.0.  CHANGED FEATURES
+
+      CR10014792
+      Deprecate gateway ejb. The gateway ejb is not supported anymore. Use native Java
+      or REST API.
+
+      CR10014793
+      Move wizard helper classes to WEB-INF/classes. Move classes previously located in
+      opencrx/core/src/java/org/opencrx/kernel/portal/wizard to
+      opencrx/core/src/data/org.opencrx/WEB-INF/classes/org/opencrx/portal/wizard/. 
+      Compile these classes in target "ant assemble" instead of "ant deliverables".
+
+2.1.  FIXED BUGS
+      
+      CR10014625
+      AccessControl supports query consumer pattern.
+      
+      CR10014324
+      depot.assertReports(assertReportParams) failes with java.lang.UnsupportedOperationException 
+      in case of non-empty includePosition, excludePosition0 parameters. 
+
+2.2   REMOVED FEATURES
+
+      CR10013837
+      disableObject / enableObject in one UOW. disableObject / enableObject 
+      splits operation into multiple, separate UOWs. This behaviour is
+      deprecated.
+
+﻿==============================================================================
 Version 4.1.0                                                       2017-10-12
 ==============================================================================
 

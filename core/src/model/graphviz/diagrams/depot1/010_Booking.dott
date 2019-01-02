@@ -37,6 +37,7 @@ digraph "Diagram Booking [Package org:opencrx:kernel:depot1]" {
 	  rank=same;
 	  LAYER3[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:depot1:SingleBooking,compartments=true,width=8]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:BookingText,compartments=false,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:depot1:SimpleBooking,compartments=true,width=5]};
 	}
 	{
@@ -57,6 +58,7 @@ digraph "Diagram Booking [Package org:opencrx:kernel:depot1]" {
 	${ASSOCIATION[name=org:opencrx:kernel:depot1:CompoundBookingHasBooking,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:depot1:DepotPositionHasSimpleBooking,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:depot1:CreatedByWfProcessInstance,style=invis]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:BookingHasBookingText,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:home1:WfProcessInstanceHasChildren,style=invis]}
 	${ASSOCIATION[name=org:opencrx:kernel:home1:WfProcessInstanceHasParent,style=invis]}
 	${ASSOCIATION[name=org:opencrx:kernel:uom1:UomIsBasedOnUom,style=invis]}

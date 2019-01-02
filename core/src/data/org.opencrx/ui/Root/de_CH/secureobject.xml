@@ -397,13 +397,13 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:membershipForRead" _operation="create">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:grantedPermissionsRead" _operation="create">
 										<_object>
 											<toolTip>
-												<_item>Mitgliedschaft für anschauen</_item>
+												<_item>Bewilligung erteilt 'Anschauen'</_item>
 											</toolTip>
 											<label>
-												<_item>Mitgliedschaft für anschauen</_item>
+												<_item>Bewilligung erteilt 'Anschauen'</_item>
 											</label>
 										</_object>
 										<_content/>
@@ -411,10 +411,10 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:membershipForUpdate" _operation="create">
 										<_object>
 											<toolTip>
-												<_item>Mitgliedschaft für ändern</_item>
+												<_item>Bewilligung erteilt 'Ändern'</_item>
 											</toolTip>
 											<label>
-												<_item>Mitgliedschaft für ändern</_item>
+												<_item>Bewilligung erteilt 'Ändern'</_item>
 											</label>
 										</_object>
 										<_content/>
@@ -422,15 +422,26 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:membershipForDelete" _operation="create">
 										<_object>
 											<toolTip>
-												<_item>Mitgliedschaft für löschen</_item>
+												<_item>Bewilligung erteilt 'Löschen'</_item>
 											</toolTip>
 											<label>
-												<_item>Mitgliedschaft für löschen</_item>
+												<_item>Bewilligung erteilt 'Löschen'</_item>
 											</label>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsResult:grantedPermissionsAll" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Alle Bewilligungen erteilt</_item>
+											</toolTip>
+											<label>
+												<_item>Alle Bewilligungen erteilt</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                 </elementDefinition>
               </_content>
             </org.openmdx.ui1.Segment>

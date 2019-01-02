@@ -143,7 +143,7 @@
 												<_item>0</_item>
 												<_item>60</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>11</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -179,7 +179,7 @@
 												<_item>0</_item>
 												<_item>70</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>11</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -231,7 +231,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>8</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -702,6 +702,23 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>60</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Booking:bookingText">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Booking text</_item>
+											</toolTip>
+											<label>
+												<_item>Booking text</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
 											</order>
 										</_object>
 										<_content />
@@ -2396,7 +2413,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>11</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -2665,7 +2682,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>8</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -3036,11 +3053,16 @@
 											<label>
 												<_item>Description</_item>
 											</label>
-											<order>
+											<orderFieldGroup>
 												<_item>0</_item>
 												<_item>10</_item>
 												<_item>10</_item>
-											</order>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>25</_item>
+											</orderObjectContainer>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -3060,8 +3082,8 @@
 											</orderFieldGroup>
 											<orderObjectContainer>
 												<_item>0</_item>
-												<_item>10</_item>
-												<_item>5</_item>
+												<_item>0</_item>
+												<_item>55</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content />
@@ -3135,7 +3157,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>11</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -3687,7 +3709,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>8</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -3939,7 +3961,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>11</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -4503,7 +4525,7 @@
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>5</maxMember>
+											<maxMember>6</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -4776,6 +4798,7 @@
 												<_item>40</_item>
 											</order>
 										</_object>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:rate">
 										<_object>
@@ -4800,6 +4823,7 @@
 												<_item>25</_item>
 											</orderObjectContainer>
 										</_object>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:fxRateType">
 										<_object>
@@ -4821,6 +4845,7 @@
 												<_item>26</_item>
 											</orderObjectContainer>
 										</_object>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:valueDate">
 										<_object>
@@ -4842,6 +4867,7 @@
 												<_item>28</_item>
 											</orderObjectContainer>
 										</_object>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:FxRate:fxRateProvider">
 										<_object>
@@ -4858,10 +4884,10 @@
 												<_item>10</_item>
 											</order>
 										</_object>
+										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- Operations -->
-										<_content />
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReport:Pane:Op:Tab:refreshReport">
 										<_object>
 											<active>true</active>

@@ -2,12 +2,12 @@
 <!--
  * =======================================================================
  * = Description: openCRX/Core build.xml
- * = Copyright:   (c) 2003-2017 CRIXP AG
+ * = Copyright:   (c) 2003-2018 CRIXP AG
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2017, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2018, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -58,7 +58,7 @@
 	<!-- Slash separated platform list, the last entry being the default -->
 	<property name="project.platform.list" value="jre-1.8"/>
 	<!-- project imports -->
-	<property name="openmdx.version" value="2.15.7"/>
+	<property name="openmdx.version" value="2.16.2"/>
 	<!-- openMDX ant library -->
 	<import file="../opt/openmdx-${openmdx.version}/ant/etc/ant/build-properties.xml" optional="true"/>
 	<import file="../opt/openmdx-${openmdx.version}/ant/etc/ant/build-library.xml" optional="true"/>
@@ -173,7 +173,7 @@
 		<pathelement location="../opt/hsqldb/${build.target.platform}/hsqldb-2/lib/hsqldb.jar"/>
 	</path>
 	<path id="utilities.bin.classpath">
-		<path refid="project.lib.classpath"/>
+		<path refid="project.bin.classpath"/>
 		<pathelement location="../${build.java.platform}/core/lib/opencrx-kernel.jar"/>
 		<pathelement location="../${build.java.platform}/core/lib/opencrx-extension.jar"/>
 		<pathelement location="../${build.java.platform}/core/lib/opencrx-application.jar"/>
@@ -235,9 +235,9 @@
 			<replacestring from="org.opencrx.core.CRX" to="org.opencrx.core.${provider.name}"/>
 			<replacestring from="CRX.jdbc" to="${provider.name}.jdbc"/>
 			<replacestring from="org/opencrx/core/CRX" to="org/opencrx/core/${provider.name}"/>
-			<replacestring from="opencrx-core-CRX-App" to="opencrx-core-${provider.name}"/>
+			<replacestring from="opencrx-core-CRX-App" to="opencrx-core-${provider.name}-App"/>
 			<replacestring from="opencrx_core_CRX" to="opencrx_core_${provider.name}"/>
-			<replacestring from="opencrx-core-CRX-Web" to="opencrx-core-${web.application.name}"/>
+			<replacestring from="opencrx-core-CRX-Web" to="opencrx-core-${web.application.name}-Web"/>
 			<replacestring from="opencrx-core-CRX" to="opencrx-core-${web.application.name}"/>
 			<replacestring from="opencrx-ical-CRX" to="opencrx-ical-${web.application.name}"/>
 			<replacestring from="opencrx-caldav-CRX" to="opencrx-caldav-${web.application.name}"/>
@@ -553,14 +553,6 @@
 		</antcall>
 	</target>
 	<!-- ******************************************************************* -->
-	<!-- * validate-war -->
-	<!-- ******************************************************************* -->
-	<target name="validate-war" description="Validates the WAR modules" depends="build-init">
-		<antcall target="-validate-war-">
-			<param name="module.name" value="opencrx-core-${web.application.name}/opencrx-core-${web.application.name}.war"/>
-		</antcall>
-	</target>	
-	<!-- ******************************************************************* -->
 	<!-- * -custom-opencrx-core-ear- -->
 	<!-- ******************************************************************* -->
 	<target name="-custom-opencrx-core-ear-" unless="ear.is.up-to-date">
@@ -569,40 +561,36 @@
 		<mkdir dir="${build.dir}/module/${app.target.name}"/>
 		<mkdir dir="${deliver.dir}/deployment-unit"/>
 		<echo>WEB-INF dir: ${data.home}/src/data/${data.dir.base}/WEB-INF</echo>
-		<!-- gateway.jar -->
-		<openmdx:archive format="jar" destfile="${build.dir}/module/${app.target.name}/gateway.jar" duplicate="preserve">
-			<openmdx:archivemanifest refid="project.manifest"/>
-			<manifest>
-				<attribute name="Specification-Title" value="${project.specification.title} EJB gateway"/>
-				<attribute name="Implementation-Title" value="EJB gateway for ${build.target.platform}"/>
-			</manifest>
-			<zipfileset dir="${ear.home}/${app.source.name}.ear/gateway.jar/META-INF" prefix="META-INF">
-				<patternset refid="jboss-3.edition.pattern"/>
-				<patternset refid="weblogic-7.edition.pattern"/>
-				<patternset refid="websphere-5.edition.pattern"/>
-				<patternset refid="sun-8.edition.pattern"/>
-				<patternset refid="orion-9.edition.pattern"/>
-				<patternset refid="jonas-4.edition.pattern"/>
-				<patternset refid="openejb-3.edition.pattern"/>
-			</zipfileset>
-			<zipfileset dir="src/ear/${app.source.name}.ear/gateway.jar/META-INF" prefix="META-INF">
-				<patternset refid="jboss-3.edition.pattern"/>
-				<patternset refid="weblogic-7.edition.pattern"/>
-				<patternset refid="websphere-5.edition.pattern"/>
-				<patternset refid="sun-8.edition.pattern"/>
-				<patternset refid="orion-9.edition.pattern"/>
-				<patternset refid="jonas-4.edition.pattern"/>
-				<patternset refid="openejb-3.edition.pattern"/>
-			</zipfileset>
-			<openmdx:archivefilterchain refid="archive.filter"/>
-		</openmdx:archive>
-		<!-- opencrx-core-CRX.war -->		
+		<!-- opencrx-core-CRX.war -->
+		<mkdir dir="${build.dir}/module/${app.target.name}/${app.target.name}/WEB-INF/classes"/>
+		<javac
+			destdir="${build.dir}/module/${app.target.name}/${app.target.name}/WEB-INF/classes"
+			debug="${build.debug}"
+			encoding="UTF-8"
+			optimize="${build.optimize}"
+			fork="true"
+			memoryMaximumSize="${build.memory.limit}"
+			classpathref="utilities.bin.classpath" 
+			source="${build.source.version}"
+			target="${build.target.version}"
+			includeantruntime="${build.include.ant.runtime}"
+		>
+			<src>
+				<pathelement location="${data.home}/src/data/${data.dir}/WEB-INF/classes"/>
+				<pathelement location="src/data/${data.dir.generic}/WEB-INF/classes"/>
+			</src>
+			<patternset refid="build.exclude"/>
+		</javac>
 		<openmdx:archive format="war" destfile="${build.dir}/module/${app.target.name}/${app.target.name}.war" duplicate="preserve">
 			<openmdx:archivemanifest refid="project.manifest"/>
 			<manifest>
 				<attribute name="Specification-Title" value="${project.specification.title} WAR"/>
 				<attribute name="Implementation-Title" value="WAR for ${build.target.platform}"/>
 			</manifest>
+			<!-- WEB-INF/classes -->
+			<zipfileset dir="${build.dir}/module/${app.target.name}/${app.target.name}/WEB-INF/classes" prefix="WEB-INF/classes">
+				<include name="**/*.class"/>
+			</zipfileset>
 			<!-- _style -->
 			<zipfileset dir="${data.home}/src/data/${data.dir}/_style" prefix="_style">
 				<include name="**/*.*"/>

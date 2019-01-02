@@ -18,8 +18,9 @@
 			userNameCol="principal_name" 
 			userCredCol="passwd"
 			userRoleTable="OOMSE2_TOBJ_ROLES" 
-			roleNameCol="role_name" 
-		/>
+			roleNameCol="role_name" >
+			<CredentialHandler className="org.apache.catalina.realm.MessageDigestCredentialHandler" algorithm="MD5" />
+		</Realm>
 		<Realm 
 			className="org.apache.catalina.realm.UserDatabaseRealm" 
 			resourceName="UserDatabase"

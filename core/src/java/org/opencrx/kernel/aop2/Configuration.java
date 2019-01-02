@@ -65,6 +65,7 @@ public class Configuration {
 			org.opencrx.kernel.backend.Admin.register();
 			org.opencrx.kernel.backend.Base.register();
 			org.opencrx.kernel.backend.Cloneable.register();	
+			org.opencrx.kernel.backend.Codes.register();	
 			org.opencrx.kernel.backend.Contracts.register();
 			org.opencrx.kernel.backend.Depots.register();
 			org.opencrx.kernel.backend.Documents.register();
@@ -79,8 +80,7 @@ public class Configuration {
 			org.opencrx.kernel.backend.UserHomes.register();
 			org.opencrx.kernel.backend.VCard.register();
 			org.opencrx.kernel.backend.Workflows.register();
-		}
-		catch(Exception e) {}
+		} catch(Exception e) {}
 	}
 	
 	public void setPasswordEncodingAlgorithm(

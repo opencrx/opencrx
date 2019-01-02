@@ -108,7 +108,9 @@ public class Indexed_2 extends Media_2 {
 	) {
 		super();
 		try {
-			this.indexableTypes = Base.getInstance().getIndexableTypes();
+			if(indexableTypes == null) {
+				indexableTypes = Base.getInstance().getIndexableTypes();
+			}
 		} catch(Exception e) {
 			new ServiceException(e).log();
 		}
@@ -121,7 +123,7 @@ public class Indexed_2 extends Media_2 {
     public Interaction getInteraction(
         RestConnection connection
     ) throws ResourceException {
-        return new RestInteraction(connection);
+        return new RestInteraction(this, connection);
     }
 
     /**
@@ -167,9 +169,10 @@ public class Indexed_2 extends Media_2 {
          * @throws ResourceException
          */
         public RestInteraction(
+        	Indexed_2 indexed,
         	RestConnection connection
         ) throws ResourceException {
-            super(connection);
+            super(indexed, connection);
         }
 
 	    /**
@@ -443,7 +446,7 @@ public class Indexed_2 extends Media_2 {
 		            int numberOfIndexedObjects = 0;
 		            // At segment level update all objects to be indexed (up to a batch size)
 		            if(indexedIdentity.size() == 5) {
-		                for(Path type: Indexed_2.this.indexableTypes) {
+		                for(Path type: Indexed_2.indexableTypes) {
 		                    // Type must be composite to indexed segment
 		                    if(
 		                        ":*".equals(type.getSegment(0).toClassicRepresentation()) ||
@@ -494,7 +497,7 @@ public class Indexed_2 extends Media_2 {
 		                                )
 		                        	}, 
 		                            new AttributeSpecifier[]{
-	                            		new AttributeSpecifier(SystemAttributes.MODIFIED_AT, 0, SortOrder.ASCENDING.code())
+	                            		new AttributeSpecifier(SystemAttributes.MODIFIED_AT, SortOrder.ASCENDING.code())
 	                            	}
 		                        );
 		                        ResultRecord findResult = null;
@@ -575,7 +578,7 @@ public class Indexed_2 extends Media_2 {
     public static final int STANDARD_KEYWORD_LENGTH_MAX = 40;
     protected static final int BATCH_SIZE = 50;
     
-    protected List<Path> indexableTypes;
+    protected static List<Path> indexableTypes;
 	protected Map<Path,Date> syncKeys = new ConcurrentHashMap<Path,Date>();
 
     protected static final Set<String> STANDARD_INDEXED_ATTRIBUTES =

@@ -473,6 +473,10 @@
                 <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
               </qualifier>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_M0hPsHCiEeiKVJZu2IoRTQ" name="bookingText" type="_nPDJgOPXEdmiV55RXiXHZw" association="_M0k6EHCiEeiKVJZu2IoRTQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M0hPsXCiEeiKVJZu2IoRTQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M0hPsnCiEeiKVJZu2IoRTQ" value="1"/>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_L0ApUMeZEdyRm6j6ukye_g" name="AssertReportsParams">
             <eAnnotations xmi:id="_Pk0BcMeZEdyRm6j6ukye_g" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -707,6 +711,7 @@
             <generalization xmi:id="_uKXXIOJpEdmK-aJnryN5wA">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D42040D6700C9"/>
             </generalization>
+            <generalization xmi:id="_DRn4APPGEeiS-do-kaVhFw" general="_3C7B8A60016D42964FD10360"/>
             <ownedAttribute xmi:id="_3C7B8A60016D42A94BCA0338" name="name">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
             </ownedAttribute>
@@ -2025,14 +2030,14 @@
             </ownedEnd>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_p0HKICGREea9JqRXMt8Z7A" name="BookingOriginContainsSingleBookingEntry" memberEnd="_p0HKISGREea9JqRXMt8Z7A _p0F8ACGREea9JqRXMt8Z7A" navigableOwnedEnd="_p0HKISGREea9JqRXMt8Z7A">
-            <ownedEnd xmi:id="_p0HKISGREea9JqRXMt8Z7A" name="bookingEntry" type="_f6wrMB53Eea5SdySH5Amiw" aggregation="shared" association="_p0HKICGREea9JqRXMt8Z7A">
+            <ownedEnd xmi:id="_p0HKISGREea9JqRXMt8Z7A" name="bookingEntry" type="_f6wrMB53Eea5SdySH5Amiw" isReadOnly="true" aggregation="shared" association="_p0HKICGREea9JqRXMt8Z7A">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p0HKIiGREea9JqRXMt8Z7A"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p0HKIyGREea9JqRXMt8Z7A" value="1"/>
               <qualifier xmi:id="_9QS2ACGREea9JqRXMt8Z7A" name="id">
                 <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               </qualifier>
             </ownedEnd>
-            <ownedEnd xmi:id="_p0F8ACGREea9JqRXMt8Z7A" name="bookingOrigin" type="_3C7B8A60016D42964FD10360" association="_p0HKICGREea9JqRXMt8Z7A">
+            <ownedEnd xmi:id="_p0F8ACGREea9JqRXMt8Z7A" name="bookingOrigin" type="_3C7B8A60016D42964FD10360" isReadOnly="true" association="_p0HKICGREea9JqRXMt8Z7A">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p0F8ASGREea9JqRXMt8Z7A" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p0F8AiGREea9JqRXMt8Z7A" value="1"/>
             </ownedEnd>
@@ -2044,14 +2049,14 @@
             </ownedEnd>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_s4srECLGEeaYB4LO7vGeug" name="BookingOriginContainsCompoundBooking" memberEnd="_s4srESLGEeaYB4LO7vGeug _s4rc8CLGEeaYB4LO7vGeug" navigableOwnedEnd="_s4srESLGEeaYB4LO7vGeug">
-            <ownedEnd xmi:id="_s4srESLGEeaYB4LO7vGeug" name="compoundBooking" type="_3C7B8A60016D428D1A3501AE" aggregation="shared" association="_s4srECLGEeaYB4LO7vGeug">
+            <ownedEnd xmi:id="_s4srESLGEeaYB4LO7vGeug" name="compoundBooking" type="_3C7B8A60016D428D1A3501AE" isReadOnly="true" aggregation="shared" association="_s4srECLGEeaYB4LO7vGeug">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_s4srEiLGEeaYB4LO7vGeug" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s4srEyLGEeaYB4LO7vGeug" value="1"/>
               <qualifier xmi:id="_q6BicCLHEeaYB4LO7vGeug" name="id">
                 <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               </qualifier>
             </ownedEnd>
-            <ownedEnd xmi:id="_s4rc8CLGEeaYB4LO7vGeug" name="bookingOrigin" type="_3C7B8A60016D42964FD10360" association="_s4srECLGEeaYB4LO7vGeug">
+            <ownedEnd xmi:id="_s4rc8CLGEeaYB4LO7vGeug" name="bookingOrigin" type="_3C7B8A60016D42964FD10360" isReadOnly="true" association="_s4srECLGEeaYB4LO7vGeug">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_s4rc8SLGEeaYB4LO7vGeug" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s4rc8iLGEeaYB4LO7vGeug" value="1"/>
             </ownedEnd>
@@ -2627,6 +2632,18 @@
             <ownedEnd xmi:id="_DjP-4ReEEee9cp__ilKBiw" name="depotPositionReference" type="_1MwacBeDEee9cp__ilKBiw" association="_DjP-4BeEEee9cp__ilKBiw">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DjP-4heEEee9cp__ilKBiw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DjP-4xeEEee9cp__ilKBiw" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_KyiqYNEAEee7VflwEpS8GA" name="UriAddress">
+            <generalization xmi:id="_NoHwYNEAEee7VflwEpS8GA" general="_V3I2YCVdEdqA2IVA8CET4w"/>
+            <generalization xmi:id="_OCpwQNEAEee7VflwEpS8GA">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.address1.uml#_A9r6kND_Eee7VflwEpS8GA"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_M0k6EHCiEeiKVJZu2IoRTQ" name="BookingHasBookingText" memberEnd="_M0k6EXCiEeiKVJZu2IoRTQ _M0hPsHCiEeiKVJZu2IoRTQ">
+            <ownedEnd xmi:id="_M0k6EXCiEeiKVJZu2IoRTQ" name="booking" type="_vMnaoMdiEdyRm6j6ukye_g" association="_M0k6EHCiEeiKVJZu2IoRTQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M0k6EnCiEeiKVJZu2IoRTQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M0k6E3CiEeiKVJZu2IoRTQ" value="1"/>
             </ownedEnd>
           </packagedElement>
         </packagedElement>

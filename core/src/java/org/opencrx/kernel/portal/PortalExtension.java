@@ -111,8 +111,6 @@ import org.opencrx.kernel.portal.action.MarkAlertsAsAcceptedAction;
 import org.opencrx.kernel.portal.action.MarkAlertsAsReadAction;
 import org.opencrx.kernel.portal.action.MarkPriceLevelAsFinal;
 import org.opencrx.kernel.portal.action.MarkPriceLevelAsNonFinal;
-import org.opencrx.kernel.portal.action.PriceLevelCloneValidToAction;
-import org.opencrx.kernel.portal.action.PriceLevelResetValidToAction;
 import org.opencrx.kernel.utils.QueryBuilderUtil;
 import org.opencrx.kernel.utils.ScriptUtils;
 import org.opencrx.kernel.utils.Utils;
@@ -206,10 +204,6 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 					return new DisableObjectsAction();
 				case MarkPriceLevelAsNonFinal.EVENT_ID:
 					return new MarkPriceLevelAsNonFinal();
-				case PriceLevelResetValidToAction.EVENT_ID:
-					return new PriceLevelResetValidToAction();
-				case PriceLevelCloneValidToAction.EVENT_ID:
-					return new PriceLevelCloneValidToAction();
 				default:
 					return super.getAction(event);
 			}
@@ -244,7 +238,7 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 		@Override
         public String toString(
         ) {
-			return this.permission + "|" + this.action;
+			return this.permission + SecurityKeys.PERMISSION_ACTION_SEPARATOR + this.action;
         }
 
 		public String permission;
@@ -1630,44 +1624,6 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 			        );
 				    actions.add(markPriceLevelsAsNonFinalAction);
 	    		}
-	    		// Reset validTo
-	    		{
-				    org.openmdx.ui1.jmi1.ElementDefinition uiElementDef = app.getUiElementDefinition("org:opencrx:kernel:product1:AbstractPriceLevel:validTo");
-				    String label = uiElementDef == null
-				    	? "Valid to"
-				    	: app.getCurrentLocaleAsIndex() < uiElementDef.getToolTip().size() 
-					    	? uiElementDef.getToolTip().get(app.getCurrentLocaleAsIndex()) 
-					    	: uiElementDef.getToolTip().get(0);
-				    Action priceLevelResetValidToAction = new Action(
-			            PriceLevelResetValidToAction.EVENT_ID,
-			            new Action.Parameter[]{
-			                new Action.Parameter(Action.PARAMETER_OBJECTXRI, view.getObject().refMofId()),                                                  
-			                new Action.Parameter(Action.PARAMETER_SIZE, Integer.toString(maxSize))
-			            },
-			            "Reset &#171" + label + "&#187",
-			            true
-			        );
-				    actions.add(priceLevelResetValidToAction);
-	    		}
-	    		// Set validTo
-	    		{
-				    org.openmdx.ui1.jmi1.ElementDefinition uiElementDef = app.getUiElementDefinition("org:opencrx:kernel:product1:AbstractPriceLevel:validTo");
-				    String label = uiElementDef == null
-				    	? "Valid to"
-				    	: app.getCurrentLocaleAsIndex() < uiElementDef.getToolTip().size() 
-					    	? uiElementDef.getToolTip().get(app.getCurrentLocaleAsIndex()) 
-					    	: uiElementDef.getToolTip().get(0);
-				    Action priceLevelSetValidToAction = new Action(
-			            PriceLevelCloneValidToAction.EVENT_ID,
-			            new Action.Parameter[]{
-			                new Action.Parameter(Action.PARAMETER_OBJECTXRI, view.getObject().refMofId()),                                                
-			                new Action.Parameter(Action.PARAMETER_SIZE, Integer.toString(maxSize))
-			            },
-			            "Clone &#171" + label + "&#187",
-			            true
-			        );
-				    actions.add(priceLevelSetValidToAction);
-	    		}
 	    	}
 	    }    	
     	return actions;
@@ -2023,7 +1979,7 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
                     for(String principalId: principalIds) {
 	                    SysLog.detail("Checking principal", principalId);
 	                    org.openmdx.security.realm1.jmi1.Principal principal = SecureObject.getInstance().findPrincipal(principalId, realm.refGetPath(), pm);
-	                    String realmName = realm.getName();
+	                    String realmName = realm.refGetPath().getLastSegment().toClassicRepresentation();
 	                    // Do not include root realm in roles except if principal is root
 	                    if(principal != null && !Boolean.TRUE.equals(principal.isDisabled()) ) {
 	                        try {

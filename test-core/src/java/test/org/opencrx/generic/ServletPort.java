@@ -72,6 +72,7 @@ import javax.resource.ResourceException;
 import javax.resource.cci.Interaction;
 import javax.servlet.AsyncContext;
 import javax.servlet.DispatcherType;
+import javax.servlet.ReadListener;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -80,11 +81,13 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.WriteListener;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpUpgradeHandler;
 import javax.servlet.http.Part;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -855,6 +858,22 @@ public class ServletPort implements Port<RestConnection>
                     throws ServletException {
                     throw new UnsupportedOperationException();
                 }
+				@Override
+				public long getContentLengthLong() {
+					// TODO Auto-generated method stub
+					return 0;
+				}
+				@Override
+				public String changeSessionId() {
+					// TODO Auto-generated method stub
+					return null;
+				}
+				@Override
+				public <T extends HttpUpgradeHandler> T upgrade(Class<T> handlerClass)
+						throws IOException, ServletException {
+					// TODO Auto-generated method stub
+					return null;
+				}
             }
             class EmbeddedResponse implements HttpServletResponse {
                 protected final Map<String,String> headers = new HashMap<String,String>();
@@ -1004,6 +1023,13 @@ public class ServletPort implements Port<RestConnection>
                                 throws IOException {
                                 this.delegate.write(b);
                             }
+							@Override
+							public boolean isReady() {
+								return false;
+							}
+							@Override
+							public void setWriteListener(WriteListener writeListener) {
+							}
                         };
                     }
                     return this.binarySink;
@@ -1074,6 +1100,11 @@ public class ServletPort implements Port<RestConnection>
                 public int getStatus() {
                     throw new UnsupportedOperationException();
                 }
+				@Override
+				public void setContentLengthLong(long len) {
+					// TODO Auto-generated method stub
+					
+				}
             }
         }
     }
@@ -1204,6 +1235,21 @@ public class ServletPort implements Port<RestConnection>
                     this.cursor += count;
                     return count;
                 }
+				@Override
+				public boolean isFinished() {
+					// TODO Auto-generated method stub
+					return false;
+				}
+				@Override
+				public boolean isReady() {
+					// TODO Auto-generated method stub
+					return false;
+				}
+				@Override
+				public void setReadListener(ReadListener readListener) {
+					// TODO Auto-generated method stub
+					
+				}
             };
         }
         /**

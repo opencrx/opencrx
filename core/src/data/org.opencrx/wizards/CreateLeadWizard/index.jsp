@@ -58,7 +58,7 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.portal.wizard.*,
+org.opencrx.portal.wizard.*,
 org.openmdx.application.cci.*,
 org.openmdx.base.text.conversion.*,
 org.openmdx.base.accessor.cci.*,

@@ -108,6 +108,7 @@ import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.persistence.cci.UserObjects;
 import org.openmdx.kernel.exception.BasicException;
+import org.openmdx.kernel.log.SysLog;
 import org.w3c.format.DateTimeFormat;
 
 public class Depots extends AbstractImpl {
@@ -700,6 +701,7 @@ public class Depots extends AbstractImpl {
             			bookingTextSuffix
             		)
             	);
+            	creditBooking.setBookingText(bookingTexts[i]);
             	bookings.add(creditBooking);
                 booking = creditBooking;
             } else {
@@ -712,6 +714,7 @@ public class Depots extends AbstractImpl {
             			bookingTextSuffix
             		)
             	);
+            	debitBooking.setBookingText(bookingTexts[i]);
             	bookings.add(debitBooking);
             	booking = debitBooking;
             }
@@ -1196,38 +1199,43 @@ public class Depots extends AbstractImpl {
         	}
             BookingPeriod bookingPeriod = report.getBookingPeriod();
             Date periodStartsAt = bookingPeriod.getPeriodStartsAt();
-            // Set beginning of report balances to end of period balances of previous report 
+            // Set beginning of report balances to end of period balances of previous report
+            // Collect report items of previous period
             Map<DepotPosition,DepotReportItem> reportItems = new HashMap<DepotPosition,DepotReportItem>();
+            // Prepare report items for all positions  
             DepotPositionQuery depotPositionQuery = (DepotPositionQuery)pm.newQuery(DepotPosition.class);
-            if(!includePositions.isEmpty()) {
-            	depotPositionQuery.elementOf(includePositions);
-            }
-            if(!excludePositions.isEmpty()) {
-            	depotPositionQuery.notAnElementOf(excludePositions);
-            }
             ((Query)depotPositionQuery).getFetchPlan().setFetchSize(FETCH_SIZE);
             for(DepotPosition position: depot.<DepotPosition>getPosition(depotPositionQuery)) {
-        		DepotReportItem depotReportItem = new DepotReportItem();
-                reportItems.put(position, depotReportItem);
-	            if(reportPreviousPeriod != null) {
-	            	DepotReportItemPositionQuery itemPositionQuery = (DepotReportItemPositionQuery)pm.newQuery(DepotReportItemPosition.class);
-	            	itemPositionQuery.thereExistsPosition().equalTo(position);
-	            	List<DepotReportItemPosition> itemPositions = reportPreviousPeriod.getItemPosition(itemPositionQuery);
-	            	if(!itemPositions.isEmpty()) {
-	            		DepotReportItemPosition itemPosition = itemPositions.iterator().next();
-	            		depotReportItem.setBalanceBop(itemPosition.getBalance());                        
-	            		depotReportItem.setBalanceCreditBop(itemPosition.getBalanceCredit());
-	            		depotReportItem.setBalanceDebitBop(itemPosition.getBalanceDebit());
-	            		depotReportItem.setBalanceCredit(itemPosition.getBalanceCredit());
-	            		depotReportItem.setBalanceDebit(itemPosition.getBalanceDebit());
-	            		depotReportItem.setBalanceSimpleBop(itemPosition.getBalanceSimple());                                                
-	            		depotReportItem.setBalanceSimple(itemPosition.getBalanceSimple());
-	                }
-	            }
+            	boolean includePosition = includePositions.isEmpty() || includePositions.contains(position);
+            	boolean excludePosition = !excludePositions.isEmpty() && excludePositions.contains(position);
+            	if(includePosition && !excludePosition) {
+	        		DepotReportItem reportItem = new DepotReportItem();
+	                reportItems.put(position, reportItem);
+            	}
+            }
+            // Override with report items of previous period
+            if(reportPreviousPeriod != null) {
+            	for(DepotReportItemPosition reportItemPreviousPeriod: reportPreviousPeriod.<DepotReportItemPosition>getItemPosition()) {
+            		DepotPosition position = reportItemPreviousPeriod.getPosition();
+                	boolean includePosition = includePositions.isEmpty() || includePositions.contains(position);
+                	boolean excludePosition = !excludePositions.isEmpty() && excludePositions.contains(position);
+                	if(includePosition && !excludePosition) {
+    	        		DepotReportItem reportItem = new DepotReportItem();
+    	                reportItems.put(position, reportItem);
+	            		reportItem.setBalanceBop(reportItemPreviousPeriod.getBalance());                        
+	            		reportItem.setBalanceCreditBop(reportItemPreviousPeriod.getBalanceCredit());
+	            		reportItem.setBalanceDebitBop(reportItemPreviousPeriod.getBalanceDebit());
+	            		reportItem.setBalanceCredit(reportItemPreviousPeriod.getBalanceCredit());
+	            		reportItem.setBalanceDebit(reportItemPreviousPeriod.getBalanceDebit());
+	            		reportItem.setBalanceSimpleBop(reportItemPreviousPeriod.getBalanceSimple());                                                
+	            		reportItem.setBalanceSimple(reportItemPreviousPeriod.getBalanceSimple());
+                	}
+            	}
             }
             // Sum up single bookings for all positions of depot within booking period
             {    	
             	SingleBookingQuery singleBookingQuery = (SingleBookingQuery)pm.newQuery(SingleBooking.class);
+            	singleBookingQuery.forAllDisabled().isFalse();
             	if(!includePositions.isEmpty()) {
             		singleBookingQuery.thereExistsPosition().elementOf(includePositions);
             	} else {
@@ -1253,24 +1261,25 @@ public class Depots extends AbstractImpl {
                 for(SingleBooking singleBooking: singleBookings) {
                 	try {
 	                	DepotPosition position = singleBooking.getPosition();
-	                	DepotReportItem depotReportItem = reportItems.get(position);
-	                	if(depotReportItem == null) {
-	                		reportItems.put(position, depotReportItem = new DepotReportItem());
+	                	DepotReportItem reportItem = reportItems.get(position);
+	                	if(reportItem == null) {
+	                		reportItems.put(position, reportItem = new DepotReportItem());
 	                	}
 	                    if(singleBooking instanceof CreditBooking) {
 	                        // Credit booking
 	                        BigDecimal quantityCredit = ((CreditBooking)singleBooking).getQuantityCredit();
-	                        depotReportItem.setBalanceCredit(
-	                        	depotReportItem.getBalanceCredit().add(quantityCredit)
+	                        reportItem.setBalanceCredit(
+	                        	reportItem.getBalanceCredit().add(quantityCredit)
 	                        );
 	                    } else if(singleBooking instanceof DebitBooking) {
 	                        // Debit booking
 	                        BigDecimal quantityDebit = ((DebitBooking)singleBooking).getQuantityDebit();
-	                        depotReportItem.setBalanceDebit(
-	                        	depotReportItem.getBalanceDebit().add(quantityDebit)
+	                        reportItem.setBalanceDebit(
+	                        	reportItem.getBalanceDebit().add(quantityDebit)
 	                        );
 	                    }
                 	} catch(Exception e) {
+                		SysLog.error("Ignoring booking", singleBooking.refGetPath());
                 		new ServiceException(e).log();
                 	}
                 }
@@ -1280,7 +1289,7 @@ public class Depots extends AbstractImpl {
             	SimpleBookingQuery simpleBookingQuery = (SimpleBookingQuery)pm.newQuery(SimpleBooking.class);
             	if(!includePositions.isEmpty()) {
             		simpleBookingQuery.thereExistsPosition().elementOf(includePositions);
-            	} else {            	
+            	} else {
 	            	simpleBookingQuery.thereExistsPosition().elementOf(
 	            		PersistenceHelper.getCandidates(
 	            			pm.getExtent(DepotPosition.class),
@@ -1304,15 +1313,16 @@ public class Depots extends AbstractImpl {
                 for(SimpleBooking simpleBooking: simpleBookings) {
                 	try {
 	                	DepotPosition position = simpleBooking.getPosition(); 
-	                	DepotReportItem depotReportItem = reportItems.get(position);
-	                	if(depotReportItem == null) {
-	                		reportItems.put(position, depotReportItem = new DepotReportItem());
+	                	DepotReportItem reportItem = reportItems.get(position);
+	                	if(reportItem == null) {
+	                		reportItems.put(position, reportItem = new DepotReportItem());
 	                	}                	
 	                    BigDecimal quantity = simpleBooking.getQuantity();
-	                    depotReportItem.setBalanceSimple(
-	                    	depotReportItem.getBalanceSimple().add(quantity)
+	                    reportItem.setBalanceSimple(
+	                    	reportItem.getBalanceSimple().add(quantity)
 	                    );
                 	} catch(Exception e) {
+                		SysLog.error("Ignoring booking", simpleBooking.refGetPath());
                 		new ServiceException(e).log();
                 	}
                 }
@@ -1410,6 +1420,7 @@ public class Depots extends AbstractImpl {
         bookingPeriodQuery.orderByPeriodStartsAt().ascending();
         List<BookingPeriod> bookingPeriods = depotEntity.getBookingPeriod(bookingPeriodQuery);
         DepotReport reportPreviousPeriod = null;
+        boolean refreshedReportPreviousPeriod = false;
         DepotReport latestReport = null;        
         // Assert report for each booking period
         for(BookingPeriod bookingPeriod: bookingPeriods) {
@@ -1417,8 +1428,10 @@ public class Depots extends AbstractImpl {
         	depotReportQuery.thereExistsBookingPeriod().equalTo(bookingPeriod);
         	List<DepotReport> reports = depot.getReport(depotReportQuery);
             DepotReport report = null;
+            boolean requiresRefresh = false;
             if(!reports.isEmpty()) {
                 report = reports.iterator().next();
+                requiresRefresh = report.getModifiedAt().compareTo(bookingPeriod.getModifiedAt()) < 0;
             } else {
                 DepotReport newReport = pm.newInstance(DepotReport.class);
                 // Improve security by inheriting access levels from parent, i.e. depot
@@ -1436,6 +1449,7 @@ public class Depots extends AbstractImpl {
                 	newReport
                 );
                 report = newReport;
+                requiresRefresh = true;
             }
             // Latest report
             Date currentDate = new Date();
@@ -1445,14 +1459,18 @@ public class Depots extends AbstractImpl {
             ) {
                 latestReport = report;
             }
-            // Refresh
-            this.refreshReport(
-                depot,
-                report,
-                reportPreviousPeriod,
-                includePositions,
-                excludePositions
-            );
+            // Refresh report
+            if(refreshedReportPreviousPeriod || requiresRefresh || !Boolean.TRUE.equals(bookingPeriod.isFinal())) {
+            	Utils.touchObject(report);
+	            this.refreshReport(
+	                depot,
+	                report,
+	                reportPreviousPeriod,
+	                includePositions,
+	                excludePositions
+	            );
+	            refreshedReportPreviousPeriod = true;
+            }
             reportPreviousPeriod = report;
         }
         if(latestReport != null) {
@@ -1536,6 +1554,7 @@ public class Depots extends AbstractImpl {
         		((CreditBooking)cancelBooking).setQuantityCredit(((DebitBooking)booking).getQuantityDebit());
         	}
         	cancelBooking.setName(booking.getName());
+        	cancelBooking.setBookingText(booking.getBookingText());
         	cancelBooking.setDescription(booking.getDescription());
         	cancelBooking.setValueDate(booking.getValueDate());
         	cancelBooking.setBookingDate(new Date());

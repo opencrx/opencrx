@@ -230,7 +230,7 @@ public class Notifications extends AbstractImpl {
     	        text += "<html lang=\"en\">";
     	        text += "<head>";
     	        text += "	<meta content=\"width=device-width, initial-scale=1\" name=\"viewport\">";
-    	        text += "	<link rel=\"stylesheet\" href=\"http://getbootstrap.com/dist/css/bootstrap.min.css\">";
+    	        text += "	<link rel=\"stylesheet\" href=\"" + BOOTSTRAP_MIN_CSS_URL + "\">";
     	        text += "</head>";
     	        text += "<body>";
     	        text += "<div class=\"container\">";
@@ -278,7 +278,7 @@ public class Notifications extends AbstractImpl {
 	        text += "<html lang=\"en\">";
 	        text +=     "<head>";
 	        text += "	<meta content=\"width=device-width, initial-scale=1\" name=\"viewport\">";
-	        text += "	<link rel=\"stylesheet\" href=\"http://getbootstrap.com/dist/css/bootstrap.min.css\">";
+	        text += "	<link rel=\"stylesheet\" href=\"" + BOOTSTRAP_MIN_CSS_URL + "\">";
 	        text += "</head>";
 	        text += "<body>";
 	        text += "<div class=\"container\">";
@@ -426,7 +426,7 @@ public class Notifications extends AbstractImpl {
 	        text += "<html lang=\"en\">";
 	        text +=     "<head>";
 	        text += "	<meta content=\"width=device-width, initial-scale=1\" name=\"viewport\">";
-	        text += "	<link rel=\"stylesheet\" href=\"http://getbootstrap.com/dist/css/bootstrap.min.css\">";
+	        text += "	<link rel=\"stylesheet\" href=\"" + BOOTSTRAP_MIN_CSS_URL + "\">";
 	        text += "</head>";
 	        text += "<body>";
 	        text += "<div class=\"container\">";
@@ -555,6 +555,7 @@ public class Notifications extends AbstractImpl {
     public static final short MISSING_OLD_PASSWORD = 6;
 
     protected static final String PRE_STYLE = "white-space:pre-wrap; word-break:normal;";
+    protected static final String BOOTSTRAP_MIN_CSS_URL = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css";
 
 }
 

@@ -530,7 +530,7 @@ public class ShopServiceImpl
         String productNumber
     ) {
         ProductQuery query = (ProductQuery)this.pm.newQuery(Product.class);
-        query.productNumber().equalTo(productNumber);
+        query.thereExistsProductNumber().equalTo(productNumber);
         Collection<Product> products = this.getProductSegment().getProduct(query);
         if(!products.isEmpty()) {
             return products.iterator().next();

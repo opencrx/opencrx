@@ -816,6 +816,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
         return ((MimeMessageImpl)message).getUid();
     }
 
+    
     /* (non-Javadoc)
      * @see javax.mail.UIDFolder#getUIDValidity()
      */
@@ -838,6 +839,15 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     	}
     }
     
+	/* (non-Javadoc)
+	 * @see javax.mail.UIDFolder#getUIDNext()
+	 */
+	@Override
+	public long getUIDNext(
+	) throws MessagingException {
+		return 0;
+	}
+
     /* (non-Javadoc)
      * @see javax.mail.Folder#search(javax.mail.search.SearchTerm)
      */

@@ -60,8 +60,7 @@ java.util.Enumeration,
 java.io.PrintWriter,
 org.w3c.spi2.*,
 org.openmdx.portal.servlet.*,
-org.openmdx.base.naming.*,
-org.opencrx.kernel.backend.*
+org.openmdx.base.naming.*
 "%>
 <%
 	Boolean success = null;
@@ -88,7 +87,7 @@ org.opencrx.kernel.backend.*
 			pm.currentTransaction().begin();
 			org.opencrx.kernel.home1.jmi1.ChangePasswordParams params = Structures.create(
 				org.opencrx.kernel.home1.jmi1.ChangePasswordParams.class, 
-	           	Datatypes.member(org.opencrx.kernel.home1.jmi1.ChangePasswordParams.Member.oldPassword, UserHomes.RESET_PASSWORD_PREFIX + resetToken),
+	           	Datatypes.member(org.opencrx.kernel.home1.jmi1.ChangePasswordParams.Member.oldPassword, org.opencrx.kernel.backend.UserHomes.RESET_PASSWORD_PREFIX + resetToken),
 	           	Datatypes.member(org.opencrx.kernel.home1.jmi1.ChangePasswordParams.Member.newPassword, password1),
 	           	Datatypes.member(org.opencrx.kernel.home1.jmi1.ChangePasswordParams.Member.newPasswordVerification, password2)           	
 	        );

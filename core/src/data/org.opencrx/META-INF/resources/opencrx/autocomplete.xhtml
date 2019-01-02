@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+<composite:interface>
+	<composite:attribute name="valueTitle" />
+	<composite:attribute name="valueXri" />
+	<composite:attribute name="findMethod" method-signature="void findMethod(javax.faces.event.AjaxBehaviorEvent)" />
+	<composite:attribute name="findResult" />
+</composite:interface>
+<composite:implementation>
+	<h:panelGroup>
+		<h:inputText id="#{cc.id}" styleClass="valueL" value="#{cc.attrs.valueTitle}" autocomplete="off">
+			<f:ajax event="keyup" execute="form" listener="#{cc.attrs.findMethod}" render="find#{cc.attrs.id}Result" onevent="function(e){$('#{cc.clientId}:find#{cc.id}Result').style.display='block';}" />
+		</h:inputText>
+		<script>
+		    window["el#{cc.clientId}"] = document.getElementById("#{cc.clientId}:#{cc.id}");
+			window["cb#{cc.clientId}Keyup"] = window["el#{cc.clientId}"].onkeyup;
+			window["el#{cc.clientId}"].onkeyup = null;
+			window["el#{cc.clientId}"].addEventListener(
+				'keyup',
+				function(e){
+				    var charCode = e.which || e.keyCode;
+				    if(charCode === 40) {
+				    	document.getElementById("#{cc.clientId}:#{cc.id}Xri").focus();
+				    } else if(!(charCode === 9 || charCode == 16)) {
+				    	window["cb#{cc.clientId}Keyup"].apply(window["el#{cc.clientId}"]);
+				    }
+				}
+			);
+		</script>
+	</h:panelGroup>
+	<h:panelGroup id="find#{cc.id}Result" styleClass="autocomplete" style="display:none;z-index:1200;">
+		<h:selectOneListbox
+			id="#{cc.id}Xri"
+			styleClass="valueL"
+			value="#{cc.attrs.valueXri}"
+			onblur="javascript:$('#{cc.clientId}:#{cc.id}').value=this.options[this.selectedIndex].innerHTML;$('#{cc.clientId}:find#{cc.id}Result').style.display='none';"
+			onclick="javascript:$('#{cc.clientId}:#{cc.id}').value=this.options[this.selectedIndex].innerHTML;$('#{cc.clientId}:find#{cc.id}Result').style.display='none';">
+			<f:selectItems value="#{cc.attrs.findResult}" var="item" itemLabel="#{item.title}" itemValue="#{item.xri}" />
+		</h:selectOneListbox>
+	</h:panelGroup>
+</composite:implementation>
+</html>

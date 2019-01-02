@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2017, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2018, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -140,11 +140,17 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
     		String providerName = userHome.refGetPath().getSegment(2).toClassicRepresentation();
     		String segmentName = userHome.refGetPath().getSegment(4).toClassicRepresentation();
 			if(property.indexOf("current-user-principal") > 0) {
+				String principalUrl = this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true));
                 writer.writeElement("DAV::principal-URL", XMLWriter.OPENING);
                 writer.writeElement("DAV::href", XMLWriter.OPENING);
-                writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true)));
+                writer.writeText(principalUrl);
                 writer.writeElement("DAV::href", XMLWriter.CLOSING);
                 writer.writeElement("DAV::principal-URL", XMLWriter.CLOSING);
+                writer.writeElement("DAV::current-user-principal", XMLWriter.OPENING);
+                writer.writeElement("DAV::href", XMLWriter.OPENING);
+                writer.writeText(principalUrl);
+                writer.writeElement("DAV::href", XMLWriter.CLOSING);
+                writer.writeElement("DAV::current-user-principal", XMLWriter.CLOSING);
                 return true;
 			} else if(property.indexOf("principal-address") > 0) {
 	            writer.writeElement("urn:ietf:params:xml:ns:carddav:principal-address", XMLWriter.OPENING);
@@ -184,9 +190,16 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 				writer.writeElement("urn:ietf:params:xml:ns:carddav:supported-address-data", XMLWriter.CLOSING);	
 				return true;
 			} else if(property.indexOf("getctag") > 0) {
+				long ctag = System.currentTimeMillis() / 10000L; // prevent can-not-get-stable.ctag
 				writer.writeElement("http://calendarserver.org/ns/:getctag", XMLWriter.OPENING);
-	            writer.writeText(Long.toString(System.currentTimeMillis()));				
-				writer.writeElement("http://calendarserver.org/ns/:getctag", XMLWriter.CLOSING);				
+	            writer.writeText(Long.toString(ctag));
+				writer.writeElement("http://calendarserver.org/ns/:getctag", XMLWriter.CLOSING);
+				return true;
+			} else if(property.indexOf("sync-token") > 0) {
+				long syncToken = System.currentTimeMillis() / 10000L; // prevent can-not-get-stable.ctag
+				writer.writeElement("DAV::sync-token", XMLWriter.OPENING);
+	            writer.writeText("http://opencrx.org/ns/sync-token/" + syncToken);
+				writer.writeElement("DAV::sync-token", XMLWriter.CLOSING);
 				return true;
 			} else if(property.indexOf("current-user-privilege-set") > 0) {
 				writer.writeElement("DAV::current-user-privilege-set", XMLWriter.OPENING);

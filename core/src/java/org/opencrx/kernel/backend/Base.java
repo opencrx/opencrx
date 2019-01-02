@@ -111,6 +111,7 @@ import org.opencrx.kernel.address1.jmi1.EMailAddressable;
 import org.opencrx.kernel.address1.jmi1.PhoneNumberAddressable;
 import org.opencrx.kernel.address1.jmi1.PostalAddressable;
 import org.opencrx.kernel.address1.jmi1.RoomAddressable;
+import org.opencrx.kernel.address1.jmi1.UriAddressable;
 import org.opencrx.kernel.address1.jmi1.WebAddressable;
 import org.opencrx.kernel.building1.jmi1.AbstractBuildingUnit;
 import org.opencrx.kernel.building1.jmi1.InventoryItem;
@@ -784,16 +785,22 @@ public class Base extends AbstractImpl {
     				postalCountryS;
     		} else if(refObj instanceof PhoneNumberAddressable) {
     			return "* " + this.toPlain(refObj.refGetValue("phoneNumberFull"));
+    		} else if(refObj instanceof UriAddressable) {
+    			String uriReference = (String)refObj.refGetValue("uriReference");
+    			String uriScheme = (String)refObj.refGetValue("uriScheme");
+    			return uriScheme != null && uriReference != null && !uriReference.startsWith(uriScheme)
+    				? this.toPlain(uriScheme) + "://" + this.toPlain(uriReference)
+    				: this.toPlain(uriReference);
     		} else if(refObj instanceof RoomAddressable) {
     			RoomAddressable obj = (RoomAddressable)refObj;
-    			if(refObj instanceof Addressable) {              
+    			if(refObj instanceof Addressable) { 
     				AbstractBuildingUnit building = ((Addressable)refObj).getBuilding();
     				if(building == null) {
     					return this.toPlain(obj.getRoomNumber());
     				} else {
     					return 
-    						this.getTitle(building, codeMapper, locale, asShortTitle) + 
-    						this.toPlain(" ") +  
+    						this.getTitle(building, codeMapper, locale, asShortTitle) +
+    						this.toPlain(" ") +
     						this.toPlain(obj.getRoomNumber());
     				}
     			} else {
@@ -1013,30 +1020,32 @@ public class Base extends AbstractImpl {
 						RefObject_1_0 object,
 						Object context
 					) throws ServiceException {
-						if(object instanceof CrxObject) {
-							CrxObject crxObject = (CrxObject)object;
+						try {
+							// enable / disable on all objects having attribute 'disabled', e.g. CrxObject
+							Boolean isDisabled = (Boolean)object.refGetValue("disabled");
 							if(disable) {
-								if(!Boolean.TRUE.equals(crxObject.isDisabled())) {								
-									crxObject.setDisabled(true);
-									crxObject.setDisabledReason(reason);
+								if(!Boolean.TRUE.equals(isDisabled)) {								
+									object.refSetValue("disabled", Boolean.TRUE);
+									try {
+										object.refSetValue("disabledReason", reason);
+									} catch(Exception ignore) {}
 									if(context instanceof Counter) {
 										((Counter)context).increment();
 									}
 								}
 							} else {
-								if(Boolean.TRUE.equals(crxObject.isDisabled())) {
-									crxObject.setDisabled(false);									
-									crxObject.setDisabledReason(reason);
+								if(Boolean.TRUE.equals(isDisabled)) {
+									object.refSetValue("disabled",  Boolean.FALSE);
+									try {
+										object.refSetValue("disabledReason", reason);
+									} catch(Exception ignore) {}
 									if(context instanceof Counter) {
 										((Counter)context).increment();
 									}
 								}
 							}
-						}
-						if(counter.getValue() % 100 == 0) {
-							PersistenceManager pm = JDOHelper.getPersistenceManager(object);
-							pm.currentTransaction().commit();
-							pm.currentTransaction().begin();
+						} catch(Exception ignore) {
+							// don't care if object does not have attribute 'disabled'
 						}
 						return context;
 					}
@@ -1058,21 +1067,13 @@ public class Base extends AbstractImpl {
 	 * @return
 	 */
 	public EnableDisableCrxObjectResult disableCrxObject(
-		CrxObject crxObject,
+		CrxObject object,
 		short mode,
 		String reason
 	) throws ServiceException {
-		PersistenceManager pmObject = JDOHelper.getPersistenceManager(crxObject);
-		// Separate pm allows batching
-		PersistenceManager pm = pmObject.getPersistenceManagerFactory().getPersistenceManager(
-			UserObjects.getPrincipalChain(pmObject).toString(),
-			null
-		);
 		Counter counter = new Counter(0);
 		short status = 0;
 		try {
-			pm.currentTransaction().begin();
-			CrxObject object = (CrxObject)pm.getObjectById(crxObject.refGetPath());		
 			if(mode == 0) {
 				if(!Boolean.TRUE.equals(object.isDisabled())) {
 					object.setDisabled(true);
@@ -1081,20 +1082,16 @@ public class Base extends AbstractImpl {
 				}
 			} else {
 				status = this.enableDisableCrxObject(
-					(CrxObject)pm.getObjectById(crxObject.refGetPath()), 
+					object, 
 					true, 
 					reason,
 					counter
 				);
 			}
-			pm.currentTransaction().commit();
 		} catch(Exception e) {
 			status = -1;
-			try {
-				pm.currentTransaction().rollback();
-			} catch(Exception e0) {}
+			new ServiceException(e).log();
 		}
-		pm.close();
         return Structures.create(
         	EnableDisableCrxObjectResult.class, 
         	Datatypes.member(EnableDisableCrxObjectResult.Member.status, status),
@@ -1111,21 +1108,13 @@ public class Base extends AbstractImpl {
      * @return
      */
     public EnableDisableCrxObjectResult enableCrxObject(
-		CrxObject crxObject,
+		CrxObject object,
 		short mode,
 		String reason
     ) throws ServiceException {
-		PersistenceManager pmObject = JDOHelper.getPersistenceManager(crxObject);
-		// Separate pm allows batching
-		PersistenceManager pm = pmObject.getPersistenceManagerFactory().getPersistenceManager(
-			UserObjects.getPrincipalChain(pmObject).toString(),
-			null
-		);
 		Counter counter = new Counter(0);
 		short status = 0;
 		try {
-			pm.currentTransaction().begin();
-			CrxObject object = (CrxObject)pm.getObjectById(crxObject.refGetPath());		
 			if(mode == 0) {
 				if(Boolean.TRUE.equals(object.isDisabled())) {
 					object.setDisabled(false);
@@ -1139,14 +1128,10 @@ public class Base extends AbstractImpl {
 					counter
 				);
 			}
-			pm.currentTransaction().commit();
 		} catch(Exception e) {
 			status = -1;
-			try {
-				pm.currentTransaction().rollback();
-			} catch(Exception e0) {}
+			new ServiceException(e).log();
 		}
-		pm.close();
         return Structures.create(
         	EnableDisableCrxObjectResult.class, 
         	Datatypes.member(EnableDisableCrxObjectResult.Member.status, status),

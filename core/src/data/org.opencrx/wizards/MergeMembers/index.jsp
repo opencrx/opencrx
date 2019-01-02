@@ -58,8 +58,7 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
-org.opencrx.kernel.portal.wizard.*,
+org.opencrx.portal.wizard.*,
 org.opencrx.kernel.generic.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
@@ -121,7 +120,7 @@ org.openmdx.base.naming.*
 		<tr>
 			<td class="<%= CssClass.fieldLabel %>"><span class="nw">Target <%= app.getLabel(MergeMembersController.ACCOUNT_CLASS) %>:</span></td>
 <%
-			String lookupId = Base.getInstance().getUidAsString();
+			String lookupId = org.opencrx.kernel.backend.Base.getInstance().getUidAsString();
 			Action findAccountTargetObjectAction = Action.getFindObjectAction(MergeMembersController.ACCOUNT_REFERENCE, lookupId);
 			String accountName = app.getLabel(MergeMembersController.ACCOUNT_CLASS);
 %>

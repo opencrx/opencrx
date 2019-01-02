@@ -55,6 +55,7 @@ package org.opencrx.kernel.backend;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -110,13 +111,13 @@ public class SecureObject extends AbstractImpl {
 	 * AclMarshaller
 	 *
 	 */
-	interface AclMarshaller extends Marshaller {
+	public interface AclMarshaller extends Marshaller {
 		
 		AclMarshaller clone(PersistenceManager pm);
 		
 	}
 	
-    static class SetOwningUserMarshaller implements AclMarshaller {
+    public static class SetOwningUserMarshaller implements AclMarshaller {
 
     	public SetOwningUserMarshaller(
     		org.opencrx.security.realm1.jmi1.User user    		
@@ -154,7 +155,7 @@ public class SecureObject extends AbstractImpl {
      * AddOwningGroupMarshaller
      *
      */
-    static class AddOwningGroupMarshaller implements AclMarshaller {
+    public static class AddOwningGroupMarshaller implements AclMarshaller {
 
     	public AddOwningGroupMarshaller(
     		org.opencrx.security.realm1.jmi1.PrincipalGroup group
@@ -191,7 +192,7 @@ public class SecureObject extends AbstractImpl {
      * ReplaceOwningGroupMarshaller
      *
      */
-    static class ReplaceOwningGroupMarshaller implements AclMarshaller {
+    public static class ReplaceOwningGroupMarshaller implements AclMarshaller {
     
     	public ReplaceOwningGroupMarshaller(
     		List<org.opencrx.security.realm1.jmi1.PrincipalGroup> groups
@@ -226,7 +227,7 @@ public class SecureObject extends AbstractImpl {
           throw new UnsupportedOperationException();
         }
 
-        private final List<org.opencrx.security.realm1.jmi1.PrincipalGroup> groups;
+        protected final List<org.opencrx.security.realm1.jmi1.PrincipalGroup> groups;
     	
     }
 
@@ -234,7 +235,7 @@ public class SecureObject extends AbstractImpl {
      * RemoveOwningGroupMarshaller
      *
      */
-    static class RemoveOwningGroupMarshaller implements AclMarshaller {
+    public static class RemoveOwningGroupMarshaller implements AclMarshaller {
     	
     	public RemoveOwningGroupMarshaller(
     		org.opencrx.security.realm1.jmi1.PrincipalGroup group    		
@@ -272,7 +273,7 @@ public class SecureObject extends AbstractImpl {
      * SetAccessLevelMarshaller
      *
      */
-    static class SetAccessLevelMarshaller implements AclMarshaller {
+    public static class SetAccessLevelMarshaller implements AclMarshaller {
     	
     	public SetAccessLevelMarshaller(
     		short accessLevelBrowse,
@@ -444,7 +445,8 @@ public class SecureObject extends AbstractImpl {
         Short mode,
         String reportText,
         List<String> report,
-        int level
+        int level,
+        Map<String,Set<String>> filter
     ) {
     	PersistenceManager pm1 =  null;
         try {
@@ -468,9 +470,9 @@ public class SecureObject extends AbstractImpl {
             report.add(reportText);           
             if((mode != null) && (mode.intValue() == MODE_RECURSIVE)) {
             	Model_1_0 model = Model_1Factory.getModel();
-                @SuppressWarnings({"unchecked"})
+            	String refClass = obj.refClass().refMofId();
                 Map<String,ModelElement_1_0> references = model.getElement(
-                    obj.refClass().refMofId()
+                	refClass
                 ).objGetMap("reference");
                 for(ModelElement_1_0 featureDef: references.values()) {
                     ModelElement_1_0 referencedEnd = model.getElement(
@@ -478,22 +480,29 @@ public class SecureObject extends AbstractImpl {
                     );                	
                     if(
                     	ModelHelper.isCompositeEnd(featureDef, false) &&
-                    	((Boolean)referencedEnd.isChangeable()).booleanValue()
+                    	Boolean.TRUE.equals(referencedEnd.isChangeable())
                     ) {
                         String referenceName = (String)featureDef.getName();
-                        RefContainer<?> container = (RefContainer<?>)obj.refGetValue(referenceName);
-                        List<?> content = container.refGetAll(null);
-                        for(Object contained: content) {
-                        	if(contained instanceof org.opencrx.kernel.base.jmi1.SecureObject) {
-                        		this.applyAcls(
-	                                (org.opencrx.kernel.base.jmi1.SecureObject)contained,
-	                                marshaller,
-	                                mode,
-	                                reportText,
-	                                report,
-	                                level + 1
-	                            );
-                        	}
+                        if(
+                        	filter == null ||
+                        	!filter.containsKey(refClass) ||
+                        	filter.get(refClass).contains(referenceName)
+                        ) {
+	                        RefContainer<?> container = (RefContainer<?>)obj.refGetValue(referenceName);
+	                        List<?> content = container.refGetAll(null);
+	                        for(Object contained: content) {
+	                        	if(contained instanceof org.opencrx.kernel.base.jmi1.SecureObject) {
+	                        		this.applyAcls(
+		                                (org.opencrx.kernel.base.jmi1.SecureObject)contained,
+		                                marshaller,
+		                                mode,
+		                                reportText,
+		                                report,
+		                                level + 1,
+		                                filter
+		                            );
+	                        	}
+	                        }
                         }
                     }
                 }
@@ -509,8 +518,7 @@ public class SecureObject extends AbstractImpl {
         			pm1.currentTransaction().rollback();
         		}
         	} catch(Exception e1) {}
-        }
-        finally {
+        } finally {
         	try {
         		if(pm1 != null) {
         			pm1.close();
@@ -526,13 +534,15 @@ public class SecureObject extends AbstractImpl {
      * @param user
      * @param mode
      * @param report
+     * @param filter
      * @throws ServiceException
      */
     public void setOwningUser(
     	org.opencrx.kernel.base.jmi1.SecureObject obj,
         org.opencrx.security.realm1.jmi1.User user,
         short mode,
-        List<String> report
+        List<String> report,
+        Map<String,Set<String>> filter
     ) throws ServiceException {   
     	this.applyAcls(
             obj,
@@ -542,7 +552,8 @@ public class SecureObject extends AbstractImpl {
             mode,
             "setOwningUser",
             report,
-            0 // level
+            0, // level
+            filter
         );
     }
 
@@ -559,17 +570,45 @@ public class SecureObject extends AbstractImpl {
     	org.opencrx.kernel.base.jmi1.SecureObject obj,
     	org.opencrx.security.realm1.jmi1.PrincipalGroup group,
     	short mode,
-        List<String> report
+        List<String> report,
+        Map<String,Set<String>> filter
+    ) throws ServiceException {
+    	this.addOwningGroup(
+    		obj,
+    		group,
+    		new AddOwningGroupMarshaller(group),
+    		mode,
+    		report,
+    		filter
+    	);
+    }
+
+    /**
+     * Add owning groups.
+     * 
+     * @param obj
+     * @param group
+     * @param marshaller
+     * @param mode
+     * @param report
+     * @throws ServiceException
+     */
+    public void addOwningGroup(
+    	org.opencrx.kernel.base.jmi1.SecureObject obj,
+    	org.opencrx.security.realm1.jmi1.PrincipalGroup group,
+    	AclMarshaller marshaller,
+    	short mode,
+        List<String> report,
+        Map<String,Set<String>> filter
     ) throws ServiceException {        
     	this.applyAcls(
             obj,
-            new AddOwningGroupMarshaller(
-            	group
-            ),
+            marshaller,
             mode,
             "addOwningGroup",
             report,
-            0 // level
+            0, // level
+            filter
         );
     }
 
@@ -582,21 +621,49 @@ public class SecureObject extends AbstractImpl {
      * @param report
      * @throws ServiceException
      */
-    public void replaceOwningGroups(
+    public void replaceOwningGroup(
     	org.opencrx.kernel.base.jmi1.SecureObject obj,
     	List<org.opencrx.security.realm1.jmi1.PrincipalGroup> groups,
     	short mode,
-        List<String> report
+        List<String> report,
+        Map<String,Set<String>> filter
+    ) throws ServiceException {
+    	this.replaceOwningGroup(
+    		obj,
+    		groups,
+    		new ReplaceOwningGroupMarshaller(groups),
+    		mode,
+    		report,
+    		filter
+    	);
+    }
+
+    /**
+     * Replace owning groups.
+     * 
+     * @param obj
+     * @param groups
+     * @param marshaller
+     * @param mode
+     * @param report
+     * @throws ServiceException
+     */
+    public void replaceOwningGroup(
+    	org.opencrx.kernel.base.jmi1.SecureObject obj,
+    	List<org.opencrx.security.realm1.jmi1.PrincipalGroup> groups,
+    	AclMarshaller marshaller,
+    	short mode,
+        List<String> report,
+        Map<String,Set<String>> filter
     ) throws ServiceException {        
     	this.applyAcls(
             obj,
-            new ReplaceOwningGroupMarshaller(
-            	groups
-            ),
+            marshaller,
             mode,
             "replaceOwningGroup",
             report,
-            0 // level
+            0, // level
+            filter
         );
     }
 
@@ -613,17 +680,45 @@ public class SecureObject extends AbstractImpl {
     	org.opencrx.kernel.base.jmi1.SecureObject obj,
     	org.opencrx.security.realm1.jmi1.PrincipalGroup group,
     	short mode,
-        List<String> report
-    ) throws ServiceException {        
+        List<String> report,
+        Map<String,Set<String>> filter
+    ) throws ServiceException {
+    	this.removeOwningGroup(
+    		obj,
+    		group,
+    		new RemoveOwningGroupMarshaller(group),
+    		mode,
+    		report,
+    		filter
+    	);
+    }
+
+    /**
+     * Remove owning group.
+     * 
+     * @param obj
+     * @param group
+     * @param marshaller
+     * @param mode
+     * @param report
+     * @throws ServiceException
+     */
+    public void removeOwningGroup(
+    	org.opencrx.kernel.base.jmi1.SecureObject obj,
+    	org.opencrx.security.realm1.jmi1.PrincipalGroup group,
+    	AclMarshaller marshaller,
+    	short mode,
+        List<String> report,
+        Map<String,Set<String>> filter
+    ) throws ServiceException {
     	this.applyAcls(
             obj,
-            new RemoveOwningGroupMarshaller(
-            	group
-            ),
+            marshaller,
             mode,
             "removeOwningGroup",
             report,
-            0 // level
+            0, // level
+            filter
         );
     }
 
@@ -638,7 +733,8 @@ public class SecureObject extends AbstractImpl {
     public void removeAllOwningGroup(
     	org.opencrx.kernel.base.jmi1.SecureObject obj,
     	short mode,
-        List<String> report
+        List<String> report,
+        Map<String,Set<String>> filter
     ) throws ServiceException {        
     	this.applyAcls(
             obj,
@@ -662,7 +758,8 @@ public class SecureObject extends AbstractImpl {
             mode,
             "removeAllOwningGroup",
             report,
-            0 // level
+            0, // level
+            filter
         );
     }
 
@@ -683,7 +780,8 @@ public class SecureObject extends AbstractImpl {
     	short accessLevelUpdate,
     	short accessLevelDelete,
     	short mode,
-        List<String> report
+        List<String> report,
+        Map<String,Set<String>> filter
     ) throws ServiceException {        
     	this.applyAcls(
             obj,
@@ -695,8 +793,22 @@ public class SecureObject extends AbstractImpl {
             mode,
             "setAccessLevel",
             report,
-            0 // level
+            0, // level
+            filter
         );
+    }
+
+    /**
+     * Assert owning groups for given object. Override this operation
+     * for custom-specific behavior. The default implementation is void.
+     * 
+     * @param obj
+     * @throws ServiceException
+     */
+    public void assertOwningGroup(
+    	org.opencrx.kernel.base.jmi1.SecureObject obj
+    ) throws ServiceException {
+    	
     }
 
     /**

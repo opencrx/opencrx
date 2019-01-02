@@ -417,7 +417,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
 			            } catch(Exception e) {
 			            	SysLog.detail("Mail service not found", mailServiceName);
 			                // Fallback to mail/provider/<provider>
-			                SysLog.detail("Fall back to mail service", mailServiceName);
+			                SysLog.detail("Fall back to mail service", fallbackMailServiceName);
 			                session = (Session)initialContext.lookup("java:comp/env" + fallbackMailServiceName);
 			            }
 			    		if(session != null) {
@@ -432,11 +432,11 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
 			                );
 			                return new MailTransport(
 		                		mailServiceName,
-		                		session, 
+		                		session,
 		                		transport,
 		                		System.currentTimeMillis() + TRANSPORT_TTL
 		                	);
-			    		} else {				    		
+			    		} else {
 			    			throw new ServiceException(
 			    				OpenCrxException.DOMAIN,
 			    				BasicException.Code.BIND_FAILURE,
@@ -501,6 +501,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
     		return (MailTransport)MAIL_TRANSPORT_POOL.get(mailServiceName).borrowObject();
     	} catch(Exception e) {
 			throw new ServiceException(
+				e,
 				OpenCrxException.DOMAIN,
 				BasicException.Code.BIND_FAILURE,
 				"Unable to get mail session",

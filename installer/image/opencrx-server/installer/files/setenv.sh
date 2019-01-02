@@ -3,6 +3,7 @@
 # BEGIN openCRX/CRX
 export JAVA_OPTS="$JAVA_OPTS -Xmx800M"
 export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8"
+export JAVA_OPTS="$JAVA_OPTS -Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"
 export JAVA_OPTS="$JAVA_OPTS -Dorg.openmdx.kernel.collection.InternalizedKeyMap.TrustInternalization=true"
 export JAVA_OPTS="$JAVA_OPTS -Dorg.opencrx.maildir=$CATALINA_BASE/maildir"
 # export JAVA_OPTS="$JAVA_OPTS -Dcom.sun.management.jmxremote"

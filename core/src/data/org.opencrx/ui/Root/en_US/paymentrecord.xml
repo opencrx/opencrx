@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object />
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object />
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object />
+							<_content>
+								<elementDefinition>
+									<!--Tab Definitions Pane1 -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AbstractContract:paymentRecord">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Payment Records</_item>
+											</toolTip>
+											<label>
+												<_item>Payment Records</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<maxMember>8</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Payment Record</_item>
+											</toolTip>
+											<label>
+												<_item>Payment Record</_item>
+											</label>
+											<iconKey>PaymentRecord</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definition -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:dueBy">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Due by</_item>
+											</toolTip>
+											<label>
+												<_item>Due by</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:status">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:requestedAmount">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Amount requested</_item>
+											</toolTip>
+											<label>
+												<_item>Amount requested</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:requestedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Requested at</_item>
+											</toolTip>
+											<label>
+												<_item>Requested at</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:receivedAmount">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Amount received</_item>
+											</toolTip>
+											<label>
+												<_item>Amount received</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:receivedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Received at</_item>
+											</toolTip>
+											<label>
+												<_item>Received at</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>120</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:paymentType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Payment type</_item>
+											</toolTip>
+											<label>
+												<_item>Payment type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:originalCurrency">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Currency original</_item>
+											</toolTip>
+											<label>
+												<_item>Currency original</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:originalAmount">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Amount original</_item>
+											</toolTip>
+											<label>
+												<_item>Amount original</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:referenceNumber">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Reference number</_item>
+											</toolTip>
+											<label>
+												<_item>Reference number</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:transactionNumber">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Transaction number</_item>
+											</toolTip>
+											<label>
+												<_item>Transaction number</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:transactionHeader">
+										<_object>
+											<active>true</active>
+											<spanRow>6</spanRow>
+											<toolTip>
+												<_item>Transaction header</_item>
+											</toolTip>
+											<label>
+												<_item>Transaction header</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- payment initiation message by ISO 20022 (a credit transfer message) -->
+									<!-- https://wiki.xmldation.com/General_Information/ISO_20022/pain.001   -->
+									<!--Tab Definition -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:Pane:Attr:Tab:25">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PIM - ISO 20022</_item>
+											</toolTip>
+											<label>
+												<_item>Payment Initiation Message - ISO 20022</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Field Group Definition -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:Pane:Attr:Tab:25:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item></_item>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1EndToEndId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>EndToEndId</_item>
+											</toolTip>
+											<label>
+												<_item>EndToEndId</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1InstrId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>InstrId</_item>
+											</toolTip>
+											<label>
+												<_item>InstrId</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:Pane:Attr:Tab:25:Group:10">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Cdtr</_item>
+											</toolTip>
+											<label>
+												<_item>Cdtr</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAcctCcy">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>AcctCcy</_item>
+											</toolTip>
+											<label>
+												<_item>AcctCcy</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAcctId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>AcctId</_item>
+											</toolTip>
+											<label>
+												<_item>AcctId</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAcctNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>AcctNm</_item>
+											</toolTip>
+											<label>
+												<_item>AcctNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAcctTp">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Tp</_item>
+											</toolTip>
+											<label>
+												<_item>Tp</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrCtryOfRes">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>CtryOfRes</_item>
+											</toolTip>
+											<label>
+												<_item>CtryOfRes</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Id</_item>
+											</toolTip>
+											<label>
+												<_item>Id</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Nm</_item>
+											</toolTip>
+											<label>
+												<_item>Nm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrPstlAdrAdrLine">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrAdrLine</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrAdrLine</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrPstlAdrBldgNb">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrBldgNb</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrBldgNb</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrPstlAdrCtry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrCtry</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrCtry</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrPstlAdrPstCd">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrPstCd</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrPstCd</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrPstlAdrStrtNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrStrtNm</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrStrtNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>120</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrPstlAdrTwnNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrTwnNm</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrTwnNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>10</_item>
+												<_item>130</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:Pane:Attr:Tab:25:Group:20">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>CdtrAgt</_item>
+											</toolTip>
+											<label>
+												<_item>CdtrAgt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtAcctCcy">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>AcctCcy</_item>
+											</toolTip>
+											<label>
+												<_item>AcctCcy</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtAcctId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>AcctId</_item>
+											</toolTip>
+											<label>
+												<_item>AcctId</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtAcctTp">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>AcctTp</_item>
+											</toolTip>
+											<label>
+												<_item>AcctTp</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchId</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchId</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchNm</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchPstlAdrAdrLine">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchPstlAdrAdrLine</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchPstlAdrAdrLine</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchPstlAdrBldgNb">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchPstlAdrBldgNb</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchPstlAdrBldgNb</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchPstlAdrCtry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchPstlAdrCtry</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchPstlAdrCtry</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchPstlAdrPstCd">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchPstlAdrPstCd</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchPstlAdrPstCd</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchPstlAdrStrtNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchPstlAdrStrtNm</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchPstlAdrStrtNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtBrnchPstlAdrTwnNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>BrnchPstlAdrTwnNm</_item>
+											</toolTip>
+											<label>
+												<_item>BrnchPstlAdrTwnNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>110</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtFinInstnId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>FinInstnId</_item>
+											</toolTip>
+											<label>
+												<_item>FinInstnId</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>120</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1CdtrAgtNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Nm</_item>
+											</toolTip>
+											<label>
+												<_item>Nm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>20</_item>
+												<_item>130</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:Pane:Attr:Tab:25:Group:30">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UltmtCdtr</_item>
+											</toolTip>
+											<label>
+												<_item>UltmtCdtr</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrCtryOfRes">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>CtryOfRes</_item>
+											</toolTip>
+											<label>
+												<_item>CtryOfRes</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Id</_item>
+											</toolTip>
+											<label>
+												<_item>Id</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Nm</_item>
+											</toolTip>
+											<label>
+												<_item>Nm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrPstlAdrAdrLine">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrAdrLine</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrAdrLine</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrPstlAdrBldgNb">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrBldgNb</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrBldgNb</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrPstlAdrCtry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrCtry</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrCtry</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrPstlAdrPstCd">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrPstCd</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrPstCd</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrPstlAdrStrtNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrStrtNm</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrStrtNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtCdtrPstlAdrTwnNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrTwnNm</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrTwnNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>30</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:Pane:Attr:Tab:25:Group:40">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>UltmtDbtr</_item>
+											</toolTip>
+											<label>
+												<_item>UltmtDbtr</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrCtryOfRes">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>CtryOfRes</_item>
+											</toolTip>
+											<label>
+												<_item>CtryOfRes</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrId">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Id</_item>
+											</toolTip>
+											<label>
+												<_item>Id</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Nm</_item>
+											</toolTip>
+											<label>
+												<_item>Nm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrPstlAdrAdrLine">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrAdrLine</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrAdrLine</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>40</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrPstlAdrBldgNb">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrBldgNb</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrBldgNb</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrPstlAdrCtry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrCtry</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrCtry</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrPstlAdrPstCd">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrPstCd</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrPstCd</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>70</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrPstlAdrStrtNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrStrtNm</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrStrtNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1UltmtDbtrPstlAdrTwnNm">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>PstlAdrTwnNm</_item>
+											</toolTip>
+											<label>
+												<_item>PstlAdrTwnNm</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>40</_item>
+												<_item>90</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:Pane:Attr:Tab:25:Group:50">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>RmtInf</_item>
+											</toolTip>
+											<label>
+												<_item>RmtInf</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1RmtInfStrdCdtrRefInfRef">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>StrdCdtrRefInfRef</_item>
+											</toolTip>
+											<label>
+												<_item>StrdCdtrRefInfRef</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>50</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1RmtInfStrdCdtrRefInfTp">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>StrdCdtrRefInfTp</_item>
+											</toolTip>
+											<label>
+												<_item>StrdCdtrRefInfTp</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>50</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PaymentRecord:pain1RmtInfUstrd">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Ustrd</_item>
+											</toolTip>
+											<label>
+												<_item>Ustrd</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>50</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

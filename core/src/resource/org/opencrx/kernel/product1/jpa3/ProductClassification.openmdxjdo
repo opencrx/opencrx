@@ -8,7 +8,10 @@
 		</field>
 		<field name="segment" visibility="none">
 			<column name="P$$PARENT"/>
-		</field>		    
+		</field>
+		<field name="assignedProduct" visibility="cci">
+			<join table="OOCKE1_JOIN_PRODCLASSHASASSPROD"/>
+		</field>
     </class>
   </package>
 </openmdxjdo>

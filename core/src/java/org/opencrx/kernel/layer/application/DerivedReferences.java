@@ -675,7 +675,7 @@ public class DerivedReferences {
 		                segmentIdentity.getChild("indexEntry"),
 		                filter,
 		                new AttributeSpecifier[]{
-		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, 0, SortOrder.DESCENDING.code())
+		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, SortOrder.DESCENDING.code())
 		                }
 		            ), 
 	            	response
@@ -694,7 +694,7 @@ public class DerivedReferences {
 		                segmentIdentity.getChild("indexEntry"),
 		                filter,
 		                new AttributeSpecifier[]{
-		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, 0, SortOrder.DESCENDING.code())
+		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, SortOrder.DESCENDING.code())
 		                }
 		            ), 
 	            	response
@@ -713,7 +713,7 @@ public class DerivedReferences {
 		                segmentIdentity.getChild("indexEntry"),
 		                filter,
 		                new AttributeSpecifier[]{
-		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, 0, SortOrder.DESCENDING.code())
+		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, SortOrder.DESCENDING.code())
 		                }
 		            ), 
 	            	response
@@ -732,7 +732,7 @@ public class DerivedReferences {
 	 	                segmentIdentity.getChild("indexEntry"),
 	 	                filter,
 	 	                new AttributeSpecifier[]{
-	 	                	new AttributeSpecifier(SystemAttributes.CREATED_AT, 0, SortOrder.DESCENDING.code())
+	 	                	new AttributeSpecifier(SystemAttributes.CREATED_AT, SortOrder.DESCENDING.code())
 	 	                }	                
 	 	            ), 
 	            	response
@@ -751,7 +751,7 @@ public class DerivedReferences {
 		                segmentIdentity.getChild("indexEntry"),
 		                filter,
 		                new AttributeSpecifier[]{
-		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, 0, SortOrder.DESCENDING.code())
+		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, SortOrder.DESCENDING.code())
 		                }	                
 		            ), 
 	            	response
@@ -770,7 +770,7 @@ public class DerivedReferences {
 		                segmentIdentity.getChild("indexEntry"),
 		                filter,
 		                new AttributeSpecifier[]{
-		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, 0, SortOrder.DESCENDING.code())
+		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, SortOrder.DESCENDING.code())
 		                }	                
 		            ), 
 	            	response
@@ -789,7 +789,7 @@ public class DerivedReferences {
 		                segmentIdentity.getChild("indexEntry"),
 		                filter,
 		                new AttributeSpecifier[]{
-		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, 0, SortOrder.DESCENDING.code())
+		                	new AttributeSpecifier(SystemAttributes.CREATED_AT, SortOrder.DESCENDING.code())
 		                }	                
 		            ), 
 	            	response
@@ -965,7 +965,11 @@ public class DerivedReferences {
 	                            Quantifier.codeOf(null),
 	                            queryFilterContext + Database_1_Attributes.QUERY_EXTENSION_CLAUSE,
 	                            ConditionType.codeOf(null),
-	                            (forCounting ? Database_1_Attributes.HINT_COUNT : "") + filterPropertyFacade.attributeValue("clause") 
+	                            resolveQueryClause(
+	                            	(String)filterPropertyFacade.attributeValue("clause"), 
+	                            	productFilterIdentity.getParent(),
+	                            	"productFilterProperty"
+	                            )
 	                        )
 	                    );
 	                    filter.add(
@@ -973,7 +977,7 @@ public class DerivedReferences {
 	                            Quantifier.codeOf(null),
 	                            queryFilterContext + SystemAttributes.OBJECT_CLASS,
 	                            ConditionType.codeOf(null),
-	                            new Object[]{Database_1_Attributes.QUERY_EXTENSION_CLASS}
+	                            Database_1_Attributes.QUERY_EXTENSION_CLASS
 	                        )
 	                    );
 	                    // stringParam

@@ -1,7 +1,7 @@
 <%@  page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %><%
 /*
  * ====================================================================
- * Project:     opencrx, http://www.opencrx.org/
+ * Project:     openCRX/Core, http://www.opencrx.org/
  * Name:        PolicyImport.jsp
  * Description: import policy/roles/privileges/permissions
  * Owner:       CRIXP Corp., Switzerland, http://www.crixp.com
@@ -10,7 +10,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2014, CRIXP Corp., Switzerland
+ * Copyright (c) 2014-2018, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -77,173 +77,167 @@ org.openmdx.base.query.*,
 org.openmdx.kernel.log.*,
 org.openmdx.uses.org.apache.commons.fileupload.*,
 org.apache.poi.hssf.usermodel.*,
+org.apache.poi.ss.usermodel.*,
 org.apache.poi.hssf.util.*,
 org.apache.poi.poifs.filesystem.POIFSFileSystem
 " %>
 <%!
-
-public org.openmdx.security.realm1.jmi1.Permission findPermission(
-		String name,
-		org.openmdx.security.realm1.jmi1.Role role,
+	public org.openmdx.security.realm1.jmi1.Permission findPermission(
+		String name, org.openmdx.security.realm1.jmi1.Role role,
 		javax.jdo.PersistenceManager pm
-) {
-	org.openmdx.security.realm1.jmi1.Permission permission = null;
-	try {
-			org.openmdx.security.realm1.cci2.PermissionQuery permissionQuery = (org.openmdx.security.realm1.cci2.PermissionQuery)pm.newQuery(org.openmdx.security.realm1.jmi1.Permission.class);
+	) {
+		org.openmdx.security.realm1.jmi1.Permission permission = null;
+		try {
+			org.openmdx.security.realm1.cci2.PermissionQuery permissionQuery = (org.openmdx.security.realm1.cci2.PermissionQuery) pm.newQuery(org.openmdx.security.realm1.jmi1.Permission.class);
 			permissionQuery.name().equalTo(name);
 			List<org.openmdx.security.realm1.jmi1.Permission> permissions = role.getPermission(permissionQuery);
-			if(!permissions.isEmpty()) {
-				permission = permissions.iterator().next();							
+			if (!permissions.isEmpty()) {
+				permission = permissions.iterator().next();
 			}
-	} catch (Exception e) {}
-	return permission;
-}
+		} catch (Exception e) {
+		}
+		return permission;
+	}
 
-public org.openmdx.security.realm1.jmi1.Permission createOrUpdatePermission(
+	public org.openmdx.security.realm1.jmi1.Permission createOrUpdatePermission(
+		String id,
 		String name,
 		String description,
 		Set<String> action,
 		org.openmdx.security.realm1.jmi1.Role role,
 		org.openmdx.security.realm1.jmi1.Privilege privilege,
 		javax.jdo.PersistenceManager pm
-) {
-	org.openmdx.security.realm1.jmi1.Permission permission = findPermission(name, role, pm);
-	try {
+	) {
+		org.openmdx.security.realm1.jmi1.Permission permission = findPermission(name, role, pm);
+		try {
 			pm.currentTransaction().begin();
 			if (permission == null) {
-					// create privilege
-					permission = pm.newInstance(org.openmdx.security.realm1.jmi1.Permission.class);
-					permission.setName(name);
-					//permission.getAction().add(action);
-					permission.setAction(action);
-					permission.setPrivilege(privilege);
-					role.addPermission(
-						org.opencrx.kernel.backend.Admin.getInstance().getUidAsString(),
-						permission
-					);
+				// create privilege
+				permission = pm.newInstance(org.openmdx.security.realm1.jmi1.Permission.class);
+				permission.setName(name);
+				permission.setAction(action);
+				permission.setPrivilege(privilege);
+				role.addPermission(id, permission);
 			} else {
-					//Set<String> actions = new HashSet<String>();
-					//actions.add(action);
-					//permission.setAction(actions);
-					//permission.getAction().clear();
-					//permission.getAction().add(action);
-					permission.setAction(action);
-					permission.setPrivilege(privilege);
-					permission.setDescription(description);
+				permission.setAction(action);
+				permission.setPrivilege(privilege);
+				permission.setDescription(description);
 			}
 			pm.currentTransaction().commit();
-	}	catch (Exception e) {
+		} catch (Exception e) {
 			new ServiceException(e).log();
 			try {
-					pm.currentTransaction().rollback();
-			} catch(Exception e0) {}
+				pm.currentTransaction().rollback();
+			} catch (Exception e0) {
+			}
+		}
+		return permission;
 	}
-	return permission;
-}
 
-public org.openmdx.security.realm1.jmi1.Privilege findPrivilege(
+	public org.openmdx.security.realm1.jmi1.Privilege findPrivilege(
 		String name,
 		org.openmdx.security.authorization1.jmi1.Policy policy,
 		javax.jdo.PersistenceManager pm
-) {
-	org.openmdx.security.realm1.jmi1.Privilege privilege = null;
-	try {
-			org.openmdx.security.realm1.cci2.PrivilegeQuery privilegeQuery = (org.openmdx.security.realm1.cci2.PrivilegeQuery)pm.newQuery(org.openmdx.security.realm1.jmi1.Privilege.class);
+	) {
+		org.openmdx.security.realm1.jmi1.Privilege privilege = null;
+		try {
+			org.openmdx.security.realm1.cci2.PrivilegeQuery privilegeQuery = (org.openmdx.security.realm1.cci2.PrivilegeQuery) pm.newQuery(org.openmdx.security.realm1.jmi1.Privilege.class);
 			privilegeQuery.name().equalTo(name);
 			List<org.openmdx.security.realm1.jmi1.Privilege> privileges = policy.getPrivilege(privilegeQuery);
-			if(!privileges.isEmpty()) {
-					privilege = privileges.iterator().next();
+			if (!privileges.isEmpty()) {
+				privilege = privileges.iterator().next();
 			}
-	} catch (Exception e) {}
-	return privilege;
-}
+		} catch (Exception e) {
+		}
+		return privilege;
+	}
 
-public org.openmdx.security.realm1.jmi1.Privilege createOrUpdatePrivilege(
+	public org.openmdx.security.realm1.jmi1.Privilege createOrUpdatePrivilege(
 		String id,
 		String name,
 		String description,
 		Set<String> action,
 		org.openmdx.security.authorization1.jmi1.Policy policy,
 		javax.jdo.PersistenceManager pm
-) {
-	org.openmdx.security.realm1.jmi1.Privilege privilege = findPrivilege(name, policy, pm);
-	try {
+	) {
+		org.openmdx.security.realm1.jmi1.Privilege privilege = findPrivilege(name, policy, pm);
+		try {
 			pm.currentTransaction().begin();
 			if (privilege == null) {
-					// create privilege
-					privilege = pm.newInstance(org.openmdx.security.realm1.jmi1.Privilege.class);
-					privilege.setName(name);
-					privilege.setDescription(description);
-					privilege.setAction(action);
-					policy.addPrivilege(
-							id != null ? id : org.opencrx.kernel.backend.Base.getInstance().getUidAsString(),
-							privilege
-					);
+				// create privilege
+				privilege = pm.newInstance(org.openmdx.security.realm1.jmi1.Privilege.class);
+				privilege.setName(name);
+				privilege.setDescription(description);
+				privilege.setAction(action);
+				policy.addPrivilege(
+					id,
+					privilege
+				);
 			} else {
-					privilege.setDescription(description);
-					privilege.setAction(action);
+				privilege.setDescription(description);
+				privilege.setAction(action);
 			}
 			pm.currentTransaction().commit();
-	}	catch (Exception e) {
+		} catch (Exception e) {
 			new ServiceException(e).log();
 			try {
-					pm.currentTransaction().rollback();
-			} catch(Exception e0) {}
+				pm.currentTransaction().rollback();
+			} catch (Exception e0) {
+			}
+		}
+		return privilege;
 	}
-	return privilege;
-}
 
-public org.openmdx.security.realm1.jmi1.Role findRole(
+	public org.openmdx.security.realm1.jmi1.Role findRole(
 		String name,
 		org.openmdx.security.authorization1.jmi1.Policy policy,
 		javax.jdo.PersistenceManager pm
-) {
-	org.openmdx.security.realm1.jmi1.Role role = null;
-	try {
-			org.openmdx.security.realm1.cci2.RoleQuery roleQuery = (org.openmdx.security.realm1.cci2.RoleQuery)pm.newQuery(org.openmdx.security.realm1.jmi1.Role.class);
+	) {
+		org.openmdx.security.realm1.jmi1.Role role = null;
+		try {
+			org.openmdx.security.realm1.cci2.RoleQuery roleQuery = (org.openmdx.security.realm1.cci2.RoleQuery) pm.newQuery(org.openmdx.security.realm1.jmi1.Role.class);
 			roleQuery.name().equalTo(name);
 			List<org.openmdx.security.realm1.jmi1.Role> roles = policy.getRole(roleQuery);
-			if(!roles.isEmpty()) {
-					role = roles.iterator().next();							
+			if (!roles.isEmpty()) {
+				role = roles.iterator().next();
 			}
-	} catch (Exception e) {}
-	return role;
-}
+		} catch (Exception e) {
+		}
+		return role;
+	}
 
-public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
+	public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
+		String id,
 		String name,
 		String description,
 		boolean disabled,
 		org.openmdx.security.authorization1.jmi1.Policy policy,
 		javax.jdo.PersistenceManager pm
-) {
-	org.openmdx.security.realm1.jmi1.Role role = findRole(name, policy, pm);
-	try {
-		pm.currentTransaction().begin();
-		if (role == null) {
+	) {
+		org.openmdx.security.realm1.jmi1.Role role = findRole(name, policy, pm);
+		try {
+			pm.currentTransaction().begin();
+			if (role == null) {
 				// create role
 				role = pm.newInstance(org.openmdx.security.realm1.jmi1.Role.class);
 				role.setName(name);
 				role.setDescription(description);
 				role.setDisabled(disabled);
-				policy.addRole(
-					name,
-					role
-				);
-		} else {
+				policy.addRole(id, role);
+			} else {
 				role.setDescription(description);
 				role.setDisabled(disabled);
-		}
-		pm.currentTransaction().commit();
-	}	catch (Exception e) {
+			}
+			pm.currentTransaction().commit();
+		} catch (Exception e) {
 			new ServiceException(e).log();
 			try {
-					pm.currentTransaction().rollback();
-			} catch(Exception e0) {}
+				pm.currentTransaction().rollback();
+			} catch (Exception e0) {
+			}
+		}
+		return role;
 	}
-	return role;
-}
-
 %>
 <%
   request.setCharacterEncoding("UTF-8");
@@ -407,9 +401,8 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
     			app.getUserHomeIdentityAsPath()
     		);
       Path objectPath = new Path(currentUserHome.refMofId());
-      String providerName = objectPath.get(2);
-      String segmentName = objectPath.get(4);
-
+      String providerName = objectPath.getSegment(2).toClassicRepresentation();
+      String segmentName = objectPath.getSegment(4).toClassicRepresentation();
       boolean currentUserIsAdmin =
 				app.getCurrentUserRole().equals(org.opencrx.kernel.generic.SecurityKeys.ADMIN_PRINCIPAL + org.opencrx.kernel.generic.SecurityKeys.ID_SEPARATOR + segmentName + "@" + segmentName);
 
@@ -496,9 +489,8 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
                   } else if (tempSheet != null && tempSheet.getSheetName().compareTo("Privileges") == 0) {
                 	  sheetPrivileges =  workbook.getSheetAt(1);
                   }
-
-// read Privileges
-									Map privilegeMapper = new TreeMap(); // (XRIexport, XRIsystem)
+				  // read Privileges
+				  Map privilegeMapper = new TreeMap(); // (XRIexport, XRIsystem)
                   Iterator rows = sheetPrivileges.rowIterator();
                   int nRow = 0;
                   HSSFRow row = null;
@@ -516,52 +508,52 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
                     short nCell = 0;
                     try {
                       HSSFCell cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
                         XRI = cell.getStringCellValue().trim();
                       }
                       cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
                         name = cell.getStringCellValue().trim();
                       }
                       cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
                         desc = cell.getStringCellValue().trim();
                       }
                       Set<String> action = new HashSet<String>();
                       cell = (HSSFCell)row.getCell(nCell++);
-                      while (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+                      while (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
                     	  action.add(cell.getStringCellValue().trim());
                         cell = (HSSFCell)row.getCell(nCell++);
                       }
-                      if (name != null) {
+                      if(name != null) {
                     	  boolean exists = findPrivilege(name, policy, pm) != null;
                     	  org.openmdx.security.realm1.jmi1.Privilege privilege = createOrUpdatePrivilege(
-                    			  null,
-                    			  name,
-                    			  desc,
-                    			  action,
-                    			  policy,
-                    			  pm
+                    		  XRI == null || XRI.isEmpty()
+                    		  	  ? org.opencrx.kernel.utils.Utils.getUidAsString() 
+                    		  	  : new Path(XRI).getLastSegment().toClassicRepresentation(),
+                    		  name,
+                    		  desc,
+                    		  action,
+                    		  policy,
+                    		  pm
                     		);
                     	  if (privilege != null) {
                     		  if (XRI != null) {
                     			  privilegeMapper.put(XRI, privilege.refMofId());
                     		  }
-													%> <%= exists ? "updated" : "created" %> privilege <%= name %><br><%
-													if (exists) {
-														privilegeUpdated++;
-													} else {
-														privilegeCreated++;
-													}
+							  %> <%= exists ? "updated" : "created" %> privilege <%= name %><br><%
+							  if (exists) {
+								  privilegeUpdated++;
+							  } else {
+								  privilegeCreated++;
+							  }
                     	  }
                       }
                     } catch (Exception e) {
                     	new ServiceException(e).log();
                     }
                   }
-
-                
-// read Roles and permissions                  
+				  // read Roles and permissions                  
                   rows = sheetRoles.rowIterator();
                   nRow = 0;
                   row = null;
@@ -582,7 +574,7 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
                     short nCell = 0;
                     try {
                       HSSFCell cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
                         XRI = cell.getStringCellValue().trim();
                       }
                       if (XRI != null && XRI.compareTo("\\") == 0) {
@@ -592,28 +584,27 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
                     	  	if (role != null) {
 		                    	  	nCell += 3;
 		                          cell = (HSSFCell)row.getCell(nCell++);
-		                          if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+		                          if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 		                            XRI = cell.getStringCellValue().trim();
 		                          }
 				                      cell = (HSSFCell)row.getCell(nCell++);
-				                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+				                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 				                        name = cell.getStringCellValue().trim();
 				                      }
 				                      cell = (HSSFCell)row.getCell(nCell++);
-				                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+				                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 				                        desc = cell.getStringCellValue().trim();
 				                      }
 		                          cell = (HSSFCell)row.getCell(nCell++);
-		                          if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+		                          if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 		                            privXRI = cell.getStringCellValue().trim();
 		                          }
 		                          Set<String> action = new HashSet<String>();
 		                          cell = (HSSFCell)row.getCell(nCell++);
-		                          while (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+		                          while (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 		                        	  action.add(cell.getStringCellValue().trim());
 		                            cell = (HSSFCell)row.getCell(nCell++);
 		                          }
-
 		                          org.openmdx.security.realm1.jmi1.Privilege privilege = null;
 		                          try {
 		                          		String privSystemXRI = (String)privilegeMapper.get(privXRI);
@@ -621,46 +612,50 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
 		                          } catch (Exception e) {
 		                        	  	new ServiceException(e).log();
 		                          }
-		                          
 		                          if (name != null) {
 		                        	  boolean exists = findPermission(name, role, pm) != null;
 		                        	  org.openmdx.security.realm1.jmi1.Permission permission = createOrUpdatePermission(
-		                        			  name,
-		                        			  desc,
-		                        			  action,
-		                        			  role,
-		                        			  privilege,
-		                        			  pm
+	                            		  XRI == null || XRI.isEmpty()
+		                        		  	  ? org.opencrx.kernel.utils.Utils.getUidAsString() 
+		                        		  	  : new Path(XRI).getLastSegment().toClassicRepresentation(),
+	                        			  name,
+	                        			  desc,
+	                        			  action,
+	                        			  role,
+	                        			  privilege,
+	                        			  pm
 		                        		);
 		                        	  if (permission != null) {
-		    													%> <%= exists ? "updated" : "created" %> permission <%= name %><br><%
-		    													if (exists) {
-		    														permissionUpdated++;
-		    													} else {
-		    														permissionCreated++;
-		    													}
+										  %> <%= exists ? "updated" : "created" %> permission <%= name %><br><%
+										  if (exists) {
+											  permissionUpdated++;
+										  } else {
+											  permissionCreated++;
+										  }
 		                        	  }
 		                          }
-                    	  	}                          
+                    	  	}             
 	                    } else {
 	                  	  	// role
 	                  	  	role = null;
 		                      cell = (HSSFCell)row.getCell(nCell++);
-		                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+		                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 		                        name = cell.getStringCellValue().trim();
 		                      }
 		                      cell = (HSSFCell)row.getCell(nCell++);
-		                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+		                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 		                        desc = cell.getStringCellValue().trim();
 		                      }
 		                      cell = (HSSFCell)row.getCell(nCell++);
-		                      if (cell != null && cell.getCellType() == HSSFCell.CELL_TYPE_BOOLEAN) {
+		                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
 		                    	  disabled = cell.getBooleanCellValue();
 		                      }
-                      
 		                      if (name != null) {
 		                    	  boolean exists = findRole(name, policy, pm) != null;
 		                    	  role = createOrUpdateRole(
+	                        		  XRI == null || XRI.isEmpty()
+	                    		  	  ? org.opencrx.kernel.utils.Utils.getUidAsString() 
+	                    		  	  : new Path(XRI).getLastSegment().toClassicRepresentation(),
 		                    			  name,
 		                    			  desc,
 		                    			  disabled,
@@ -668,12 +663,12 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
 		                    			  pm
 		                    		);
 		                    	  if (role != null) {
-															%> <%= exists ? "updated" : "created" %> role <%= name %><br><%
-															if (exists) {
-																roleUpdated++;
-															} else {
-																roleCreated++;
-															}
+									  %> <%= exists ? "updated" : "created" %> role <%= name %><br><%
+									  if (exists) {
+										  roleUpdated++;
+									  } else {
+										  roleCreated++;
+									  }
 		                    	  }
 		                      }
 	                    }
@@ -690,12 +685,7 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
 <%
                 }
               }
-              //System.out.println(privilegeLinesRead + " privilege lines read");
-              //System.out.println(privilegeUpdated + " privileges updated");
-              //System.out.println(privilegeCreated + " privileges created");
-
-							new File(location).delete();
-
+			  new File(location).delete();
               // Go back to previous view
               Action nextAction =
                 new Action(
@@ -743,13 +733,11 @@ public org.openmdx.security.realm1.jmi1.Role createOrUpdateRole(
               <br />
               <hr>
 <%
-
 						}
 						catch(Exception e) {}
 					}
 				}
 			  else {
-
 			  }
 			}
 			else {

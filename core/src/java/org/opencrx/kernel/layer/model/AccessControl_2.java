@@ -55,7 +55,6 @@ package org.opencrx.kernel.layer.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -66,6 +65,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.logging.Level;
 
 import javax.jdo.FetchGroup;
 import javax.jdo.JDOHelper;
@@ -100,6 +100,7 @@ import org.openmdx.base.resource.Records;
 import org.openmdx.base.resource.cci.ConnectionFactory;
 import org.openmdx.base.resource.spi.ResourceExceptions;
 import org.openmdx.base.resource.spi.RestInteractionSpec;
+import org.openmdx.base.rest.cci.ConsumerRecord;
 import org.openmdx.base.rest.cci.MessageRecord;
 import org.openmdx.base.rest.cci.ObjectRecord;
 import org.openmdx.base.rest.cci.QueryFilterRecord;
@@ -109,6 +110,7 @@ import org.openmdx.base.rest.cci.RestConnection;
 import org.openmdx.base.rest.cci.ResultRecord;
 import org.openmdx.base.rest.spi.AbstractRestInteraction;
 import org.openmdx.base.rest.spi.AbstractRestPort;
+import org.openmdx.base.rest.spi.DelegatingConsumerRecord;
 import org.openmdx.base.rest.spi.Facades;
 import org.openmdx.base.rest.spi.Object_2Facade;
 import org.openmdx.kernel.exception.BasicException;
@@ -307,6 +309,15 @@ public class AccessControl_2 extends AbstractRestPort {
 			return permissions;
 		}
 		
+		public Set<String> getPermissions(
+		) {
+			Set<String> permissions = new HashSet<String>();
+			for(String[] permission: this.permissions) {
+				permissions.add(permission[0] + SecurityKeys.PERMISSION_ACTION_SEPARATOR + permission[1]);
+			}
+			return permissions;
+		}
+
 		public long getExpiresAt(
 		) {
 			return this.expiresAt;
@@ -585,6 +596,125 @@ public class AccessControl_2 extends AbstractRestPort {
         }
 
         /**
+         * Get implied principals for given principal and access level.
+         * 
+         * @param principal
+         * @param userIdentity
+         * @param accessLevel
+         * @param pm
+         * @return
+         */
+        protected Map<String,CachedPrincipal> getImpliedPrincipals(
+        	CachedPrincipal principal,
+        	Path userIdentity,
+            short accessLevel,
+            PersistenceManager pm        	
+        ) {
+            Map<String,CachedPrincipal> impliedPrincipals = new HashMap<String,CachedPrincipal>();
+            // GLOBAL or Root
+            if(
+            	!this.isActive || 
+            	(accessLevel == SecurityKeys.ACCESS_LEVEL_GLOBAL) || 
+            	principal.getIdentity().getLastSegment().toClassicRepresentation().equals(SecurityKeys.ROOT_PRINCIPAL)
+            ) {
+                return null;
+            }
+            // PRIVATE --> grant requesting user access to all owned objects
+            if(accessLevel >= SecurityKeys.ACCESS_LEVEL_PRIVATE) {
+            	try {
+            		String principalName = AccessControl_2.this.getQualifiedPrincipalName(principal.getIdentity());
+            		impliedPrincipals.put(
+            			principalName,
+            			this.getPrincipal(principalName, pm)
+            		);
+            	} catch(Exception e) {
+            		new ServiceException(e).log();
+            	}
+            	try {
+            		String principalName = AccessControl_2.this.getQualifiedPrincipalName(userIdentity);
+	            	impliedPrincipals.put(
+	            		principalName,
+	            		this.getPrincipal(principalName, pm)
+	                );
+            	} catch(Exception e) {
+            		new ServiceException(e).log();
+            	}
+            }
+            // BASIC, DEEP --> all direct subgroups, supergroups 
+            if(
+            	(accessLevel == SecurityKeys.ACCESS_LEVEL_DEEP) || 
+            	(accessLevel == SecurityKeys.ACCESS_LEVEL_BASIC)
+            ) {
+            	// All subgroups
+                if(AccessControl_2.this.useExtendedAccessLevelBasic) {	            	
+                	try {
+	                    for(String groupName: principal.getIsMemberOf()) {
+                    		for(String subGroupName: this.getPrincipal(groupName, pm).getAllSubgroups(pm)) {
+                    			impliedPrincipals.put(
+                    				subGroupName,
+                    				this.getPrincipal(subGroupName, pm)
+                    			);               
+                    		}
+	                    }
+                	} catch(Exception e) {
+                		new ServiceException(e).log();
+                	}
+                }
+                // All supergroups
+            	try {
+            		for(String groupName: principal.getIsMemberOf()) {
+            			for(String superGroupName: this.getPrincipal(groupName, pm).getAllSupergroups()) {
+                			impliedPrincipals.put(
+                				superGroupName,
+                				this.getPrincipal(superGroupName, pm)
+                			);
+            			}
+                	}
+            	} catch(Exception e) {
+            		new ServiceException(e).log();
+            	}
+            }
+            // DEEP --> all subgroups of direct and supergroups
+            if(accessLevel == SecurityKeys.ACCESS_LEVEL_DEEP) {
+                // All subgroups of all supergroups
+            	{
+	            	Map<String,CachedPrincipal> subGroups = new HashMap<String,CachedPrincipal>();
+	                for(CachedPrincipal group: impliedPrincipals.values()) {
+	                	try {
+	                		for(String subGroupName: group.getAllSubgroups(pm)) {
+	                			subGroups.put(
+	                				subGroupName,
+	                				this.getPrincipal(subGroupName, pm)
+	                			);
+	                		}
+	                	} catch(Exception e) {
+	                		new ServiceException(e).log();
+	                	}
+	                }
+	                impliedPrincipals.putAll(subGroups);
+            	}
+                // ... and their supergroups
+            	{
+	            	Map<String,CachedPrincipal> superGroups = new HashMap<String,CachedPrincipal>();
+	                for(CachedPrincipal group: impliedPrincipals.values()) {
+	                	try {
+	                		for(String superGroupName: group.getAllSupergroups()) {
+	                			superGroups.put(
+	                				superGroupName,
+	                				this.getPrincipal(superGroupName, pm)
+	                			);
+	                		}
+	                	} catch(Exception e) {
+	                		new ServiceException(e).log();
+	                	}
+	                }
+	                impliedPrincipals.putAll(superGroups);
+            	}
+            }
+        	return impliedPrincipals;
+        }
+
+        /**
          * Get permissions for given principal and access level.
          * 
          * @param request
@@ -601,98 +731,34 @@ public class AccessControl_2 extends AbstractRestPort {
             Action action,
             PersistenceManager pm
         ) {
-            Set<String> permissions = new HashSet<String>();
-        	//
-        	// Map group memberships to permissions
-        	//
-        	{
-	            // GLOBAL or Root
-	            if(
-	            	!this.isActive || 
-	            	(accessLevel == SecurityKeys.ACCESS_LEVEL_GLOBAL) || 
-	            	principal.getIdentity().getLastSegment().toClassicRepresentation().equals(SecurityKeys.ROOT_PRINCIPAL)
-	            ) {
-	                return null;
-	            }
-	            // PRIVATE --> grant requesting user access to all owned objects
-	            if(accessLevel >= SecurityKeys.ACCESS_LEVEL_PRIVATE) {
-	                permissions.add(
-	                    AccessControl_2.this.getQualifiedPrincipalName(principal.getIdentity())
-	                );
-	                permissions.add(
-	                	AccessControl_2.this.getQualifiedPrincipalName(userIdentity)
-	                );
-	            }
-	            // BASIC, DEEP --> all direct subgroups, supergroups 
-	            if(
-	            	(accessLevel == SecurityKeys.ACCESS_LEVEL_DEEP) || 
-	            	(accessLevel == SecurityKeys.ACCESS_LEVEL_BASIC)
-	            ) {
-	            	Set<String> groups = principal.getIsMemberOf();
-	                if(AccessControl_2.this.useExtendedAccessLevelBasic) {	            	
-	                    for(String group: groups) {
-	                    	try {
-	                    		CachedPrincipal p = this.getPrincipal(group, pm);
-	    	                    permissions.addAll(
-	    	                        p.getAllSubgroups(pm)
-	    	                    );
-	                    	} catch(Exception e) {
-	                    		new ServiceException(e).log();
-	                    	}
-	                    }
-	                }
-	                // Add all supergroups
-	                for(String group: groups) {
-	                	try {
-	                		CachedPrincipal p = this.getPrincipal(group, pm);
-	    	                permissions.addAll(
-	    	                	p.getAllSupergroups()
-	    	                );
-	                	} catch(Exception e) {
-	                		new ServiceException(e).log();
-	                	}
-	                }
-	            }
-	            // DEEP --> all subgroups of direct and supergroups
-	            if(accessLevel == SecurityKeys.ACCESS_LEVEL_DEEP) {
-	                // All subgroups of all supergroups
-	            	Set<String> newMemberships = new HashSet<String>();
-	                for(String group: permissions) {
-	                	try {
-	                		CachedPrincipal p = this.getPrincipal(group, pm);
-	    	                newMemberships.addAll(
-	    	                	p.getAllSubgroups(pm)
-	    	                );
-	                	} catch(Exception e) {
-	                		new ServiceException(e).log();
-	                	}
-	                }
-	                permissions.addAll(newMemberships);
-	                newMemberships.clear();
-	                // ... and their supergroups
-	                for(String group: permissions) {
-	                	try {
-	                		CachedPrincipal p = this.getPrincipal(group, pm);
-	                        newMemberships.addAll(
-	                            p.getAllSupergroups()
-	                        );
-	                	} catch(Exception e) {
-	                		new ServiceException(e).log();
-	                	}
-	                }
-	                permissions.addAll(newMemberships);
-	            }
-        	}
-        	// Assigned permissions
-        	{
-        		permissions.addAll(
-        			principal.getPermissions(action.getName())
-        		);
+            Set<String> permissions = null;
+        	Map<String,CachedPrincipal> impliedPrincipals = this.getImpliedPrincipals(
+        		principal,
+        		userIdentity,
+        		accessLevel,
+        		pm
+        	);
+        	if(impliedPrincipals != null) {
+        		permissions = new HashSet<String>();
+	        	// Map group memberships to permissions
+	            permissions.addAll(impliedPrincipals.keySet());
+	            // Add all permissions of implied principals
+	            for(CachedPrincipal impliedPrincipal: impliedPrincipals.values()) {
+	        		if(action == null) {
+	        			permissions.addAll(
+	        				impliedPrincipal.getPermissions()
+	        			);	
+	        		} else {
+	        			permissions.addAll(
+	        				impliedPrincipal.getPermissions(action.getName())
+	        			);
+	        		}
+	        	}
         	}
             // Member of Root:Administrators --> access level global
-            return permissions.contains(SecurityKeys.ROOT_ADMINISTRATORS_GROUP) ? 
-            	null : 
-            	permissions;
+            return permissions == null || permissions.contains(SecurityKeys.ROOT_ADMINISTRATORS_GROUP)
+            	? null 
+            	: permissions;
         }
 
         /**
@@ -719,7 +785,8 @@ public class AccessControl_2 extends AbstractRestPort {
          * @return
          * @throws ServiceException
          */
-        public boolean hasPermission(
+        @SuppressWarnings("deprecation")
+		public boolean hasPermission(
         	RequestRecord request,
         	Object_2Facade secureObject,
         	Object_2Facade parent,        	
@@ -957,21 +1024,16 @@ public class AccessControl_2 extends AbstractRestPort {
             }
             // allowedPrincipals == null --> global access. Do not restrict to allowed subjects
             if(memberships != null) {
-            	// Restrict access to objects for which user has read access
-            	FilterProperty ownerFilterProperty = null;
+            	// Optimize: do not duplicate owner filter property if it already exists with at least
+            	// all values of required memberships
+            	boolean exists = false;
             	for(FilterProperty p: FilterProperty.getFilterProperties(request.getQueryFilter())) {
-            		if("owner".equals(p.name())) {
-            			ownerFilterProperty = p;
+            		if("owner".equals(p.name()) && p.values().containsAll(memberships)) {
+            			exists = true;
             			break;
             		}
             	}
-            	if(ownerFilterProperty != null) {
-            		memberships.removeAll(
-            			ownerFilterProperty.values()
-            		);
-            	}
-        		// Add condition for owner
-            	if(!memberships.isEmpty()) {
+            	if(!exists) {
             		if(request.getQueryFilter() == null) {
             			request.setQueryFilter(Records.getRecordFactory().createMappedRecord(QueryFilterRecord.class));
             		}
@@ -1220,6 +1282,37 @@ public class AccessControl_2 extends AbstractRestPort {
     }
 
     /**
+     * CompletingConsumerRecord
+     *
+     */
+    public class CompletingConsumerRecord extends DelegatingConsumerRecord {
+    	
+		public CompletingConsumerRecord(
+    		ConsumerRecord delegate
+    	) {
+    		this.delegate = delegate;
+    	}
+		@Override
+		protected ConsumerRecord getDelegate(
+		) {
+			return this.delegate;
+		}
+		
+		@Override
+		public void accept(
+			ObjectRecord object
+		) {
+			try {
+				AccessControl_2.this.completeObject(object);
+			} catch(Exception ignore) {}
+			super.accept(object);
+		}
+
+		private static final long serialVersionUID = 2835765933381645174L;
+		private final ConsumerRecord delegate;
+    }
+
+    /**
      * RestInteraction
      *
      */
@@ -1377,6 +1470,7 @@ public class AccessControl_2 extends AbstractRestPort {
 	        Object[] entry = objectCache.get(path);
 	        ObjectRecord object = null;
 	        if(entry == null) {
+	        	SysLog.log(Level.FINE, "retrieveObject {0}", path);
 	            object = AccessControl_2.this.retrieveObject(p, path, true);
 	            this.addToObjectCache(object);
 	        } else {
@@ -1528,6 +1622,109 @@ public class AccessControl_2 extends AbstractRestPort {
 	    	}
 	    }
 	    
+	    /**
+	     * Restrict query for access control.
+	     * 
+	     * @param pm
+	     * @param p
+	     * @param realm
+	     * @param ispec
+	     * @param request
+	     * @param response
+	     * @throws ResourceException
+	     * @throws ServiceException
+	     */
+	    protected void restrictQuery(
+	    	PersistenceManager pm,
+	    	DataproviderRequestProcessor p,
+	    	DefaultRealm realm,
+	    	RestInteractionSpec ispec,
+	    	QueryRecord request
+        ) throws ResourceException, ServiceException {
+	    	Path path = request.getResourceIdentifier();
+	        GetRunAsPrincipalResult getRunAsPrincipalResult = realm.getRunAsPrincipal(
+	        	request,
+	        	this.getPrincipalChain(),
+	        	p,
+	        	pm
+	        );
+	        CachedPrincipal principal = getRunAsPrincipalResult.getPrincipal();
+	        Path userIdentity = getRunAsPrincipalResult.getUserIdentity();
+	        MappedRecord parent = this.getCachedObject(p, path.getParent());
+	        Object_2Facade parentFacade = Facades.asObject(parent);	    	
+        	boolean containsSharedAssociation = AccessControl_2.this.model.containsSharedAssociation(path);
+        	if(containsSharedAssociation) {
+        		Object_2Facade objectParentFacade = null;
+        		Path compositeParentPath = null;
+        		for(Map.Entry<Path,Path> e: sharedAssociationToCompositeParentPathMap.entrySet()) {
+        			if(path.isLike(e.getKey())) {
+        				compositeParentPath = e.getValue();
+        				break;
+        			}
+        		}
+        		if(compositeParentPath != null) {
+		        	objectParentFacade = Facades.asObject(
+		        		this.getCachedObject(p, compositeParentPath)
+		        	);
+        		} else {
+	        		Long originalSize = request.getSize();
+	        		Long originalPosition = request.getPosition();
+	        		ResultRecord response = (ResultRecord)Records.getRecordFactory().createIndexedRecord(org.openmdx.base.rest.cci.ResultRecord.NAME);
+	        		// In case of shared association get the composite parent and 
+	        		// restrict query to the parent's security settings
+	        		request.setSize(1L);
+	        		request.setPosition(0L);
+			        super.find(
+			        	ispec, 
+			        	request, 
+			        	response
+			        );
+	        		if(!response.isEmpty()) {
+	        			compositeParentPath = Object_2Facade.getPath((ObjectRecord)response.get(0)).getParent().getParent();
+			        	objectParentFacade = Facades.asObject(
+			        		this.getCachedObject(p, compositeParentPath)
+			        	);
+		        		request.setPosition(originalPosition);
+		        		request.setSize(originalSize);
+		        		response.clear();
+		        		// Only add to cache if composite parent is segment
+			        	if(compositeParentPath.size() == 5) {
+			        		Path sharedAssociationPathPattern = path.getPrefix(5);
+			        		for(int i = 5; i < path.size(); i++) {
+			        			if(i % 2 == 0) {
+			        				sharedAssociationPathPattern = sharedAssociationPathPattern.getChild(":*");
+			        			} else {
+			        				sharedAssociationPathPattern = sharedAssociationPathPattern.getChild(path.getSegment(i).toClassicRepresentation());
+			        			}
+			        		}
+				        	sharedAssociationToCompositeParentPathMap.put(
+				        		sharedAssociationPathPattern,
+				        		compositeParentPath
+				        	);
+			        	}
+	        		}
+	        	}
+	        	// Restrict query according to security settings of composite parent
+        		if(objectParentFacade != null) {
+		        	realm.restrictQuery(
+		        		request,
+		        		objectParentFacade, 
+		        		principal, 
+		        		userIdentity,
+		        		pm
+		        	);
+        		}
+        	}
+        	// Restrict query according to security settings of parent
+        	realm.restrictQuery(
+        		request, 
+        		parentFacade, 
+        		principal, 
+        		userIdentity,
+        		pm
+        	);	    	
+	    }
+	    
 	    /* (non-Javadoc)
 	     * @see org.openmdx.compatibility.base.dataprovider.spi.Layer_1_0#find(org.openmdx.compatibility.base.dataprovider.cci.ServiceHeader, org.openmdx.compatibility.base.dataprovider.cci.DataproviderRequest)
 	     */
@@ -1542,11 +1739,7 @@ public class AccessControl_2 extends AbstractRestPort {
 	    	try {
 		    	Path path = request.getResourceIdentifier();
 		        DefaultRealm realm = AccessControl_2.this.getRealm(request, this.getPrincipalChain(), pm);
-		        GetRunAsPrincipalResult getRunAsPrincipalResult = realm.getRunAsPrincipal(request, this.getPrincipalChain(), p, pm);
-		        CachedPrincipal principal = getRunAsPrincipalResult.getPrincipal();
-		        Path userIdentity = getRunAsPrincipalResult.getUserIdentity();
 		        MappedRecord parent = this.getCachedObject(p, path.getParent());
-		        Object_2Facade parentFacade = Facades.asObject(parent);
 		        ModelElement_1_0 referencedType = AccessControl_2.this.getReferencedType(
 		        	path,
 		            FilterProperty.getFilterProperties(request.getQueryFilter())
@@ -1555,75 +1748,12 @@ public class AccessControl_2 extends AbstractRestPort {
 		        	AccessControl_2.this.isSecureObject(referencedType) && 
 		        	AccessControl_2.this.isSecureObject(parent)
 		        ) {
-		        	boolean containsSharedAssociation = AccessControl_2.this.model.containsSharedAssociation(path);
-		        	if(containsSharedAssociation) {
-		        		Object_2Facade objectParentFacade = null;
-		        		Path compositeParentPath = null;
-		        		for(Map.Entry<Path,Path> e: sharedAssociationToCompositeParentPathMap.entrySet()) {
-		        			if(path.isLike(e.getKey())) {
-		        				compositeParentPath = e.getValue();
-		        				break;
-		        			}
-		        		}
-		        		if(compositeParentPath != null) {
-				        	objectParentFacade = Facades.asObject(
-				        		this.getCachedObject(p, compositeParentPath)
-				        	);
-		        		} else {
-			        		Long originalSize = request.getSize();
-			        		Long originalPosition = request.getPosition();
-			        		// In case of shared association get the composite parent and 
-			        		// restrict query to the parent's security settings
-			        		request.setSize(1L);
-			        		request.setPosition(0L);
-					        super.find(
-					        	ispec, 
-					        	request, 
-					        	response
-					        );
-			        		if(!response.isEmpty()) {
-			        			compositeParentPath = Object_2Facade.getPath((ObjectRecord)response.get(0)).getParent().getParent();
-					        	objectParentFacade = Facades.asObject(
-					        		this.getCachedObject(p, compositeParentPath)
-					        	);
-				        		request.setPosition(originalPosition);
-				        		request.setSize(originalSize);
-				        		response.clear();
-				        		// Only add to cache if composite parent is segment
-					        	if(compositeParentPath.size() == 5) {
-					        		Path sharedAssociationPathPattern = path.getPrefix(5);
-					        		for(int i = 5; i < path.size(); i++) {
-					        			if(i % 2 == 0) {
-					        				sharedAssociationPathPattern = sharedAssociationPathPattern.getChild(":*");
-					        			} else {
-					        				sharedAssociationPathPattern = sharedAssociationPathPattern.getChild(path.getSegment(i).toClassicRepresentation());
-					        			}
-					        		}
-						        	sharedAssociationToCompositeParentPathMap.put(
-						        		sharedAssociationPathPattern,
-						        		compositeParentPath
-						        	);
-					        	}
-			        		}
-			        	}
-			        	// Restrict query according to security settings of composite parent
-		        		if(objectParentFacade != null) {
-				        	realm.restrictQuery(
-				        		request,
-				        		objectParentFacade, 
-				        		principal, 
-				        		userIdentity,
-				        		pm
-				        	);
-		        		}
-		        	}
-		        	// Restrict query according to security settings of parent
-		        	realm.restrictQuery(
-		        		request, 
-		        		parentFacade, 
-		        		principal, 
-		        		userIdentity,
-		        		pm
+		        	this.restrictQuery(
+		        		pm,
+		        		p,
+		        		realm,
+		        		ispec,
+		        		request
 		        	);
 			        super.find(
 			        	ispec, 
@@ -1636,6 +1766,15 @@ public class AccessControl_2 extends AbstractRestPort {
 			        	request, 
 			        	response
 			        );
+		        }
+		        if(response != null && FetchGroup.ALL.equals(request.getFetchGroupName())) {
+		            for(Object object : response) {
+	            		ObjectRecord record = (ObjectRecord)object;
+	            		if(record.getResourceIdentifier().size() <= 7) {
+	        	        	SysLog.log(Level.FINE, "addToObjectCache {0}", record.getResourceIdentifier());
+	            			this.addToObjectCache(record);
+	            		}
+		            }
 		        }
 		        AccessControl_2.this.completeReply(response);
 		        return true;
@@ -1653,6 +1792,48 @@ public class AccessControl_2 extends AbstractRestPort {
 	    }
 
 	    /* (non-Javadoc)
+	     * @see org.openmdx.base.rest.spi.AbstractRestInteraction#consume(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.cci.QueryRecord, org.openmdx.base.rest.cci.ConsumerRecord)
+	     */
+	    @Override
+		protected boolean consume(
+			RestInteractionSpec ispec,
+			QueryRecord request,
+			ConsumerRecord response
+		) throws ResourceException {
+	    	PersistenceManager pm = AccessControl_2.this.newDelegatePersistenceManager(this.getConnection());
+	    	DataproviderRequestProcessor p = AccessControl_2.this.newDelegateRequestProcessor(this.getConnection());	    	
+	    	try {
+	    		DefaultRealm realm = AccessControl_2.this.getRealm(
+	    			request,
+	    			this.getPrincipalChain(),
+	    			pm
+	    		);	    		
+		    	this.restrictQuery(
+		    		pm,
+		    		p,
+		    		realm,
+		    		ispec,
+		    		request
+		    	);
+				return super.consume(
+					ispec,
+					request,
+					new CompletingConsumerRecord(response)
+				);
+	    	} catch(ServiceException e) {
+                throw ResourceExceptions.initHolder(
+                    new ResourceException(
+                        BasicException.newEmbeddedExceptionStack(e)
+                    )
+                );	    		
+	    	} finally {
+	    		if(pm != null) {
+	    			pm.close();
+	    		}
+	    	}
+		}
+
+		/* (non-Javadoc)
 	     * @see org.openmdx.compatibility.base.dataprovider.spi.Layer_1_0#get(org.openmdx.compatibility.base.dataprovider.cci.ServiceHeader, org.openmdx.compatibility.base.dataprovider.cci.DataproviderRequest)
 	     */
 	    @Override
@@ -1964,8 +2145,11 @@ public class AccessControl_2 extends AbstractRestPort {
 			            MappedRecord object = AccessControl_2.this.retrieveObject(p, objectIdentity, true);
 			            Object_2Facade objectFacade = Facades.asObject(object);
 			            response.setBody(AccessControl_2.this.newOperationResult("org:opencrx:kernel:base:CheckPermissionsResult"));
+			            @SuppressWarnings("unchecked")
+						Map<String,Object> responseBody = response.getBody();
+			            Set<String> grantedPermissionsAll = new TreeSet<String>();
 			            // Read permissions
-			            Set<String> grantedPermissions = new HashSet<String>();
+			            Set<String> grantedPermissions = new TreeSet<String>();
 			            boolean hasPermission = realm.hasPermission(
 			            	request, 
 			            	objectFacade, 
@@ -1977,10 +2161,13 @@ public class AccessControl_2 extends AbstractRestPort {
 			            	p,
 			            	pm
 			            );
-		                response.getBody().put("grantedPermissionsRead", grantedPermissions);
-			            response.getBody().put("hasReadPermission", hasPermission);
+			            for(String permission: grantedPermissions) {
+			            	grantedPermissionsAll.add(permission + SecurityKeys.PERMISSION_ACTION_SEPARATOR + Action.READ.getName());
+			            }
+			            responseBody.put("grantedPermissionsRead", grantedPermissions);
+			            responseBody.put("hasReadPermission", hasPermission);
 			            // Delete permissions
-			            grantedPermissions = new HashSet<String>();
+			            grantedPermissions = new TreeSet<String>();
 			            hasPermission = realm.hasPermission(
 			            	request, 
 			            	objectFacade, 
@@ -1992,10 +2179,13 @@ public class AccessControl_2 extends AbstractRestPort {
 			            	p,
 			            	pm
 			            );
-			            response.getBody().put("grantedPermissionsDelete", grantedPermissions);
-			            response.getBody().put("hasDeletePermission", hasPermission);
+			            for(String permission: grantedPermissions) {
+			            	grantedPermissionsAll.add(permission + SecurityKeys.PERMISSION_ACTION_SEPARATOR + Action.DELETE.getName());
+			            }
+			            responseBody.put("grantedPermissionsDelete", grantedPermissions);
+			            responseBody.put("hasDeletePermission", hasPermission);
 			            // Update
-			            grantedPermissions = new HashSet<String>();
+			            grantedPermissions = new TreeSet<String>();
 			            hasPermission = realm.hasPermission(
 			            	request, 
 			            	objectFacade, 
@@ -2007,8 +2197,27 @@ public class AccessControl_2 extends AbstractRestPort {
 			            	p,
 			            	pm
 			            );
-			            response.getBody().put("grantedPermissionsUpdate", grantedPermissions);
-			            response.getBody().put("hasUpdatePermission", hasPermission);
+			            for(String permission: grantedPermissions) {
+			            	grantedPermissionsAll.add(permission + SecurityKeys.PERMISSION_ACTION_SEPARATOR + Action.UPDATE.getName());
+			            }			            
+			            responseBody.put("grantedPermissionsUpdate", grantedPermissions);
+			            responseBody.put("hasUpdatePermission", hasPermission);
+			            // grantedPermissionsAll
+			            grantedPermissions = realm.getPermissions(
+			            	principal,
+			            	userIdentity,
+			            	objectFacade.attributeValuesAsList("accessLevelBrowse").isEmpty()
+			            		? SecurityKeys.ACCESS_LEVEL_BASIC
+			            		: ((Number)objectFacade.attributeValue("accessLevelBrowse")).shortValue(),
+			            	null, // any action
+			            	pm
+			            );
+			            for(String permission: grantedPermissions) {
+			            	if(permission.indexOf(SecurityKeys.PERMISSION_ACTION_SEPARATOR) > 0) {
+			            		grantedPermissionsAll.add(permission);
+			            	}
+			            }
+			            responseBody.put("grantedPermissionsAll", grantedPermissionsAll);
 			            // Return result
 			            return true;
 		            } else {
@@ -2024,7 +2233,7 @@ public class AccessControl_2 extends AbstractRestPort {
 		    	                    new BasicException.Parameter("param1", AccessControl_2.this.realmIdentity)
 		        				)
 		        			)
-		                );	            	
+		                );
 		            }
 		        }
 		        return super.invoke(

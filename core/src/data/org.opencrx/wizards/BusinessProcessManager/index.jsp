@@ -68,16 +68,14 @@ org.openmdx.portal.servlet.attribute.*,
 org.openmdx.portal.servlet.component.*,
 org.openmdx.portal.servlet.control.*,
 org.openmdx.portal.servlet.wizards.*,
+org.openmdx.base.exception.*,
 org.openmdx.base.naming.*,
 org.openmdx.base.query.*,
 org.openmdx.kernel.log.*,
-org.opencrx.kernel.backend.*,
 org.opencrx.kernel.generic.*,
 org.opencrx.kernel.portal.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
-org.openmdx.base.exception.*,
-org.openmdx.base.text.conversion.*,
 org.openmdx.uses.org.apache.commons.fileupload.*
 "%>
 
@@ -269,7 +267,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
 					//System.out.println("node activity #" + nodeActivity.getActivityNumber());
 					// try to determine dependent activities by following linkedFrom with type "isParentOf" (i.e. 100 - "isChildOf")
 					org.opencrx.kernel.activity1.cci2.ActivityLinkFromQuery linkFromQuery = (org.opencrx.kernel.activity1.cci2.ActivityLinkFromQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom.class);
-					linkFromQuery.activityLinkType().equalTo(new Short((short)(100 - Activities.ActivityLinkType.IS_CHILD_OF.getValue())));
+					linkFromQuery.activityLinkType().equalTo(new Short((short)(100 - org.opencrx.kernel.backend.Activities.ActivityLinkType.IS_CHILD_OF.getValue())));
 					for (Iterator linkFrom = nodeActivity.getActivityLinkFrom(linkFromQuery).iterator(); linkFrom.hasNext();) {
 							try {
 									org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom activityLinkFrom = (org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom)linkFrom.next();
@@ -471,7 +469,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
 			if (activity != null) {
 					// try to determine top-level controlling activity by following linkedTo with type "isChildOf"
 					org.opencrx.kernel.activity1.cci2.ActivityLinkToQuery linkToQuery = (org.opencrx.kernel.activity1.cci2.ActivityLinkToQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityLinkTo.class);
-					linkToQuery.activityLinkType().equalTo(new Short(Activities.ActivityLinkType.IS_CHILD_OF.getValue()));
+					linkToQuery.activityLinkType().equalTo(new Short(org.opencrx.kernel.backend.Activities.ActivityLinkType.IS_CHILD_OF.getValue()));
 					boolean abort = false;
 					Collection linkTo = topLevelActivity.getActivityLinkTo(linkToQuery);
 					while (!abort && topLevelActivity != null && !linkTo.isEmpty()) {
@@ -814,7 +812,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
 		List<org.opencrx.kernel.activity1.jmi1.EMail> result = new ArrayList<org.opencrx.kernel.activity1.jmi1.EMail>();
 		try {
 			org.opencrx.kernel.activity1.cci2.ActivityLinkFromQuery linkFromQuery = (org.opencrx.kernel.activity1.cci2.ActivityLinkFromQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom.class);
-			linkFromQuery.activityLinkType().equalTo(new Short((short)(100 - Activities.ActivityLinkType.RELATES_TO.getValue())));
+			linkFromQuery.activityLinkType().equalTo(new Short((short)(100 - org.opencrx.kernel.backend.Activities.ActivityLinkType.RELATES_TO.getValue())));
 			for (Iterator linkFrom = activity.getActivityLinkFrom(linkFromQuery).iterator(); linkFrom.hasNext();) {
 				try {
 					org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom activityLinkFrom = (org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom)linkFrom.next();
@@ -1101,9 +1099,9 @@ org.openmdx.uses.org.apache.commons.fileupload.*
 	if (obj instanceof org.opencrx.kernel.activity1.jmi1.Activity) {
 			activity = (org.opencrx.kernel.activity1.jmi1.Activity)obj;
 	}
-	org.opencrx.kernel.account1.jmi1.Segment accountSegment = Accounts.getInstance().getAccountSegment(pm, providerName, segmentName);
-	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = Activities.getInstance().getActivitySegment(pm, providerName, segmentName);
-	org.opencrx.kernel.home1.jmi1.Segment homeSegment = UserHomes.getInstance().getUserHomeSegment(pm, providerName, segmentName);
+	org.opencrx.kernel.account1.jmi1.Segment accountSegment = org.opencrx.kernel.backend.Accounts.getInstance().getAccountSegment(pm, providerName, segmentName);
+	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = org.opencrx.kernel.backend.Activities.getInstance().getActivitySegment(pm, providerName, segmentName);
+	org.opencrx.kernel.home1.jmi1.Segment homeSegment = org.opencrx.kernel.backend.UserHomes.getInstance().getUserHomeSegment(pm, providerName, segmentName);
 	org.opencrx.kernel.home1.jmi1.UserHome currentUserHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(
 		app.getUserHomeIdentityAsPath()
 	);
@@ -1895,7 +1893,7 @@ input.button {
 
 						List<org.opencrx.kernel.activity1.jmi1.EMail> emails = null;
 						if(preErrorCount == errors.size() && msg != null) {
-							emails = Activities.getInstance().importMimeMessage(
+							emails = org.opencrx.kernel.backend.Activities.getInstance().importMimeMessage(
 								pm,
 								providerName,
 								segmentName,
@@ -1919,7 +1917,7 @@ input.button {
 								// link e-mail to favoriteActivity (if link does not yet exist)
 								org.opencrx.kernel.activity1.cci2.ActivityLinkToQuery activityLinkToFilter = (org.opencrx.kernel.activity1.cci2.ActivityLinkToQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityLinkTo.class);
 								activityLinkToFilter.activityLinkType().equalTo(
-								    new Short(Activities.ActivityLinkType.RELATES_TO.getValue())
+								    new Short(org.opencrx.kernel.backend.Activities.ActivityLinkType.RELATES_TO.getValue())
 								);
 								activityLinkToFilter.thereExistsLinkTo().equalTo(favoriteActivity);
 								List<org.opencrx.kernel.activity1.jmi1.ActivityLinkTo> linkTos = importedEMail.getActivityLinkTo(activityLinkToFilter);
@@ -1929,7 +1927,7 @@ input.button {
 									org.opencrx.kernel.activity1.jmi1.ActivityLinkTo activityLinkTo = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityLinkTo.class);
 									activityLinkTo.setLinkTo(favoriteActivity);
 									activityLinkTo.setName("activity:" + favoriteActivity.getActivityNumber());
-									activityLinkTo.setActivityLinkType(Activities.ActivityLinkType.RELATES_TO.getValue()); // relates to
+									activityLinkTo.setActivityLinkType(org.opencrx.kernel.backend.Activities.ActivityLinkType.RELATES_TO.getValue()); // relates to
 									importedEMail.addActivityLinkTo(
 										false,
 										org.opencrx.kernel.backend.Base.getInstance().getUidAsString(),
@@ -1964,7 +1962,7 @@ input.button {
 	if (favoriteActivity != null) {
 		try {
 			org.opencrx.kernel.activity1.cci2.ActivityLinkFromQuery linkFromQuery = (org.opencrx.kernel.activity1.cci2.ActivityLinkFromQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom.class);
-			linkFromQuery.activityLinkType().equalTo(new Short((short)(100 - Activities.ActivityLinkType.RELATES_TO.getValue())));
+			linkFromQuery.activityLinkType().equalTo(new Short((short)(100 - org.opencrx.kernel.backend.Activities.ActivityLinkType.RELATES_TO.getValue())));
 			for (Iterator linkFrom = favoriteActivity.getActivityLinkFrom(linkFromQuery).iterator(); linkFrom.hasNext();) {
 					try {
 							org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom activityLinkFrom = (org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom)linkFrom.next();
@@ -2384,13 +2382,13 @@ if(command == Command.LIST_ALL_DOCS) {
 									try {
 										org.opencrx.kernel.account1.jmi1.EMailAddress emailAddress = (org.opencrx.kernel.account1.jmi1.EMailAddress)i.next();
 										org.opencrx.kernel.account1.jmi1.Account account = (org.opencrx.kernel.account1.jmi1.Account)pm.getObjectById(new Path(emailAddress.refMofId()).getParent().getParent());
-										org.opencrx.kernel.account1.jmi1.AccountAddress[] mainAddresses = Accounts.getInstance().getMainAddresses(account);
-									    org.opencrx.kernel.account1.jmi1.AccountAddress[] addressesNotMain = Accounts.getInstance().getAccountAddresses(
+										org.opencrx.kernel.account1.jmi1.AccountAddress[] mainAddresses = org.opencrx.kernel.backend.Accounts.getInstance().getMainAddresses(account);
+									    org.opencrx.kernel.account1.jmi1.AccountAddress[] addressesNotMain = org.opencrx.kernel.backend.Accounts.getInstance().getAccountAddresses(
 									    		account,
-									    		new Accounts.AddressFilter(){
+									    		new org.opencrx.kernel.backend.Accounts.AddressFilter(){
 									    			@Override
 									    			public boolean matches(
-									    					org.opencrx.kernel.account1.jmi1.AccountAddress address
+									    				org.opencrx.kernel.account1.jmi1.AccountAddress address
 									    			) {
 									    				boolean isMain = false;
 									    				try {
@@ -2402,17 +2400,17 @@ if(command == Command.LIST_ALL_DOCS) {
 									    		true // strict
 									    );
 										
-									    if(mainAddresses[Accounts.MAIL_BUSINESS] != null) {
-									    	locatedEmailAddress = ((org.opencrx.kernel.account1.jmi1.EMailAddress)mainAddresses[Accounts.MAIL_BUSINESS]).getEmailAddress();
+									    if(mainAddresses[org.opencrx.kernel.backend.Accounts.MAIL_BUSINESS] != null) {
+									    	locatedEmailAddress = ((org.opencrx.kernel.account1.jmi1.EMailAddress)mainAddresses[org.opencrx.kernel.backend.Accounts.MAIL_BUSINESS]).getEmailAddress();
 									    }
-									    if((locatedEmailAddress == null || locatedEmailAddress.length() == 0) && addressesNotMain[Accounts.MAIL_BUSINESS] != null) {
-									    	((org.opencrx.kernel.account1.jmi1.EMailAddress)addressesNotMain[Accounts.MAIL_BUSINESS]).getEmailAddress();
+									    if((locatedEmailAddress == null || locatedEmailAddress.length() == 0) && addressesNotMain[org.opencrx.kernel.backend.Accounts.MAIL_BUSINESS] != null) {
+									    	((org.opencrx.kernel.account1.jmi1.EMailAddress)addressesNotMain[org.opencrx.kernel.backend.Accounts.MAIL_BUSINESS]).getEmailAddress();
 									    }
-									    if((locatedEmailAddress == null || locatedEmailAddress.length() == 0) && mainAddresses[Accounts.MAIL_HOME] != null) {
-									    	((org.opencrx.kernel.account1.jmi1.EMailAddress)mainAddresses[Accounts.MAIL_HOME]).getEmailAddress();
+									    if((locatedEmailAddress == null || locatedEmailAddress.length() == 0) && mainAddresses[org.opencrx.kernel.backend.Accounts.MAIL_HOME] != null) {
+									    	((org.opencrx.kernel.account1.jmi1.EMailAddress)mainAddresses[org.opencrx.kernel.backend.Accounts.MAIL_HOME]).getEmailAddress();
 									    }
-									    if((locatedEmailAddress == null || locatedEmailAddress.length() == 0) && addressesNotMain[Accounts.MAIL_HOME] != null) {
-									    	((org.opencrx.kernel.account1.jmi1.EMailAddress)addressesNotMain[Accounts.MAIL_HOME]).getEmailAddress();
+									    if((locatedEmailAddress == null || locatedEmailAddress.length() == 0) && addressesNotMain[org.opencrx.kernel.backend.Accounts.MAIL_HOME] != null) {
+									    	((org.opencrx.kernel.account1.jmi1.EMailAddress)addressesNotMain[org.opencrx.kernel.backend.Accounts.MAIL_HOME]).getEmailAddress();
 									    }
 									} catch (Exception e) {
 										new ServiceException(e).log();

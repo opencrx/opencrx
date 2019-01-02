@@ -57,8 +57,7 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
-org.opencrx.kernel.portal.wizard.*,
+org.opencrx.portal.wizard.*,
 org.opencrx.kernel.generic.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
@@ -311,7 +310,7 @@ org.openmdx.base.naming.*
 			display:none;
 		}
 		input.time {
-			width: 30px;
+			width: 45px;
 			text-align:right;
 			font-weight:bold;
 		}
@@ -915,7 +914,7 @@ org.openmdx.base.naming.*
 																			Map.Entry option = (Map.Entry)options.next();
 																			short value = Short.parseShort((option.getKey()).toString());
 																			String selectedModifier = wc.getFormFields().getRecordType() == value ? "selected" : "";
-																			if (!isWorkRecordInPercent || value == Activities.WorkRecordType.STANDARD.getValue()) {
+																			if (!isWorkRecordInPercent || value == org.opencrx.kernel.backend.Activities.WorkRecordType.STANDARD.getValue()) {
 %>
 																				<option <%=selectedModifier%> value="<%=value%>"><%=(wc.getCodes().getLongTextByCode(isWorkRecord ? featureRecordTypeWork : featureRecordTypeExpense, app.getCurrentLocaleAsIndex(), true).get(new Short(value)))%>
 <%

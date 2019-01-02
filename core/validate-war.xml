@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<project 
+	name="opencrx-core" 
+	default="all"
+	xmlns:openmdx="xri://(antlib:org.openmdx.tools.ant)"
+	xmlns:antcontrib="antlib:net.sf.antcontrib"
+>
+	<import file="${tomcat.home}/bin/catalina-tasks.xml"/>
+	<target name="jspc">
+		<taskdef classname="org.apache.jasper.JspC" name="jasper" >
+			<classpath id="jspc.classpath">
+		        <fileset dir="${app.path}/APP-INF/lib">
+		        	<include name="*.jar"/>
+		        </fileset>
+		        <pathelement location="${tomcat.home}/lib"/>
+		        <fileset dir="${tomcat.home}/lib">
+		        	<include name="*.jar"/>
+		        </fileset>
+		        <fileset dir="${tomcat.home}/bin">
+		        	<include name="*.jar"/>
+		        </fileset>
+			</classpath>
+		</taskdef>	
+		<jasper
+			validateXml="false"
+			uriroot="${app.path}/${webapp.name}"
+			webXmlFragment="${app.path}/${webapp.name}/WEB-INF/generated_web.xml"
+			outputDir="${app.path}/${webapp.name}/WEB-INF/src" />
+	</target>
+	<target name="all" description="Validates the WAR modules" depends="jspc">
+		<mkdir dir="${app.path}/${webapp.name}/WEB-INF/classes"/>
+		<mkdir dir="${app.path}/${webapp.name}/WEB-INF/lib"/>
+		<javac destdir="${app.path}/${webapp.name}/WEB-INF/classes"
+			optimize="off"
+			debug="on" 
+			failonerror="false"
+			srcdir="${app.path}/${webapp.name}/WEB-INF/src"
+			excludes="**/*.smap">
+			<classpath>
+		        <fileset dir="${app.path}/APP-INF/lib">
+		        	<include name="*.jar"/>
+		        </fileset>
+		        <pathelement location="${app.path}/${webapp.name}/WEB-INF/classes"/>
+		        <fileset dir="${app.path}/${webapp.name}/WEB-INF/lib">
+		        	<include name="*.jar"/>
+		        </fileset>
+		        <pathelement location="${tomcat.home}/lib"/>
+		        <fileset dir="${tomcat.home}/lib">
+		        	<include name="*.jar"/>
+		        </fileset>
+		        <fileset dir="${tomcat.home}/bin">
+		        	<include name="*.jar"/>
+		        </fileset>
+			</classpath>
+			<include name="**" />
+			<exclude name="tags/**" />
+		</javac>
+	</target>
+</project>

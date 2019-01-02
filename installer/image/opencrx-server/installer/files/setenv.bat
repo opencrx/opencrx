@@ -1,6 +1,7 @@
 REM BEGIN openCRX/CRX
 set JAVA_OPTS=%JAVA_OPTS% -Xmx800M
 set JAVA_OPTS=%JAVA_OPTS% -Dfile.encoding=UTF-8
+set JAVA_OPTS=%JAVA_OPTS% -Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 set JAVA_OPTS=%JAVA_OPTS% -Dorg.openmdx.kernel.collection.InternalizedKeyMap.TrustInternalization=true
 set JAVA_OPTS=%JAVA_OPTS% -Dorg.opencrx.maildir="%CATALINA_BASE%\maildir"
 REM set JAVA_OPTS=%JAVA_OPTS% -Dcom.sun.management.jmxremote

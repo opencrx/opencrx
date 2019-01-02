@@ -55,13 +55,8 @@ package org.opencrx.kernel.utils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
 
-import javax.jdo.Constants;
-
-import org.openmdx.application.configuration.Configuration;
-import org.openmdx.application.dataprovider.layer.persistence.jdbc.Database_1;
-import org.openmdx.application.spi.PropertiesConfigurationProvider;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.Database_2;
 import org.openmdx.base.dataprovider.layer.persistence.jdbc.dbobject.DbObject;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.mof.cci.ModelElement_1_0;
@@ -81,40 +76,6 @@ import org.openmdx.kernel.exception.BasicException;
  *
  */
 public abstract class QueryBuilderUtil {
-
-	/**
-	 * Get database plug-ins configuration.
-	 * 
-	 * @return
-	 */
-	protected static Database_1[] getDatabasePlugIns(
-	) throws ServiceException {
-		if(databasePlugIns == null) {
-			// Prepare database plugins for namespace Kernel and Security
-			Database_1 kernelDatabasePlugIn = new Database_1();
-			{
-		    	Properties sourceConfiguration = new Properties();
-		    	sourceConfiguration.put(Constants.PROPERTY_NAME, "Kernel");
-		    	Configuration configuration = PropertiesConfigurationProvider.getConfiguration(
-		    		sourceConfiguration, 
-		    		"PERSISTENCE"
-		    	);
-		    	kernelDatabasePlugIn.activate((short) 0, configuration, null);
-			}
-			Database_1 securityDatabasePlugIn = new Database_1();
-			{
-		    	Properties sourceConfiguration = new Properties();
-		    	sourceConfiguration.put(Constants.PROPERTY_NAME, "Security");
-		    	Configuration configuration = PropertiesConfigurationProvider.getConfiguration(
-		    		sourceConfiguration, 
-		    		"PERSISTENCE"
-		    	);
-		    	securityDatabasePlugIn.activate((short) 0, configuration, null);
-			}
-			databasePlugIns = new Database_1[]{kernelDatabasePlugIn, securityDatabasePlugIn};			                                 
-		}
-		return databasePlugIns;
-	}
 
 	/**
 	 * Predicate.
@@ -396,7 +357,7 @@ public abstract class QueryBuilderUtil {
 		}
 
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.Predicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -469,7 +430,7 @@ public abstract class QueryBuilderUtil {
         }
 
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.Predicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -616,7 +577,7 @@ public abstract class QueryBuilderUtil {
 		 */
 		protected String getColumnNameParent(
 		) throws ServiceException {
-			return getDatabasePlugIns()[0].getDelegate().getColumnName(
+			return DbSchemaUtils.getDatabasePlugIns()[0].getColumnName(
 				null, // conn
 				"parent", 
 				0, 
@@ -733,7 +694,7 @@ public abstract class QueryBuilderUtil {
 		 */
 		protected String getColumnName(
 		) throws ServiceException {
-			String columnName = getDatabasePlugIns()[0].getDelegate().getColumnName(
+			String columnName = DbSchemaUtils.getDatabasePlugIns()[0].getColumnName(
 				null, // conn 
 				(String)this.getFeature().getName(), 
 				0, // index 
@@ -753,7 +714,7 @@ public abstract class QueryBuilderUtil {
 		 */
 		protected Integer getEmbeddedFeature(
 		) throws ServiceException {
-			return getDatabasePlugIns()[0].getDelegate().getEmbeddedFeature(
+			return DbSchemaUtils.getDatabasePlugIns()[0].getEmbeddedFeature(
 				(String)this.getFeature().getName()
 			);
 		}
@@ -769,7 +730,7 @@ public abstract class QueryBuilderUtil {
 		protected String getColumnName(
 			int index
 		) throws ServiceException {
-			String columnName = getDatabasePlugIns()[0].getDelegate().getColumnName(
+			String columnName = DbSchemaUtils.getDatabasePlugIns()[0].getColumnName(
 				null, // conn 
 				(String)this.getFeature().getName(), 
 				index, // index 
@@ -822,9 +783,9 @@ public abstract class QueryBuilderUtil {
 		protected DbObject getDbObject(
 			Path accessPath
 		) throws ServiceException {
-			for(Database_1 databasePlugIn: getDatabasePlugIns()) {
+			for(Database_2 db: DbSchemaUtils.getDatabasePlugIns()) {
 				try {
-					DbObject dbObject = databasePlugIn.getDelegate().getDbObject(
+					DbObject dbObject = db.getDbObject(
 						null, // conn 
 						accessPath, 
 						null, // filter 
@@ -1127,7 +1088,7 @@ public abstract class QueryBuilderUtil {
 		}
 
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.Predicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -1253,7 +1214,7 @@ public abstract class QueryBuilderUtil {
 		}
 
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.Predicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -1465,7 +1426,7 @@ public abstract class QueryBuilderUtil {
 		}
 
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.Predicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -1779,7 +1740,7 @@ public abstract class QueryBuilderUtil {
 		}
 
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.Predicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -1939,7 +1900,7 @@ public abstract class QueryBuilderUtil {
 		}
 		
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.SingleValuedAttributePredicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -2086,7 +2047,7 @@ public abstract class QueryBuilderUtil {
 		}
 		
 		/* (non-Javadoc)
-		 * @see org.opencrx.kernel.portal.wizard.QueryBuilderController.Predicate#toClause(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
+		 * @see org.opencrx.kernel.utils.QueryBuilderUtil.Predicate#toSql(java.lang.String, org.openmdx.base.naming.Path, java.lang.String)
 		 */
 		@Override
         public String toSql(
@@ -2138,6 +2099,4 @@ public abstract class QueryBuilderUtil {
 		protected Predicate predicate;
 
 	}
-	
-	protected static Database_1[] databasePlugIns;
 }

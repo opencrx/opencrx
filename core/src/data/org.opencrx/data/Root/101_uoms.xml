@@ -238,25 +238,66 @@
 										</_object>
 										<_content/>
 									</org.opencrx.kernel.uom1.Uom>
-									<org.opencrx.kernel.uom1.Uom id="A4" _operation="create">
-										<_object>
-											<description>A3  cut in half</description>
-											<name>A4</name>
-											<isScheduleBaseUom>false</isScheduleBaseUom>
-											<quantity>1.00</quantity>
-											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
-											<accessLevelBrowse>4</accessLevelBrowse>
-											<accessLevelUpdate>2</accessLevelUpdate>
-											<accessLevelDelete>2</accessLevelDelete>
-										</_object>
-										<_content/>
-									</org.opencrx.kernel.uom1.Uom>
 									<org.opencrx.kernel.uom1.Uom id="Pa" _operation="create">
 										<_object>
 											<description>Pascal (pressure) = N/m^2</description>
 											<name>Pa</name>
 											<isScheduleBaseUom>false</isScheduleBaseUom>
 											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="Pa_s" _operation="create">
+										<_object>
+											<description>Pascal-second (dynamic viscosity η) = Ns/m^2 = Pa∙s</description>
+											<name>Pa∙s</name>
+											<isScheduleBaseUom>false</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="mPa_s" _operation="create">
+										<_object>
+											<description>milli-Pascal-second (dynamic viscosity η) = (1/1000)∙Ns/(m^2) = mPa∙s</description>
+											<name>mPa∙s</name>
+											<isScheduleBaseUom>false</isScheduleBaseUom>
+											<quantity>0.001</quantity>
+											<baseUom>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uom/Pa_s</baseUom>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="St" _operation="create">
+										<_object>
+											<description>Stokes (kinematic viscosity ν) = m^2/s = St</description>
+											<name>St</name>
+											<isScheduleBaseUom>false</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="cSt" _operation="create">
+										<_object>
+											<description>centi-Stokes (kinematic viscosity ν) = mm^2/s = cSt</description>
+											<name>cSt</name>
+											<isScheduleBaseUom>false</isScheduleBaseUom>
+											<quantity>0.01</quantity>
+											<baseUom>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uom/St</baseUom>
 											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
 											<accessLevelBrowse>4</accessLevelBrowse>
 											<accessLevelUpdate>2</accessLevelUpdate>
@@ -277,19 +318,6 @@
 										</_object>
 										<_content/>
 									</org.opencrx.kernel.uom1.Uom>
-									<org.opencrx.kernel.uom1.Uom id="A1" _operation="create">
-										<_object>
-											<description>A0 cut in half</description>
-											<name>A1</name>
-											<isScheduleBaseUom>false</isScheduleBaseUom>
-											<quantity>1.00</quantity>
-											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
-											<accessLevelBrowse>4</accessLevelBrowse>
-											<accessLevelUpdate>2</accessLevelUpdate>
-											<accessLevelDelete>2</accessLevelDelete>
-										</_object>
-										<_content/>
-									</org.opencrx.kernel.uom1.Uom>
 									<org.opencrx.kernel.uom1.Uom id="J" _operation="create">
 										<_object>
 											<description>Joule (energy or work) = N*m</description>
@@ -297,19 +325,6 @@
 											<isScheduleBaseUom>false</isScheduleBaseUom>
 											<quantity>1.00</quantity>
 											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
-											<accessLevelBrowse>4</accessLevelBrowse>
-											<accessLevelUpdate>2</accessLevelUpdate>
-											<accessLevelDelete>2</accessLevelDelete>
-										</_object>
-										<_content/>
-									</org.opencrx.kernel.uom1.Uom>
-									<org.opencrx.kernel.uom1.Uom id="A2" _operation="create">
-										<_object>
-											<description>A1 cut in half</description>
-											<name>A2</name>
-											<isScheduleBaseUom>false</isScheduleBaseUom>
-											<quantity>1.00</quantity>
-											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
 											<accessLevelBrowse>4</accessLevelBrowse>
 											<accessLevelUpdate>2</accessLevelUpdate>
 											<accessLevelDelete>2</accessLevelDelete>
@@ -330,10 +345,62 @@
 										</_object>
 										<_content/>
 									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="A0" _operation="create">
+										<_object>
+											<description>0.840896415m x 1.189207115m</description>
+											<name>A0</name>
+											<isScheduleBaseUom>true</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="A1" _operation="create">
+										<_object>
+											<description>A0 cut in half</description>
+											<name>A1</name>
+											<isScheduleBaseUom>false</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="A2" _operation="create">
+										<_object>
+											<description>A1 cut in half</description>
+											<name>A2</name>
+											<isScheduleBaseUom>false</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
 									<org.opencrx.kernel.uom1.Uom id="A3" _operation="create">
 										<_object>
 											<description>A2 cut in half</description>
 											<name>A3</name>
+											<isScheduleBaseUom>false</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="A4" _operation="create">
+										<_object>
+											<description>A3  cut in half</description>
+											<name>A4</name>
 											<isScheduleBaseUom>false</isScheduleBaseUom>
 											<quantity>1.00</quantity>
 											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
@@ -348,19 +415,6 @@
 											<description>A4 cut in half</description>
 											<name>A5</name>
 											<isScheduleBaseUom>false</isScheduleBaseUom>
-											<quantity>1.00</quantity>
-											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
-											<accessLevelBrowse>4</accessLevelBrowse>
-											<accessLevelUpdate>2</accessLevelUpdate>
-											<accessLevelDelete>2</accessLevelDelete>
-										</_object>
-										<_content/>
-									</org.opencrx.kernel.uom1.Uom>
-									<org.opencrx.kernel.uom1.Uom id="A0" _operation="create">
-										<_object>
-											<description>0.840896415m x 1.189207115m</description>
-											<name>A0</name>
-											<isScheduleBaseUom>true</isScheduleBaseUom>
 											<quantity>1.00</quantity>
 											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/ISO::Paper</uomSchedule>
 											<accessLevelBrowse>4</accessLevelBrowse>
@@ -514,8 +568,8 @@
 									</org.opencrx.kernel.uom1.Uom>
 									<org.opencrx.kernel.uom1.Uom id="Ohm" _operation="create">
 										<_object>
-											<description>Ohm (electric resistance) = V/A</description>
-											<name>Ω</name>
+											<description>Ohm (electric resistance Ω) = V/A</description>
+											<name>Ohm</name>
 											<isScheduleBaseUom>false</isScheduleBaseUom>
 											<quantity>1.00</quantity>
 											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
@@ -611,6 +665,32 @@
 										<_object>
 											<description>Kilogram (mass)</description>
 											<name>kg</name>
+											<isScheduleBaseUom>true</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="density" _operation="create">
+										<_object>
+											<description>Density ρ (mass/volume in kg/l)</description>
+											<name>kg/l</name>
+											<isScheduleBaseUom>true</isScheduleBaseUom>
+											<quantity>1.00</quantity>
+											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>
+											<accessLevelBrowse>4</accessLevelBrowse>
+											<accessLevelUpdate>2</accessLevelUpdate>
+											<accessLevelDelete>2</accessLevelDelete>
+										</_object>
+										<_content/>
+									</org.opencrx.kernel.uom1.Uom>
+									<org.opencrx.kernel.uom1.Uom id="spec_weight" _operation="create">
+										<_object>
+											<description>Specific weight γ (force/volume in N/m^3)</description>
+											<name>N/m^3</name>
 											<isScheduleBaseUom>true</isScheduleBaseUom>
 											<quantity>1.00</quantity>
 											<uomSchedule>org::opencrx::kernel::uom1/provider/CRX/segment/Root/uomSchedule/SI</uomSchedule>

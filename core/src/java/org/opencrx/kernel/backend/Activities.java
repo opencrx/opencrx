@@ -103,7 +103,6 @@ import org.opencrx.kernel.account1.jmi1.EMailAddress;
 import org.opencrx.kernel.account1.jmi1.PhoneNumber;
 import org.opencrx.kernel.activity1.cci2.AbstractEMailRecipientQuery;
 import org.opencrx.kernel.activity1.cci2.AbstractPhoneCallRecipientQuery;
-import org.opencrx.kernel.activity1.cci2.ActivityLinkFromQuery;
 import org.opencrx.kernel.activity1.cci2.ActivityLinkToQuery;
 import org.opencrx.kernel.activity1.cci2.ActivityProcessActionQuery;
 import org.opencrx.kernel.activity1.cci2.ActivityProcessTransitionQuery;
@@ -132,7 +131,6 @@ import org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal;
 import org.opencrx.kernel.activity1.jmi1.ActivityFollowUp;
 import org.opencrx.kernel.activity1.jmi1.ActivityGroup;
 import org.opencrx.kernel.activity1.jmi1.ActivityGroupAssignment;
-import org.opencrx.kernel.activity1.jmi1.ActivityLinkFrom;
 import org.opencrx.kernel.activity1.jmi1.ActivityLinkTo;
 import org.opencrx.kernel.activity1.jmi1.ActivityMilestone;
 import org.opencrx.kernel.activity1.jmi1.ActivityProcess;
@@ -1525,8 +1523,8 @@ public class Activities extends AbstractImpl {
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(activityProcess);
     	boolean isTxLocal = !pm.currentTransaction().isActive();
-    	String providerName = activityProcess.refGetPath().get(2);
-    	String segmentName = activityProcess.refGetPath().get(4);
+    	String providerName = activityProcess.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = activityProcess.refGetPath().getSegment(4).toClassicRepresentation();
     	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = this.getActivitySegment(
             pm, 
             providerName, 
@@ -1764,8 +1762,8 @@ public class Activities extends AbstractImpl {
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(activityType);
     	boolean isTxLocal = !pm.currentTransaction().isActive();
-    	String providerName = activityType.refGetPath().get(2);
-    	String segmentName = activityType.refGetPath().get(4);
+    	String providerName = activityType.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = activityType.refGetPath().getSegment(4).toClassicRepresentation();
     	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = this.getActivitySegment(
             pm, 
             providerName, 
@@ -2100,8 +2098,8 @@ public class Activities extends AbstractImpl {
         List<ActivityGroup> activityGroups
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(activityCreator);
-    	String providerName = activityCreator.refGetPath().get(2);
-    	String segmentName = activityCreator.refGetPath().get(4);
+    	String providerName = activityCreator.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = activityCreator.refGetPath().getSegment(4).toClassicRepresentation();
     	boolean useRunAsPrincipal = Utils.hasObjectRunAsPermission(
     		activityCreator.refGetPath(), 
     		Utils.getPermissions(
@@ -3321,8 +3319,9 @@ public class Activities extends AbstractImpl {
     }
 
     /**
-     * Update calculated and derived fields of given activity. Override for custom-
-     * specific behaviour.
+     * Update calculated and derived fields of given activity. This
+     * method delegates to updateActivity(activity, updateIcal=true, updateReplicas=true).
+     * Override for custom-specific behavior.
      * 
      * @param activity
      * @throws ServiceException
@@ -3330,7 +3329,30 @@ public class Activities extends AbstractImpl {
     protected void updateActivity(
         Activity activity
     ) throws ServiceException {
+    	this.updateActivity(
+    		activity,
+    		true,
+    		true
+    	);
+    }
+
+    /**
+     * Update calculated and derived fields of given activity.
+     * 
+     * @param activity
+     * @param updateIcal
+     * @param updateReplicas
+     * @throws ServiceException
+     */
+    protected void updateActivity(
+        Activity activity,
+        boolean updateIcal,
+        boolean updateReplicas
+    ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(activity);
+    	String providerName = activity.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = activity.refGetPath().getSegment(4).toClassicRepresentation();
+    	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = this.getActivitySegment(pm, providerName, segmentName);
         if(!JDOHelper.isPersistent(activity) && JDOHelper.isNew(activity)) {
             if((activity.getDueBy() == null)) {
             	try {
@@ -3341,62 +3363,81 @@ public class Activities extends AbstractImpl {
                 activity.setPercentComplete(new Short((short)0));
             }
         }
-        List<String> statusMessage = new ArrayList<String>();
-        String ical = ICalendar.getInstance().mergeIcal(
-        	activity, 
-        	activity.getIcal(),
-        	statusMessage 
-        );
-        activity.setIcal(
-            ical == null ? "" : ical
-        );
-        // Assertion externalLink().contains(ical uid)
-        String uid = this.getICalUid(ical);
-        boolean icalLinkMatches = false;
-        boolean hasICalLink = false;
-        for(String externalLink: activity.getExternalLink()) {
-        	if(externalLink.startsWith(ICalendar.ICAL_SCHEMA)) {
-        		hasICalLink = true;
-        		if(externalLink.endsWith(uid)) {
-	        		icalLinkMatches = true;
-	        		break;
-        		}
-        	}
-        }
-        if(!hasICalLink) {
-        	activity.getExternalLink().add(
-        		ICalendar.ICAL_SCHEMA + uid
-        	);
-        } else if(!icalLinkMatches) {
-        	// Should not happen. Log warning.
-        	// Activity must be fixed manually with updateICal() operation
-        	SysLog.warning("Activity's external link does not contain ical UID", Arrays.asList(activity.refGetPath().toString(), activity.getActivityNumber()));
-        	ServiceException e = new ServiceException(
-        		BasicException.Code.DEFAULT_DOMAIN,
-        		BasicException.Code.ASSERTION_FAILURE,
-        		"Activity's external link does not contain ical UID",
-        		new BasicException.Parameter("activity", activity),
-        		new BasicException.Parameter("externalLink", activity.getExternalLink()),
-        		new BasicException.Parameter("ical", ical)        		
-        	);
-        	SysLog.detail(e.getMessage(), e.getCause());
+        if(updateIcal) {
+	        List<String> statusMessage = new ArrayList<String>();
+	        String ical = ICalendar.getInstance().mergeIcal(
+	        	activity, 
+	        	activity.getIcal(),
+	        	statusMessage 
+	        );
+	        {
+	        	String newIcal = ical == null ? "" : ical
+	        		.replace("\r", "")
+	        		.replaceAll("LAST-MODIFIED:.*\n", "")
+	        		.replaceAll("DTSTAMP:.*\n", "")
+	        		.trim();
+	        	String oldIcal = activity.getIcal() == null ? "" : activity.getIcal()
+	        		.replaceAll("\r", "")
+	        		.replaceAll("LAST-MODIFIED:.*\n", "")
+	        		.replaceAll("DTSTAMP:.*\n", "")
+	        		.trim();
+	            if(!Utils.areEqual(newIcal, oldIcal)) {
+	                activity.setIcal(ical);
+	            }
+	        }
+	        // Assertion externalLink().contains(ical uid)
+	        String uid = this.getICalUid(ical);
+	        boolean icalLinkMatches = false;
+	        boolean hasICalLink = false;
+	        for(String externalLink: activity.getExternalLink()) {
+	        	if(externalLink.startsWith(ICalendar.ICAL_SCHEMA)) {
+	        		hasICalLink = true;
+	        		if(externalLink.endsWith(uid)) {
+		        		icalLinkMatches = true;
+		        		break;
+	        		}
+	        	}
+	        }
+	        if(!hasICalLink) {
+	        	activity.getExternalLink().add(
+	        		ICalendar.ICAL_SCHEMA + uid
+	        	);
+	        } else if(!icalLinkMatches) {
+	        	// Should not happen. Log warning.
+	        	// Activity must be fixed manually with updateICal() operation
+	        	SysLog.warning("Activity's external link does not contain ical UID", Arrays.asList(activity.refGetPath().toString(), activity.getActivityNumber()));
+	        	ServiceException e = new ServiceException(
+	        		BasicException.Code.DEFAULT_DOMAIN,
+	        		BasicException.Code.ASSERTION_FAILURE,
+	        		"Activity's external link does not contain ical UID",
+	        		new BasicException.Parameter("activity", activity),
+	        		new BasicException.Parameter("externalLink", activity.getExternalLink()),
+	        		new BasicException.Parameter("ical", ical)        		
+	        	);
+	        	SysLog.detail(e.getMessage(), e.getCause());
+	        }
         }
         // Update replicas
-        ActivityLinkFromQuery activityLinkFromQuery = (ActivityLinkFromQuery)pm.newQuery(ActivityLinkFrom.class);
-        activityLinkFromQuery.activityLinkType().elementOf(
-        	Arrays.asList(
-        		ActivityLinkType.IS_ORIGINAL_OF.getValue(), 
-        		ActivityLinkType.IS_ORIGINAL_OF_OBFUSCATED.getValue()
-        	)
-        );
-        Collection<ActivityLinkFrom> linksFrom = activity.getActivityLinkFrom(activityLinkFromQuery);
-        for(ActivityLinkFrom linkFrom: linksFrom) {
-        	Activity replica = linkFrom.getLinkFrom();
-        	this.updateReplicatedActivity(
-        		activity, 
-        		replica, 
-        		linkFrom.getLinkTo()
+        if(updateReplicas) {
+        	ActivityQuery replicaQuery = (ActivityQuery)pm.newQuery(Activity.class);
+        	replicaQuery.thereExistsActivityLinkTo().activityLinkType().elementOf(
+	        	Arrays.asList(
+	        		ActivityLinkType.IS_REPLICA_OF.getValue(), 
+	        		ActivityLinkType.IS_REPLICA_OF_OBFUSCATED.getValue()
+	        	)
         	);
+        	replicaQuery.thereExistsActivityLinkTo().thereExistsLinkTo().equalTo(activity);
+        	for(Activity replica: activitySegment.getActivity(replicaQuery)) {
+        		ActivityLinkToQuery activityLinkToQuery = (ActivityLinkToQuery)pm.newQuery(ActivityLinkTo.class);
+        		activityLinkToQuery.thereExistsLinkTo().equalTo(activity);
+        		for(ActivityLinkTo activityLinkTo: replica.getActivityLinkTo(activityLinkToQuery)) {
+		        	this.updateReplicatedActivity(
+		        		activity,
+		        		replica,
+		        		activityLinkTo
+		        	);
+        		}
+        	}
         }
     }
 
@@ -3484,9 +3525,6 @@ public class Activities extends AbstractImpl {
     ) throws ServiceException {
         if(activityCreator != null) {
         	PersistenceManager pm = JDOHelper.getPersistenceManager(activity);        	
-        	String providerName = activityCreator.refGetPath().get(2);
-        	String segmentName = activityCreator.refGetPath().get(4);
-        	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = this.getActivitySegment(pm, providerName, segmentName);
             ActivityType activityType = activityCreator.getActivityType();
             if(activityType != null) {
                 // Type of activity must match defined activity class
@@ -4064,8 +4102,8 @@ public class Activities extends AbstractImpl {
         PartyType type
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(email);
-    	String providerName = email.refGetPath().get(2);
-    	String segmentName = email.refGetPath().get(4);
+    	String providerName = email.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = email.refGetPath().getSegment(4).toClassicRepresentation();
         if (addresses == null || addresses.length == 0) {
         	SysLog.trace("Message does not contain any recipient of type '" + type + "'");
         }
@@ -4527,7 +4565,6 @@ public class Activities extends AbstractImpl {
 	                    	originalMessageMediaName1.equals(media.getContentName()) || 
 	                    	originalMessageMediaName2.equals(media.getContentName())
 	                    ) {
-	                        @SuppressWarnings("resource")
 	                        ZipInputStream zippedMessageStream = new ZipInputStream(mediaContent.toInputStream());
 	                        zippedMessageStream.getNextEntry();
 	                        originalMessageStream = zippedMessageStream;
@@ -4901,8 +4938,8 @@ public class Activities extends AbstractImpl {
     	boolean isNew
     ) throws ServiceException, MessagingException, IOException, ParseException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(email);
-    	String providerName = email.refGetPath().get(2);
-    	String segmentName = email.refGetPath().get(4);
+    	String providerName = email.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = email.refGetPath().getSegment(4).toClassicRepresentation();
         MailDateFormat mailDateFormat = new MailDateFormat();
         javax.mail.Address[] addressesFrom = mimeMessage.getFrom();
         javax.mail.Address[] addressesTo = mimeMessage.getRecipients(Message.RecipientType.TO);
@@ -5300,30 +5337,30 @@ public class Activities extends AbstractImpl {
     	List<String> recipientBcc
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(email);
-    	String providerName = email.refGetPath().get(2);
-    	String segmentName = email.refGetPath().get(4);
+    	String providerName = email.refGetPath().getSegment(2).toClassicRepresentation();
+    	String segmentName = email.refGetPath().getSegment(4).toClassicRepresentation();
 		// Sender
 		if(sender != null) {
-			List<EMailAddress> emailAddresses = 
+			List<EMailAddress> emailAddresses =
 				Accounts.getInstance().lookupEmailAddress(
-					pm, 
+					pm,
 					providerName,
 					segmentName,
-					sender 
-				);        	
+					sender
+				);
 			if(!emailAddresses.isEmpty()) {
 				email.setSender(emailAddresses.iterator().next());
 			}
 		}
 		// Recipients TO  
 		for(String recipientAddress: recipientTo) {
-			List<EMailAddress> emailAddresses = 
+			List<EMailAddress> emailAddresses =
 				Accounts.getInstance().lookupEmailAddress(
-					pm, 
+					pm,
 					providerName,
 					segmentName,
-					recipientAddress 
-				);        	
+					recipientAddress
+				);
 			if(!emailAddresses.isEmpty()) {
 				EMailRecipient recipient = pm.newInstance(EMailRecipient.class);
 				recipient.setParty(emailAddresses.iterator().next());
@@ -5496,8 +5533,8 @@ public class Activities extends AbstractImpl {
 		}
 		ActivityProcess activityProcess = null;
 		if(doc != null) {
-			String activityProcessId = doc.getDocumentElement().getAttributeNS("", "id");
-			String activityProcessName = doc.getDocumentElement().getAttributeNS("", "name");
+			String activityProcessId = doc.getDocumentElement().getAttribute("id");
+			String activityProcessName = doc.getDocumentElement().getAttribute("name");
 			try {
 				if(activityProcessName != null && !activityProcessName.isEmpty()) {
 					// Lookup by id
@@ -5530,8 +5567,8 @@ public class Activities extends AbstractImpl {
 	    				// Phase 1: create states
 	    				for(int i = 0; i < lStates.getLength(); i++) {
 	    					org.w3c.dom.Element eState = (org.w3c.dom.Element)lStates.item(i);
-	    					String stateId = eState.getAttributeNS("", "id");
-	    					String stateName = eState.getAttributeNS("", "name");
+	    					String stateId = eState.getAttribute("id");
+	    					String stateName = eState.getAttribute("name");
 	    					if(stateId == null || stateId.isEmpty() || stateName == null || stateName.isEmpty()) {
 	    						report.add("Missing or empty attribute id and/or name for state " + i + "(state.id=" + stateId + ", state.name=" + stateName + ")");				    						
 	    					} else {
@@ -5554,15 +5591,15 @@ public class Activities extends AbstractImpl {
 	    				// Phase 2: create transitions
 	    				for(int i = 0; i < lStates.getLength(); i++) {
 	    					org.w3c.dom.Element eState = (org.w3c.dom.Element)lStates.item(i);
-	    					String stateId = eState.getAttributeNS("", "id");
+	    					String stateId = eState.getAttribute("id");
 	    					if(stateId != null) {
 	    						ActivityProcessState prevState = processStates.get(stateId);
 	    						org.w3c.dom.NodeList lTransitions = eState.getElementsByTagName("transition");
 	    						if(lTransitions != null) {
 	    							for(int j = 0; j < lTransitions.getLength(); j++) {
 	    								org.w3c.dom.Element eTransition = (org.w3c.dom.Element)lTransitions.item(j);
-	    								String transitionId = eTransition.getAttribute("id");
-	    								String transitionName = eTransition.getAttribute("name");
+	    								String transitionId = eTransition.getAttributeNS(null, "id");
+	    								String transitionName = eTransition.getAttributeNS(null, "name");
 	    								String newActivityState = eTransition.getAttribute("a1:newActivityState");
 	    								String newPercentComplete = eTransition.getAttribute("a1:newPercentComplete");				    								
 	    								String subActivityNamePattern = eTransition.getAttribute("a1:subActivityNamePattern");

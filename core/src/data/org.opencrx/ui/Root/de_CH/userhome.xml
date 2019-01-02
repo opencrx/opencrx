@@ -110,6 +110,19 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:workList" _operation="create">
+										<_object>
+										  <toolTip>
+												<_item>Arbeitslisten</_item>
+											</toolTip>
+											<label>
+												<_item>Arbeitslisten</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome" _operation="create">
 										<_object>
 											<label>
@@ -1047,6 +1060,367 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList">
+										<_object>
+											<toolTip>
+												<_item>Arbeitsliste</_item>
+											</toolTip>
+											<label>
+												<_item>Arbeitsliste</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:snapshot">
+										<_object>
+											<toolTip>
+												<_item>Snapshots</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshots</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:item">
+										<_object>
+											<toolTip>
+												<_item>Einträge</_item>
+											</toolTip>
+											<label>
+												<_item>Einträge</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:feed">
+										<_object>
+											<toolTip>
+												<_item>Lieferanten für Einträge</_item>
+											</toolTip>
+											<label>
+												<_item>Lieferanten für Einträge</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:currentSnapshot">
+										<_object>
+											<toolTip>
+												<_item>Aktueller Snapshot</_item>
+											</toolTip>
+											<label>
+												<_item>Aktueller Snapshot</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot">
+										<_object>
+											<toolTip>
+												<_item>Snapshot</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshot</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:item">
+										<_object>
+											<toolTip>
+												<_item>Einträge</_item>
+											</toolTip>
+											<label>
+												<_item>Einträge</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:removedItem">
+										<_object>
+											<toolTip>
+												<_item>Einträge Entfernt</_item>
+											</toolTip>
+											<label>
+												<_item>Einträge Entfernt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:addedItem">
+										<_object>
+											<toolTip>
+												<_item>Einträge Hinzugefügt</_item>
+											</toolTip>
+											<label>
+												<_item>Einträge Hinzugefügt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:predecessor">
+										<_object>
+											<toolTip>
+												<_item>Vorgänger</_item>
+											</toolTip>
+											<label>
+												<_item>Vorgänger</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:modifiedAt">
+										<_object>
+											<label>
+												<_item>Modifiziert am</_item>
+											</label>
+											<toolTip>
+												<_item>Datum und Zeit der letzten Objektmodifikation</_item>
+											</toolTip>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem">
+										<_object>
+											<toolTip>
+												<_item>Eintrag</_item>
+											</toolTip>
+											<label>
+												<_item>Eintrag</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:snapshot">
+										<_object>
+											<toolTip>
+												<_item>Snapshots</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshots</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:originType">
+										<_object>
+											<toolTip>
+												<_item>Quelltyp</_item>
+											</toolTip>
+											<label>
+												<_item>Quelltyp</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:origin">
+										<_object>
+											<toolTip>
+												<_item>Quelle</_item>
+											</toolTip>
+											<label>
+												<_item>Quelle</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:originXri">
+										<_object>
+											<toolTip>
+												<_item>XRI der Quelle</_item>
+											</toolTip>
+											<label>
+												<_item>XRI der Quelle</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed">
+										<_object>
+											<toolTip>
+												<_item>Lieferant Arbeitsliste</_item>
+											</toolTip>
+											<label>
+												<_item>Lieferant Arbeitsliste</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:name">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:description">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:active">
+										<_object>
+											<toolTip>
+												<_item>Aktiv</_item>
+											</toolTip>
+											<label>
+												<_item>Aktiv</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:source">
+										<_object>
+											<toolTip>
+												<_item>Quelle</_item>
+											</toolTip>
+											<label>
+												<_item>Quelle</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:sourceReferenceName">
+										<_object>
+											<toolTip>
+												<_item>Name der Quellreferenz</_item>
+											</toolTip>
+											<label>
+												<_item>Name der Quellreferenz</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:Pane:Op:Tab:createSnapshot">
+										<_object>
+											<toolTip>
+												<_item>Snapshot Erstellen</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshot Erstellen</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:Pane:Op:Tab:createSnapshot:Group:in">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:Pane:Op:Tab:createSnapshot:Group:result">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:Segment:Pane:Op:Tab:createUser" _operation="create">
 										<_object>
 											<label>

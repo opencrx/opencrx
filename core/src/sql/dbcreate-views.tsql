@@ -80,6 +80,8 @@ DROP VIEW OOCKE1_JOIN_OBJHASASSTIMER COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_OBJHASIDXENTRY COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_PRODCLASSHASASSPROD COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_RESCONTAINSWRE COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_RESHASASSIGNEDACT COMMAND_TERMINATOR 
@@ -91,6 +93,12 @@ DROP VIEW OOCKE1_JOIN_SEGCONTAINSFAC COMMAND_TERMINATOR
 DROP VIEW OOCKE1_JOIN_SEGCONTAINSBU COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_SEGCONTAINSADR COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_SNAPCONTAINSITM COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_SNAPCONTAINSADDITM COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_SNAPCONTAINSREMITM COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOMSE2_TOBJ_USERS COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -527,6 +535,14 @@ FROM
     OOCKE1_INDEXENTRY e COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
+CREATE VIEW OOCKE1_JOIN_PRODCLASSHASASSPROD AS
+SELECT
+    p_.classification AS product_classification,
+    p_.object_id AS assigned_product 
+FROM 
+    OOCKE1_PRODUCT_ p_ COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
 CREATE VIEW OOCKE1_JOIN_RESHASASSIGNEDACT AS
 SELECT
     a.object_id AS assigned_activity,
@@ -581,6 +597,42 @@ INNER JOIN
     OOCKE1_BUILDINGUNIT bu1
 ON
    (bu2.P_PARENT = bu1.object_id) COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_SNAPCONTAINSITM AS
+SELECT 
+    wli_.object_id AS item,
+    wli_.snapshot AS snapshot
+FROM
+   OOCKE1_WORKLISTITEM_ wli_ COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_SNAPCONTAINSADDITM AS
+SELECT 
+    wli_.object_id AS added_item,
+    snap.object_id AS snapshot
+FROM
+   OOCKE1_WORKLISTITEM_ wli_
+INNER JOIN
+   OOCKE1_WORKLISTSNAPSHOT snap
+ON
+   wli_.snapshot = snap.object_id
+WHERE
+   NOT EXISTS (SELECT 0 FROM OOCKE1_WORKLISTITEM_ wlip_ WHERE wlip_.object_id = wli_.object_id AND wlip_.snapshot = snap.predecessor) COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_SNAPCONTAINSREMITM AS
+SELECT 
+    wli_.object_id AS removed_item,
+    snap.object_id AS snapshot
+FROM
+   OOCKE1_WORKLISTITEM_ wli_
+INNER JOIN
+   OOCKE1_WORKLISTSNAPSHOT snap
+ON
+   wli_.snapshot = snap.predecessor
+WHERE
+   NOT EXISTS (SELECT 0 FROM OOCKE1_WORKLISTITEM_ wlip_ WHERE wlip_.object_id = wli_.object_id AND wlip_.snapshot = snap.object_id) COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_HOMEHASASSCONTR AS
@@ -923,7 +975,7 @@ FROM
 
 CREATE VIEW OOCKE1_TOBJ_ACTIVITYLINKFROM AS
 SELECT
-    STRCAT_PREFIX REPLACE(a.object_id, 'activity/', 'activityLinkFrom/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(l.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(a.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(l.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     a.object_id AS P_PARENT,
     'org:opencrx:kernel:activity1:ActivityLinkFrom' AS dtype,
     l.modified_at, 
@@ -940,28 +992,33 @@ SELECT
     l.P_PARENT AS link_from,
     l.object_id AS link_to
 FROM
-    OOCKE1_ACTIVITY a, 
     OOCKE1_ACTIVITYLINK l
-WHERE
-    l.link_to = a.object_id AND
-    l.object_id = l.object_id COMMAND_TERMINATOR 
+INNER JOIN
+    OOCKE1_ACTIVITY a 
+ON
+    l.link_to = a.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_ACTIVITYLINKFROM_ AS
 SELECT 
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    l_.object_id,
+    l.P_PARENT,
+    l_.idx,
+    l_.created_by,
+    l_.modified_by,
+    l_.owner,
+    l_.dtype
 FROM
-    OOCKE1_ACTIVITYLINK_ COMMAND_TERMINATOR 
+    OOCKE1_ACTIVITYLINK_ l_
+INNER JOIN
+    OOCKE1_ACTIVITYLINK l
+ON
+    l.object_id = l_.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_ACTIVITYRELSHIP AS
 SELECT
-    STRCAT_PREFIX REPLACE(a.object_id, 'activity/', 'activityRelationship/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(l.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(a.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(l.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     a.object_id AS P_PARENT,
     'org:opencrx:kernel:activity1:ActivityRelationship' AS dtype,
     l.modified_at, 
@@ -1015,19 +1072,24 @@ WHERE
 
 CREATE VIEW OOCKE1_TOBJ_ACTIVITYRELSHIP_ AS
 SELECT 
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    l_.object_id,
+    l.P_PARENT,
+    l_.idx,
+    l_.created_by,
+    l_.modified_by,
+    l_.owner,
+    l_.dtype
 FROM
-    OOCKE1_ACTIVITYLINK_ COMMAND_TERMINATOR 
+    OOCKE1_ACTIVITYLINK_ l_
+INNER JOIN
+    OOCKE1_ACTIVITYLINK l 
+ON
+    l.object_id = l_.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_AGGRDEPOTREPITEM AS
 SELECT
-    STRCAT_PREFIX REPLACE(dg0.object_id, 'depotGroup/', 'aggregatedDepotReportItem/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(booking_period, '/', ':') STRCAT_INFIX ':' STRCAT_INFIX REPLACE(dri.position_name, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(dg0.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(booking_period,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(dri.position_name,'/','*') STRCAT_SUFFIX AS object_id,
     dg0.object_id AS P_PARENT,
     'org:opencrx:kernel:depot1:AggregatedDepotReportItem' AS dtype,
     (SELECT period_starts_at FROM OOCKE1_BOOKINGPERIOD bp WHERE bp.object_id = dr.booking_period) AS modified_at, 
@@ -1069,7 +1131,7 @@ GROUP BY
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX REPLACE(dg0.object_id, 'depotGroup/', 'aggregatedDepotReportItem/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(booking_period, '/', ':') STRCAT_INFIX ':' STRCAT_INFIX REPLACE(dri.position_name, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(dg0.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(booking_period,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(dri.position_name,'/','*') STRCAT_SUFFIX AS object_id,
     dg0.object_id AS P_PARENT,
     'org:opencrx:kernel:depot1:AggregatedDepotReportItem' AS dtype,
     (SELECT period_starts_at FROM OOCKE1_BOOKINGPERIOD bp WHERE bp.object_id = dr.booking_period) AS modified_at, 
@@ -1115,7 +1177,7 @@ GROUP BY
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX REPLACE(dg0.object_id, 'depotGroup/', 'aggregatedDepotReportItem/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(booking_period, '/', ':') STRCAT_INFIX ':' STRCAT_INFIX REPLACE(dri.position_name, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(dg0.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(booking_period,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(dri.position_name,'/','*') STRCAT_SUFFIX AS object_id,
     dg0.object_id AS P_PARENT,
     'org:opencrx:kernel:depot1:AggregatedDepotReportItem' AS dtype,
     (SELECT period_starts_at FROM OOCKE1_BOOKINGPERIOD bp WHERE bp.object_id = dr.booking_period) AS modified_at, 
@@ -1165,19 +1227,20 @@ GROUP BY
 
 CREATE VIEW OOCKE1_TOBJ_AGGRDEPOTREPITEM_ AS
 SELECT 
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    dg_.object_id,
+    dg_.object_id AS P_PARENT,
+    dg_.idx,
+    dg_.created_by,
+    dg_.modified_by,
+    dg_.owner,
+    dg_.dtype
 FROM
-    OOCKE1_DEPOTGROUP_ COMMAND_TERMINATOR 
+    OOCKE1_DEPOTGROUP_ dg_ COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_ASSACCTASS AS
 SELECT
-    STRCAT_PREFIX REPLACE(ass.account, 'account/', 'assignedAccountAssignment/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(ass.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass.account,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     ass.account AS P_PARENT,
     CASE
         WHEN ass.dtype = 'org:opencrx:kernel:product1:AccountAssignmentProduct' THEN 'org:opencrx:kernel:account1:AssignedAccountAssignmentProduct'
@@ -1215,25 +1278,24 @@ WHERE
 
 CREATE VIEW OOCKE1_TOBJ_ASSACCTASS_ AS
 SELECT 
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    aa_.object_id,
+    aa.P_PARENT,
+    aa_.idx,
+    aa_.created_by,
+    aa_.modified_by,
+    aa_.owner,
+    aa_.dtype
 FROM
-    OOCKE1_ACCOUNTASSIGNMENT_ COMMAND_TERMINATOR 
+    OOCKE1_ACCOUNTASSIGNMENT_ aa_
+INNER JOIN
+    OOCKE1_ACCOUNTASSIGNMENT aa
+ON
+    aa_.object_id = aa.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_CONTRACTLNKFROM AS
 SELECT
-    STRCAT_PREFIX CASE 
-        WHEN (STRSUB(c.object_id,1,5) = 'lead/') THEN REPLACE(c.object_id, 'lead/', 'linkFromLead/') 
-        WHEN (STRSUB(c.object_id,1,12) = 'opportunity/') THEN REPLACE(c.object_id, 'opportunity/', 'linkFromOpportunity/') 
-        WHEN (STRSUB(c.object_id,1,6) = 'quote/') THEN REPLACE(c.object_id, 'quote/', 'linkFromQuote/') 
-        WHEN (STRSUB(c.object_id,1,11) = 'salesOrder/') THEN REPLACE(c.object_id, 'salesOrder/', 'linkFromSalesOrder/') 
-        WHEN (STRSUB(c.object_id,1,8) = 'invoice/') THEN REPLACE(c.object_id, 'invoice/', 'linkFromInvoice/') 
-    END STRCAT_INFIX '/' STRCAT_INFIX REPLACE(l.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(c.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(l.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     c.object_id AS P_PARENT,
     'org:opencrx:kernel:contract1:ContractLinkFrom' AS dtype,
     l.modified_at, 
@@ -1252,28 +1314,33 @@ SELECT
     l.P_PARENT AS link_from,
     l.object_id AS link_to
 FROM
-    OOCKE1_CONTRACT c, 
     OOCKE1_CONTRACTLINK l
-WHERE
-    l.link_to = c.object_id AND
-    l.object_id = l.object_id COMMAND_TERMINATOR 
+INNER JOIN
+    OOCKE1_CONTRACT c
+ON
+    l.link_to = c.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_CONTRACTLNKFROM_ AS
 SELECT 
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    l_.object_id,
+    l.P_PARENT,
+    l_.idx,
+    l_.created_by,
+    l_.modified_by,
+    l_.owner,
+    l_.dtype
 FROM
-    OOCKE1_CONTRACTLINK_ COMMAND_TERMINATOR 
+    OOCKE1_CONTRACTLINK_ l_
+INNER JOIN
+    OOCKE1_CONTRACTLINK l
+ON
+    l.object_id = l_.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_CONTRACTROLE AS
 SELECT     
-    STRCAT_PREFIX REPLACE(c.P_PARENT, 'contracts/', 'contractRole/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(dhn.object_id, '/', ':') STRCAT_INFIX ':' STRCAT_INFIX REPLACE(c.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(c.P_PARENT,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(dhn.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(c.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     c.P_PARENT AS P_PARENT, 
     'org:opencrx:kernel:contract1:CustomerContractRole' AS dtype, 
     c.modified_at, 
@@ -1301,7 +1368,7 @@ ON
 UNION ALL
 
 SELECT     
-    STRCAT_PREFIX REPLACE(c.P_PARENT, 'contracts/', 'contractRole/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(dgn.object_id, '/', ':') STRCAT_INFIX ':' STRCAT_INFIX REPLACE(c.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(c.P_PARENT, 'contracts/', 'contractRole/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(dgn.object_id, '/', '-') STRCAT_INFIX '-' STRCAT_INFIX REPLACE(c.object_id, '/', '-') STRCAT_SUFFIX AS object_id,
     c.P_PARENT AS P_PARENT, 
     'org:opencrx:kernel:contract1:CustomerContractRole' AS dtype, 
     c.modified_at, 
@@ -1329,7 +1396,7 @@ ON
 UNION ALL
 
 SELECT     
-    STRCAT_PREFIX REPLACE(c.P_PARENT, 'contracts/', 'contractRole/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(dn.object_id, '/', ':') STRCAT_INFIX ':' STRCAT_INFIX REPLACE(c.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(c.P_PARENT, 'contracts/', 'contractRole/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(dn.object_id, '/', '-') STRCAT_INFIX '-' STRCAT_INFIX REPLACE(c.object_id, '/', '-') STRCAT_SUFFIX AS object_id,
     c.P_PARENT AS P_PARENT, 
     'org:opencrx:kernel:contract1:CustomerContractRole' AS dtype, 
     c.modified_at, 
@@ -1357,19 +1424,24 @@ ON
 
 CREATE VIEW OOCKE1_TOBJ_CONTRACTROLE_ AS
 SELECT
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
+    c_.object_id,
+    c.P_PARENT,
+    c_.idx,
+    c_.created_by,
+    c_.modified_by,
+    c_.owner,
     'org:opencrx:kernel:contract1:CustomerContractRole' AS dtype
 FROM
-    OOCKE1_CONTRACT_ COMMAND_TERMINATOR 
+    OOCKE1_CONTRACT_ c_
+INNER JOIN
+    OOCKE1_CONTRACT c
+ON
+    c_.object_id = c.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_DOCFLDENTRY AS
 SELECT
-    STRCAT_PREFIX REPLACE(d_.folder, 'docFolder/', 'folderEntry/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(d.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(d_.folder,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(d.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     d_.folder AS P_PARENT,
     'org:opencrx:kernel:document1:DocumentBasedFolderEntry' AS dtype,
     d.modified_at,
@@ -1393,13 +1465,13 @@ FROM
 INNER JOIN
     OOCKE1_DOCUMENT d
 ON
-    (d_.object_id = d.object_id) AND
-    (d_.folder IS NOT NULL)
+    d_.object_id = d.object_id AND
+    d_.folder IS NOT NULL
 
 UNION
 
 SELECT
-    STRCAT_PREFIX REPLACE(dfa.document_folder, 'docFolder/', 'folderEntry/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(dfa.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(dfa.document_folder,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(dfa.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     dfa.document_folder AS P_PARENT, 
     'org:opencrx:kernel:document1:AssignmentBasedFolderEntry' AS dtype, 
     dfa.modified_at, 
@@ -1426,31 +1498,43 @@ WHERE
 
 CREATE VIEW OOCKE1_TOBJ_DOCFLDENTRY_ AS
 SELECT
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
+    d_.object_id,
+    f.folder AS P_PARENT,
+    d_.idx,
+    d_.created_by,
+    d_.modified_by,
+    d_.owner,
     'org:opencrx:kernel:document1:DocumentBasedFolderEntry' AS dtype
 FROM
     OOCKE1_DOCUMENT_ d_
-    
+INNER JOIN
+    OOCKE1_DOCUMENT_ f
+ON
+    d_.object_id = f.object_id
+WHERE
+    f.folder IS NOT NULL    
+
 UNION
 
 SELECT
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
+    dfa_.object_id,
+    dfa.document_folder AS P_PARENT,
+    dfa_.idx,
+    dfa_.created_by,
+    dfa_.modified_by,
+    dfa_.owner,
     'org:opencrx:kernel:document1:AssignmentBasedFolderEntry' AS dtype
 FROM
-    OOCKE1_DOCUMENTFOLDERASS_ dfa_ COMMAND_TERMINATOR 
+    OOCKE1_DOCUMENTFOLDERASS_ dfa_
+INNER JOIN
+    OOCKE1_DOCUMENTFOLDERASS dfa
+ON
+    dfa_.object_id = dfa.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_DOCREFERENCE AS
 SELECT
-    STRCAT_PREFIX REPLACE(da.document, 'doc/', 'docReference/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(da.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(da.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     da.document AS P_PARENT,
     'org:opencrx:kernel:document1:DocumentReference' AS dtype,
     da.modified_at,
@@ -1463,27 +1547,34 @@ SELECT
     da.owner_,
     da.name AS name,
     da.description AS description,
-    P_PARENT AS object,
+    da.P_PARENT AS object,
     da.object_id AS based_on
 FROM
-    OOCKE1_DOCUMENTATTACHMENT da COMMAND_TERMINATOR 
+    OOCKE1_DOCUMENTATTACHMENT da
+WHERE
+    da.document IS NOT NULL COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_DOCREFERENCE_ AS
 SELECT
     da_.object_id,
+    da.P_PARENT,
     da_.idx,
     da_.created_by,
     da_.modified_by,
     da_.owner,
     'org:opencrx:kernel:document1:DocumentReference' AS dtype
 FROM
-    OOCKE1_DOCUMENTATTACHMENT_ da_ COMMAND_TERMINATOR 
+    OOCKE1_DOCUMENTATTACHMENT_ da_
+INNER JOIN
+    OOCKE1_DOCUMENTATTACHMENT da
+ON
+    da_.object_id = da.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_ACCTMEMBERSHIP1 AS
 SELECT DISTINCT
-    STRCAT_PREFIX (ass0.P_PARENT) STRCAT_INFIX '*' STRCAT_INFIX (ass0.object_id) STRCAT_INFIX '*1' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.P_PARENT,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*1' STRCAT_SUFFIX AS object_id,
     ass0.P_PARENT AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT AS account_from_id,
@@ -1554,7 +1645,7 @@ WHERE
 UNION ALL
 
 SELECT DISTINCT
-    STRCAT_PREFIX (ass0.account) STRCAT_INFIX '*' STRCAT_INFIX (ass0.object_id) STRCAT_INFIX '*-1' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.account,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*-1' STRCAT_SUFFIX AS object_id,
     ass0.account AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT AS account_from_id,
@@ -1686,7 +1777,7 @@ WITH RECURSIVE TEMP (
     distance
 ) AS (
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*+1' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*+1' STRCAT_SUFFIX AS object_id,
     ass0.P_PARENT AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT AS account_from_id,
@@ -1753,7 +1844,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX (ass1.object_id) STRCAT_INFIX '*+' STRCAT_INFIX (TEMP.distance + 1) STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass1.object_id,'/','*') STRCAT_INFIX '*+' STRCAT_INFIX (TEMP.distance + 1) STRCAT_SUFFIX AS object_id,
     TEMP.P_PARENT AS P_PARENT,
     ass1.P_PARENT AS account_from,
     ass1.P_PARENT AS account_from_id,
@@ -1886,7 +1977,7 @@ WITH RECURSIVE TEMP (
     distance
 ) AS (
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*-1' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*-1' STRCAT_SUFFIX AS object_id,
     ass0.account AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT AS account_from_id,
@@ -1953,7 +2044,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX (ass1.object_id) STRCAT_INFIX '*' STRCAT_INFIX (TEMP.distance - 1) STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass1.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX (TEMP.distance - 1) STRCAT_SUFFIX AS object_id,
     TEMP.P_PARENT AS P_PARENT,
     ass1.P_PARENT AS account_from,
     ass1.P_PARENT AS account_from_id,
@@ -2032,7 +2123,7 @@ SELECT * FROM OOCKE1_TOBJ_ACCTMEMBERSHIP_FR COMMAND_TERMINATOR
 
 CREATE VIEW OOCKE1_TOBJ_ACCTMEMBERSHIP AS
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*1' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*1' STRCAT_SUFFIX AS object_id,
     ass0.P_PARENT AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT AS account_from_id,
@@ -2099,7 +2190,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*-1' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*-1' STRCAT_SUFFIX AS object_id,
     ass0.account AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT AS account_from_id,
@@ -2166,7 +2257,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*' STRCAT_INFIX (ass1.object_id) STRCAT_INFIX '*2A' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass1.object_id,'/','*') STRCAT_INFIX '*2A' STRCAT_SUFFIX AS object_id,
     ass1.P_PARENT AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT As account_from_id,
@@ -2237,7 +2328,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*' STRCAT_INFIX (ass1.object_id) STRCAT_INFIX '*' STRCAT_INFIX (ass2.object_id) STRCAT_INFIX '*2B' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass1.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass2.object_id,'/','-') STRCAT_INFIX '*2B' STRCAT_SUFFIX AS object_id,
     ass2.P_PARENT AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT As account_from_id,
@@ -2312,7 +2403,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*' STRCAT_INFIX (ass1.object_id) STRCAT_INFIX '*-2A' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass1.object_id,'/','*') STRCAT_INFIX '*-2A' STRCAT_SUFFIX AS object_id,
     ass1.account AS P_PARENT,
     ass0.P_PARENT AS account_from,
     ass0.P_PARENT AS account_from_id,
@@ -2383,7 +2474,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX (ass0.object_id) STRCAT_INFIX '*' STRCAT_INFIX (ass1.object_id) STRCAT_INFIX '*' STRCAT_INFIX (ass2.object_id) STRCAT_INFIX '*-2B' STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(ass0.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass1.object_id,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(ass2.object_id,'/','-') STRCAT_INFIX '*-2B' STRCAT_SUFFIX AS object_id,
     ass1.account AS P_PARENT,
     ass1.P_PARENT AS account_from,
     ass1.P_PARENT AS account_from_id,
@@ -2459,7 +2550,7 @@ WHERE
 CREATE VIEW OOCKE1_TOBJ_ACCTMEMBERSHIP_ AS
 SELECT
     ass_.object_id,
-    ass.P_PARENT AS P_PARENT,
+    ass.P_PARENT,
     ass_.idx,
     ass_.created_by,
     ass_.modified_by,
@@ -2482,7 +2573,7 @@ ON
 
 CREATE VIEW OOCKE1_TOBJ_LNKITEMLNKFROM AS
 SELECT
-    STRCAT_PREFIX REPLACE(l.link_to, 'facility/', 'itemLinkFrom/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(l.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(l.link_to,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(l.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     l.link_to AS P_PARENT,
     l.created_at, 
     l.created_by_,
@@ -2510,7 +2601,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX REPLACE(l.link_to, 'facility1/', 'itemLinkFrom1/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(l.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(l.link_to,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(l.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     l.link_to AS P_PARENT,
     l.created_at, 
     l.created_by_,
@@ -2538,7 +2629,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX REPLACE(l.link_to, 'facility2/', 'itemLinkFrom2/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(l.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(l.link_to,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(l.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     l.link_to AS P_PARENT,
     l.created_at, 
     l.created_by_,
@@ -2566,7 +2657,7 @@ WHERE
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX REPLACE(l.link_to, 'inventoryItem/', 'itemLinkFrom3/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(l.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(l.link_to,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(l.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     l.link_to AS P_PARENT,
     l.created_at, 
     l.created_by_,
@@ -2594,19 +2685,24 @@ WHERE
 
 CREATE VIEW OOCKE1_TOBJ_LNKITEMLNKFROM_ AS
 SELECT
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    l_.object_id,
+    l.P_PARENT,
+    l_.idx,
+    l_.created_by,
+    l_.modified_by,
+    l_.owner,
+    l_.dtype
 FROM
-    OOCKE1_LINKABLEITEMLINK_  COMMAND_TERMINATOR 
+    OOCKE1_LINKABLEITEMLINK_ l_
+INNER JOIN
+    OOCKE1_LINKABLEITEMLINK l
+ON
+    l_.object_id = l.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_PRICELISTENTRY AS
 SELECT
-    bp.object_id AS object_id,
+    REPLACE(bp.object_id,'/','*') AS object_id,
     p.P_PARENT AS P_PARENT,
     'org:opencrx:kernel:product1:PriceListEntry' AS dtype,
     bp.modified_at, 
@@ -2662,7 +2758,7 @@ ON
 
 CREATE VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP AS
 SELECT
-    STRCAT_PREFIX REPLACE(r.product, 'product/', 'productMembership/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(r.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
+    STRCAT_PREFIX REPLACE(r.product,'/','*') STRCAT_INFIX '*' STRCAT_INFIX REPLACE(r.object_id,'/','*') STRCAT_SUFFIX AS object_id,
     r.product AS P_PARENT,
     r.P_PARENT AS product_from,
     r.product AS product_to,
@@ -2717,6 +2813,7 @@ FROM
 CREATE VIEW OOCKE1_TOBJ_PRODUCTMEMBERSHIP_ AS
 SELECT
     rp_.object_id,
+    rp.P_PARENT,
     rp_.idx,
     rp_.created_by,
     rp_.modified_by,
@@ -2729,12 +2826,16 @@ SELECT
     rp_.user_number4,
     rp_.user_string4
 FROM
-    OOCKE1_RELATEDPRODUCT_ rp_ COMMAND_TERMINATOR
+    OOCKE1_RELATEDPRODUCT_ rp_
+INNER JOIN
+    OOCKE1_RELATEDPRODUCT rp
+ON
+    rp_.object_id = rp.object_id COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_PROPERTYSETENTRY AS
 SELECT
-    REPLACE(p.object_id, 'p2/', 'propertySetEntry1/') AS object_id,
+    REPLACE(p.object_id,'/','*') AS object_id,
     ps.P_PARENT AS P_PARENT,
     p.created_at, 
     p.created_by_,
@@ -2768,7 +2869,7 @@ ON
 UNION ALL
 
 SELECT
-    REPLACE(p.object_id, 'p3/', 'propertySetEntry2/') AS object_id,
+    REPLACE(p.object_id,'/','*') AS object_id,
     ps.P_PARENT AS P_PARENT,
     p.created_at, 
     p.created_by_,
@@ -2802,20 +2903,25 @@ ON
 
 CREATE VIEW OOCKE1_TOBJ_PROPERTYSETENTRY_ AS
 SELECT
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    p_.object_id,
+    p.P_PARENT,
+    p_.idx,
+    p_.created_by,
+    p_.modified_by,
+    p_.owner,
+    p_.dtype
 FROM
-    OOCKE1_PROPERTY_  COMMAND_TERMINATOR 
+    OOCKE1_PROPERTY_ p_
+INNER JOIN
+    OOCKE1_PROPERTY p
+ON
+    p.object_id = p_.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_SEARCHINDEXENTRY AS
 SELECT
-    STRCAT_PREFIX REPLACE(act.P_PARENT, 'accounts/', 'searchIndexEntry/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(act.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
-    act.P_PARENT AS P_PARENT,
+    STRCAT_PREFIX REPLACE(act.object_id,'/','*') STRCAT_SUFFIX AS object_id,
+    act.P_PARENT,
     'org:opencrx:kernel:account1:SearchIndexEntry' AS dtype,
     act.modified_at, 
     act.modified_by_,
@@ -2834,8 +2940,8 @@ FROM
 UNION ALL
 
 SELECT
-    STRCAT_PREFIX REPLACE(act.P_PARENT, 'accounts/', 'searchIndexEntry/') STRCAT_INFIX '/' STRCAT_INFIX REPLACE(adr.object_id, '/', ':') STRCAT_SUFFIX AS object_id,
-    act.P_PARENT AS P_PARENT,
+    STRCAT_PREFIX REPLACE(adr.object_id,'/','*') STRCAT_SUFFIX AS object_id,
+    act.P_PARENT,
     'org:opencrx:kernel:account1:SearchIndexEntry' AS dtype,
     act.modified_at, 
     act.modified_by_,
@@ -2864,14 +2970,19 @@ ON
 
 CREATE VIEW OOCKE1_TOBJ_SEARCHINDEXENTRY_ AS
 SELECT
-    object_id,
-    idx,
-    created_by,
-    modified_by,
-    owner,
-    dtype
+    a_.object_id,
+    a.P_PARENT,
+    a_.idx,
+    a_.created_by,
+    a_.modified_by,
+    a_.owner,
+    a_.dtype
 FROM
-    OOCKE1_ACCOUNT_ COMMAND_TERMINATOR 
+    OOCKE1_ACCOUNT_ a_
+INNER JOIN
+    OOCKE1_ACCOUNT a
+ON
+    a.object_id = a_.object_id COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_TOBJ_SINGLEBKE AS

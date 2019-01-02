@@ -1,14 +1,14 @@
 /*
  * ====================================================================
  * Project:     openCRX/Security, http://www.opencrx.org/
- * Description: OpenCrxSecurity_1
+ * Description: OpenCrxSecurity_2
  * Owner:       CRIXP AG, Switzerland, http://www.crixp.com
  * ====================================================================
  *
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2014, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2018, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -70,6 +70,7 @@ import org.openmdx.base.mof.cci.Model_1_0;
 import org.openmdx.base.mof.spi.Model_1Factory;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.spi.PersistenceManagers;
+import org.openmdx.base.query.ConditionType;
 import org.openmdx.base.query.IsInCondition;
 import org.openmdx.base.query.Quantifier;
 import org.openmdx.base.resource.InteractionSpecs;
@@ -79,6 +80,7 @@ import org.openmdx.base.resource.spi.ResourceExceptions;
 import org.openmdx.base.resource.spi.RestInteractionSpec;
 import org.openmdx.base.rest.cci.MessageRecord;
 import org.openmdx.base.rest.cci.ObjectRecord;
+import org.openmdx.base.rest.cci.QueryFilterRecord;
 import org.openmdx.base.rest.cci.QueryRecord;
 import org.openmdx.base.rest.cci.RestConnection;
 import org.openmdx.base.rest.cci.ResultRecord;
@@ -93,7 +95,7 @@ import org.openmdx.kernel.exception.BasicException;
  * This plugin implements the models org:openmdx:security:realm1,
  * org:openmdx:security1:authorization1, org:openmdx:security:authentication1.
  * 
- * It must be able to manage the following classes:
+ * It manages the following classes:
  * - realm1: Group, Permission, Principal, Policy, Privilege, Realm, Role
  * - authorization1: Policy, Privilege
  * - authentication1: Password
@@ -437,20 +439,124 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	    @Override
 	    protected boolean delete(
 	        RestInteractionSpec ispec, 
-	        ObjectRecord request
+	        ObjectRecord obj
 	    ) throws ResourceException {
-	        this.checkPermission(
-	            ispec,
-	            request.getResourceIdentifier()
-	        );
-	        this.touchRealm(
-	        	ispec,
-	            request.getResourceIdentifier()
-	        );
-	        return super.delete(
-	            ispec,
-	            request
-	        );
+	    	try {
+		        this.checkPermission(
+		            ispec,
+		            obj.getResourceIdentifier()
+		        );
+		    	Object_2Facade objFacade = Facades.asObject(obj);
+		    	Path path = objFacade.getPath();
+		    	// Assert if principal is referenced in isMemberOf
+		    	if(path.isLike(PATH_PATTERN_PRINCIPAL)) {
+		        	QueryRecord findRequest = this.newQuery(
+		        		REALM_AUTHORITY.getDescendant(
+		        			"provider",
+		        			path.getSegment(2).toClassicRepresentation(),
+		        			"segment",
+		        			path.getSegment(4).toClassicRepresentation(),
+		        			"realm",
+		        			path.getSegment(6).toClassicRepresentation(),
+		        			"principal"
+		        		)
+		        	);
+		        	findRequest.setQueryFilter(Records.getRecordFactory().createMappedRecord(QueryFilterRecord.class));		        	
+		        	findRequest.getQueryFilter().getCondition().addAll(
+		        		FilterProperty.toCondition(
+		        			new FilterProperty[]{
+		        				new FilterProperty(
+				                    Quantifier.THERE_EXISTS.code(),
+				                    "isMemberOf",
+				                    ConditionType.IS_IN.code(),
+				                    path
+				                )
+		        			}
+		        		)
+		        	);
+		        	findRequest.setSize(10L);
+		            ResultRecord findResult = this.newResult();
+		        	super.find(
+		        		SUPER.GET, 
+		        		findRequest,
+			        	findResult
+			        );
+		        	if(!findResult.isEmpty()) {
+		    			throw ResourceExceptions.initHolder(
+		            		new ResourceException(
+		                        "Unable to remove principal. Reason: referenced by Principal::isMemberOf",
+		        				BasicException.newEmbeddedExceptionStack(
+		        					OpenCrxException.DOMAIN,
+		                            BasicException.Code.ASSERTION_FAILURE, 
+		                            new BasicException.Parameter("xri", path),
+		                            new BasicException.Parameter("references", findResult)
+		                        )
+		                    )
+		                );
+		        	}
+		    	}
+		    	// Assert if principal is referenced in grantedRole		    	
+		    	if(path.isLike(PATH_PATTERN_ROLE)) {
+		        	QueryRecord findRequest = this.newQuery(
+		        		REALM_AUTHORITY.getDescendant(
+		        			"provider",
+		        			path.getSegment(2).toClassicRepresentation(),
+		        			"segment",
+		        			path.getSegment(4).toClassicRepresentation(),
+		        			"realm",
+		        			path.getSegment(6).toClassicRepresentation(),
+		        			"principal"
+		        		)
+		        	);
+		        	findRequest.setQueryFilter(Records.getRecordFactory().createMappedRecord(QueryFilterRecord.class));		        			        	
+		        	findRequest.getQueryFilter().getCondition().addAll(
+		        		FilterProperty.toCondition(
+		        			new FilterProperty[]{
+		        				new FilterProperty(
+				                    Quantifier.THERE_EXISTS.code(),
+				                    "grantedRole",
+				                    ConditionType.IS_IN.code(),
+				                    path
+				                )
+		        			}
+		        		)
+		        	);
+		        	findRequest.setSize(10L);
+		            ResultRecord findResult = this.newResult();
+		        	super.find(
+		        		SUPER.GET,
+		        		findRequest,
+		        		findResult
+			        );
+		        	if(!findResult.isEmpty()) {
+		    			throw ResourceExceptions.initHolder(
+		            		new ResourceException(
+		                        "Unable to remove role. Reason: referenced by Principal::grantedRole",
+		        				BasicException.newEmbeddedExceptionStack(
+		        					OpenCrxException.DOMAIN,
+		                            BasicException.Code.ASSERTION_FAILURE, 
+		                            new BasicException.Parameter("xri", path),
+		                            new BasicException.Parameter("references", findResult)
+		                        )
+		                    )
+		                );
+		        	}
+		    	}
+		        this.touchRealm(
+		        	ispec,
+		            obj.getResourceIdentifier()
+		        );
+		        return super.delete(
+		            ispec,
+		            obj
+		        );
+	    	} catch(ServiceException e) {
+                throw ResourceExceptions.initHolder(
+                    new ResourceException(
+                        BasicException.newEmbeddedExceptionStack(e)
+                    )
+                );	    			    		
+	    	}
 	    }
 
 	    /* (non-Javadoc)
@@ -670,19 +776,27 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
     // Members
     //-------------------------------------------------------------------------
     protected final InteractionSpecs SUPER = InteractionSpecs.getRestInteractionSpecs(false);
-    
+
     protected static final Path AUTHORIZATION_AUTHORITY =
     	new Path("xri://@openmdx*org.openmdx.security.authorization1");
     protected static final Path REALM_AUTHORITY =
     	new Path("xri://@openmdx*org.openmdx.security.realm1");
-    protected static final Path PATH_PATTERN_PRINCIPALS = 
+    protected static final Path IDENTITY_AUTHORITY =
+    	new Path("xri://@openmdx*org.opencrx.security.identity1");
+    protected static final Path PATH_PATTERN_PRINCIPALS =
     	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*", "principal");
+    protected static final Path PATH_PATTERN_PRINCIPAL =
+    	PATH_PATTERN_PRINCIPALS.getDescendant(":*");
     protected static final Path PATH_PATTERN_REALM =
-    	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*");        
+    	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*");
     protected static final Path PATH_PATTERN_REALM_COMPOSITES =
-    	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*", ":*");        
-    protected static final Path PATH_PATTERN_SUBJECTS = 
-        new Path("xri://@openmdx*org.opencrx.security.identity1/provider/:*/segment/:*/subject");
-    protected static final Path PATH_PATTERN_POLICIES = 
-        new Path("xri://@openmdx*org.openmdx.security.authorization1/provider/:*/segment/:*/policy");
+    	REALM_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "realm", ":*", ":*");
+    protected static final Path PATH_PATTERN_SUBJECTS =
+    	IDENTITY_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "subject");
+    protected static final Path PATH_PATTERN_POLICIES =
+    	AUTHORIZATION_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "policy");
+    protected static final Path PATH_PATTERN_ROLES =
+    	AUTHORIZATION_AUTHORITY.getDescendant("provider", ":*", "segment", ":*", "policy", ":*", "role");
+    protected static final Path PATH_PATTERN_ROLE =
+    	PATH_PATTERN_ROLES.getDescendant(":*");
 }

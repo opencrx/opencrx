@@ -68,12 +68,12 @@ org.openmdx.portal.servlet.control.*,
 org.openmdx.portal.servlet.wizards.*,
 org.openmdx.base.naming.*,
 org.openmdx.base.query.*,
-org.opencrx.kernel.backend.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.kernel.id.*,
 org.openmdx.base.exception.*,
 org.openmdx.base.text.conversion.*,
 org.apache.poi.hssf.usermodel.*,
+org.apache.poi.ss.usermodel.*,
 org.apache.poi.hssf.util.*
 " %>
 <%!
@@ -429,28 +429,28 @@ org.apache.poi.hssf.util.*
 	HSSFCellStyle timeStyle = wb.createCellStyle();
 	HSSFDataFormat dataFormatTime = wb.createDataFormat();
 	timeStyle.setDataFormat(dataFormatTime.getFormat("[h]:mm"));
-	timeStyle.setAlignment(HSSFCellStyle.ALIGN_RIGHT);
+	timeStyle.setAlignment(HorizontalAlignment.RIGHT);
 
 	HSSFCellStyle rightAlignStyle = wb.createCellStyle();
-	rightAlignStyle.setAlignment(HSSFCellStyle.ALIGN_RIGHT);
+	rightAlignStyle.setAlignment(HorizontalAlignment.RIGHT);
 
 	HSSFCellStyle quantityStyle = wb.createCellStyle();
-	quantityStyle.setAlignment(HSSFCellStyle.ALIGN_RIGHT);
+	quantityStyle.setAlignment(HorizontalAlignment.RIGHT);
 	HSSFDataFormat format = wb.createDataFormat();
 	quantityStyle.setDataFormat(format.getFormat("#,##0"));
 
 	HSSFCellStyle amountStyle = wb.createCellStyle();
-	amountStyle.setAlignment(HSSFCellStyle.ALIGN_RIGHT);
+	amountStyle.setAlignment(HorizontalAlignment.RIGHT);
 	HSSFDataFormat amountFormat = wb.createDataFormat();
 	amountStyle.setDataFormat(amountFormat.getFormat("#,##0.00"));
 
 	HSSFCellStyle weightStyle = wb.createCellStyle();
-	weightStyle.setAlignment(HSSFCellStyle.ALIGN_RIGHT);
+	weightStyle.setAlignment(HorizontalAlignment.RIGHT);
 	HSSFDataFormat wformat = wb.createDataFormat();
 	weightStyle.setDataFormat(wformat.getFormat("#,##0.000"));
 
 	HSSFCellStyle percentStyle = wb.createCellStyle();
-	percentStyle.setAlignment(HSSFCellStyle.ALIGN_RIGHT);
+	percentStyle.setAlignment(HorizontalAlignment.RIGHT);
 	HSSFDataFormat pformat = wb.createDataFormat();
 	percentStyle.setDataFormat(wformat.getFormat("0.00%"));
 

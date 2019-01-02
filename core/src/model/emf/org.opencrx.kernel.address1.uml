@@ -258,6 +258,91 @@
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FQXPgQvYEeKVD5YCc253Vg" value="*"/>
             </ownedEnd>
           </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_A9r6kND_Eee7VflwEpS8GA" name="UriAddressable" isAbstract="true">
+            <eAnnotations xmi:id="_VSAIUND_Eee7VflwEpS8GA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_WRG04ND_Eee7VflwEpS8GA" key="root"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_E5UCoND_Eee7VflwEpS8GA" name="uriReference" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FDVhUND_Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FDWIYND_Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_FDWvcND_Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_azLj0ND9Eee7VflwEpS8GA" name="uriScheme" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bE93YND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bE_FgND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_bFAToND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_yOQuMND9Eee7VflwEpS8GA" name="uriSchemeSpecificPart" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yd8wAND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yd9XEND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_yd-lMND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_0rqkwND9Eee7VflwEpS8GA" name="uriAuthority" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_02hw8ND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_02iYAND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_02jmIND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_2TFOgND9Eee7VflwEpS8GA" name="uriUserInfo" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2dzQwND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2d0e4ND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_2d1tAND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_3my5IND9Eee7VflwEpS8GA" name="uriHost" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3wyioND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3wzJsND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_3w0X0ND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_5hFbkND9Eee7VflwEpS8GA" name="uriPort" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5sjrwND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5skS0ND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_5slg8ND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_6zO_8ND9Eee7VflwEpS8GA" name="uriPath" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_69tKkND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_69txoND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_69u_wND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_8HCKIND9Eee7VflwEpS8GA" name="uriQuery" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8SdXAND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8SelIND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_8SfMMND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_9uAvAND9Eee7VflwEpS8GA" name="uriFragment" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_94m1cND9Eee7VflwEpS8GA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_94ncgND9Eee7VflwEpS8GA" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_94oqoND9Eee7VflwEpS8GA">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>

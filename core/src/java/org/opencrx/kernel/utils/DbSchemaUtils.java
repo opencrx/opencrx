@@ -72,12 +72,16 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.jdo.Constants;
 import javax.jdo.PersistenceManager;
 
 import org.opencrx.kernel.document1.jmi1.Media;
 import org.opencrx.kernel.layer.persistence.Media_2;
 import org.opencrx.kernel.tools.FastResultSet;
-import org.openmdx.application.dataprovider.layer.persistence.jdbc.Database_1;
+import org.openmdx.application.configuration.Configuration;
+import org.openmdx.application.spi.PropertiesConfigurationProvider;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.Database_2;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.Database_2Configuration;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.mof.cci.ModelElement_1_0;
 import org.openmdx.base.mof.cci.Model_1_0;
@@ -448,12 +452,12 @@ public class DbSchemaUtils {
 			// Microsoft
 			command = command.replace("||", "+");
 			command = command.replace(" VARCHAR(", " NVARCHAR(");
-			command = command.replace(" DATE,", " DATETIME,");					
-			command = command.replace(" TIMESTAMP", " DATETIME");					
+			command = command.replace(" DATE,", " DATETIME2,");
+			command = command.replace(" TIMESTAMP", " DATETIME2");
 			command = command.replace(" BOOLEAN,", " BIT,");
 			command = command.replace(" CLOB,", " NTEXT,");
 			command = command.replace(" VARBINARY,", " IMAGE,");					
-			command = command.replace(" DATE)", " DATETIME)");			
+			command = command.replace(" DATE)", " DATETIME2)");
 			command = command.replace(" BOOLEAN)", " BIT)");
 			command = command.replace(" CLOB)", " NTEXT)");
 			command = command.replace(" VARBINARY)", " IMAGE)");
@@ -1408,7 +1412,7 @@ public class DbSchemaUtils {
 		if(System.getProperty("org.opencrx.mediadir." + providerName) != null) {
 	        File mediadir = new File(System.getProperty("org.opencrx.mediadir." + providerName));
 	        Set<File> existingMediaFiles = listFilesRecursively(mediadir);
-			Database_1 databasePlugIn = QueryBuilderUtil.getDatabasePlugIns()[0];
+			Database_2 db = DbSchemaUtils.getDatabasePlugIns()[0];
 			try {
 				PreparedStatement psT = connT.prepareStatement("SELECT object_id FROM OOCKE1_MEDIA ORDER BY object_id");
 				ResultSet rsT = psT.executeQuery();
@@ -1416,7 +1420,7 @@ public class DbSchemaUtils {
 				int countEmptyMedia = 0;
 				while(rsT.next()) {
 					String objectId = rsT.getString(1);
-					Path mediaIdentity = databasePlugIn.getDelegate().getReference(
+					Path mediaIdentity = db.getReference(
 						connT, 
 						objectId
 					).getChild(
@@ -1714,7 +1718,41 @@ public class DbSchemaUtils {
 		}
 		return report;
 	}
-
+	
+	/**
+	 * Get database plug-ins configuration.
+	 * 
+	 * @return
+	 */
+	protected static Database_2[] getDatabasePlugIns(
+	) throws ServiceException {
+		if(DbSchemaUtils.databasePlugIns == null) {
+			// Prepare database plugins for namespace Kernel and Security
+			Database_2 kernelDb = new Database_2();
+			{
+		    	Properties sourceConfiguration = new Properties();
+		    	sourceConfiguration.put(Constants.PROPERTY_NAME, "Kernel");
+		    	Configuration configuration = PropertiesConfigurationProvider.getConfiguration(
+		    		sourceConfiguration, 
+		    		"PERSISTENCE"
+		    	);
+		    	Database_2Configuration.activate(kernelDb, configuration);
+			}
+			Database_2 securityDb = new Database_2();
+			{
+		    	Properties sourceConfiguration = new Properties();
+		    	sourceConfiguration.put(Constants.PROPERTY_NAME, "Security");
+		    	Configuration configuration = PropertiesConfigurationProvider.getConfiguration(
+		    		sourceConfiguration, 
+		    		"PERSISTENCE"
+		    	);
+		    	Database_2Configuration.activate(securityDb, configuration);
+			}
+			DbSchemaUtils.databasePlugIns = new Database_2[]{kernelDb, securityDb};			                                 
+		}
+		return DbSchemaUtils.databasePlugIns;
+	}
+	
 	//-----------------------------------------------------------------------
 	// Members
 	//-----------------------------------------------------------------------
@@ -1736,5 +1774,6 @@ public class DbSchemaUtils {
 	);
 	
 	protected static boolean schemaPrepared = false;
-	
+	protected static Database_2[] databasePlugIns;
+
 }

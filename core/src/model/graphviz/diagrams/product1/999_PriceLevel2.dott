@@ -32,28 +32,10 @@ digraph "Diagram PriceLevel [Package org:opencrx:kernel:product1]" {
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:product1:CalculatePricesParams,compartments=true,fillcolor="#FFECFF",width=4]};
-	  ${CLASS[name=org:opencrx:kernel:product1:ClonePriceLevelParams,compartments=true,fillcolor="#FFECFF",width=4]};
-	  ${CLASS[name=org:opencrx:kernel:product1:ProcessPricesResult,compartments=true,fillcolor="#FFECFF",width=4]};
-	}
-	{
-	  rank=same;
-	  LAYER3[style=invis];
-	  NOTE0[label="{A ProductPhasePriceLevel is active if the pricing date is in [ProductPhase.validFrom,\lProductPhase.validTo] where ProductPhasePriceLevel.productPhaseKey =\lProductPhase.productPhaseKey. If no ProductPhase is found, then the PriceLevel is active if the\lpricing date is in [Product.activeOn+defaultOffsetValidFromHh,\lProduct.activeOn+defaultOffsetValidToHh]\l}",fillcolor="#D8F2FA"];	  
-	  NOTE1[label="{clonePriceLevel()\l1. clones the price level and all based on price levels. Cloning includes PriceModifier, AccountFilter and ProductFilter.\l2. prices are cloned depending on the processing mode. Cloned prices are not shared (price object references original and cloned price level) with the original price level.\l}",fillcolor="#D8F2FA"];	  
-	  NOTE2[label="{removePrices()\l1. get all prices with price.priceLevel().contains(priceLevel).\l2. if price.priceLevel().size() == 1 remove the price\l3. if price.priceLevel().size() \> 1 remove priceLevel from price.priceLevel()\l}",fillcolor="#D8F2FA"];	  
-	}
-	{
-	  rank=same;
-	  LAYER4[style=invis];
-	  NOTE3[label="{createInitialPrices()\l1. get all products matching the product filter\l2. If the product does not have a price with price.priceLevel().contains(priceLevel) create a new price with price, quantity and discount initialized to 0.\l}",fillcolor="#D8F2FA"];	  
-	  NOTE4[label="{calculatePrices()\lCalculates / recalculates the prices of the pricel level and recursively of all basedOn price levels.\l}",fillcolor="#D8F2FA"];	  
 	}
 
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
-	LAYER2->LAYER3[style=invis];
-	LAYER3->LAYER4[style=invis];
 
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}

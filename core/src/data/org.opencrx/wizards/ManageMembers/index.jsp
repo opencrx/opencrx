@@ -75,6 +75,7 @@ org.openmdx.base.naming.*,
 org.openmdx.base.query.*,
 org.openmdx.base.text.conversion.*,
 org.openmdx.kernel.log.*,
+org.apache.poi.ss.usermodel.*,
 org.apache.poi.hssf.usermodel.*,
 org.apache.poi.hssf.util.*
 " %>
@@ -1231,22 +1232,22 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
 						        headerfont = wb.createFont();
 						        headerfont.setFontHeightInPoints((short)10);
 						        headerfont.setFontName("Tahoma");
-						        headerfont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+						        headerfont.setBold(true);
 						        headerfont.setColor(HSSFColor.ORANGE.index);
 						        // Fonts are set into a style so create a new one to use.
 						        headerStyle = wb.createCellStyle();
 						        headerStyle.setFillForegroundColor(HSSFColor.BLACK.index);
-						        headerStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+						        headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 						        headerStyle.setFont(headerfont);
 
 						        // Wrapped Style
 						        wrappedStyle = wb.createCellStyle();
-						        wrappedStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+						        wrappedStyle.setVerticalAlignment(VerticalAlignment.TOP);
 						        wrappedStyle.setWrapText(true);
 
 						        // TopAligned Style
 						        topAlignedStyle = wb.createCellStyle();
-						        topAlignedStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+						        topAlignedStyle.setVerticalAlignment(VerticalAlignment.TOP);
 
 						        downloadAction =	new Action(
 						            Action.EVENT_DOWNLOAD_FROM_LOCATION,

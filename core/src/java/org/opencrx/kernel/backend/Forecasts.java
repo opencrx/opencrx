@@ -281,7 +281,7 @@ public class Forecasts extends AbstractImpl {
 				// Product must match product filter
 				if(matches && product != null) {					
 					ProductQuery productQuery = (ProductQuery)pm.newQuery(Product.class);
-					productQuery.productNumber().equalTo(product.getProductNumber());
+					productQuery.thereExistsProductNumber().equalTo(product.getProductNumber());
 					matches = !budgetPosition.getFilteredProduct(productQuery).isEmpty();
 				}
 				// Create contribution booking

@@ -98,8 +98,10 @@ import org.opencrx.kernel.contract1.jmi1.SalesOrder;
 import org.opencrx.kernel.contract1.jmi1.SalesOrderPosition;
 import org.opencrx.kernel.contract1.jmi1.SalesVolumeContract;
 import org.opencrx.kernel.product1.cci2.AccountAssignmentProductQuery;
+import org.opencrx.kernel.product1.cci2.PriceLevelQuery;
 import org.opencrx.kernel.product1.cci2.ProductQuery;
 import org.opencrx.kernel.product1.jmi1.AccountAssignmentProduct;
+import org.opencrx.kernel.product1.jmi1.PriceLevel;
 import org.opencrx.kernel.product1.jmi1.Product;
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
@@ -151,6 +153,7 @@ public class TestQuery {
         @Test
         public void run(
         ) throws ServiceException, IOException, ParseException {
+            this.testFilteredProductContainsProduct();
             this.testEmbeddedFeatures();
             this.testQueryExtensions();
             this.testNestedQueries();
@@ -159,7 +162,29 @@ public class TestQuery {
             this.testMultivaluedReferences();
             this.testOwner();
         }
-		
+
+        protected void testFilteredProductContainsProduct(
+        ) throws ServiceException {
+	        try {
+	        	org.opencrx.kernel.product1.jmi1.Segment productSegment =
+	        		(org.opencrx.kernel.product1.jmi1.Segment)this.pm.getObjectById(
+		        		new Path("xri://@openmdx*org.opencrx.kernel.product1").getDescendant("provider", providerName, "segment", segmentName)
+		        	);
+	        	PriceLevelQuery priceLevelQuery = (PriceLevelQuery)this.pm.newQuery(PriceLevel.class);
+	        	priceLevelQuery.orderByModifiedAt().descending();
+	        	List<PriceLevel> priceLevels = productSegment.getPriceLevel(priceLevelQuery);
+	        	ProductQuery productQuery = (ProductQuery)this.pm.newQuery(Product.class);
+	        	productQuery.orderByModifiedAt().descending();
+	        	List<Product> products = productSegment.getProduct(productQuery);
+	        	if(!priceLevels.isEmpty() && !products.isEmpty()) {
+	        		PriceLevel priceLevel = priceLevels.iterator().next();
+	        		Product product = products.iterator().next();
+	        		System.out.println("filteredProducts.contains()=" + priceLevel.getFilteredProduct().contains(product));
+	        	}
+	        } finally {
+	        }
+        }
+
 	    protected void testEmbeddedFeatures(
 	    ) throws ServiceException{
 	        try {

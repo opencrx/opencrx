@@ -649,6 +649,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:UriAddress" _operation="create">
+										<_object>
+											<label>
+												<_item>URI</_item>
+											</label>
+											<toolTip>
+												<_item>URI Addresse</_item>
+											</toolTip>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:EMailAddress" _operation="create">
                     <_object>
                       <label>
@@ -704,6 +715,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:UriAddress" _operation="create">
+										<_object>
+											<label>
+												<_item>URI</_item>
+											</label>
+											<toolTip>
+												<_item>URI Addresse</_item>
+											</toolTip>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:AccountAddress" _operation="create">
                     <_object>
                       <label>
@@ -759,6 +781,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:UriAddress" _operation="create">
+										<_object>
+											<label>
+												<_item>URI</_item>
+											</label>
+											<toolTip>
+												<_item>URI Addresse</_item>
+											</toolTip>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:EMailAddress" _operation="create">
                     <_object>
                       <label>
@@ -814,6 +847,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:UriAddress" _operation="create">
+										<_object>
+											<label>
+												<_item>URI</_item>
+											</label>
+											<toolTip>
+												<_item>URI Addresse</_item>
+											</toolTip>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:Pane:Attr:Tab:0:Group:10" _operation="create">
                     <_object>
                       <label>
@@ -1313,7 +1357,117 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:salutationForCorrespondance">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriReference" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>URI Referenz</_item>
+											</toolTip>
+											<label>
+												<_item>URI Referenz</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriScheme" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Schema</_item>
+											</toolTip>
+											<label>
+												<_item>Schema</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriSchemeSpecificPart" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Schema-spezifischer Teil</_item>
+											</toolTip>
+											<label>
+												<_item>Schema-spezifischer Teil</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriAuthority" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Verwaltet durch</_item>
+											</toolTip>
+											<label>
+												<_item>Verwaltet durch</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriUserInfo" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Benutzerangaben</_item>
+											</toolTip>
+											<label>
+												<_item>Benutzerangaben</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriHost" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Host</_item>
+											</toolTip>
+											<label>
+												<_item>Host</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriPort" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Port</_item>
+											</toolTip>
+											<label>
+												<_item>Port</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriPath" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Pfad</_item>
+											</toolTip>
+											<label>
+												<_item>Pfad</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriQuery" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Query</_item>
+											</toolTip>
+											<label>
+												<_item>Query</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:UriAddressable:uriFragment" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Fragment</_item>
+											</toolTip>
+											<label>
+												<_item>Fragment</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Addressable:salutationForCorrespondance" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Anrede für Korrespondenz</_item>

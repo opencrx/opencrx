@@ -102,6 +102,8 @@ import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.home1.cci2.AlertQuery;
 import org.opencrx.kernel.home1.cci2.EMailAccountQuery;
 import org.opencrx.kernel.home1.cci2.SubscriptionQuery;
+import org.opencrx.kernel.home1.cci2.WorkListFeedQuery;
+import org.opencrx.kernel.home1.cci2.WorkListSnapshotQuery;
 import org.opencrx.kernel.home1.jmi1.AccessHistory;
 import org.opencrx.kernel.home1.jmi1.ActivityGroupCalendarFeed;
 import org.opencrx.kernel.home1.jmi1.Alert;
@@ -113,6 +115,10 @@ import org.opencrx.kernel.home1.jmi1.QuickAccess;
 import org.opencrx.kernel.home1.jmi1.Subscription;
 import org.opencrx.kernel.home1.jmi1.Timer;
 import org.opencrx.kernel.home1.jmi1.UserHome;
+import org.opencrx.kernel.home1.jmi1.WorkList;
+import org.opencrx.kernel.home1.jmi1.WorkListFeed;
+import org.opencrx.kernel.home1.jmi1.WorkListItem;
+import org.opencrx.kernel.home1.jmi1.WorkListSnapshot;
 import org.opencrx.kernel.utils.Utils;
 import org.opencrx.kernel.workflow1.jmi1.Topic;
 import org.opencrx.security.realm1.jmi1.PrincipalGroup;
@@ -2437,6 +2443,61 @@ public class UserHomes extends AbstractImpl {
     	return true;
     }
 
+    /**
+     * Create new snapshot.
+     * 
+     * @param workList
+     */
+    public void createSnapshot(
+    	WorkList workList
+    ) {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(workList);
+    	WorkListSnapshot snapshot = pm.newInstance(WorkListSnapshot.class);
+    	snapshot.setName(workList.getName() + " / " + new Date());
+    	workList.addSnapshot(
+    		Utils.getUidAsString(),
+    		snapshot
+    	);
+    	snapshot.setPredecessor(workList.getCurrentSnapshot());
+    	workList.setCurrentSnapshot(snapshot);
+    	WorkListFeedQuery workListFeedQuery = (WorkListFeedQuery)pm.newQuery(WorkListFeed.class);
+    	workListFeedQuery.thereExistsActive().isTrue();
+    	for(WorkListFeed feed: workList.getFeed(workListFeedQuery)) {
+    		if(feed.getSource() != null && feed.getSourceReferenceName() != null) {
+    			ContextCapable source = feed.getSource();
+    			@SuppressWarnings("unchecked")
+				Collection<ContextCapable> items = (Collection<ContextCapable>)source.refGetValue(feed.getSourceReferenceName());
+    			for(ContextCapable item: items) {
+    				String itemId = item.refGetPath().getLastSegment().toClassicRepresentation();
+    				WorkListItem workListItem = workList.getItem(itemId);
+    				if(workListItem == null) {
+    					workListItem = pm.newInstance(WorkListItem.class);
+    					workList.addItem(
+    						itemId,
+    						workListItem
+    					);
+    					try {
+    						workListItem.setName(Base.getInstance().getTitle(item, null, (short)0, true));
+    					} catch(Exception ignore) {
+        					try {
+        						workListItem.setName((String)item.refGetValue("name"));
+        					} catch(Exception ignore1) {}
+    					}
+    					try {
+    						workListItem.setDescription((String)item.refGetValue("description"));
+    					} catch(Exception ignore) {}
+    					workListItem.setOrigin(item);
+    					workListItem.setOriginXri(item.refGetPath().toXRI());
+    					workListItem.setOriginType(item.refClass().refMofId());
+    				}
+    				if(!workListItem.getSnapshot().contains(snapshot)) {
+    					workListItem.getSnapshot().add(snapshot);
+    				}
+    			}
+    		}
+    	}
+    }
+
 	/* (non-Javadoc)
 	 * @see org.opencrx.kernel.backend.AbstractImpl#preDelete(org.opencrx.kernel.generic.jmi1.CrxObject, boolean)
 	 */
@@ -2446,6 +2507,28 @@ public class UserHomes extends AbstractImpl {
 		boolean preDelete
 	) throws ServiceException {
 		super.preDelete(object, preDelete);
+		PersistenceManager pm = JDOHelper.getPersistenceManager(object);
+		if(object instanceof WorkListSnapshot) {
+			WorkListSnapshot snapshot = (WorkListSnapshot)object;
+			Collection<WorkListItem> items = new ArrayList<WorkListItem>();
+			// Prefetch all worklist items assigned to this snapshot
+			items.addAll(snapshot.<WorkListItem>getItem());
+			// Remove snapshot reference
+			for(WorkListItem item: items) {
+				item.getSnapshot().remove(snapshot);
+			}
+			// Fix predecessor
+			WorkList workList = (WorkList)pm.getObjectById(snapshot.refGetPath().getParent().getParent());
+			WorkListSnapshotQuery snapshotQuery = (WorkListSnapshotQuery)pm.newQuery(WorkListSnapshot.class);
+			snapshotQuery.thereExistsPredecessor().equalTo(snapshot);
+			for(WorkListSnapshot predecessor: workList.getSnapshot(snapshotQuery)) {
+				predecessor.setPredecessor(snapshot.getPredecessor());
+			}
+			// Fix currentSnapshot
+			if(workList.getCurrentSnapshot() != null && workList.getCurrentSnapshot().equals(snapshot)) {
+				workList.setCurrentSnapshot(snapshot.getPredecessor());
+			}
+		}
 	}
 
 	/* (non-Javadoc)
@@ -2554,6 +2637,9 @@ public class UserHomes extends AbstractImpl {
 		
 	}
 
+	//-----------------------------------------------------------------------
+	// Members
+	//-----------------------------------------------------------------------	
     public static final String RESET_PASSWORD_PREFIX = "{RESET}";
     private static final Path PATH_PATTERN_USER_HOME = new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", ":*", "segment", ":*", "userHome", ":*");    
     

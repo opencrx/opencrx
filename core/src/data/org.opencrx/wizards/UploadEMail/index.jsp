@@ -68,8 +68,7 @@ org.openmdx.base.naming.*,
 org.openmdx.kernel.log.*,
 org.openmdx.kernel.exception.BasicException,
 org.openmdx.uses.org.apache.commons.fileupload.*,
-org.openmdx.kernel.id.*,
-org.opencrx.kernel.backend.*
+org.openmdx.kernel.id.*
 " %><%
 	request.setCharacterEncoding("UTF-8");
 	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
@@ -203,7 +202,7 @@ org.opencrx.kernel.backend.*
 					String providerName = obj.refGetPath().get(2);
 					String segmentName = obj.refGetPath().get(4);
 					org.opencrx.kernel.account1.jmi1.Segment accountSegment = 
-						Accounts.getInstance().getAccountSegment(pm, providerName, segmentName);
+						org.opencrx.kernel.backend.Accounts.getInstance().getAccountSegment(pm, providerName, segmentName);
 
 					boolean actionOk = parameterMap.get("OK.Button") != null;
 					boolean actionCancel = parameterMap.get("Cancel.Button") != null;
@@ -345,7 +344,7 @@ org.opencrx.kernel.backend.*
 										}
 
 										if(preErrorCount == errors.size() && msg != null) {
-											List<org.opencrx.kernel.activity1.jmi1.EMail> emails = Activities.getInstance().importMimeMessage(
+											List<org.opencrx.kernel.activity1.jmi1.EMail> emails = org.opencrx.kernel.backend.Activities.getInstance().importMimeMessage(
 												pm,
 												providerName,
 												segmentName,

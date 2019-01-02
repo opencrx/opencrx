@@ -267,6 +267,25 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome:workList">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Work Lists</_item>
+											</toolTip>
+											<label>
+												<_item>Work Lists</_item>
+											</label>
+											<order>
+												<_item>5</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<!--Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:UserHome">
 										<_object>
@@ -1792,6 +1811,544 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Work List</_item>
+											</toolTip>
+											<label>
+												<_item>Work List</_item>
+											</label>
+											<iconKey>WorkList</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:snapshot">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Snapshots</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshots</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:item">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Items</_item>
+											</toolTip>
+											<label>
+												<_item>Items</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:feed">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Feeds</_item>
+											</toolTip>
+											<label>
+												<_item>Feeds</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:currentSnapshot">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Current snapshot</_item>
+											</toolTip>
+											<label>
+												<_item>Current snapshot</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Snapshot</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshot</_item>
+											</label>
+											<iconKey>WorkListSnapshot</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:item">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Items</_item>
+											</toolTip>
+											<label>
+												<_item>Items</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:removedItem">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Removed Items</_item>
+											</toolTip>
+											<label>
+												<_item>Removed Items</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:addedItem">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Added Items</_item>
+											</toolTip>
+											<label>
+												<_item>Added Items</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:predecessor">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Predeceessor</_item>
+											</toolTip>
+											<label>
+												<_item>Predeceessor</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:modifiedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>time and date when object was last modified</_item>
+											</toolTip>
+											<label>
+												<_item>Modified at</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>11</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Work List Item</_item>
+											</toolTip>
+											<label>
+												<_item>Work List Item</_item>
+											</label>
+											<iconKey>WorkListItem</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:snapshot">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Snapshots</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshots</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>4</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:originType">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Origin type</_item>
+											</toolTip>
+											<label>
+												<_item>Origin type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:origin">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Origin</_item>
+											</toolTip>
+											<label>
+												<_item>Origin</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:originXri">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Origin XRI</_item>
+											</toolTip>
+											<label>
+												<_item>Origin XRI</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!--Inspector Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Work List Feed</_item>
+											</toolTip>
+											<label>
+												<_item>Work List Feed</_item>
+											</label>
+											<iconKey>WorkListFeed</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grids -->
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:active">
+										<_object>
+											<active>true</active>
+											<columnBreak>true</columnBreak>
+											<toolTip>
+												<_item>Active</_item>
+											</toolTip>
+											<label>
+												<_item>Active</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:source">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Source</_item>
+											</toolTip>
+											<label>
+												<_item>Source</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListFeed:sourceReferenceName">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Source reference name</_item>
+											</toolTip>
+											<label>
+												<_item>Source reference name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:Pane:Op:Tab:createSnapshot">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Create Snapshot</_item>
+											</toolTip>
+											<label>
+												<_item>Create Snapshot</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:Pane:Op:Tab:createSnapshot:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:Pane:Op:Tab:createSnapshot:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									
 									<!--Inspector Definitions -->
 									<!--FieldGroups in General Tab -->
 									<!--FieldGroups in Details Tab -->

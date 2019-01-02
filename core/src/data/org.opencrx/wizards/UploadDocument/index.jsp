@@ -55,8 +55,8 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
 org.opencrx.kernel.generic.*,
+org.opencrx.kernel.backend.*,
 org.openmdx.kernel.id.cci.*,
 org.openmdx.base.exception.*,
 org.openmdx.base.accessor.jmi.cci.*,
@@ -244,7 +244,7 @@ org.openmdx.kernel.id.*
 				final String MEDIA_CLASS = "org:opencrx:kernel:document1:Media";
 				final String PRINCIPAL_GROUP_CLASS = "org:opencrx:security:realm1:PrincipalGroup";
 				try {
-					Codes codes = app.getCodes();
+					org.openmdx.portal.servlet.Codes codes = app.getCodes();
 					String featureDocumentTypeCode = "documentType";
 					Map<String,Short> documentTypeCode_longTextsT = codes.getLongTextByText(featureDocumentTypeCode, app.getCurrentLocaleAsIndex(), true);
 					boolean actionOk = parameterMap.get("OK.Button") != null;

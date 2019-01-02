@@ -26,19 +26,19 @@ digraph "Diagram ProductClassification [Package org:opencrx:kernel:product1]" {
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:product1:AbstractProduct,compartments=false,fillcolor="#FFBD9D",width=2]};	  
-	  ${CLASS[name=org:opencrx:kernel:product1:ProductClassification,compartments=true,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:product1:ProductClassification,compartments=true,width=8]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:product1:ProductClassificationRelationship,compartments=true,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:product1:AbstractProduct,compartments=false,fillcolor="#FFBD9D",width=3]};	  
 	}
 	
 	LAYER0->LAYER1[style=invis];
 	LAYER1->LAYER2[style=invis];
 
-	${ASSOCIATION[name=org:opencrx:kernel:product1:ProductIsClassifiedAs,minlen=6]}
+	${ASSOCIATION[name=org:opencrx:kernel:product1:ProductIsClassifiedAs,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:product1:SegmentContainsProductClassification,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:product1:ClassificationHasRelationship,minlen=3]}
 	${ASSOCIATION[name=*]}

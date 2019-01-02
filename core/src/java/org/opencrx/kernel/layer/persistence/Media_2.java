@@ -106,7 +106,7 @@ public class Media_2 extends Database_2 {
     public Interaction getInteraction(
         RestConnection connection
     ) throws ResourceException {
-        return new RestInteraction(connection);
+        return new RestInteraction(this, connection);
     }
 
 	/**
@@ -158,7 +158,7 @@ public class Media_2 extends Database_2 {
      * LayerInteraction
      *
      */
-    public class RestInteraction extends Database_2.RestInteraction {
+    public class RestInteraction extends org.openmdx.base.dataprovider.layer.persistence.jdbc.RestInteraction {
         
         /**
          * Constructor.
@@ -167,9 +167,10 @@ public class Media_2 extends Database_2 {
          * @throws ResourceException
          */
         public RestInteraction(
+        	Media_2 media,
         	RestConnection connection
         ) throws ResourceException {
-            super(connection);
+            super(media, connection);
         }
 
         /**

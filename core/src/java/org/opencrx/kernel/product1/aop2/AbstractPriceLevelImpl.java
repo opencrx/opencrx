@@ -120,7 +120,7 @@ public class AbstractPriceLevelImpl
     public org.opencrx.kernel.product1.jmi1.ProcessPricesResult removePrices(
         org.opencrx.kernel.product1.jmi1.RemovePricesParams params
     ) {
-        try {        
+        try {
             Integer numberProcessed = Products.getInstance().removePrices(
                 this.sameObject(),
                 params.getProcessingMode()
@@ -143,7 +143,7 @@ public class AbstractPriceLevelImpl
     public org.opencrx.kernel.product1.jmi1.ProcessPricesResult removePriceLevels(
         org.opencrx.kernel.product1.jmi1.RemovePriceLevelsParams params
     ) {
-        try {        
+        try {
             Integer numberProcessed = Products.getInstance().removePriceLevels(
                 this.sameObject(),
                 params.getProcessingMode(),
@@ -183,6 +183,27 @@ public class AbstractPriceLevelImpl
         }                     
     }
 
+    /**
+     * Propagate validity to price level and dependent price levels.
+     * 
+     * @param in
+     * @return
+     */
+    public org.openmdx.base.jmi1.Void propagateValidity(
+        org.opencrx.kernel.product1.jmi1.PropagateValidityParams in
+    ) {
+        try {
+            Products.getInstance().propagateValidity(
+                this.sameObject(),
+                in.getValidFrom(),
+                in.getValidTo()
+            );
+            return this.newVoid();
+        } catch(ServiceException e) {
+            throw new JmiServiceException(e);
+        }
+    }
+    
 	/* (non-Javadoc)
 	 * @see org.openmdx.base.aop2.AbstractObject#jdoPreDelete()
 	 */

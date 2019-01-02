@@ -75,13 +75,15 @@ import java.util.Set;
 
 import org.opencrx.kernel.utils.DbSchemaUtils;
 import org.openmdx.application.configuration.Configuration;
-import org.openmdx.application.dataprovider.layer.persistence.jdbc.Database_1;
+import org.openmdx.application.dataprovider.cci.SharedConfigurationEntries;
 import org.openmdx.application.dataprovider.layer.persistence.jdbc.LayerConfigurationEntries;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.Database_2;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.Database_2Configuration;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.kernel.exception.BasicException;
 
 /**
- * @author wfro
+ * CopyDb
  *
  */
 public class CopyDb {
@@ -168,8 +170,8 @@ public class CopyDb {
 	 * @param dbObject
 	 * @param columnName
 	 * @param columnValue
-	 * @param providerNameSource
-	 * @param providerNameTarget
+	 * @param valuePatterns
+	 * @param valueReplacements
 	 * @return
 	 * @throws ServiceException
 	 * @throws SQLException
@@ -179,47 +181,39 @@ public class CopyDb {
 		String dbObject, 
 		String columnName, 
 		Object columnValue, 
-		String providerNameSource, 
-		String providerNameTarget
+		List<String> valuePatterns,
+		List<String> valueReplacements
 	) throws ServiceException, SQLException {
 		String databaseProductName = conn.getMetaData().getDatabaseProductName();
 		if(BOOLEAN_COLUMNS.contains(columnName.toUpperCase())) {
 			if("PostgreSQL".equals(databaseProductName)) {
 				return columnValue;
-			}
-			else if("MySQL".equals(databaseProductName)) {
+			} else if("MySQL".equals(databaseProductName)) {
 				return columnValue;
-			}
-			else if("Microsoft SQL Server".equals(databaseProductName)) {
+			} else if("Microsoft SQL Server".equals(databaseProductName)) {
 				return columnValue;
-			}
-			else if(databaseProductName.startsWith("DB2/")) {
+			} else if(databaseProductName.startsWith("DB2/")) {
 				return Boolean.valueOf("Y".equals(columnValue));
-			}
-			else if("HSQL Database Engine".equals(databaseProductName)) {
+			} else if("HSQL Database Engine".equals(databaseProductName)) {
 				return columnValue;
-			}
-			else if("Oracle".equals(databaseProductName)) {
+			} else if("Oracle".equals(databaseProductName)) {
 				return Boolean.valueOf(((Number) columnValue).intValue() == 1);
-			}
-			else {
+			} else {
 				throw new ServiceException(BasicException.Code.DEFAULT_DOMAIN, BasicException.Code.NOT_SUPPORTED, "Database not supported", new BasicException.Parameter("database product name",
 				    databaseProductName));
 			}
-		}
-		else {
+		} else {
 			if(columnValue instanceof String) {
-				Object targetValue = columnValue;
-				if(providerNameSource != null && providerNameSource.length() > 0 && providerNameTarget != null && providerNameTarget.length() > 0) {
-					String sourceValue = (String) columnValue;
-					int pos = sourceValue.indexOf("/" + providerNameSource + "/");
-					if(pos > 0) {
-						targetValue = sourceValue.substring(0, pos) + "/" + providerNameTarget + "/" + sourceValue.substring(pos + providerNameSource.length() + 2);
+				String targetValue = (String)columnValue;
+				for(int i = 0; i < valuePatterns.size(); i++) {
+					String valuePattern = valuePatterns.get(i);
+					String valueReplacment = valueReplacements.get(i);
+					if(valuePattern != null & valuePattern.length() > 0) {
+						targetValue = targetValue.replaceAll(valuePattern, valueReplacment);
 					}
 				}
 				return targetValue;
-			}
-			else {
+			} else {
 				return columnValue;
 			}
 		}
@@ -242,22 +236,18 @@ public class CopyDb {
 		boolean useSuffix, 
 		Connection connSource, 
 		Connection connTarget, 
-		String providerNameSource, 
-		String providerNameTarget, 
+		List<String> valuePatterns,
+		List<String> valueReplacements,
 		PrintStream out
-	)
-	    throws SQLException {
-
+	) throws SQLException {
 		String currentStatement = null;
-
-		Database_1 db = new Database_1();
+		Database_2 db = new Database_2();
 		try {
 			Configuration configuration = new Configuration();
 			configuration.values(LayerConfigurationEntries.BOOLEAN_TYPE).put(0, LayerConfigurationEntries.BOOLEAN_TYPE_STANDARD);
-			configuration.values(LayerConfigurationEntries.DATABASE_CONNECTION_FACTORY);
-			db.activate((short) 0, configuration, null);
-		}
-		catch (Exception e) {
+			configuration.values(SharedConfigurationEntries.DATABASE_CONNECTION_FACTORY);
+			Database_2Configuration.activate(db, configuration);
+		} catch (Exception e) {
 			out.println("Can not activate database plugin: " + e.getMessage());
 		}
 		try {
@@ -265,7 +255,6 @@ public class CopyDb {
 			PreparedStatement s = connTarget.prepareStatement(currentStatement = "DELETE FROM " + dbObject + (useSuffix ? "_" : ""));
 			s.executeUpdate();
 			s.close();
-
 			// Read all rows from source
 			s = connSource.prepareStatement(currentStatement = "SELECT * FROM " + dbObject + (useSuffix ? "_" : ""));
 			ResultSet rs = s.executeQuery();
@@ -273,7 +262,6 @@ public class CopyDb {
 				ResultSetMetaData rsm = rs.getMetaData();
 				FastResultSet frs = new FastResultSet(rs);
 				int nRows = 0;
-
 				while (frs.next()) {
 					// Read row from source and prepare INSERT statement
 					String statement = "INSERT INTO " + dbObject + (useSuffix ? "_" : "") + " ";
@@ -289,25 +277,30 @@ public class CopyDb {
 								if(frs.getObject(columnName) instanceof java.sql.Clob) {
 									try {
 										statementParameters.add(CopyDb.getStringFromClob((java.sql.Clob) frs.getObject(columnName)));
-									}
-									catch (Exception e) {
+									} catch (Exception e) {
 										out.println("Reading Clob failed. Reason: " + e.getMessage());
 										out.println("statement=" + statement);
 										out.println("parameters=" + statementParameters);
 									}
-								}
-								else if(frs.getObject(columnName) instanceof java.sql.Blob) {
+								} else if(frs.getObject(columnName) instanceof java.sql.Blob) {
 									try {
 										statementParameters.add(CopyDb.getBytesFromBlob((java.sql.Blob) frs.getObject(columnName)));
-									}
-									catch (Exception e) {
+									} catch (Exception e) {
 										out.println("Reading Blob failed. Reason: " + e.getMessage());
 										out.println("statement=" + statement);
 										out.println("parameters=" + statementParameters);
 									}
-								}
-								else {
-									statementParameters.add(CopyDb.mapColumnValue(connSource, dbObject, columnName, frs.getObject(columnName), providerNameSource, providerNameTarget));
+								} else {
+									statementParameters.add(
+										CopyDb.mapColumnValue(
+											connSource,
+											dbObject,
+											columnName,
+											frs.getObject(columnName),
+											valuePatterns,
+											valueReplacements
+										)
+									);
 								}
 							}
 						}
@@ -317,7 +310,6 @@ public class CopyDb {
 						statement += j == 0 ? "?" : ", ?";
 					}
 					statement += ")";
-
 					// Add row to target
 					try {
 						PreparedStatement t = connTarget.prepareStatement(currentStatement = statement);
@@ -339,13 +331,12 @@ public class CopyDb {
 							} else if(parameter instanceof Float) {
 								t.setBigDecimal(j + 1, new BigDecimal((Float)parameter));
 							} else {
-								db.getDelegate().setPreparedStatementValue(connTarget, t, j + 1, parameter);
+								db.setPreparedStatementValue(connTarget, t, j + 1, parameter);
 							}
 						}
 						t.executeUpdate();
 						t.close();
-					}
-					catch (Exception e) {
+					} catch (Exception e) {
 						new ServiceException(e).log();
 						out.println("Insert failed. Reason: " + e.getMessage());
 						out.println("statement=" + statement);
@@ -357,13 +348,11 @@ public class CopyDb {
 					}
 				}
 				rs.close();
-			}
-			else {
+			} else {
 				out.println("Did not copy table (result set is null). Statement: " + currentStatement);
 			}
 			s.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			new ServiceException(e).log();
 			out.println("Can not copy table (see log for more info). Statement: " + currentStatement);
 		}
@@ -385,8 +374,8 @@ public class CopyDb {
 	    Connection connSource,
 	    Connection connTarget,
 	    List<String> dbObjects,
-	    String providerNameSource,
-	    String providerNameTarget,
+		List<String> valuePatterns,
+		List<String> valueReplacements,
 	    PrintStream out
 	) {
 		String currentStatement = null;
@@ -406,8 +395,8 @@ public class CopyDb {
 						false, 
 						connSource, 
 						connTarget, 
-						providerNameSource, 
-						providerNameTarget, 
+						valuePatterns, 
+						valueReplacements, 
 						out
 					);
 					out.println("Copying table: " + dbObject + "_");
@@ -416,8 +405,8 @@ public class CopyDb {
 						true, 
 						connSource, 
 						connTarget, 
-						providerNameSource, 
-						providerNameTarget, 
+						valuePatterns, 
+						valueReplacements, 
 						out
 					);
 					processedDbObjects.add(dbObject);
@@ -435,11 +424,15 @@ public class CopyDb {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(
+		String[] args
+	) {
 		try {
 			Properties env = System.getProperties();
 			String includeDbObjects = env.getProperty("includeDbObjects");
 			String excludeDbObjects = env.getProperty("excludeDbObjects");
+			String valuePatterns = env.getProperty("valuePatterns");
+			String valueReplacements = env.getProperty("valueReplacements");
 			copyDb(
 				env.getProperty("jdbcDriverSource"), 
 				env.getProperty("usernameSource"), 
@@ -451,8 +444,8 @@ public class CopyDb {
 			    env.getProperty("jdbcUrlTarget"), 
 			    includeDbObjects == null ? Collections.<String>emptyList() : Arrays.asList(includeDbObjects.split(",")),
 				excludeDbObjects == null ? Collections.<String>emptyList() : Arrays.asList(excludeDbObjects.split(",")),
-			    env.getProperty("providerNameSource"),
-			    env.getProperty("providerNameTarget"), 
+				valuePatterns == null ? Collections.<String>emptyList() : Arrays.asList(valuePatterns.split(",")),
+				valueReplacements == null ? Collections.<String>emptyList() : Arrays.asList(valueReplacements.split(",")),
 			    System.out
 			);
 		} catch (Exception e) {
@@ -513,8 +506,8 @@ public class CopyDb {
 	 * @param jdbcUrlTarget
 	 * @param includeDbObjects
 	 * @param excludeDbObjects
-	 * @param providerNameSource
-	 * @param providerNameTarget
+	 * @param valuePatterns
+	 * @param valueReplacements
 	 * @param out
 	 * @throws ServiceException
 	 */
@@ -529,8 +522,8 @@ public class CopyDb {
 	    String jdbcUrlTarget,
 	    List<String> includeDbObjects,
 	    List<String> excludeDbObjects,
-	    String providerNameSource,
-	    String providerNameTarget,
+	    List<String> valuePatterns,
+	    List<String> valueReplacements,
 	    PrintStream out
 	) throws ServiceException {
 		{
@@ -575,8 +568,8 @@ public class CopyDb {
 					includeDbObjects, 
 					excludeDbObjects
 				),
-			    providerNameSource, 
-			    providerNameTarget, 
+			    valuePatterns, 
+			    valueReplacements, 
 			    out
 			);
 		} catch (Exception e) {

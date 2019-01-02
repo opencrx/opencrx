@@ -210,8 +210,8 @@ Close <%= activityXris.size() %> <%= activityXris.size() == 1 ? "Activity" : "Ac
 					System.out.println("closed a total of " + updateCount + " activities");
 %>
 				</pre>
-			    <input type="submit" id="Reload.button" name="Reload" class="CssClass.btn.toString() + " " + CssClass.btnDefault.toString()" tabindex="9000" <%= actionOK ? "" : "style='display:none;'" %> value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
-			    <input type="submit" id="OK.button" name="OK" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" <%= actionOK ? "style='display:none;'" : "" %> value="<%= app.getTexts().getOkTitle()    %>" onclick="javascript:$('Command').value=this.name;" />
+			    <input type="submit" id="Reload.button" name="Reload" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" <%= actionOK ? "" : "style='display:none;'" %> value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
+			    <input type="submit" id="OK.button"     name="OK"     class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" <%= actionOK ? "style='display:none;'" : "" %> value="<%= app.getTexts().getOkTitle()    %>" onclick="javascript:$('Command').value=this.name;" />
 			    <input type="submit" id="Cancel.button" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>"  onClick="javascript:window.close();" />
 			    <br>
           </form>

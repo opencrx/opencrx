@@ -96,10 +96,10 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 		Map<String,String> namespaces = super.getNamespaces();
 		namespaces.put("urn:ietf:params:xml:ns:caldav", "C");
 		namespaces.put("http://calendarserver.org/ns/", "CS");
-		namespaces.put("http://apple.com/ns/ical/", "A");		
+		namespaces.put("http://apple.com/ns/ical/", "A");
 		return namespaces;
     }
-	
+
 	/* (non-Javadoc)
 	 * @see org.opencrx.application.uses.net.sf.webdav.methods.DoPropfind#writeCollectionType(org.opencrx.application.uses.net.sf.webdav.RequestContext, org.opencrx.application.uses.net.sf.webdav.fromcatalina.XMLWriter, org.opencrx.application.uses.net.sf.webdav.Resource)
 	 */
@@ -145,11 +145,17 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
     		String providerName = userHome.refGetPath().getSegment(2).toClassicRepresentation();
     		String segmentName = userHome.refGetPath().getSegment(4).toClassicRepresentation();
 			if(property.indexOf("current-user-principal") > 0) {
+				String principalUrl = this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true));
                 writer.writeElement("DAV::principal-URL", XMLWriter.OPENING);
                 writer.writeElement("DAV::href", XMLWriter.OPENING);
-                writer.writeText(this.encodeURL(resp, this.getHRef(req, "/" + providerName + "/" + segmentName + "/user/" + userHome.refGetPath().getLastSegment() + "/profile/" + syncProfile.getName(), true)));
+                writer.writeText(principalUrl);
                 writer.writeElement("DAV::href", XMLWriter.CLOSING);
                 writer.writeElement("DAV::principal-URL", XMLWriter.CLOSING);
+                writer.writeElement("DAV::current-user-principal", XMLWriter.OPENING);
+                writer.writeElement("DAV::href", XMLWriter.OPENING);
+                writer.writeText(principalUrl);
+                writer.writeElement("DAV::href", XMLWriter.CLOSING);
+                writer.writeElement("DAV::current-user-principal", XMLWriter.CLOSING);
                 return true;
 			} else if(property.indexOf("calendar-user-address-set") > 0) {
         		EMailAccountQuery emailAccountQuery = (EMailAccountQuery)pm.newQuery(EMailAccount.class);
@@ -228,9 +234,9 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 				writer.writeElement("urn:ietf:params:xml:ns:caldav:supported-calendar-component-set", XMLWriter.CLOSING);	
 				return true;
 			} else if(property.indexOf("getctag") > 0) {
-				writer.writeElement("http://calendarserver.org/ns/:getctag", XMLWriter.OPENING);
-	            writer.writeText(Long.toString(System.currentTimeMillis()));				
-				writer.writeElement("http://calendarserver.org/ns/:getctag", XMLWriter.CLOSING);				
+				writer.writeElement("CS::getctag", XMLWriter.OPENING);
+	            writer.writeText(Long.toString(System.currentTimeMillis()));
+				writer.writeElement("CS::getctag", XMLWriter.CLOSING);
 				return true;
 			}
 		} else if(res instanceof ActivityResource) {

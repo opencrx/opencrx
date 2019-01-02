@@ -55,7 +55,6 @@
 java.util.*,
 java.io.*,
 java.text.*,
-org.opencrx.kernel.backend.*,
 org.openmdx.application.cci.*,
 org.openmdx.base.text.conversion.*,
 org.openmdx.kernel.id.cci.*,
@@ -1048,7 +1047,7 @@ org.openmdx.kernel.log.*
    				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.description, description),
    				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.detailedDescription, detailedDescription),
    				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.dueBy, null),
-   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.icalType, ICalendar.ICAL_TYPE_NA),
+   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.icalType, org.opencrx.kernel.backend.ICalendar.ICAL_TYPE_NA),
    				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.name, name),
    				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.priority, (short)0),
    				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.reportingContact, null),
@@ -1148,7 +1147,7 @@ org.openmdx.kernel.log.*
 	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.description, description),
 	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.detailedDescription, null),
 	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.dueBy, null),
-	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.icalType, ICalendar.ICAL_TYPE_NA),
+	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.icalType, org.opencrx.kernel.backend.ICalendar.ICAL_TYPE_NA),
 	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.name, name),
 	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.priority, (short)0),
 	   				org.w3c.spi2.Datatypes.member(org.opencrx.kernel.activity1.jmi1.NewActivityParams.Member.reportingContact, null),
@@ -1241,7 +1240,7 @@ org.openmdx.kernel.log.*
     				}
     				if(recipient == null) {
     					recipient = pm.newInstance(org.opencrx.kernel.activity1.jmi1.EMailRecipient.class);
-    					recipient.setPartyType(Activities.PartyType.EMAIL_TO.getValue());
+    					recipient.setPartyType(org.opencrx.kernel.backend.Activities.PartyType.EMAIL_TO.getValue());
     					recipient.setParty(
     						formValues.get("voter." + i) != null ?
 	    						(org.opencrx.kernel.account1.jmi1.AccountAddress)pm.getObjectById(

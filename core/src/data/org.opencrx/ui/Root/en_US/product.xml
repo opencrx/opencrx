@@ -993,25 +993,64 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<!--
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:product">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:assignedProduct">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Products</_item>
+												<_item>All Directly Assigned Products</_item>
 											</toolTip>
 											<label>
-												<_item>Products</_item>
+												<_item>»All Directly Assigned Products</_item>
 											</label>
 											<order>
 												<_item>0</_item>
-												<_item>0</_item>
 												<_item>20</_item>
+												<_item>500</_item>
 											</order>
+											<maxMember>5</maxMember>
 										</_object>
-										<_content/>
+										<_content>
+											<additionalElementDefinition>
+												<org.openmdx.ui1.AdditionalElementDefinition id="9998" _operation="create">
+													<_object>
+														<toolTip>
+														  <_item>Directly Assigned Products</_item>
+														</toolTip>
+														<label>
+														  <_item>Directly Assigned Products</_item>
+														</label>
+														<order>
+														  <_item>0</_item>
+														  <_item>20</_item>
+														  <_item>10</_item>
+														</order>
+														<iconKey>Product</iconKey>
+														<maxMember>25</maxMember>
+														<showMaxMember>5</showMaxMember>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+
+												<org.openmdx.ui1.AdditionalElementDefinition id="9999" _operation="create">
+													<_object>
+														<toolTip>
+															<_item>Directly Assigned Products (disabled)</_item>
+														</toolTip>
+														<label>
+															<_item>»Directly Assigned Products (disabled)</_item>
+														</label>
+														<order>
+															<_item>0</_item>
+															<_item>20</_item>
+															<_item>510</_item>
+														</order>
+														<maxMember>5</maxMember>
+													</_object>
+													<_content/>
+												</org.openmdx.ui1.AdditionalElementDefinition>
+											</additionalElementDefinition>
+										</_content>
 									</org.openmdx.ui1.ElementDefinition>
-									-->
 									<!-- Tab Definitions -->
 									<!-- Element Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductClassification:name">
