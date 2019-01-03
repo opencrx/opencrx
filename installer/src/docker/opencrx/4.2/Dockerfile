@@ -6,7 +6,10 @@ ENV HOME /root
 ENV TOMEE_BASEDIR apache-tomee-plus-7.0.5
 
 # Install ant, apache2, nullmailer
-RUN apt-get update && apt-get -y install \
+RUN apt-get -y install \
+  software-properties-common
+
+RUN add-apt-repository ppa:openjdk-r/ppa && apt-get update && apt-get -y install \
   net-tools \
   openjdk-8-jdk \
   wget \
