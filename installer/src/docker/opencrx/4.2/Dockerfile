@@ -5,7 +5,7 @@ ENV PLATFORM jre-1.8
 ENV HOME /root
 ENV TOMEE_BASEDIR apache-tomee-plus-7.0.5
 
-# Install ant, apache2, nullmailer
+# Install ant, jdk, apache2
 RUN apt-get -y install \
   software-properties-common
 
@@ -29,6 +29,16 @@ RUN echo "<VirtualHost *:80>" > /etc/apache2/sites-available/000-default.conf \
   && echo "</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf \
   && apache2ctl restart
 
+# Prepare entrypoint
+COPY ./docker-entrypoint.sh /
+RUN chmod a+x /docker-entrypoint.sh
+
+# Create and set user opencrx
+RUN useradd -m opencrx
+USER opencrx
+ENV HOME /home/opencrx
+RUN ls -al $HOME
+
 # Get and install openCRX
 RUN mkdir $HOME/opt \
   && mkdir $HOME/temp \
@@ -41,9 +51,6 @@ RUN mkdir $HOME/opt \
   && ls -al $HOME/opt/opencrx \
   && rm -rf $HOME/temp
 
-VOLUME ["/root/opt/opencrx/data", "/root/opt/opencrx/$TOMEE_BASEDIR/logs", "/root/opt/opencrx/$TOMEE_BASEDIR/temp", "/root/opt/opencrx/$TOMEE_BASEDIR/work", "/root/opt/opencrx/$TOMEE_BASEDIR/airsyncdir", "/root/opt/opencrx/$TOMEE_BASEDIR/maildir"]
-COPY ./docker-entrypoint.sh /
-RUN chmod a+x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 EXPOSE 80 8001 8009
-CMD cd /root/opt/opencrx/$TOMEE_BASEDIR/bin;export JDKPath=/usr/lib/jvm/java-8-openjdk-amd64;./opencrx.sh run
+CMD cd /home/opencrx/opt/opencrx/$TOMEE_BASEDIR/bin;export JDKPath=/usr/lib/jvm/java-8-openjdk-amd64;./opencrx.sh run
