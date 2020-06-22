@@ -62,9 +62,7 @@ java.text.*,
 org.openmdx.base.accessor.jmi.cci.*,
 org.openmdx.portal.servlet.*,
 org.openmdx.portal.servlet.attribute.*,org.openmdx.portal.servlet.component.*,
-org.openmdx.portal.servlet.texts.*,
 org.openmdx.portal.servlet.control.*,
-org.openmdx.portal.servlet.reports.*,
 org.openmdx.portal.servlet.wizards.*,
 org.openmdx.base.naming.*,
 org.openmdx.kernel.id.cci.*,
@@ -86,7 +84,7 @@ org.openmdx.base.exception.*
 		);
 		return;
 	}
-	javax.jdo.PersistenceManager pm = app.getPmData();
+	javax.jdo.PersistenceManager pm = app.getNewPmData();
 	RefObject_1_0 obj = (RefObject_1_0)pm.getObjectById(new Path(objectXri));
 	Texts_1_0 texts = app.getTexts();
 	org.openmdx.portal.servlet.Codes codes = app.getCodes();
@@ -352,7 +350,7 @@ org.openmdx.base.exception.*
 	<link href="../../_style/n2default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<ul class="<%=CssClass.ssfNav %>">
+	<ul class="<%=CssClass.ssf_nav %>">
 	</ul>
 	<div class="col1">
 		<!-- TestCustomers -->
@@ -657,7 +655,7 @@ org.openmdx.base.exception.*
 	</div>
 	<form method="post" action="<%= WIZARD_NAME %>">
 		<div class="buttons">
-			<input type="button" value="Exit" onclick="javascript:location.href='<%= WIZARD_NAME + "?" + Action.PARAMETER_REQUEST_ID + "=" + requestId + "&" + Action.PARAMETER_OBJECTXRI + "=" + URLEncoder.encode(objectXri) + "&command=Cancel" %>';" class="button" />
+			<input type="button" value="Exit" onclick="javascript:location.href='<%= WIZARD_NAME + "?" + Action.PARAMETER_REQUEST_ID + "=" + requestId + "&" + Action.PARAMETER_OBJECTXRI + "=" + java.net.URLEncoder.encode(objectXri) + "&command=Cancel" %>';" class="button" />
 		</div>
 	</form>
 </body>

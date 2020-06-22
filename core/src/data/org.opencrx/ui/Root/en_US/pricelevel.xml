@@ -121,6 +121,211 @@
                     </_content>
                   </org.openmdx.ui1.ElementDefinition>
 
+                  <!-- Segment -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:discountSchedule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount Schedules</_item>
+											</toolTip>
+											<label>
+												<_item>Discount Schedules</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+  								<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount Schedules</_item>
+											</toolTip>
+											<label>
+												<_item>Discount Schedules</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>DiscountSchedule</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule:discountRule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount Rules</_item>
+											</toolTip>
+											<label>
+												<_item>Discount Rules</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>5</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+  								<!--Abstract Class DiscountOrigin -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountOrigin:discountIsPercentage">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount is %</_item>
+											</toolTip>
+											<label>
+												<_item>Discount is %</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountOrigin:discount">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
+											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
+											<toolTip>
+												<_item>Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Discount</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+  								<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount Rule</_item>
+											</toolTip>
+											<label>
+												<_item>Discount Rule</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>DiscountRule</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule:condition">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Condition</_item>
+											</toolTip>
+											<label>
+												<_item>Condition</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>20</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:pricingRule">
 										<_object>
 											<active>true</active>
@@ -133,7 +338,7 @@
 											<order>
 												<_item>10</_item>
 												<_item>0</_item>
-												<_item>30</_item>
+												<_item>35</_item>
 											</order>
 											<iconKey>PricingRule</iconKey>
 											<maxMember>4</maxMember>
@@ -142,10 +347,49 @@
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 
+                  <!-- Segment / PriceModifierContainer -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifierContainer:priceModifier">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Price Modifiers</_item>
+											</toolTip>
+											<label>
+												<_item>Price Modifiers</_item>
+											</label>
+											<order>
+												<_item>10</_item>
+												<_item>0</_item>
+												<_item>25</_item>
+											</order>
+											<maxMember>6</maxMember>
+                    </_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<!-- AbstractPriceLevel -->
 									<!--Inspector Definitions-->
 									<!-- Tab Definitions -->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractPriceLevel:priceModifier">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceLevel:priceModifier">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Price Modifiers</_item>
+											</toolTip>
+											<label>
+												<_item>Price Modifiers</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>PriceModifier</iconKey>
+											<inPlace>true</inPlace>
+											<maxMember>8</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhasePriceLevel:priceModifier">
 										<_object>
 											<active>true</active>
 											<toolTip>
@@ -224,7 +468,7 @@
 											</order>
 											<iconKey>Account</iconKey>
 											<inPlace>true</inPlace>
-											<maxMember>3</maxMember>
+											<maxMember>5</maxMember>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -296,6 +540,23 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractPriceLevel:discountSchedule">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount schedule</_item>
+											</toolTip>
+											<label>
+												<_item>Discount schedule</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -759,8 +1020,47 @@
 									<!-- PriceModifier -->
 									<!--Inspector Definitions-->
 									<!-- Tab Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:classification">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Classifications</_item>
+											</toolTip>
+											<label>
+												<_item>Classifications</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<!--FieldGroups in General Tab-->
 									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:description">
 										<_object>
 											<active>true</active>
@@ -773,7 +1073,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>10</_item>
+												<_item>20</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -790,7 +1090,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>20</_item>
+												<_item>30</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -807,8 +1107,31 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>30</_item>
+												<_item>40</_item>
 											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:orderIndex">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Order index</_item>
+											</toolTip>
+											<label>
+												<_item>Order index</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>5</_item>
+											</orderObjectContainer>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
@@ -833,7 +1156,6 @@
 									<!--Element Definitions-->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountPriceModifier:discountIsPercentage">
 										<_object>
-											<columnBreak>true</columnBreak>
 											<active>true</active>
 											<toolTip>
 												<_item>Discount is %</_item>
@@ -844,7 +1166,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>80</_item>
+												<_item>90</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -861,7 +1183,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>90</_item>
+												<_item>100</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -887,7 +1209,6 @@
 									<!--Element Definitions-->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:LinearPriceModifier:priceMultiplier">
 										<_object>
-											<columnBreak>true</columnBreak>
 											<active>true</active>
 											<decimalPlaces>10</decimalPlaces>
 											<hasThousandsSeparator>true</hasThousandsSeparator>
@@ -900,7 +1221,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>100</_item>
+												<_item>110</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -917,7 +1238,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>110</_item>
+												<_item>120</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -934,12 +1255,47 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>120</_item>
+												<_item>130</_item>
 											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 
+									<!-- PriceModifierReference -->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifierReference">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Price Modifier Reference</_item>
+											</toolTip>
+											<label>
+												<_item>Price Modifier Reference</_item>
+											</label>
+											<iconKey>PriceModifierReference</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifierReference:priceModifier">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Price modifier</_item>
+											</toolTip>
+											<label>
+												<_item>Price modifier</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 
 									<!--ProductBasePrice-->
 									<!--Tab Definitions Pane1-->
@@ -1338,43 +1694,6 @@
 									<!-- Grid Tabs -->
 									<!--FieldGroups in General Tab-->
 									<!--Element Definition Contact-->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignment:discountIsPercentage">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Discount is %</_item>
-											</toolTip>
-											<label>
-												<_item>Discount is %</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>10</_item>
-												<_item>10</_item>
-											</order>
-										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignment:discount">
-										<_object>
-											<columnBreak>true</columnBreak>
-											<active>true</active>
-											<cssClassFieldGroup>alignRight</cssClassFieldGroup>
-											<cssClassObjectContainer>alignRight</cssClassObjectContainer>
-											<toolTip>
-												<_item>Discount</_item>
-											</toolTip>
-											<label>
-												<_item>Discount</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>10</_item>
-												<_item>80</_item>
-											</order>
-										</_object>
-										<_content/>
-									</org.openmdx.ui1.ElementDefinition>
 
 									<!-- PricingRule -->
 									<!--Inspector Definitions-->
@@ -2195,6 +2514,23 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelParams:contractPositionState">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Contract position state</_item>
+											</toolTip>
+											<label>
+												<_item>Contract position state</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelParams:quantity">
 										<_object>
 											<active>true</active>
@@ -2207,7 +2543,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>30</_item>
+												<_item>40</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -2224,7 +2560,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>40</_item>
+												<_item>50</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -2241,7 +2577,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>50</_item>
+												<_item>60</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -2258,11 +2594,28 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>60</_item>
+												<_item>70</_item>
 											</order>
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelParams:overridePriceLevel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Override price level</_item>
+											</toolTip>
+											<label>
+												<_item>Override price level</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>									
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PricingRule:Pane:Op:Tab:getPriceLevel:Group:result">
 										<_object>
 											<active>true</active>
@@ -2292,14 +2645,14 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:customer">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:basePrice">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Customer</_item>
+												<_item>Base price</_item>
 											</toolTip>
 											<label>
-												<_item>Customer</_item>
+												<_item>Base price</_item>
 											</label>
 											<order>
 												<_item>0</_item>
@@ -2309,14 +2662,14 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:customerDiscountIsPercentage">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:discountOrigin">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Customer discount is %</_item>
+												<_item>Discount origin</_item>
 											</toolTip>
 											<label>
-												<_item>Customer discount is %</_item>
+												<_item>Discount origin</_item>
 											</label>
 											<order>
 												<_item>0</_item>
@@ -2326,19 +2679,36 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:customerDiscount">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:discountIsPercentage">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Customer discount</_item>
+												<_item>Discount is percentage</_item>
 											</toolTip>
 											<label>
-												<_item>Customer discount</_item>
+												<_item>Discount is percentage</_item>
 											</label>
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>40</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:discount">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Discount</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -2355,7 +2725,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>50</_item>
+												<_item>60</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -2372,7 +2742,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>60</_item>
+												<_item>70</_item>
 											</order>
 										</_object>
 										<_content/>

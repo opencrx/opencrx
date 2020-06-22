@@ -62,16 +62,16 @@ import org.opencrx.kernel.account1.jmi1.AccountAddress;
 import org.opencrx.kernel.account1.jmi1.AddressFilterGlobal;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * CheckAddressesForAutoUpdateController
  *
  */
-public class CheckAddressesForAutoUpdateController extends AbstractWizardController {
+public class CheckAddressesForAutoUpdateController extends JspWizardController {
 
 	/**
 	 * Constructor.

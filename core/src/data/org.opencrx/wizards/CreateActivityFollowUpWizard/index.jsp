@@ -94,7 +94,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -172,9 +171,9 @@ org.openmdx.base.naming.*
       				</div>
 					<div id="WaitIndicator" style="float:left;width:50px;height:24px;" class="wait">&nbsp;</div>
 					<div id="SubmitArea" style="float:left;display:none;">      				
-	      				<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
-	      				<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" value="<%= app.getTexts().getSaveTitle() %>" onclick="javascript:$('Command').value=this.name;this.name='--';" />
-	      				<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
+	      				<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9000" value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
+	      				<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9000" value="<%= app.getTexts().getSaveTitle() %>" onclick="javascript:$('Command').value=this.name;this.name='--';" />
+	      				<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
 	      			</div>
       			</td>
       		</tr>

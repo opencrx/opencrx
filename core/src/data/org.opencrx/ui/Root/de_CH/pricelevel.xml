@@ -63,6 +63,137 @@
                       </additionalElementDefinition>
                     </_content>
                   </org.openmdx.ui1.ElementDefinition>
+                  <!-- Segment -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:discountSchedule" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount-Regelwerke</_item>
+											</toolTip>
+											<label>
+												<_item>Discount-Regelwerke</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+  								<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount-Regelwerk</_item>
+											</toolTip>
+											<label>
+												<_item>Discount-Regelwerk</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule:discountRule" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount-Regeln</_item>
+											</toolTip>
+											<label>
+												<_item>Discount-Regeln</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountSchedule:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+  								<!--Abstract Class DiscountOrigin -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountOrigin:discountIsPercentage" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount ist in %</_item>
+											</toolTip>
+											<label>
+												<_item>Discount ist in %</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountOrigin:discount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Discount</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+  								<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount-Regel</_item>
+											</toolTip>
+											<label>
+												<_item>Discount-Regel</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Tab Definitions -->
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountRule:condition" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Bedingung</_item>
+											</toolTip>
+											<label>
+												<_item>Bedingung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:Segment:pricingRule" _operation="create">
                     <_object>
                       <label>
@@ -85,13 +216,35 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractPriceLevel:priceModifier" _operation="create">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifierContainer:priceModifier" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Preismodifikatoren</_item>
+											</toolTip>
+											<label>
+												<_item>Preismodifikatoren</_item>
+											</label>
+                    </_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceLevel:priceModifier" _operation="create">
                     <_object>
                       <label>
-                        <_item>Preismodifikationen</_item>
+                        <_item>Preismodifikatoren</_item>
                       </label>
                       <toolTip>
-                        <_item>Preismodifikationen</_item>
+                        <_item>Preismodifikatoren</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductPhasePriceLevel:priceModifier" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Preismodifikatoren</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Preismodifikatoren</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -174,6 +327,17 @@
                       </label>
                       <toolTip>
                         <_item>Abgeleitet von</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractPriceLevel:discountSchedule" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Discountregelwerk</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Discountregelwerk</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -409,6 +573,28 @@
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:classification" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Klassifikationen</_item>
+											</toolTip>
+											<label>
+												<_item>Klassifikationen</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:name" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Name</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Name</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:description" _operation="create">
                     <_object>
                       <label>
@@ -442,6 +628,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifier:orderIndex" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Ordnungsindex</_item>
+											</toolTip>
+											<label>
+												<_item>Ordnungsindex</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountPriceModifier" _operation="create">
                     <_object>
                       <label>
@@ -456,10 +653,10 @@
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:DiscountPriceModifier:discountIsPercentage" _operation="create">
                     <_object>
                       <label>
-                        <_item>Discount in %</_item>
+												<_item>Discount ist in %</_item>
                       </label>
                       <toolTip>
-                        <_item>Discount in %</_item>
+												<_item>Discount ist in %</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -519,6 +716,30 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifierReference" _operation="create">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Verweis auf Preismodifikation</_item>
+											</toolTip>
+											<label>
+												<_item>Verweis auf Preismodifikation</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PriceModifierReference:priceModifier" _operation="create">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Preismodifikation</_item>
+											</toolTip>
+											<label>
+												<_item>Preismodifikation</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductBasePrice" _operation="create">
                     <_object>
                       <label>
@@ -728,10 +949,10 @@
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AbstractProductPrice:discountIsPercentage" _operation="create">
                     <_object>
                       <label>
-                        <_item>Discount in %</_item>
+												<_item>Discount ist in %</_item>
                       </label>
                       <toolTip>
-                        <_item>Discount in %</_item>
+												<_item>Discount ist in %</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -754,28 +975,6 @@
                       </label>
                       <toolTip>
                         <_item>Kontakt Zuweisung</_item>
-                      </toolTip>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignment:discountIsPercentage" _operation="create">
-                    <_object>
-                      <label>
-                        <_item>Discount in %</_item>
-                      </label>
-                      <toolTip>
-                        <_item>Discount in %</_item>
-                      </toolTip>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:AccountAssignment:discount" _operation="create">
-                    <_object>
-                      <label>
-                        <_item>Discount</_item>
-                      </label>
-                      <toolTip>
-                        <_item>Discount</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -1326,6 +1525,28 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelParams:contractPositionState" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Positionsstatus</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Positionsstatus</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelParams:priceLevel" _operation="create">
+										<_object>
+											<label>
+												<_item>Preislevel</_item>
+											</label>
+											<toolTip>
+												<_item>Preislevel</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelParams:quantity" _operation="create">
                     <_object>
                       <label>
@@ -1392,35 +1613,46 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:customer" _operation="create">
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:basePrice" _operation="create">
                     <_object>
                       <label>
-                        <_item>Kunde</_item>
+                        <_item>Basispreis</_item>
                       </label>
                       <toolTip>
-                        <_item>Kunde</_item>
+                        <_item>Basispreis</_item>
                       </toolTip>
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:customerDiscountIsPercentage" _operation="create">
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:discountOrigin" _operation="create">
                     <_object>
                       <label>
-                        <_item>Kundendiscount ist in %</_item>
+                        <_item>Discount-Herkunft</_item>
                       </label>
                       <toolTip>
-                        <_item>Kundendiscount ist in %</_item>
+                        <_item>Discount-Herkunft</_item>
                       </toolTip>
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:customerDiscount" _operation="create">
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:discountIsPercentage" _operation="create">
                     <_object>
                       <label>
-                        <_item>Kundendiscount</_item>
+                        <_item>Discount ist in %</_item>
                       </label>
                       <toolTip>
-                        <_item>Kundendiscount</_item>
+                        <_item>Discount ist in %</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:GetPriceLevelResult:discount" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Discount</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Discount</_item>
                       </toolTip>
                     </_object>
                     <_content/>

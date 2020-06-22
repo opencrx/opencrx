@@ -66,8 +66,8 @@ import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.document1.jmi1.Document;
 import org.opencrx.kernel.document1.jmi1.DocumentRevision;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -77,7 +77,7 @@ import org.openmdx.portal.servlet.component.TransientObjectView;
  * ActivityProcessImportWizardController
  *
  */
-public class ActivityProcessImportWizardController extends AbstractWizardController {
+public class ActivityProcessImportWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -94,7 +94,7 @@ public class ActivityProcessImportWizardController extends AbstractWizardControl
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@FormParameter(forms = "ActivityProcessImportForm") Map<String,Object> formFields
+		@JspWizardController.FormParameter(forms = "ActivityProcessImportForm") Map<String,Object> formFields
 	) throws ServiceException {
 		this.formFields = formFields;
 	}
@@ -105,7 +105,7 @@ public class ActivityProcessImportWizardController extends AbstractWizardControl
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@FormParameter(forms = "ActivityProcessImportForm") Map<String,Object> formFields
+		@JspWizardController.FormParameter(forms = "ActivityProcessImportForm") Map<String,Object> formFields
 	) throws ServiceException, IOException {
 		ApplicationContext app = this.getApp();
 		PersistenceManager pm = this.getPm();
@@ -199,7 +199,7 @@ public class ActivityProcessImportWizardController extends AbstractWizardControl
 	}
 	
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

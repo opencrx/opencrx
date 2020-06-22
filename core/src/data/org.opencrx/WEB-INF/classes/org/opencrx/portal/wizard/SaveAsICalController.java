@@ -73,15 +73,15 @@ import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 
 /**
  * SaveAsICalController
  *
  */
-public class SaveAsICalController extends AbstractWizardController {
+public class SaveAsICalController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -140,7 +140,7 @@ public class SaveAsICalController extends AbstractWizardController {
 					if(contact != null) {
 						downloadFileName = contact.getFullName();
 					} else {
-						downloadFileName = obj.refGetPath().getBase();
+						downloadFileName = obj.refGetPath().getLastSegment().toString();
 					}
 					activities = ((UserHome)obj).<Activity>getAssignedActivity();
 				}

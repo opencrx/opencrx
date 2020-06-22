@@ -61,16 +61,16 @@ import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.account1.jmi1.Member;
 import org.opencrx.kernel.backend.Base;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * MergeMembersController
  *
  */
-public class MergeMembersController extends AbstractWizardController {
+public class MergeMembersController extends JspWizardController {
 
 	/**
 	 * FormFields
@@ -230,7 +230,7 @@ public class MergeMembersController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doRefresh(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) {
 		PersistenceManager pm = this.getPm();
 		this.formFields = formFields;
@@ -255,7 +255,7 @@ public class MergeMembersController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doOK(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();

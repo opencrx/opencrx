@@ -56,15 +56,15 @@ import org.opencrx.kernel.activity1.jmi1.ActivityProcess;
 import org.opencrx.kernel.backend.Activities;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * ActivityProcessExportWizardController
  *
  */
-public class ActivityProcessExportWizardController extends AbstractWizardController {
+public class ActivityProcessExportWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.

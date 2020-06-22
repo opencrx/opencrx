@@ -60,14 +60,14 @@ import java.util.Collections;
 import org.opencrx.kernel.utils.DbSchemaUtils;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * DbCopyWizardController
  *
  */
-public class DbCopyWizardController extends AbstractWizardController {
+public class DbCopyWizardController extends JspWizardController {
 	
 	/**
 	 * Constructor.
@@ -250,7 +250,7 @@ public class DbCopyWizardController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doRefresh(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) {
 		this.formFields = formFields;
 	}
@@ -261,7 +261,7 @@ public class DbCopyWizardController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doCopy(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.doRefresh(formFields);
 		RefObject_1_0 obj = this.getObject();
@@ -316,7 +316,7 @@ public class DbCopyWizardController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doClear(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.doRefresh(formFields);
 		this.getSession().setAttribute(
@@ -330,7 +330,7 @@ public class DbCopyWizardController extends AbstractWizardController {
 	 * 
 	 */
 	public void doRefreshReport(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.doRefresh(formFields);
 	}

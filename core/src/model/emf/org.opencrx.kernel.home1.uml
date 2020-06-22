@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_7iDqgN8HEdmKapscEl8OLg" name="home1">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_7iDqgN8HEdmKapscEl8OLg" name="home1">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D40E97D350217PPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D40E97D350217PP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D40E97D350217P" name="kernel">
@@ -1600,6 +1600,10 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_vdsAUCCwEemWGfHZa-muhg" name="remarks">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xvWg8CCwEemWGfHZa-muhg"/>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Fj7j4PwAEeiyAO8Y3a1saQ" name="WorkListFeed">
             <generalization xmi:id="_E66-UPxcEeixFv2EsSUNjQ">
@@ -1744,8 +1748,8 @@
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fAv0IvwOEeixFv2EsSUNjQ" value="1"/>
             </ownedEnd>
           </packagedElement>
-          <packagedElement xmi:type="uml:Association" xmi:id="_jnU9sPwOEeixFv2EsSUNjQ" name="WorkListSnapshotContainsItem" memberEnd="_jnU9sfwOEeixFv2EsSUNjQ _jnUWoPwOEeixFv2EsSUNjQ" navigableOwnedEnd="_jnU9sfwOEeixFv2EsSUNjQ">
-            <ownedEnd xmi:id="_jnU9sfwOEeixFv2EsSUNjQ" name="item" type="_9ZEbQPv_EeiyAO8Y3a1saQ" aggregation="shared" association="_jnU9sPwOEeixFv2EsSUNjQ">
+          <packagedElement xmi:type="uml:Association" xmi:id="_jnU9sPwOEeixFv2EsSUNjQ" name="WorkListSnapshotContainsCurrentItem" memberEnd="_jnU9sfwOEeixFv2EsSUNjQ _jnUWoPwOEeixFv2EsSUNjQ" navigableOwnedEnd="_jnU9sfwOEeixFv2EsSUNjQ">
+            <ownedEnd xmi:id="_jnU9sfwOEeixFv2EsSUNjQ" name="currentItem" type="_9ZEbQPv_EeiyAO8Y3a1saQ" aggregation="shared" association="_jnU9sPwOEeixFv2EsSUNjQ">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jnU9svwOEeixFv2EsSUNjQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jnU9s_wOEeixFv2EsSUNjQ" value="1"/>
               <qualifier xmi:id="_-V88cPwOEeixFv2EsSUNjQ" name="id">
@@ -1756,6 +1760,15 @@
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jnUWofwOEeixFv2EsSUNjQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jnUWovwOEeixFv2EsSUNjQ" value="1"/>
             </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_BruMICCzEemWGfHZa-muhg" name="WorkListContainsCurrentWorkListItem" memberEnd="_BrvaQCCzEemWGfHZa-muhg _BrvaQyCzEemWGfHZa-muhg" navigableOwnedEnd="_BrvaQyCzEemWGfHZa-muhg">
+            <ownedEnd xmi:id="_BrvaQyCzEemWGfHZa-muhg" name="currentItem" type="_9ZEbQPv_EeiyAO8Y3a1saQ" aggregation="shared" association="_BruMICCzEemWGfHZa-muhg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2IlQCCzEemWGfHZa-muhg"/>
+              <qualifier xmi:id="_dFDUwCCzEemWGfHZa-muhg" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_BrvaQCCzEemWGfHZa-muhg" name="workList" type="_eAhEAPv_EeiyAO8Y3a1saQ" association="_BruMICCzEemWGfHZa-muhg"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>

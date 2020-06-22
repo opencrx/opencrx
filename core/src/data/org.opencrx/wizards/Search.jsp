@@ -100,10 +100,13 @@ org.openmdx.portal.servlet.wizards.*
 <%
 	try {
 		String searchExpression = request.getParameter("searchExpression");
+		if (searchExpression != null) {
+			searchExpression = searchExpression.trim();
+		}
 		// Lookup object by its XRI
 		if(searchExpression.startsWith("xri:")) {
 			try {
-				RefObject_1_0 object = (RefObject_1_0)pm.getObjectById(new Path((searchExpression.trim()).replace("+", "%2B")));
+				RefObject_1_0 object = (RefObject_1_0)pm.getObjectById(new Path((searchExpression).replace("+", "%2B")));
 				Action nextAction = new ObjectReference(object, app).getSelectObjectAction();
 				response.sendRedirect(
 					request.getContextPath() + "/" + nextAction.getEncodedHRef()

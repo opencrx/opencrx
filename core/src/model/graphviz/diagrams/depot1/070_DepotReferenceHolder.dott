@@ -31,14 +31,14 @@ digraph "Diagram DepotReferenceHolder [Package org:opencrx:kernel:depot1]" {
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:depot1:DepotReference,compartments=true,width=3]};
-	  ${CLASS[name=org:opencrx:kernel:depot1:DepotPositionReference,compartments=true,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:DepotReference,compartments=true,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:DepotPositionReference,compartments=true,width=5]};
 	}
 	{
 	  rank=same;
 	  LAYER3[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:depot1:Depot,compartments=false,width=3]};
-	  ${CLASS[name=org:opencrx:kernel:depot1:DepotPosition,compartments=false,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:Depot,compartments=false,width=5]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:DepotPosition,compartments=false,width=5]};
 	}
 	
 	LAYER0->LAYER1[style=invis];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_-bPeIN8HEdmKapscEl8OLg" name="product1">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_-bPeIN8HEdmKapscEl8OLg" name="product1">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99B9030DPPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99B9030DPP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99B9030DP" name="kernel">
@@ -53,6 +53,7 @@
             <generalization xmi:id="_aElKwHaVEduay-WajN2Vbg">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_FrwCsHaQEduay-WajN2Vbg"/>
             </generalization>
+            <generalization xmi:id="_5R3YILVFEemQY6USDGZdiQ" general="_Mdk0gLVFEemQY6USDGZdiQ"/>
             <ownedAttribute xmi:id="_3C7B8A60016D3F40C14701D5" name="priceLevel" type="_3C7B8A60016D3F3EBE6A01E9" isUnique="false" aggregation="composite" association="_3C7B8A60016D3F40C147006C">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H-WN9d7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H-WN9t7NEdmKapscEl8OLg" value="1"/>
@@ -64,13 +65,6 @@
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H-WN_d7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H-WN_t7NEdmKapscEl8OLg" value="1"/>
               <qualifier xmi:id="_3C7B8A60016D3F51F69702D4" name="id" visibility="private">
-                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
-              </qualifier>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F40C89403D1" name="product" type="_3C7B8A60016D3F3FFDD401A5" isUnique="false" aggregation="composite" association="_3C7B8A60016D3F40C89402F5">
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H-cUtt7NEdmKapscEl8OLg"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H-cUt97NEdmKapscEl8OLg" value="1"/>
-              <qualifier xmi:id="_3C7B8A60016D3F40C89D026B" name="id" visibility="private">
                 <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               </qualifier>
             </ownedAttribute>
@@ -192,6 +186,7 @@
             <generalization xmi:id="_1iN2gLW0EdqnsfWGjqwM-g">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.account1.uml#_6kaqQImwEdqT-YHfpV38vQ"/>
             </generalization>
+            <generalization xmi:id="_4FVTkLVFEemQY6USDGZdiQ" general="_Mdk0gLVFEemQY6USDGZdiQ"/>
             <ownedAttribute xmi:id="_3C7B8A60016D3F40C19D03A5" name="name">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
             </ownedAttribute>
@@ -218,13 +213,6 @@
             <ownedAttribute xmi:id="_jzwmQYbZEdqvTf7Mxl28lg" name="basedOn" type="_3C7B8A60016D3F3EBE6A01E9" association="_jzwmQIbZEdqvTf7Mxl28lg">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jz2s4IbZEdqvTf7Mxl28lg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jz2s4YbZEdqvTf7Mxl28lg" value="1"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_X_F-kYm8EdqT-YHfpV38vQ" name="priceModifier" type="_Bmah0Im7EdqT-YHfpV38vQ" aggregation="composite" association="_X_F-kIm8EdqT-YHfpV38vQ">
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X_F-k4m8EdqT-YHfpV38vQ"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X_F-lIm8EdqT-YHfpV38vQ" value="1"/>
-              <qualifier xmi:id="_fdqo8Im8EdqT-YHfpV38vQ" name="id" visibility="private">
-                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
-              </qualifier>
             </ownedAttribute>
             <ownedAttribute xmi:id="_y4KOsIqsEdqT-YHfpV38vQ" name="priceUsage">
               <eAnnotations xmi:id="_1EjNwIqsEdqT-YHfpV38vQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -260,6 +248,10 @@
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H99zkt7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H99zk97NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_DUVHELriEemMCe1p9R5Vpg" name="discountSchedule" type="_ElyPQLrfEemMCe1p9R5Vpg" association="_DURcsLriEemMCe1p9R5Vpg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DUeRALriEemMCe1p9R5Vpg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DUk-sLriEemMCe1p9R5Vpg" value="1"/>
             </ownedAttribute>
             <ownedOperation xmi:id="_yyDxkIbZEdqvTf7Mxl28lg" name="calculatePrices">
               <ownedParameter xmi:id="__JN7gIbZEdqvTf7Mxl28lg" name="ReturnResultParameter1" type="_DFLtcIxOEdqT-YHfpV38vQ" direction="return"/>
@@ -365,12 +357,6 @@
             <ownedEnd xmi:id="_3C7B8A60016D3F51F67C0345" name="segment" type="_3C7B8A60016D3FECA7B4031D" isUnique="false" association="_3C7B8A60016D3F51F67C0176">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H-WOAd7NEdmKapscEl8OLg" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H-WOAt7NEdmKapscEl8OLg" value="1"/>
-            </ownedEnd>
-          </packagedElement>
-          <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D3F40C89402F5" name="SegmentContainsProduct" memberEnd="_3C7B8A60016D3F40C89403D1 _3C7B8A60016D3F40C8950043">
-            <ownedEnd xmi:id="_3C7B8A60016D3F40C8950043" name="segment" type="_3C7B8A60016D3FECA7B4031D" isUnique="false" association="_3C7B8A60016D3F40C89402F5">
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H-cUut7NEdmKapscEl8OLg" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H-cUu97NEdmKapscEl8OLg" value="1"/>
             </ownedEnd>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D42A615F603C1" name="ProductHasRelation" memberEnd="_3C7B8A60016D42A615F7014B _3C7B8A60016D42A615F70155">
@@ -496,9 +482,6 @@
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_EIX44BAEEdqkPJXkv5zljQ" name="AbstractProduct" isAbstract="true">
-            <eAnnotations xmi:id="_GMRDQBAEEdqkPJXkv5zljQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_Rei10I2lEdqLRIIWWdo_5w" key="root"/>
-            </eAnnotations>
             <generalization xmi:id="_hVtcoI3CEdqLRIIWWdo_5w">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
             </generalization>
@@ -750,16 +733,7 @@
             <generalization xmi:id="_PhP1sIbhEdqvTf7Mxl28lg">
               <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
             </generalization>
-            <ownedAttribute xmi:id="_FGYpoImwEdqT-YHfpV38vQ" name="discount">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M1wwIImwEdqT-YHfpV38vQ"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M1wwIYmwEdqT-YHfpV38vQ" value="1"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_F5eTcImwEdqT-YHfpV38vQ" name="discountIsPercentage">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Na0lAImwEdqT-YHfpV38vQ"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Na0lAYmwEdqT-YHfpV38vQ" value="1"/>
-            </ownedAttribute>
+            <generalization xmi:id="_JjwTMLrhEemMCe1p9R5Vpg" general="_pnHM4LrfEemMCe1p9R5Vpg"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_yFTzIIm0EdqT-YHfpV38vQ" name="AbstractFilterProduct" isAbstract="true">
             <eAnnotations xmi:id="_0HY_oIm0EdqT-YHfpV38vQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -827,6 +801,8 @@
                 <details xmi:id="_MgtecYm2EdqT-YHfpV38vQ" key="list"/>
               </eAnnotations>
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1xCsgFonEeqZysW5g1LKcQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1xRWAFonEeqZysW5g1LKcQ" value="*"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_rqLQ0Im2EdqT-YHfpV38vQ" name="DefaultSalesTaxTypeFilterProperty">
@@ -871,12 +847,6 @@
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Bmah0Im7EdqT-YHfpV38vQ" name="PriceModifier" isAbstract="true">
-            <generalization xmi:id="_VCeccIm8EdqT-YHfpV38vQ">
-              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
-            </generalization>
-            <generalization xmi:id="_V_yZQIm8EdqT-YHfpV38vQ">
-              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
-            </generalization>
             <generalization xmi:id="_aF0PQOmwEeCj0c0O31mWrQ">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
             </generalization>
@@ -892,10 +862,24 @@
             </ownedAttribute>
             <ownedAttribute xmi:id="_9EPcgInNEdqT-YHfpV38vQ" name="description">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oqGUoLVFEemQY6USDGZdiQ"/>
             </ownedAttribute>
-          </packagedElement>
-          <packagedElement xmi:type="uml:Association" xmi:id="_X_F-kIm8EdqT-YHfpV38vQ" name="PriceLevelHasPriceModifier" memberEnd="_X_F-kYm8EdqT-YHfpV38vQ _X_F-kom8EdqT-YHfpV38vQ">
-            <ownedEnd xmi:id="_X_F-kom8EdqT-YHfpV38vQ" name="priceLevel" type="_3C7B8A60016D3F3EBE6A01E9" association="_X_F-kIm8EdqT-YHfpV38vQ"/>
+            <ownedAttribute xmi:id="_m2-KILVFEemQY6USDGZdiQ" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sXhBkLVFEemQY6USDGZdiQ"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_RBhEULVGEemQY6USDGZdiQ" name="orderIndex">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ujbr4LVGEemQY6USDGZdiQ"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_1jdXQLVGEemQY6USDGZdiQ" name="classification" association="_1jbiELVGEemQY6USDGZdiQ">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.code1.uml#_3C7B8A60016D3F42A0980090"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1jd-ULVGEemQY6USDGZdiQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1jd-UbVGEemQY6USDGZdiQ" value="1"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_grnwQLVHEemQY6USDGZdiQ" name="index">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
+              </qualifier>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_rDddAIngEdqT-YHfpV38vQ" name="FilterPropertyHasSalesTaxType" memberEnd="_rDddAYngEdqT-YHfpV38vQ _rDddAongEdqT-YHfpV38vQ">
             <ownedEnd xmi:id="_rDddAongEdqT-YHfpV38vQ" name="filterProperty" type="_rqLQ0Im2EdqT-YHfpV38vQ" association="_rDddAIngEdqT-YHfpV38vQ">
@@ -944,6 +928,7 @@
             <eAnnotations xmi:id="_7R9dEItuEdqT-YHfpV38vQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
               <details xmi:id="_7R9dEYtuEdqT-YHfpV38vQ" key="root"/>
             </eAnnotations>
+            <generalization xmi:id="_r8POkNiWEem3GuxdS6NVRw" general="_pnHM4LrfEemMCe1p9R5Vpg"/>
             <ownedAttribute xmi:id="_3C7B8A60016D409FD2390210" name="usage">
               <eAnnotations xmi:id="_H99zcd7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_H99zct7NEdmKapscEl8OLg" key="list"/>
@@ -972,16 +957,6 @@
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wj8gUImvEdqT-YHfpV38vQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wkDOAImvEdqT-YHfpV38vQ" value="1"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_2-tkUImvEdqT-YHfpV38vQ" name="discount">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8ikOcImvEdqT-YHfpV38vQ"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8iqVEImvEdqT-YHfpV38vQ" value="1"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:id="_33cjIImvEdqT-YHfpV38vQ" name="discountIsPercentage">
-              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9EwVgImvEdqT-YHfpV38vQ"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9EwVgYmvEdqT-YHfpV38vQ" value="1"/>
             </ownedAttribute>
             <ownedAttribute xmi:id="_3C7B8A60016D3F40CDF60129" name="uom" isUnique="false" association="_3C7B8A60016D3F40CDF50236">
               <type xmi:type="uml:Class" href="org.opencrx.kernel.uom1.uml#_3C7B8A60016D3F3EBFB30391"/>
@@ -1202,6 +1177,13 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_8_O_sCr2Eem80fCmIzXP7g" name="overridePriceLevel" type="_3C7B8A60016D3F3EBE6A01E9">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DL3hECr3Eem80fCmIzXP7g"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_NmnDwB_uEeqT9YtPrOTeeg" name="contractPositionState">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QsqOsB_uEeqT9YtPrOTeeg"/>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_siDIgLTuEdqWRp5yUrj13w" name="GetPriceLevelResult">
             <eAnnotations xmi:id="_GiB4kLTvEdqWRp5yUrj13w" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -1211,17 +1193,16 @@
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AMuG4LTwEdqWRp5yUrj13w"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AMuG4bTwEdqWRp5yUrj13w" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_DBhX4I6IEduIya1xbMkSlQ" name="customer">
-              <type xmi:type="uml:Class" href="org.opencrx.kernel.account1.uml#_3C7B8A60016D3F50EA250055"/>
+            <ownedAttribute xmi:id="_DBhX4I6IEduIya1xbMkSlQ" name="discountOrigin" type="_pnHM4LrfEemMCe1p9R5Vpg">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HM_50I6IEduIya1xbMkSlQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HM_50Y6IEduIya1xbMkSlQ" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_Ys_FsLW2EdqnsfWGjqwM-g" name="customerDiscount">
+            <ownedAttribute xmi:id="_Ys_FsLW2EdqnsfWGjqwM-g" name="discount">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dz5VILW2EdqnsfWGjqwM-g"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dz5VIbW2EdqnsfWGjqwM-g" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_ZqG1QLW2EdqnsfWGjqwM-g" name="customerDiscountIsPercentage">
+            <ownedAttribute xmi:id="_ZqG1QLW2EdqnsfWGjqwM-g" name="discountIsPercentage">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gM5M0LW2EdqnsfWGjqwM-g"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gM5M0bW2EdqnsfWGjqwM-g" value="1"/>
@@ -1233,6 +1214,9 @@
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bIS2ILdZEdqLOvgpfwvg1Q"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bIS2IbdZEdqLOvgpfwvg1Q" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_s6gm8NiREem3GuxdS6NVRw" name="basePrice" type="_3C7B8A60016D3F44F4A70132">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z5ub0NiREem3GuxdS6NVRw"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_vVTSoIbgEdqvTf7Mxl28lg" name="PriceLevelHasAssignedAccount" memberEnd="_vVTSoYbgEdqvTf7Mxl28lg _vVTSoobgEdqvTf7Mxl28lg">
@@ -1889,6 +1873,139 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Mdk0gLVFEemQY6USDGZdiQ" name="PriceModifierContainer" isAbstract="true">
+            <eAnnotations xmi:id="_MoZ5kLVHEemQY6USDGZdiQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_Np4ksLVHEemQY6USDGZdiQ" key="root"/>
+            </eAnnotations>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_ZC59ULVFEemQY6USDGZdiQ" name="PriceModifierContainerContainsPriceModifier" memberEnd="_ZC9nsLVFEemQY6USDGZdiQ _ZC_c4LVFEemQY6USDGZdiQ" navigableOwnedEnd="_ZC_c4LVFEemQY6USDGZdiQ">
+            <eAnnotations xmi:id="_ZC8ZkLVFEemQY6USDGZdiQ" source="org.eclipse.papyrus">
+              <details xmi:id="_ZC9AoLVFEemQY6USDGZdiQ" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_ZC_c4LVFEemQY6USDGZdiQ" name="priceModifier" type="_Bmah0Im7EdqT-YHfpV38vQ" aggregation="composite" association="_ZC59ULVFEemQY6USDGZdiQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fXmOgLVFEemQY6USDGZdiQ"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_38p74LVJEemQY6USDGZdiQ" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_ZC9nsLVFEemQY6USDGZdiQ" name="priceModifierContainer" type="_Mdk0gLVFEemQY6USDGZdiQ" association="_ZC59ULVFEemQY6USDGZdiQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_9x08ULVFEemQY6USDGZdiQ" name="PriceModifierReference">
+            <generalization xmi:id="_Apr6QLVGEemQY6USDGZdiQ" general="_Bmah0Im7EdqT-YHfpV38vQ"/>
+            <ownedAttribute xmi:id="_LUG1krVGEemQY6USDGZdiQ" name="priceModifier" type="_Bmah0Im7EdqT-YHfpV38vQ" association="_LUGOgLVGEemQY6USDGZdiQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LUIDsLVGEemQY6USDGZdiQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LUJ44LVGEemQY6USDGZdiQ" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_1jbiELVGEemQY6USDGZdiQ" name="PriceModifierHasClassification" memberEnd="_1jdXQLVGEemQY6USDGZdiQ _1jd-UrVGEemQY6USDGZdiQ">
+            <eAnnotations xmi:id="_1jcwMLVGEemQY6USDGZdiQ" source="org.eclipse.papyrus">
+              <details xmi:id="_1jcwMbVGEemQY6USDGZdiQ" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_1jd-UrVGEemQY6USDGZdiQ" name="priceModifier" type="_Bmah0Im7EdqT-YHfpV38vQ" association="_1jbiELVGEemQY6USDGZdiQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_LUGOgLVGEemQY6USDGZdiQ" name="PriceModifierReferenceHasPriceModifier" memberEnd="_LUG1krVGEemQY6USDGZdiQ _LUMVILVGEemQY6USDGZdiQ">
+            <eAnnotations xmi:id="_LUG1kLVGEemQY6USDGZdiQ" source="org.eclipse.papyrus">
+              <details xmi:id="_LUG1kbVGEemQY6USDGZdiQ" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_LUMVILVGEemQY6USDGZdiQ" name="priceModifierReference" type="_9x08ULVFEemQY6USDGZdiQ" association="_LUGOgLVGEemQY6USDGZdiQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_ElyPQLrfEemMCe1p9R5Vpg" name="DiscountSchedule">
+            <generalization xmi:id="_MxeeULrfEemMCe1p9R5Vpg">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_Z-ZyoLrfEemMCe1p9R5Vpg" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_bGFMYLrfEemMCe1p9R5Vpg" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hMRHgLrfEemMCe1p9R5Vpg"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_ODoCsLrfEemMCe1p9R5Vpg" name="SegmentContainsDiscountSchedule" memberEnd="_ODzo4LrfEemMCe1p9R5Vpg _OD5vgLrfEemMCe1p9R5Vpg" navigableOwnedEnd="_OD5vgLrfEemMCe1p9R5Vpg">
+            <eAnnotations xmi:id="_ODvXcLrfEemMCe1p9R5Vpg" source="org.eclipse.papyrus">
+              <details xmi:id="_ODv-gLrfEemMCe1p9R5Vpg" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_OD5vgLrfEemMCe1p9R5Vpg" name="discountSchedule" type="_ElyPQLrfEemMCe1p9R5Vpg" aggregation="composite" association="_ODoCsLrfEemMCe1p9R5Vpg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P4DNsLrfEemMCe1p9R5Vpg"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_5whjoLrjEemMCe1p9R5Vpg" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_ODzo4LrfEemMCe1p9R5Vpg" name="segment" type="_3C7B8A60016D3FECA7B4031D" association="_ODoCsLrfEemMCe1p9R5Vpg"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_pnHM4LrfEemMCe1p9R5Vpg" name="DiscountOrigin" isAbstract="true">
+            <eAnnotations xmi:id="_9g8NsLtFEemMCe1p9R5Vpg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_-XBhILtFEemMCe1p9R5Vpg" key="root"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_tqmQcLrfEemMCe1p9R5Vpg" name="discount">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5Ged4LrfEemMCe1p9R5Vpg"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_uwwnQLrfEemMCe1p9R5Vpg" name="discountIsPercentage">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5iSQILrfEemMCe1p9R5Vpg"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="__kb_0LrfEemMCe1p9R5Vpg" name="DiscountRule">
+            <generalization xmi:id="_EbqNcLrgEemMCe1p9R5Vpg" general="_pnHM4LrfEemMCe1p9R5Vpg"/>
+            <generalization xmi:id="_yC73wLrhEemMCe1p9R5Vpg">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_BUNUULrgEemMCe1p9R5Vpg" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_CTN6QLrgEemMCe1p9R5Vpg" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W8jVwLrgEemMCe1p9R5Vpg"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_j4dWEbrhEemMCe1p9R5Vpg" name="condition" association="_j4bg4LrhEemMCe1p9R5Vpg">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.code1.uml#_aFE1YNN_EeiI3J0Z6szN0A"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j4ekMLrhEemMCe1p9R5Vpg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j4ekMbrhEemMCe1p9R5Vpg" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_IdqDQLrgEemMCe1p9R5Vpg" name="DiscountScheduleContainsDiscountRule" memberEnd="_Idr4cLrgEemMCe1p9R5Vpg _Id4swLrgEemMCe1p9R5Vpg" navigableOwnedEnd="_Id4swLrgEemMCe1p9R5Vpg">
+            <eAnnotations xmi:id="_IdrRYLrgEemMCe1p9R5Vpg" source="org.eclipse.papyrus">
+              <details xmi:id="_IdrRYbrgEemMCe1p9R5Vpg" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_Id4swLrgEemMCe1p9R5Vpg" name="discountRule" type="__kb_0LrfEemMCe1p9R5Vpg" aggregation="composite" association="_IdqDQLrgEemMCe1p9R5Vpg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N5jrQLrgEemMCe1p9R5Vpg"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_0dGiMLrjEemMCe1p9R5Vpg" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_Idr4cLrgEemMCe1p9R5Vpg" name="discountSchedule" type="_ElyPQLrfEemMCe1p9R5Vpg" association="_IdqDQLrgEemMCe1p9R5Vpg"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_DURcsLriEemMCe1p9R5Vpg" name="PriceLevelHasDiscountSchedule" memberEnd="_DUVHELriEemMCe1p9R5Vpg _DUqeQLriEemMCe1p9R5Vpg">
+            <eAnnotations xmi:id="_DUTR4LriEemMCe1p9R5Vpg" source="org.eclipse.papyrus">
+              <details xmi:id="_DUT48LriEemMCe1p9R5Vpg" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_DUqeQLriEemMCe1p9R5Vpg" name="priceLevel" type="_3C7B8A60016D3F3EBE6A01E9" association="_DURcsLriEemMCe1p9R5Vpg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LHndMLriEemMCe1p9R5Vpg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LHycULriEemMCe1p9R5Vpg" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_j4bg4LrhEemMCe1p9R5Vpg" name="DiscountRuleHasObjectValidator" memberEnd="_j4dWEbrhEemMCe1p9R5Vpg _j4ekMrrhEemMCe1p9R5Vpg">
+            <eAnnotations xmi:id="_j4cvALrhEemMCe1p9R5Vpg" source="org.eclipse.papyrus">
+              <details xmi:id="_j4dWELrhEemMCe1p9R5Vpg" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_j4ekMrrhEemMCe1p9R5Vpg" name="discountRule" type="__kb_0LrfEemMCe1p9R5Vpg" association="_j4bg4LrhEemMCe1p9R5Vpg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l2CdELrhEemMCe1p9R5Vpg"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mdbNMLrhEemMCe1p9R5Vpg" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_7FWkMOa3EemfR9YVFHTCjw" name="SegmentContainsProduct" memberEnd="_7FXyUua3EemfR9YVFHTCjw _7FZAcea3EemfR9YVFHTCjw" navigableOwnedEnd="_7FZAcea3EemfR9YVFHTCjw">
+            <eAnnotations xmi:id="_7FXyUOa3EemfR9YVFHTCjw" source="org.eclipse.papyrus">
+              <details xmi:id="_7FXyUea3EemfR9YVFHTCjw" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_7FZAcea3EemfR9YVFHTCjw" name="product" type="_EIX44BAEEdqkPJXkv5zljQ" aggregation="composite" association="_7FWkMOa3EemfR9YVFHTCjw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BA9nAOa4EemfR9YVFHTCjw"/>
+              <qualifier xmi:id="_tIrYgOa4EemfR9YVFHTCjw" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_7FXyUua3EemfR9YVFHTCjw" name="segment" type="_3C7B8A60016D3FECA7B4031D" association="_7FWkMOa3EemfR9YVFHTCjw"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>

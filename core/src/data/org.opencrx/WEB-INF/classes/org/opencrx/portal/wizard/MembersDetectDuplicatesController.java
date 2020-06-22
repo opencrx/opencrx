@@ -59,14 +59,14 @@ import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.account1.jmi1.Member;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * MembersDetectDuplicatesController
  *
  */
-public class MembersDetectDuplicatesController extends AbstractWizardController {
+public class MembersDetectDuplicatesController extends JspWizardController {
 
 	/**
 	 * Constructor.

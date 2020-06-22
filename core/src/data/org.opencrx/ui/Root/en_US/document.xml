@@ -612,8 +612,13 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>1000</_item>
-											</order>
-											<maxMember>4</maxMember>
+								      </order>
+											<showMemberRange>
+												<_item>0:0:0-0:0:10</_item>
+												<_item>0:10:80-0:10:80</_item>
+												<_item>0:20:10-0:20:10</_item>
+											</showMemberRange>
+											<maxMember>3</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -672,6 +677,24 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:linkTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Links</_item>
+											</toolTip>
+											<label>
+												<_item>»Links (DOC)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1100</_item>
+											</order>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:link">
 										<_object>
 											<active>true</active>
@@ -679,12 +702,12 @@
 												<_item>Links</_item>
 											</toolTip>
 											<label>
-												<_item>»Links</_item>
+												<_item>»Links (URI)</_item>
 											</label>
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>1100</_item>
+												<_item>1110</_item>
 											</order>
 											<maxMember>3</maxMember>
 										</_object>
@@ -702,7 +725,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>1110</_item>
+												<_item>1120</_item>
 											</order>
 											<maxMember>4</maxMember>
 										</_object>
@@ -865,7 +888,7 @@
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:contentLength">
 										<_object>
-											<active>true</active>
+											<active>false</active>
 											<toolTip>
 												<_item>Content length</_item>
 											</toolTip>
@@ -1457,6 +1480,23 @@
 									<!-- Grid -->
 									<!--FieldGroups in General Tab -->
 									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:basedOn">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Based on attachment</_item>
+											</toolTip>
+											<label>
+												<_item>Based on attachment</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:name">
 										<_object>
 											<active>true</active>
@@ -1468,7 +1508,7 @@
 											</label>
 											<order>
 												<_item>0</_item>
-												<_item>0</_item>
+												<_item>10</_item>
 												<_item>10</_item>
 											</order>
 										</_object>
@@ -1486,25 +1526,8 @@
 											</label>
 											<order>
 												<_item>0</_item>
-												<_item>0</_item>
+												<_item>10</_item>
 												<_item>80</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentReference:basedOn">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Based on attachment</_item>
-											</toolTip>
-											<label>
-												<_item>Based on attachment</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>10</_item>
-												<_item>10</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1520,8 +1543,8 @@
 											</label>
 											<order>
 												<_item>0</_item>
-												<_item>10</_item>
 												<_item>20</_item>
+												<_item>10</_item>
 											</order>
 										</_object>
 										<_content />
@@ -1840,13 +1863,100 @@
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 
+									<!-- DocumentLinkTo -->
+									<!-- Inspector -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Document Link (DOC)</_item>
+											</toolTip>
+											<label>
+												<_item>Document Link</_item>
+											</label>
+											<iconKey>DocumentLinkTo</iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Grid -->
+									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:documentLinkType">
+										<_object>
+											<columnBreak>true</columnBreak>
+											<active>true</active>
+											<toolTip>
+												<_item>Type</_item>
+											</toolTip>
+											<label>
+												<_item>Type</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>80</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:document">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Linked document</_item>
+											</toolTip>
+											<label>
+												<_item>Linked document</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>10</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
 									<!-- DocumentLink -->
 									<!-- Inspector -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Document Link</_item>
+												<_item>Document Link (URI)</_item>
 											</toolTip>
 											<label>
 												<_item>Document Link</_item>
@@ -1903,7 +2013,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>30</_item>
+												<_item>40</_item>
 											</order>
 										</_object>
 										<_content />

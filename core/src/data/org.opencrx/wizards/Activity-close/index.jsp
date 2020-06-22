@@ -10,7 +10,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2012, CRIXP Corp., Switzerland
+ * Copyright (c) 2012-2020, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -149,56 +149,71 @@ org.openmdx.kernel.log.*
 						Path objectPath = new Path(objectXri);
 						RefObject_1_0 obj = (RefObject_1_0)pm.getObjectById(objectPath);
 				
-				        org.opencrx.kernel.activity1.cci2.ActivityQuery activityFilter = (org.opencrx.kernel.activity1.cci2.ActivityQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.Activity.class);
-				        activityFilter.orderByActivityNumber().ascending();
-				        activityFilter.forAllDisabled().isFalse();
-				        
-				        List<String> activityXris = new ArrayList<String>();
-				        for (Iterator a =  ((org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal)obj).getFilteredActivity(activityFilter).iterator(); a.hasNext();) {
-				        	try {
-				        		activityXris.add(((org.opencrx.kernel.activity1.jmi1.Activity)a.next()).refMofId());
-				        	} catch (Exception e) {
-				        		new ServiceException(e).log();
-				        	}
-				        }
-				        
+		        org.opencrx.kernel.activity1.cci2.ActivityQuery activityFilter = (org.opencrx.kernel.activity1.cci2.ActivityQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.Activity.class);
+		        activityFilter.orderByActivityNumber().ascending();
+		        activityFilter.forAllDisabled().isFalse();
+		        
+		        List<String> activityXris = new ArrayList<String>();
+		        Iterator actIter = null;
+		        if (obj instanceof org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal) {
+		        	actIter =  ((org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal)obj).getFilteredActivity(activityFilter).iterator();
+		        } else if (obj instanceof org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup) {
+		        	actIter =  ((org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup)obj).getFilteredActivity(activityFilter).iterator();
+		        }
+		        for (Iterator a = actIter; a.hasNext();) {
+		        	try {
+		        		activityXris.add(((org.opencrx.kernel.activity1.jmi1.Activity)a.next()).refMofId());
+		        	} catch (Exception e) {
+		        		new ServiceException(e).log();
+		        	}
+		        }
+		        
+			
+						org.opencrx.kernel.activity1.jmi1.Activity activity = null;
+						
+						for (Iterator a = activityXris.iterator(); a.hasNext();) {
+							String activityHref = "";
+							try {
+								activity = (org.opencrx.kernel.activity1.jmi1.Activity)pm.getObjectById(new Path((String)a.next()));
+								Action action = new ObjectReference(
+									activity,
+									app
+								).getSelectObjectAction();
+								activityHref = action.getEncodedHRef();
 				        if (actionOK) {
-				
-							org.opencrx.kernel.activity1.jmi1.Activity activity = null;
-							
-							for (Iterator a = activityXris.iterator(); a.hasNext();) {
-								String activityHref = "";
-								try {
-									activity = (org.opencrx.kernel.activity1.jmi1.Activity)pm.getObjectById(new Path((String)a.next()));
-									Action action = new ObjectReference(
-										activity,
-										app
-									).getSelectObjectAction();
-									activityHref = action.getEncodedHRef();
-									pm.currentTransaction().begin();
-									activity.setActivityState((short)20); // close
-									activity.setPercentComplete((short)100);
-									pm.currentTransaction().commit();
-									updateCount++;
+				        	try {
+										pm.currentTransaction().begin();
+										activity.setActivityState((short)20); // close
+										activity.setPercentComplete((short)100);
+										pm.currentTransaction().commit();
+										updateCount++;
 %>OK    : <a href="../../<%= activityHref %>" target="_blank"><%= (new ObjectReference(activity, app)).getTitle() %></a>
 <%
-								} catch (Exception e) {
+									} catch (Exception e) {
 %>FAILED: <a href="../../<%= activityHref %>" target="_blank"><%= (new ObjectReference(activity, app)).getTitle() %></a>
 <%
-									new ServiceException(e).log();
+										new ServiceException(e).log();
 								    try {
 								      pm.currentTransaction().rollback();
 								    } catch (Exception ex) {}
+									}
+				        } else {
+%>TO BE CLOSED: <a href="../../<%= activityHref %>" target="_blank"><%= (new ObjectReference(activity, app)).getTitle() %></a>
+<%
 								}
+							} catch (Exception el) {
+								new ServiceException(el).log();
 							}
+						}
+						if (actionOK){
 %>
 Done - closed <%= updateCount %> <%= updateCount == 1 ? "Activity" : "Activities" %>!
 <%
-				        } else {
+		        } else {
 %>
 Close <%= activityXris.size() %> <%= activityXris.size() == 1 ? "Activity" : "Activities" %>?
 <%
-				        }
+		        }
 					} catch (Exception e) {
 						new ServiceException(e).log();
 					}
@@ -210,9 +225,9 @@ Close <%= activityXris.size() %> <%= activityXris.size() == 1 ? "Activity" : "Ac
 					System.out.println("closed a total of " + updateCount + " activities");
 %>
 				</pre>
-			    <input type="submit" id="Reload.button" name="Reload" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" <%= actionOK ? "" : "style='display:none;'" %> value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
-			    <input type="submit" id="OK.button"     name="OK"     class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" <%= actionOK ? "style='display:none;'" : "" %> value="<%= app.getTexts().getOkTitle()    %>" onclick="javascript:$('Command').value=this.name;" />
-			    <input type="submit" id="Cancel.button" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>"  onClick="javascript:window.close();" />
+			    <input type="submit" id="Reload.button" name="Reload" class="btn btn-light"   tabindex="9000" <%= actionOK ? "" : "style='display:none;'" %> value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
+			    <input type="submit" id="OK.button"     name="OK"     class="btn btn-success" tabindex="9010" <%= actionOK ? "style='display:none;'" : "" %> value="<%= app.getTexts().getOkTitle()    %>" onclick="javascript:$('Command').value=this.name;" />
+			    <input type="submit" id="Cancel.button" name="Cancel" class="btn btn-danger"  tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>"  onClick="javascript:window.close();" />
 			    <br>
           </form>
         </div> <!-- content -->

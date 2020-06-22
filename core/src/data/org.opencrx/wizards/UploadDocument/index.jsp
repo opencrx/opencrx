@@ -247,6 +247,8 @@ org.openmdx.kernel.id.*
 					org.openmdx.portal.servlet.Codes codes = app.getCodes();
 					String featureDocumentTypeCode = "documentType";
 					Map<String,Short> documentTypeCode_longTextsT = codes.getLongTextByText(featureDocumentTypeCode, app.getCurrentLocaleAsIndex(), true);
+					String featureLiteratureTypeCode = "literatureType";
+					Map<String,Short> literatureTypeCode_longTextsT = codes.getLongTextByText(featureLiteratureTypeCode, app.getCurrentLocaleAsIndex(), true);
 					boolean actionOk = parameterMap.get("OK.Button") != null;
 					boolean actionCancel = parameterMap.get("Cancel.Button") != null;
 					boolean successfullyCreated = false;
@@ -266,7 +268,11 @@ org.openmdx.kernel.id.*
 					String[] titles = (String[])parameterMap.get("title");
 					String title = (titles == null) || (titles.length == 0) ? "" : titles[0];
 					String[] authors = (String[])parameterMap.get("author");
-					String author = (authors == null) || (authors .length == 0) ? myUserHome.refGetPath().getBase() : authors[0];
+					String author = (authors == null) || (authors .length == 0) ? myUserHome.refGetPath().getLastSegment().toString() : authors[0];
+					String[] qualifiedNamess = (String[])parameterMap.get("qualifiedName");
+					String qualifiedName = (qualifiedNamess == null) || (qualifiedNamess.length == 0) ? "" : qualifiedNamess[0];
+					String[] searchTexts = (String[])parameterMap.get("searchText");
+					String searchText = (searchTexts == null) || (searchTexts.length == 0) ? "" : searchTexts[0];
 					String[] documentNumbers = (String[])parameterMap.get("documentNumber");
 					String documentNumber = (documentNumbers == null) || (documentNumbers.length == 0) ? "" : documentNumbers[0];
 					String[] documentFolders = (String[])parameterMap.get("documentFolder");
@@ -275,6 +281,8 @@ org.openmdx.kernel.id.*
 					String documentFolderTitle = (documentFolderTitles == null) || (documentFolderTitles.length == 0) ? "" : documentFolderTitles[0];
 					String[] documentTypes = (String[])parameterMap.get("documentType");
 					String documentType = (documentTypes == null) || (documentTypes.length == 0) ? "0" : documentTypes[0];
+					String[] literatureTypes = (String[])parameterMap.get("literatureType");
+					String literatureType = (literatureTypes == null) || (literatureTypes.length == 0) ? "0" : literatureTypes[0];
 
 					org.openmdx.security.realm1.jmi1.Realm realm = SecureObject.getInstance().getRealm(pm, providerName, segmentName);
 					org.opencrx.kernel.home1.jmi1.Segment userHomeSegment = UserHomes.getInstance().getUserHomeSegment(pm, providerName, segmentName);
@@ -305,8 +313,11 @@ org.openmdx.kernel.id.*
       							document.setDescription(description);
       							document.setTitle(title);
       							document.setAuthor(author);
+      							document.setQualifiedName(qualifiedName);
+      							document.setSearchText(searchText);
       							document.setDocumentNumber(documentNumber);
       							document.setDocumentType(Short.parseShort(documentType));
+      							document.setLiteratureType(Short.parseShort(literatureType));
       							document.setActiveOn(new Date());
       							documentSegment.addDocument(
       								Base.getInstance().getUidAsString(),
@@ -433,6 +444,7 @@ org.openmdx.kernel.id.*
       						app,
       						viewsCache.getView(requestId)
       					);
+      					int tabIndex = 100;
 %>
 <form name="UploadDocument" enctype="multipart/form-data" accept-charset="UTF-8" method="POST" action="<%= "../.." + request.getServletPath() %>">
 <input type="hidden" name="xri" value="<%= objectXri %>" />
@@ -450,7 +462,7 @@ org.openmdx.kernel.id.*
 				<tr>
 					<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(MEDIA_CLASS, "content", app.getCurrentLocaleAsIndex()) %>:</span></td>
 					<td>
-						<input type="file" class="valueL" size=50 name="uploadFile" tabindex="1500" " />
+						<input type="file" class="valueL" size=50 name="uploadFile" tabindex="<%= tabIndex++ %>" />
 					</td>
 					<td class="addon"></td>
 					<td class="<%= CssClass.fieldLabel %>"></td>
@@ -466,7 +478,7 @@ org.openmdx.kernel.id.*
 					<tr>
 						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "name", app.getCurrentLocaleAsIndex()) %>:</span></td>
 						<td>
-							<input type="text" class="valueL" name="name" maxlength="50" tabindex="100" value="<%= name %>" />
+							<input type="text" class="valueL" name="name" maxlength="50" tabindex="<%= tabIndex++ %>" value="<%= name %>" />
 						</td>
 						<td class="addon"></td>
 						<td class="<%= CssClass.fieldLabel %>"></td>
@@ -476,7 +488,7 @@ org.openmdx.kernel.id.*
 					<tr>
 						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "description", app.getCurrentLocaleAsIndex()) %>:</span></td>
 						<td>
-							<input type="text" class="valueL" name="description" maxlength="50" tabindex="200" value="<%= description %>" />
+							<input type="text" class="valueL" name="description" maxlength="50" tabindex="<%= tabIndex++ %>" value="<%= description %>" />
 						</td>
 						<td class="addon"></td>
 						<td class="<%= CssClass.fieldLabel %>"></td>
@@ -486,7 +498,7 @@ org.openmdx.kernel.id.*
 					<tr>
 						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "title", app.getCurrentLocaleAsIndex()) %>:</span></td>
 						<td>
-							<input type="text" class="valueL" name="title" maxlength="50" tabindex="300" value="<%= title %>" />
+							<input type="text" class="valueL" name="title" maxlength="50" tabindex="<%= tabIndex++ %>" value="<%= title %>" />
 						</td>
 						<td class="addon"><font color="red"><%= invalidTitle ? "!" : "" %></font></td>
 						<td class="<%= CssClass.fieldLabel %>"></td>
@@ -494,9 +506,29 @@ org.openmdx.kernel.id.*
 						<td class="addon"></td>
 					</tr>
 					<tr>
+						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "qualifiedName", app.getCurrentLocaleAsIndex()) %>:</span></td>
+						<td>
+							<input type="text" class="valueL" name="qualifiedName" maxlength="50" tabindex="<%= tabIndex++ %>" value="<%= qualifiedName %>" />
+						</td>
+						<td class="addon"></td>
+						<td class="<%= CssClass.fieldLabel %>"></td>
+						<td></td>
+						<td class="addon"></td>
+					</tr>
+					<tr>
+						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "searchText", app.getCurrentLocaleAsIndex()) %>:</span></td>
+						<td>
+							<input type="text" class="valueL" name="searchText" maxlength="50" tabindex="<%= tabIndex++ %>" value="<%= searchText %>" />
+						</td>
+						<td class="addon"></td>
+						<td class="<%= CssClass.fieldLabel %>"></td>
+						<td></td>
+						<td class="addon"></td>
+					</tr>
+					<tr>
 						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "documentNumber", app.getCurrentLocaleAsIndex()) %>:</span></td>
 						<td>
-							<input type="text" class="valueL" name="documentNumber" maxlength="50" tabindex="400" value="<%= documentNumber %>" />
+							<input type="text" class="valueL" name="documentNumber" maxlength="50" tabindex="<%= tabIndex++ %>" value="<%= documentNumber %>" />
 						</td>
 						<td class="addon"><font color="red"><%= invalidDocumentNumber ? "!" : "" %></font></td>
 						<td class="<%= CssClass.fieldLabel %>"></td>
@@ -506,7 +538,7 @@ org.openmdx.kernel.id.*
 					<tr>
 						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "author", app.getCurrentLocaleAsIndex()) %>:</span></td>
 						<td>
-							<input type="text" class="valueL" name="author" maxlength="50" tabindex="500" value="<%= author %>" />
+							<input type="text" class="valueL" name="author" maxlength="50" tabindex="<%= tabIndex++ %>" value="<%= author %>" />
 						</td>
 						<td class="addon"></td>
 						<td class="<%= CssClass.fieldLabel %>"></td>
@@ -516,7 +548,7 @@ org.openmdx.kernel.id.*
 					<tr>
 						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "documentType", app.getCurrentLocaleAsIndex()) %>:</span></td>
 						<td >
-							<select class="valueL lightUp" name="documentType" tabindex="600">
+							<select class="valueL lightUp" name="documentType" tabindex="<%= tabIndex++ %>">
 <%
 								if (documentTypeCode_longTextsT == null) {
 %>
@@ -530,6 +562,34 @@ org.openmdx.kernel.id.*
 										String selectedModifier = Short.parseShort(documentType) == value ? "selected" : "";
 %>
 										<option <%= selectedModifier %> value="<%= value %>"><%= (codes.getLongTextByCode(featureDocumentTypeCode, app.getCurrentLocaleAsIndex(), true).get(new Short(value))) %>
+<%
+									}
+								}
+%>
+							</select>
+						</td>
+						<td class="addon"></td>
+						<td class="<%= CssClass.fieldLabel %>"></td>
+						<td></td>
+						<td class="addon"></td>
+					</tr>
+					<tr>
+						<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= userView.getFieldLabel(DOCUMENT_CLASS, "literatureType", app.getCurrentLocaleAsIndex()) %>:</span></td>
+						<td >
+							<select class="valueL lightUp" name="literatureType" tabindex="<%= tabIndex++ %>">
+<%
+								if (literatureTypeCode_longTextsT == null) {
+%>
+									<option value="0">N/A
+<%
+								}
+								else {
+									for(Iterator options = literatureTypeCode_longTextsT.entrySet().iterator(); options.hasNext(); ) {
+										Map.Entry option = (Map.Entry)options.next();
+										short value = Short.parseShort((option.getValue()).toString());
+										String selectedModifier = Short.parseShort(literatureType) == value ? "selected" : "";
+%>
+										<option <%= selectedModifier %> value="<%= value %>"><%= (codes.getLongTextByCode(featureLiteratureTypeCode, app.getCurrentLocaleAsIndex(), true).get(new Short(value))) %>
 <%
 									}
 								}
@@ -559,7 +619,7 @@ org.openmdx.kernel.id.*
 %>
 						<td>
 							<div class="autocompleterMenu">
-								<ul id="<%=CssClass.ssfNav %>" class="<%=CssClass.ssfNav %>" onmouseover="sfinit(this);" >
+								<ul id="<%=CssClass.ssf_nav %>" class="<%=CssClass.ssf_nav %>" onmouseover="sfinit(this);" >
 									<li><a href="#"><img border="0" alt="" src="../../images/autocomplete_select.png" /></a>
 										<ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
 											<li class="selected"><a href="#" onclick="javascript:navSelect(this);ac_addObject0.url= './'+getEncodedHRef(['ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.document1/provider/<%= providerName %>/segment/<%= segmentName %>)*referenceName*(folder)*filterByType*(org:opencrx:kernel:document1:DocumentFolder)*filterByFeature*(name)*filterOperator*(IS_LIKE)*orderByFeature*(name)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span>Document Folder / Name</a></li>
@@ -568,7 +628,7 @@ org.openmdx.kernel.id.*
 									</li>
 								</ul>
 							</div>
-							<div class="autocompleterInput"><input type="text" class="valueL valueAC" id="documentFolder.Title" name="documentFolder.Title" tabindex="800" value="<%= documentFolderTitle != null ? documentFolderTitle : "" %>" /></div>
+							<div class="autocompleterInput"><input type="text" class="valueL valueAC" id="documentFolder.Title" name="documentFolder.Title" tabindex="<%= tabIndex++ %>" value="<%= documentFolderTitle != null ? documentFolderTitle : "" %>" /></div>
 							<input type="hidden" class="valueLLocked" id="documentFolder" name="documentFolder" readonly value="<%= documentFolder != null ? documentFolder : "" %>" />
 							<div class="autocomplete" id="documentFolder.Update" style="display:none;z-index:500;"></div>
 							<script type="text/javascript" language="javascript" charset="utf-8">
@@ -604,7 +664,7 @@ org.openmdx.kernel.id.*
 						<tr>
 							<td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= app.getLabel(PRINCIPAL_GROUP_CLASS) %> #<%= ii+1 %>:</span></td>						
 							<td>
-		  	        			<select class="valueL" name="owningGroup<%= ii %>" id="owningGroup<%= ii %>" tabindex="930">
+		  	        			<select class="valueL" name="owningGroup<%= ii %>" id="owningGroup<%= ii %>" tabindex="<%= tabIndex++ %>">
 		  	        				<option <%= owningGroup == null || owningGroup.isEmpty() ? "selected" : "" %> value="">N/A
 <%
 									List<org.opencrx.security.realm1.jmi1.PrincipalGroup> groups =  realm.getPrincipal(principalGroupQuery);
@@ -635,8 +695,8 @@ org.openmdx.kernel.id.*
 				<tr>
 					<td colspan="3" >
 						<br>
-						<input type="Submit" name="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="2000" value="<%= app.getTexts().getSaveTitle() %>" />
-						<input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="2010" value="<%= app.getTexts().getCancelTitle() %>" />
+						<input type="Submit" name="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getSaveTitle() %>" />
+						<input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCancelTitle() %>" />
 					</td>
 					<td colspan="3"></td>
 				</tr>

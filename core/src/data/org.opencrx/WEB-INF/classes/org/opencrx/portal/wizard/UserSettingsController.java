@@ -70,6 +70,7 @@ import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.component.ShowObjectView;
 
@@ -77,7 +78,7 @@ import org.openmdx.portal.servlet.component.ShowObjectView;
  * UserSettingsController
  *
  */
-public class UserSettingsController extends org.openmdx.portal.servlet.AbstractWizardController {
+public class UserSettingsController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -99,7 +100,7 @@ public class UserSettingsController extends org.openmdx.portal.servlet.AbstractW
 	) {
 		ApplicationContext app = this.getApp();
 		String segmentName = this.getSegmentName();
-		return app.getCurrentUserRole().equals(userHome.refGetPath().getLastSegment().toClassicRepresentation() + "@" + segmentName);		
+		return app.getCurrentUserRole().equals(userHome.refGetPath().getLastSegment().toString() + "@" + segmentName);		
 	}
 
 	/**

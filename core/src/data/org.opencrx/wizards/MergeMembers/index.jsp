@@ -92,7 +92,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -126,7 +125,7 @@ org.openmdx.base.naming.*
 %>
 			<td colspan=4>
 				<div class="autocompleterMenu">
-					<ul id="<%=CssClass.ssfNav %>" class="<%=CssClass.ssfNav %>" onmouseover="sfinit(this);" >
+					<ul id="<%=CssClass.ssf_nav %>" class="<%=CssClass.ssf_nav %>" onmouseover="sfinit(this);" >
 					  <li><a href="#"><img border="0" alt="" src="./images/autocomplete_select.png" /></a>
 					    <ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
 					      <li class="selected"><a href="#" onclick="javascript:navSelect(this);ac_addObject0.url= './'+getEncodedHRef(['./ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.account1/provider/<%= wc.getProviderName() %>/segment/<%= wc.getSegmentName() %>)*referenceName*(account)*filterByType*(org:opencrx:kernel:account1:Account)*filterByFeature*(fullName)*filterOperator*(IS_LIKE)*orderByFeature*(fullName)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span><%= accountName %> / <%= wc.getFieldLabel(MergeMembersController.ACCOUNT_CLASS, "fullName", app.getCurrentLocaleAsIndex()) %></a></li>
@@ -175,8 +174,8 @@ org.openmdx.base.naming.*
 	<br>
 	<div id="WaitIndicator" style="float:left;width:50px;height:24px;" class="wait">&nbsp;</div>
 	<div id="SubmitArea" style="float:left;display:none;">				
-		<input type="submit" name="OK" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" value="<%= app.getTexts().getOkTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
-		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onClick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
+		<input type="submit" name="OK" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9000" value="<%= app.getTexts().getOkTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
+		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onClick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
 	</div>
 	<br />
 <%

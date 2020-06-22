@@ -57,8 +57,8 @@ import javax.jdo.PersistenceManager;
 import org.opencrx.kernel.home1.jmi1.ChangePasswordParams;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
@@ -67,7 +67,7 @@ import org.w3c.spi2.Structures;
  * ChangePasswordManagedController
  *
  */
-public class ChangePasswordManagedController extends AbstractWizardController {
+public class ChangePasswordManagedController extends JspWizardController {
 
 	/**
 	 * ChangePasswordPolicy
@@ -307,10 +307,10 @@ public class ChangePasswordManagedController extends AbstractWizardController {
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "pw_old") String pwOld,
-		@RequestParameter(name = "pw_new1") String pwNew1,
-		@RequestParameter(name = "pw_new2") String pwNew2,
-		@RequestParameter(name = "showPasswords") Boolean showPasswords
+		@JspWizardController.RequestParameter(name = "pw_old") String pwOld,
+		@JspWizardController.RequestParameter(name = "pw_new1") String pwNew1,
+		@JspWizardController.RequestParameter(name = "pw_new2") String pwNew2,
+		@JspWizardController.RequestParameter(name = "showPasswords") Boolean showPasswords
 	) throws ServiceException {
 		this.showPasswords = showPasswords;
 		this.pwOld = pwOld;
@@ -318,7 +318,7 @@ public class ChangePasswordManagedController extends AbstractWizardController {
 		this.pwNew2 = pwNew2;
 		if(this.getObject() instanceof UserHome) {
 			UserHome userHome =  (UserHome)this.getObject();
-			this.principalName = userHome.refGetPath().getBase();
+			this.principalName = userHome.refGetPath().getLastSegment().toString();
 		}
 	}
 
@@ -332,10 +332,10 @@ public class ChangePasswordManagedController extends AbstractWizardController {
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "pw_old") String pwOld,
-		@RequestParameter(name = "pw_new1") String pwNew1,
-		@RequestParameter(name = "pw_new2") String pwNew2,
-		@RequestParameter(name = "showPasswords") Boolean showPasswords
+		@JspWizardController.RequestParameter(name = "pw_old") String pwOld,
+		@JspWizardController.RequestParameter(name = "pw_new1") String pwNew1,
+		@JspWizardController.RequestParameter(name = "pw_new2") String pwNew2,
+		@JspWizardController.RequestParameter(name = "showPasswords") Boolean showPasswords
 	) throws ServiceException {
 		ApplicationContext app = this.getApp();
 		PersistenceManager pm = this.getPm();

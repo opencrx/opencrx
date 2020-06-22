@@ -94,7 +94,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>

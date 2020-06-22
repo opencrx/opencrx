@@ -60,6 +60,7 @@ java.net.*,
 java.sql.*,
 javax.naming.Context,
 javax.naming.InitialContext,
+org.openmdx.kernel.log.SysLog,
 org.openmdx.base.accessor.jmi.cci.*,
 org.openmdx.base.exception.*,
 org.openmdx.portal.servlet.*,
@@ -107,7 +108,7 @@ org.openmdx.base.query.*
 
         StringBuilder title = new StringBuilder();
         title.append(
-          "<a title='center node and reload tree' href='AccountRelationshipsGraph.jsp?xri=" + encodedAccountXri + "&requestId=" + requestId + "'>&gt;o&lt;</a><br>" + "<a title='load in openCRX' href='../../" + accountRef.getSelectObjectAction().getEncodedHRef(requestId) + "'>*</a> " + getNodeTitle(account,app)
+          "<a title='center node and reload tree' href='index.jsp?xri=" + encodedAccountXri + "&requestId=" + requestId + "'>&gt;o&lt;</a><br>" + "<a title='load in openCRX' href='../../" + accountRef.getSelectObjectAction().getEncodedHRef(requestId) + "'>*</a> " + getNodeTitle(account,app)
         );
         /*
         title.append(
@@ -142,7 +143,7 @@ org.openmdx.base.query.*
 			  }
 			}
 
-			String accountId = account.refGetPath().getBase();
+			String accountId = account.refGetPath().getLastSegment().toString();
 			if (accountId.indexOf("+") > 0) {
 			  System.out.println("accountId="+accountId);
 			}
@@ -221,7 +222,7 @@ org.openmdx.base.query.*
               }
             }
 
-            String accountId = account.refGetPath().getBase();
+            String accountId = account.refGetPath().getLastSegment().toString();
             if (accountId.indexOf("+") > 0) {
               System.out.println("accountId="+accountId);
             }
@@ -242,7 +243,7 @@ org.openmdx.base.query.*
                 for(Iterator i = C.keySet().iterator(); i.hasNext(); ) {
                     org.opencrx.kernel.account1.jmi1.Account child = (org.opencrx.kernel.account1.jmi1.Account)i.next();
                     if(child != null && !parents.contains(child)) {
-                    	  String childId = child.refGetPath().getBase();
+                    	  String childId = child.refGetPath().getLastSegment().toString();
                         json.append(
                             separator
                         ).append(
@@ -355,27 +356,39 @@ org.openmdx.base.query.*
   			memberships = account.getAccountMembership(membershipQuery);
   			for(Iterator i = memberships.iterator(); i.hasNext(); ) {
   				org.opencrx.kernel.account1.jmi1.AccountMembership membership = (org.opencrx.kernel.account1.jmi1.AccountMembership)i.next();
-  				addNode(
-  					membership,
-  					membership.getAccountFrom(),
-  					membership.getAccountTo(),
-  					M
-  				);
-  				addNode(
-  					membership,
-  					membership.getAccountTo(),
-  					membership.getAccountFrom(),
-  					M
-  				);
-  				if (membership.getAccountTo() != null) {
-  	  				addRelationships(
-  	  					membership.getAccountTo(),
-  	  					M,
-  	  					level - 1,
-  	  					pm
-  	  				);
-  	  				count++;
+  				try {
+	  				addNode(
+	  					membership,
+	  					membership.getAccountFrom(),
+	  					membership.getAccountTo(),
+	  					M
+	  				);
+  				} catch (Exception e) {
+						SysLog.warning("error adding node of membership " + membership.getIdentity());
+  				}
+  				try {
+	  				addNode(
+	  					membership,
+	  					membership.getAccountTo(),
+	  					membership.getAccountFrom(),
+	  					M
+	  				);
+  				} catch (Exception e) {
+						SysLog.warning("error adding node of membership " + membership.getIdentity());
+  				}
+  				try {
+	  				if (membership.getAccountTo() != null) {
+	  	  				addRelationships(
+	  	  					membership.getAccountTo(),
+	  	  					M,
+	  	  					level - 1,
+	  	  					pm
+	  	  				);
+	  	  				count++;
     			    }
+  				} catch (Exception e) {
+						SysLog.warning("error adding relationship of membership " + membership.getIdentity());
+  				}
   				if(count > maxCount) break;
   			}
   	  }
@@ -395,27 +408,39 @@ org.openmdx.base.query.*
 			count = 0;
 			for(Iterator i = memberships.iterator(); i.hasNext(); ) {
 				org.opencrx.kernel.account1.jmi1.AccountMembership membership = (org.opencrx.kernel.account1.jmi1.AccountMembership)i.next();
-				addNode(
-					membership,
-					membership.getAccountFrom(),
-					membership.getAccountTo(),
-					M
-				);
-				addNode(
-					membership,
-					membership.getAccountTo(),
-					membership.getAccountFrom(),
-					M
-				);
-				if (membership.getAccountFrom() != null) {
-                	addRelationships(
-                		membership.getAccountFrom(),
-                		M,
-                		level - 1,
-                		pm
-                	);
-                	count++;
-                }
+				try {
+					addNode(
+						membership,
+						membership.getAccountFrom(),
+						membership.getAccountTo(),
+						M
+					);
+ 				} catch (Exception e) {
+					SysLog.warning("error adding node of membership " + membership.getIdentity());
+ 				}
+				try {
+					addNode(
+						membership,
+						membership.getAccountTo(),
+						membership.getAccountFrom(),
+						M
+					);
+ 				} catch (Exception e) {
+					SysLog.warning("error adding node of membership " + membership.getIdentity());
+ 				}
+				try {
+					if (membership.getAccountFrom() != null) {
+           	addRelationships(
+           		membership.getAccountFrom(),
+           		M,
+           		level - 1,
+           		pm
+           	);
+           	count++;
+           }
+ 				} catch (Exception e) {
+					SysLog.warning("error adding relationship of membership " + membership.getIdentity());
+ 				}
 				if(count > maxCount) break;
 			}
 		}
@@ -649,7 +674,7 @@ org.openmdx.base.query.*
     <div id="left-container">
 		<div id="details" class="toggler left-item">
 		  Root: <b><%= getClickableNodeTitle(account, app, requestId) %></b><br>
-		  <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="8020" value="X" onClick="javascript:window.close();" style="float:right;margin:5px 5px 0px 0px;" /><br>
+		  <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="8020" value="X" onClick="javascript:window.close();" style="float:right;margin:5px 5px 0px 0px;" /><br>
 		  Node Limits: 25 - 5 - 5
 		</div>
 		<div class="inner" id="inner-details"></div>

@@ -252,7 +252,7 @@ public class CreateContactWizardController extends CreateAccountWizardController
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#initFormFields(java.util.Map)
+	 * @see org.openmdx.portal.servlet.JspWizardController#initFormFields(java.util.Map)
 	 */
 	@Override 
 	protected void initFormFields(

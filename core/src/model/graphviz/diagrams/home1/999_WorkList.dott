@@ -52,7 +52,7 @@ digraph "Diagram WorkList [Package org:opencrx:kernel:home1]" {
 
 	${ASSOCIATION[name=org:opencrx:kernel:home1:UserHomeContainsWorkList,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:home1:WorkListContainsWorkListSnapshot,minlen=3]}
-	${ASSOCIATION[name=org:opencrx:kernel:home1:WorkListSnapshotContainsItem,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:home1:WorkListSnapshotContainsCurrentItem,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:home1:WorkListItemHasOrigin,minlen=3]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}

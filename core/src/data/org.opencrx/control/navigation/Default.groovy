@@ -10,7 +10,6 @@ org.openmdx.portal.servlet.control.NavigationControl.paintPrev(p, forEditing);
 org.openmdx.portal.servlet.control.NavigationControl.paintPrint(p, forEditing);
 org.openmdx.portal.servlet.control.NavigationControl.paintHeaderHider(p, forEditing);
 org.openmdx.portal.servlet.control.NavigationControl.paintSelectPerspectives(p, forEditing);
-org.opencrx.kernel.portal.control.NavigationControl.paintShareButton(p, forEditing);
 org.opencrx.kernel.portal.control.NavigationControl.paintAlertBox(p, forEditing);
-org.openmdx.portal.servlet.control.NavigationControl.paintBreadcrum(p, forEditing);
+org.openmdx.portal.servlet.control.NavigationControl.paintBreadcrumb(p, forEditing);
 p.write("</div> <!-- breadcrum -->");

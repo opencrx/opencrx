@@ -70,8 +70,8 @@ import org.opencrx.kernel.product1.jmi1.ProductBasePrice;
 import org.opencrx.kernel.product1.jmi1.SalesTaxType;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -81,7 +81,7 @@ import org.openmdx.portal.servlet.component.TransientObjectView;
  * CreateProductWizardController
  *
  */
-public class CreateProductWizardController extends AbstractWizardController {
+public class CreateProductWizardController extends JspWizardController {
 
 	/**
 	 * Constructoir.
@@ -100,8 +100,8 @@ public class CreateProductWizardController extends AbstractWizardController {
      * @throws ServiceException
      */
     public void doRefresh(
-    	@RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
-    	@FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
+    	@JspWizardController.RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
+    	@JspWizardController.FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
     ) throws ServiceException {
     	ApplicationContext app = this.getApp();
     	this.formFields = formFields;
@@ -160,8 +160,8 @@ public class CreateProductWizardController extends AbstractWizardController {
      * @throws ServiceException
      */
     public void doOK(
-    	@RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
-    	@FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
+    	@JspWizardController.RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
+    	@JspWizardController.FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
     ) throws ServiceException {
     	PersistenceManager pm = this.getPm();
     	ApplicationContext app = this.getApp();
@@ -248,8 +248,8 @@ public class CreateProductWizardController extends AbstractWizardController {
      * @throws ServiceException
      */
     public void doAddProductBasePrice(
-    	@RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
-    	@FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
+    	@JspWizardController.RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
+    	@JspWizardController.FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
     ) throws ServiceException {
     	PersistenceManager pm = this.getPm();
     	this.doRefresh(
@@ -316,9 +316,9 @@ public class CreateProductWizardController extends AbstractWizardController {
      * @throws ServiceException
      */
     public void doDeleteProductBasePrice(
-    	@RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
-    	@RequestParameter(name = "DeleteProductBasePriceIndex") Integer deleteProductBasePriceIndex,
-    	@FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
+    	@JspWizardController.RequestParameter(name = "ProductBasePriceCount") Integer productBasePriceCount,
+    	@JspWizardController.RequestParameter(name = "DeleteProductBasePriceIndex") Integer deleteProductBasePriceIndex,
+    	@JspWizardController.FormParameter(forms = {"CreateProductForm", "ProductBasePriceForm"}) Map<String,Object> formFields	
     ) throws ServiceException {
     	this.doRefresh(
     		productBasePriceCount, 
@@ -389,7 +389,7 @@ public class CreateProductWizardController extends AbstractWizardController {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

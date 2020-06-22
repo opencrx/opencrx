@@ -210,14 +210,14 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:referenceFilter">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetOwningUserParams:filter">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Reference filter</_item>
+												<_item>Filter</_item>
 											</toolTip>
 											<label>
-												<_item>Reference filter</_item>
+												<_item>Filter</_item>
 											</label>
 											<order>
 												<_item>0</_item>
@@ -331,6 +331,23 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifyOwningGroupParams:filter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Filter</_item>
+											</toolTip>
+											<label>
+												<_item>Filter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SecureObject:Pane:Op:Tab:removeAllOwningGroup">
 										<_object>
@@ -379,6 +396,23 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:RemoveAllOwningGroupParams:filter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Filter</_item>
+											</toolTip>
+											<label>
+												<_item>Filter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
 											</order>
 										</_object>
 										<_content/>
@@ -504,6 +538,24 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:SetAccessLevelParams:filter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Filter</_item>
+											</toolTip>
+											<label>
+												<_item>Filter</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
 
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ModifySecureObjectResult:statusMessage">
 										<_object>
@@ -617,6 +669,23 @@
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:CheckPermissionsParams:objectIdentity">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Object identity (XRI)</_item>
+											</toolTip>
+											<label>
+												<_item>Object identity (XRI)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
 											</order>
 										</_object>
 										<_content/>

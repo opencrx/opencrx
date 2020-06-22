@@ -94,7 +94,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -105,7 +104,7 @@ org.openmdx.base.naming.*
 	<input type="hidden" name="<%= Action.PARAMETER_REQUEST_ID %>" value="<%= wc.getRequestId() %>" />
 	<input type="hidden" name="<%= Action.PARAMETER_OBJECTXRI %>" value="<%= wc.getObjectIdentity().toXRI() %>" />
 	<input type="hidden" id="Command" name="Command" value="" />
-	<div class="container" style="width:100%">
+	<div class="container-fluid">
 		<% wc.renderSetupReport(out); %>
 	</div>
 	<div id="WaitIndicator" style="width:50px;height:24px;" class="wait">&nbsp;</div>
@@ -113,7 +112,7 @@ org.openmdx.base.naming.*
 <%
 		if(wc.isCurrentUserIsAdmin()) {
 %>	
-			<input type="Submit" name="Setup" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" value="Setup" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;$('Command').value=this.name;this.name='---';" />
+			<input type="Submit" name="Setup" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" value="Setup" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;$('Command').value=this.name;this.name='---';" />
 <%
 		} else {
 %>		
@@ -123,7 +122,7 @@ org.openmdx.base.naming.*
 <%
 		}
 %>
-		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
+		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
 	</div>
 </form>
 <br />

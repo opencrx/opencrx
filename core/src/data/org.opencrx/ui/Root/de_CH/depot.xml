@@ -994,6 +994,107 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:isLocked" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Gesperrt</_item>
+											</toolTip>
+											<label>
+												<_item>Gesperrt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:lockingReason" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Grund für Sperre</_item>
+											</toolTip>
+											<label>
+												<_item>Grund für Sperre</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:lockModifiedAt" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Sperre modifiziert am</_item>
+											</toolTip>
+											<label>
+												<_item>Sperre modifiziert am</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:lockSimpleBooking" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Einfache Buchung sperren</_item>
+											</toolTip>
+											<label>
+												<_item>Einfache Buchung sperren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:lockSimpleBooking:Group:in" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:LockSimpleBookingParams:lockingReason" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Grund für Sperre</_item>
+											</toolTip>
+											<label>
+												<_item>Grund für Sperre</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:lockInventoryLevel:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:unlockSimpleBooking" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Einfache Buchung entsperren</_item>
+											</toolTip>
+											<label>
+												<_item>Einfache Buchung entsperren</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:unlockSimpleBooking:Group:result" _operation="create">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel" _operation="create">
 										<_object>
@@ -1693,6 +1794,17 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotReference" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Depot-Referenzen (eingehend)</_item>
+											</toolTip>
+											<label>
+												<_item>Depot-Referenzen (eingehend)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:report" _operation="create">
 										<_object>
 											<label>
@@ -1843,6 +1955,17 @@
 											</toolTip>
 											<label>
 												<_item>Inventarpunkte</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:depotPositionReference" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Depotposition-Referenzen (eingehend)</_item>
+											</toolTip>
+											<label>
+												<_item>Depotposition-Referenzen (eingehend)</_item>
 											</label>
 										</_object>
 										<_content />

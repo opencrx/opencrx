@@ -56,7 +56,6 @@
 %><%@ page session="true" import="
 java.util.*,
 java.io.*,
-java.net.*,
 java.text.*,
 javax.naming.Context,
 javax.naming.InitialContext,
@@ -998,7 +997,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
 	
 	javax.jdo.PersistenceManager pm = app.getNewPmData();
 	String requestIdParam = Action.PARAMETER_REQUEST_ID + "=" + requestId;
-	String xriParam = Action.PARAMETER_OBJECTXRI + "=" + URLEncoder.encode(objectXri);
+	String xriParam = Action.PARAMETER_OBJECTXRI + "=" + java.net.URLEncoder.encode(objectXri);
 	if(objectXri == null || app == null || viewsCache.getView(requestId) == null) {
 		session.setAttribute(WIZARD_NAME, null);
 		response.sendRedirect(
@@ -1521,7 +1520,7 @@ input.button {
 			
     	org.openmdx.ui1.jmi1.FormDefinition doFollowUpFormDefinition = app.getUiFormDefinition(FORM_NAME_DOFOLLOWUP);
     	org.openmdx.portal.servlet.control.FormControl doFollowUpForm = new org.openmdx.portal.servlet.control.FormControl(
-    		doFollowUpFormDefinition.refGetPath().getBase(),
+    		doFollowUpFormDefinition.refGetPath().getLastSegment().toString(),
     		app.getCurrentLocaleAsString(),
     		app.getCurrentLocaleAsIndex(),
     		app.getUiContext(),
@@ -1687,8 +1686,8 @@ input.button {
 						</tr>
 					</table>
 				</div>
-				<input type="submit" name="OK.button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>"	value="<%= app.getTexts().getOkTitle() %>" onclick="javascript:$('FOLLOWUPACTIVITY_XRI').value='<%= (activity == null ? "" : activity.refMofId()) %>';$('Fcommand').value='CREATE_FOLLOWUP';this.name='--';" />
-				<input type="submit" name="Cancel.button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCancelTitle() %>"	onclick="javascript:$('Fcommand').value='CANCEL_FOLLOWUP';" />
+				<input type="submit" name="OK.button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>"	value="<%= app.getTexts().getOkTitle() %>" onclick="javascript:$('FOLLOWUPACTIVITY_XRI').value='<%= (activity == null ? "" : activity.refMofId()) %>';$('Fcommand').value='CREATE_FOLLOWUP';this.name='--';" />
+				<input type="submit" name="Cancel.button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCancelTitle() %>"	onclick="javascript:$('Fcommand').value='CANCEL_FOLLOWUP';" />
 			</td>
 		</tr>
 	</table>
@@ -1992,7 +1991,7 @@ input.button {
 		<a href='<%= activityHref %>' target='_blank'><%= processNode.nodeActivity != null ? "#" + app.getHtmlEncoder().encode(new ObjectReference(processNode.nodeActivity, app).getTitle(), false) : "--" %></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<div onclick="javascript:$('command').value='LIST_ALL_DOCS';<%= CLICK_RELOAD %>"><img	src='../../images/Media.gif' /> <%= app.getLabel("org:opencrx:kernel:generic:DocumentAttachment") %> </div>&nbsp;
 		<div onclick="javascript:$('command').value='LIST_ALL_EMAILS';<%= CLICK_RELOAD %>"><img src='../../images/EMail.gif' /> <%= app.getLabel("org:opencrx:kernel:activity1:EMail") %>s </div>
-		<input type="button" value="<%= app.getTexts().getCloseText() %>" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" style="float:right;" onclick="javascript:location.href='<%= "../.." + request.getServletPath() + "?" + requestIdParam + "&" + xriParam + "&command=CANCEL" %>';" />
+		<input type="button" value="<%= app.getTexts().getCloseText() %>" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" style="float:right;" onclick="javascript:location.href='<%= "../.." + request.getServletPath() + "?" + requestIdParam + "&" + xriParam + "&command=CANCEL" %>';" />
 	</div>
 <%
 	// render overview
@@ -2456,8 +2455,8 @@ if(command == Command.LIST_ALL_DOCS) {
 	<input type="hidden" name="TEXT" id="TEXT" value="" /> 
 	<input type="checkbox" style="display: none;" id="isFirstCallMain" name="isFirstCallMain" checked="true" />
 	<input type="Checkbox" name="showCompleteProcess" id="showCompleteProcess" <%= showCompleteProcess ? "checked" : "" %>	tabindex="<%= tabIndex++ %>" value="showCompleteProcess" /> <%= app.getTexts().getShowDetailsTitle() %>&nbsp;&nbsp;
-	<input type="submit" name="Reload" id="Reload" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" value="<%= app.getTexts().getReloadText() %>" tabindex="<%= tabIndex++ %>" />
-	<input type="button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" value="<%= app.getTexts().getCloseText() %>"	tabindex="<%= tabIndex++ %>" onclick="javascript:location.href='<%= "../.." + request.getServletPath() + "?" + requestIdParam + "&" + xriParam + "&command=CANCEL" %>';" />
+	<input type="submit" name="Reload" id="Reload" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" value="<%= app.getTexts().getReloadText() %>" tabindex="<%= tabIndex++ %>" />
+	<input type="button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" value="<%= app.getTexts().getCloseText() %>"	tabindex="<%= tabIndex++ %>" onclick="javascript:location.href='<%= "../.." + request.getServletPath() + "?" + requestIdParam + "&" + xriParam + "&command=CANCEL" %>';" />
 	<div style="clear: both; height: 6px;"></div>
 	<div class="col1DISABLED">
 		<fieldset>

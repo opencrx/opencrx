@@ -93,9 +93,9 @@ org.opencrx.kernel.generic.*
 	            (org.openmdx.security.realm1.jmi1.Segment)pmRoot.getObjectById(LOGIN_REALM_IDENTITY.getParent().getParent());
 	        int count = 0;
 	        for(org.openmdx.security.realm1.jmi1.Realm realm: realmSegment.<org.openmdx.security.realm1.jmi1.Realm>getRealm()) {
-	            if(!realm.refGetPath().equals(LOGIN_REALM_IDENTITY) && !"Root".equals(realm.refGetPath().getLastSegment().toClassicRepresentation())) {
-           			String currentProviderName = realm.refGetPath().getSegment(2).toClassicRepresentation();
-           			String currentSegmentName = realm.refGetPath().getLastSegment().toClassicRepresentation();
+	            if(!realm.refGetPath().equals(LOGIN_REALM_IDENTITY) && !"Root".equals(realm.refGetPath().getLastSegment().toString())) {
+           			String currentProviderName = realm.refGetPath().getSegment(2).toString();
+           			String currentSegmentName = realm.refGetPath().getLastSegment().toString();
 	    			javax.jdo.PersistenceManager pm = pmf.getPersistenceManager(
     					SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR + currentSegmentName, 
     					null
@@ -110,7 +110,7 @@ org.opencrx.kernel.generic.*
 					List<org.opencrx.kernel.home1.jmi1.EMailAccount> emailAccounts = userHomeSegment.getExtent(emailAccountQuery);
 					if(emailAccounts.size() == 1) {
 						org.opencrx.kernel.home1.jmi1.EMailAccount emailAccount = emailAccounts.iterator().next();
-						principalName = emailAccount.refGetPath().getParent().getParent().getLastSegment().toClassicRepresentation();
+						principalName = emailAccount.refGetPath().getParent().getParent().getLastSegment().toString();
 						providerName = currentProviderName;
 						segmentName = currentSegmentName;
 						count++;
@@ -134,12 +134,12 @@ org.opencrx.kernel.generic.*
 	            (org.openmdx.security.realm1.jmi1.Segment)pmRoot.getObjectById(LOGIN_REALM_IDENTITY.getParent().getParent());
 	        int count = 0;
 	        for(org.openmdx.security.realm1.jmi1.Realm realm: realmSegment.<org.openmdx.security.realm1.jmi1.Realm>getRealm()) {
-	            if(!realm.refGetPath().equals(LOGIN_REALM_IDENTITY) && !"Root".equals(realm.refGetPath().getLastSegment().toClassicRepresentation())) {
+	            if(!realm.refGetPath().equals(LOGIN_REALM_IDENTITY) && !"Root".equals(realm.refGetPath().getLastSegment().toString())) {
 	           		org.openmdx.security.realm1.jmi1.Principal principal = org.opencrx.kernel.backend.SecureObject.getInstance().findPrincipal(id, realm);
 	           		if(principal != null && !Boolean.TRUE.equals(principal.isDisabled())) {
 	           			principalName = id;
-	           			providerName = realm.refGetPath().getSegment(2).toClassicRepresentation();
-	           			segmentName = realm.refGetPath().getLastSegment().toClassicRepresentation();
+	           			providerName = realm.refGetPath().getSegment(2).toString();
+	           			segmentName = realm.refGetPath().getLastSegment().toString();
 	           			count++;
 	           		}
 	            }

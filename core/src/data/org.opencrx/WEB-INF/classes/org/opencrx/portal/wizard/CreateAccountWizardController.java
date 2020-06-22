@@ -75,9 +75,9 @@ import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.DataBinding;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -87,7 +87,7 @@ import org.openmdx.portal.servlet.component.TransientObjectView;
  * CreateAccountWizardController
  *
  */
-public abstract class CreateAccountWizardController extends AbstractWizardController {
+public abstract class CreateAccountWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -553,8 +553,8 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-   	   	@RequestParameter(name = "accountXri") String accountXri,
-   		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,
+   		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
    	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();
@@ -590,8 +590,8 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doCancel(
-   	   	@RequestParameter(name = "accountXri") String accountXri,
-   		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields   				
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,
+   		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields   				
 	) throws ServiceException {
 		this.doRefresh(
 			accountXri, 
@@ -614,8 +614,8 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @param formFields
 	 */
 	abstract public void doSearch(
-   	   	@RequestParameter(name = "accountXri") String accountXri,		
-   		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields   				
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,		
+   		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields   				
 	) throws ServiceException;
 
 	/**
@@ -626,9 +626,9 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doDisableMembership(
-   	   	@RequestParameter(name = "accountXri") String accountXri,		
-		@RequestParameter(name = "Para0") String memberXri,
-		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,		
+		@JspWizardController.RequestParameter(name = "Para0") String memberXri,
+		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -655,9 +655,9 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doAddMembership(
-   	   	@RequestParameter(name = "accountXri") String accountXri,	
-   	   	@RequestParameter(name = "Para0") String targetAccountXri,	
-		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,	
+   	   	@JspWizardController.RequestParameter(name = "Para0") String targetAccountXri,	
+		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		this.doRefresh(
 			accountXri,
@@ -679,9 +679,9 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doEditMembership(
-   	   	@RequestParameter(name = "accountXri") String accountXri,		
-   		@RequestParameter(name = "membershipXri") String membershipXri,   				
-		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,		
+   		@JspWizardController.RequestParameter(name = "membershipXri") String membershipXri,   				
+		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();   			
 		this.doRefresh(
@@ -716,9 +716,9 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doDisableMember(
-   	   	@RequestParameter(name = "accountXri") String accountXri,		
-		@RequestParameter(name = "Para0") String memberXri,
-		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,		
+		@JspWizardController.RequestParameter(name = "Para0") String memberXri,
+		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -746,8 +746,8 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doAddMember(
-   	   	@RequestParameter(name = "accountXri") String accountXri,		
-		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,		
+		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		this.doRefresh(
 			accountXri, 
@@ -771,9 +771,9 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	 * @throws ServiceException
 	 */
 	public void doEditMember(
-   	   	@RequestParameter(name = "accountXri") String accountXri,
-   		@RequestParameter(name = "memberXri") String memberXri,
-		@FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,
+   		@JspWizardController.RequestParameter(name = "memberXri") String memberXri,
+		@JspWizardController.FormParameter(forms = {"ContactForm", "LegalEntityForm", "ContactMembershipForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();   			
 		this.doRefresh(
@@ -900,7 +900,7 @@ public abstract class CreateAccountWizardController extends AbstractWizardContro
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

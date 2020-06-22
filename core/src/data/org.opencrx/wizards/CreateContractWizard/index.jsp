@@ -95,7 +95,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -159,17 +158,17 @@ org.openmdx.base.naming.*
 					viewPort.flush();
 %>
 					<input type="hidden" name="ContractPositionCount" id="ContractPositionCount" value="<%= lastContractPositionIndex + 1 %>" />
-					<input type="submit" name="AddPosition" id="AddPosition.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" value="+" onclick="javascript:$('Command').value=this.name"/>
+					<input type="submit" name="AddPosition" id="AddPosition.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9000" value="+" onclick="javascript:$('Command').value=this.name"/>
 					<div class="fieldGroupName">&nbsp;</div>
 				</div>
 				<div id="WaitIndicator" style="float:left;width:50px;height:24px;" class="wait">&nbsp;</div>
 				<div id="SubmitArea" style="float:left;display:none;">				
-					<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="Refresh" onclick="javascript:$('Command').value=this.name;"/>
-					<input type="submit" name="CreateOpportunity" id="CreateOpportunity.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="Create Opportunity" onclick="javascript:$('Command').value=this.name;" />
-					<input type="submit" name="CreateQuote" id="CreateQuote.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9030" value="Create Quote" onclick="javascript:$('Command').value=this.name;" />
-					<input type="submit" name="CreateSalesOrder" id="CreateSalesOrder.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9040" value="Create Sales Order" onclick="javascript:$('Command').value=this.name;" />
-					<input type="submit" name="CreateInvoice" id="CreateInvoice.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9050" value="Create Invoice" onclick="javascript:$('Command').value=this.name;" />
-					<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
+					<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="Refresh" onclick="javascript:$('Command').value=this.name;"/>
+					<input type="submit" name="CreateOpportunity" id="CreateOpportunity.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9020" value="Create Opportunity" onclick="javascript:$('Command').value=this.name;" />
+					<input type="submit" name="CreateQuote" id="CreateQuote.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9030" value="Create Quote" onclick="javascript:$('Command').value=this.name;" />
+					<input type="submit" name="CreateSalesOrder" id="CreateSalesOrder.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9040" value="Create Sales Order" onclick="javascript:$('Command').value=this.name;" />
+					<input type="submit" name="CreateInvoice" id="CreateInvoice.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9050" value="Create Invoice" onclick="javascript:$('Command').value=this.name;" />
+					<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
 				</div>
 <%
 				if(wc.getCustomer() != null) {
@@ -191,8 +190,8 @@ org.openmdx.base.naming.*
 %>
 							<tr class="gridTableRowFull">
 								<td><%= new ObjectReference(address, app).getTitle() %></td>
-								<td><input type="submit" id="Button.SetShippingAddress.<%= Integer.toString(ii) %>" name="SetShippingAddress" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" value="Shipping" onclick="javascript:$('Command').value=this.name;$('AddressXri').value='<%= address.refMofId() %>';"/>
-								<td><input type="submit" id="Button.SetBillingAddress.<%= Integer.toString(ii) %>" name="SetBillingAddress" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" value="Billing" onclick="javascript:$('Command').value=this.name;$('AddressXri').value='<%= address.refMofId() %>';"/>
+								<td><input type="submit" id="Button.SetShippingAddress.<%= Integer.toString(ii) %>" name="SetShippingAddress" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" value="Shipping" onclick="javascript:$('Command').value=this.name;$('AddressXri').value='<%= address.refMofId() %>';"/>
+								<td><input type="submit" id="Button.SetBillingAddress.<%= Integer.toString(ii) %>" name="SetBillingAddress" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" value="Billing" onclick="javascript:$('Command').value=this.name;$('AddressXri').value='<%= address.refMofId() %>';"/>
 								<td class="addon"/>
 							</tr>
 <%

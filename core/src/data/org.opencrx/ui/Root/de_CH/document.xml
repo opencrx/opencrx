@@ -430,13 +430,24 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:linkTo">
+										<_object>
+											<toolTip>
+												<_item>Verweise</_item>
+											</toolTip>
+											<label>
+												<_item>Verweise (DOK)</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:Document:link">
 										<_object>
 											<toolTip>
 												<_item>Verweise</_item>
 											</toolTip>
 											<label>
-												<_item>Verweise</_item>
+												<_item>Verweise (URI)</_item>
 											</label>
 										</_object>
 										<_content/>
@@ -1108,10 +1119,66 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
 
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Dokumentverweis (DOK)</_item>
+											</toolTip>
+											<label>
+												<_item>Dokumentverweis</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:name" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:description" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Beschreibung</_item>
+											</toolTip>
+											<label>
+												<_item>Beschreibung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:documentLinkType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Typ</_item>
+											</toolTip>
+											<label>
+												<_item>Typ</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLinkTo:document">
+										<_object>
+											<toolTip>
+												<_item>Dokument</_item>
+											</toolTip>
+											<label>
+												<_item>Dokument</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:document1:DocumentLink">
 										<_object>
 											<toolTip>
-												<_item>Dokumentverweis</_item>
+												<_item>Dokumentverweis (URI)</_item>
 											</toolTip>
 											<label>
 												<_item>Dokumentverweis</_item>

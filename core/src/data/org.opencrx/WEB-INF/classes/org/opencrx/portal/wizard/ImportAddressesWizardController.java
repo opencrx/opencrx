@@ -64,14 +64,14 @@ import org.opencrx.kernel.activity1.jmi1.AddressGroupMember;
 import org.opencrx.kernel.backend.Base;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * ImportAddressesWizardController
  *
  */
-public class ImportAddressesWizardController extends AbstractWizardController {
+public class ImportAddressesWizardController extends JspWizardController {
 
 	/**
 	 * ImportAddressesWizardController
@@ -99,8 +99,8 @@ public class ImportAddressesWizardController extends AbstractWizardController {
 	 * @param countLimit
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "addressFilterXri") String addressFilterXri,
-		@RequestParameter(name = "countLimit") Integer countLimit		
+		@JspWizardController.RequestParameter(name = "addressFilterXri") String addressFilterXri,
+		@JspWizardController.RequestParameter(name = "countLimit") Integer countLimit		
 	) {
 	}
 
@@ -112,8 +112,8 @@ public class ImportAddressesWizardController extends AbstractWizardController {
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "addressFilterXri") String addressFilterXri,
-		@RequestParameter(name = "countLimit") Integer countLimit		
+		@JspWizardController.RequestParameter(name = "addressFilterXri") String addressFilterXri,
+		@JspWizardController.RequestParameter(name = "countLimit") Integer countLimit		
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(

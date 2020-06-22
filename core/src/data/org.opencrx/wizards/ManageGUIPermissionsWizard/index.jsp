@@ -93,7 +93,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -146,7 +145,7 @@ org.openmdx.base.naming.*
 								<td>		
 									<h2 style="font-size:larger;">Generic permissions:</h2>
 									<h3>Available:</h3>													
-									<select name="genericPermissions" id="genericPermissions" multiple style="font-family:Courier;font-size:11px;height:10em;width:50em;">
+									<select name="genericPermissions" id="genericPermissions" multiple style="font-family:Courier;font-size:11px;height:10em;min-width:150px;">
 <%													
 										for(String permission: viewState.genericPermissions) {
 %>
@@ -163,7 +162,7 @@ org.openmdx.base.naming.*
 								<td>							
 									<h2 style="font-size:larger;">&nbsp;</h2>
 									<h3>Current:</h3>
-									<select name="currentGenericPermissions" id="currentGenericPermissions" multiple style="font-family:Courier;font-size:11px;width:50em;height:10em;">
+									<select name="currentGenericPermissions" id="currentGenericPermissions" multiple style="font-family:Courier;font-size:11px;height:10em;min-width:150px;">
 <%													
 										for(String permission: viewState.currentGenericPermissions) {
 %>
@@ -174,14 +173,12 @@ org.openmdx.base.naming.*
 									</select>
 								</td>
 							</tr>
-						</table>
-						<br />						
-						<table>
+
 							<tr>
 								<td>
 									<h2 style="font-size:larger;">Permissions for <i><%= obj.refClass().refMofId() %></i>:</h2>								
 									<h3>Available:</h3>													
-									<select name="specificPermissions" id="specificPermissions" multiple style="font-family:Courier;font-size:11px;width:50em;height:10em;">
+									<select name="specificPermissions" id="specificPermissions" multiple style="font-family:Courier;font-size:11px;height:10em;min-width:150px;">
 <%													
 										for(String permission: viewState.specificPermissions) {
 %>
@@ -198,7 +195,7 @@ org.openmdx.base.naming.*
 								<td>
 									<h2 style="font-size:larger;">&nbsp;</h2>								
 									<h3>Current:</h3>
-									<select name="currentSpecificPermissions" id="currentSpecificPermissions" multiple style="font-family:Courier;font-size:11px;width:50em;height:10em;">
+									<select name="currentSpecificPermissions" id="currentSpecificPermissions" multiple style="font-family:Courier;font-size:11px;height:10em;min-width:150px;">
 <%													
 										for(String permission: viewState.currentSpecificPermissions) {
 %>
@@ -214,15 +211,15 @@ org.openmdx.base.naming.*
 					}
 %>
 				</div>	
-				<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
+				<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9000" value="<%= app.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
 <%
 				if(wc.isCurrentUserIsAdmin() && wc.getWizardState().isDirty()) {
 %>				
-					<input type="submit" name="Apply" id="Apply.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="Apply" onclick="javascript:$('Command').value=this.name;" />
+					<input type="submit" name="Apply" id="Apply.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="Apply" onclick="javascript:$('Command').value=this.name;" />
 <%
 				}
 %>
-				<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
+				<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
 			</td>
 		</tr>
 	</table>

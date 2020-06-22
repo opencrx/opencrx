@@ -512,7 +512,7 @@ org.openmdx.base.naming.*
 %>
 														<td>
 															<div class="autocompleterMenu">
-																<ul id="<%=CssClass.ssfNav %>" class="<%=CssClass.ssfNav %>" onmouseover="sfinit(this);" >
+																<ul id="<%=CssClass.ssf_nav %>" class="<%=CssClass.ssf_nav %>" onmouseover="sfinit(this);" >
 																	<li><a href="#"><img border="0" alt="" src="../../images/autocomplete_select.png" /></a>
 																		<ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
 																			<li class="selected"><a href="#" onclick="javascript:navSelect(this);ac_addObject0.url= './'+getEncodedHRef(['../../ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.account1/provider/<%=wc.getProviderName()%>/segment/<%=wc.getSegmentName()%>)*referenceName*(account)*filterByType*(org:opencrx:kernel:account1:Contact)*filterByFeature*(fullName)*filterOperator*(IS_LIKE)*orderByFeature*(fullName)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span><%=accountName%> / <%=wc.getFieldLabel(CreateWorkAndExpenseRecordController.ACCOUNT_CLASS, "fullName", app.getCurrentLocaleAsIndex())%></a></li>
@@ -1183,13 +1183,13 @@ org.openmdx.base.naming.*
 												}
 %>
 												<div class="buttons">
-													<input type="submit" id="EvictReload.Button" name="EvictReload" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>"  tabindex="<%=tabIndex++%>" value="<%=app.getTexts().getReloadText()%>" onclick="javascript:$('Command').value=this.name;" />
+													<input type="submit" id="EvictReload.Button" name="EvictReload" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>"  tabindex="<%=tabIndex++%>" value="<%=app.getTexts().getReloadText()%>" onclick="javascript:$('Command').value=this.name;" />
 												</div>
 											</td>
 											<td></td>
 											<td>
-												<input type="submit" id="AddWorkRecord.button" name="AddWorkRecord" <%=noActivitiesFound || noResourcesFound ? "disabled" : ""%> class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%=tabIndex++%>" value="<%=app.getTexts().getNewText()%>" onclick="javascript:$('Command').value=this.name;" />
-												<input type="submit" id="Cancel.button" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%=tabIndex++%>" value="<%=app.getTexts().getCloseText()%>" onclick="javascript:$('Command').value=this.name;" />
+												<input type="submit" id="AddWorkRecord.button" name="AddWorkRecord" <%=noActivitiesFound || noResourcesFound ? "disabled" : ""%> class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%=tabIndex++%>" value="<%=app.getTexts().getNewText()%>" onclick="javascript:$('Command').value=this.name;" />
+												<input type="submit" id="Cancel.button" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%=tabIndex++%>" value="<%=app.getTexts().getCloseText()%>" onclick="javascript:$('Command').value=this.name;" />
 											</td>
 										</tr>
 									</table>

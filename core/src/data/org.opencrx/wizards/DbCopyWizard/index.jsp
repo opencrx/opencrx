@@ -94,7 +94,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -186,8 +185,8 @@ OOMSE2*
 							</tr>
 						</table>
 						<div style="float:left;">															
-							<input type="submit" name="Copy" id="Copy.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9030" value="Copy" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';setTimeout('javascript:$(\'RefreshReportButton\').click();',2000);$('Command').value=this.name;" />
-							<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9031" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
+							<input type="submit" name="Copy" id="Copy.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9030" value="Copy" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';setTimeout('javascript:$(\'RefreshReportButton\').click();',2000);$('Command').value=this.name;" />
+							<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9031" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
 						</div>
 					</div>
 					<div id="WaitIndicator" style="display:<%= isRefreshReport ? "block" : "none" %>" class="<%= Boolean.FALSE.equals(wc.isRunning()) ? "" : "wait" %>">
@@ -203,11 +202,11 @@ OOMSE2*
 						}
 %>						
 						<div id="SubmitArea2">
-							<input type="submit" id="RefreshReportButton" name="RefreshReport" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" style="display:none;" tabindex="9032" value="<%= wc.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
+							<input type="submit" id="RefreshReportButton" name="RefreshReport" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" style="display:none;" tabindex="9032" value="<%= wc.getTexts().getReloadText() %>" onclick="javascript:$('Command').value=this.name;" />
 <%
 							if(Boolean.FALSE.equals(wc.isRunning())) {
 %>						
-								<input type="submit" name="Clear" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9033" value="Clear" onclick="javascript:$('Command').value=this.name;" />
+								<input type="submit" name="Clear" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9033" value="Clear" onclick="javascript:$('Command').value=this.name;" />
 								<br />	
 <%
 							}

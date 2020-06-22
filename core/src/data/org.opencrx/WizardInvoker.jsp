@@ -9,7 +9,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2010-2014, CRIXP Corp., Switzerland
+ * Copyright (c) 2010-2020, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -72,7 +72,7 @@ java.net.URL
 	 *	- password: password
 	 *  - para_0, para_1, ... para_n: additional parameters to be passed to the wizard (optional)
 	 *	Example:
-	 *	http://localhost:8080/opencrx-core-CRX/WizardInvoker.jsp?wizard=/wizards/en_US/UploadMedia.jsp&provider=CRX&segment=Standard&xri=xri://@openmdx*org.opencrx.kernel.home1/provider/CRX/segment/Standard&user=wfro&password=.
+	 *	http://localhost:8080/opencrx-core-OB/WizardInvoker.jsp?wizard=/wizards/en_US/UploadMedia.jsp&provider=OB&segment=Standard&xri=xri://@openmdx*org.opencrx.kernel.home1/provider/OB/segment/Standard&user=wfro&password=.
 	 *
 	 *	WizardInvoker performs the following operations:
 	 *	- Creates a session and authenticates with the specified user and password
@@ -94,14 +94,15 @@ java.net.URL
 	String objectInspectorServlet = "/" + org.openmdx.portal.servlet.WebKeys.SERVLET_NAME;
 	String urlBase = (request.getRequestURL().toString()).substring(0, (request.getRequestURL().toString()).indexOf(request.getServletPath().toString()));
 
-	if (LOG_TRACE) {
-		System.out.println(">---------" + request.getServletPath() + "----------(invocationBegin)");
-	}
 	try {
 		String providerName = request.getParameter("provider");
 		String segmentName = request.getParameter("segment");
 		String xri = request.getParameter("xri");
 		String wizard = request.getParameter("wizard");
+		String info = " >********** " + request.getServletPath() + " [" + wizard + "] **********< invocation";
+	  if (LOG_TRACE) {
+		  System.out.println(new java.util.Date().toString() + info + "BEGIN");
+	  }
 		if ((providerName == null) || (providerName.length() == 0) || (segmentName == null) || (segmentName.length() == 0)) {
 			if (LOG_TRACE) {
 				System.out.println(new java.util.Date().toString() + ": providerName [=" + providerName + "] or segmentName [=" + segmentName + "] missing");
@@ -167,7 +168,7 @@ java.net.URL
 		rc = connection.getResponseCode();
 		if(LOG_TRACE) {
 			System.out.println(new java.util.Date().toString() + ": " + rc + " - (" + url + ")");
-			System.out.println("<---------" + request.getServletPath() + "----------(invocationEnd)");
+		  System.out.println(new java.util.Date().toString() + info + "END");
 		}
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		org.w3c.cci2.BinaryLargeObjects.streamCopy(connection.getInputStream(), 0L, bos);

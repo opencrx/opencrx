@@ -67,7 +67,7 @@ import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.backend.UserHomes;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
@@ -76,7 +76,7 @@ import org.w3c.spi2.Structures;
  * EMailReplyToWizardController
  *
  */
-public class EMailReplyToWizardController extends AbstractWizardController {
+public class EMailReplyToWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.

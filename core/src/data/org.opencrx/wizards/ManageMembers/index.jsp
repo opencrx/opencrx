@@ -847,7 +847,7 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
 			    </div>
 
 					<div id="topnavi">
-						<ul id="<%=CssClass.ssfNavigation %>" class="<%=CssClass.ssfNavigation %>" onmouseover="sfinit(this);">
+						<ul id="<%=CssClass.ssf_navigation %>" class="<%=CssClass.ssf_navigation %>" onmouseover="sfinit(this);">
 							<li class="<%= mode.compareTo("0")==0 ? "selected" : "" %>"><a href="#" onclick="javascript:try{$('mode').value='0';}catch(e){};setTimeout('disableSubmit()', 10);$('Reload.Button').click();";><span>Manage Members</span></a></li>
 							<li class="<%= mode.compareTo("1")==0 ? "selected" : "" %>"><a href="#" onclick="javascript:try{$('mode').value='1';}catch(e){};setTimeout('disableSubmit()', 10);$('Reload.Button').click();";><span>Add Members</span></a></li>
 						</ul>
@@ -1233,10 +1233,10 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
 						        headerfont.setFontHeightInPoints((short)10);
 						        headerfont.setFontName("Tahoma");
 						        headerfont.setBold(true);
-						        headerfont.setColor(HSSFColor.ORANGE.index);
+						        headerfont.setColor(IndexedColors.ORANGE.getIndex());
 						        // Fonts are set into a style so create a new one to use.
 						        headerStyle = wb.createCellStyle();
-						        headerStyle.setFillForegroundColor(HSSFColor.BLACK.index);
+						        headerStyle.setFillForegroundColor(IndexedColors.BLACK.getIndex());
 						        headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 						        headerStyle.setFont(headerfont);
 
@@ -1300,7 +1300,7 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
 %>
 				              <input type="text" name="searchString" id="searchString" tabindex="<%= tabIndex++ %>" value="<%= searchString %>" />
 				              <inpput type="hidden" name="previousSearchString" id="previousSearchString" tabindex="<%= tabIndex++ %>" value="<%= searchString %>" />
-							  <input type="submit" name="go" id="go" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" title="<%= app.getTexts().getSearchText() %>" tabindex="<%= tabIndex++ %>" value=">>" onclick="setTimeout('disableSubmit()', 10);$('Reload.Button').click();" />
+							  <input type="submit" name="go" id="go" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" title="<%= app.getTexts().getSearchText() %>" tabindex="<%= tabIndex++ %>" value=">>" onclick="setTimeout('disableSubmit()', 10);$('Reload.Button').click();" />
 <%
 				            } else {
 								if (!membersOnly) {
@@ -1318,9 +1318,9 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
 							<table style="display:inline;">
 								<tr>
 									<td>
-										<input type="Submit" id="Reload.Button" name="Reload.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getReloadText() %>" onmouseup="javascript:setTimeout('disableSubmit()', 10);" />
-										<input type="Button" name="Print.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="Print" onClick="javascript:window.print();return false;" />
-										<input type="Submit" name="ACTION.exportXLS" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="Export" onmouseup="javascript:setTimeout('disableSubmit()', 10);" />
+										<input type="Submit" id="Reload.Button" name="Reload.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getReloadText() %>" onmouseup="javascript:setTimeout('disableSubmit()', 10);" />
+										<input type="Button" name="Print.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="Print" onClick="javascript:window.print();return false;" />
+										<input type="Submit" name="ACTION.exportXLS" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="Export" onmouseup="javascript:setTimeout('disableSubmit()', 10);" />
 <%
 										if (downloadAction != null) {
 %>
@@ -1330,7 +1330,7 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
 <%
 										}
 %>
-										<input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCloseText() %>" onClick="javascript:window.close();" />
+										<input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCloseText() %>" onClick="javascript:window.close();" />
 									</td>
 									<td>
 										<input type="checkbox" name="detectDuplicates" id="detectDuplicates" <%= detectDuplicates ? "checked" : "" %> /> Detect Duplicates
@@ -1412,6 +1412,7 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
             <td align="center"><b><%= userView.getFieldLabel(MEMBER_CLASS, "description", app.getCurrentLocaleAsIndex()) %></b></td>
           </tr>
 <%
+					Set<String> processedMembers = new TreeSet<String>();
           if (accounts != null) {
               short spreadSheetRow = 1;
               for(
@@ -1458,11 +1459,14 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
                   org.opencrx.kernel.account1.jmi1.Member member = null;
                   org.opencrx.kernel.account1.cci2.MemberQuery isMemberFilter = (org.opencrx.kernel.account1.cci2.MemberQuery)pm.newQuery(org.opencrx.kernel.account1.jmi1.Member.class);
                   isMemberFilter.thereExistsAccount().equalTo(account);
+                  boolean hasProcessedMember = false;
                   for(Iterator m = accountSource.getMember(isMemberFilter).iterator(); m.hasNext(); ) {
                       try {
                           memberCounter++;
                           org.opencrx.kernel.account1.jmi1.Member currentMember = (org.opencrx.kernel.account1.jmi1.Member)m.next();
-                          if (member == null || currentMember.isDisabled() == null || !currentMember.isDisabled().booleanValue()) {
+                          if (!hasProcessedMember && !processedMembers.contains(currentMember.getIdentity()) && (member == null || currentMember.isDisabled() == null || !currentMember.isDisabled().booleanValue())) {
+                              processedMembers.add(currentMember.getIdentity());
+                              hasProcessedMember = true;
                               member = currentMember;
                               action = new ObjectReference(
                                   currentMember,
@@ -1941,8 +1945,8 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
         }
       </script>
       <br />
-      <input type="Button" name="Print.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="Print" onClick="javascript:window.print();return false;" />
-      <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCloseText() %>" onClick="javascript:window.close();" />
+      <input type="Button" name="Print.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="Print" onClick="javascript:window.print();return false;" />
+      <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getCloseText() %>" onClick="javascript:window.close();" />
       <br />&nbsp;
 <%
       if (downloadAction != null) {

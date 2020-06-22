@@ -58,7 +58,6 @@ java.io.*,
 java.text.*,
 java.math.*,
 java.net.URL,
-java.net.URLEncoder,
 java.net.MalformedURLException,
 java.io.UnsupportedEncodingException,
 org.openmdx.kernel.id.cci.*,
@@ -401,8 +400,8 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
     			app.getUserHomeIdentityAsPath()
     		);
       Path objectPath = new Path(currentUserHome.refMofId());
-      String providerName = objectPath.getSegment(2).toClassicRepresentation();
-      String segmentName = objectPath.getSegment(4).toClassicRepresentation();
+      String providerName = objectPath.getSegment(2).toString();
+      String segmentName = objectPath.getSegment(4).toString();
       boolean currentUserIsAdmin =
 				app.getCurrentUserRole().equals(org.opencrx.kernel.generic.SecurityKeys.ADMIN_PRINCIPAL + org.opencrx.kernel.generic.SecurityKeys.ID_SEPARATOR + segmentName + "@" + segmentName);
 
@@ -425,7 +424,7 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
           <span style="color:red;"><b><u>Warning:</u> <%= errorMessage %></b></span>
           <br />
           <br />
-          <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1" value="<%= app.getTexts().getContinueTitle() %>" onClick="javascript:location='<%= request.getContextPath() + "/" + nextAction.getEncodedHRef() %>';" />
+          <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1" value="<%= app.getTexts().getContinueTitle() %>" onClick="javascript:location='<%= request.getContextPath() + "/" + nextAction.getEncodedHRef() %>';" />
           <br />
           <br />
           <hr>
@@ -530,7 +529,7 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
                     	  org.openmdx.security.realm1.jmi1.Privilege privilege = createOrUpdatePrivilege(
                     		  XRI == null || XRI.isEmpty()
                     		  	  ? org.opencrx.kernel.utils.Utils.getUidAsString() 
-                    		  	  : new Path(XRI).getLastSegment().toClassicRepresentation(),
+                    		  	  : new Path(XRI).getLastSegment().toString(),
                     		  name,
                     		  desc,
                     		  action,
@@ -617,7 +616,7 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
 		                        	  org.openmdx.security.realm1.jmi1.Permission permission = createOrUpdatePermission(
 	                            		  XRI == null || XRI.isEmpty()
 		                        		  	  ? org.opencrx.kernel.utils.Utils.getUidAsString() 
-		                        		  	  : new Path(XRI).getLastSegment().toClassicRepresentation(),
+		                        		  	  : new Path(XRI).getLastSegment().toString(),
 	                        			  name,
 	                        			  desc,
 	                        			  action,
@@ -655,7 +654,7 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
 		                    	  role = createOrUpdateRole(
 	                        		  XRI == null || XRI.isEmpty()
 	                    		  	  ? org.opencrx.kernel.utils.Utils.getUidAsString() 
-	                    		  	  : new Path(XRI).getLastSegment().toClassicRepresentation(),
+	                    		  	  : new Path(XRI).getLastSegment().toString(),
 		                    			  name,
 		                    			  desc,
 		                    			  disabled,
@@ -728,7 +727,7 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
 	            </td></tr></table>
               <br />
               <br />
-              <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1" value="<%= app.getTexts().getContinueTitle() %>" onClick="javascript:location='<%= request.getContextPath() + "/" + nextAction.getEncodedHRef() %>';" />
+              <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1" value="<%= app.getTexts().getContinueTitle() %>" onClick="javascript:location='<%= request.getContextPath() + "/" + nextAction.getEncodedHRef() %>';" />
               <br />
               <br />
               <hr>
@@ -774,8 +773,8 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
     			</tr>
     			<tr>
 	          <td class="<%= CssClass.fieldLabel %>" colspan="3">
-	          	<input type="Submit" name="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1000" value="Import" />
-      			  <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" />
+	          	<input type="Submit" name="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1000" value="Import" />
+      			  <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" />
 	          </td>
 	          <td></td>
 	          <td></td>
@@ -801,7 +800,7 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
       <span style="color:red;"><b><u>Warning:</u> cannot upload file (no permission?)</b></span>
       <br />
       <br />
-      <input type="Submit" name="Continue.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1" value="Continue" onClick="javascript:location='<%= request.getContextPath() + "/" + nextAction.getEncodedHRef() %>';" />
+      <input type="Submit" name="Continue.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn.toString() %>" tabindex="1" value="Continue" onClick="javascript:location='<%= request.getContextPath() + "/" + nextAction.getEncodedHRef() %>';" />
       <br />
       <br />
       <hr>

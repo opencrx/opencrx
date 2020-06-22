@@ -56,8 +56,8 @@ import javax.jdo.PersistenceManager;
 
 import org.opencrx.kernel.activity1.jmi1.Activity;
 import org.opencrx.kernel.activity1.jmi1.MarkAsAllDayEventParams;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
@@ -66,7 +66,7 @@ import org.w3c.spi2.Structures;
  * MarkAsAllDayEventWizardController
  *
  */
-public class MarkAsAllDayEventWizardController extends AbstractWizardController {
+public class MarkAsAllDayEventWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.

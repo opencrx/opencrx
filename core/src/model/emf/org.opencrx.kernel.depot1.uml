@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_2CBwcN8HEdmKapscEl8OLg" name="depot1">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2CBwcN8HEdmKapscEl8OLg" name="depot1">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D428D19990268PPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D428D19990268PP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D428D19990268P" name="kernel">
@@ -31,6 +31,29 @@
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LysmE8dqEdyRm6j6ukye_g"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LysmFMdqEdyRm6j6ukye_g" value="1"/>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_OWlywH0CEequFqd-yp1h1w" name="isLocked">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U8AnkH0CEequFqd-yp1h1w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_PnwfsH0CEequFqd-yp1h1w" name="lockModifiedAt">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XjjRkH0CEequFqd-yp1h1w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_Q_WkwH0CEequFqd-yp1h1w" name="lockingReason">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZRyVAH0CEequFqd-yp1h1w"/>
+            </ownedAttribute>
+            <ownedOperation xmi:id="_awYZ8H0CEequFqd-yp1h1w" name="lockSimpleBooking">
+              <ownedParameter xmi:id="_6qVOEH0CEequFqd-yp1h1w" name="in" type="_iVejEH0CEequFqd-yp1h1w"/>
+              <ownedParameter xmi:id="_B_SpcH0DEequFqd-yp1h1w" direction="return">
+                <type xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3E40433402E1"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_ddijwH0CEequFqd-yp1h1w" name="unlockSimpleBooking">
+              <ownedParameter xmi:id="_E6QlwH0DEequFqd-yp1h1w" direction="return">
+                <type xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3E40433402E1"/>
+              </ownedParameter>
+            </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3VFEcCVrEdqA2IVA8CET4w" name="Room">
             <generalization xmi:id="_60XOwCVrEdqA2IVA8CET4w" general="_V3I2YCVdEdqA2IVA8CET4w"/>
@@ -2645,6 +2668,355 @@
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M0k6EnCiEeiKVJZu2IoRTQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M0k6E3CiEeiKVJZu2IoRTQ" value="1"/>
             </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Ym__QCLbEemF1coiihN_2A" name="SingleBookingFilterGlobal">
+            <generalization xmi:id="_4AyQICLcEemF1coiihN_2A" general="_0PRGUCLcEemF1coiihN_2A"/>
+            <generalization xmi:id="_pzSLoCMIEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_igCrgCLcEemF1coiihN_2A" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uSlFcCLcEemF1coiihN_2A"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_heiLMCLcEemF1coiihN_2A" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_egjzoCLbEemF1coiihN_2A" name="SimpleBookingFilterGlobal">
+            <generalization xmi:id="_9bPtsCLcEemF1coiihN_2A" general="_6LRxwCLcEemF1coiihN_2A"/>
+            <generalization xmi:id="_ql0b0CMIEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_r0oYUCMIEemF1coiihN_2A" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_sWGGoCMIEemF1coiihN_2A" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wsrsYCMIEemF1coiihN_2A"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_WwSf0CLcEemF1coiihN_2A" name="CompoundBookingFilterGlobal">
+            <generalization xmi:id="_D-7dICLdEemF1coiihN_2A" general="__NxbQCLcEemF1coiihN_2A"/>
+            <generalization xmi:id="_rTuDoCMIEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <ownedAttribute xmi:id="_svuuoCMIEemF1coiihN_2A" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_tCAxcCMIEemF1coiihN_2A" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0vs14CMIEemF1coiihN_2A"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_0PRGUCLcEemF1coiihN_2A" name="AbstractFilterSingleBooking" isAbstract="true">
+            <eAnnotations xmi:id="_YyzUsCLdEemF1coiihN_2A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_Z0rBYCLdEemF1coiihN_2A" key="root"/>
+            </eAnnotations>
+            <generalization xmi:id="_PWIl8CLdEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_8U1CgImxEdqT-YHfpV38vQ"/>
+            </generalization>
+            <ownedOperation xmi:id="_LQgtACLgEemF1coiihN_2A" name="countFilteredSingleBooking">
+              <ownedParameter xmi:id="_eQI_wCLgEemF1coiihN_2A" direction="return">
+                <type xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3CpXICl_EdywXdAHn-NS-w"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_6LRxwCLcEemF1coiihN_2A" name="AbstractFilterSimpleBooking" isAbstract="true">
+            <eAnnotations xmi:id="_b2LmICLdEemF1coiihN_2A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_cmLfsCLdEemF1coiihN_2A" key="root"/>
+            </eAnnotations>
+            <generalization xmi:id="_QOHW0CLdEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_8U1CgImxEdqT-YHfpV38vQ"/>
+            </generalization>
+            <ownedOperation xmi:id="_L7zswCLgEemF1coiihN_2A" name="countFilteredSimpleBooking">
+              <ownedParameter xmi:id="_gO2vMCLgEemF1coiihN_2A" direction="return">
+                <type xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3CpXICl_EdywXdAHn-NS-w"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="__NxbQCLcEemF1coiihN_2A" name="AbstractFilterCompoundBooking" isAbstract="true">
+            <eAnnotations xmi:id="_d7wLgCLdEemF1coiihN_2A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_eqYzICLdEemF1coiihN_2A" key="root"/>
+            </eAnnotations>
+            <generalization xmi:id="_Q5nx8CLdEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_8U1CgImxEdqT-YHfpV38vQ"/>
+            </generalization>
+            <ownedOperation xmi:id="_MbGQ0CLgEemF1coiihN_2A" name="countFilteredCompoundBooking">
+              <ownedParameter xmi:id="_iBRvECLgEemF1coiihN_2A" direction="return">
+                <type xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3CpXICl_EdywXdAHn-NS-w"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_umbjoCLeEemF1coiihN_2A" name="CompoundBookingFilterIncludesCompoundBooking" isDerived="true" memberEnd="_umcKsiLeEemF1coiihN_2A _umnJ0CLeEemF1coiihN_2A" navigableOwnedEnd="_umnJ0CLeEemF1coiihN_2A">
+            <eAnnotations xmi:id="_umcKsCLeEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_umcKsSLeEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_umnJ0CLeEemF1coiihN_2A" name="filteredCompoundBooking" type="_3C7B8A60016D428D1A3501AE" isReadOnly="true" aggregation="shared" association="_umbjoCLeEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m3JHQCLfEemF1coiihN_2A"/>
+              <qualifier xmi:id="_Q_eQYCLfEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_umcKsiLeEemF1coiihN_2A" name="bookingFilter" type="__NxbQCLcEemF1coiihN_2A" association="_umbjoCLeEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_trZewCLeEemF1coiihN_2A" name="SimpleBookingFilterIncludesSimpleBooking" isDerived="true" memberEnd="_traF0iLeEemF1coiihN_2A _traF1SLeEemF1coiihN_2A" navigableOwnedEnd="_traF1SLeEemF1coiihN_2A">
+            <eAnnotations xmi:id="_traF0CLeEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_traF0SLeEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_traF1SLeEemF1coiihN_2A" name="filteredSimpleBooking" type="_rk5tEMdiEdyRm6j6ukye_g" isReadOnly="true" aggregation="shared" association="_trZewCLeEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lXpDYCLfEemF1coiihN_2A"/>
+              <qualifier xmi:id="_doQ84CLfEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_traF0iLeEemF1coiihN_2A" name="bookingFilter" type="_6LRxwCLcEemF1coiihN_2A" association="_trZewCLeEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_s-LMYCLeEemF1coiihN_2A" name="SingleBookingFilterIncludesSingleBooking" isDerived="true" memberEnd="_s-NooCLeEemF1coiihN_2A _s-OPsSLeEemF1coiihN_2A" navigableOwnedEnd="_s-OPsSLeEemF1coiihN_2A">
+            <eAnnotations xmi:id="_s-NBkCLeEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_s-NBkSLeEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_s-OPsSLeEemF1coiihN_2A" name="filteredSingleBooking" type="_3C7B8A60016D428D19C40061" isReadOnly="true" aggregation="shared" association="_s-LMYCLeEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jhO7YCLfEemF1coiihN_2A"/>
+              <qualifier xmi:id="_euDgQCLfEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_s-NooCLeEemF1coiihN_2A" name="bookingFilter" type="_0PRGUCLcEemF1coiihN_2A" association="_s-LMYCLeEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_ysGtoCLgEemF1coiihN_2A" name="SingleBookingFilterProperty" isAbstract="true">
+            <generalization xmi:id="_xo-nQCLhEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_dhKEwBvoEdyil9rtoHqsOA"/>
+            </generalization>
+            <generalization xmi:id="_Bm8K4CMFEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
+            </generalization>
+            <generalization xmi:id="_IlyMUCMFEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_4An7QCLgEemF1coiihN_2A" name="SimpleBookingFilterProperty" isAbstract="true">
+            <generalization xmi:id="_yL_NsCLhEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_dhKEwBvoEdyil9rtoHqsOA"/>
+            </generalization>
+            <generalization xmi:id="_CsBjoCMFEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
+            </generalization>
+            <generalization xmi:id="_Jd-YkCMFEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_9UXs0CLgEemF1coiihN_2A" name="CompoundBookingFilterProperty" isAbstract="true">
+            <generalization xmi:id="_ysVhsCLhEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_dhKEwBvoEdyil9rtoHqsOA"/>
+            </generalization>
+            <generalization xmi:id="_DjVmICMFEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
+            </generalization>
+            <generalization xmi:id="_KIQEoCMFEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_GfRWICLhEemF1coiihN_2A" name="CompoundBookingFilterHasFilterProperty" memberEnd="_GfR9MiLhEemF1coiihN_2A _GfXcwCLhEemF1coiihN_2A" navigableOwnedEnd="_GfXcwCLhEemF1coiihN_2A">
+            <eAnnotations xmi:id="_GfR9MCLhEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_GfR9MSLhEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_GfXcwCLhEemF1coiihN_2A" name="filterProperty" type="_9UXs0CLgEemF1coiihN_2A" aggregation="composite" association="_GfRWICLhEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uu7bgCLiEemF1coiihN_2A"/>
+              <qualifier xmi:id="_1jk_ICLiEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_GfR9MiLhEemF1coiihN_2A" name="bookingFilter" type="__NxbQCLcEemF1coiihN_2A" association="_GfRWICLhEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_FqS18CLhEemF1coiihN_2A" name="SimpleBookingFilterHasFilterProperty" memberEnd="_FqTdAiLhEemF1coiihN_2A _FqTdBSLhEemF1coiihN_2A" navigableOwnedEnd="_FqTdBSLhEemF1coiihN_2A">
+            <eAnnotations xmi:id="_FqTdACLhEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_FqTdASLhEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_FqTdBSLhEemF1coiihN_2A" name="filterProperty" type="_4An7QCLgEemF1coiihN_2A" aggregation="composite" association="_FqS18CLhEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ss9jwCLiEemF1coiihN_2A"/>
+              <qualifier xmi:id="_2Due0CLiEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_FqTdAiLhEemF1coiihN_2A" name="bookingFilter" type="_6LRxwCLcEemF1coiihN_2A" association="_FqS18CLhEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Et9JgCLhEemF1coiihN_2A" name="SingleBookingFilterHasFilterProperty" memberEnd="_Et9wkiLhEemF1coiihN_2A _Et-XoSLhEemF1coiihN_2A" navigableOwnedEnd="_Et-XoSLhEemF1coiihN_2A">
+            <eAnnotations xmi:id="_Et9wkCLhEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_Et9wkSLhEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_Et-XoSLhEemF1coiihN_2A" name="filterProperty" type="_ysGtoCLgEemF1coiihN_2A" aggregation="composite" association="_Et9JgCLhEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bFB5MCLhEemF1coiihN_2A"/>
+              <qualifier xmi:id="_25ELYCLiEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_Et9wkiLhEemF1coiihN_2A" name="bookingFilter" type="_0PRGUCLcEemF1coiihN_2A" association="_Et9JgCLhEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_BpQ0ACLiEemF1coiihN_2A" name="SingleBookingQueryFilterProperty">
+            <generalization xmi:id="_Q2RJsCLiEemF1coiihN_2A" general="_ysGtoCLgEemF1coiihN_2A"/>
+            <generalization xmi:id="_cbjx0CLiEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_-8O5kBuJEdyil9rtoHqsOA"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_GKcgMCLiEemF1coiihN_2A" name="SimpleBookingQueryFilterProperty">
+            <generalization xmi:id="_RgAqQCLiEemF1coiihN_2A" general="_4An7QCLgEemF1coiihN_2A"/>
+            <generalization xmi:id="_dAN-ECLiEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_-8O5kBuJEdyil9rtoHqsOA"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_NROVoCLiEemF1coiihN_2A" name="CompoundBookingQueryFilterProperty">
+            <generalization xmi:id="_SSugoCLiEemF1coiihN_2A" general="_9UXs0CLgEemF1coiihN_2A"/>
+            <generalization xmi:id="_df0rMCLiEemF1coiihN_2A">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_-8O5kBuJEdyil9rtoHqsOA"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_LkG3QCMIEemF1coiihN_2A" name="SegmentContainsCompoundBookingFilter" memberEnd="_LkIscCMIEemF1coiihN_2A _LkJTgiMIEemF1coiihN_2A" navigableOwnedEnd="_LkJTgiMIEemF1coiihN_2A">
+            <eAnnotations xmi:id="_LkIFYCMIEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_LkIFYSMIEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_LkJTgiMIEemF1coiihN_2A" name="compoundBookingFilter" type="_WwSf0CLcEemF1coiihN_2A" aggregation="composite" association="_LkG3QCMIEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aOK38CMIEemF1coiihN_2A"/>
+              <qualifier xmi:id="_lcB3gCMIEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_LkIscCMIEemF1coiihN_2A" name="segment" type="_3C7B8A60016D428D19AA02E5" association="_LkG3QCMIEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_KCLxgCMIEemF1coiihN_2A" name="SegmentContainsSingleBookingFilter" memberEnd="_KCMYkiMIEemF1coiihN_2A _KCM_oiMIEemF1coiihN_2A" navigableOwnedEnd="_KCM_oiMIEemF1coiihN_2A">
+            <eAnnotations xmi:id="_KCMYkCMIEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_KCMYkSMIEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_KCM_oiMIEemF1coiihN_2A" name="singleBookingFilter" type="_Ym__QCLbEemF1coiihN_2A" aggregation="composite" association="_KCLxgCMIEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g8xd8CMIEemF1coiihN_2A"/>
+              <qualifier xmi:id="_mDHFoCMIEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_KCMYkiMIEemF1coiihN_2A" name="segment" type="_3C7B8A60016D428D19AA02E5" association="_KCLxgCMIEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_K719YCMIEemF1coiihN_2A" name="SegmentContainsSimpleBookingFilter" memberEnd="_K73LgiMIEemF1coiihN_2A _K74ZoiMIEemF1coiihN_2A" navigableOwnedEnd="_K74ZoiMIEemF1coiihN_2A">
+            <eAnnotations xmi:id="_K73LgCMIEemF1coiihN_2A" source="org.eclipse.papyrus">
+              <details xmi:id="_K73LgSMIEemF1coiihN_2A" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_K74ZoiMIEemF1coiihN_2A" name="simpleBookingFilter" type="_egjzoCLbEemF1coiihN_2A" aggregation="composite" association="_K719YCMIEemF1coiihN_2A">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dCO7ACMIEemF1coiihN_2A"/>
+              <qualifier xmi:id="_mqwUcCMIEemF1coiihN_2A" name="id" visibility="public">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_K73LgiMIEemF1coiihN_2A" name="segment" type="_3C7B8A60016D428D19AA02E5" association="_K719YCMIEemF1coiihN_2A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_1zXlIAoBEeq4DtEWIFxbqg" name="DepotHasDepotReference" isDerived="true" memberEnd="_1zaocAoBEeq4DtEWIFxbqg _1zdEsAoBEeq4DtEWIFxbqg" navigableOwnedEnd="_1zdEsAoBEeq4DtEWIFxbqg">
+            <eAnnotations xmi:id="_1zZaUAoBEeq4DtEWIFxbqg" source="org.eclipse.papyrus">
+              <details xmi:id="_1zaBYAoBEeq4DtEWIFxbqg" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_1zdEsAoBEeq4DtEWIFxbqg" name="depotReference" type="_mgwJ8BV4EdqX8-3bnaVzdg" aggregation="shared" association="_1zXlIAoBEeq4DtEWIFxbqg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MUmWYAoCEeq4DtEWIFxbqg"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_n6AMIAoCEeq4DtEWIFxbqg" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_1zaocAoBEeq4DtEWIFxbqg" name="depot" type="_3C7B8A60016D428D1A0503AE" association="_1zXlIAoBEeq4DtEWIFxbqg"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_2geiwAoBEeq4DtEWIFxbqg" name="DepotPositionHasDepotPositionReference" isDerived="true" memberEnd="_2gfw4QoBEeq4DtEWIFxbqg _2gz58AoBEeq4DtEWIFxbqg" navigableOwnedEnd="_2gz58AoBEeq4DtEWIFxbqg">
+            <eAnnotations xmi:id="_2gfJ0AoBEeq4DtEWIFxbqg" source="org.eclipse.papyrus">
+              <details xmi:id="_2gfw4AoBEeq4DtEWIFxbqg" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_2gz58AoBEeq4DtEWIFxbqg" name="depotPositionReference" type="_1MwacBeDEee9cp__ilKBiw" aggregation="shared" association="_2geiwAoBEeq4DtEWIFxbqg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SEwXIAoCEeq4DtEWIFxbqg"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_umM-YAoCEeq4DtEWIFxbqg" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_2gfw4QoBEeq4DtEWIFxbqg" name="depotPosition" type="_3C7B8A60016D42A96B28006E" association="_2geiwAoBEeq4DtEWIFxbqg"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_cU9MEHWkEeq4yLgn8K7DBQ" name="InventoryLevelFilterGlobal">
+            <generalization xmi:id="_sQ4dQHWkEeq4yLgn8K7DBQ">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+            </generalization>
+            <generalization xmi:id="_DXFj0HWlEeq4yLgn8K7DBQ" general="_9NJxIHWkEeq4yLgn8K7DBQ"/>
+            <ownedAttribute xmi:id="_ggc8IHWkEeq4yLgn8K7DBQ" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_hvfiIHWkEeq4yLgn8K7DBQ" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_meu4cHWkEeq4yLgn8K7DBQ"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_tRT_gHWkEeq4yLgn8K7DBQ" name="SegmentContainsInventoryLevelFilter" memberEnd="_tRe-oHWkEeq4yLgn8K7DBQ _tRgz0HWkEeq4yLgn8K7DBQ" navigableOwnedEnd="_tRgz0HWkEeq4yLgn8K7DBQ">
+            <eAnnotations xmi:id="_tRb7UHWkEeq4yLgn8K7DBQ" source="org.eclipse.papyrus">
+              <details xmi:id="_tRciYHWkEeq4yLgn8K7DBQ" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_tRgz0HWkEeq4yLgn8K7DBQ" name="inventoryLevelFilter" type="_cU9MEHWkEeq4yLgn8K7DBQ" aggregation="composite" association="_tRT_gHWkEeq4yLgn8K7DBQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3J4nIHWkEeq4yLgn8K7DBQ"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_AZopUHWnEeq4yLgn8K7DBQ" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_tRe-oHWkEeq4yLgn8K7DBQ" name="segment" type="_3C7B8A60016D428D19AA02E5" association="_tRT_gHWkEeq4yLgn8K7DBQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_9NJxIHWkEeq4yLgn8K7DBQ" name="AbstractFilterInventoryLevel" isAbstract="true">
+            <eAnnotations xmi:id="_VjCaEHWpEeq4yLgn8K7DBQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_fz9QQHWpEeq4yLgn8K7DBQ" key="root"/>
+            </eAnnotations>
+            <generalization xmi:id="_LcEUoHWqEeq4yLgn8K7DBQ">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_8U1CgImxEdqT-YHfpV38vQ"/>
+            </generalization>
+            <ownedOperation xmi:id="_5pjKUHfPEeq4yLgn8K7DBQ" name="countFilteredInventoryLevel" isQuery="true">
+              <ownedParameter xmi:id="_LTTPQHfQEeq4yLgn8K7DBQ" direction="return">
+                <type xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3CpXICl_EdywXdAHn-NS-w"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_MKt8oHWlEeq4yLgn8K7DBQ" name="InventoryLevelFilterProperty" isAbstract="true">
+            <generalization xmi:id="_Wmxr0HWlEeq4yLgn8K7DBQ">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_dhKEwBvoEdyil9rtoHqsOA"/>
+            </generalization>
+            <generalization xmi:id="_dmsEQHWlEeq4yLgn8K7DBQ">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
+            </generalization>
+            <generalization xmi:id="_ecbZcHWlEeq4yLgn8K7DBQ">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_6HqKYHWlEeq4yLgn8K7DBQ" name="InventoryLevelFilterHasFilterProperty" memberEnd="_6HtNsXWlEeq4yLgn8K7DBQ _6HvC4HWlEeq4yLgn8K7DBQ" navigableOwnedEnd="_6HvC4HWlEeq4yLgn8K7DBQ">
+            <eAnnotations xmi:id="_6HsmoHWlEeq4yLgn8K7DBQ" source="org.eclipse.papyrus">
+              <details xmi:id="_6HtNsHWlEeq4yLgn8K7DBQ" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_6HvC4HWlEeq4yLgn8K7DBQ" name="filterProperty" type="_MKt8oHWlEeq4yLgn8K7DBQ" aggregation="composite" association="_6HqKYHWlEeq4yLgn8K7DBQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LXukAHWmEeq4yLgn8K7DBQ"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_1_oIkHWmEeq4yLgn8K7DBQ" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_6HtNsXWlEeq4yLgn8K7DBQ" name="inventoryLevelFilter" type="_9NJxIHWkEeq4yLgn8K7DBQ" association="_6HqKYHWlEeq4yLgn8K7DBQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_lAnfMHWlEeq4yLgn8K7DBQ" name="InventoryLevelFilterIncludesInventoryLevel" memberEnd="_lApUYHWlEeq4yLgn8K7DBQ _lAqigXWlEeq4yLgn8K7DBQ" navigableOwnedEnd="_lAqigXWlEeq4yLgn8K7DBQ">
+            <eAnnotations xmi:id="_lAotUHWlEeq4yLgn8K7DBQ" source="org.eclipse.papyrus">
+              <details xmi:id="_lAotUXWlEeq4yLgn8K7DBQ" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_lAqigXWlEeq4yLgn8K7DBQ" name="filteredInventoryLevel" type="_AUiYYL35EeaMXNXHh1MYSw" aggregation="shared" association="_lAnfMHWlEeq4yLgn8K7DBQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wx5U4HWlEeq4yLgn8K7DBQ"/>
+              <qualifier xmi:type="uml:Port" xmi:id="_6yrA0HWmEeq4yLgn8K7DBQ" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_lApUYHWlEeq4yLgn8K7DBQ" name="inventoryLevelFilter" type="_9NJxIHWkEeq4yLgn8K7DBQ" association="_lAnfMHWlEeq4yLgn8K7DBQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Sl1wgHWmEeq4yLgn8K7DBQ" name="InventoryLevelQueryFilterProperty">
+            <generalization xmi:id="_aR5dQHWmEeq4yLgn8K7DBQ" general="_MKt8oHWlEeq4yLgn8K7DBQ"/>
+            <generalization xmi:id="_gYjScHWmEeq4yLgn8K7DBQ">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_-8O5kBuJEdyil9rtoHqsOA"/>
+            </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_iVejEH0CEequFqd-yp1h1w" name="LockSimpleBookingParams">
+            <eAnnotations xmi:id="_O5_TYH0FEequFqd-yp1h1w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_QMIQsH0FEequFqd-yp1h1w" key="struct"/>
+            </eAnnotations>
+            <ownedAttribute xmi:id="_s371MH0CEequFqd-yp1h1w" name="lockingReason">
+              <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0OaTgH0CEequFqd-yp1h1w"/>
+            </ownedAttribute>
           </packagedElement>
         </packagedElement>
       </packagedElement>

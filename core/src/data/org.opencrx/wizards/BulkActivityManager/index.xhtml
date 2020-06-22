@@ -22,7 +22,7 @@
 						<div class="panel" style="display:block;overflow:visible;">
 						    <div class="vertical justified layout">
 						    	<h:panelGroup id="pendingWorkflows" layout="block">
-							    	<h5>#{bulkActivityManager.metaInf.labelPendingWorkflows}</h5>
+							    	<h5>#{bulkActivityManager.getLabel('org:opencrx:kernel:home1:UserHome:wfProcessInstance')}</h5>
 								    <ui:repeat var="wfProcessInstance" value="#{bulkActivityManager.data.wfProcessInstances}">
 							    		<h:panelGroup styleClass="container-fluid" layout="block">
 											<div class="row">
@@ -30,11 +30,11 @@
 											    	<button type="button" class="btn btn-block" style="text-align:left">
 													    <h:panelGroup styleClass="loading" style="height:40px;" layout="block" rendered="#{not wfProcessInstance.isCompleted}" />
 										    			<pre class="alert alert-info">
-#{bulkActivityManager.metaInf.labelWfProcessInstanceName}: #{wfProcessInstance.wfProcessInstance.title}
-#{bulkActivityManager.metaInf.labelWfProcessState}: #{wfProcessInstance.processState}
-<h:panelGroup rendered="#{not empty wfProcessInstance.lastActivityOn}">#{bulkActivityManager.metaInf.labelLastActivityOn}: #{wfProcessInstance.lastActivityOn}
-</h:panelGroup><h:panelGroup rendered="#{not empty wfProcessInstance.startedOn}">#{bulkActivityManager.metaInf.labelStartedOn}: #{wfProcessInstance.startedOn}
-</h:panelGroup><h:panelGroup rendered="#{not empty wfProcessInstance.createdAt}">#{bulkActivityManager.metaInf.labelCreatedAt}: #{wfProcessInstance.createdAt}
+#{bulkActivityManager.getLabel('org:opencrx:kernel:home1:WfProcessInstance:name')}: #{wfProcessInstance.wfProcessInstance.title}
+#{bulkActivityManager.getLabel('org:opencrx:kernel:home1:Alert:alertState')}: #{wfProcessInstance.processState}
+<h:panelGroup rendered="#{not empty wfProcessInstance.lastActivityOn}">#{bulkActivityManager.getLabel('org:opencrx:kernel:home1:WfProcessInstance:lastActivityOn')}: #{wfProcessInstance.lastActivityOn}
+</h:panelGroup><h:panelGroup rendered="#{not empty wfProcessInstance.startedOn}">#{bulkActivityManager.getLabel('org:opencrx:kernel:home1:WfProcessInstance:startedOn')}: #{wfProcessInstance.startedOn}
+</h:panelGroup><h:panelGroup rendered="#{not empty wfProcessInstance.createdAt}">#{bulkActivityManager.getLabel('org:openmdx:base:Creatable:createdAt')}: #{wfProcessInstance.createdAt}
 </h:panelGroup>---
 <ui:repeat var="logEntry" value="#{wfProcessInstance.logEntries}">#{logEntry}
 </ui:repeat></pre>
@@ -53,14 +53,14 @@
 								    </ui:repeat>
 								</h:panelGroup>
 								<h:panelGroup rendered="#{not empty bulkActivityManager.data.bulkCreateActivities}">
-							    	<h5>#{bulkActivityManager.metaInf.labelActivityCreators}</h5>
+							    	<h5>#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityGroup:activityCreator')}</h5>
 							    	<ui:repeat var="bulkCreateActivityItem" varStatus="bulkCreateActivityItemStatus" value="#{bulkActivityManager.data.bulkCreateActivities}">
 										<!-- doBulkCreateActivityDialog -->
 								    	<div class="modal fade" id="doBulkCreateActivityDialog_#{bulkCreateActivityItemStatus.index}" tabindex="-1" role="dialog">
 								    		<div class="modal-dialog modal-dialog-centered" role="document">
 								    			<div class="modal-content">
 								    				<div class="modal-header">
-								    					<h5 class="modal-title">#{bulkActivityManager.metaInf.labelDoBulkCreateActivity}</h5>
+								    					<h5 class="modal-title">Do bulk create activity</h5>
 							    						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							    							<span aria-hidden="true">&times;</span>
 							    						</button>
@@ -71,23 +71,23 @@
 															<div class="row">
 																<div class="col-lg-12">															
 																	<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL">														
-															    		<h:outputLabel for="restrictTargetGroup">#{bulkActivityManager.metaInf.labelRestrictTargetGroup}:</h:outputLabel>
+															    		<h:outputLabel for="restrictTargetGroup">Restrict target group:</h:outputLabel>
 																		<h:selectBooleanCheckbox id="restrictTargetGroup" value="#{bulkCreateActivityItem.doBulkCreateActivityParams.restrictTargetGroup}" />
-																		<h:outputLabel for="targetGroupEMail1">#{bulkActivityManager.metaInf.labelEMailAddress} 1:</h:outputLabel>
+																		<h:outputLabel for="targetGroupEMail1">#{bulkActivityManager.getLabel('org:opencrx:kernel:address1:EMailAddressable:emailAddress')} 1:</h:outputLabel>
 																		<p:autocomplete
 																			id="targetGroupEMail1"
 																			valueTitle="#{bulkCreateActivityItem.doBulkCreateActivityParams.targetGroupEMail1.title}"
 																			valueXri="#{bulkCreateActivityItem.doBulkCreateActivityParams.targetGroupEMail1.xri}"
 																			findMethod="#{bulkCreateActivityItem.findTargetGroupEMail1}"
 																			findResult="#{bulkCreateActivityItem.findTargetGroupEMail1Result}" />
-																		<h:outputLabel for="targetGroupEMail2">#{bulkActivityManager.metaInf.labelEMailAddress} 2:</h:outputLabel>
+																		<h:outputLabel for="targetGroupEMail2">#{bulkActivityManager.getLabel('org:opencrx:kernel:address1:EMailAddressable:emailAddress')} 2:</h:outputLabel>
 																		<p:autocomplete
 																			id="targetGroupEMail2"
 																			valueTitle="#{bulkCreateActivityItem.doBulkCreateActivityParams.targetGroupEMail2.title}"
 																			valueXri="#{bulkCreateActivityItem.doBulkCreateActivityParams.targetGroupEMail2.xri}"
 																			findMethod="#{bulkCreateActivityItem.findTargetGroupEMail2}"
 																			findResult="#{bulkCreateActivityItem.findTargetGroupEMail2Result}" />
-																		<h:outputLabel for="targetGroupEMail3">#{bulkActivityManager.metaInf.labelEMailAddress} 3:</h:outputLabel>
+																		<h:outputLabel for="targetGroupEMail3">#{bulkActivityManager.getLabel('org:opencrx:kernel:address1:EMailAddressable:emailAddress')} 3:</h:outputLabel>
 																		<p:autocomplete
 																			id="targetGroupEMail3"
 																			valueTitle="#{bulkCreateActivityItem.doBulkCreateActivityParams.targetGroupEMail3.title}"
@@ -104,17 +104,17 @@
 														<div class="container-fluid">
 															<div class="row">
 																<div class="col-lg-12">
-														    		<h:outputLabel for="ignoreExecutionTimeLimit">#{bulkActivityManager.metaInf.labelIgnoreExecutionTimeLimit}:</h:outputLabel>
+														    		<h:outputLabel for="ignoreExecutionTimeLimit">Ignore execution time limit:</h:outputLabel>
 																	<h:selectBooleanCheckbox id="ignoreExecutionTimeLimit" value="#{bulkCreateActivityItem.doBulkCreateActivityParams.ignoreExecutionTimeLimit}" />
-														    		<h:outputLabel for="confirmDoBulkCreateActivity">#{bulkActivityManager.metaInf.labelConfirmDoBulkCreateActivity}:</h:outputLabel>
+														    		<h:outputLabel for="confirmDoBulkCreateActivity">Check to confirm activity creation. Uncheck for a preview:</h:outputLabel>
 																	<h:selectBooleanCheckbox id="confirmDoBulkCreateActivity" value="#{bulkCreateActivityItem.doBulkCreateActivityParams.isConfirmed}" />
 																</div>
 															</div>
 														</div>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-dismiss="modal">#{bulkActivityManager.metaInf.labelCancel}</button>
-														<h:commandButton styleClass="btn" style="margin:5px;" value="#{bulkActivityManager.metaInf.labelOK}" update="form">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">#{bulkActivityManager.app.texts.cancelTitle}</button>
+														<h:commandButton styleClass="btn btn-light" style="margin:5px;" value="#{bulkActivityManager.app.texts.okTitle}" update="form">
 															<f:ajax execute="form" listener="#{bulkCreateActivityItem.doBulkCreateActivity}" render="form" onevent="function(e){jQuery('#doBulkCreateActivityDialog_#{bulkCreateActivityItemStatus.index}').modal('hide');}"/>
 														</h:commandButton>
 													</div>
@@ -127,7 +127,7 @@
 								    		<div class="modal-dialog modal-dialog-centered" role="document">
 								    			<div class="modal-content">
 								    				<div class="modal-header">
-								    					<h5 class="modal-title">#{bulkActivityManager.metaInf.labelEditActivityTemplate}</h5>
+								    					<h5 class="modal-title">Edit activity template</h5>
 							    						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							    							<span aria-hidden="true">&times;</span>
 							    						</button>
@@ -138,48 +138,48 @@
 															<div class="row">
 																<div class="col-lg-12">
 																	<h:panelGrid styleClass="fieldGroup" columns="3" columnClasses="fieldLabel,inherit,addon" rendered="#{not bulkCreateActivityItem.activityTemplate.isEMail}">
-																		<h:outputLabel for="activityName">#{bulkActivityManager.metaInf.labelActivityName}:</h:outputLabel>
+																		<h:outputLabel for="activityName">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:name')}:</h:outputLabel>
 																		<h:inputText id="activityName" styleClass="valueL" value="#{bulkCreateActivityItem.activityTemplate.name}" />
 																		<div></div>
-																		<h:outputLabel for="activityDescription">#{bulkActivityManager.metaInf.labelActivityDescription}:</h:outputLabel>
+																		<h:outputLabel for="activityDescription">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:description')}:</h:outputLabel>
 																		<h:inputTextarea id="activityDescription" styleClass="valueL" value="#{bulkCreateActivityItem.activityTemplate.description}" />
 																		<div></div>						
-																		<h:outputLabel for="activityDetailedDescription">#{bulkActivityManager.metaInf.labelActivityDetailedDescription}:</h:outputLabel>
+																		<h:outputLabel for="activityDetailedDescription">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:detailedDescription')}:</h:outputLabel>
 																		<h:inputTextarea id="activityDetailedDescription" styleClass="valueL" value="#{bulkCreateActivityItem.activityTemplate.detailedDescription}" />
 																		<div></div>
-															    		<h:outputLabel for="activityScheduledStart">#{bulkActivityManager.metaInf.labelActivityScheduledStart}:</h:outputLabel>
+															    		<h:outputLabel for="activityScheduledStart">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:scheduledStart')}:</h:outputLabel>
 																		<h:inputText id="activityScheduledStart" class="valueR" value="#{bulkCreateActivityItem.activityTemplate.scheduledStart}" binding="#{activityScheduledStart}">
-																			<f:convertDateTime pattern="#{bulkActivityManager.metaInf.dateFormatActivityScheduledStart}"/>
+																			<f:convertDateTime pattern="#{bulkActivityManager.getDateFormat('org:opencrx:kernel:activity1:Activity:scheduledStart',true)}"/>
 																		</h:inputText>
 																		<h:panelGroup>
 																	        <h:graphicImage id="activityScheduledStartTrigger" styleClass="popUpButton" value="./images/cal.gif" border="0" binding="#{activityScheduledStartTrigger}"/>
 																	        <script>
-																	        	Calendar.setup({inputField: "#{activityScheduledStart.clientId}", ifFormat: "#{bulkActivityManager.metaInf.calendarFormatActivityScheduledStart}", firstDay: 0, timeFormat: "24", button: "#{activityScheduledStartTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{editActivityTemplateDialogCalendarParent.clientId}"});
+																	        	Calendar.setup({inputField: "#{activityScheduledStart.clientId}", ifFormat: "#{bulkActivityManager.getCalendarFormat('org:opencrx:kernel:activity1:Activity:scheduledStart',true)}", firstDay: 0, timeFormat: "24", button: "#{activityScheduledStartTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{editActivityTemplateDialogCalendarParent.clientId}"});
 																	        </script>
 																		</h:panelGroup>
-															    		<h:outputLabel for="activityScheduledEnd">#{bulkActivityManager.metaInf.labelActivityScheduledEnd}:</h:outputLabel>
+															    		<h:outputLabel for="activityScheduledEnd">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:scheduledEnd')}:</h:outputLabel>
 																		<h:inputText id="activityScheduledEnd" class="valueR" value="#{bulkCreateActivityItem.activityTemplate.scheduledEnd}" binding="#{activityScheduledEnd}">
-																			<f:convertDateTime pattern="#{bulkActivityManager.metaInf.dateFormatActivityScheduledEnd}"/>
+																			<f:convertDateTime pattern="#{bulkActivityManager.getDateFormat('org:opencrx:kernel:activity1:Activity:scheduledEnd',true)}"/>
 																		</h:inputText>
 																		<h:panelGroup>
 																	        <a><h:graphicImage id="activityScheduledEndTrigger" styleClass="popUpButton" value="./images/cal.gif" border="0" binding="#{activityScheduledEndTrigger}" /></a>
 																	        <script>
-																	        	Calendar.setup({inputField: "#{activityScheduledEnd.clientId}", ifFormat: "#{bulkActivityManager.metaInf.calendarFormatActivityScheduledEnd}", firstDay: 0, timeFormat: "24", button: "#{activityScheduledEndTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{editActivityTemplateDialogCalendarParent.clientId}"});
+																	        	Calendar.setup({inputField: "#{activityScheduledEnd.clientId}", ifFormat: "#{bulkActivityManager.getCalendarFormat('org:opencrx:kernel:activity1:Activity:scheduledEnd',true)}", firstDay: 0, timeFormat: "24", button: "#{activityScheduledEndTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{editActivityTemplateDialogCalendarParent.clientId}"});
 																	        </script>
 																		</h:panelGroup>
-															    		<h:outputLabel for="activityDueBy">#{bulkActivityManager.metaInf.labelActivityDueBy}:</h:outputLabel>
+															    		<h:outputLabel for="activityDueBy">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:dueBy')}:</h:outputLabel>
 																		<h:inputText id="activityDueBy" class="valueR" value="#{bulkCreateActivityItem.activityTemplate.dueBy}" binding="#{activityDueBy}">
-																			<f:convertDateTime pattern="#{bulkActivityManager.metaInf.dateFormatActivityDueBy}"/>
+																			<f:convertDateTime pattern="#{bulkActivityManager.getDateFormat('org:opencrx:kernel:activity1:Activity:dueBy',true)}"/>
 																		</h:inputText>
 																		<h:panelGroup>
 																	        <a><h:graphicImage id="activityDueByTrigger" styleClass="popUpButton" value="./images/cal.gif" border="0" binding="#{activityDueByTrigger}"/></a>
 																	        <script>
-																	        	Calendar.setup({inputField: "#{activityDueBy.clientId}", ifFormat: "#{bulkActivityManager.metaInf.calendarFormatActivityDueBy}", firstDay: 0, timeFormat: "24", button: "#{activityDueByTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{editActivityTemplateDialogCalendarParent.clientId}"});
+																	        	Calendar.setup({inputField: "#{activityDueBy.clientId}", ifFormat: "#{bulkActivityManager.getCalendarFormat('org:opencrx:kernel:activity1:Activity:dueBy',true)}", firstDay: 0, timeFormat: "24", button: "#{activityDueByTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{editActivityTemplateDialogCalendarParent.clientId}"});
 																	        </script>
 																		</h:panelGroup>
-															    		<h:outputLabel for="activityPriority">#{bulkActivityManager.metaInf.labelActivityPriority}:</h:outputLabel>
+															    		<h:outputLabel for="activityPriority">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:priority')}:</h:outputLabel>
 																		<h:selectOneMenu id="activityPriority" class="valueL" value="#{bulkCreateActivityItem.activityTemplate.priority}" converter="javax.faces.Short">
-																			<f:selectItems value="#{bulkActivityManager.metaInf.optionsPriority}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
+																			<f:selectItems value="#{bulkActivityManager.getOptions('org:opencrx:kernel:activity1:Activity:priority',false)}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
 																		</h:selectOneMenu>
 																		<div></div>
 																    </h:panelGrid>
@@ -188,16 +188,16 @@
 															<div class="row">
 																<div class="col-lg-12">
 																	<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,inherit" rendered="#{bulkCreateActivityItem.activityTemplate.isEMail}">				
-																		<h:outputLabel for="senderEMail">#{bulkActivityManager.metaInf.labelSenderEMail}:</h:outputLabel>
+																		<h:outputLabel for="senderEMail">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:EMail:sender')}:</h:outputLabel>
 																		<p:autocomplete
 																			id="senderEMail"
 																			valueTitle="#{bulkCreateActivityItem.activityTemplate.senderEMail.title}"
 																			valueXri="#{bulkCreateActivityItem.activityTemplate.senderEMail.xri}"
 																			findMethod="#{bulkCreateActivityItem.findSenderEMail}"
 																			findResult="#{bulkCreateActivityItem.findSenderEMailResult}" />
-																		<h:outputLabel for="messageSubject">#{bulkActivityManager.metaInf.labelMessageSubject}:</h:outputLabel>
+																		<h:outputLabel for="messageSubject">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:EMail:messageSubject')}:</h:outputLabel>
 																		<h:inputText id="messageSubject" styleClass="valueL" value="#{bulkCreateActivityItem.activityTemplate.messageSubject}" />
-																		<h:outputLabel for="messageBody">#{bulkActivityManager.metaInf.labelMessageBody}:</h:outputLabel>
+																		<h:outputLabel for="messageBody">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:EMail:messageBody')}:</h:outputLabel>
 																		<h:inputTextarea id="messageBody" styleClass="valueL" value="#{bulkCreateActivityItem.activityTemplate.messageBody}" />
 																	</h:panelGrid>
 																</div>
@@ -208,19 +208,19 @@
 															<div class="row">
 																<div class="col-lg-12">
 																	<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL" rendered="#{bulkCreateActivityItem.activityTemplate.isEMail}">				
-																		<h:outputLabel for="excludeNoBulkEMail">Exclude '#{bulkActivityManager.metaInf.labelExcludeNoBulkEMail}':</h:outputLabel>
+																		<h:outputLabel for="excludeNoBulkEMail">Exclude '#{bulkActivityManager.getLabel('org:opencrx:kernel:account1:Contact:doNotEMail')}':</h:outputLabel>
 																		<h:selectBooleanCheckbox id="excludeNoBulkEMail" value="#{bulkCreateActivityItem.activityTemplate.excludeNoBulkEMail}" />
-																		<h:outputLabel for="eMailAddressUsage1">#{bulkActivityManager.metaInf.labelEMailAddressUsage} 1:</h:outputLabel>
+																		<h:outputLabel for="eMailAddressUsage1">#{bulkActivityManager.getLabel('org:opencrx:kernel:address1:Addressable:usage')} 1:</h:outputLabel>
 																		<h:selectOneMenu id="eMailAddressUsage1" class="valueL" value="#{bulkCreateActivityItem.activityTemplate.recipientEMailAddressUsage1}" converter="javax.faces.Short">
-																			<f:selectItems value="#{bulkActivityManager.metaInf.optionsEMailAddressUsage}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
+																			<f:selectItems value="#{bulkActivityManager.getOptions('org:opencrx:kernel:account1:EMailAddress:usage',false)}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
 																		</h:selectOneMenu>
-																		<h:outputLabel for="eMailAddressUsage2">#{bulkActivityManager.metaInf.labelEMailAddressUsage} 2:</h:outputLabel>
+																		<h:outputLabel for="eMailAddressUsage2">#{bulkActivityManager.getLabel('org:opencrx:kernel:address1:Addressable:usage')} 2:</h:outputLabel>
 																		<h:selectOneMenu id="eMailAddressUsage2" class="valueL" value="#{bulkCreateActivityItem.activityTemplate.recipientEMailAddressUsage2}" converter="javax.faces.Short">
-																			<f:selectItems value="#{bulkActivityManager.metaInf.optionsEMailAddressUsage}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
+																			<f:selectItems value="#{bulkActivityManager.getOptions('org:opencrx:kernel:account1:EMailAddress:usage',false)}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
 																		</h:selectOneMenu>
-																		<h:outputLabel for="eMailAddressUsage3">#{bulkActivityManager.metaInf.labelEMailAddressUsage} 3:</h:outputLabel>
+																		<h:outputLabel for="eMailAddressUsage3">#{bulkActivityManager.getLabel('org:opencrx:kernel:address1:Addressable:usage')} 3:</h:outputLabel>
 																		<h:selectOneMenu id="eMailAddressUsage3" class="valueL" value="#{bulkCreateActivityItem.activityTemplate.recipientEMailAddressUsage3}" converter="javax.faces.Short">
-																			<f:selectItems value="#{bulkActivityManager.metaInf.optionsEMailAddressUsage}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
+																			<f:selectItems value="#{bulkActivityManager.getOptions('org:opencrx:kernel:account1:EMailAddress:usage',false)}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
 																		</h:selectOneMenu>
 																    </h:panelGrid>												
 																</div>
@@ -231,7 +231,7 @@
 															<div class="row">
 																<div class="col-lg-12">
 																	<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,inherit" rendered="#{bulkCreateActivityItem.activityTemplate.isEMail}">				
-																		<h:outputLabel for="placeHolders">#{bulkActivityManager.metaInf.labelPlaceHolders}:</h:outputLabel>
+																		<h:outputLabel for="placeHolders">Place holders:</h:outputLabel>
 																		<h:inputTextarea id="placeHolders" styleClass="valueL" value="#{bulkCreateActivityItem.activityTemplate.placeHolders}" />
 																	</h:panelGrid>
 																</div>
@@ -239,8 +239,8 @@
 														</div>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-dismiss="modal">#{bulkActivityManager.metaInf.labelCancel}</button>
-														<h:commandButton styleClass="btn" style="margin:5px;" value="#{bulkActivityManager.metaInf.labelSave}" update="form">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">#{bulkActivityManager.app.texts.cancelTitle}</button>
+														<h:commandButton styleClass="btn btn-light" style="margin:5px;" value="#{bulkActivityManager.app.texts.saveTitle}" update="form">
 															<f:ajax execute="form" listener="#{bulkCreateActivityItem.saveActivityTemplate}" onevent="function(e){jQuery('#editActivityTemplateDialog_#{bulkCreateActivityItemStatus.index}').modal('hide');}" />
 														</h:commandButton>
 													</div>
@@ -255,7 +255,7 @@
 													<div class="row">
 														<div class="col-lg-12">
 															<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL">				
-																<h:outputLabel for="targetGroupTitle">#{bulkActivityManager.metaInf.labelTargetGroupAccounts}:</h:outputLabel>
+																<h:outputLabel for="targetGroupTitle">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityGroup:targetGroupAccounts')}:</h:outputLabel>
 																<h:outputText id="targetGroupTitle" value="#{bulkCreateActivityItem.targetGroup.title}" />
 															</h:panelGrid>
 														</div>
@@ -265,10 +265,10 @@
 												<div class="container-fluid">
 													<div class="row">
 														<h:panelGroup styleClass="col-lg-1" layout="block">
-															<button type="button" class="btn" data-toggle="modal" data-target="#editActivityTemplateDialog_#{bulkCreateActivityItemStatus.index}">#{bulkActivityManager.metaInf.labelEditActivityTemplate}...</button>
+															<button type="button" class="btn btn-light" style="white-space:nowrap;" data-toggle="modal" data-target="#editActivityTemplateDialog_#{bulkCreateActivityItemStatus.index}">Edit activity template...</button>
 														</h:panelGroup>
 														<h:panelGroup styleClass="col-lg-1" layout="block">
-															<button type="button" class="btn" data-toggle="modal" data-target="#doBulkCreateActivityDialog_#{bulkCreateActivityItemStatus.index}">#{bulkActivityManager.metaInf.labelDoBulkCreateActivity}...</button>
+															<button type="button" class="btn btn-light" style="white-space:nowrap;" data-toggle="modal" data-target="#doBulkCreateActivityDialog_#{bulkCreateActivityItemStatus.index}">Do bulk create activity...</button>
 														</h:panelGroup>
 													</div>
 												</div>
@@ -283,7 +283,7 @@
 														    		<div class="modal-dialog modal-dialog-centered" role="document">
 														    			<div class="modal-content">
 														    				<div class="modal-header">
-														    					<h5 class="modal-title">#{bulkActivityManager.metaInf.labelDoBulkActivityFollowUp}</h5>
+														    					<h5 class="modal-title">Do bulk follow up</h5>
 													    						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 													    							<span aria-hidden="true">&times;</span>
 													    						</button>
@@ -294,7 +294,7 @@
 																					<div class="row">
 																						<div class="col-lg-12">
 																							<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,valueL">														
-																								<h:outputLabel for="assignTo">#{bulkActivityManager.metaInf.labelAssignTo}:</h:outputLabel>
+																								<h:outputLabel for="assignTo">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:Activity:assignedTo')}:</h:outputLabel>
 																								<p:autocomplete
 																									id="assignTo"
 																									valueTitle="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.assignTo.title}"
@@ -305,41 +305,41 @@
 																						</div>
 																					</div>
 																				</div>
-																				<div class="fieldGroupName">#{bulkActivityManager.metaInf.labelFollowUp} 1</div>
+																				<div class="fieldGroupName">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:title')} 1</div>
 																				<div class="container-fluid">
 																					<div class="row">
 																						<div class="col-lg-12">
 																							<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,inherit">
-																								<h:outputLabel for="followUp1Transition">#{bulkActivityManager.metaInf.labelTransition}:</h:outputLabel>
+																								<h:outputLabel for="followUp1Transition">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:transition')}:</h:outputLabel>
 																								<p:autocomplete
 																									id="followUp1Transition"
 																									valueTitle="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp1.transition.title}"
 																									valueXri="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp1.transition.xri}"
 																									findMethod="#{bulkActivityFollowUpItem.findFollowUp1Transition}"
 																									findResult="#{bulkActivityFollowUpItem.findFollowUp1TransitionResult}" />
-																								<h:outputLabel for="followUp1Title">#{bulkActivityManager.metaInf.labelFollowUpTitle}:</h:outputLabel>
+																								<h:outputLabel for="followUp1Title">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:title')}:</h:outputLabel>
 																								<h:inputText id="followUp1Title" styleClass="valueL" value="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp1.title}" />
-																								<h:outputLabel for="followUp1Text">#{bulkActivityManager.metaInf.labelFollowUpText}:</h:outputLabel>
+																								<h:outputLabel for="followUp1Text">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:text')}:</h:outputLabel>
 																								<h:inputTextarea id="followUp1Text" styleClass="valueL" value="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp1.text}" />
 																							</h:panelGrid>
 																						</div>
 																					</div>
 																				</div>
-																				<div class="fieldGroupName">#{bulkActivityManager.metaInf.labelFollowUp} 2</div>
+																				<div class="fieldGroupName">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:title')} 2</div>
 																				<div class="container-fluid">
 																					<div class="row">
 																						<div class="col-lg-12">
 																							<h:panelGrid styleClass="fieldGroup" columns="2" columnClasses="fieldLabel,inherit">
-																								<h:outputLabel for="followUp2Transition">#{bulkActivityManager.metaInf.labelTransition}:</h:outputLabel>
+																								<h:outputLabel for="followUp2Transition">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:transition')}:</h:outputLabel>
 																								<p:autocomplete
 																									id="followUp2Transition"
 																									valueTitle="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp2.transition.title}"
 																									valueXri="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp2.transition.xri}"
 																									findMethod="#{bulkActivityFollowUpItem.findFollowUp2Transition}"
 																									findResult="#{bulkActivityFollowUpItem.findFollowUp2TransitionResult}" />
-																								<h:outputLabel for="followUp2Title">#{bulkActivityManager.metaInf.labelFollowUpTitle}:</h:outputLabel>
+																								<h:outputLabel for="followUp2Title">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:title')}:</h:outputLabel>
 																								<h:inputText id="followUp2Title" styleClass="valueL" value="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp2.title}" />
-																								<h:outputLabel for="followUp2Text">#{bulkActivityManager.metaInf.labelFollowUpText}:</h:outputLabel>
+																								<h:outputLabel for="followUp2Text">#{bulkActivityManager.getLabel('org:opencrx:kernel:activity1:ActivityFollowUp:text')}:</h:outputLabel>
 																								<h:inputTextarea id="followUp2Text" styleClass="valueL" value="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.followUp2.text}" />
 																							</h:panelGrid>
 																						</div>
@@ -350,17 +350,17 @@
 																					<div class="row">
 																						<div class="col-lg-12">
 																							<h:panelGrid styleClass="fieldGroup" columns="3" columnClasses="fieldLabel,inherit,addon">
-																								<h:outputLabel for="timerName">#{bulkActivityManager.metaInf.labelTimerName}:</h:outputLabel>
+																								<h:outputLabel for="timerName">#{bulkActivityManager.getLabel('org:opencrx:kernel:home1:Timer:name')}:</h:outputLabel>
 																								<h:inputText id="timerName" styleClass="valueL" value="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.timer.name}"/>
 																								<div></div>
-																					    		<h:outputLabel for="timerTriggerAt">#{bulkActivityManager.metaInf.labelTimerTriggerAt}:</h:outputLabel>
+																					    		<h:outputLabel for="timerTriggerAt">#{bulkActivityManager.getLabel('org:opencrx:kernel:home1:Timer:timerStartAt')}:</h:outputLabel>
 																								<h:inputText id="timerTriggerAt" class="valueR" value="#{bulkActivityFollowUpItem.doBulkActivityFollowUpParams.timer.triggerAt}" binding="#{timerTriggerAt}">
-																									<f:convertDateTime pattern="#{bulkActivityManager.metaInf.dateFormatTimerTriggerAt}"/>
+																									<f:convertDateTime pattern="#{bulkActivityManager.getDateFormat('org:opencrx:kernel:home1:Timer:timerStartAt',true)}"/>
 																								</h:inputText>
 																								<h:panelGroup>
 																							        <a><h:graphicImage id="timerTriggerAtTrigger" styleClass="popUpButton" value="./images/cal.gif" border="0" binding="#{timerTriggerAtTrigger}"/></a>
 																							        <script>
-																							        	Calendar.setup({inputField: "#{timerTriggerAt.clientId}", ifFormat: "#{bulkActivityManager.metaInf.calendarFormatTimerTriggerAt}", firstDay: 0, timeFormat: "24", button: "#{timerTriggerAtTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{bulkActivityFollowUpItemCalendarParent.clientId}"});
+																							        	Calendar.setup({inputField: "#{timerTriggerAt.clientId}", ifFormat: "#{bulkActivityManager.getCalendarFormat('org:opencrx:kernel:home1:Timer:timerStartAt',true)}", firstDay: 0, timeFormat: "24", button: "#{timerTriggerAtTrigger.clientId}", align: "Tl", singleClick: true, showsTime: true, parentEl: "#{bulkActivityFollowUpItemCalendarParent.clientId}"});
 																							        </script>
 																								</h:panelGroup>
 																							</h:panelGrid>
@@ -369,8 +369,8 @@
 																				</div>
 																			</div>
 																			<div class="modal-footer">
-																				<button type="button" class="btn btn-secondary" data-dismiss="modal">#{bulkActivityManager.metaInf.labelCancel}</button>
-																				<h:commandButton styleClass="btn" style="margin:5px;" value="#{bulkActivityManager.metaInf.labelOK}" update="form">
+																				<button type="button" class="btn btn-secondary" data-dismiss="modal">#{bulkActivityManager.app.texts.cancelTitle}</button>
+																				<h:commandButton styleClass="btn btn-light" style="margin:5px;" value="#{bulkActivityManager.app.texts.okTitle}" update="form">
 																					<f:ajax execute="form" listener="#{bulkActivityFollowUpItem.doBulkActivityFollowUp}" render="form" onevent="function(e){jQuery('#doBulkActivityFollowUpDialog_#{bulkCreateActivityItemStatus.index}_#{bulkActivityFollowUpItemStatus.index}').modal('hide');}"/>
 																				</h:commandButton>
 																			</div>
@@ -378,10 +378,10 @@
 																	</div>
 																</div>
 																<div class="row">
-																	<div class="col-lg-1">#{bulkActivityFollowUpItem.activityProcessState.title}</div>
-																	<div class="col-lg-1">#{bulkActivityFollowUpItem.counter}</div>
+																	<div class="col-lg-1" style="white-space:nowrap;">#{bulkActivityFollowUpItem.activityProcessState.title}</div>
+																	<div class="col-lg-1" style="white-space:nowrap;">#{bulkActivityFollowUpItem.counter}</div>
 								      								<h:panelGroup styleClass="col-lg-1">
-								      									<button type="button" class="btn" data-toggle="modal" data-target="#doBulkActivityFollowUpDialog_#{bulkCreateActivityItemStatus.index}_#{bulkActivityFollowUpItemStatus.index}">#{bulkActivityManager.metaInf.labelDoBulkActivityFollowUp}...</button>
+								      									<button type="button" class="btn btn-light" style="white-space:nowrap;" data-toggle="modal" data-target="#doBulkActivityFollowUpDialog_#{bulkCreateActivityItemStatus.index}_#{bulkActivityFollowUpItemStatus.index}">Do bulk follow up...</button>
 								      								</h:panelGroup>
 																</div>
 															</ui:repeat>
@@ -408,10 +408,10 @@
 							</script>
 						</h:panelGroup>
 						<div id="SubmitArea" style="float:left;">
-							<h:commandButton styleClass="btn" style="margin:5px;" value="#{bulkActivityManager.app.texts.reloadText}" update="form" binding="#{doRefreshButton}">
+							<h:commandButton styleClass="btn btn-light" style="margin:5px;" value="#{bulkActivityManager.app.texts.reloadText}" update="form" binding="#{doRefreshButton}">
 								<f:ajax execute="form" listener="#{bulkActivityManager.doRefresh}" render="form" />
 							</h:commandButton>
-							<h:commandButton styleClass="btn" style="margin:5px;" value="#{bulkActivityManager.app.texts.cancelTitle}" update="form">
+							<h:commandButton styleClass="btn btn-light" style="margin:5px;" value="#{bulkActivityManager.app.texts.cancelTitle}" update="form">
 								<f:ajax execute="form" listener="#{bulkActivityManager.doCancel}" render="form" />							
 							</h:commandButton>
 		      			</div>

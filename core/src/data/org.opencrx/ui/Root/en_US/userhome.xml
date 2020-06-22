@@ -1827,21 +1827,21 @@
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grids -->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:snapshot">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:currentItem">
 										<_object>
 											<active>true</active>
 											<toolTip>
-												<_item>Snapshots</_item>
+												<_item>Current Items</_item>
 											</toolTip>
 											<label>
-												<_item>Snapshots</_item>
+												<_item>Current Items</_item>
 											</label>
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
 												<_item>10</_item>
 											</order>
-											<maxMember>4</maxMember>
+											<maxMember>3</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -1859,7 +1859,25 @@
 												<_item>0</_item>
 												<_item>20</_item>
 											</order>
-											<maxMember>5</maxMember>
+											<maxMember>3</maxMember>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkList:snapshot">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Snapshots</_item>
+											</toolTip>
+											<label>
+												<_item>Snapshots</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>4</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -1875,7 +1893,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>30</_item>
+												<_item>40</_item>
 											</order>
 											<maxMember>5</maxMember>
 										</_object>
@@ -1950,15 +1968,15 @@
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- Grids -->
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:item">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListSnapshot:currentItem">
 										<_object>
 											<active>true</active>
 											<changeable>false</changeable>
 											<toolTip>
-												<_item>Items</_item>
+												<_item>Current Items</_item>
 											</toolTip>
 											<label>
-												<_item>Items</_item>
+												<_item>Current Items</_item>
 											</label>
 											<order>
 												<_item>0</_item>
@@ -2106,13 +2124,48 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>10</_item>
+												<_item>25</_item>
 											</order>
 											<maxMember>4</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
 									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:origin">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Origin</_item>
+											</toolTip>
+											<label>
+												<_item>Origin</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:remarks">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Remarks</_item>
+											</toolTip>
+											<label>
+												<_item>Remarks</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:name">
 										<_object>
 											<active>true</active>
@@ -2124,7 +2177,7 @@
 											</label>
 											<order>
 												<_item>0</_item>
-												<_item>0</_item>
+												<_item>10</_item>
 												<_item>10</_item>
 											</order>
 										</_object>
@@ -2141,7 +2194,7 @@
 											</label>
 											<order>
 												<_item>0</_item>
-												<_item>0</_item>
+												<_item>10</_item>
 												<_item>20</_item>
 											</order>
 										</_object>
@@ -2159,24 +2212,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>10</_item>
-												<_item>10</_item>
-											</order>
-										</_object>
-										<_content />
-									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:home1:WorkListItem:origin">
-										<_object>
-											<active>true</active>
-											<toolTip>
-												<_item>Origin</_item>
-											</toolTip>
-											<label>
-												<_item>Origin</_item>
-											</label>
-											<order>
-												<_item>0</_item>
-												<_item>10</_item>
-												<_item>20</_item>
+												<_item>30</_item>
 											</order>
 										</_object>
 										<_content />
@@ -2193,7 +2229,7 @@
 											<order>
 												<_item>0</_item>
 												<_item>10</_item>
-												<_item>30</_item>
+												<_item>40</_item>
 											</order>
 										</_object>
 										<_content />

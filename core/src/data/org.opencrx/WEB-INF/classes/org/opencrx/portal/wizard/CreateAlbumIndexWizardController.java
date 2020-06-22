@@ -66,8 +66,8 @@ import org.opencrx.kernel.document1.jmi1.DocumentFolderEntry;
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.text.conversion.HtmlEncoder;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.cci2.BinaryLargeObjects;
 
@@ -75,7 +75,7 @@ import org.w3c.cci2.BinaryLargeObjects;
  * CreateAlbumIndexWizardController
  *
  */
-public class CreateAlbumIndexWizardController extends AbstractWizardController {
+public class CreateAlbumIndexWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -124,7 +124,7 @@ public class CreateAlbumIndexWizardController extends AbstractWizardController {
 		if(this.getObject() instanceof DocumentFolder) {
 			org.opencrx.kernel.document1.jmi1.Segment documentSegment = Documents.getInstance().getDocumentSegment(pm, this.getProviderName(), this.getSegmentName());
 			DocumentFolder folder = (DocumentFolder)this.getObject();
-			String author = app.getUserHomeIdentityAsPath().getBase();
+			String author = app.getUserHomeIdentityAsPath().getLastSegment().toString();
 			// Find index.html
 			Document indexDocument = null;
 			DocumentFolderEntryQuery folderEntryQuery = (DocumentFolderEntryQuery)pm.newQuery(DocumentFolderEntry.class);
@@ -229,39 +229,35 @@ public class CreateAlbumIndexWizardController extends AbstractWizardController {
 					"      <div class=\"col-lg-12\">\n" + 
 					"         <p>Copyright &copy; " + new GregorianCalendar().get(Calendar.YEAR) + " " + HtmlEncoder.encode(author, false) + "</p>\n" + 
 					"      </div>\n" +
-					"    </div>\n" + 
-					"  </footer>\n" + 
-					"  <div class=\"blueimp-gallery\" id=\"blueimp-gallery\" style=\"display:none;\">\n" + 
-					"    <!-- The container for the modal slides -->\n" + 
-					"    <div class=\"slides\" style=\"width: 163100px;\"></div>\n" + 
-					"    <!-- Controls for the borderless lightbox -->\n" + 
-					"    <h3 class=\"title\"></h3>\n" + 
-					"    <a class=\"prev\">‹</a> <a class=\"next\">›</a> <a class=\"close\">×</a> <a class=\"play-pause\"></a>\n" + 
-					"    <ol class=\"indicator\"></ol>\n" + 
-					"      <div class=\"modal fade\">\n" + 
-					"        <div class=\"modal-dialog\">\n" + 
-					"          <div class=\"modal-content\">\n" + 
-					"            <div class=\"modal-header\">\n" + 
-					"              <button aria-hidden=\"true\" class=\"close\" type=\"button\">×</button>\n" + 
+					"    </div>\n" +
+					"  </footer>\n" +
+					"  <div class=\"blueimp-gallery\" id=\"blueimp-gallery\" style=\"display:none;\">\n" +
+					"    <!-- The container for the modal slides -->\n" +
+					"    <div class=\"slides\" style=\"width: 163100px;\"></div>\n" +
+					"    <!-- Controls for the borderless lightbox -->\n" +
+					"    <h3 class=\"title\"></h3>\n" +
+					"    <a class=\"prev\">‹</a> <a class=\"next\">›</a> <a class=\"close\">×</a> <a class=\"play-pause\"></a>\n" +
+					"    <ol class=\"indicator\"></ol>\n" +
+					"      <div class=\"modal fade\">\n" +
+					"        <div class=\"modal-dialog\">\n" +
+					"          <div class=\"modal-content\">\n" +
+					"            <div class=\"modal-header\">\n" +
+					"              <button aria-hidden=\"true\" class=\"close\" type=\"button\">×</button>\n" +
 					"              <h4 class=\"modal-title\"></h4>\n" +
 					"            </div>\n" +
-					"            <div class=\"modal-body next\"></div>\n" + 
-					"            <div class=\"modal-footer\">\n" + 
-					"              <button class=\"btn btn-default pull-left prev\" type=\"button\">\n" + 
-					"                <i class=\"glyphicon glyphicon-chevron-left\"></i> Previous\n" + 
-					"              </button>\n" + 
-					"              <button class=\"btn btn-primary next\" type=\"button\">\n" + 
-					"                Next <i class=\"glyphicon glyphicon-chevron-right\"></i>\n" + 
-					"              </button>\n" + 
-					"            </div>\n" + 
-					"          </div>\n" + 
-					"        </div>\n" + 
-					"      </div>\n" + 
-					"    </div>\n" + 
-					"    <script src=\"./js/jquery.min.js\"></script>\n" + 
-					"    <script src=\"./js/bootstrap.min.js\"></script>\n" + 
-					"    <script src=\"./js/jquery.blueimp-gallery.min.js\"></script>\n" + 
-					"  </body>\n" + 
+					"            <div class=\"modal-body next\"></div>\n" +
+					"            <div class=\"modal-footer\">\n" +
+					"              <button class=\"btn btn-light pull-left prev\" type=\"button\">&laquo;</button>\n" + 
+					"              <button class=\"btn btn-primary next\" type=\"button\">&raquo;</button>\n" + 
+					"            </div>\n" +
+					"          </div>\n" +
+					"        </div>\n" +
+					"      </div>\n" +
+					"    </div>\n" +
+					"    <script src=\"./js/jquery.min.js\"></script>\n" +
+					"    <script src=\"./js/bootstrap.min.js\"></script>\n" +
+					"    <script src=\"./js/jquery.blueimp-gallery.min.js\"></script>\n" +
+					"  </body>\n" +
 					"</html>";
 				try {
 					pm.currentTransaction().begin();

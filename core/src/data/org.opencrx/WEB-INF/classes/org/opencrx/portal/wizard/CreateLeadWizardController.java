@@ -64,8 +64,8 @@ import org.opencrx.kernel.backend.Contracts;
 import org.openmdx.base.accessor.cci.SystemAttributes;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -75,7 +75,7 @@ import org.openmdx.portal.servlet.component.TransientObjectView;
  * CreateLeadWizardController
  *
  */
-public class CreateLeadWizardController extends AbstractWizardController {
+public class CreateLeadWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -86,7 +86,7 @@ public class CreateLeadWizardController extends AbstractWizardController {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#initFormFields(java.util.Map)
+	 * @see org.openmdx.portal.servlet.JspWizardController#initFormFields(java.util.Map)
 	 */
     @Override
     protected void initFormFields(
@@ -105,8 +105,8 @@ public class CreateLeadWizardController extends AbstractWizardController {
      * @throws ServiceException
      */
     public void doOK(
-    	@RequestParameter(name = "isInitialized") Boolean isInitialized,
-    	@FormParameter(forms = "CreateLeadForm") Map<String,Object> formFields
+    	@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,
+    	@JspWizardController.FormParameter(forms = "CreateLeadForm") Map<String,Object> formFields
     ) throws ServiceException {
     	PersistenceManager pm = this.getPm();
     	ApplicationContext app = this.getApp();
@@ -171,8 +171,8 @@ public class CreateLeadWizardController extends AbstractWizardController {
      * @throws ServiceException
      */
     public void doRefresh(
-    	@RequestParameter(name = "isInitialized") Boolean isInitialized,    	
-    	@FormParameter(forms = "CreateLeadForm") Map<String,Object> formFields    	
+    	@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,    	
+    	@JspWizardController.FormParameter(forms = "CreateLeadForm") Map<String,Object> formFields    	
     ) throws ServiceException {
     	PersistenceManager pm = this.getPm();
     	RefObject_1_0 obj = this.getObject();
@@ -247,7 +247,7 @@ public class CreateLeadWizardController extends AbstractWizardController {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

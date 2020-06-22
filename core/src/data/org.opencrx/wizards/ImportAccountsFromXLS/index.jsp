@@ -137,7 +137,7 @@ if(wc.getErrorMessage() != null && !wc.getErrorMessage().isEmpty()) {
 			<input type="hidden" class="valueL" name="<%= Action.PARAMETER_OBJECTXRI %>" value="<%= wc.getObjectIdentity().toXRI() %>" />
 			<input type="hidden" name="<%= Action.PARAMETER_REQUEST_ID %>" value="<%= wc.getRequestId() %>" />
 			<input type="hidden" name="Command" value="UpdateProgressMeter" />
-			<input type="Submit" name="Refresh" id="ProgressMeterRefreshButton" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" style="display:none;" value="<%= wc.getTexts().getReloadText() %>" />
+			<input type="Submit" name="Refresh" id="ProgressMeterRefreshButton" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" style="display:none;" value="<%= wc.getTexts().getReloadText() %>" />
 		</form>
 		<script type="text/javascript">
 			Event.observe('ProgressMeterForm', 'submit', function(event) {

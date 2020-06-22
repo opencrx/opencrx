@@ -93,7 +93,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -105,8 +104,8 @@ org.openmdx.base.naming.*
 	<input type="hidden" name="<%= Action.PARAMETER_OBJECTXRI %>" value="<%= wc.getObjectIdentity().toXRI() %>" />
 	<input type="hidden" name="Command" id="Command" value="" />
 	<div id="SubmitArea">										    	    
-		<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1000" value="<%= wc.getTexts().getOkTitle() %>" onclick="javascript:$('Command').value=this.name;" />
-		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('UserDialog').innerHTML='';return false;" />
+		<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1000" value="<%= wc.getTexts().getOkTitle() %>" onclick="javascript:$('Command').value=this.name;" />
+		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('UserDialog').innerHTML='';return false;" />
 	</div>
 	<div class="fieldGroupName">&nbsp;</div>
 	<table class="fieldGroup">
@@ -157,8 +156,8 @@ org.openmdx.base.naming.*
 	</table>
 	<div class="fieldGroupName">&nbsp;</div>
 	<div id="SubmitArea2">
-		<input type="Submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1000" value="<%= wc.getTexts().getOkTitle() %>" onclick="javascript:$('Command').value=this.name;" />
-		<input type="Submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('UserDialog').innerHTML='';return false;" />
+		<input type="Submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1000" value="<%= wc.getTexts().getOkTitle() %>" onclick="javascript:$('Command').value=this.name;" />
+		<input type="Submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('UserDialog').innerHTML='';return false;" />
 	</div>
 </form>
 <br />

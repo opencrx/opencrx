@@ -72,6 +72,7 @@ import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -83,7 +84,7 @@ import org.w3c.spi2.Structures;
  * CreateActivityFollowUpWizardController
  *
  */
-public class CreateActivityFollowUpWizardController extends org.openmdx.portal.servlet.AbstractWizardController {
+public class CreateActivityFollowUpWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -168,10 +169,10 @@ public class CreateActivityFollowUpWizardController extends org.openmdx.portal.s
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "isInitialized") Boolean isInitialized,
-		@RequestParameter(name = "assignToXri") String assignToXri,
-		@RequestParameter(name = "reassignActivity") Boolean reassignActivity,
-		@FormParameter(forms = "doFollowUpForm") Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,
+		@JspWizardController.RequestParameter(name = "assignToXri") String assignToXri,
+		@JspWizardController.RequestParameter(name = "reassignActivity") Boolean reassignActivity,
+		@JspWizardController.FormParameter(forms = "doFollowUpForm") Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = getPm();
 		ApplicationContext app = getApp();
@@ -242,10 +243,10 @@ public class CreateActivityFollowUpWizardController extends org.openmdx.portal.s
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "isInitialized") Boolean isInitialized,
-		@RequestParameter(name = "assignToXri") String assignToXri,
-		@RequestParameter(name = "reassignActivity") Boolean reassignActivity,
-		@FormParameter(forms = "doFollowUpForm") Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,
+		@JspWizardController.RequestParameter(name = "assignToXri") String assignToXri,
+		@JspWizardController.RequestParameter(name = "reassignActivity") Boolean reassignActivity,
+		@JspWizardController.FormParameter(forms = "doFollowUpForm") Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.formFields = formFields;
@@ -347,7 +348,7 @@ public class CreateActivityFollowUpWizardController extends org.openmdx.portal.s
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

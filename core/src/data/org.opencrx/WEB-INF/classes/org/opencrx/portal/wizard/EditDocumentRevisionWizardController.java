@@ -61,8 +61,8 @@ import javax.jdo.PersistenceManager;
 import org.opencrx.kernel.document1.jmi1.Document;
 import org.opencrx.kernel.document1.jmi1.MediaContent;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -73,7 +73,7 @@ import org.w3c.cci2.BinaryLargeObjects;
  * EditDocumentRevisionWizardController
  *
  */
-public class EditDocumentRevisionWizardController extends AbstractWizardController {
+public class EditDocumentRevisionWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -92,8 +92,8 @@ public class EditDocumentRevisionWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "isInitialized") Boolean isInitialized,		
-		@FormParameter(forms = "editDocumentRevisionForm") Map<String,Object> formFields		
+		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,		
+		@JspWizardController.FormParameter(forms = "editDocumentRevisionForm") Map<String,Object> formFields		
 	) throws ServiceException {
 		this.formFields = formFields;
 		if(!Boolean.TRUE.equals(isInitialized)) {
@@ -137,8 +137,8 @@ public class EditDocumentRevisionWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "isInitialized") Boolean isInitialized,		
-		@FormParameter(forms = "editDocumentRevisionForm") Map<String,Object> formFields		
+		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,		
+		@JspWizardController.FormParameter(forms = "editDocumentRevisionForm") Map<String,Object> formFields		
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();
@@ -233,7 +233,7 @@ public class EditDocumentRevisionWizardController extends AbstractWizardControll
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

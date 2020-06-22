@@ -64,14 +64,14 @@ import javax.naming.InitialContext;
 
 import org.opencrx.kernel.utils.DbSchemaUtils;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * DbSchemaWizardController
  *
  */
-public class DbSchemaWizardController extends AbstractWizardController {
+public class DbSchemaWizardController extends JspWizardController {
 
 	/**
 	 * FormFields
@@ -234,7 +234,7 @@ public class DbSchemaWizardController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doRefresh(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.formFields = formFields;
 		this.report = new ArrayList<String>();
@@ -254,7 +254,7 @@ public class DbSchemaWizardController extends AbstractWizardController {
 	 * @throws SQLException
 	 */
 	public void doValidate(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) throws ServiceException, SQLException {
 		this.doRefresh(formFields);
 		this.validateSchema(
@@ -273,7 +273,7 @@ public class DbSchemaWizardController extends AbstractWizardController {
 	 * @throws SQLException
 	 */
 	public void doValidateAndFix(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) throws ServiceException, SQLException {
 		this.doRefresh(formFields);		
 		this.validateSchema(
@@ -290,7 +290,7 @@ public class DbSchemaWizardController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doMigrateMediaToFS(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.doRefresh(formFields);		
 		PersistenceManager pm = this.getPm();
@@ -318,7 +318,7 @@ public class DbSchemaWizardController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doMigrateMediaToDB(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.doRefresh(formFields);		
 		PersistenceManager pm = this.getPm();
@@ -339,7 +339,7 @@ public class DbSchemaWizardController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doValidateMedia(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.doRefresh(formFields);		
 		PersistenceManager pm = this.getPm();

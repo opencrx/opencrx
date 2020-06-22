@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_tcrrQN8HEdmKapscEl8OLg" name="account1">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_tcrrQN8HEdmKapscEl8OLg" name="account1">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99970033PPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99970033PP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99970033P" name="kernel">
@@ -1430,6 +1430,11 @@
                 <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
               </qualifier>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_XlgjwXyFEemtlKElUXEiFw" name="memberCategory" association="_XleHgHyFEemtlKElUXEiFw">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.code1.uml#_3C7B8A60016D3F42A0980090"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XlhK0HyFEemtlKElUXEiFw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xlhx4HyFEemtlKElUXEiFw" value="1"/>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D3FEC9CF20377" name="SegmentContainsAccount" memberEnd="_3C7B8A60016D3FEC9CF20378 _3C7B8A60016D3FEC9CF20379">
             <ownedEnd xmi:id="_3C7B8A60016D3FEC9CF20378" name="segment" type="_3C7B8A60016D3FEC9CB80356" isUnique="false" association="_3C7B8A60016D3FEC9CF20377">
@@ -2476,6 +2481,15 @@
             <generalization xmi:id="_pKumQND_Eee7VflwEpS8GA">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.address1.uml#_A9r6kND_Eee7VflwEpS8GA"/>
             </generalization>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_XleHgHyFEemtlKElUXEiFw" name="MemberHasMemberCategory" memberEnd="_XlgjwXyFEemtlKElUXEiFw _XliY8HyFEemtlKElUXEiFw">
+            <eAnnotations xmi:id="_Xlf8sHyFEemtlKElUXEiFw" source="org.eclipse.papyrus">
+              <details xmi:id="_XlgjwHyFEemtlKElUXEiFw" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_XliY8HyFEemtlKElUXEiFw" name="member" type="_3C7B8A60016D409FEA6102F9" association="_XleHgHyFEemtlKElUXEiFw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_behcsHyFEemtlKElUXEiFw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_berNsHyFEemtlKElUXEiFw" value="*"/>
+            </ownedEnd>
           </packagedElement>
         </packagedElement>
       </packagedElement>

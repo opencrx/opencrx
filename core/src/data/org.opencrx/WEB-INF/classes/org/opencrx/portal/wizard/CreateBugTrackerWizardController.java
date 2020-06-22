@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2012, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2019, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -52,12 +52,16 @@
  */
 package org.opencrx.portal.wizard;
 
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 
@@ -66,17 +70,19 @@ import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
+import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JsfWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
-import org.openmdx.portal.servlet.ViewPort;
-import org.openmdx.portal.servlet.ViewPortFactory;
-import org.openmdx.portal.servlet.component.TransientObjectView;
 
 /**
  * CreateBugTrackerWizardController
  *
  */
-public class CreateBugTrackerWizardController extends org.openmdx.portal.servlet.AbstractWizardController {
+@SuppressWarnings("deprecation")
+@ManagedBean
+@SessionScoped
+public class CreateBugTrackerWizardController extends JsfWizardController {
 
 	/**
 	 * Constructor.
@@ -86,6 +92,15 @@ public class CreateBugTrackerWizardController extends org.openmdx.portal.servlet
    	) {
    		super();
    	}
+	
+	/* (non-Javadoc)
+	 * @see org.openmdx.portal.servlet.JsfWizardController#newData()
+	 */
+	@Override
+	public Map<String, Object> newData(
+	) throws ServiceException {
+		return new HashMap<String,Object>();
+	}
 	
 	/**
 	 * Create bug tracker.
@@ -102,8 +117,8 @@ public class CreateBugTrackerWizardController extends org.openmdx.portal.servlet
 		String description
 	) throws ServiceException {
 		PersistenceManager pm = JDOHelper.getPersistenceManager(activitySegment);
-		String providerName = activitySegment.refGetPath().get(2);
-		String segmentName = activitySegment.refGetPath().get(4);		
+		String providerName = activitySegment.refGetPath().getSegment(2).toString();
+		String segmentName = activitySegment.refGetPath().getSegment(4).toString();
 		org.opencrx.security.realm1.jmi1.PrincipalGroup usersPrincipalGroup =
 			(org.opencrx.security.realm1.jmi1.PrincipalGroup)org.opencrx.kernel.backend.SecureObject.getInstance().findPrincipal(
 				"Users",
@@ -172,105 +187,54 @@ public class CreateBugTrackerWizardController extends org.openmdx.portal.servlet
 	}
 
 	/**
-	 * OK action.
+	 * doCreate action.
 	 * 
 	 * @param formFields
 	 * @throws ServiceException
 	 */
-	public void doOK(
-		@FormParameter(forms = "CreateActivityTrackerForm") Map<String,Object> formFields			
+	public void doCreate(
+		javax.faces.event.AjaxBehaviorEvent event				
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();
-		this.formFields = formFields;
+		Map<String,Object> data = this.getData();
+		List<String> errors = new ArrayList<String>();
 		String providerName = this.getProviderName();
 		String segmentName = this.getSegmentName();
 		org.opencrx.kernel.activity1.jmi1.Segment activitySegment =
 		    (org.opencrx.kernel.activity1.jmi1.Segment)pm.getObjectById(
 		        new Path("xri://@openmdx*org.opencrx.kernel.activity1").getDescendant("provider", providerName, "segment", segmentName)
 			);
-	    String name = (String)formFields.get("org:opencrx:kernel:activity1:ActivityGroup:name");
-	    String description = (String)formFields.get("org:opencrx:kernel:activity1:ActivityGroup:description");
+	    String name = (String)data.get("name");
+	    String description = (String)data.get("description");
     	if(name == null || name.isEmpty()) {
-    		this.errorMessage += "The field 'Name' is mandatory";
+    		errors.add("The field 'Name' is mandatory");
     	}
 	    if(name != null && !name.isEmpty()) {
-	    	ActivityTracker activityTracker = createBugTracker(
-	    		activitySegment,
-	    		name,
-	    		description
-	    	);
-	    	// Forward to tracker
-	    	this.setExitAction(
-	    		new ObjectReference(activityTracker, app).getSelectObjectAction()
-	    	);
-			return;
-	    }		
-	}
-
-   	/**
-   	 * Cancel action.
-   	 * 
-   	 * @throws ServiceException
-   	 */
-   	public void doCancel(
-	) throws ServiceException {
-		this.setExitAction(
-			new ObjectReference(this.getObject(), this.getApp()).getSelectObjectAction()
-		);
-	}
-
-   	/**
-   	 * Get form values.
-   	 * 
-   	 * @return
-   	 */
-   	public Map<String,Object> getFormFields(
-   	) {
-   		return this.formFields;
-   	}
-   	
-	/**
-	 * Get view port.
-	 * 
-	 * @param out
-	 * @return
-	 */
-	public ViewPort getViewPort(
-		Writer out
-	) {
-		if(this.viewPort == null) {
-			TransientObjectView view = new TransientObjectView(
-				this.getFormFields(),
-				this.getApp(),
-				this.getObject(),
-				this.getPm()
-			);
-			this.viewPort = ViewPortFactory.openPage(
-				view,
-				this.getRequest(),
-				out
-			);			
-		}
-		return this.viewPort;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
-	 */
-    @Override
-    public void close(
-    ) throws ServiceException {
-	    super.close();
-	    if(this.viewPort != null) {
-	    	this.viewPort.close(false);
+	    	try {
+		    	ActivityTracker activityTracker = createBugTracker(
+		    		activitySegment,
+		    		name,
+		    		description
+		    	);
+		    	// Forward to tracker
+		    	Action exitAction = new ObjectReference(
+		    		activityTracker,
+		    		app
+		    	).getSelectObjectAction();
+	   			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+	   			externalContext.redirect(
+	   				externalContext.getRequestContextPath() + "/" + exitAction.getEncodedHRef()
+	   			);
+	   		} catch(Exception e) {
+	   			throw new ServiceException(e);
+	   		}
 	    }
-    }
+	    data.put("errors", errors);
+	}
 
 	//-----------------------------------------------------------------------
 	// Members
 	//-----------------------------------------------------------------------	
-	private Map<String,Object> formFields;
-	private ViewPort viewPort;
 	
 }

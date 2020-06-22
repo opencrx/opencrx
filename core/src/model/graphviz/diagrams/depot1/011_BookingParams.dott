@@ -23,13 +23,14 @@ digraph "Diagram BookingParams [Package org:opencrx:kernel:depot1]" {
 	  LAYER0[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:depot1:CancelCompoundBookingResult,compartments=true,fillcolor="#FFECFF",width=4]};
 	  ${CLASS[name=org:opencrx:kernel:depot1:LockCompoundBookingParams,compartments=true,fillcolor="#FFECFF",width=4]};
-	  ${CLASS[name=org:opencrx:kernel:depot1:AppendBookingsResult,compartments=true,fillcolor="#FFECFF",width=4]};	  
+	  ${CLASS[name=org:opencrx:kernel:depot1:LockSimpleBookingParams,compartments=true,fillcolor="#FFECFF",width=4]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:depot1:AppendBookingsParams,compartments=true,fillcolor="#FFECFF",width=4]};	  
 	  ${CLASS[name=org:opencrx:kernel:depot1:AppendBookings2Params,compartments=true,fillcolor="#FFECFF",width=4]};	  
+	  ${CLASS[name=org:opencrx:kernel:depot1:AppendBookingsResult,compartments=true,fillcolor="#FFECFF",width=4]};	  
 	}
 	
 	LAYER0->LAYER1[style=invis];

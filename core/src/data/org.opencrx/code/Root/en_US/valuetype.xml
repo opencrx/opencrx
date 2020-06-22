@@ -36,7 +36,7 @@
 												<org.opencrx.kernel.code1.CodeValueEntry code="1" _operation="set">
 													<_object>
 														<shortText>
-															<_item>Base Amount</_item>
+															<_item>Base Amount</_item> <!-- SalesContractPosition:baseAmount -->
 														</shortText>
 														<longText>
 															<_item>Base Amount</_item>
@@ -48,10 +48,10 @@
 												<org.opencrx.kernel.code1.CodeValueEntry code="2" _operation="set">
 													<_object>
 														<shortText>
-															<_item>Amount (inxl. tax)</_item>
+															<_item>Amount (incl. tax)</_item> <!-- SalesContractPosition:amount -->
 														</shortText>
 														<longText>
-															<_item>Amount (inxl. tax)</_item>
+															<_item>Amount (incl. tax)</_item>
 														</longText>
 													</_object>
 													<_content/>
@@ -60,7 +60,7 @@
 												<org.opencrx.kernel.code1.CodeValueEntry code="3" _operation="set">
 													<_object>
 														<shortText>
-															<_item>Discount amount</_item>
+															<_item>Discount amount</_item> <!-- SalesContractPosition:discountAmount -->
 														</shortText>
 														<longText>
 															<_item>Discount amount</_item>
@@ -72,10 +72,22 @@
 												<org.opencrx.kernel.code1.CodeValueEntry code="4" _operation="set">
 													<_object>
 														<shortText>
-															<_item>Price per unit</_item>
+															<_item>Price per unit</_item> <!-- SalesContractPosition:pricePerUnit -->
 														</shortText>
 														<longText>
 															<_item>Price per unit</_item>
+														</longText>
+													</_object>
+													<_content/>
+												</org.opencrx.kernel.code1.CodeValueEntry>
+
+												<org.opencrx.kernel.code1.CodeValueEntry code="5" _operation="set">
+													<_object>
+														<shortText>
+															<_item>Total (excl. tax) [= Amount (incl. tax) - Tax]</_item> <!-- calculated: SalesContractPosition:amount MINUS SalesContractPosition:taxAmount -->
+														</shortText>
+														<longText>
+															<_item>Total (excl. tax)</_item>
 														</longText>
 													</_object>
 													<_content/>

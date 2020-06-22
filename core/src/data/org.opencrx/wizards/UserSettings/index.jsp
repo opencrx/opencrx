@@ -96,7 +96,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -107,9 +106,9 @@ org.openmdx.base.naming.*
 	<input type="hidden" name="<%= Action.PARAMETER_REQUEST_ID %>" value="<%= wc.getRequestId() %>" />
 	<input type="hidden" name="<%= Action.PARAMETER_OBJECTXRI %>" value="<%= wc.getObjectIdentity().toXRI() %>" />
 	<input type="hidden" id="Command" name="Command" value="" />
-	<div class="container" style="width:100%">
+	<div class="container-fluid">
 		<div class="row">
-			<fieldset>
+			<fieldset class="col-sm">
 				<div class="<%= CssClass.fieldGroupName %>">User Home</div>
 				<table style="width:100%">
 					<tr>
@@ -188,7 +187,9 @@ org.openmdx.base.naming.*
 					</tr>
 				</table>
 			</fieldset>
-			<fieldset>
+		</div>
+		<div class="row">		
+			<fieldset class="col-sm">
 				<div class="<%= CssClass.fieldGroupName %>">Root Menu</div>
 				<table style="width:100%">
 					<tr>
@@ -253,7 +254,9 @@ org.openmdx.base.naming.*
 					</tr>
 				</table>
 			</fieldset>
-			<fieldset>
+		</div>
+		<div class="row">		
+			<fieldset class="col-sm">
 				<div class="<%= CssClass.fieldGroupName %>">Subscriptions</div>
 				<table style="width:100%">
 					<tr>
@@ -288,7 +291,7 @@ org.openmdx.base.naming.*
 								eventTypes.add(eventType);
 							}
 						}
-						String topicId = topic.refGetPath().getBase();
+						String topicId = topic.refGetPath().getLastSegment().toString();
 %>
 					<tr>
 						<td nowrap title="<%= topic.getDescription() != null ? topic.getDescription() : "" %>">
@@ -320,7 +323,7 @@ org.openmdx.base.naming.*
 		boolean allowApply = wc.currentUserIsAdmin() || wc.currentUserOwnsHome(userHome);
 		if(allowApply) {
 %>		
-			<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="<%= app.getTexts().getOkTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;this.name='---';" />
+			<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="<%= app.getTexts().getOkTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;this.name='---';" />
 <%
 		} else {
 %>
@@ -330,7 +333,7 @@ org.openmdx.base.naming.*
 <%
 		}
 %>			
-		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
+		<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
 	</div>
 </form>
 <br />

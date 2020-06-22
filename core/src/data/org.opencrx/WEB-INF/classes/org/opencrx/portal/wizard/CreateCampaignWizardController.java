@@ -86,6 +86,7 @@ import org.opencrx.kernel.utils.QueryBuilderUtil;
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -96,7 +97,7 @@ import org.w3c.cci2.BinaryLargeObjects;
  * CreateCampaignWizardController
  *
  */
-public class CreateCampaignWizardController extends org.openmdx.portal.servlet.AbstractWizardController {
+public class CreateCampaignWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -125,8 +126,8 @@ public class CreateCampaignWizardController extends org.openmdx.portal.servlet.A
 		boolean initCampaignActivityCreator
 	) throws ServiceException {
 		PersistenceManager pm = JDOHelper.getPersistenceManager(activityType);
-		String providerName = activityType.refGetPath().getSegment(2).toClassicRepresentation();
-		String segmentName = activityType.refGetPath().getSegment(4).toClassicRepresentation();
+		String providerName = activityType.refGetPath().getSegment(2).toString();
+		String segmentName = activityType.refGetPath().getSegment(4).toString();
 		org.opencrx.kernel.activity1.jmi1.Segment activitySegment = Activities.getInstance().getActivitySegment(pm, providerName, segmentName);
 		org.opencrx.security.realm1.jmi1.PrincipalGroup usersPrincipalGroup =
 			(org.opencrx.security.realm1.jmi1.PrincipalGroup)org.opencrx.kernel.backend.SecureObject.getInstance().findPrincipal(
@@ -283,7 +284,7 @@ public class CreateCampaignWizardController extends org.openmdx.portal.servlet.A
     			targetGroupAccountsSelectorByLocale = (AccountFilterGlobal)Cloneable.getInstance().cloneObject(
     	    		source,
     	    		accountSegment,
-    	    		source.refGetPath().getParent().getLastSegment().toClassicRepresentation(),
+    	    		source.refGetPath().getParent().getLastSegment().toString(),
     	    		null, // objectMarshallers
     	    		null, // referenceFilterAsString
     	    		UserHomes.getInstance().getUserHome(
@@ -424,12 +425,12 @@ public class CreateCampaignWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "locale0") String locale0,
-		@RequestParameter(name = "locale1") String locale1,		
-		@RequestParameter(name = "locale2") String locale2,		
-		@RequestParameter(name = "locale3") String locale3,		
-		@RequestParameter(name = "locale4") String locale4,
-		@FormParameter(forms = "CreateCampaignForm") Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "locale0") String locale0,
+		@JspWizardController.RequestParameter(name = "locale1") String locale1,		
+		@JspWizardController.RequestParameter(name = "locale2") String locale2,		
+		@JspWizardController.RequestParameter(name = "locale3") String locale3,		
+		@JspWizardController.RequestParameter(name = "locale4") String locale4,
+		@JspWizardController.FormParameter(forms = "CreateCampaignForm") Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();
@@ -642,7 +643,7 @@ public class CreateCampaignWizardController extends org.openmdx.portal.servlet.A
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

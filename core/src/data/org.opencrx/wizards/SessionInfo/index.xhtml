@@ -42,10 +42,10 @@
 						     </div>
 						</div>
 						<div id="SubmitArea" style="float:left;">
-							<h:commandButton styleClass="btn" style="margin:5px;" value="#{sessionInfoController.app.texts.reloadText}" update="form">
+							<h:commandButton styleClass="btn btn-light" style="margin:5px;" value="#{sessionInfoController.app.texts.reloadText}" update="form">
 								<f:ajax execute="form" listener="#{sessionInfoController.doRefresh}" render="form" />							
 							</h:commandButton>
-							<h:commandButton styleClass="btn" style="margin:5px;" value="#{sessionInfoController.app.texts.cancelTitle}" update="form">
+							<h:commandButton styleClass="btn btn-light" style="margin:5px;" value="#{sessionInfoController.app.texts.cancelTitle}" update="form">
 								<f:ajax execute="form" listener="#{sessionInfoController.doCancel}" render="form" />							
 							</h:commandButton>
 		      			</div>

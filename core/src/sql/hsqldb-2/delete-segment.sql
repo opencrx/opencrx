@@ -1,4 +1,4 @@
-/* Copyright (C) 1991-2018 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2019 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -33,7 +33,6 @@
    - 56 emoji characters
    - 285 hentaigana
    - 3 additional Zanabazar Square characters */
-/* We do not support C11 <threads.h>.  */
 -- This software is published under the BSD license
 -- as listed below.
 --

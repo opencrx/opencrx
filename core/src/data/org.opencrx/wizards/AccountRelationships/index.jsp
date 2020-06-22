@@ -254,7 +254,7 @@ org.openmdx.base.naming.*
 %>
   	          <td colspan=4>
                 <div class="autocompleterMenu">
-                  <ul id="<%=CssClass.ssfNav %>" class="<%=CssClass.ssfNav %>" onmouseover="sfinit(this);" >
+                  <ul id="<%=CssClass.ssf_nav %>" class="<%=CssClass.ssf_nav %>" onmouseover="sfinit(this);" >
                     <li><a href="#"><img border="0" alt="" src="../../images/autocomplete_select.png" /></a>
                       <ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
                         <li class="selected"><a href="#" onclick="javascript:navSelect(this);ac_addObject0.url= './'+getEncodedHRef(['../../ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.account1/provider/<%= providerName %>/segment/<%= segmentName %>)*referenceName*(account)*filterByType*(org:opencrx:kernel:account1:Account)*filterByFeature*(fullName)*filterOperator*(IS_LIKE)*orderByFeature*(fullName)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span><%= accountName %> / <%= userView.getFieldLabel(ACCOUNT_CLASS, "fullName", app.getCurrentLocaleAsIndex()) %></a></li>
@@ -337,8 +337,8 @@ org.openmdx.base.naming.*
   <table class="fieldGroup">
     <tr id="submitButtons" style="font-weight:bold;">
       <td>
-        <input type="Submit" name="OK.Button" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" value="<%= app.getTexts().getOkTitle() %>" onmouseup="javascript:$('waitMsg').style.display='block';$('submitButtons').style.visibility='hidden';" />
-        <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onmouseup="javascript:$('waitMsg').style.display='block';$('submitButtons').style.visibility='hidden';" />
+        <input type="Submit" name="OK.Button" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9000" value="<%= app.getTexts().getOkTitle() %>" onmouseup="javascript:$('waitMsg').style.display='block';$('submitButtons').style.visibility='hidden';" />
+        <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="<%= app.getTexts().getCancelTitle() %>" onmouseup="javascript:$('waitMsg').style.display='block';$('submitButtons').style.visibility='hidden';" />
       </td>
     </tr>
     <tr id="waitMsg" style="display:none;">
@@ -358,8 +358,8 @@ org.openmdx.base.naming.*
     // initialize account sets
     Set accountsReachedFromSource = new HashSet();
     Set accountsReachedFromTarget = new HashSet();
-    accountsReachedFromSource.add(new String(((new Path(accountSource.refMofId())).getLastComponent()).toString()));
-    accountsReachedFromTarget.add(new String(((new Path(accountTarget.refMofId())).getLastComponent()).toString()));
+    accountsReachedFromSource.add(new String(((new Path(accountSource.refMofId())).getLastSegment()).toString()));
+    accountsReachedFromTarget.add(new String(((new Path(accountTarget.refMofId())).getLastSegment()).toString()));
     int previousSourceSetSize = 0;
     int previousTargetSetSize = 0;
 
@@ -441,11 +441,11 @@ org.openmdx.base.naming.*
               if (expandSourceSet) {
         			  //System.out.println("[dist=" + formatter5.format(currentDistance) + "] adding inbound to source set: " + ((new ObjectReference(membership.getAccountFrom(), app)).getTitle()));
                 //accountsReachedFromSource.add(membership.getAccountFromId());
-                //accountsReachedFromSource.add(new String(((new Path(membership.getAccountFrom().refMofId())).getLastComponent()).toString()));
+                //accountsReachedFromSource.add(new String(((new Path(membership.getAccountFrom().refMofId())).getLastSegment()).toString()));
                 accountsReachedFromSource.add(acctQualifier);
               } else {
         			  //System.out.println("[dist=" + formatter5.format(currentDistance) + "] adding inbound to target set: " + ((new ObjectReference(membership.getAccountFrom(), app)).getTitle()));
-                //accountsReachedFromTarget.add(new String(((new Path(membership.getAccountFrom().refMofId())).getLastComponent()).toString()));
+                //accountsReachedFromTarget.add(new String(((new Path(membership.getAccountFrom().refMofId())).getLastSegment()).toString()));
                 accountsReachedFromTarget.add(acctQualifier);
               }
             }
@@ -476,11 +476,11 @@ org.openmdx.base.naming.*
       			  // add this account to the appropriate account set
               if (expandSourceSet) {
         			  //System.out.println("[dist=" + formatter5.format(currentDistance) + "] adding outbound to source set: " + ((new ObjectReference(membership.getAccountTo(), app)).getTitle()));
-                //accountsReachedFromSource.add(new String(((new Path(membership.getAccountTo().refMofId())).getLastComponent()).toString()));
+                //accountsReachedFromSource.add(new String(((new Path(membership.getAccountTo().refMofId())).getLastSegment()).toString()));
                 accountsReachedFromSource.add(acctQualifier);
               } else {
         			  //System.out.println("[dist=" + formatter5.format(currentDistance) + "] adding outbound to target set: " + ((new ObjectReference(membership.getAccountTo(), app)).getTitle()));
-                //accountsReachedFromTarget.add(new String(((new Path(membership.getAccountTo().refMofId())).getLastComponent()).toString()));
+                //accountsReachedFromTarget.add(new String(((new Path(membership.getAccountTo().refMofId())).getLastSegment()).toString()));
                 accountsReachedFromTarget.add(acctQualifier);
               }
             }

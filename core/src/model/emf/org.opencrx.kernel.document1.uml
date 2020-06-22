@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_3ekm8N8HEdmKapscEl8OLg" name="document1">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_3ekm8N8HEdmKapscEl8OLg" name="document1">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99EB025APPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99EB025APP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99EB025AP" name="kernel">
@@ -1061,6 +1061,46 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_hG0YkN5GEemIn4y4oCcLXA" name="DocumentLinkTo">
+            <generalization xmi:id="_rVyuAN5GEemIn4y4oCcLXA">
+              <general xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D3FB3D6450214"/>
+            </generalization>
+            <generalization xmi:id="_r8sV8N5GEemIn4y4oCcLXA">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_3C7B8A60016D4155CD91035D"/>
+            </generalization>
+            <ownedAttribute xmi:id="_tSYWgN5GEemIn4y4oCcLXA" name="name">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_t0chwN5GEemIn4y4oCcLXA" name="description">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w2sKwN5GEemIn4y4oCcLXA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_zUN9IN5GEemIn4y4oCcLXA" name="document" type="_3C7B8A60016D3F3EBD2F006A" association="_zUNWEN5GEemIn4y4oCcLXA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zUOkMN5GEemIn4y4oCcLXA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zURAcN5GEemIn4y4oCcLXA" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_zUNWEN5GEemIn4y4oCcLXA" name="DocumentLinkToHasDocument" memberEnd="_zUN9IN5GEemIn4y4oCcLXA _zUTcsN5GEemIn4y4oCcLXA">
+            <eAnnotations xmi:id="_zUNWEd5GEemIn4y4oCcLXA" source="org.eclipse.papyrus">
+              <details xmi:id="_zUNWEt5GEemIn4y4oCcLXA" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_zUTcsN5GEemIn4y4oCcLXA" name="documentLinkTo" type="_hG0YkN5GEemIn4y4oCcLXA" association="_zUNWEN5GEemIn4y4oCcLXA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3IdDwN5GEemIn4y4oCcLXA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3IfgAN5GEemIn4y4oCcLXA" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_kXllwN5GEemIn4y4oCcLXA" name="DocumentContainsDocumentLinkTo" memberEnd="_kXna8d5GEemIn4y4oCcLXA _kX2EcN5GEemIn4y4oCcLXA" navigableOwnedEnd="_kX2EcN5GEemIn4y4oCcLXA">
+            <eAnnotations xmi:id="_kXmz4N5GEemIn4y4oCcLXA" source="org.eclipse.papyrus">
+              <details xmi:id="_kXna8N5GEemIn4y4oCcLXA" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_kX2EcN5GEemIn4y4oCcLXA" name="linkTo" type="_hG0YkN5GEemIn4y4oCcLXA" aggregation="composite" association="_kXllwN5GEemIn4y4oCcLXA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pysjkN5GEemIn4y4oCcLXA"/>
+              <qualifier xmi:id="_uRfNoN5HEemIn4y4oCcLXA" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_kXna8d5GEemIn4y4oCcLXA" name="linkFrom" type="_3C7B8A60016D3F3EBD2F006A" association="_kXllwN5GEemIn4y4oCcLXA"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>

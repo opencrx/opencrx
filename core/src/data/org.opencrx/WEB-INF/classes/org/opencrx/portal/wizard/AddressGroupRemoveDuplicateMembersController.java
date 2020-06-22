@@ -65,14 +65,14 @@ import org.opencrx.kernel.activity1.jmi1.AddressGroupMember;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * AddressGroupRemoveDuplicateMembersController
  *
  */
-public class AddressGroupRemoveDuplicateMembersController extends AbstractWizardController {
+public class AddressGroupRemoveDuplicateMembersController extends JspWizardController {
 
 	public AddressGroupRemoveDuplicateMembersController(
 	) {

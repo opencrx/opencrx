@@ -66,8 +66,8 @@ import org.opencrx.kernel.document1.jmi1.DocumentFolderEntry;
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.text.conversion.HtmlEncoder;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.cci2.BinaryLargeObjects;
 
@@ -75,7 +75,7 @@ import org.w3c.cci2.BinaryLargeObjects;
  * CreateListingIndexWizardController
  *
  */
-public class CreateListingIndexWizardController extends AbstractWizardController {
+public class CreateListingIndexWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -124,7 +124,7 @@ public class CreateListingIndexWizardController extends AbstractWizardController
 		if(this.getObject() instanceof DocumentFolder) {
 			org.opencrx.kernel.document1.jmi1.Segment documentSegment = Documents.getInstance().getDocumentSegment(pm, this.getProviderName(), this.getSegmentName());
 			DocumentFolder folder = (DocumentFolder)this.getObject();
-			String author = app.getUserHomeIdentityAsPath().getBase();
+			String author = app.getUserHomeIdentityAsPath().getLastSegment().toString();
 			// Find index.html
 			Document indexDocument = null;
 			DocumentFolderEntryQuery folderEntryQuery = (DocumentFolderEntryQuery)pm.newQuery(DocumentFolderEntry.class);

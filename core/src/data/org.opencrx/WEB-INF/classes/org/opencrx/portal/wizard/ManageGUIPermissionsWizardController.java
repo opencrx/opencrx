@@ -69,27 +69,27 @@ import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.WebKeys;
 import org.openmdx.portal.servlet.component.AttributePane;
-import org.openmdx.portal.servlet.component.UiAttributeTab;
-import org.openmdx.portal.servlet.component.UiFieldGroup;
 import org.openmdx.portal.servlet.component.ObjectView;
 import org.openmdx.portal.servlet.component.ReferencePane;
 import org.openmdx.portal.servlet.component.ShowObjectView;
+import org.openmdx.portal.servlet.component.UiAttributeTab;
+import org.openmdx.portal.servlet.component.UiFieldGroup;
+import org.openmdx.portal.servlet.control.OperationPaneControl;
 import org.openmdx.portal.servlet.control.UiFieldGroupControl;
 import org.openmdx.portal.servlet.control.UiGridControl;
-import org.openmdx.portal.servlet.control.OperationPaneControl;
 import org.openmdx.portal.servlet.control.UiOperationTabControl;
-import org.openmdx.portal.servlet.control.WizardControl;
 import org.openmdx.portal.servlet.control.UiWizardTabControl;
+import org.openmdx.portal.servlet.control.WizardControl;
 
 /**
  * ManageGUIPermissionsWizardController
  *
  */
-public class ManageGUIPermissionsWizardController extends AbstractWizardController {
+public class ManageGUIPermissionsWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -361,9 +361,9 @@ public class ManageGUIPermissionsWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "storePermissions") Boolean storePermissions,
-		@RequestParameter(name = "view") String viewName,
-		@RequestParameter(name = "role") String roleName
+		@JspWizardController.RequestParameter(name = "storePermissions") Boolean storePermissions,
+		@JspWizardController.RequestParameter(name = "view") String viewName,
+		@JspWizardController.RequestParameter(name = "role") String roleName
 	) throws ServiceException {
 		RefObject_1_0 obj = this.getObject();
 		this.viewName = viewName;
@@ -376,7 +376,7 @@ public class ManageGUIPermissionsWizardController extends AbstractWizardControll
 		}
 		PersistenceManager pm = this.getPm();
 		org.openmdx.security.realm1.jmi1.Principal currentPrincipal = Utils.getRequestingPrincipal(pm, this.getProviderName(), this.getSegmentName());
-		this.currentUserIsAdmin = currentPrincipal.refGetPath().getBase().equals(SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR + this.getSegmentName());
+		this.currentUserIsAdmin = currentPrincipal.refGetPath().getLastSegment().toString().equals(SecurityKeys.ADMIN_PRINCIPAL + SecurityKeys.ID_SEPARATOR + this.getSegmentName());
 		this.wizardState = (WizardState)this.getSession().getAttribute(
 			WizardState.class.getName()
 		);	
@@ -599,8 +599,8 @@ public class ManageGUIPermissionsWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doApply(
-		@RequestParameter(name = "view") String viewName,
-		@RequestParameter(name = "role") String roleName		
+		@JspWizardController.RequestParameter(name = "view") String viewName,
+		@JspWizardController.RequestParameter(name = "role") String roleName		
 	) throws ServiceException {
 		this.doRefresh(
 			true, // storePermissions
@@ -618,9 +618,9 @@ public class ManageGUIPermissionsWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doAddGenericPermissions(
-		@RequestParameter(name = "view") String viewName,
-		@RequestParameter(name = "role") String roleName,
-		@RequestParameter(name = "genericPermissions") String[] selectedPermissions
+		@JspWizardController.RequestParameter(name = "view") String viewName,
+		@JspWizardController.RequestParameter(name = "role") String roleName,
+		@JspWizardController.RequestParameter(name = "genericPermissions") String[] selectedPermissions
 	) throws ServiceException {
 		this.doRefresh(
 			false, // storePermissions 
@@ -645,9 +645,9 @@ public class ManageGUIPermissionsWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doRemoveGenericPermissions(
-		@RequestParameter(name = "view") String viewName,
-		@RequestParameter(name = "role") String roleName,
-		@RequestParameter(name = "currentGenericPermissions") String[] selectedPermissions
+		@JspWizardController.RequestParameter(name = "view") String viewName,
+		@JspWizardController.RequestParameter(name = "role") String roleName,
+		@JspWizardController.RequestParameter(name = "currentGenericPermissions") String[] selectedPermissions
 	) throws ServiceException {
 		this.doRefresh(
 			false, // storePermissions 
@@ -672,9 +672,9 @@ public class ManageGUIPermissionsWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doAddSpecificPermissions(
-		@RequestParameter(name = "view") String viewName,
-		@RequestParameter(name = "role") String roleName,
-		@RequestParameter(name = "specificPermissions") String[] selectedPermissions
+		@JspWizardController.RequestParameter(name = "view") String viewName,
+		@JspWizardController.RequestParameter(name = "role") String roleName,
+		@JspWizardController.RequestParameter(name = "specificPermissions") String[] selectedPermissions
 	) throws ServiceException {
 		this.doRefresh(
 			false, // storePermissions 
@@ -699,9 +699,9 @@ public class ManageGUIPermissionsWizardController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doRemoveSpecificPermissions(
-		@RequestParameter(name = "view") String viewName,
-		@RequestParameter(name = "role") String roleName,
-		@RequestParameter(name = "currentSpecificPermissions") String[] selectedPermissions
+		@JspWizardController.RequestParameter(name = "view") String viewName,
+		@JspWizardController.RequestParameter(name = "role") String roleName,
+		@JspWizardController.RequestParameter(name = "currentSpecificPermissions") String[] selectedPermissions
 	) throws ServiceException {
 		this.doRefresh(
 			false, // storePermissions 

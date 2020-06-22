@@ -1,7 +1,7 @@
 /* This software is published under the BSD license                          */
 /* as listed below.                                                          */
 /*                                                                           */
-/* Copyright (c) 2004-2016, CRIXP Corp., Switzerland                         */
+/* Copyright (c) 2004-2020, CRIXP Corp., Switzerland                         */
 /* All rights reserved.                                                      */
 /*                                                                           */
 /* Redistribution and use in source and binary forms, with or without        */
@@ -100,6 +100,8 @@ CREATE INDEX I_OOCKE1_CONTRACT_ACTIVE_ON ON OOCKE1_CONTRACT(active_on) ;
 CREATE INDEX I_OOCKE1_CONTRACT_EXPIRES_ON ON OOCKE1_CONTRACT(expires_on) ;
 CREATE INDEX I_OOCKE1_CONTRACT_MOD_AT ON OOCKE1_CONTRACT(modified_at) ;
 CREATE INDEX I_OOCKE1_CONTRACT_CREATEDAT ON OOCKE1_CONTRACT(created_at) ;
+
+CREATE INDEX I_OOCKE1_CONTRACTPOS_PRODUCT ON OOCKE1_CONTRACTPOSITION(product) ;
 
 CREATE INDEX I_OOCKE1_DEPOT_PARENT ON OOCKE1_DEPOT("P$$PARENT") ;
 CREATE INDEX I_OOCKE1_DEPOT_NAME ON OOCKE1_DEPOT(name) ;

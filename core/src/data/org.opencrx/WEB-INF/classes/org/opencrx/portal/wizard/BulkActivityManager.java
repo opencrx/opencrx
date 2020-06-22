@@ -58,18 +58,17 @@ import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.TimeZone;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpServletRequest;
 
 import org.opencrx.kernel.account1.cci2.ContactQuery;
 import org.opencrx.kernel.account1.cci2.EMailAddressQuery;
@@ -116,11 +115,8 @@ import org.openmdx.base.jmi1.BasicObject;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.rest.cci.QueryExtensionRecord;
-import org.openmdx.portal.servlet.AbstractWizardController;
-import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
-import org.openmdx.portal.servlet.ObjectReference;
-import org.openmdx.portal.servlet.attribute.DateValue;
+import org.openmdx.portal.servlet.JsfWizardController;
 
 /**
  * BulkActivityManager
@@ -129,7 +125,7 @@ import org.openmdx.portal.servlet.attribute.DateValue;
 @SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
-public class BulkActivityManager extends AbstractWizardController {
+public class BulkActivityManager extends JsfWizardController {
 
 	/**
 	 * ActivityFollowUpBean
@@ -163,16 +159,16 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the transition
 		 */
-		public AbstractWizardController.ObjectReferenceBean getTransition() {
+		public JsfWizardController.ObjectReferenceBean getTransition() {
 			return transition;
 		}
 		/**
 		 * @param transition the transition to set
 		 */
-		public void setTransition(AbstractWizardController.ObjectReferenceBean transition) {
+		public void setTransition(JsfWizardController.ObjectReferenceBean transition) {
 			this.transition = transition;
 		}
-		private AbstractWizardController.ObjectReferenceBean transition = new AbstractWizardController.ObjectReferenceBean();
+		private JsfWizardController.ObjectReferenceBean transition = new JsfWizardController.ObjectReferenceBean();
 		private String title;
 		private String text;
 	}
@@ -209,16 +205,16 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the timer
 		 */
-		public AbstractWizardController.ObjectReferenceBean getTimer() {
+		public JsfWizardController.ObjectReferenceBean getTimer() {
 			return timer;
 		}
 		/**
 		 * @param timer the timer to set
 		 */
-		public void setTimer(AbstractWizardController.ObjectReferenceBean timer) {
+		public void setTimer(JsfWizardController.ObjectReferenceBean timer) {
 			this.timer = timer;
 		}
-		private AbstractWizardController.ObjectReferenceBean timer;
+		private JsfWizardController.ObjectReferenceBean timer;
 		private String name;
 		private Date triggerAt;
 	}
@@ -231,13 +227,13 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the wfProcessInstance
 		 */
-		public AbstractWizardController.ObjectReferenceBean getWfProcessInstance() {
+		public JsfWizardController.ObjectReferenceBean getWfProcessInstance() {
 			return wfProcessInstance;
 		}
 		/**
 		 * @param wfProcessInstance the wfProcessInstance to set
 		 */
-		public void setWfProcessInstance(AbstractWizardController.ObjectReferenceBean wfProcessInstance) {
+		public void setWfProcessInstance(JsfWizardController.ObjectReferenceBean wfProcessInstance) {
 			this.wfProcessInstance = wfProcessInstance;
 		}
 		/**
@@ -324,7 +320,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		public void setCreatedAt(Date createdAt) {
 			this.createdAt = createdAt;
 		}
-		private AbstractWizardController.ObjectReferenceBean wfProcessInstance;
+		private JsfWizardController.ObjectReferenceBean wfProcessInstance;
 		private String processState;
 		private Date lastActivityOn;
 		private Date startedOn;
@@ -498,13 +494,13 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the senderEMail
 		 */
-		public AbstractWizardController.ObjectReferenceBean getSenderEMail() {
+		public JsfWizardController.ObjectReferenceBean getSenderEMail() {
 			return senderEMail;
 		}
 		/**
 		 * @param senderEMail the senderEMail to set
 		 */
-		public void setSenderEMail(AbstractWizardController.ObjectReferenceBean senderEMail) {
+		public void setSenderEMail(JsfWizardController.ObjectReferenceBean senderEMail) {
 			this.senderEMail = senderEMail;
 		}
 		public Short getRecipientEMailAddressUsage1() {
@@ -543,16 +539,16 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the activityCreator
 		 */
-		public AbstractWizardController.ObjectReferenceBean getActivityCreator() {
+		public JsfWizardController.ObjectReferenceBean getActivityCreator() {
 			return activityCreator;
 		}
 		/**
 		 * @param activityCreator the activityCreator to set
 		 */
-		public void setActivityCreator(AbstractWizardController.ObjectReferenceBean activityCreator) {
+		public void setActivityCreator(JsfWizardController.ObjectReferenceBean activityCreator) {
 			this.activityCreator = activityCreator;
 		}
-		private AbstractWizardController.ObjectReferenceBean activityCreator;
+		private JsfWizardController.ObjectReferenceBean activityCreator;
 		private Boolean excludeNoBulkEMail;
 		private Boolean isEMail;
 		private Short locale;
@@ -565,7 +561,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		private Short priority;
 		private String messageSubject;
 		private String messageBody;
-		private AbstractWizardController.ObjectReferenceBean senderEMail;
+		private JsfWizardController.ObjectReferenceBean senderEMail;
 		private Short recipientEMailAddressUsage1;
 		private Short recipientEMailAddressUsage2;
 		private Short recipientEMailAddressUsage3;
@@ -586,13 +582,13 @@ public class BulkActivityManager extends AbstractWizardController {
 			/**
 			 * @return the activityProcessState
 			 */
-			public AbstractWizardController.ObjectReferenceBean getActivityProcessState() {
+			public JsfWizardController.ObjectReferenceBean getActivityProcessState() {
 				return activityProcessState;
 			}
 			/**
 			 * @param activityProcessState the activityProcessState to set
 			 */
-			public void setActivityProcessState(AbstractWizardController.ObjectReferenceBean activityProcessState) {
+			public void setActivityProcessState(JsfWizardController.ObjectReferenceBean activityProcessState) {
 				this.activityProcessState = activityProcessState;
 			}
 			/**
@@ -634,37 +630,37 @@ public class BulkActivityManager extends AbstractWizardController {
 			/**
 			 * @return the findAssignToResult
 			 */
-			public List<AbstractWizardController.ObjectReferenceBean> getFindAssignToResult() {
+			public List<JsfWizardController.ObjectReferenceBean> getFindAssignToResult() {
 				return findAssignToResult;
 			}
 			/**
 			 * @param findAssignToResult the findAssignToResult to set
 			 */
-			public void setFindAssignToResult(List<AbstractWizardController.ObjectReferenceBean> findAssignToResult) {
+			public void setFindAssignToResult(List<JsfWizardController.ObjectReferenceBean> findAssignToResult) {
 				this.findAssignToResult = findAssignToResult;
 			}			
 			/**
 			 * @return the findFollowUp1TransitionResult
 			 */
-			public List<AbstractWizardController.ObjectReferenceBean> getFindFollowUp1TransitionResult() {
+			public List<JsfWizardController.ObjectReferenceBean> getFindFollowUp1TransitionResult() {
 				return findFollowUp1TransitionResult;
 			}
 			/**
 			 * @param findFollowUp1TransitionResult the findFollowUp1TransitionResult to set
 			 */
-			public void setFindFollowUp1TransitionResult(List<AbstractWizardController.ObjectReferenceBean> findFollowUp1TransitionResult) {
+			public void setFindFollowUp1TransitionResult(List<JsfWizardController.ObjectReferenceBean> findFollowUp1TransitionResult) {
 				this.findFollowUp1TransitionResult = findFollowUp1TransitionResult;
 			}
 			/**
 			 * @return the findFollowUp2TransitionResult
 			 */
-			public List<AbstractWizardController.ObjectReferenceBean> getFindFollowUp2TransitionResult() {
+			public List<JsfWizardController.ObjectReferenceBean> getFindFollowUp2TransitionResult() {
 				return findFollowUp2TransitionResult;
 			}
 			/**
 			 * @param findFollowUp2TransitionResult the findFollowUp2TransitionResult to set
 			 */
-			public void setFindFollowUp2TransitionResult(List<AbstractWizardController.ObjectReferenceBean> findFollowUp2TransitionResult) {
+			public void setFindFollowUp2TransitionResult(List<JsfWizardController.ObjectReferenceBean> findFollowUp2TransitionResult) {
 				this.findFollowUp2TransitionResult = findFollowUp2TransitionResult;
 			}
 			
@@ -678,7 +674,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		   		javax.faces.event.AjaxBehaviorEvent event
 		   	) throws ServiceException {
 		   		Path path = BulkActivityManager.this.getObjectIdentity();
-		   		QueryBean queryBean = new QueryBean();
+		   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
 		   		queryBean.setPosition(0);
 		   		queryBean.setSize(DEFAULT_RESULT_SET_SIZE);   		
 		   		queryBean.setQuery(this.getDoBulkActivityFollowUpParams().getAssignTo().getTitle());
@@ -700,7 +696,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		   		javax.faces.event.AjaxBehaviorEvent event
 		   	) throws ServiceException {
 		   		Path path = new Path(this.getActivityProcessState().getXri());
-		   		QueryBean queryBean = new QueryBean();
+		   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
 		   		queryBean.setPosition(0);
 		   		queryBean.setSize(DEFAULT_RESULT_SET_SIZE);   		
 		   		queryBean.setQuery(this.getDoBulkActivityFollowUpParams().getFollowUp1().getTransition().getTitle());
@@ -722,7 +718,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		   		javax.faces.event.AjaxBehaviorEvent event
 		   	) throws ServiceException {
 		   		Path path = new Path(this.getActivityProcessState().getXri());
-		   		QueryBean queryBean = new QueryBean();
+		   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
 		   		queryBean.setPosition(0);
 		   		queryBean.setSize(DEFAULT_RESULT_SET_SIZE);
 		   		queryBean.setQuery(this.getDoBulkActivityFollowUpParams().getFollowUp2().getTransition().getTitle());
@@ -747,6 +743,7 @@ public class BulkActivityManager extends AbstractWizardController {
 			) throws ServiceException {
 				PersistenceManager pm = BulkActivityManager.this.getPm();
 				ApplicationContext app = BulkActivityManager.this.getApp();
+				Map<String,Object> data = BulkActivityManager.this.getData();
 				Path path = BulkActivityManager.this.getObjectIdentity();
 				DoBulkActivityFollowUpParams params = this.getDoBulkActivityFollowUpParams(); 
 				ActivityGroup activityGroup = (ActivityGroup)pm.getObjectById(new Path(BulkCreateActivityBean.this.getActivityGroup().getXri()));
@@ -784,7 +781,7 @@ public class BulkActivityManager extends AbstractWizardController {
 								Timer timer = pm.newInstance(Timer.class);
 								timer.setName(
 									(timerBean.getName() == null || timerBean.getName().isEmpty() ? "" : timerBean.getName() + ": ") +
-									activityGroup.getName() + " / " + transitionNames + " / " + userHome.refGetPath().getLastSegment().toClassicRepresentation() 
+									activityGroup.getName() + " / " + transitionNames + " / " + userHome.refGetPath().getLastSegment().toString() 
 								);
 								timer.setTimerStartAt(timerBean.getTriggerAt());
 								try {
@@ -808,7 +805,7 @@ public class BulkActivityManager extends AbstractWizardController {
 							} else {
 								// Create workflow instance
 								executionTarget = Workflows.getInstance().executeWorkflow(
-									activityGroup.getName() + " / " + transitionNames + " / " + userHome.refGetPath().getLastSegment().toClassicRepresentation(),
+									activityGroup.getName() + " / " + transitionNames + " / " + userHome.refGetPath().getLastSegment().toString(),
 									userHome,
 									wfProcess,
 									activityGroup,
@@ -899,11 +896,13 @@ public class BulkActivityManager extends AbstractWizardController {
 							}
 							pm.currentTransaction().commit();
 							if(executionTarget instanceof WfProcessInstance) {
-								data.setWfProcessInstance(
+								data.put(
+									"wfProcessInstance",
 									BulkActivityManager.this.toWfProcessInstanceBean((WfProcessInstance)executionTarget)
 								);
 							} else {
-								data.setWfProcessInstance(
+								data.put(
+									"wfProcessInstance",
 									new WfProcessInstanceBean()
 								);
 							}
@@ -917,37 +916,37 @@ public class BulkActivityManager extends AbstractWizardController {
 				}
 			}
 		   	
-			private AbstractWizardController.ObjectReferenceBean activityProcessState;
+			private JsfWizardController.ObjectReferenceBean activityProcessState;
 			private Boolean hasFollowUpTransitions;
 			private Integer counter;
 			private DoBulkActivityFollowUpParams doBulkActivityFollowUpParams = new DoBulkActivityFollowUpParams();
-			private List<AbstractWizardController.ObjectReferenceBean> findAssignToResult;
-			private List<AbstractWizardController.ObjectReferenceBean> findFollowUp1TransitionResult;
-			private List<AbstractWizardController.ObjectReferenceBean> findFollowUp2TransitionResult;			
+			private List<JsfWizardController.ObjectReferenceBean> findAssignToResult;
+			private List<JsfWizardController.ObjectReferenceBean> findFollowUp1TransitionResult;
+			private List<JsfWizardController.ObjectReferenceBean> findFollowUp2TransitionResult;			
 		}
 
 		/**
 		 * @return the activityCreator
 		 */
-		public AbstractWizardController.ObjectReferenceBean getActivityCreator() {
+		public JsfWizardController.ObjectReferenceBean getActivityCreator() {
 			return activityCreator;
 		}
 		/**
 		 * @param activityCreator the activityCreator to set
 		 */
-		public void setActivityCreator(AbstractWizardController.ObjectReferenceBean activityCreator) {
+		public void setActivityCreator(JsfWizardController.ObjectReferenceBean activityCreator) {
 			this.activityCreator = activityCreator;
 		}
 		/**
 		 * @return the targetGroup
 		 */
-		public AbstractWizardController.ObjectReferenceBean getTargetGroup() {
+		public JsfWizardController.ObjectReferenceBean getTargetGroup() {
 			return targetGroup;
 		}
 		/**
 		 * @param targetGroup the targetGroup to set
 		 */
-		public void setTargetGroup(AbstractWizardController.ObjectReferenceBean targetGroup) {
+		public void setTargetGroup(JsfWizardController.ObjectReferenceBean targetGroup) {
 			this.targetGroup = targetGroup;
 		}
 		/**
@@ -965,13 +964,13 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the activityGroup
 		 */
-		public AbstractWizardController.ObjectReferenceBean getActivityGroup() {
+		public JsfWizardController.ObjectReferenceBean getActivityGroup() {
 			return activityGroup;
 		}
 		/**
 		 * @param activityGroup the activityGroup to set
 		 */
-		public void setActivityGroup(AbstractWizardController.ObjectReferenceBean activityGroup) {
+		public void setActivityGroup(JsfWizardController.ObjectReferenceBean activityGroup) {
 			this.activityGroup = activityGroup;
 		}
 		/**
@@ -989,49 +988,49 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the findTargetGroupEMail1Result
 		 */
-		public List<AbstractWizardController.ObjectReferenceBean> getFindTargetGroupEMail1Result() {
+		public List<JsfWizardController.ObjectReferenceBean> getFindTargetGroupEMail1Result() {
 			return findTargetGroupEMail1Result;
 		}
 		/**
 		 * @param findTargetGroupEMail1Result the findTargetGroupEMail1Result to set
 		 */
-		public void setFindTargetGroupEMail1Result(List<AbstractWizardController.ObjectReferenceBean> findTargetGroupEMail1Result) {
+		public void setFindTargetGroupEMail1Result(List<JsfWizardController.ObjectReferenceBean> findTargetGroupEMail1Result) {
 			this.findTargetGroupEMail1Result = findTargetGroupEMail1Result;
 		}
 		/**
 		 * @return the findTargetGroupEMail2Result
 		 */
-		public List<AbstractWizardController.ObjectReferenceBean> getFindTargetGroupEMail2Result() {
+		public List<JsfWizardController.ObjectReferenceBean> getFindTargetGroupEMail2Result() {
 			return findTargetGroupEMail2Result;
 		}
 		/**
 		 * @param findTargetGroupEMail2Result the findTargetGroupEMail2Result to set
 		 */
-		public void setFindTargetGroupEMail2Result(List<AbstractWizardController.ObjectReferenceBean> findTargetGroupEMail2Result) {
+		public void setFindTargetGroupEMail2Result(List<JsfWizardController.ObjectReferenceBean> findTargetGroupEMail2Result) {
 			this.findTargetGroupEMail2Result = findTargetGroupEMail2Result;
 		}
 		/**
 		 * @return the findTargetGroupEMail3Result
 		 */
-		public List<AbstractWizardController.ObjectReferenceBean> getFindTargetGroupEMail3Result() {
+		public List<JsfWizardController.ObjectReferenceBean> getFindTargetGroupEMail3Result() {
 			return findTargetGroupEMail3Result;
 		}
 		/**
 		 * @param findTargetGroupEMail3Result the findTargetGroupEMail3Result to set
 		 */
-		public void setFindTargetGroupEMail3Result(List<AbstractWizardController.ObjectReferenceBean> findTargetGroupEMail3Result) {
+		public void setFindTargetGroupEMail3Result(List<JsfWizardController.ObjectReferenceBean> findTargetGroupEMail3Result) {
 			this.findTargetGroupEMail3Result = findTargetGroupEMail3Result;
 		}
 		/**
 		 * @return the findSenderEMailResult
 		 */
-		public List<AbstractWizardController.ObjectReferenceBean> getFindSenderEMailResult() {
+		public List<JsfWizardController.ObjectReferenceBean> getFindSenderEMailResult() {
 			return findSenderEMailResult;
 		}
 		/**
 		 * @param findSenderEMailResult the findSenderEMailResult to set
 		 */
-		public void setFindSenderEMailResult(List<AbstractWizardController.ObjectReferenceBean> findSenderEMailResult) {
+		public void setFindSenderEMailResult(List<JsfWizardController.ObjectReferenceBean> findSenderEMailResult) {
 			this.findSenderEMailResult = findSenderEMailResult;
 		}
 		/**
@@ -1085,7 +1084,7 @@ public class BulkActivityManager extends AbstractWizardController {
 	   		javax.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
-	   		QueryBean queryBean = new QueryBean();
+	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
 	   		queryBean.setPosition(0);
 	   		queryBean.setSize(DEFAULT_RESULT_SET_SIZE);
 	   		queryBean.setQuery(this.getDoBulkCreateActivityParams().getTargetGroupEMail1().getTitle());
@@ -1107,7 +1106,7 @@ public class BulkActivityManager extends AbstractWizardController {
 	   		javax.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
-	   		QueryBean queryBean = new QueryBean();
+	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
 	   		queryBean.setPosition(0);
 	   		queryBean.setSize(DEFAULT_RESULT_SET_SIZE);
 	   		queryBean.setQuery(this.getDoBulkCreateActivityParams().getTargetGroupEMail2().getTitle());
@@ -1129,7 +1128,7 @@ public class BulkActivityManager extends AbstractWizardController {
 	   		javax.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
-	   		QueryBean queryBean = new QueryBean();
+	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
 	   		queryBean.setPosition(0);
 	   		queryBean.setSize(DEFAULT_RESULT_SET_SIZE);
 	   		queryBean.setQuery(this.getDoBulkCreateActivityParams().getTargetGroupEMail3().getTitle());
@@ -1151,7 +1150,7 @@ public class BulkActivityManager extends AbstractWizardController {
 	   		javax.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
-	   		QueryBean queryBean = new QueryBean();
+	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
 	   		queryBean.setPosition(0);
 	   		queryBean.setSize(DEFAULT_RESULT_SET_SIZE);
 	   		queryBean.setQuery(this.getActivityTemplate().getSenderEMail().getTitle());
@@ -1176,6 +1175,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		) throws ServiceException {
 			PersistenceManager pm = BulkActivityManager.this.getPm();
 			ApplicationContext app = BulkActivityManager.this.getApp();
+			Map<String,Object> data = BulkActivityManager.this.getData();
 			Path path = BulkActivityManager.this.getObjectIdentity();
 			DoBulkCreateActivityParams params = this.getDoBulkCreateActivityParams();
 			BulkCreateActivityWorkflow.CreationType creationType = null;
@@ -1201,7 +1201,7 @@ public class BulkActivityManager extends AbstractWizardController {
 				WfProcess wfProcess = Workflows.getInstance().findWfProcess(org.opencrx.kernel.backend.Workflows.WORKFLOW_NAME_BULK_CREATE_ACTIVITY, workflowSegment);
 				pm.currentTransaction().begin();
 				WfProcessInstance wfProcessInstance = Workflows.getInstance().executeWorkflow(
-					activityCreator.getName() + " / " + creationType.name() + " / " + currentUserHome.refGetPath().getLastSegment().toClassicRepresentation(),
+					activityCreator.getName() + " / " + creationType.name() + " / " + currentUserHome.refGetPath().getLastSegment().toString(),
 					currentUserHome, 
 					wfProcess,
 					activityCreator,
@@ -1363,7 +1363,8 @@ public class BulkActivityManager extends AbstractWizardController {
 				} else {
 					// Let workflow handler execute the process
 				}
-				data.setWfProcessInstance(
+				data.put(
+					"wfProcessInstance",
 					BulkActivityManager.this.toWfProcessInstanceBean(wfProcessInstance)
 				);
 			} catch(Exception e) {
@@ -1542,817 +1543,16 @@ public class BulkActivityManager extends AbstractWizardController {
 			}
 		}
 	
-		private AbstractWizardController.ObjectReferenceBean activityGroup;
-		private AbstractWizardController.ObjectReferenceBean activityCreator;
-		private AbstractWizardController.ObjectReferenceBean targetGroup;
+		private JsfWizardController.ObjectReferenceBean activityGroup;
+		private JsfWizardController.ObjectReferenceBean activityCreator;
+		private JsfWizardController.ObjectReferenceBean targetGroup;
 		private ActivityTemplateBean activityTemplate;
 		private List<BulkActivityFollowUpBean> bulkActivityFollowUps;
 		private DoBulkCreateActivityParams doBulkCreateActivityParams;
-		private List<AbstractWizardController.ObjectReferenceBean> findTargetGroupEMail1Result;
-		private List<AbstractWizardController.ObjectReferenceBean> findTargetGroupEMail2Result;
-		private List<AbstractWizardController.ObjectReferenceBean> findTargetGroupEMail3Result;
-		private List<AbstractWizardController.ObjectReferenceBean> findSenderEMailResult;
-	}
-
-	/**
-	 * DataBean
-	 *
-	 */
-	public static class DataBean {
-		/**
-		 * @return the bulkCreateActivities
-		 */
-		public List<BulkCreateActivityBean> getBulkCreateActivities() {
-			return bulkCreateActivities;
-		}
-
-		/**
-		 * @param bulkCreateActivities the bulkCreateActivities to set
-		 */
-		public void setBulkCreateActivities(List<BulkCreateActivityBean> bulkCreateActivities) {
-			this.bulkCreateActivities = bulkCreateActivities;
-		}
-		/**
-		 * @return the activityGroup
-		 */
-		public AbstractWizardController.ObjectReferenceBean getActivityGroup() {
-			return activityGroup;
-		}
-
-		/**
-		 * @param activityGroup the activityGroup to set
-		 */
-		public void setActivityGroup(AbstractWizardController.ObjectReferenceBean activityGroup) {
-			this.activityGroup = activityGroup;
-		}
-		/**
-		 * @return the timers
-		 */
-		public List<TimerBean> getTimers() {
-			return timers;
-		}
-
-		/**
-		 * @param timers the timers to set
-		 */
-		public void setTimers(List<TimerBean> timers) {
-			this.timers = timers;
-		}
-		/**
-		 * @return the wfProcessInstanceBean
-		 */
-		public WfProcessInstanceBean getWfProcessInstance() {
-			return wfProcessInstance;
-		}
-		/**
-		 * @param wfProcessInstanceBean the wfProcessInstanceBean to set
-		 */
-		public void setWfProcessInstance(WfProcessInstanceBean wfProcessInstanceBean) {
-			this.wfProcessInstance = wfProcessInstanceBean;
-		}
-		/**
-		 * @return the activityProcessTransition
-		 */
-		public AbstractWizardController.ObjectReferenceBean getActivityProcessTransition() {
-			return activityProcessTransition;
-		}
-
-		/**
-		 * @param activityProcessTransition the activityProcessTransition to set
-		 */
-		public void setActivityProcessTransition(AbstractWizardController.ObjectReferenceBean activityProcessTransition) {
-			this.activityProcessTransition = activityProcessTransition;
-		}
-		/**
-		 * @return the wfProcessInstances
-		 */
-		public List<WfProcessInstanceBean> getWfProcessInstances() {
-			return wfProcessInstances;
-		}
-
-		/**
-		 * @param wfProcessInstances the wfProcessInstances to set
-		 */
-		public void setWfProcessInstances(List<WfProcessInstanceBean> wfProcessInstances) {
-			this.wfProcessInstances = wfProcessInstances;
-		}
-
-		private AbstractWizardController.ObjectReferenceBean activityGroup;
-		private List<WfProcessInstanceBean> wfProcessInstances;
-		private List<BulkCreateActivityBean> bulkCreateActivities;
-		private List<TimerBean> timers;
-		private WfProcessInstanceBean wfProcessInstance;
-		private AbstractWizardController.ObjectReferenceBean activityProcessTransition;
-	}
-
-	/**
-	 * MetaInfBean
-	 *
-	 */
-	public static class MetaInfBean {
-
-		/**
-		 * @return the locale
-		 */
-		public String getLocale() {
-			return locale;
-		}
-		/**
-		 * @param locale the locale to set
-		 */
-		public void setLocale(String locale) {
-			this.locale = locale;
-		}
-		/**
-		 * @return the timezone
-		 */
-		public String getTimezone() {
-			return timezone;
-		}
-		/**
-		 * @param timezone the timezone to set
-		 */
-		public void setTimezone(String timezone) {
-			this.timezone = timezone;
-		}
-		/**
-		 * @return the labelLastActivityOn
-		 */
-		public String getLabelLastActivityOn() {
-			return labelLastActivityOn;
-		}
-		/**
-		 * @param labelLastActivityOn the labelLastActivityOn to set
-		 */
-		public void setLabelLastActivityOn(String labelLastActivityOn) {
-			this.labelLastActivityOn = labelLastActivityOn;
-		}
-		/**
-		 * @return the labelStartedOn
-		 */
-		public String getLabelStartedOn() {
-			return labelStartedOn;
-		}
-		/**
-		 * @param labelStartedOn the labelStartedOn to set
-		 */
-		public void setLabelStartedOn(String labelStartedOn) {
-			this.labelStartedOn = labelStartedOn;
-		}
-		/**
-		 * @return the labelCreatedAt
-		 */
-		public String getLabelCreatedAt() {
-			return labelCreatedAt;
-		}
-		/**
-		 * @param labelCreatedAt the labelCreatedAt to set
-		 */
-		public void setLabelCreatedAt(String labelCreatedAt) {
-			this.labelCreatedAt = labelCreatedAt;
-		}		
-		/**
-		 * @return the labelTargetGroupAccounts
-		 */
-		public String getLabelTargetGroupAccounts() {
-			return labelTargetGroupAccounts;
-		}
-		/**
-		 * @param labelTargetGroupAccounts the labelTargetGroupAccounts to set
-		 */
-		public void setLabelTargetGroupAccounts(String labelTargetGroupAccounts) {
-			this.labelTargetGroupAccounts = labelTargetGroupAccounts;
-		}
-		/**
-		 * @return the labelOK
-		 */
-		public String getLabelOK() {
-			return labelOK;
-		}
-		/**
-		 * @param labelOK the labelOK to set
-		 */
-		public void setLabelOK(String labelOK) {
-			this.labelOK = labelOK;
-		}
-		/**
-		 * @return the labelCancel
-		 */
-		public String getLabelCancel() {
-			return labelCancel;
-		}
-		/**
-		 * @param labelCancel the labelCancel to set
-		 */
-		public void setLabelCancel(String labelCancel) {
-			this.labelCancel = labelCancel;
-		}
-		/**
-		 * @return the labelActivityTemplate
-		 */
-		public String getLabelActivityTemplate() {
-			return labelActivityTemplate;
-		}
-		/**
-		 * @param labelActivityTemplate the labelActivityTemplate to set
-		 */
-		public void setLabelActivityTemplate(String labelActivityTemplate) {
-			this.labelActivityTemplate = labelActivityTemplate;
-		}
-		/**
-		 * @return the labelAssignTo
-		 */
-		public String getLabelAssignTo() {
-			return labelAssignTo;
-		}
-		/**
-		 * @param labelAssignTo the labelAssignTo to set
-		 */
-		public void setLabelAssignTo(String labelAssignTo) {
-			this.labelAssignTo = labelAssignTo;
-		}
-		/**
-		 * @return the labelTransition
-		 */
-		public String getLabelTransition() {
-			return labelTransition;
-		}
-		/**
-		 * @param labelTransition the labelTransition to set
-		 */
-		public void setLabelTransition(String labelTransition) {
-			this.labelTransition = labelTransition;
-		}		
-		/**
-		 * @return the labelFollowUpTitle
-		 */
-		public String getLabelFollowUpTitle() {
-			return labelFollowUpTitle;
-		}
-		/**
-		 * @param labelFollowUpTitle the labelFollowUpTitle to set
-		 */
-		public void setLabelFollowUpTitle(String labelFollowUpTitle) {
-			this.labelFollowUpTitle = labelFollowUpTitle;
-		}
-		/**
-		 * @return the labelFollowUpText
-		 */
-		public String getLabelFollowUpText() {
-			return labelFollowUpText;
-		}
-		/**
-		 * @param labelFollowUpText the labelFollowUpText to set
-		 */
-		public void setLabelFollowUpText(String labelFollowUpText) {
-			this.labelFollowUpText = labelFollowUpText;
-		}
-		/**
-		 * @return the labelTimerName
-		 */
-		public String getLabelTimerName() {
-			return labelTimerName;
-		}
-		/**
-		 * @param labelTimerName the labelTimerName to set
-		 */
-		public void setLabelTimerName(String labelTimerName) {
-			this.labelTimerName = labelTimerName;
-		}
-		/**
-		 * @return the labelTimerTriggerAt
-		 */
-		public String getLabelTimerTriggerAt() {
-			return labelTimerTriggerAt;
-		}
-		/**
-		 * @param labelTimerTriggerAt the labelTimerTriggerAt to set
-		 */
-		public void setLabelTimerTriggerAt(String labelTimerTriggerAt) {
-			this.labelTimerTriggerAt = labelTimerTriggerAt;
-		}
-		/**
-		 * @return the labelConfirmDoBulkCreateActivity
-		 */
-		public String getLabelConfirmDoBulkCreateActivity() {
-			return labelConfirmDoBulkCreateActivity;
-		}
-		/**
-		 * @param labelConfirmDoBulkCreateActivity the labelConfirmDoBulkCreateActivity to set
-		 */
-		public void setLabelConfirmDoBulkCreateActivity(String labelConfirmDoBulkCreateActivity) {
-			this.labelConfirmDoBulkCreateActivity = labelConfirmDoBulkCreateActivity;
-		}
-		/**
-		 * @return the labelActivityName
-		 */
-		public String getLabelActivityName() {
-			return labelActivityName;
-		}
-		/**
-		 * @param labelActivityName the labelActivityName to set
-		 */
-		public void setLabelActivityName(String labelActivityName) {
-			this.labelActivityName = labelActivityName;
-		}
-		/**
-		 * @return the labelActivityDetailedDescription
-		 */
-		public String getLabelActivityDetailedDescription() {
-			return labelActivityDetailedDescription;
-		}
-		/**
-		 * @param labelActivityDetailedDescription the labelActivityDetailedDescription to set
-		 */
-		public void setLabelActivityDetailedDescription(String labelActivityDetailedDescription) {
-			this.labelActivityDetailedDescription = labelActivityDetailedDescription;
-		}
-		/**
-		 * @return the labelActivityDescription
-		 */
-		public String getLabelActivityDescription() {
-			return labelActivityDescription;
-		}
-		/**
-		 * @param labelActivityDescription the labelActivityDescription to set
-		 */
-		public void setLabelActivityDescription(String labelActivityDescription) {
-			this.labelActivityDescription = labelActivityDescription;
-		}
-		/**
-		 * @return the labelActivityScheduledStart
-		 */
-		public String getLabelActivityScheduledStart() {
-			return labelActivityScheduledStart;
-		}
-		/**
-		 * @param labelActivityScheduledStart the labelActivityScheduledStart to set
-		 */
-		public void setLabelActivityScheduledStart(String labelActivityScheduledStart) {
-			this.labelActivityScheduledStart = labelActivityScheduledStart;
-		}
-		/**
-		 * @return the labelActivityScheduledEnd
-		 */
-		public String getLabelActivityScheduledEnd() {
-			return labelActivityScheduledEnd;
-		}
-		/**
-		 * @param labelActivityScheduledEnd the labelActivityScheduledEnd to set
-		 */
-		public void setLabelActivityScheduledEnd(String labelActivityScheduledEnd) {
-			this.labelActivityScheduledEnd = labelActivityScheduledEnd;
-		}
-		/**
-		 * @return the labelActivityDueBy
-		 */
-		public String getLabelActivityDueBy() {
-			return labelActivityDueBy;
-		}
-		/**
-		 * @param labelActivityDueBy the labelActivityDueBy to set
-		 */
-		public void setLabelActivityDueBy(String labelActivityDueBy) {
-			this.labelActivityDueBy = labelActivityDueBy;
-		}
-		/**
-		 * @return the labelActivityPriority
-		 */
-		public String getLabelActivityPriority() {
-			return labelActivityPriority;
-		}
-		/**
-		 * @param labelActivityPriority the labelActivityPriority to set
-		 */
-		public void setLabelActivityPriority(String labelActivityPriority) {
-			this.labelActivityPriority = labelActivityPriority;
-		}
-		/**
-		 * @return the labelPlaceHolders
-		 */
-		public String getLabelPlaceHolders() {
-			return labelPlaceHolders;
-		}
-		/**
-		 * @param labelPlaceHolders the labelPlaceHolders to set
-		 */
-		public void setLabelPlaceHolders(String labelPlaceHolders) {
-			this.labelPlaceHolders = labelPlaceHolders;
-		}
-		/**
-		 * @return the labelEMailAddressUsage
-		 */
-		public String getLabelEMailAddressUsage() {
-			return labelEMailAddressUsage;
-		}
-		/**
-		 * @param labelEMailAddressUsage the labelEMailAddressUsage to set
-		 */
-		public void setLabelEMailAddressUsage(String labelEMailAddressUsage) {
-			this.labelEMailAddressUsage = labelEMailAddressUsage;
-		}		
-		/**
-		 * @return the labelDoBulkActivityFollowUp
-		 */
-		public String getLabelDoBulkActivityFollowUp() {
-			return labelDoBulkActivityFollowUp;
-		}
-		/**
-		 * @param labelDoBulkActivityFollowUp the labelDoBulkActivityFollowUp to set
-		 */
-		public void setLabelDoBulkActivityFollowUp(String labelDoBulkActivityFollowUp) {
-			this.labelDoBulkActivityFollowUp = labelDoBulkActivityFollowUp;
-		}
-		/**
-		 * @return the labelDoBulkCreateActivity
-		 */
-		public String getLabelDoBulkCreateActivity() {
-			return labelDoBulkCreateActivity;
-		}
-		/**
-		 * @param labelDoBulkCreateActivity the labelDoBulkCreateActivity to set
-		 */
-		public void setLabelDoBulkCreateActivity(String labelDoBulkCreateActivity) {
-			this.labelDoBulkCreateActivity = labelDoBulkCreateActivity;
-		}
-		/**
-		 * @return the labelFollowUp
-		 */
-		public String getLabelFollowUp() {
-			return labelFollowUp;
-		}
-		/**
-		 * @param labelFollowUp the labelFollowUp to set
-		 */
-		public void setLabelFollowUp(String labelFollowUp) {
-			this.labelFollowUp = labelFollowUp;
-		}
-		/**
-		 * @return the labelRestrictTargetGroup
-		 */
-		public String getLabelRestrictTargetGroup() {
-			return labelRestrictTargetGroup;
-		}
-		/**
-		 * @param labelRestrictTargetGroup the labelRestrictTargetGroup to set
-		 */
-		public void setLabelRestrictTargetGroup(String labelRestrictTargetGroup) {
-			this.labelRestrictTargetGroup = labelRestrictTargetGroup;
-		}
-		/**
-		 * @return the labelEMailAddress
-		 */
-		public String getLabelEMailAddress() {
-			return labelEMailAddress;
-		}
-		/**
-		 * @param labelEMailAddress the labelEMailAddress to set
-		 */
-		public void setLabelEMailAddress(String labelEMailAddress) {
-			this.labelEMailAddress = labelEMailAddress;
-		}
-		/**
-		 * @return the labelEditActivityTemplate
-		 */
-		public String getLabelEditActivityTemplate() {
-			return labelEditActivityTemplate;
-		}
-		/**
-		 * @param labelEditActivityTemplate the labelEditActivityTemplate to set
-		 */
-		public void setLabelEditActivityTemplate(String labelEditActivityTemplate) {
-			this.labelEditActivityTemplate = labelEditActivityTemplate;
-		}
-		/**
-		 * @return the optionsPriority
-		 */
-		public List<AbstractWizardController.OptionBean> getOptionsPriority() {
-			return optionsPriority;
-		}
-		/**
-		 * @param optionsPriority the optionsPriority to set
-		 */
-		public void setOptionsPriority(List<AbstractWizardController.OptionBean> optionsPriority) {
-			this.optionsPriority = optionsPriority;
-		}
-		/**
-		 * @return the labelSenderEMail
-		 */
-		public String getLabelSenderEMail() {
-			return labelSenderEMail;
-		}
-		/**
-		 * @param labelSenderEMail the labelSenderEMail to set
-		 */
-		public void setLabelSenderEMail(String labelSenderEMail) {
-			this.labelSenderEMail = labelSenderEMail;
-		}
-		/**
-		 * @return the labelMessageSubject
-		 */
-		public String getLabelMessageSubject() {
-			return labelMessageSubject;
-		}
-		/**
-		 * @param labelMessageSubject the labelMessageSubject to set
-		 */
-		public void setLabelMessageSubject(String labelMessageSubject) {
-			this.labelMessageSubject = labelMessageSubject;
-		}
-		/**
-		 * @return the labelMessageBody
-		 */
-		public String getLabelMessageBody() {
-			return labelMessageBody;
-		}
-		/**
-		 * @param labelMessageBody the labelMessageBody to set
-		 */
-		public void setLabelMessageBody(String labelMessageBody) {
-			this.labelMessageBody = labelMessageBody;
-		}
-		/**
-		 * @return the labelExcludeNoBulkEMail
-		 */
-		public String getLabelExcludeNoBulkEMail() {
-			return labelExcludeNoBulkEMail;
-		}
-		/**
-		 * @param labelExcludeNoBulkEMail the labelExcludeNoBulkEMail to set
-		 */
-		public void setLabelExcludeNoBulkEMail(String labelExcludeNoBulkEMail) {
-			this.labelExcludeNoBulkEMail = labelExcludeNoBulkEMail;
-		}
-		/**
-		 * @return the optionsEMailAddressUsage
-		 */
-		public List<AbstractWizardController.OptionBean> getOptionsEMailAddressUsage() {
-			return optionsEMailAddressUsage;
-		}
-		/**
-		 * @param optionsEMailAddressUsage the optionsEMailAddressUsage to set
-		 */
-		public void setOptionsEMailAddressUsage(List<AbstractWizardController.OptionBean> optionsEMailAddressUsage) {
-			this.optionsEMailAddressUsage = optionsEMailAddressUsage;
-		}
-		/**
-		 * @return the labelPendingWorkflows
-		 */
-		public String getLabelPendingWorkflows() {
-			return labelPendingWorkflows;
-		}
-		/**
-		 * @param labelPendingWorkflows the labelPendingWorkflows to set
-		 */
-		public void setLabelPendingWorkflows(String labelPendingWorkflows) {
-			this.labelPendingWorkflows = labelPendingWorkflows;
-		}
-		/**
-		 * @return the labelWfProcessInstanceName
-		 */
-		public String getLabelWfProcessInstanceName() {
-			return labelWfProcessInstanceName;
-		}
-		/**
-		 * @param labelWfProcessInstanceName the labelWfProcessInstanceName to set
-		 */
-		public void setLabelWfProcessInstanceName(String labelWfProcessInstanceName) {
-			this.labelWfProcessInstanceName = labelWfProcessInstanceName;
-		}
-		/**
-		 * @return the labelActivityCreators
-		 */
-		public String getLabelActivityCreators() {
-			return labelActivityCreators;
-		}
-		/**
-		 * @param labelActivityCreators the labelActivityCreators to set
-		 */
-		public void setLabelActivityCreators(String labelActivityCreators) {
-			this.labelActivityCreators = labelActivityCreators;
-		}
-		/**
-		 * @return the labelActivityCreatorName
-		 */
-		public String getLabelActivityCreatorName() {
-			return labelActivityCreatorName;
-		}
-		/**
-		 * @param labelActivityCreatorName the labelActivityCreatorName to set
-		 */
-		public void setLabelActivityCreatorName(String labelActivityCreatorName) {
-			this.labelActivityCreatorName = labelActivityCreatorName;
-		}
-		/**
-		 * @return the labelEdit
-		 */
-		public String getLabelEdit() {
-			return labelEdit;
-		}
-		/**
-		 * @param labelEdit the labelEdit to set
-		 */
-		public void setLabelEdit(String labelEdit) {
-			this.labelEdit = labelEdit;
-		}
-		/**
-		 * @return the labelSave
-		 */
-		public String getLabelSave() {
-			return labelSave;
-		}
-		/**
-		 * @param labelSave the labelSave to set
-		 */
-		public void setLabelSave(String labelSave) {
-			this.labelSave = labelSave;
-		}
-		/**
-		 * @return the labelWfProcessState
-		 */
-		public String getLabelWfProcessState() {
-			return labelWfProcessState;
-		}
-		/**
-		 * @param labelWfProcessState the labelWfProcessState to set
-		 */
-		public void setLabelWfProcessState(String labelWfProcessState) {
-			this.labelWfProcessState = labelWfProcessState;
-		}
-		/**
-		 * @return the labelTimers
-		 */
-		public String getLabelTimers() {
-			return labelTimers;
-		}
-		/**
-		 * @param labelTimers the labelTimers to set
-		 */
-		public void setLabelTimers(String labelTimers) {
-			this.labelTimers = labelTimers;
-		}
-		/**
-		 * @return the labelIgnoreExecutionTimeLimit
-		 */
-		public String getLabelIgnoreExecutionTimeLimit() {
-			return labelIgnoreExecutionTimeLimit;
-		}
-		/**
-		 * @param labelIgnoreExecutionTimeLimit the labelIgnoreExecutionTimeLimit to set
-		 */
-		public void setLabelIgnoreExecutionTimeLimit(String labelIgnoreExecutionTimeLimit) {
-			this.labelIgnoreExecutionTimeLimit = labelIgnoreExecutionTimeLimit;
-		}
-		/**
-		 * @return the dateFormatTimerTriggerAt
-		 */
-		public String getDateFormatTimerTriggerAt() {
-			return dateFormatTimerTriggerAt;
-		}
-		/**
-		 * @param dateFormatTimerTriggerAt the dateFormatTimerTriggerAt to set
-		 */
-		public void setDateFormatTimerTriggerAt(String dateFormatTimerTriggerAt) {
-			this.dateFormatTimerTriggerAt = dateFormatTimerTriggerAt;
-		}
-		/**
-		 * @return the calendarFormatTimerTriggerAt
-		 */
-		public String getCalendarFormatTimerTriggerAt() {
-			return calendarFormatTimerTriggerAt;
-		}
-		/**
-		 * @param calendarFormatTimerTriggerAt the calendarFormatTimerTriggerAt to set
-		 */
-		public void setCalendarFormatTimerTriggerAt(String calendarFormatTimerTriggerAt) {
-			this.calendarFormatTimerTriggerAt = calendarFormatTimerTriggerAt;
-		}
-		/**
-		 * @return the dateFormatActivityScheduledStart
-		 */
-		public String getDateFormatActivityScheduledStart() {
-			return dateFormatActivityScheduledStart;
-		}
-		/**
-		 * @param dateFormatActivityScheduledStart the dateFormatActivityScheduledStart to set
-		 */
-		public void setDateFormatActivityScheduledStart(String dateFormatActivityScheduledStart) {
-			this.dateFormatActivityScheduledStart = dateFormatActivityScheduledStart;
-		}
-		/**
-		 * @return the calendarFormatActivityScheduledStart
-		 */
-		public String getCalendarFormatActivityScheduledStart() {
-			return calendarFormatActivityScheduledStart;
-		}
-		/**
-		 * @param calendarFormatActivityScheduledStart the calendarFormatActivityScheduledStart to set
-		 */
-		public void setCalendarFormatActivityScheduledStart(String calendarFormatActivityScheduledStart) {
-			this.calendarFormatActivityScheduledStart = calendarFormatActivityScheduledStart;
-		}
-		/**
-		 * @return the dateFormatActivityScheduledEnd
-		 */
-		public String getDateFormatActivityScheduledEnd() {
-			return dateFormatActivityScheduledEnd;
-		}
-		/**
-		 * @param dateFormatActivityScheduledEnd the dateFormatActivityScheduledEnd to set
-		 */
-		public void setDateFormatActivityScheduledEnd(String dateFormatActivityScheduledEnd) {
-			this.dateFormatActivityScheduledEnd = dateFormatActivityScheduledEnd;
-		}
-		/**
-		 * @return the calendarFormatActivityScheduledEnd
-		 */
-		public String getCalendarFormatActivityScheduledEnd() {
-			return calendarFormatActivityScheduledEnd;
-		}
-		/**
-		 * @param calendarFormatActivityScheduledEnd the calendarFormatActivityScheduledEnd to set
-		 */
-		public void setCalendarFormatActivityScheduledEnd(String calendarFormatActivityScheduledEnd) {
-			this.calendarFormatActivityScheduledEnd = calendarFormatActivityScheduledEnd;
-		}
-		/**
-		 * @return the dateFormatActivityDueBy
-		 */
-		public String getDateFormatActivityDueBy() {
-			return dateFormatActivityDueBy;
-		}
-		/**
-		 * @param dateFormatActivityDueBy the dateFormatActivityDueBy to set
-		 */
-		public void setDateFormatActivityDueBy(String dateFormatActivityDueBy) {
-			this.dateFormatActivityDueBy = dateFormatActivityDueBy;
-		}
-		/**
-		 * @return the calendarFormatActivityDueBy
-		 */
-		public String getCalendarFormatActivityDueBy() {
-			return calendarFormatActivityDueBy;
-		}
-		/**
-		 * @param calendarFormatActivityDueBy the calendarFormatActivityDueBy to set
-		 */
-		public void setCalendarFormatActivityDueBy(String calendarFormatActivityDueBy) {
-			this.calendarFormatActivityDueBy = calendarFormatActivityDueBy;
-		}
-		private String locale;
-		private String timezone;
-		private String labelOK;
-		private String labelCancel;
-		private String labelEdit;
-		private String labelSave;
-		private String labelActivityTemplate;
-		private String labelLastActivityOn;
-		private String labelStartedOn;
-		private String labelCreatedAt;
-		private String labelTargetGroupAccounts;
-		private String labelAssignTo;
-		private String labelFollowUpTitle;
-		private String labelFollowUpText;
-		private String labelTransition;
-		private String labelTimerName;
-		private String labelTimerTriggerAt;
-		private String dateFormatTimerTriggerAt;
-		private String calendarFormatTimerTriggerAt;		
-		private String labelEMailAddress;
-		private String labelEMailAddressUsage;
-		private String labelConfirmDoBulkCreateActivity;
-		private String labelIgnoreExecutionTimeLimit;
-		private String labelActivityName;
-		private String labelActivityDescription;
-		private String labelActivityDetailedDescription;
-		private String labelActivityScheduledStart;
-		private String dateFormatActivityScheduledStart;
-		private String calendarFormatActivityScheduledStart;		
-		private String labelActivityScheduledEnd;
-		private String dateFormatActivityScheduledEnd;
-		private String calendarFormatActivityScheduledEnd;
-		private String labelActivityDueBy;
-		private String dateFormatActivityDueBy;
-		private String calendarFormatActivityDueBy;
-		private String labelActivityPriority;
-		private String labelPlaceHolders;
-		private String labelDoBulkActivityFollowUp;
-		private String labelDoBulkCreateActivity;
-		private String labelEditActivityTemplate;
-		private String labelFollowUp;
-		private String labelRestrictTargetGroup;
-		private String labelSenderEMail;
-		private String labelMessageSubject;
-		private String labelMessageBody;
-		private String labelExcludeNoBulkEMail;
-		private String labelPendingWorkflows;
-		private String labelActivityCreators;
-		private String labelTimers;
-		private String labelWfProcessInstanceName;
-		private String labelWfProcessState;
-		private String labelActivityCreatorName;
-		private List<AbstractWizardController.OptionBean> optionsEMailAddressUsage;
-		private List<AbstractWizardController.OptionBean> optionsPriority;
+		private List<JsfWizardController.ObjectReferenceBean> findTargetGroupEMail1Result;
+		private List<JsfWizardController.ObjectReferenceBean> findTargetGroupEMail2Result;
+		private List<JsfWizardController.ObjectReferenceBean> findTargetGroupEMail3Result;
+		private List<JsfWizardController.ObjectReferenceBean> findSenderEMailResult;
 	}
 
 	/**
@@ -2387,37 +1587,37 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the targetGroupEMail1
 		 */
-		public AbstractWizardController.ObjectReferenceBean getTargetGroupEMail1() {
+		public JsfWizardController.ObjectReferenceBean getTargetGroupEMail1() {
 			return targetGroupEMail1;
 		}
 		/**
 		 * @param targetGroupEMail1 the targetGroupEMail1 to set
 		 */
-		public void setTargetGroupEMail1(AbstractWizardController.ObjectReferenceBean targetGroupEMail1) {
+		public void setTargetGroupEMail1(JsfWizardController.ObjectReferenceBean targetGroupEMail1) {
 			this.targetGroupEMail1 = targetGroupEMail1;
 		}
 		/**
 		 * @return the targetGroupEMail2
 		 */
-		public AbstractWizardController.ObjectReferenceBean getTargetGroupEMail2() {
+		public JsfWizardController.ObjectReferenceBean getTargetGroupEMail2() {
 			return targetGroupEMail2;
 		}
 		/**
 		 * @param targetGroupEMail2 the targetGroupEMail2 to set
 		 */
-		public void setTargetGroupEMail2(AbstractWizardController.ObjectReferenceBean targetGroupEMail2) {
+		public void setTargetGroupEMail2(JsfWizardController.ObjectReferenceBean targetGroupEMail2) {
 			this.targetGroupEMail2 = targetGroupEMail2;
 		}
 		/**
 		 * @return the targetGroupEMail3
 		 */
-		public AbstractWizardController.ObjectReferenceBean getTargetGroupEMail3() {
+		public JsfWizardController.ObjectReferenceBean getTargetGroupEMail3() {
 			return targetGroupEMail3;
 		}
 		/**
 		 * @param targetGroupEMail3 the targetGroupEMail3 to set
 		 */
-		public void setTargetGroupEMail3(AbstractWizardController.ObjectReferenceBean targetGroupEMail3) {
+		public void setTargetGroupEMail3(JsfWizardController.ObjectReferenceBean targetGroupEMail3) {
 			this.targetGroupEMail3 = targetGroupEMail3;
 		}
 		/**
@@ -2433,9 +1633,9 @@ public class BulkActivityManager extends AbstractWizardController {
 			this.ignoreExecutionTimeLimit = ignoreExecutionTimeLimit;
 		}
 		private Boolean restrictTargetGroup;
-		private AbstractWizardController.ObjectReferenceBean targetGroupEMail1 = new AbstractWizardController.ObjectReferenceBean();
-		private AbstractWizardController.ObjectReferenceBean targetGroupEMail2 = new AbstractWizardController.ObjectReferenceBean();
-		private AbstractWizardController.ObjectReferenceBean targetGroupEMail3 = new AbstractWizardController.ObjectReferenceBean();		
+		private JsfWizardController.ObjectReferenceBean targetGroupEMail1 = new JsfWizardController.ObjectReferenceBean();
+		private JsfWizardController.ObjectReferenceBean targetGroupEMail2 = new JsfWizardController.ObjectReferenceBean();
+		private JsfWizardController.ObjectReferenceBean targetGroupEMail3 = new JsfWizardController.ObjectReferenceBean();		
 		private Boolean isConfirmed;
 		private Boolean ignoreExecutionTimeLimit;
 	}
@@ -2460,13 +1660,13 @@ public class BulkActivityManager extends AbstractWizardController {
 		/**
 		 * @return the assignTo
 		 */
-		public AbstractWizardController.ObjectReferenceBean getAssignTo() {
+		public JsfWizardController.ObjectReferenceBean getAssignTo() {
 			return assignTo;
 		}
 		/**
 		 * @param assignTo the assignTo to set
 		 */
-		public void setAssignTo(AbstractWizardController.ObjectReferenceBean assignTo) {
+		public void setAssignTo(JsfWizardController.ObjectReferenceBean assignTo) {
 			this.assignTo = assignTo;
 		}
 		/**
@@ -2493,7 +1693,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		public void setFollowUp2(ActivityFollowUpBean followUp2) {
 			this.followUp2 = followUp2;
 		}
-		private AbstractWizardController.ObjectReferenceBean assignTo = new AbstractWizardController.ObjectReferenceBean();
+		private JsfWizardController.ObjectReferenceBean assignTo = new JsfWizardController.ObjectReferenceBean();
 		private ActivityFollowUpBean followUp1 = new ActivityFollowUpBean();
 		private ActivityFollowUpBean followUp2 = new ActivityFollowUpBean();
 		private TimerBean timer = new TimerBean();
@@ -2519,24 +1719,6 @@ public class BulkActivityManager extends AbstractWizardController {
 	) {
 	}
 
-	public void init(
-	) {
-		try {
-			if(!FacesContext.getCurrentInstance().getPartialViewContext().isAjaxRequest()) {
-				super.init(
-					(HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest(),
-					"UTF-8",
-					true, // assertRequestId
-					true // assertObjectXri
-				);
-				this.data = this.newData();
-				this.metaInf = this.newMetaInf();
-			}
-		} catch(Exception e) {
-			new ServiceException(e).log();
-		}
-	}
-
 	/**
 	 * Get account segment.
 	 * 
@@ -2549,7 +1731,7 @@ public class BulkActivityManager extends AbstractWizardController {
 	) throws ServiceException {
 		javax.jdo.PersistenceManager pm = this.getPm();
 		return (org.opencrx.kernel.account1.jmi1.Segment)pm.getObjectById(
-			new Path("xri://@openmdx*org.opencrx.kernel.account1").getDescendant("provider", path.getSegment(2).toClassicRepresentation(), "segment", path.getSegment(4).toClassicRepresentation())
+			new Path("xri://@openmdx*org.opencrx.kernel.account1").getDescendant("provider", path.getSegment(2).toString(), "segment", path.getSegment(4).toString())
 		);
 	}
 
@@ -2565,7 +1747,7 @@ public class BulkActivityManager extends AbstractWizardController {
 	) throws ServiceException {
 		javax.jdo.PersistenceManager pm = this.getPm();
 		return (org.opencrx.kernel.workflow1.jmi1.Segment)pm.getObjectById(
-			new Path("xri://@openmdx*org.opencrx.kernel.workflow1").getDescendant("provider", path.getSegment(2).toClassicRepresentation(), "segment", path.getSegment(4).toClassicRepresentation())
+			new Path("xri://@openmdx*org.opencrx.kernel.workflow1").getDescendant("provider", path.getSegment(2).toString(), "segment", path.getSegment(4).toString())
 		);
 	}
 
@@ -2829,7 +2011,7 @@ public class BulkActivityManager extends AbstractWizardController {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public AbstractWizardController.ObjectReferenceBean getObjectReferenceProperty(
+	public JsfWizardController.ObjectReferenceBean getObjectReferenceProperty(
 		CrxObject propertySetHolder,
 		String propertySetPrefix,
 		String propertyName
@@ -2841,7 +2023,7 @@ public class BulkActivityManager extends AbstractWizardController {
 			propertyName
 		);
 		return xri == null || xri.isEmpty()
-			? new AbstractWizardController.ObjectReferenceBean()
+			? new JsfWizardController.ObjectReferenceBean()
 			: this.newObjectReferenceBean((RefObject_1_0)pm.getObjectById(new Path(xri)));
 	}
 
@@ -2969,7 +2151,7 @@ public class BulkActivityManager extends AbstractWizardController {
 		CrxObject propertySetHolder,
 		String propertySetPrefix,
 		String propertyName,
-		AbstractWizardController.ObjectReferenceBean value
+		JsfWizardController.ObjectReferenceBean value
 	) throws ServiceException {
 		this.setStringProperty(
 			propertySetHolder,
@@ -3172,15 +2354,15 @@ public class BulkActivityManager extends AbstractWizardController {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public DataBean newData(
+	public Map<String,Object> newData(
 	) throws ServiceException {
 		javax.jdo.PersistenceManager pm = this.getPm();
 		Path path = this.getObjectIdentity();
-		DataBean dataBean = new DataBean();
+		Map<String,Object> dataBean = new HashMap<String,Object>();
 		RefObject_1_0 obj = (RefObject_1_0)pm.getObjectById(path.getPrefix(7));
 		if(obj instanceof ActivityGroup) {
 			ActivityGroup activityGroup = (ActivityGroup)obj;
-			dataBean.setActivityGroup(this.newObjectReferenceBean(activityGroup));
+			dataBean.put("activityGroup", this.newObjectReferenceBean(activityGroup));
 			List<BulkCreateActivityBean> bulkCreateActivityBeans = new ArrayList<BulkCreateActivityBean>();
 			for(ActivityCreator activityCreator: activityGroup.<ActivityCreator>getActivityCreator()) {
 				List<Short> locales = this.getTemplateLocales(activityCreator);
@@ -3194,7 +2376,7 @@ public class BulkActivityManager extends AbstractWizardController {
 					);
 				}
 			}
-			dataBean.setBulkCreateActivities(bulkCreateActivityBeans);
+			dataBean.put("bulkCreateActivities", bulkCreateActivityBeans);
 			List<TimerBean> timerBeans = new ArrayList<TimerBean>();
 			TimerQuery timerQuery = (TimerQuery)pm.newQuery(Timer.class);
 			timerQuery.thereExistsTarget().equalTo(activityGroup);
@@ -3210,85 +2392,10 @@ public class BulkActivityManager extends AbstractWizardController {
 				timerBean.setTriggerAt(timer.getTimerStartAt());
 				timerBeans.add(timerBean);
 			}
-			dataBean.setTimers(timerBeans);
+			dataBean.put("timers", timerBeans);
 			this.refreshWfProcesses(dataBean);
 		}
 		return dataBean;
-	}
-
-	/**
-	 * Get meta data.
-	 * 
-	 * @param path
-	 * @return
-	 * @throws ServiceException
-	 */
-	public MetaInfBean newMetaInf(
-	) throws ServiceException {
-		ApplicationContext app = this.getApp();
-		MetaInfBean metaInfBean = new MetaInfBean();
-		metaInfBean.setLocale(app.getCurrentLocaleAsString().substring(0, 2));
-		metaInfBean.setTimezone(app.getCurrentTimeZone());
-		metaInfBean.setLabelOK(app.getTexts().getOkTitle());
-		metaInfBean.setLabelCancel(app.getTexts().getCancelTitle());
-		metaInfBean.setLabelEdit(app.getTexts().getEditTitle());
-		metaInfBean.setLabelSave(app.getTexts().getSaveTitle());
-		metaInfBean.setLabelCreatedAt(this.getLabel("org:openmdx:base:Creatable:createdAt"));
-		metaInfBean.setLabelLastActivityOn(this.getLabel("org:opencrx:kernel:home1:WfProcessInstance:lastActivityOn"));
-		metaInfBean.setLabelStartedOn(this.getLabel("org:opencrx:kernel:home1:WfProcessInstance:startedOn"));
-		metaInfBean.setLabelTargetGroupAccounts(this.getLabel("org:opencrx:kernel:activity1:ActivityGroup:targetGroupAccounts"));
-		metaInfBean.setLabelActivityTemplate(this.getLabel("org:opencrx:kernel:activity1:Mailing:template"));
-		metaInfBean.setLabelAssignTo(this.getLabel("org:opencrx:kernel:activity1:Activity:assignedTo"));
-		metaInfBean.setLabelFollowUpTitle(this.getLabel("org:opencrx:kernel:activity1:ActivityFollowUp:title"));
-		metaInfBean.setLabelFollowUpText(this.getLabel("org:opencrx:kernel:activity1:ActivityFollowUp:text"));
-		metaInfBean.setLabelTransition(this.getLabel("org:opencrx:kernel:activity1:ActivityFollowUp:transition"));
-		metaInfBean.setLabelTimerName(this.getLabel("org:opencrx:kernel:home1:Timer:name"));
-		SimpleDateFormat dateFormatTimerTriggerAt = DateValue.getLocalizedDateTimeFormatter("org:opencrx:kernel:home1:Timer:timerStartAt", true, app);
-		metaInfBean.setLabelTimerTriggerAt(this.getLabel("org:opencrx:kernel:home1:Timer:timerStartAt"));
-		metaInfBean.setDateFormatTimerTriggerAt(dateFormatTimerTriggerAt.toPattern());
-		metaInfBean.setCalendarFormatTimerTriggerAt(DateValue.getCalendarFormat(dateFormatTimerTriggerAt));
-		metaInfBean.setLabelEMailAddress(this.getLabel("org:opencrx:kernel:address1:EMailAddressable:emailAddress"));
-		metaInfBean.setLabelEMailAddressUsage(this.getLabel("org:opencrx:kernel:address1:Addressable:usage"));
-		metaInfBean.setLabelActivityName(this.getLabel("org:opencrx:kernel:activity1:Activity:name"));
-		metaInfBean.setLabelActivityDescription(this.getLabel("org:opencrx:kernel:activity1:Activity:description"));
-		metaInfBean.setLabelActivityDetailedDescription(this.getLabel("org:opencrx:kernel:activity1:Activity:detailedDescription"));
-		SimpleDateFormat dateFormatActivityScheduledStart = DateValue.getLocalizedDateTimeFormatter("org:opencrx:kernel:activity1:Activity:scheduledStart", true, app);
-		metaInfBean.setLabelActivityScheduledStart(this.getLabel("org:opencrx:kernel:activity1:Activity:scheduledStart"));
-		metaInfBean.setDateFormatActivityScheduledStart(dateFormatActivityScheduledStart.toPattern());
-		metaInfBean.setCalendarFormatActivityScheduledStart(DateValue.getCalendarFormat(dateFormatActivityScheduledStart));
-		SimpleDateFormat dateFormatActivityScheduledEnd = DateValue.getLocalizedDateTimeFormatter("org:opencrx:kernel:activity1:Activity:scheduledEnd", true, app);
-		metaInfBean.setLabelActivityScheduledEnd(this.getLabel("org:opencrx:kernel:activity1:Activity:scheduledEnd"));
-		metaInfBean.setDateFormatActivityScheduledEnd(dateFormatActivityScheduledEnd.toPattern());
-		metaInfBean.setCalendarFormatActivityScheduledEnd(DateValue.getCalendarFormat(dateFormatActivityScheduledEnd));
-		SimpleDateFormat dateFormatActivityDueBy = DateValue.getLocalizedDateTimeFormatter("org:opencrx:kernel:activity1:Activity:dueBy", true, app);
-		metaInfBean.setLabelActivityDueBy(this.getLabel("org:opencrx:kernel:activity1:Activity:dueBy"));
-		metaInfBean.setDateFormatActivityDueBy(dateFormatActivityDueBy.toPattern());
-		metaInfBean.setCalendarFormatActivityDueBy(DateValue.getCalendarFormat(dateFormatActivityDueBy));
-		metaInfBean.setLabelActivityPriority(this.getLabel("org:opencrx:kernel:activity1:Activity:priority"));
-		metaInfBean.setLabelPlaceHolders("Place holders");
-		metaInfBean.setLabelConfirmDoBulkCreateActivity("Check to confirm activity creation. Uncheck for a preview");
-		metaInfBean.setLabelIgnoreExecutionTimeLimit("Ignore execution time limit");
-		metaInfBean.setLabelDoBulkActivityFollowUp("Do bulk follow up");
-		metaInfBean.setLabelDoBulkCreateActivity("Do bulk create activity");
-		metaInfBean.setLabelEditActivityTemplate("Edit activity template");
-		metaInfBean.setLabelFollowUp(app.getLabel("org:opencrx:kernel:activity1:ActivityFollowUp"));
-		metaInfBean.setLabelRestrictTargetGroup("Restrict target group");
-		metaInfBean.setLabelSenderEMail(this.getLabel("org:opencrx:kernel:activity1:EMail:sender"));
-		metaInfBean.setLabelMessageSubject(this.getLabel("org:opencrx:kernel:activity1:EMail:messageSubject"));
-		metaInfBean.setLabelMessageBody(this.getLabel("org:opencrx:kernel:activity1:EMail:messageBody"));
-		metaInfBean.setLabelExcludeNoBulkEMail(this.getLabel("org:opencrx:kernel:account1:Contact:doNotEMail"));
-		metaInfBean.setLabelPendingWorkflows(this.getLabel("org:opencrx:kernel:home1:UserHome:wfProcessInstance"));
-		if(metaInfBean.getLabelPendingWorkflows().startsWith("»")) {
-			metaInfBean.setLabelPendingWorkflows(metaInfBean.getLabelPendingWorkflows().substring(1));
-		}
-		metaInfBean.setLabelActivityCreators(this.getLabel("org:opencrx:kernel:activity1:ActivityGroup:activityCreator"));
-		metaInfBean.setLabelTimers(this.getLabel("org:opencrx:kernel:home1:UserHome:timer"));
-		metaInfBean.setLabelWfProcessInstanceName(this.getLabel("org:opencrx:kernel:home1:WfProcessInstance:name"));
-		metaInfBean.setLabelWfProcessInstanceName(this.getLabel("org:opencrx:kernel:home1:WfProcessInstance:name"));
-		metaInfBean.setLabelWfProcessState(this.getLabel("org:opencrx:kernel:home1:Alert:alertState"));
-		metaInfBean.setOptionsEMailAddressUsage(this.getOptions("org:opencrx:kernel:account1:EMailAddress:usage", app.getCurrentLocaleAsIndex(), false));
-		metaInfBean.setOptionsPriority(this.getOptions("org:opencrx:kernel:activity1:Activity:priority", app.getCurrentLocaleAsIndex(), false));
-		return metaInfBean;
 	}
 
 	/**
@@ -3299,13 +2406,13 @@ public class BulkActivityManager extends AbstractWizardController {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List<ObjectReferenceBean> findContacts(
+	public List<JsfWizardController.ObjectReferenceBean> findContacts(
 		Path path,
-		QueryBean queryBean
+		JsfWizardController.QueryBean queryBean
 	) throws ServiceException {
 		javax.jdo.PersistenceManager pm = this.getPm();
 		org.opencrx.kernel.account1.jmi1.Segment accountSegment = this.getAccountSegment(path);
-		List<ObjectReferenceBean> result = new ArrayList<ObjectReferenceBean>();
+		List<JsfWizardController.ObjectReferenceBean> result = new ArrayList<JsfWizardController.ObjectReferenceBean>();
 		if(queryBean != null && !queryBean.getQuery().isEmpty()) {
 			ContactQuery contactQuery =  (ContactQuery)pm.newQuery(Contact.class);
 			contactQuery.forAllDisabled().isFalse();
@@ -3331,9 +2438,9 @@ public class BulkActivityManager extends AbstractWizardController {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List<ObjectReferenceBean> findEMailAddresses(
+	public List<JsfWizardController.ObjectReferenceBean> findEMailAddresses(
 		Path path,
-		QueryBean queryBean
+		JsfWizardController.QueryBean queryBean
 	) throws ServiceException {
 		javax.jdo.PersistenceManager pm = this.getPm();
 		org.opencrx.kernel.account1.jmi1.Segment accountSegment = this.getAccountSegment(path);
@@ -3348,7 +2455,7 @@ public class BulkActivityManager extends AbstractWizardController {
 			emailAddressQuery.thereExistsEmailAddress().like("(?i).*" + query + ".*");
 		}
 		emailAddressQuery.orderByEmailAddress().ascending();
-		List<ObjectReferenceBean> result = new ArrayList<ObjectReferenceBean>();
+		List<JsfWizardController.ObjectReferenceBean> result = new ArrayList<JsfWizardController.ObjectReferenceBean>();
 		int count = 0;
 		for(Iterator<EMailAddress> i = accountSegment.<EMailAddress>getAddress(emailAddressQuery).listIterator(queryBean.getPosition()); i.hasNext(); ) {
 			result.add(this.newObjectReferenceBean(i.next()));
@@ -3368,12 +2475,12 @@ public class BulkActivityManager extends AbstractWizardController {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List<ObjectReferenceBean> findActivityProcessTransitions(
+	public List<JsfWizardController.ObjectReferenceBean> findActivityProcessTransitions(
 		Path path,
-		QueryBean queryBean
+		JsfWizardController.QueryBean queryBean
 	) throws ServiceException {
 		javax.jdo.PersistenceManager pm = this.getPm();
-		List<ObjectReferenceBean> result = new ArrayList<ObjectReferenceBean>();
+		List<JsfWizardController.ObjectReferenceBean> result = new ArrayList<JsfWizardController.ObjectReferenceBean>();
 		ActivityProcess activityProcess = (ActivityProcess)pm.getObjectById(path.getPrefix(7));
 		ActivityProcessState activityProcessState = (ActivityProcessState)pm.getObjectById(path.getPrefix(9));
 		if(activityProcess != null && activityProcessState != null) {
@@ -3398,11 +2505,11 @@ public class BulkActivityManager extends AbstractWizardController {
 	 * @throws ServiceException
 	 */
 	public void refreshWfProcesses(
-		DataBean data
+		Map<String,Object> data
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		pm.evictAll();
-		ActivityGroup activityGroup = (ActivityGroup)pm.getObjectById(new Path(data.getActivityGroup().getXri()));
+		ActivityGroup activityGroup = (ActivityGroup)pm.getObjectById(new Path(((ObjectReferenceBean)data.get("activityGroup")).getXri()));
 		List<WfProcessInstanceBean> wfProcessInstanceBeans = new ArrayList<WfProcessInstanceBean>();
 		{
 			WfProcessInstanceQuery wfProcessInstanceQuery = (WfProcessInstanceQuery)pm.newQuery(WfProcessInstance.class);
@@ -3422,7 +2529,7 @@ public class BulkActivityManager extends AbstractWizardController {
 				}
 			}
 		}
-		for(BulkCreateActivityBean bulkCreateActivity: data.getBulkCreateActivities()) {
+		for(BulkCreateActivityBean bulkCreateActivity: ((List<BulkCreateActivityBean>)data.get("bulkCreateActivities"))) {
 			ActivityCreator activityCreator = (ActivityCreator)pm.getObjectById(new Path(bulkCreateActivity.getActivityCreator().getXri()));
 			WfProcessInstanceQuery wfProcessInstanceQuery = (WfProcessInstanceQuery)pm.newQuery(WfProcessInstance.class);
 			wfProcessInstanceQuery.thereExistsTargetObject().equalTo(activityCreator.getIdentity());
@@ -3441,7 +2548,7 @@ public class BulkActivityManager extends AbstractWizardController {
 				}
 			}
 		}
-		data.setWfProcessInstances(wfProcessInstanceBeans);
+		data.put("wfProcessInstances", wfProcessInstanceBeans);
 	}
 
    	/**
@@ -3468,61 +2575,10 @@ public class BulkActivityManager extends AbstractWizardController {
    		this.data = this.newData();
    	}
 
-   	/**
-   	 * doCancel action.
-   	 * 
-   	 * @param event
-   	 * @throws ServiceException
-   	 */
-   	public void doCancel(
-   		javax.faces.event.AjaxBehaviorEvent event
-   	) throws ServiceException {
-   		try {
-   			Action exitAction = new ObjectReference(this.getObject(), this.getApp()).getSelectObjectAction();
-   			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-   			externalContext.redirect(
-   				externalContext.getRequestContextPath() + "/" + exitAction.getEncodedHRef()
-   			);
-   		} catch(Exception e) {
-   			throw new ServiceException(e);
-   		}
-	}
-
-   	/**
-	 * @return the data
-	 */
-	public DataBean getData() {
-		return data;
-	}
-
-	/**
-	 * @param data the data to set
-	 */
-	public void setData(DataBean data) {
-		this.data = data;
-	}
-
-	/**
-	 * @return the metaInf
-	 */
-	public MetaInfBean getMetaInf() {
-		return metaInf;
-	}
-
-	/**
-	 * @param metaInf the metaInf to set
-	 */
-	public void setMetaInf(MetaInfBean metaInf) {
-		this.metaInf = metaInf;
-	}
-	
 	//-----------------------------------------------------------------------
 	// Members
 	//-----------------------------------------------------------------------	
 	public static final String PROPERTY_SET_NAME_SETTINS = "BulkCreateActivityWizardSettings";
 	private static final int DEFAULT_RESULT_SET_SIZE = 20;	
-
-	private DataBean data;
-	private MetaInfBean metaInf;
 	
 }

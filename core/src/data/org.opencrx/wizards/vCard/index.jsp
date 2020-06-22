@@ -254,7 +254,7 @@ org.openmdx.kernel.log.*
              + account.getFullName() + "_(encoding_" + defaultFileEncoding + ")";
         // note: zip encode cannot handle file names with special chars
         filename = org.opencrx.kernel.utils.Utils.toFilename(makeFileName(filename)) + ".vcf";
-        filename = URLEncoder.encode(filename, "UTF-8");
+        filename = java.net.URLEncoder.encode(filename, "UTF-8");
 
         if (fileos == null) {
           fileos = new FileOutputStream(app.getTempFileName(location, ""));
@@ -323,7 +323,7 @@ org.openmdx.kernel.log.*
       } else {
         downloadFileName += ".vcf";
       }
-      downloadFileName = URLEncoder.encode(downloadFileName, "UTF-8");
+      downloadFileName = java.net.URLEncoder.encode(downloadFileName, "UTF-8");
 
       Action downloadAction = null;
       downloadAction =

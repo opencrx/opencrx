@@ -21,7 +21,7 @@ digraph "Diagram Document [Package org:opencrx:kernel:document1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:document1:Document,compartments=false,width=18]};
+	  ${CLASS[name=org:opencrx:kernel:document1:Document,compartments=false,width=20]};
 	}
 	{
 	  rank=same;
@@ -30,7 +30,8 @@ digraph "Diagram Document [Package org:opencrx:kernel:document1]" {
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentLink,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentLock,compartments=true]};
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentAttachment,compartments=true,width=3]};
-	  ${CLASS[name=org:opencrx:kernel:document1:DocumentReference,compartments=true,width=4]};
+	  ${CLASS[name=org:opencrx:kernel:document1:DocumentReference,compartments=true,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:document1:DocumentLinkTo,compartments=true,width=3]};
 	}
 	{
 	  rank=same;

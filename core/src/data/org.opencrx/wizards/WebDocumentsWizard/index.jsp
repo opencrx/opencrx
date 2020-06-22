@@ -72,7 +72,7 @@ org.openmdx.kernel.id.*
 " %>
 <%!
 
-	public static class WebDocumentsWizardController extends org.openmdx.portal.servlet.AbstractWizardController {
+	public static class WebDocumentsWizardController extends org.openmdx.portal.servlet.JspWizardController {
 	
 		public List<org.opencrx.kernel.home1.jmi1.DocumentProfile> getDocumentProfiles(
 		) throws ServiceException {
@@ -137,7 +137,6 @@ org.openmdx.kernel.id.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -164,7 +163,7 @@ org.openmdx.kernel.id.*
 				</div>
 				<div id="WaitIndicator" style="float:left;width:50px;height:24px;" class="wait">&nbsp;</div>
 				<div id="SubmitArea" style="float:left;display:none;">
-					<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
+					<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9020" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none'; $('Command').value=this.name;" />
 				</div>
 			</td>
 		</tr>

@@ -10,7 +10,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2013-2013, CRIXP Corp., Switzerland
+ * Copyright (c) 2013-2019, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -59,7 +59,6 @@ java.io.*,
 java.text.*,
 java.math.*,
 java.net.URL,
-java.net.URLEncoder,
 java.net.MalformedURLException,
 java.io.UnsupportedEncodingException,
 org.opencrx.kernel.portal.*,
@@ -861,10 +860,10 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
 			headerfont.setFontHeightInPoints((short)10);
 			headerfont.setFontName("Tahoma");
 			headerfont.setBold(true);
-			headerfont.setColor(HSSFColor.ORANGE.index);
+			headerfont.setColor(IndexedColors.ORANGE.getIndex());
 
 			HSSFCellStyle headerStyle = wb.createCellStyle();
-			headerStyle.setFillForegroundColor(HSSFColor.BLACK.index);
+			headerStyle.setFillForegroundColor(IndexedColors.BLACK.getIndex());
 			headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 			headerStyle.setFont(headerfont);
 			

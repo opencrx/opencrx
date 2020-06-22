@@ -21,17 +21,17 @@ digraph "Diagram InvolvedObject [Package org:opencrx:kernel:generic]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,width=8]};
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,width=9]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:generic:InvolvedObject,compartments=true,width=8]};
+	  ${CLASS[name=org:opencrx:kernel:generic:InvolvedObject,compartments=true,width=9]};
 	}
 
 	LAYER0->LAYER1[style=invis];
 
-	${ASSOCIATION[name=org:opencrx:kernel:generic:CrxObjectHasInvolvedObject,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:generic:ObjectHasInvolvedObject,minlen=3]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
 

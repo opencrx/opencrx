@@ -98,10 +98,10 @@ import org.opencrx.kernel.document1.jmi1.MediaContent;
 import org.opencrx.kernel.document1.jmi1.MediaReference;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.Codes;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.cci2.BinaryLargeObjects;
 
@@ -109,7 +109,7 @@ import org.w3c.cci2.BinaryLargeObjects;
  * MailMergeController
  *
  */
-public class MailMergeController extends AbstractWizardController {
+public class MailMergeController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -241,7 +241,7 @@ public class MailMergeController extends AbstractWizardController {
 	 * @param lastSelection
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "templateXri") String templateXri
+		@JspWizardController.RequestParameter(name = "templateXri") String templateXri
 	) {
 		this.templateXri = templateXri;
 	}
@@ -254,7 +254,7 @@ public class MailMergeController extends AbstractWizardController {
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "templateXri") String templateXri
+		@JspWizardController.RequestParameter(name = "templateXri") String templateXri
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();

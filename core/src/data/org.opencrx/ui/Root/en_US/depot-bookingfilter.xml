@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object></_object>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object></_object>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object></_object>
+							<_content>
+								<elementDefinition>
+									<!-- Segment -->
+									<!-- Grid Tab -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:compoundBookingFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Compound Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Searches - Compound Bookings</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:singleBookingFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Single Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Searches - Single Bookings</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:simpleBookingFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Simple Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Searches - Simple Bookings</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Segment:inventoryLevelFilter">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Searches - Inventory Levels</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Searches - Inventory Levels</_item>
+											</label>
+											<order>
+												<_item>20</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<maxMember>2</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- CompoundBookingFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBookingFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Compound Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Compound Bookings</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>CompoundBookingFilterGlobal</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBookingFilterGlobal:filteredCompoundBooking">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Compound Bookings (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Compound Bookings (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>12</maxMember>
+											<showMaxMember>12</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBookingFilterGlobal:filterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBookingFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBookingFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- SingleBookingFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBookingFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Single Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Single Bookings</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>SingleBookingFilterGlobal</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBookingFilterGlobal:filteredSingleBooking">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Single Bookings (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Single Bookings (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>11</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBookingFilterGlobal:filterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBookingFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBookingFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- SimpleBookingFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBookingFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Simple Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Simple Bookings</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>CompoundBookingFilterGlobal</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBookingFilterGlobal:filteredSimpleBooking">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Simple Bookings (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Simple Bookings (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>11</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBookingFilterGlobal:filterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBookingFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBookingFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- InventoryLevelFilterGlobal-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevelFilterGlobal">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Saved Search - Inventory Level</_item>
+											</toolTip>
+											<label>
+												<_item>Saved Search - Inventory Level</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>InventoryLevelFilterGlobal</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevelFilterGlobal:filteredInventoryLevel">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Inventory Levels (based on search criteria)</_item>
+											</toolTip>
+											<label>
+												<_item>Inventory Levels (based on search criteria)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevelFilterGlobal:filterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Search Criteria</_item>
+											</toolTip>
+											<label>
+												<_item>Search Criteria</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<inPlace>true</inPlace>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevelFilterGlobal:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevelFilterGlobal:description">
+										<_object>
+											<active>true</active>
+											<spanRow>3</spanRow>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- AbstractFilterCompoundBooking -->
+									<!--Inspector Definitions-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterCompoundBooking:Pane:Op:Tab:countFilteredCompoundBooking">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Compound Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Count Compound Bookings</_item>
+											</label>
+											<iconKey>CompoundBooking</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterCompoundBooking:Pane:Op:Tab:countFilteredCompoundBooking:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterCompoundBooking:Pane:Op:Tab:countFilteredCompoundBooking:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  common.xml -->
+
+									<!-- AbstractFilterSingleBooking -->
+									<!--Inspector Definitions-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterSingleBooking:Pane:Op:Tab:countFilteredSingleBooking">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Single Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Count Single Bookings</_item>
+											</label>
+											<iconKey>SingleBooking</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterSingleBooking:Pane:Op:Tab:countFilteredSingleBooking:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterSingleBooking:Pane:Op:Tab:countFilteredSingleBooking:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  common.xml -->
+
+									<!-- AbstractFilterSimpleBooking -->
+									<!--Inspector Definitions-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterSimpleBooking:Pane:Op:Tab:countFilteredSimpleBooking">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Simple Bookings</_item>
+											</toolTip>
+											<label>
+												<_item>Count Simple Bookings</_item>
+											</label>
+											<iconKey>SimpleBooking</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterSimpleBooking:Pane:Op:Tab:countFilteredSimpleBooking:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterSimpleBooking:Pane:Op:Tab:countFilteredSimpleBooking:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  common.xml -->
+
+									<!-- AbstractFilterInventoryLevel -->
+									<!--Inspector Definitions-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterInventoryLevel:Pane:Op:Tab:countFilteredInventoryLevel">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Count Inventory Levels</_item>
+											</toolTip>
+											<label>
+												<_item>Count Inventory Levels</_item>
+											</label>
+											<iconKey>InventoryLevel</iconKey>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>100</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterInventoryLevel:Pane:Op:Tab:countFilteredInventoryLevel:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:AbstractFilterInventoryLevel:Pane:Op:Tab:countFilteredInventoryLevel:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- result is defined in  common.xml -->
+
+									<!-- CompoundBookingQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:CompoundBookingQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+											<iconKey>CompoundBookingQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- SingleBookingQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SingleBookingQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+											<iconKey>SingleBookingQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- SimpleBookingQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBookingQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+											<iconKey>SimpleBookingQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+
+									<!-- InventoryLevelQueryFilterProperty-->
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevelQueryFilterProperty">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>SQL Query</_item>
+											</toolTip>
+											<label>
+												<_item>SQL Query</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>0</_item>
+											</order>
+											<iconKey>InventoryLevelQueryFilterProperty</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Tab Definitions Pane1-->
+									<!--FieldGroups in General Tab-->
+									<!--Element Definitions -->
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

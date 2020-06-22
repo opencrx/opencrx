@@ -95,7 +95,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -141,18 +140,18 @@ org.openmdx.base.naming.*
 					<br />
 					<div id="WaitIndicator" style="float:left;width:50px;height:24px;" class="wait">&nbsp;</div>
 					<div id="SubmitArea" style="display:none;">									
-						<input type="submit" name="Validate" id="Validate.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9010" value="Validate" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
-						<input type="submit" name="ValidateAndFix" id="ValidateAndFix.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9020" value="Validate & Fix" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
+						<input type="submit" name="Validate" id="Validate.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9010" value="Validate" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
+						<input type="submit" name="ValidateAndFix" id="ValidateAndFix.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9020" value="Validate & Fix" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
 <%
 						if(System.getProperty("org.opencrx.mediadir." + wc.getProviderName()) != null) {
 %>						
-							<input type="submit" name="ValidateMedia" id="ValidateMedia.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9040" value="Validate Media" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
-							<input type="submit" name="MigrateMediaToFS" id="MigrateMediaToFS.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9040" value="Migrate Media to FS" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
-							<input type="submit" name="MigrateMediaToDB" id="MigrateMediaToDB.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9030" value="Migrate Media to DB" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
+							<input type="submit" name="ValidateMedia" id="ValidateMedia.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9040" value="Validate Media" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
+							<input type="submit" name="MigrateMediaToFS" id="MigrateMediaToFS.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9040" value="Migrate Media to FS" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
+							<input type="submit" name="MigrateMediaToDB" id="MigrateMediaToDB.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9030" value="Migrate Media to DB" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('ReportArea').style.display='none';$('Command').value=this.name;" />
 <%
 						}
 %>	
-						<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9030" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
+						<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9030" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('Command').value=this.name;" />
 					</div>
 					<div id="ReportArea">
 <%

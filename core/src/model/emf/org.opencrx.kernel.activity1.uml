@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_60Ocl3UDEduSAEE25K4PVQ" name="activity1">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_60Ocl3UDEduSAEE25K4PVQ" name="activity1">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99DE0161PPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99DE0161PP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99DE0161P" name="kernel">
@@ -261,6 +261,10 @@
               <type xmi:type="uml:Class" href="../openMDX%202%20~%20Core%20(EMF)/org.openmdx.base.uml#_3C7B8A60016D403F48350281"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2MJ70JXSEeCPRvDaLb3XNg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2MJ70ZXSEeCPRvDaLb3XNg" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_8fZVQDqdEemRobMDmdIvww" name="recurrenceRule">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__2sBMDqdEemRobMDmdIvww"/>
             </ownedAttribute>
             <ownedOperation xmi:id="_3C7B8A60016D4251ADEA0013" name="voteForActivity">
               <ownedParameter xmi:id="_H-0vCN7NEdmKapscEl8OLg" direction="return">
@@ -2159,6 +2163,15 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
+            <ownedAttribute xmi:id="_LN1foDqeEemRobMDmdIvww" name="registeredAt">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N3Px4DqeEemRobMDmdIvww"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_R14HcHyFEemtlKElUXEiFw" name="partyCategory" association="_R1oP0HyFEemtlKElUXEiFw">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.code1.uml#_3C7B8A60016D3F42A0980090"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R18Y4HyFEemtlKElUXEiFw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R18_8HyFEemtlKElUXEiFw" value="1"/>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_3C7B8A60016D424DE2EF015D" name="ActivityIsAssignedToGroup" memberEnd="_3C7B8A60016D424DE2EF03D4 _3C7B8A60016D424DE2F00000">
             <ownedEnd xmi:id="_3C7B8A60016D424DE2F00000" name="groupAssignment" type="_3C7B8A60016D424D8474010E" isUnique="false" association="_3C7B8A60016D424DE2EF015D">
@@ -3176,6 +3189,15 @@
             <ownedEnd xmi:id="_hIGPABIBEee_O9QR2Jj6hA" name="activity" type="_3C7B8A60016D3F40064D035D" association="_hIGPAxIBEee_O9QR2Jj6hA">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hIGPARIBEee_O9QR2Jj6hA" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hIGPAhIBEee_O9QR2Jj6hA" value="1"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_R1oP0HyFEemtlKElUXEiFw" name="ActivityPartyHasPartyCategory" memberEnd="_R14HcHyFEemtlKElUXEiFw _R19nAHyFEemtlKElUXEiFw">
+            <eAnnotations xmi:id="_R11EIHyFEemtlKElUXEiFw" source="org.eclipse.papyrus">
+              <details xmi:id="_R11rMHyFEemtlKElUXEiFw" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_R19nAHyFEemtlKElUXEiFw" name="activityParty" type="_S0AG0HFfEdqn-eNyJZtHUw" association="_R1oP0HyFEemtlKElUXEiFw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WU860HyFEemtlKElUXEiFw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WVEPkHyFEemtlKElUXEiFw" value="*"/>
             </ownedEnd>
           </packagedElement>
         </packagedElement>

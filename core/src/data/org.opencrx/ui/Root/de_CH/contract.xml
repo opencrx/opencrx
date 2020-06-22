@@ -1106,6 +1106,39 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsParams:overrideQuantity" _operation="create">
+										<_object>
+											<label>
+												<_item>Anzahl (optionaler Wert, zur Übersteuerung)</_item>
+											</label>
+											<toolTip>
+												<_item>Anzahl (optionaler Wert, zur Übersteuerung)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsParams:overrideUomScaleFactor" _operation="create">
+										<_object>
+											<label>
+												<_item>Masseinheit (optionaler Wert, zur Übersteuerung)</_item>
+											</label>
+											<toolTip>
+												<_item>Masseinheit (optionaler Wert, zur Übersteuerung)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsParams:overrideSalesTaxRate" _operation="create">
+										<_object>
+											<label>
+												<_item>Verkaufssteuersatz (optionaler Wert, zur Übersteuerung)</_item>
+											</label>
+											<toolTip>
+												<_item>Verkaufssteuersatz (optionaler Wert, zur Übersteuerung)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:CalculationRule:Pane:Op:Tab:getPositionAmounts:Group:result" _operation="create">
 										<_object>
 											<label>
@@ -1113,6 +1146,17 @@
 											</label>
 											<toolTip>
 												<_item>Resultat</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:pricePerUnit" _operation="create">
+										<_object>
+											<label>
+												<_item>Preis pro Einheit</_item>
+											</label>
+											<toolTip>
+												<_item>Preis pro Einheit</_item>
 											</toolTip>
 										</_object>
 										<_content />
@@ -1157,6 +1201,39 @@
 											</label>
 											<toolTip>
 												<_item>Betrag (inkl. Steuer)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:pricePerUnitIncludingTax" _operation="create">
+										<_object>
+											<label>
+												<_item>Preis pro Einheit (inkl. Steuer)</_item>
+											</label>
+											<toolTip>
+												<_item>Preis pro Einheit (inkl. Steuer)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:baseAmountIncludingTax" _operation="create">
+										<_object>
+											<label>
+												<_item>Basisbetrag (inkl. Steuer)</_item>
+											</label>
+											<toolTip>
+												<_item>Basisbetrag (inkl. Steuer)</_item>
+											</toolTip>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:GetPositionAmountsResult:discountAmountIncludingTax" _operation="create">
+										<_object>
+											<label>
+												<_item>Discount (Betrag, inkl. Steuer)</_item>
+											</label>
+											<toolTip>
+												<_item>Discount (Betrag, inkl. Steuer)</_item>
 											</toolTip>
 										</_object>
 										<_content />

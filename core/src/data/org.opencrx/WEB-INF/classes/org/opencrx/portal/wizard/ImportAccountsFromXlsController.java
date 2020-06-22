@@ -129,11 +129,11 @@ import org.openmdx.base.mof.spi.Model_1Factory;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.kernel.log.SysLog;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.Codes;
 import org.openmdx.portal.servlet.DataBinding;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.action.SelectObjectAction;
 import org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding;
@@ -145,7 +145,7 @@ import org.w3c.format.DateTimeFormat;
  * ImportAccountsFromXlsController
  *
  */
-public class ImportAccountsFromXlsController extends AbstractWizardController {
+public class ImportAccountsFromXlsController extends JspWizardController {
 
 	/**
 	 * AccountType
@@ -2685,8 +2685,8 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
     	List<String> errors
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(account);
-    	String providerName = account.refGetPath().getSegment(2).toClassicRepresentation();
-    	String segmentName = account.refGetPath().getSegment(4).toClassicRepresentation();
+    	String providerName = account.refGetPath().getSegment(2).toString();
+    	String segmentName = account.refGetPath().getSegment(4).toString();
     	org.opencrx.kernel.account1.jmi1.Segment accountSegment = Accounts.getInstance().getAccountSegment(pm, providerName, segmentName);
     	MapFieldContext mapFieldContext = new MapFieldContext();
 		for(Map.Entry<Integer,String> column: accountRecord.getRecordDefinition().getColumns().entrySet()) {
@@ -2740,8 +2740,8 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 	 * @param description
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "locale") Short locale,
-		@RequestParameter(name = "description") String description
+		@JspWizardController.RequestParameter(name = "locale") Short locale,
+		@JspWizardController.RequestParameter(name = "description") String description
 	) {
 		ApplicationContext app = this.getApp();
 		this.locale = locale == null ? 0 : locale;
@@ -2826,8 +2826,8 @@ public class ImportAccountsFromXlsController extends AbstractWizardController {
 	 * @param description
 	 */
 	public void doOK(
-		@RequestParameter(name = "locale") Short locale,
-		@RequestParameter(name = "description") String description		
+		@JspWizardController.RequestParameter(name = "locale") Short locale,
+		@JspWizardController.RequestParameter(name = "description") String description		
 	) throws ServiceException {
 		ApplicationContext app = this.getApp();
 		this.doRefresh(

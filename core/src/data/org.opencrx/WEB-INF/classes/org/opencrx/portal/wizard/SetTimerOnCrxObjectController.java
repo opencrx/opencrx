@@ -67,15 +67,15 @@ import org.opencrx.kernel.home1.jmi1.Timer;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.openmdx.base.accessor.rest.DirtyObjects;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * SetTimerOnCrxObjectController
  *
  */
-public class SetTimerOnCrxObjectController extends AbstractWizardController {
+public class SetTimerOnCrxObjectController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -168,8 +168,8 @@ public class SetTimerOnCrxObjectController extends AbstractWizardController {
 	 * @param triggerAt
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "name") String name,
-		@RequestParameter(name = "triggerAt") String triggerAt
+		@JspWizardController.RequestParameter(name = "name") String name,
+		@JspWizardController.RequestParameter(name = "triggerAt") String triggerAt
 	) throws ServiceException {
 		ApplicationContext app = this.getApp();
 		final GregorianCalendar NOW = this.newCalendar();
@@ -211,8 +211,8 @@ public class SetTimerOnCrxObjectController extends AbstractWizardController {
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "name") String name,
-		@RequestParameter(name = "triggerAt") String triggerAt
+		@JspWizardController.RequestParameter(name = "name") String name,
+		@JspWizardController.RequestParameter(name = "triggerAt") String triggerAt
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();

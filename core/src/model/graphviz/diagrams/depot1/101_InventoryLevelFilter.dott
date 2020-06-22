@@ -1,0 +1,77 @@
+digraph "Diagram InventoryLevelFilter [Package org:opencrx:kernel:depot1]" {
+
+	graph[
+	  splines=ortho;
+	];
+	node[
+		shape=record,
+		style=filled,
+		fillcolor="#FFFFCB",
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	edge[
+		dir=both,
+		arrowhead=empty,
+		color="#A52A2A",
+		fontname="Arial",
+		fontsize="10px"
+	];
+	{
+	  rank=same;
+	  LAYER0[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:Segment,compartments=false,width=5]};
+	}
+	{
+	  rank=same;
+	  LAYER1[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:InventoryLevelFilterGlobal,compartments=true,width=4]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:AbstractFilter,compartments=false,fillcolor="#FFBD9D"]};
+	}
+	{
+	  rank=same;
+	  LAYER3[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:AbstractFilterInventoryLevel,compartments=true,width=5]};
+	}
+	{
+	  rank=same;
+	  LAYER4[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:InventoryLevelFilterProperty,compartments=true,width=3]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:InventoryLevel,compartments=false,width=3]};
+	}
+	{
+	  rank=same;
+	  LAYER5[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:depot1:InventoryLevelQueryFilterProperty,compartments=true,width=3]};
+	}
+	{
+	  rank=same;
+	  LAYER6[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:QueryFilterProperty,compartments=false,fillcolor="#FFBD9D"]};
+	  ${CLASS[name=org:opencrx:kernel:base:AbstractFilterProperty,compartments=false,fillcolor="#FFBD9D"]};
+	}
+	{
+	  rank=same;
+	  LAYER7[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:base:CountFilteredObjectsResult,compartments=true,fillcolor="#FFECFF",width=5]};
+	}
+
+	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
+	LAYER2->LAYER3[style=invis];
+	LAYER3->LAYER4[style=invis];
+	LAYER4->LAYER5[style=invis];
+	LAYER5->LAYER6[style=invis];
+	LAYER6->LAYER7[style=invis];
+		
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:SegmentContainsInventoryLevelFilter,minlen=3]}
+	${ASSOCIATION[name=org:opencrx:kernel:depot1:InventoryLevelFilterIncludesInventoryLevel,minlen=3]}
+	${ASSOCIATION[name=*]}
+	${INSTANCE_OF}
+
+}

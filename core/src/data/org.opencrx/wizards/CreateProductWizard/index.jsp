@@ -94,7 +94,6 @@ org.openmdx.base.naming.*
 		<div class="alert alert-danger" role="alert">
 		  <table>
 		    <tr>
-		    	<td style="vertical-align:top;padding:10px;"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 		    	<td><%= wc.getErrorMessage() %></td>
 		    </tr>
 		  </table>
@@ -147,7 +146,7 @@ org.openmdx.base.naming.*
 										);
 %>
 									<tr class="gridTableRowFull">
-										<td><input class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" type="submit" name="DeleteProductBasePrice" value="-" onclick="javascript:$('Command').value=this.name;$('DeleteProductBasePriceIndex').value='<%= i %>'"/></td>
+										<td><input class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" type="submit" name="DeleteProductBasePrice" value="-" onclick="javascript:$('Command').value=this.name;$('DeleteProductBasePriceIndex').value='<%= i %>'"/></td>
 										<td><%= new ObjectReference(priceLevel, app).getTitle() %><input type="hidden" name="productBasePrice.priceLevel.<%= i %>" value="<%= priceLevel.refGetPath().toXRI() %>"/></td>
 										<td>
 <%
@@ -179,14 +178,14 @@ org.openmdx.base.naming.*
 					viewPort.flush();
 %>
 					<input type="hidden" name="ProductBasePriceCount" id="ProductBasePriceCount" value="<%= lastProductBasePriceIndex + 1 %>" />
-					<input type="submit" name="AddProductBasePrice" id="AddProductBasePrice.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9000" value="+" onclick="javascript:$('Command').value=this.name;" />
+					<input type="submit" name="AddProductBasePrice" id="AddProductBasePrice.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9000" value="+" onclick="javascript:$('Command').value=this.name;" />
 					<div class="fieldGroupName">&nbsp;</div>
 				</div>
 				<div id="WaitIndicator" style="float:left;width:50px;height:24px;" class="wait">&nbsp;</div>
 				<div id="SubmitArea" style="float:left;display:none;">								
-					<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9040" value="Refresh" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
-					<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9050" value="<%= app.getTexts().getSaveTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
-					<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="9060" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
+					<input type="submit" name="Refresh" id="Refresh.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9040" value="Refresh" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
+					<input type="submit" name="OK" id="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9050" value="<%= app.getTexts().getSaveTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
+					<input type="submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="9060" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
 				</div>
 			</td>
 		</tr>

@@ -8,7 +8,7 @@ if [ "$1" = "run" ] ; then
   export JAVA_HOME=$JDKPath
   export PATH=$JDKPath/bin:$PATH
   cd $INSTALL_PATH/data/hsqldb
-  java -Xmx800M -Dhsqldb.port=$HSQLDB_PORT -cp ./hsqldb.jar org.hsqldb.server.Server --port $HSQLDB_PORT --database.0 file:crx --dbname.0 CRX
+  java -Xmx800M -Dhsqldb.port=$HSQLDB_PORT -cp ./hsqldb.jar org.hsqldb.server.Server --port $HSQLDB_PORT --acl acl.txt --database.0 file:crx --dbname.0 CRX
 
 fi
 

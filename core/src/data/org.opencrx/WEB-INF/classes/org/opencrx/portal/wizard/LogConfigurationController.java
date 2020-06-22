@@ -55,14 +55,14 @@ package org.opencrx.portal.wizard;
 import java.util.Collection;
 import java.util.Enumeration;
 
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * LogConfigurationController
  *
  */
-public class LogConfigurationController extends AbstractWizardController {
+public class LogConfigurationController extends JspWizardController {
 
 	/**
 	 * LogConfigurationController.
@@ -89,7 +89,7 @@ public class LogConfigurationController extends AbstractWizardController {
 	 * 
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "levelAllLoggers") Integer levelAllLoggers		
+		@JspWizardController.RequestParameter(name = "levelAllLoggers") Integer levelAllLoggers		
 	) {
 		this.levelAllLoggers = levelAllLoggers;
 		if(this.levelAllLoggers == null) {
@@ -102,7 +102,7 @@ public class LogConfigurationController extends AbstractWizardController {
 	 * 
 	 */
 	public void doOK(
-		@RequestParameter(name = "levelAllLoggers") Integer levelAllLoggers		
+		@JspWizardController.RequestParameter(name = "levelAllLoggers") Integer levelAllLoggers		
 	) {
 		this.doRefresh(
 			levelAllLoggers

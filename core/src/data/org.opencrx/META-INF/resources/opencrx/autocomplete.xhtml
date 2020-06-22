@@ -39,6 +39,7 @@
 			value="#{cc.attrs.valueXri}"
 			onblur="javascript:$('#{cc.clientId}:#{cc.id}').value=this.options[this.selectedIndex].innerHTML;$('#{cc.clientId}:find#{cc.id}Result').style.display='none';"
 			onclick="javascript:$('#{cc.clientId}:#{cc.id}').value=this.options[this.selectedIndex].innerHTML;$('#{cc.clientId}:find#{cc.id}Result').style.display='none';">
+			<f:selectItem itemDisabled="true" itemLabel="" itemValue="#{cc.attrs.valueXri}" />
 			<f:selectItems value="#{cc.attrs.findResult}" var="item" itemLabel="#{item.title}" itemValue="#{item.xri}" />
 		</h:selectOneListbox>
 	</h:panelGroup>

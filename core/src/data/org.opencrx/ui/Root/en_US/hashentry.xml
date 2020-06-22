@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.openmdx.base.Authority xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="org:openmdx:ui1" xsi:noNamespaceSchemaLocation="xri://+resource/org/openmdx/ui1/xmi1/ui1.xsd">
+	<_object/>
+	<_content>
+		<provider>
+			<org.openmdx.base.Provider qualifiedName="CRX" _operation="null">
+				<_object/>
+				<_content>
+					<segment>
+						<org.openmdx.ui1.Segment qualifiedName="Root" _operation="null">
+							<_object/>
+							<_content>
+								<elementDefinition>
+								  <!-- Root Class -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Hashable">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Hashable</_item>
+											</toolTip>
+											<label>
+												<_item>Hashable</_item>
+											</label>
+											<iconKey>Hashable</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Segment Definition-->
+									<!--Auditee-->
+									<!--Tab Definitions Pane1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Hashable:hashEntry">
+										<_object>
+											<active>true</active>
+											<changeable>false</changeable>
+											<toolTip>
+												<_item>Hash Entries</_item>
+											</toolTip>
+											<label>
+												<_item>»Hash Entries</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1495</_item>
+											</order>
+											<maxMember>6</maxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- ElementDefinitions -->
+									
+
+									<!--Inspector Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Hash Entry</_item>
+											</toolTip>
+											<label>
+												<_item>Hash Entry</_item>
+											</label>
+											<iconKey>HashEntry</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- disable Edit/Delete Operations -->
+									<!--
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:base:HashEntry:Pane:Op:Tab:edit">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:openmdx:base:HashEntry:Pane:Op:Tab:delete">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+                  -->
+
+									<!--Element Definitions-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:description">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Description</_item>
+											</toolTip>
+											<label>
+												<_item>Description</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:createdAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>time and date when object was created (never modified)</_item>
+											</toolTip>
+											<label>
+												<_item>Created at</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:modifiedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>time and date when object was last modified</_item>
+											</toolTip>
+											<label>
+												<_item>Modified at</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:hashValue">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Hash value</_item>
+											</toolTip>
+											<label>
+												<_item>Hash value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:hashValueModifiedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Hash value modified at</_item>
+											</toolTip>
+											<label>
+												<_item>Hash value modified at</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- hide security operations on hash entries -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:Pane:Op:Tab:setOwningUser">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:Pane:Op:Tab:addOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:Pane:Op:Tab:removeOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:Pane:Op:Tab:removeAllOwningGroup">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:HashEntry:Pane:Op:Tab:setAccessLevel">
+										<_object>
+											<active>false</active>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Hashable:Pane:Op:Tab:updateHash">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Update Hash</_item>
+											</toolTip>
+											<label>
+												<_item>Update Hash</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>9998</_item>
+											</order>
+											<iconKey></iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Hashable:Pane:Op:Tab:updateHash:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateHashParams:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:Hashable:Pane:Op:Tab:updateHash:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateHashResult:name">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Name</_item>
+											</toolTip>
+											<label>
+												<_item>Name</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:UpdateHashResult:hashValue">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Hash value</_item>
+											</toolTip>
+											<label>
+												<_item>Hash value</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+
+								</elementDefinition>
+							</_content>
+						</org.openmdx.ui1.Segment>
+					</segment>
+				</_content>
+			</org.openmdx.base.Provider>
+		</provider>
+	</_content>
+</org.openmdx.base.Authority>

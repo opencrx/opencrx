@@ -562,8 +562,8 @@ org.openmdx.kernel.log.*
 			</div>
 			<br />
 			<div class="fieldGroupName">&nbsp;</div>
-            <input type="submit" id="Reload.button" name="Reload" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getReloadText() %>" />
-            <input type="submit" id="Cancel" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="30" value="<%= app.getTexts().getCancelTitle() %>"  onClick="javascript:window.close();" />
+            <input type="submit" id="Reload.button" name="Reload" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="<%= tabIndex++ %>" value="<%= app.getTexts().getReloadText() %>" />
+            <input type="submit" id="Cancel" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="30" value="<%= app.getTexts().getCancelTitle() %>"  onClick="javascript:window.close();" />
             <br />
          </form>
        </div> <!-- content -->

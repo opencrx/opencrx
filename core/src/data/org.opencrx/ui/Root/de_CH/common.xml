@@ -482,6 +482,17 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:CrxObject:involvedInObject" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Involvierte In-Objekte</_item>
+											</toolTip>
+											<label>
+												<_item>Involvierte In-Objekte</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:CrxObject:rating" _operation="create">
 										<_object>
 											<label>
@@ -770,7 +781,7 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:InvolvedObject">
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:InvolvedObject" _operation="create">
 										<_object>
 											<toolTip>
 												<_item>Involviertes Objekt</_item>
@@ -784,6 +795,39 @@
 									<!--Tab Definitions Pane1 -->
 									<!--FieldGroups in General Tab -->
 									<!--Element Definitions -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:InvolvedObject:identity" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Involviertes Objekt</_item>
+											</toolTip>
+											<label>
+												<_item>Involviertes Objekt</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:InvolvedObject:modifiedAt" _operation="create">
+										<_object>
+											<label>
+                        <_item>Modifiziert am</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Datum und Zeit der letzten Objektmodifikation</_item>
+                      </toolTip>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:InvolvedObject:createdAt" _operation="create">
+										<_object>
+											<label>
+												<_item>Erstellt am</_item>
+											</label>
+											<toolTip>
+												<_item>Datum und Zeit der Objektkreation (wird nie modifiziert)</_item>
+											</toolTip>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:generic:InvolvedObject:name">
 										<_object>
 											<toolTip>

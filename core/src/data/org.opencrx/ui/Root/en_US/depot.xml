@@ -179,7 +179,7 @@
 												<_item>0</_item>
 												<_item>70</_item>
 											</order>
-											<maxMember>11</maxMember>
+											<maxMember>12</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -1514,7 +1514,7 @@
 											<orderObjectContainer>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>12</_item>
+												<_item>14</_item>
 											</orderObjectContainer>
 										</_object>
 										<_content />
@@ -1718,12 +1718,171 @@
 											<order>
 												<_item>0</_item>
 												<_item>0</_item>
-												<_item>100</_item>
+												<_item>115</_item>
 											</order>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
-
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:isLocked">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Is locked</_item>
+											</toolTip>
+											<label>
+												<_item>Is locked</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>75</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>65</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:lockingReason">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Locking reason</_item>
+											</toolTip>
+											<label>
+												<_item>Locking reason</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>77</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>67</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:lockModifiedAt">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Lock modified at</_item>
+											</toolTip>
+											<label>
+												<_item>Lock modified at</_item>
+											</label>
+											<orderFieldGroup>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>78</_item>
+											</orderFieldGroup>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>68</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- Operations -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:lockSimpleBooking">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Lock Simple Booking</_item>
+											</toolTip>
+											<label>
+												<_item>Lock Simple Booking</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:lockSimpleBooking:Group:in">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Input</_item>
+											</toolTip>
+											<label>
+												<_item>Input</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:LockSimpleBookingParams:lockingReason">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Locking reason</_item>
+											</toolTip>
+											<label>
+												<_item>Locking reason</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:lockSimpleBooking:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:unlockSimpleBooking">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Unlock Simple Booking</_item>
+											</toolTip>
+											<label>
+												<_item>Unlock Simple Booking</_item>
+											</label>
+											<order>
+												<_item>500</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</order>
+											<iconKey></iconKey>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:SimpleBooking:Pane:Op:Tab:unlockSimpleBooking:Group:result">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Result</_item>
+											</toolTip>
+											<label>
+												<_item>Result</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<!-- InventoryLevel -->
 									<!--Inspector Definitions -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:InventoryLevel">
@@ -2862,6 +3021,27 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:depotReference">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Depot References (inbound)</_item>
+											</toolTip>
+											<label>
+												<_item>Depot References (inbound)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<showMemberRange>
+												<_item>0:0:1-10:0:1</_item> <!-- show identity -->
+											</showMemberRange>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:Depot:report">
 										<_object>
 											<active>true</active>
@@ -3124,6 +3304,27 @@
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:depotPositionReference">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Depot Position References (inbound)</_item>
+											</toolTip>
+											<label>
+												<_item>Depot Position References (inbound)</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<maxMember>6</maxMember>
+											<showMemberRange>
+												<_item>0:0:1-10:0:1</_item>
+											</showMemberRange>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPosition:depotReportItem">
 										<_object>
 											<active>true</active>
@@ -3193,7 +3394,7 @@
 												<_item>0</_item>
 												<_item>30</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>11</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -3979,7 +4180,7 @@
 												<_item>0</_item>
 												<_item>20</_item>
 											</order>
-											<maxMember>10</maxMember>
+											<maxMember>11</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -4526,6 +4727,9 @@
 												<_item>10</_item>
 											</order>
 											<maxMember>6</maxMember>
+											<showMemberRange>
+												<_item>0:0:2-10:10:99</_item>
+											</showMemberRange>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -4596,6 +4800,42 @@
 											</order>
 										</_object>
 										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:identity">
+										<_object>
+											<active>true</active>
+											<filterable>false</filterable>
+											<toolTip>
+												<_item>Depot Reference</_item>
+											</toolTip>
+											<label>
+												<_item>Depot Reference</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotPositionReference:identity">
+										<_object>
+											<active>true</active>
+											<filterable>false</filterable>
+											<toolTip>
+												<_item>Depot Position Reference</_item>
+											</toolTip>
+											<label>
+												<_item>Depot Position Reference</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:depot1:DepotReference:holderQualifiesPosition">
 										<_object>

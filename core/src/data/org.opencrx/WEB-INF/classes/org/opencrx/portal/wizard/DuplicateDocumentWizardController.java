@@ -66,6 +66,7 @@ import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -75,7 +76,7 @@ import org.openmdx.portal.servlet.component.TransientObjectView;
  * DuplicateDocumentWizardController
  *
  */
-public class DuplicateDocumentWizardController extends org.openmdx.portal.servlet.AbstractWizardController {
+public class DuplicateDocumentWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -93,7 +94,7 @@ public class DuplicateDocumentWizardController extends org.openmdx.portal.servle
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@FormParameter(forms = "DuplicateDocumentForm") Map<String,Object> formFields
+		@JspWizardController.FormParameter(forms = "DuplicateDocumentForm") Map<String,Object> formFields
 	) throws ServiceException {
 		RefObject_1_0 obj = this.getObject();
 		this.formFields = formFields;
@@ -114,7 +115,7 @@ public class DuplicateDocumentWizardController extends org.openmdx.portal.servle
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@FormParameter(forms = "DuplicateDocumentForm") Map<String,Object> formFields
+		@JspWizardController.FormParameter(forms = "DuplicateDocumentForm") Map<String,Object> formFields
 	) throws ServiceException {
 		this.doRefresh(formFields);
 		PersistenceManager pm = this.getPm();
@@ -200,7 +201,7 @@ public class DuplicateDocumentWizardController extends org.openmdx.portal.servle
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

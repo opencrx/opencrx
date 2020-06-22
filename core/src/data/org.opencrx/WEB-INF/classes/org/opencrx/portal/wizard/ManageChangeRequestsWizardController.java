@@ -71,8 +71,8 @@ import org.opencrx.kernel.activity1.jmi1.ActivityProcessTransition;
 import org.opencrx.kernel.backend.Base;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Codes;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
@@ -81,7 +81,7 @@ import org.w3c.spi2.Structures;
  * MergeChangesWizardController
  *
  */
-public class ManageChangeRequestsWizardController extends AbstractWizardController {
+public class ManageChangeRequestsWizardController extends JspWizardController {
 
 	/**
 	 * Format
@@ -206,8 +206,8 @@ public class ManageChangeRequestsWizardController extends AbstractWizardControll
 	 * @param selectedChangeRequestXri
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "currentChangeRequestXri") String currentChangeRequestXri,
-		@RequestParameter(name = "selectedChangeRequestXri") String selectedChangeRequestXri
+		@JspWizardController.RequestParameter(name = "currentChangeRequestXri") String currentChangeRequestXri,
+		@JspWizardController.RequestParameter(name = "selectedChangeRequestXri") String selectedChangeRequestXri
 	) {
 		PersistenceManager pm = this.getPm();
 		Path currentChangeRequestIdentity = currentChangeRequestXri == null || currentChangeRequestXri.isEmpty()
@@ -241,8 +241,8 @@ public class ManageChangeRequestsWizardController extends AbstractWizardControll
 	 * @param selectedActivityXri
 	 */
 	public void doApply(
-		@RequestParameter(name = "currentChangeRequestXri") String currentChangeRequestXri,
-		@RequestParameter(name = "selectedChangeRequestXri") String selectedChangeRequestXri
+		@JspWizardController.RequestParameter(name = "currentChangeRequestXri") String currentChangeRequestXri,
+		@JspWizardController.RequestParameter(name = "selectedChangeRequestXri") String selectedChangeRequestXri
 	) throws ServiceException {
 		this.doRefresh(
 			currentChangeRequestXri, 
@@ -261,9 +261,9 @@ public class ManageChangeRequestsWizardController extends AbstractWizardControll
 	 * @param processTransitionXri
 	 */
 	public void doDoFollowUp(
-		@RequestParameter(name = "currentChangeRequestXri") String currentChangeRequestXri,
-		@RequestParameter(name = "selectedChangeRequestXri") String selectedChangeRequestXri,
-		@RequestParameter(name = "processTransitionXri") String processTransitionXri
+		@JspWizardController.RequestParameter(name = "currentChangeRequestXri") String currentChangeRequestXri,
+		@JspWizardController.RequestParameter(name = "selectedChangeRequestXri") String selectedChangeRequestXri,
+		@JspWizardController.RequestParameter(name = "processTransitionXri") String processTransitionXri
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(

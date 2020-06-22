@@ -61,15 +61,15 @@ import org.opencrx.kernel.account1.cci2.PostalAddressQuery;
 import org.opencrx.kernel.account1.jmi1.PostalAddress;
 import org.opencrx.kernel.address1.jmi1.PostalAddressable;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Codes;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * MapsController
  *
  */
-public class MapsController extends AbstractWizardController {
+public class MapsController extends JspWizardController {
 
 	/**
 	 * Constructor.

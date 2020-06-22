@@ -77,6 +77,7 @@ import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.rest.cci.QueryExtensionRecord;
 import org.openmdx.portal.servlet.DataBinding;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.databinding.CompositeObjectDataBinding;
 
 /**
@@ -105,7 +106,7 @@ public class CreateLegalEntityWizardController extends CreateAccountWizardContro
     }
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#initFormFields(java.util.Map)
+	 * @see org.openmdx.portal.servlet.JspWizardController#initFormFields(java.util.Map)
 	 */
 	@Override 
 	protected void initFormFields(
@@ -232,12 +233,12 @@ public class CreateLegalEntityWizardController extends CreateAccountWizardContro
 	 * @throws ServiceException
 	 */
 	public void doOK(
-   	   	@RequestParameter(name = "accountXri") String accountXri,
-   		@RequestParameter(name = "isAddMemberMode") Boolean isAddMemberMode,
-   	   	@RequestParameter(name = "memberXri") String memberXri,   	   	
-   		@RequestParameter(name = "isAddMembershipMode") Boolean isAddMembershipMode,
-   	   	@RequestParameter(name = "membershipXri") String membershipXri,   				
-   		@FormParameter(forms = {"LegalEntityForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,
+   		@JspWizardController.RequestParameter(name = "isAddMemberMode") Boolean isAddMemberMode,
+   	   	@JspWizardController.RequestParameter(name = "memberXri") String memberXri,   	   	
+   		@JspWizardController.RequestParameter(name = "isAddMembershipMode") Boolean isAddMembershipMode,
+   	   	@JspWizardController.RequestParameter(name = "membershipXri") String membershipXri,   				
+   		@JspWizardController.FormParameter(forms = {"LegalEntityForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		this.doRefresh(
 			accountXri,
@@ -270,8 +271,8 @@ public class CreateLegalEntityWizardController extends CreateAccountWizardContro
 	 * @throws ServiceException
 	 */
 	public void doCreate(
-   	   	@RequestParameter(name = "accountXri") String accountXri,
-   		@FormParameter(forms = {"LegalEntityForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,
+   		@JspWizardController.FormParameter(forms = {"LegalEntityForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		this.doRefresh(
 			accountXri,
@@ -296,8 +297,8 @@ public class CreateLegalEntityWizardController extends CreateAccountWizardContro
 	 */
 	@Override
 	public void doSearch(
-   	   	@RequestParameter(name = "accountXri") String accountXri,		
-   		@FormParameter(forms = {"LegalEntityForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields   				
+   	   	@JspWizardController.RequestParameter(name = "accountXri") String accountXri,		
+   		@JspWizardController.FormParameter(forms = {"LegalEntityForm", "LegalEntityMembershipForm", "MemberForm"}) Map<String,Object> formFields   				
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(

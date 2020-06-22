@@ -766,7 +766,7 @@
 												<_item>0</_item>
 												<_item>150</_item>
 											</order>
-											<maxMember>11</maxMember>
+											<maxMember>13</maxMember>
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -1047,8 +1047,8 @@
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:StringProperty:stringValue">
 										<_object>
-											<columnBreak>true</columnBreak>
 											<active>true</active>
+											<spanRow>5</spanRow>
 											<toolTip>
 												<_item>String value</_item>
 											</toolTip>
@@ -1057,9 +1057,14 @@
 											</label>
 											<order>
 												<_item>0</_item>
-												<_item>0</_item>
-												<_item>78</_item>
+												<_item>10</_item>
+												<_item>10</_item>
 											</order>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>70</_item>
+											</orderObjectContainer>											
 										</_object>
 										<_content />
 									</org.openmdx.ui1.ElementDefinition>
@@ -1270,11 +1275,13 @@
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:base:ReferenceProperty:weight">
 										<_object>
 											<active>true</active>
+											<decimalPlaces>3</decimalPlaces>
+											<hasThousandsSeparator>true</hasThousandsSeparator>
 											<toolTip>
-												<_item>Weight</_item>
+												<_item>Value/Weight</_item>
 											</toolTip>
 											<label>
-												<_item>Weight</_item>
+												<_item>Value/Weight</_item>
 											</label>
 											<order>
 												<_item>0</_item>

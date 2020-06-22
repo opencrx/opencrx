@@ -9,7 +9,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2008-2015, CRIXP Corp., Switzerland
+ * Copyright (c) 2008-2019, CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -95,10 +95,8 @@ org.openmdx.base.query.*
   <link rel="stylesheet" href="../../_style/colors.css">
   <link rel="stylesheet" href="../../_style/n2default.css">
   <link rel="stylesheet" href="../../_style/ssf.css">
-  <link rel="stylesheet" type="text/css" href="../../js/yui-ext/resources/css/ytheme-gray.css" >
   <link rel='shortcut icon' href='../../images/favicon.ico' />
   <script language="javascript" type="text/javascript" src="../../js/prototype.js"></script>
-  <script language="javascript" type="text/javascript" src="../../js/scriptaculous.js"></script>
 
 </head>
 
@@ -135,7 +133,7 @@ org.openmdx.base.query.*
 %>
       <h1 style="padding:2px;">
         <%= app.getLabel(AccountAssignmentInventoryItem_CLASS) %>
-        <input type="Submit" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" name="Cancel.Button" tabindex="8020" value="X" onClick="javascript:window.close();" />
+        <input type="Submit" class="btn btn-dark" style='float:right;' name="Cancel.Button" tabindex="8020" value="X" onClick="javascript:window.close();" />
       </h1>
 <%
     	Attribute accountAttr = null;
@@ -226,54 +224,18 @@ org.openmdx.base.query.*
 
 %>
 		<div class="table-responsive" style="margin-top:10px;">
-			<table class="table table-hover table-striped table-condensed" style="max-width:2400px;" id="G_0_0_gridTable">
-				<thead>
+			<table class="table table-hover table-bordered table-condensed">
+				<thead class="thead-dark">
 					<tr>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= app.getLabel("org:opencrx:kernel:building1:InventoryItem") %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= descriptionAttr == null ? "Description" : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":description").getLabel() %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= accountAttr     == null ? "Account"     : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":account"    ).getLabel() %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= accountRoleAttr == null ? "Role"        : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":accountRole").getLabel() %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= validFromAttr   == null ? "Valid from"  : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":validFrom"  ).getLabel() %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= validToAttr     == null ? "Valid to"    : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":validTo"    ).getLabel() %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= disabledAttr    == null ? "Disabled"    : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":disabled"   ).getLabel() %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= reasonAttr        == null ? "Reason"    : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":disabledReason").getLabel() %></div></td></tr></tbody>
-							</table>
-						</th>
-						<th>
-							<table class="filterHeader">
-								<tbody><tr><td><div><%= modifiedAtAttr  == null ? "Modified at" : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":modifiedAt" ).getLabel() %> <img src='../../images/arrow_down.gif' alt='' /></div></td></tr></tbody>
-							</table>
-						</th>
+						<th><%= app.getLabel("org:opencrx:kernel:building1:InventoryItem") %></th>
+						<th><%= descriptionAttr == null ? "Description" : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":description").getLabel() %></th>
+						<th><%= accountAttr     == null ? "Account"     : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":account"    ).getLabel() %></th>
+						<th><%= accountRoleAttr == null ? "Role"        : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":accountRole").getLabel() %></th>
+						<th><%= validFromAttr   == null ? "Valid from"  : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":validFrom"  ).getLabel() %></th>
+						<th><%= validToAttr     == null ? "Valid to"    : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":validTo"    ).getLabel() %></th>
+						<th><%= disabledAttr    == null ? "Disabled"    : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":disabled"   ).getLabel() %></th>
+						<th><%= reasonAttr        == null ? "Reason"    : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":disabledReason").getLabel() %></th>
+						<th nowrap><%= modifiedAtAttr  == null ? "Modified at" : userView.getAttribute(AccountAssignmentInventoryItem_CLASS + ":modifiedAt" ).getLabel() %> <img src='../../images/arrow_down.gif' alt='' /></th>
 					</thead>
 					<tbody>
 <%
@@ -394,7 +356,7 @@ org.openmdx.base.query.*
   	}
 
 %>
-  <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="8020" value="X" onClick="javascript:window.close();" />
+  <input type="Submit" name="Cancel.Button" class="btn btn-dark" tabindex="8020" value="X" onClick="javascript:window.close();" />
 </body>
 
 </html>

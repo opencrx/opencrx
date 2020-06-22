@@ -374,6 +374,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPositionOrigin:origin" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Herkunft / Ursprung</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Herkunft / Ursprung</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:quantity" _operation="create">
                     <_object>
                       <label>
@@ -506,13 +517,36 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:manualPricing" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Manuelle Preisbildung</_item>
+											</toolTip>
+											<label>
+												<_item>Manuelle Preisbildung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Element Definitions Financial Information-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discountOrigin" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Herkunft Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Herkunft Discount</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discountIsPercentage" _operation="create">
                     <_object>
                       <label>
-                        <_item>Discount in %</_item>
+                        <_item>Discount ist in %</_item>
                       </label>
                       <toolTip>
-                        <_item>Discount in %</_item>
+                        <_item>Discount ist in %</_item>
                       </toolTip>
                     </_object>
                     <_content/>
@@ -528,6 +562,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discountCalculationType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount Berechnungsart</_item>
+											</toolTip>
+											<label>
+												<_item>Discount Berechnungsart</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:discountDescription" _operation="create">
                     <_object>
                       <label>
@@ -1102,6 +1147,360 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Op:Tab:previewReprice" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Vorschau Preisneuberechnung</_item>
+											</toolTip>
+											<label>
+												<_item>Vorschau Preisneuberechnung</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Op:Tab:previewReprice:Group:in" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Eingabe</_item>
+											</toolTip>
+											<label>
+												<_item>Eingabe</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideCalculationRule" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Berechnungsregel</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Berechnungsregel</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overridePriceLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Preislevel</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Preislevel</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideQuantity" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Menge</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Menge</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overridePricePerUnit" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Preis pro Einheit</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Preis pro Einheit</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideManualPricing" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung manuelle Preisbildung</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung manuelle Preisbildung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideDiscount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Discount</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideDiscountIsPercentage" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Discount ist in %</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Discount ist in %</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideDiscountCalculationType" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Discount Berechnungsart</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Discount Berechnungsart</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overridePricingDate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Preisbildungszeitpunkt</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Preisbildungszeitpunkt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideProduct" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Produkt</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Produkt</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideSalesTaxRate" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Verkaufssteuer</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Verkaufssteuer</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overridePriceUom" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Masseinheit (Preis)</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Masseinheit (Preis)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideUomScaleFactor" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Masseinheit (Skalierung)</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Masseinheit (Skalierung)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceParams:overrideContractPositionState" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Übersteuerung Positionsstatus</_item>
+											</toolTip>
+											<label>
+												<_item>Übersteuerung Positionsstatus</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Op:Tab:previewReprice:Group:result" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Resultat</_item>
+											</toolTip>
+											<label>
+												<_item>Resultat</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:statusCode" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Status</_item>
+											</toolTip>
+											<label>
+												<_item>Status</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:statusMessage" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Statusmeldung</_item>
+											</toolTip>
+											<label>
+												<_item>Statusmeldung</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:priceLevel" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Preislevel</_item>
+											</toolTip>
+											<label>
+												<_item>Preislevel</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:basePrice" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Basispreis</_item>
+											</toolTip>
+											<label>
+												<_item>Basispreis</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:pricePerUnit" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Preis pro Einheit</_item>
+											</toolTip>
+											<label>
+												<_item>Preis pro Einheit</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:discountOrigin" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Herkunft Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Herkunft Discount</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:discountIsPercentage" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount ist in %</_item>
+											</toolTip>
+											<label>
+												<_item>Discount ist in %</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:discount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount</_item>
+											</toolTip>
+											<label>
+												<_item>Discount</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:baseAmount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Basisbetrag</_item>
+											</toolTip>
+											<label>
+												<_item>Basisbetrag</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:discountAmount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount (Betrag)</_item>
+											</toolTip>
+											<label>
+												<_item>Discount (Betrag)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:taxAmount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Steuern</_item>
+											</toolTip>
+											<label>
+												<_item>Steuern</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:amount" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Betrag (inkl. Steuer)</_item>
+											</toolTip>
+											<label>
+												<_item>Betrag (inkl. Steuer)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:pricePerUnitIncludingTax" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Preis pro Einheit (inkl. Steuer)</_item>
+											</toolTip>
+											<label>
+												<_item>Preis pro Einheit (inkl. Steuer)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:baseAmountIncludingTax" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Basisbetrag (inkl. Steuer)</_item>
+											</toolTip>
+											<label>
+												<_item>Basisbetrag (inkl. Steuer)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:PreviewRepriceResult:discountAmountIncludingTax" _operation="create">
+										<_object>
+											<toolTip>
+												<_item>Discount (Betrag, inkl. Steuer)</_item>
+											</toolTip>
+											<label>
+												<_item>Discount (Betrag, inkl. Steuer)</_item>
+											</label>
+										</_object>
+										<_content />
+									</org.openmdx.ui1.ElementDefinition>
+
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:SalesContractPosition:Pane:Op:Tab:reprice" _operation="create">
                     <_object>
                       <label>
@@ -1120,17 +1519,6 @@
                       </label>
                       <toolTip>
                         <_item>Eingabe</_item>
-                      </toolTip>
-                    </_object>
-                    <_content/>
-                  </org.openmdx.ui1.ElementDefinition>
-                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:contract1:RepriceParams:price" _operation="create">
-                    <_object>
-                      <label>
-                        <_item>Preis</_item>
-                      </label>
-                      <toolTip>
-                        <_item>Preis</_item>
                       </toolTip>
                     </_object>
                     <_content/>

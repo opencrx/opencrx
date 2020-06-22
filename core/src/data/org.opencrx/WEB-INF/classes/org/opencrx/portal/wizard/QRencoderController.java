@@ -64,9 +64,9 @@ import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.kernel.id.UUIDs;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 import com.google.zxing.BarcodeFormat;
@@ -79,7 +79,7 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
  * QRencoderController
  *
  */
-public class QRencoderController extends AbstractWizardController {
+public class QRencoderController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -108,8 +108,8 @@ public class QRencoderController extends AbstractWizardController {
 	 * @param location
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "stringToEncode") String stringToEncode,
-		@RequestParameter(name = "location") String location
+		@JspWizardController.RequestParameter(name = "stringToEncode") String stringToEncode,
+		@JspWizardController.RequestParameter(name = "location") String location
 	) {
 		RefObject_1_0 obj = this.getObject();
 		ApplicationContext app = this.getApp();
@@ -135,8 +135,8 @@ public class QRencoderController extends AbstractWizardController {
 	 * @param location
 	 */
 	public void doOK(
-		@RequestParameter(name = "stringToEncode") String stringToEncode,
-		@RequestParameter(name = "location") String location
+		@JspWizardController.RequestParameter(name = "stringToEncode") String stringToEncode,
+		@JspWizardController.RequestParameter(name = "location") String location
 	) {
 		ApplicationContext app = this.getApp();
 		this.doRefresh(

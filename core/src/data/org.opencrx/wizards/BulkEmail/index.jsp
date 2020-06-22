@@ -674,7 +674,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
                     <td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= (codes.getLongTextByCode(featurePartyTypeEMailRecipient, app.getCurrentLocaleAsIndex(), true).get(CODE_FROM)) %>:</span></td>
                     <td>
                       <div class="autocompleterMenu">
-                        <ul id="<%=CssClass.ssfNav %>" class="<%=CssClass.ssfNav %>" onmouseover="sfinit(this);" >
+                        <ul id="<%=CssClass.ssf_nav %>" class="<%=CssClass.ssf_nav %>" onmouseover="sfinit(this);" >
                           <li><a href="#"><img border="0" alt="" src="../../images/autocomplete_select.png" /></a>
                             <ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
                               <li class="selected"><a href="#" onclick="javascript:navSelect(this);ac10.url= getEncodedHRef(['../../ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.account1/provider/<%=providerName%>/segment/<%=segmentName%>)*referenceName*(address)*filterByType*(org:opencrx:kernel:account1:AccountAddress)*filterByFeature*(emailAddress)*filterOperator*(IS_LIKE)*orderByFeature*(emailAddress)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span><%=app.getLabel(EMAILADDRESS_CLASS)%></a></li>
@@ -713,7 +713,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
                     <td class="<%= CssClass.fieldLabel %>"><span class="nw"><%=(codes.getLongTextByCode(featurePartyTypeEMailRecipient, app.getCurrentLocaleAsIndex(), true).get(CODE_TO))%>:</span></td>
                     <td>
                       <div class="autocompleterMenu">
-                        <ul id="<%=CssClass.ssfNav%>" class="<%=CssClass.ssfNav%>" onmouseover="sfinit(this);" >
+                        <ul id="<%=CssClass.ssf_nav%>" class="<%=CssClass.ssf_nav%>" onmouseover="sfinit(this);" >
                           <li><a href="#"><img border="0" alt="" src="../../images/autocomplete_select.png" /></a>
                             <ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
                               <li class="selected"><a href="#" onclick="javascript:navSelect(this);ac20.url= getEncodedHRef(['../../ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.account1/provider/<%=providerName%>/segment/<%=segmentName%>)*referenceName*(address)*filterByType*(org:opencrx:kernel:account1:AccountAddress)*filterByFeature*(emailAddress)*filterOperator*(IS_LIKE)*orderByFeature*(emailAddress)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span><%=app.getLabel(EMAILADDRESS_CLASS)%></a></li>
@@ -752,7 +752,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
                     <td class="<%= CssClass.fieldLabel %>"><span class="nw"><%=(codes.getLongTextByCode(featurePartyTypeEMailRecipient, app.getCurrentLocaleAsIndex(), true).get(CODE_BCC))%> (<%=app.getLabel(ADDRESSGROUP_CLASS)%>):</span></td>
                     <td>
                       <div class="autocompleterMenu">
-                        <ul id="<%=CssClass.ssfNav%>" class="<%=CssClass.ssfNav%>" onmouseover="sfinit(this);" >
+                        <ul id="<%=CssClass.ssf_nav%>" class="<%=CssClass.ssf_nav%>" onmouseover="sfinit(this);" >
                           <li><a href="#"><img border="0" alt="" src="../../images/autocomplete_select.png" /></a>
                             <ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
                               <li class="selected"><a href="#" onclick="javascript:navSelect(this);ac30.url= getEncodedHRef(['../../ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.activity1/provider/<%=providerName%>/segment/<%=segmentName%>)*referenceName*(addressGroup)*filterByFeature*(name)*filterOperator*(IS_LIKE)*orderByFeature*(name)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span><%=userView.getFieldLabel(ADDRESSGROUP_CLASS, "name", app.getCurrentLocaleAsIndex())%></a></li>
@@ -810,7 +810,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
                     <td class="<%= CssClass.fieldLabel %>"><span class="nw"><%=userView.getFieldLabel(EMAIL_CLASS, "gateway", app.getCurrentLocaleAsIndex())%>:</span></td>
                     <td>
                       <div class="autocompleterMenu">
-                        <ul id="<%=CssClass.ssfNav%>" class="<%=CssClass.ssfNav%>" onmouseover="sfinit(this);" >
+                        <ul id="<%=CssClass.ssf_nav%>" class="<%=CssClass.ssf_nav%>" onmouseover="sfinit(this);" >
                           <li><a href="#"><img border="0" alt="" src="../../images/autocomplete_select.png" /></a>
                             <ul onclick="this.style.left='-999em';" onmouseout="this.style.left='';">
                               <li class="selected"><a href="#" onclick="javascript:navSelect(this);ac10.url= getEncodedHRef(['../../ObjectInspectorServlet', 'event', '40', 'parameter', 'xri*(xri:@openmdx:org.opencrx.kernel.account1/provider/<%= providerName %>/segment/<%= segmentName %>)*referenceName*(address)*filterByType*(org:opencrx:kernel:account1:AccountAddress)*filterByFeature*(emailAddress)*filterOperator*(IS_LIKE)*orderByFeature*(emailAddress)*position*(0)*size*(20)']);return false;"><span>&nbsp;&nbsp;&nbsp;</span><%= app.getLabel(EMAILADDRESS_CLASS) %></a></li>
@@ -878,7 +878,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
               <table>
                 <tr style="vertical-align:top;">
                   <td>
-                    <input type="Submit" name="Verify.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="10000" value="Verify" />
+                    <input type="Submit" name="Verify.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="10000" value="Verify" />
                   </td>
                   <td style="padding-left:5px;">
 <%
@@ -934,8 +934,8 @@ org.openmdx.uses.org.apache.commons.fileupload.*
               </table>
               <br>
               <input type="checkbox" name="commitAndSend.CheckBox" value="commitAndSend" tabindex="10010" <%= commitAndSend ? "checked" : "" %> /> Send and close<br><br>
-              <input type="Submit" name="Ok.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="10020" value="<%= app.getTexts().getSaveTitle() %>" <%= sendOk ? "" : "disabled" %> />
-              <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="10030" value="<%= app.getTexts().getCancelTitle() %>" /><br>
+              <input type="Submit" name="Ok.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="10020" value="<%= app.getTexts().getSaveTitle() %>" <%= sendOk ? "" : "disabled" %> />
+              <input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="10030" value="<%= app.getTexts().getCancelTitle() %>" /><br>
             </form>
 <%
           }

@@ -495,8 +495,8 @@ org.openmdx.kernel.id.*
      			<tr>
 	          <td colspan="3">
 	          	<br>
-	          		<input type="Submit" name="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1000" value="<%= app.getTexts().getSaveTitle() %>" />
-      			  	<input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" />
+	          		<input type="Submit" name="OK.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1000" value="<%= app.getTexts().getSaveTitle() %>" />
+      			  	<input type="Submit" name="Cancel.Button" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" />
 	          </td>
 	        </tr>
 	      </table>

@@ -72,7 +72,7 @@ org.openmdx.kernel.id.*
 " %>
 <%!
 
-	public static class APIExplorerController extends org.openmdx.portal.servlet.AbstractWizardController {
+	public static class APIExplorerController extends org.openmdx.portal.servlet.JspWizardController {
 	
 	   	public void doRefresh(
 	   	) throws ServiceException {

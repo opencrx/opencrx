@@ -130,8 +130,8 @@ if(wc.getErrorMessage() != null && !wc.getErrorMessage().isEmpty()) {
 				</tr>
 				<tr id="submitButtons">
 					<td class="<%= CssClass.fieldLabel %>" colspan="3">
-						<input type="Submit" name="OK" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1000" value="<%= wc.getTexts().getOkTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
-						<input type="Submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('UserDialog').innerHTML='';return false;" />
+						<input type="Submit" name="OK" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1000" value="<%= wc.getTexts().getOkTitle() %>" onclick="javascript:$('WaitIndicator').style.display='block';$('SubmitArea').style.display='none';$('Command').value=this.name;" />
+						<input type="Submit" name="Cancel" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" tabindex="1010" value="<%= app.getTexts().getCancelTitle() %>" onclick="javascript:$('UserDialog').innerHTML='';return false;" />
 					</td>
 					<td></td>
 					<td class="addon" >&nbsp;<br>&nbsp;</td>

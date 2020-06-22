@@ -78,6 +78,7 @@ import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.openmdx.portal.servlet.ViewPort;
 import org.openmdx.portal.servlet.ViewPortFactory;
@@ -89,7 +90,7 @@ import org.w3c.spi2.Structures;
  * CreateContractWizardController
  *
  */
-public class CreateContractWizardController extends org.openmdx.portal.servlet.AbstractWizardController {
+public class CreateContractWizardController extends JspWizardController {
 
 	/**
 	 * Constructor.
@@ -109,8 +110,8 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doOK(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		this.doRefresh(
 			contractPositionCount,
@@ -316,8 +317,8 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
    	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.formFields = formFields;
@@ -441,8 +442,8 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doCreateOpportunity(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -462,8 +463,8 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doCreateQuote(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -483,8 +484,8 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doCreateSalesOrder(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -504,8 +505,8 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doCreateInvoice(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -525,8 +526,8 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doAddPosition(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields		
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields		
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();
@@ -620,9 +621,9 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doSetBillingAddress(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,
-		@RequestParameter(name = "AddressXri") String addressXri,
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields		
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,
+		@JspWizardController.RequestParameter(name = "AddressXri") String addressXri,
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields		
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -663,9 +664,9 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doSetShippingAddress(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-		@RequestParameter(name = "AddressXri") String addressXri,
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields		
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+		@JspWizardController.RequestParameter(name = "AddressXri") String addressXri,
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields		
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(
@@ -706,9 +707,9 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	 * @throws ServiceException
 	 */
 	public void doDeletePosition(
-		@RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
-		@RequestParameter(name = "DeletePositionIndex") Integer deletePositionIndex,
-   		@FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields	
+		@JspWizardController.RequestParameter(name = "ContractPositionCount") Integer contractPositionCount,		
+		@JspWizardController.RequestParameter(name = "DeletePositionIndex") Integer deletePositionIndex,
+   		@JspWizardController.FormParameter(forms = {"CreateContractForm", "CreateContractPositionForm"}) Map<String,Object> formFields	
 	) throws ServiceException {
 		this.doRefresh(
 			contractPositionCount, 
@@ -777,7 +778,7 @@ public class CreateContractWizardController extends org.openmdx.portal.servlet.A
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#close()
+	 * @see org.openmdx.portal.servlet.JspWizardController#close()
 	 */
     @Override
     public void close(

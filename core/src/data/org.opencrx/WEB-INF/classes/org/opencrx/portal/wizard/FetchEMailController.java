@@ -70,14 +70,14 @@ import org.opencrx.kernel.activity1.jmi1.EMail;
 import org.opencrx.kernel.backend.Activities;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
 /**
  * FetchEMailController
  *
  */
-public class FetchEMailController extends AbstractWizardController {
+public class FetchEMailController extends JspWizardController {
 
 	/**
 	 * FormFields
@@ -253,8 +253,8 @@ public class FetchEMailController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doRefresh(
-		@RequestParameter(name = "isInitialized") Boolean isInitialized,
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) {
 		this.formFields = formFields;
 		if(!Boolean.TRUE.equals(isInitialized)) {
@@ -291,8 +291,8 @@ public class FetchEMailController extends AbstractWizardController {
 	 * @param formFields
 	 */
 	public void doOK(
-		@RequestParameter(name = "isInitialized") Boolean isInitialized,
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(

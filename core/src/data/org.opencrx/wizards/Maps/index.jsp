@@ -99,7 +99,7 @@ org.openmdx.base.naming.*
             <a href="<%= googleMapsUrl[0] %>" target="_blank"><%= googleMapsUrl[1] %></a><br />
           </td>
           <td>
-          	<input type="button" name="clip" class="<%= CssClass.btn.toString() %> <%= CssClass.btnDefault.toString() %>" value="Clipboard" onClick='javascript:window.prompt("Copy to clipboard: Ctrl+C, Enter", "<%= googleMapsUrl[1].replace("<br />", "\\r\\n").replace("'" , "&#39;") %>");' />
+          	<input type="button" name="clip" class="<%= CssClass.btn.toString() %> <%= CssClass.btn_light.toString() %>" value="Clipboard" onClick='javascript:window.prompt("Copy to clipboard: Ctrl+C, Enter", "<%= googleMapsUrl[1].replace("<br />", "\\r\\n").replace("'" , "&#39;") %>");' />
           </td>
         </tr>
 <%

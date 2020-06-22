@@ -283,7 +283,6 @@
             <column name="ACCOUNT" type="varchar" size="256"/>
             <column name="ACCOUNT_ROLE" type="smallint"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DISABLED" type="bit"/>
@@ -291,6 +290,7 @@
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -360,6 +360,7 @@
             <column name="DISCOUNT" type="numeric" decimal-digits="9"/>
             <column name="DISCOUNT_IS_PERCENTAGE" type="bit"/>
             <column name="FOR_USE_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="MEMBER_CATEGORY" type="varchar" size="256"/>
             <column name="MEMBER_GROUP_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="MEMBER_ROLE_0" type="smallint"/>
             <column name="MEMBER_ROLE_1" type="smallint"/>
@@ -570,6 +571,7 @@
             <column name="PERCENT_COMPLETE" type="smallint"/>
             <column name="PRIORITY" type="smallint"/>
             <column name="PROCESS_STATE" type="varchar" size="256"/>
+            <column name="RECURRENCE_RULE" type="varchar" size="256"/>
             <column name="REP_ACCT" type="varchar" size="256"/>
             <column name="REP_CONTACT" type="varchar" size="256"/>
             <column name="SCHEDULED_END" type="timestamp"/>
@@ -638,17 +640,11 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="COMPETITOR_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="SENDER" type="varchar" size="256"/>
             <column name="DOCUMENT" type="varchar" size="256"/>
             <column name="SENDER_MAILING" type="varchar" size="256"/>
             <column name="TEMPLATE" type="varchar" size="256"/>
-            <column name="CASE_ORIGIN" type="smallint"/>
-            <column name="CASE_TYPE" type="smallint"/>
-            <column name="CUSTOMER_SATISFACTION" type="smallint"/>
-            <column name="REPRODUCIBILITY" type="smallint"/>
-            <column name="SEVERITY" type="smallint"/>
-            <column name="COMPETITOR_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="REFERENCE" type="varchar" size="256"/>
             <column name="DELIVERY_RECEIPT_REQUESTED" type="bit"/>
             <column name="GATEWAY" type="varchar" size="256"/>
             <column name="MESSAGE_BODY" type="varchar" type-name="CLOB" size="256"/>
@@ -656,6 +652,12 @@
             <column name="READ_RECEIPT_REQUESTED" type="bit"/>
             <column name="SEND_DATE" type="timestamp"/>
             <column name="SENDER_EMAIL" type="varchar" size="256"/>
+            <column name="CASE_ORIGIN" type="smallint"/>
+            <column name="CASE_TYPE" type="smallint"/>
+            <column name="CUSTOMER_SATISFACTION" type="smallint"/>
+            <column name="REPRODUCIBILITY" type="smallint"/>
+            <column name="SEVERITY" type="smallint"/>
+            <column name="REFERENCE" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_ACTIVITYCREATOR">
             <pk column="OBJECT_ID"/>
@@ -1001,7 +1003,6 @@
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="SCHEDULED_DATE" type="timestamp"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -1066,6 +1067,7 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="SCHEDULED_DATE" type="timestamp"/>
             <column name="ESTIMATE_EFFORT_HOURS" type="integer"/>
             <column name="ESTIMATE_EFFORT_MINUTES" type="integer"/>
             <column name="ESTIMATE_MAX_DEVIATION" type="integer"/>
@@ -1079,19 +1081,16 @@
             <column name="ACCESS_LEVEL_BROWSE" type="smallint"/>
             <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="ACTIVITY_GROUP" type="varchar" size="256"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="DISABLED" type="bit"/>
             <column name="DISABLED_REASON" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="NAME" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
-            <column name="RELATIONSHIP_TYPE" type="smallint"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -1154,6 +1153,9 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="DESCRIPTION" type="varchar" size="256"/>
+            <column name="NAME" type="varchar" size="256"/>
+            <column name="RELATIONSHIP_TYPE" type="smallint"/>
         </table>
         <table name="OOCKE1_ACTIVITYGROUPASS_">
             <pk>
@@ -1243,12 +1245,13 @@
             <column name="DISABLED_REASON" type="varchar" size="256"/>
             <column name="EMAIL_HINT" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="PARTY" type="varchar" size="256"/>
+            <column name="PARTY_CATEGORY" type="varchar" size="256"/>
             <column name="PARTY_STATUS" type="smallint"/>
             <column name="PARTY_TYPE" type="smallint"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
+            <column name="REGISTERED_AT" type="timestamp"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -1313,6 +1316,7 @@
             <column name="VALID_TO" type="timestamp"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="PARTY" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_ACTIVITYPARTYGROUP">
             <pk column="OBJECT_ID"/>
@@ -1516,10 +1520,6 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="ACTIVITY_LINK_TYPE" type="smallint"/>
-            <column name="TRANSITION" type="varchar" size="256"/>
-            <column name="TRANSITION_TEXT" type="varchar" size="256"/>
-            <column name="TRANSITION_TITLE" type="varchar" size="256"/>
             <column name="RESET_TO_NULL" type="bit"/>
             <column name="ACTIVITY_CREATOR" type="varchar" size="256"/>
             <column name="ACTIVITY_DESCRIPTION" type="varchar" size="256"/>
@@ -1527,6 +1527,10 @@
             <column name="CONTACT_FEATURE_NAME" type="varchar" size="256"/>
             <column name="RESOURCE_ORDER" type="smallint"/>
             <column name="RESOURCE_ROLE" type="smallint"/>
+            <column name="ACTIVITY_LINK_TYPE" type="smallint"/>
+            <column name="TRANSITION" type="varchar" size="256"/>
+            <column name="TRANSITION_TEXT" type="varchar" size="256"/>
+            <column name="TRANSITION_TITLE" type="varchar" size="256"/>
             <column name="WF_PROCESS" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_ACTIVITYPROCACTION_">
@@ -2027,11 +2031,16 @@
             <column name="ACCESS_LEVEL_BROWSE" type="smallint"/>
             <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
+            <column name="AUTHORITY" type="varchar" size="256"/>
             <column name="BUILDING" type="varchar" size="256"/>
+            <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
+            <column name="DISABLED" type="bit"/>
+            <column name="DISABLED_REASON" type="varchar" size="256"/>
+            <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="IS_MAIN" type="bit"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -2042,22 +2051,6 @@
             <column name="REGION_TYPE2" type="varchar" size="256"/>
             <column name="REGION_TYPE3" type="varchar" size="256"/>
             <column name="SALUTATION_FOR_CORRESPONDANCE" type="varchar" size="256"/>
-            <column name="TZ" type="varchar" size="256"/>
-            <column name="OBJUSAGE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="VALID_FROM" type="timestamp"/>
-            <column name="VALID_TO" type="timestamp"/>
-            <column name="DTYPE" type="varchar" size="256"/>
-            <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="AUTOMATIC_PARSING" type="bit"/>
-            <column name="PHONE_CITY_AREA" type="varchar" size="256"/>
-            <column name="PHONE_COUNTRY_PREFIX" type="smallint"/>
-            <column name="PHONE_EXTENSION" type="varchar" size="256"/>
-            <column name="PHONE_LOCAL_NUMBER" type="varchar" size="256"/>
-            <column name="PHONE_NUMBER_FULL" type="varchar" size="256"/>
-            <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="DISABLED" type="bit"/>
-            <column name="DISABLED_REASON" type="varchar" size="256"/>
-            <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -2088,6 +2081,8 @@
             <column name="SEARCH_STRING7" type="varchar" size="256"/>
             <column name="SEARCH_STRING8" type="varchar" size="256"/>
             <column name="SEARCH_STRING9" type="varchar" size="256"/>
+            <column name="TZ" type="varchar" size="256"/>
+            <column name="OBJUSAGE_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="USER_BOOLEAN0" type="bit"/>
             <column name="USER_BOOLEAN1" type="bit"/>
             <column name="USER_BOOLEAN2" type="bit"/>
@@ -2118,20 +2113,10 @@
             <column name="USER_STRING2" type="varchar" size="256"/>
             <column name="USER_STRING3" type="varchar" size="256"/>
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="EMAIL_ADDRESS" type="varchar" size="256"/>
-            <column name="EMAIL_FORMAT" type="smallint"/>
-            <column name="EMAIL_TYPE" type="smallint"/>
-            <column name="AUTHORITY" type="varchar" size="256"/>
-            <column name="URI_AUTHORITY" type="varchar" size="256"/>
-            <column name="URI_FRAGMENT" type="varchar" size="256"/>
-            <column name="URI_HOST" type="varchar" size="256"/>
-            <column name="URI_PATH" type="varchar" size="256"/>
-            <column name="URI_PORT" type="varchar" size="256"/>
-            <column name="URI_QUERY" type="varchar" size="256"/>
-            <column name="URI_REFERENCE" type="varchar" size="256"/>
-            <column name="URI_SCHEME" type="varchar" size="256"/>
-            <column name="URI_SCHEME_SPECIFIC_PART" type="varchar" size="256"/>
-            <column name="URI_USER_INFO" type="varchar" size="256"/>
+            <column name="VALID_FROM" type="timestamp"/>
+            <column name="VALID_TO" type="timestamp"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <column name="MODIFIED_AT" type="timestamp"/>
             <column name="PICTURE" type="varchar" size="256"/>
             <column name="POSTAL_ADDRESS_LINE_0" type="varchar" size="256"/>
             <column name="POSTAL_ADDRESS_LINE_1" type="varchar" size="256"/>
@@ -2155,6 +2140,25 @@
             <column name="POSTAL_STREET_3" type="varchar" size="256"/>
             <column name="POSTAL_STREET_4" type="varchar" size="256"/>
             <column name="POSTAL_UTC_OFFSET" type="smallint"/>
+            <column name="AUTOMATIC_PARSING" type="bit"/>
+            <column name="PHONE_CITY_AREA" type="varchar" size="256"/>
+            <column name="PHONE_COUNTRY_PREFIX" type="smallint"/>
+            <column name="PHONE_EXTENSION" type="varchar" size="256"/>
+            <column name="PHONE_LOCAL_NUMBER" type="varchar" size="256"/>
+            <column name="PHONE_NUMBER_FULL" type="varchar" size="256"/>
+            <column name="URI_AUTHORITY" type="varchar" size="256"/>
+            <column name="URI_FRAGMENT" type="varchar" size="256"/>
+            <column name="URI_HOST" type="varchar" size="256"/>
+            <column name="URI_PATH" type="varchar" size="256"/>
+            <column name="URI_PORT" type="varchar" size="256"/>
+            <column name="URI_QUERY" type="varchar" size="256"/>
+            <column name="URI_REFERENCE" type="varchar" size="256"/>
+            <column name="URI_SCHEME" type="varchar" size="256"/>
+            <column name="URI_SCHEME_SPECIFIC_PART" type="varchar" size="256"/>
+            <column name="URI_USER_INFO" type="varchar" size="256"/>
+            <column name="EMAIL_ADDRESS" type="varchar" size="256"/>
+            <column name="EMAIL_FORMAT" type="smallint"/>
+            <column name="EMAIL_TYPE" type="smallint"/>
             <column name="ROOM_NUMBER" type="varchar" size="256"/>
             <column name="WEB_URL" type="varchar" size="256"/>
             <column name="ADDRESS" type="varchar" size="256"/>
@@ -2367,19 +2371,19 @@
             </pk>
             <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
             <column name="IDX" type="integer" not-null="true"/>
+            <column name="CATEGORY" type="varchar" size="256"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
+            <column name="EXTERNAL_LINK" type="varchar" size="256"/>
             <column name="MODIFIED_BY" type="varchar" size="256"/>
             <column name="OWNER" type="varchar" size="256"/>
             <column name="OBJUSAGE" type="smallint"/>
-            <column name="DTYPE" type="varchar" size="256"/>
-            <column name="CATEGORY" type="varchar" size="256"/>
-            <column name="EXTERNAL_LINK" type="varchar" size="256"/>
             <column name="USER_BOOLEAN4" type="bit"/>
             <column name="USER_CODE4" type="smallint"/>
             <column name="USER_DATE4" type="date"/>
             <column name="USER_DATE_TIME4" type="timestamp"/>
             <column name="USER_NUMBER4" type="numeric" decimal-digits="9"/>
             <column name="USER_STRING4" type="varchar" size="256"/>
+            <column name="DTYPE" type="varchar" size="256"/>
             <fk to-table="OOCKE1_ADDRESS" column="OBJECT_ID"/>
         </table>
         <table name="OOCKE1_ALERT">
@@ -2538,8 +2542,8 @@
             <column name="VALUE_DATE" type="timestamp"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="QUANTITY_CREDIT" type="numeric" decimal-digits="9"/>
             <column name="QUANTITY_DEBIT" type="numeric" decimal-digits="9"/>
+            <column name="QUANTITY_CREDIT" type="numeric" decimal-digits="9"/>
         </table>
         <table name="OOCKE1_BOOKINGPERIOD">
             <pk column="OBJECT_ID"/>
@@ -2930,11 +2934,11 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="ACCOUNT" type="varchar" size="256"/>
+            <column name="FULFIL_ORG_UNIT" type="varchar" size="256"/>
             <column name="CONTRACT_TYPE" type="smallint"/>
             <column name="DEPOT" type="varchar" size="256"/>
             <column name="LAST_CALCULATED_AT" type="timestamp"/>
-            <column name="ACCOUNT" type="varchar" size="256"/>
-            <column name="FULFIL_ORG_UNIT" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_BUDGETPOSITION">
             <pk column="OBJECT_ID"/>
@@ -3071,8 +3075,7 @@
             <column name="ACCESS_LEVEL_BROWSE" type="smallint"/>
             <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
-            <column name="BUILDING_UNIT_TYPE" type="smallint"/>
+            <column name="BUILDING_CMPLX" type="varchar" size="256"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -3084,7 +3087,6 @@
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="PARENT" type="varchar" size="256"/>
             <column name="PICTURE" type="varchar" size="256"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
@@ -3116,6 +3118,7 @@
             <column name="SEARCH_STRING7" type="varchar" size="256"/>
             <column name="SEARCH_STRING8" type="varchar" size="256"/>
             <column name="SEARCH_STRING9" type="varchar" size="256"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="SIZE_IN_CUBIC_METER" type="numeric" decimal-digits="9"/>
             <column name="SIZE_IN_SQUARE_METER" type="numeric" decimal-digits="9"/>
             <column name="USER_BOOLEAN0" type="bit"/>
@@ -3150,7 +3153,8 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="BUILDING_CMPLX" type="varchar" size="256"/>
+            <column name="BUILDING_UNIT_TYPE" type="smallint"/>
+            <column name="PARENT" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_BUILDINGUNIT_">
             <pk>
@@ -3483,11 +3487,11 @@
             <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="DOCUMENT_FOLDER" type="varchar" size="256"/>
             <column name="DOCUMENT_FILTER" type="varchar" size="256"/>
+            <column name="ACTIVITY_GROUP" type="varchar" size="256"/>
             <column name="ACTIVITY_FILTER" type="varchar" size="256"/>
             <column name="ACCOUNT_GROUP" type="varchar" size="256"/>
-            <column name="ACTIVITY_GROUP" type="varchar" size="256"/>
-            <column name="DOCUMENT_FOLDER" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_CALENDARFEED_">
             <pk>
@@ -4193,11 +4197,15 @@
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
             <column name="ACTIVE_ON" type="timestamp"/>
             <column name="ACTIVITY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="BROKER" type="varchar" size="256"/>
+            <column name="CALC_RULE" type="varchar" size="256"/>
             <column name="CANCEL_ON" type="timestamp"/>
             <column name="CARRIER" type="varchar" size="256"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CLOSED_ON" type="timestamp"/>
+            <column name="COMPETITOR_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CONTACT_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CONTRACT_CURRENCY" type="smallint"/>
             <column name="CONTRACT_LANGUAGE" type="smallint"/>
             <column name="CONTRACT_NUMBER" type="varchar" size="256"/>
             <column name="CONTRACT_ROLE_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -4205,6 +4213,7 @@
             <column name="CONTRACT_TYPE" type="varchar" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CUSTOMER" type="varchar" size="256"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="DISABLED" type="bit"/>
             <column name="DISABLED_REASON" type="varchar" size="256"/>
@@ -4240,14 +4249,23 @@
             <column name="EXT_STRING3" type="varchar" size="256"/>
             <column name="EXT_STRING4" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="FREIGHT_TERMS" type="smallint"/>
             <column name="GIFT_MESSAGE" type="varchar" size="256"/>
+            <column name="INVENTORY_CB_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="IS_GIFT" type="bit"/>
             <column name="LAST_APPLIED_CREATOR" type="varchar" size="256"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
+            <column name="NO_AUTO_RECALC" type="bit"/>
             <column name="ORIGIN" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="PAYMENT_TERMS" type="smallint"/>
+            <column name="PRICING_DATE" type="timestamp"/>
+            <column name="PRICING_RULE" type="varchar" size="256"/>
+            <column name="PRICING_STATE" type="smallint"/>
             <column name="PRIORITY" type="smallint"/>
+            <column name="SALES_REP" type="varchar" size="256"/>
+            <column name="SALES_TAX_TYPE_GROUP" type="varchar" size="256"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -4281,6 +4299,16 @@
             <column name="SHIPPING_INSTRUCTIONS" type="varchar" size="256"/>
             <column name="SHIPPING_METHOD" type="smallint"/>
             <column name="SHIPPING_TRACKING_NUMBER" type="varchar" size="256"/>
+            <column name="SUBMIT_DATE" type="timestamp"/>
+            <column name="SUBMIT_STATUS" type="smallint"/>
+            <column name="SUBMIT_STATUS_DESCRIPTION" type="varchar" size="256"/>
+            <column name="SUPPLIER" type="varchar" size="256"/>
+            <column name="TOTAL_AMOUNT" type="numeric" decimal-digits="9"/>
+            <column name="TOTAL_AMOUNT_INCLUDING_TAX" type="numeric" decimal-digits="9"/>
+            <column name="TOTAL_BASE_AMOUNT" type="numeric" decimal-digits="9"/>
+            <column name="TOTAL_DISCOUNT_AMOUNT" type="numeric" decimal-digits="9"/>
+            <column name="TOTAL_SALES_COMMISSION" type="numeric" decimal-digits="9"/>
+            <column name="TOTAL_TAX_AMOUNT" type="numeric" decimal-digits="9"/>
             <column name="USER_BOOLEAN0" type="bit"/>
             <column name="USER_BOOLEAN1" type="bit"/>
             <column name="USER_BOOLEAN2" type="bit"/>
@@ -4313,40 +4341,16 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="BROKER" type="varchar" size="256"/>
-            <column name="CALC_RULE" type="varchar" size="256"/>
-            <column name="COMPETITOR_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="CONTRACT_CURRENCY" type="smallint"/>
-            <column name="CUSTOMER" type="varchar" size="256"/>
-            <column name="FREIGHT_TERMS" type="smallint"/>
-            <column name="INVENTORY_CB_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="NO_AUTO_RECALC" type="bit"/>
-            <column name="PAYMENT_TERMS" type="smallint"/>
-            <column name="PRICING_DATE" type="timestamp"/>
-            <column name="PRICING_RULE" type="varchar" size="256"/>
-            <column name="PRICING_STATE" type="smallint"/>
-            <column name="SALES_REP" type="varchar" size="256"/>
-            <column name="SALES_TAX_TYPE_GROUP" type="varchar" size="256"/>
-            <column name="SUBMIT_DATE" type="timestamp"/>
-            <column name="SUBMIT_STATUS" type="smallint"/>
-            <column name="SUBMIT_STATUS_DESCRIPTION" type="varchar" size="256"/>
-            <column name="SUPPLIER" type="varchar" size="256"/>
-            <column name="TOTAL_AMOUNT" type="numeric" decimal-digits="9"/>
-            <column name="TOTAL_AMOUNT_INCLUDING_TAX" type="numeric" decimal-digits="9"/>
-            <column name="TOTAL_BASE_AMOUNT" type="numeric" decimal-digits="9"/>
-            <column name="TOTAL_DISCOUNT_AMOUNT" type="numeric" decimal-digits="9"/>
-            <column name="TOTAL_SALES_COMMISSION" type="numeric" decimal-digits="9"/>
-            <column name="TOTAL_TAX_AMOUNT" type="numeric" decimal-digits="9"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="CLOSE_PROBABILITY" type="smallint"/>
             <column name="ESTIMATED_CLOSE_DATE" type="timestamp"/>
+            <column name="ESTIMATED_SALES_COMMISSION" type="numeric" decimal-digits="9"/>
             <column name="ESTIMATED_VALUE" type="numeric" decimal-digits="9"/>
+            <column name="LEAD_RATING" type="smallint"/>
+            <column name="LEAD_SOURCE" type="smallint"/>
             <column name="NEXT_STEP" type="varchar" size="256"/>
             <column name="OPPORTUNITY_RATING" type="smallint"/>
             <column name="OPPORTUNITY_SOURCE" type="smallint"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
-            <column name="ESTIMATED_SALES_COMMISSION" type="numeric" decimal-digits="9"/>
-            <column name="LEAD_RATING" type="smallint"/>
-            <column name="LEAD_SOURCE" type="smallint"/>
         </table>
         <table name="OOCKE1_CONTRACTCREATOR">
             <pk column="OBJECT_ID"/>
@@ -4795,8 +4799,10 @@
             <column name="DISABLED" type="bit"/>
             <column name="DISABLED_REASON" type="varchar" size="256"/>
             <column name="DISCOUNT" type="numeric" decimal-digits="9"/>
+            <column name="DISCOUNT_CALCULATION_TYPE" type="smallint"/>
             <column name="DISCOUNT_DESCRIPTION" type="varchar" size="256"/>
             <column name="DISCOUNT_IS_PERCENTAGE" type="bit"/>
+            <column name="DISCOUNT_ORIGIN" type="varchar" size="256"/>
             <column name="ESTIMATED_CLOSE_DATE" type="timestamp"/>
             <column name="EXT_BOOLEAN0" type="bit"/>
             <column name="EXT_BOOLEAN1" type="bit"/>
@@ -4833,13 +4839,14 @@
             <column name="IS_GIFT" type="bit"/>
             <column name="LINE_ITEM_NUMBER" type="bigint"/>
             <column name="LIST_PRICE" type="varchar" size="256"/>
+            <column name="MANUAL_PRICING" type="bit"/>
             <column name="MAX_QUANTITY" type="numeric" decimal-digits="9"/>
             <column name="MIN_MAX_QUANTITY_HANDLING" type="smallint"/>
             <column name="MIN_QUANTITY" type="numeric" decimal-digits="9"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="OFFSET_QUANTITY" type="numeric" decimal-digits="9"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
+            <column name="ORIGIN" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="POSITION_NUMBER" type="varchar" size="256"/>
             <column name="PRICE_LEVEL" type="varchar" size="256"/>
@@ -4851,6 +4858,7 @@
             <column name="PRODUCT" type="varchar" size="256"/>
             <column name="PRODUCT_SERIAL_NUMBER_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="QUANTITY" type="numeric" decimal-digits="9"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="SALES_COMMISSION" type="numeric" decimal-digits="9"/>
             <column name="SALES_COMMISSION_IS_PERCENTAGE" type="bit"/>
             <column name="SALES_TAX_TYPE" type="varchar" size="256"/>
@@ -5090,10 +5098,12 @@
             <column name="IDX" type="integer" not-null="true"/>
             <column name="ACTIVITY" type="varchar" size="256"/>
             <column name="CATEGORY" type="varchar" size="256"/>
+            <column name="COMPETITOR" type="varchar" size="256"/>
             <column name="CONTACT" type="varchar" size="256"/>
             <column name="CONTRACT_ROLE" type="smallint"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK" type="varchar" size="256"/>
+            <column name="INVENTORY_CB" type="varchar" size="256"/>
             <column name="MODIFIED_BY" type="varchar" size="256"/>
             <column name="OWNER" type="varchar" size="256"/>
             <column name="USER_BOOLEAN4" type="bit"/>
@@ -5103,8 +5113,6 @@
             <column name="USER_NUMBER4" type="numeric" decimal-digits="9"/>
             <column name="USER_STRING4" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
-            <column name="COMPETITOR" type="varchar" size="256"/>
-            <column name="INVENTORY_CB" type="varchar" size="256"/>
             <fk to-table="OOCKE1_CONTRACT" column="OBJECT_ID"/>
         </table>
         <table name="OOCKE1_CREDITLIMIT">
@@ -6226,9 +6234,9 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="DEPOT_POSITION" type="varchar" size="256"/>
             <column name="DEPOT" type="varchar" size="256"/>
             <column name="HOLDER_QUALIFIES_POSITION" type="bit"/>
+            <column name="DEPOT_POSITION" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_DEPOTREFERENCE_">
             <pk>
@@ -6587,6 +6595,211 @@
             <column name="DTYPE" type="varchar" size="256"/>
             <fk to-table="OOCKE1_DESCRIPTION" column="OBJECT_ID"/>
         </table>
+        <table name="OOCKE1_DISCOUNTRULE">
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="ACCESS_LEVEL_BROWSE" type="smallint"/>
+            <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
+            <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
+            <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CONDITION" type="varchar" size="256"/>
+            <column name="CREATED_AT" type="timestamp"/>
+            <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DESCRIPTION" type="varchar" size="256"/>
+            <column name="DISABLED" type="bit"/>
+            <column name="DISABLED_REASON" type="varchar" size="256"/>
+            <column name="DISCOUNT" type="numeric" decimal-digits="9"/>
+            <column name="DISCOUNT_IS_PERCENTAGE" type="bit"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
+            <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="NAME" type="varchar" size="256"/>
+            <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="SEARCH_DATE_TIME0" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME1" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME2" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME3" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME4" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME5" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME6" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME7" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME8" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME9" type="timestamp"/>
+            <column name="SEARCH_NUMBER0" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER1" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER2" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER3" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER4" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER5" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER6" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER7" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER8" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER9" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_STRING0" type="varchar" size="256"/>
+            <column name="SEARCH_STRING1" type="varchar" size="256"/>
+            <column name="SEARCH_STRING2" type="varchar" size="256"/>
+            <column name="SEARCH_STRING3" type="varchar" size="256"/>
+            <column name="SEARCH_STRING4" type="varchar" size="256"/>
+            <column name="SEARCH_STRING5" type="varchar" size="256"/>
+            <column name="SEARCH_STRING6" type="varchar" size="256"/>
+            <column name="SEARCH_STRING7" type="varchar" size="256"/>
+            <column name="SEARCH_STRING8" type="varchar" size="256"/>
+            <column name="SEARCH_STRING9" type="varchar" size="256"/>
+            <column name="USER_BOOLEAN0" type="bit"/>
+            <column name="USER_BOOLEAN1" type="bit"/>
+            <column name="USER_BOOLEAN2" type="bit"/>
+            <column name="USER_BOOLEAN3" type="bit"/>
+            <column name="USER_BOOLEAN4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_CODE0" type="smallint"/>
+            <column name="USER_CODE1" type="smallint"/>
+            <column name="USER_CODE2" type="smallint"/>
+            <column name="USER_CODE3" type="smallint"/>
+            <column name="USER_CODE4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_DATE0" type="date"/>
+            <column name="USER_DATE1" type="date"/>
+            <column name="USER_DATE2" type="date"/>
+            <column name="USER_DATE3" type="date"/>
+            <column name="USER_DATE4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_DATE_TIME0" type="timestamp"/>
+            <column name="USER_DATE_TIME1" type="timestamp"/>
+            <column name="USER_DATE_TIME2" type="timestamp"/>
+            <column name="USER_DATE_TIME3" type="timestamp"/>
+            <column name="USER_DATE_TIME4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_NUMBER0" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER1" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER2" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER3" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_STRING0" type="varchar" size="256"/>
+            <column name="USER_STRING1" type="varchar" size="256"/>
+            <column name="USER_STRING2" type="varchar" size="256"/>
+            <column name="USER_STRING3" type="varchar" size="256"/>
+            <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <column name="MODIFIED_AT" type="timestamp"/>
+        </table>
+        <table name="OOCKE1_DISCOUNTRULE_">
+            <pk>
+                <on column="OBJECT_ID"/>
+                <on column="IDX"/>
+            </pk>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
+            <column name="CATEGORY" type="varchar" size="256"/>
+            <column name="CREATED_BY" type="varchar" size="256"/>
+            <column name="EXTERNAL_LINK" type="varchar" size="256"/>
+            <column name="MODIFIED_BY" type="varchar" size="256"/>
+            <column name="OWNER" type="varchar" size="256"/>
+            <column name="USER_BOOLEAN4" type="bit"/>
+            <column name="USER_CODE4" type="smallint"/>
+            <column name="USER_DATE4" type="date"/>
+            <column name="USER_DATE_TIME4" type="timestamp"/>
+            <column name="USER_NUMBER4" type="numeric" decimal-digits="9"/>
+            <column name="USER_STRING4" type="varchar" size="256"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <fk to-table="OOCKE1_DISCOUNTRULE" column="OBJECT_ID"/>
+        </table>
+        <table name="OOCKE1_DISCOUNTSCHEDULE">
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="ACCESS_LEVEL_BROWSE" type="smallint"/>
+            <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
+            <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
+            <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CREATED_AT" type="timestamp"/>
+            <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DESCRIPTION" type="varchar" size="256"/>
+            <column name="DISABLED" type="bit"/>
+            <column name="DISABLED_REASON" type="varchar" size="256"/>
+            <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="NAME" type="varchar" size="256"/>
+            <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="SEARCH_DATE_TIME0" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME1" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME2" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME3" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME4" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME5" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME6" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME7" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME8" type="timestamp"/>
+            <column name="SEARCH_DATE_TIME9" type="timestamp"/>
+            <column name="SEARCH_NUMBER0" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER1" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER2" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER3" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER4" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER5" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER6" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER7" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER8" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_NUMBER9" type="numeric" decimal-digits="9"/>
+            <column name="SEARCH_STRING0" type="varchar" size="256"/>
+            <column name="SEARCH_STRING1" type="varchar" size="256"/>
+            <column name="SEARCH_STRING2" type="varchar" size="256"/>
+            <column name="SEARCH_STRING3" type="varchar" size="256"/>
+            <column name="SEARCH_STRING4" type="varchar" size="256"/>
+            <column name="SEARCH_STRING5" type="varchar" size="256"/>
+            <column name="SEARCH_STRING6" type="varchar" size="256"/>
+            <column name="SEARCH_STRING7" type="varchar" size="256"/>
+            <column name="SEARCH_STRING8" type="varchar" size="256"/>
+            <column name="SEARCH_STRING9" type="varchar" size="256"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
+            <column name="USER_BOOLEAN0" type="bit"/>
+            <column name="USER_BOOLEAN1" type="bit"/>
+            <column name="USER_BOOLEAN2" type="bit"/>
+            <column name="USER_BOOLEAN3" type="bit"/>
+            <column name="USER_BOOLEAN4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_CODE0" type="smallint"/>
+            <column name="USER_CODE1" type="smallint"/>
+            <column name="USER_CODE2" type="smallint"/>
+            <column name="USER_CODE3" type="smallint"/>
+            <column name="USER_CODE4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_DATE0" type="date"/>
+            <column name="USER_DATE1" type="date"/>
+            <column name="USER_DATE2" type="date"/>
+            <column name="USER_DATE3" type="date"/>
+            <column name="USER_DATE4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_DATE_TIME0" type="timestamp"/>
+            <column name="USER_DATE_TIME1" type="timestamp"/>
+            <column name="USER_DATE_TIME2" type="timestamp"/>
+            <column name="USER_DATE_TIME3" type="timestamp"/>
+            <column name="USER_DATE_TIME4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_NUMBER0" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER1" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER2" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER3" type="numeric" decimal-digits="9"/>
+            <column name="USER_NUMBER4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="USER_STRING0" type="varchar" size="256"/>
+            <column name="USER_STRING1" type="varchar" size="256"/>
+            <column name="USER_STRING2" type="varchar" size="256"/>
+            <column name="USER_STRING3" type="varchar" size="256"/>
+            <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <column name="MODIFIED_AT" type="timestamp"/>
+        </table>
+        <table name="OOCKE1_DISCOUNTSCHEDULE_">
+            <pk>
+                <on column="OBJECT_ID"/>
+                <on column="IDX"/>
+            </pk>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
+            <column name="CATEGORY" type="varchar" size="256"/>
+            <column name="CREATED_BY" type="varchar" size="256"/>
+            <column name="EXTERNAL_LINK" type="varchar" size="256"/>
+            <column name="MODIFIED_BY" type="varchar" size="256"/>
+            <column name="OWNER" type="varchar" size="256"/>
+            <column name="USER_BOOLEAN4" type="bit"/>
+            <column name="USER_CODE4" type="smallint"/>
+            <column name="USER_DATE4" type="date"/>
+            <column name="USER_DATE_TIME4" type="timestamp"/>
+            <column name="USER_NUMBER4" type="numeric" decimal-digits="9"/>
+            <column name="USER_STRING4" type="varchar" size="256"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <fk to-table="OOCKE1_DISCOUNTSCHEDULE" column="OBJECT_ID"/>
+        </table>
         <table name="OOCKE1_DOCUMENT">
             <pk column="OBJECT_ID"/>
             <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
@@ -6698,14 +6911,15 @@
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="DOCUMENT" type="varchar" size="256"/>
+            <column name="LINK_FROM" type="varchar" size="256"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_DOCUMENTATTACHMENT_">
             <pk>
@@ -7046,14 +7260,14 @@
             <column name="INCOMING_MAIL_SERVICE_NAME" type="varchar" size="256"/>
             <column name="OUTGOING_MAIL_SERVICE_NAME" type="varchar" size="256"/>
             <column name="REPLY_E_MAIL_ADDRESS" type="varchar" size="256"/>
-            <column name="HOSTNAME" type="varchar" size="256"/>
-            <column name="PASSWORD" type="varchar" size="256"/>
-            <column name="SERVICENAME" type="varchar" size="256"/>
-            <column name="USERNAME" type="varchar" size="256"/>
             <column name="ACCESS_TOKEN" type="varchar" size="256"/>
             <column name="ACCESS_TOKEN_SECRET" type="varchar" size="256"/>
             <column name="CONSUMER_KEY" type="varchar" size="256"/>
             <column name="CONSUMER_SECRET" type="varchar" size="256"/>
+            <column name="HOSTNAME" type="varchar" size="256"/>
+            <column name="PASSWORD" type="varchar" size="256"/>
+            <column name="SERVICENAME" type="varchar" size="256"/>
+            <column name="USERNAME" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_EMAILACCOUNT_">
             <pk>
@@ -7577,10 +7791,9 @@
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="CONTRACT_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DOCUMENT_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="FILTER_OPERATOR" type="smallint"/>
             <column name="FILTER_QUANTOR" type="smallint"/>
-            <column name="DOCUMENT_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="BOOLEAN_PARAM_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CLAUSE" type="varchar" size="4000"/>
             <column name="DATE_PARAM_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -7588,35 +7801,36 @@
             <column name="DECIMAL_PARAM_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="INTEGER_PARAM_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="STRING_PARAM_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="ACTIVITY_NUMBER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="OBJUSAGE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="DOCUMENT_FOLDER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="DISABLED" type="bit"/>
-            <column name="ACTIVITY_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="CUSTOMER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="ACCOUNT_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="OFFSET_IN_HOURS" type="integer"/>
-            <column name="SCHEDULED_START_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="IS_MAIN" type="bit"/>
-            <column name="SUPPLIER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="CONTRACT_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="ACCOUNT_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="SALES_TAX_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="ACTIVITY_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="ADDRESS_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="IS_MAIN" type="bit"/>
+            <column name="DISABLED" type="bit"/>
+            <column name="CONTRACT_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CLASSIFICATION_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="CONTACT_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="PROCESS_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="PRICE_UOM_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="CONTENT_LANGUAGE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="ADDRESS_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="SALES_REP_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="ACCOUNT_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="ACTIVITY_NUMBER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CUSTOMER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="OFFSET_IN_HOURS" type="integer"/>
+            <column name="SCHEDULED_START_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="TOTAL_AMOUNT_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="DOCUMENT_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="PRIORITY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="SALES_TAX_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="NAME_PATTERN" type="varchar" size="256"/>
+            <column name="PROCESS_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CONTACT_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="SCHEDULED_END_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="NAME_PATTERN" type="varchar" size="256"/>
+            <column name="ACCOUNT_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CONTENT_LANGUAGE_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="ACCOUNT_CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="PRIORITY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="ACTIVITY_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DOCUMENT_FOLDER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DOCUMENT_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CONTRACT_STATE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="OBJUSAGE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="SUPPLIER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="PRICE_UOM_" type="integer" type-name="INTEGER DEFAULT -1"/>
         </table>
         <table name="OOCKE1_FILTERPROPERTY_">
             <pk>
@@ -7629,39 +7843,39 @@
             <column name="MODIFIED_BY" type="varchar" size="256"/>
             <column name="OWNER" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
-            <column name="ACTIVITY_NUMBER" type="varchar" size="256"/>
-            <column name="DOCUMENT_TYPE" type="smallint"/>
+            <column name="SUPPLIER" type="varchar" size="256"/>
+            <column name="OBJUSAGE" type="smallint"/>
+            <column name="TOTAL_AMOUNT" type="numeric" decimal-digits="9"/>
             <column name="DOCUMENT_FOLDER" type="varchar" size="256"/>
-            <column name="CLASSIFICATION" type="varchar" size="256"/>
             <column name="CONTACT" type="varchar" size="256"/>
-            <column name="PRICE_UOM" type="varchar" size="256"/>
-            <column name="CONTENT_LANGUAGE" type="smallint"/>
-            <column name="DOCUMENT_STATE" type="smallint"/>
+            <column name="ACCOUNT" type="varchar" size="256"/>
+            <column name="ADDRESS_TYPE" type="smallint"/>
+            <column name="CONTRACT_TYPE" type="varchar" size="256"/>
+            <column name="CATEGORY" type="varchar" size="256"/>
+            <column name="SALES_TAX_TYPE" type="varchar" size="256"/>
+            <column name="ACTIVITY_STATE" type="smallint"/>
             <column name="BOOLEAN_PARAM" type="bit"/>
             <column name="DATE_PARAM" type="date"/>
             <column name="DATE_TIME_PARAM" type="timestamp"/>
             <column name="DECIMAL_PARAM" type="numeric" decimal-digits="9"/>
             <column name="INTEGER_PARAM" type="integer"/>
             <column name="STRING_PARAM" type="varchar" size="256"/>
-            <column name="CATEGORY" type="varchar" size="256"/>
-            <column name="TOTAL_AMOUNT" type="numeric" decimal-digits="9"/>
-            <column name="ACCOUNT" type="varchar" size="256"/>
-            <column name="ACTIVITY_STATE" type="smallint"/>
-            <column name="SALES_REP" type="varchar" size="256"/>
-            <column name="SCHEDULED_START" type="timestamp"/>
-            <column name="SCHEDULED_END" type="timestamp"/>
-            <column name="CUSTOMER" type="varchar" size="256"/>
-            <column name="PROCESS_STATE" type="varchar" size="256"/>
-            <column name="ACCOUNT_TYPE" type="smallint"/>
-            <column name="SALES_TAX_TYPE" type="varchar" size="256"/>
-            <column name="OBJUSAGE" type="smallint"/>
-            <column name="ADDRESS_TYPE" type="smallint"/>
+            <column name="PRICE_UOM" type="varchar" size="256"/>
             <column name="CONTRACT_STATE" type="smallint"/>
+            <column name="SCHEDULED_START" type="timestamp"/>
+            <column name="DOCUMENT_TYPE" type="smallint"/>
+            <column name="ACTIVITY_NUMBER" type="varchar" size="256"/>
             <column name="PRIORITY" type="smallint"/>
-            <column name="ACCOUNT_CATEGORY" type="smallint"/>
-            <column name="SUPPLIER" type="varchar" size="256"/>
-            <column name="CONTRACT_TYPE" type="varchar" size="256"/>
+            <column name="CLASSIFICATION" type="varchar" size="256"/>
             <column name="ACTIVITY_TYPE" type="varchar" size="256"/>
+            <column name="CUSTOMER" type="varchar" size="256"/>
+            <column name="ACCOUNT_CATEGORY" type="smallint"/>
+            <column name="PROCESS_STATE" type="varchar" size="256"/>
+            <column name="DOCUMENT_STATE" type="smallint"/>
+            <column name="SCHEDULED_END" type="timestamp"/>
+            <column name="CONTENT_LANGUAGE" type="smallint"/>
+            <column name="ACCOUNT_TYPE" type="smallint"/>
+            <column name="SALES_REP" type="varchar" size="256"/>
             <fk to-table="OOCKE1_FILTERPROPERTY" column="OBJECT_ID"/>
         </table>
         <table name="OOCKE1_FILTER_">
@@ -7793,6 +8007,37 @@
             <column name="USER_STRING4" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <fk to-table="OOCKE1_FXRATE" column="OBJECT_ID"/>
+        </table>
+        <table name="OOCKE1_HASHENTRY">
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="ACCESS_LEVEL_BROWSE" type="smallint"/>
+            <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
+            <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
+            <column name="CREATED_AT" type="timestamp"/>
+            <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DESCRIPTION" type="varchar" size="256"/>
+            <column name="HASH_VALUE" type="varchar" size="256"/>
+            <column name="HASH_VALUE_MODIFIED_AT" type="timestamp"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
+            <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="NAME" type="varchar" size="256"/>
+            <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <column name="MODIFIED_AT" type="timestamp"/>
+        </table>
+        <table name="OOCKE1_HASHENTRY_">
+            <pk>
+                <on column="OBJECT_ID"/>
+                <on column="IDX"/>
+            </pk>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
+            <column name="CREATED_BY" type="varchar" size="256"/>
+            <column name="MODIFIED_BY" type="varchar" size="256"/>
+            <column name="OWNER" type="varchar" size="256"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <fk to-table="OOCKE1_HASHENTRY" column="OBJECT_ID"/>
         </table>
         <table name="OOCKE1_INDEXENTRY">
             <pk column="OBJECT_ID"/>
@@ -8325,19 +8570,12 @@
             <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
             <column name="AUTHOR" type="varchar" size="256"/>
-            <column name="content" type="varbinary" size="-1"/>
-            <column name="CONTENT_MIME_TYPE" type="varchar" size="256"/>
-            <column name="CONTENT_NAME" type="varchar" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="VERSION" type="varchar" size="256"/>
-            <column name="DTYPE" type="varchar" size="256"/>
-            <column name="MODIFIED_AT" type="timestamp"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -8368,7 +8606,13 @@
             <column name="SEARCH_STRING7" type="varchar" size="256"/>
             <column name="SEARCH_STRING8" type="varchar" size="256"/>
             <column name="SEARCH_STRING9" type="varchar" size="256"/>
-            <column name="MEDIA" type="varchar" size="256"/>
+            <column name="VERSION" type="varchar" size="256"/>
+            <column name="DTYPE" type="varchar" size="256"/>
+            <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="content" type="varbinary" size="-1"/>
+            <column name="CONTENT_MIME_TYPE" type="varchar" size="256"/>
+            <column name="CONTENT_NAME" type="varchar" size="256"/>
+            <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="USER_BOOLEAN0" type="bit"/>
             <column name="USER_BOOLEAN1" type="bit"/>
             <column name="USER_BOOLEAN2" type="bit"/>
@@ -8400,6 +8644,7 @@
             <column name="USER_STRING3" type="varchar" size="256"/>
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="URI" type="varchar" size="256"/>
+            <column name="MEDIA" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_MEDIA_">
             <pk>
@@ -8503,35 +8748,35 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="IS_ABSTRACT" type="bit"/>
-            <column name="IS_DERIVED" type="bit"/>
-            <column name="SUPERTYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="VISIBILITY" type="smallint"/>
-            <column name="TYPE" type="varchar" size="256"/>
-            <column name="IS_SINGLETON" type="bit"/>
+            <column name="EXCEPTION_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="IS_QUERY" type="bit"/>
             <column name="SCOPE" type="smallint"/>
-            <column name="LABEL_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="SEMANTICS" type="varchar" size="256"/>
+            <column name="VISIBILITY" type="smallint"/>
+            <column name="IS_ABSTRACT" type="bit"/>
+            <column name="SUPERTYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="TYPE" type="varchar" size="256"/>
             <column name="MAX_LENGTH" type="integer"/>
             <column name="MULTIPLICITY" type="smallint"/>
             <column name="UPPER_BOUND" type="integer"/>
             <column name="IS_CHANGEABLE" type="bit"/>
+            <column name="IS_DERIVED" type="bit"/>
+            <column name="IS_SINGLETON" type="bit"/>
             <column name="CONST_VALUE" type="varchar" size="256"/>
+            <column name="LABEL_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="TAG_VALUE" type="varchar" size="256"/>
-            <column name="IS_CLUSTERED" type="bit"/>
-            <column name="NAMESPACE" type="varchar" size="256"/>
             <column name="EXPOSED_END" type="varchar" size="256"/>
             <column name="REFERENCED_END" type="varchar" size="256"/>
-            <column name="EVALUATION_POLICY" type="smallint"/>
-            <column name="EXPRESSION" type="varchar" size="256"/>
-            <column name="LANGUAGE" type="varchar" size="256"/>
-            <column name="DIRECTION" type="smallint"/>
             <column name="AGGREGATION" type="smallint"/>
             <column name="IS_NAVIGABLE" type="bit"/>
             <column name="QUALIFIER_NAME_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="QUALIFIER_TYPE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="EXCEPTION_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="IS_QUERY" type="bit"/>
-            <column name="SEMANTICS" type="varchar" size="256"/>
+            <column name="IS_CLUSTERED" type="bit"/>
+            <column name="NAMESPACE" type="varchar" size="256"/>
+            <column name="EVALUATION_POLICY" type="smallint"/>
+            <column name="EXPRESSION" type="varchar" size="256"/>
+            <column name="LANGUAGE" type="varchar" size="256"/>
+            <column name="DIRECTION" type="smallint"/>
         </table>
         <table name="OOCKE1_MODELELEMENT_">
             <pk>
@@ -8554,10 +8799,10 @@
             <column name="USER_STRING4" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="SUPERTYPE" type="varchar" size="256"/>
-            <column name="EXCEPTION" type="varchar" size="256"/>
             <column name="QUALIFIER_NAME" type="varchar" size="256"/>
             <column name="QUALIFIER_TYPE" type="varchar" size="256"/>
             <column name="LABEL" type="varchar" size="256"/>
+            <column name="EXCEPTION" type="varchar" size="256"/>
             <fk to-table="OOCKE1_MODELELEMENT" column="OBJECT_ID"/>
         </table>
         <table name="OOCKE1_NOTE">
@@ -9248,6 +9493,7 @@
             <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="DISABLED" type="bit"/>
             <column name="DISABLED_REASON" type="varchar" size="256"/>
+            <column name="DISCOUNT_SCHEDULE" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="IS_FINAL" type="bit"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -9357,6 +9603,7 @@
             <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="CLASSIFICATION_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
@@ -9364,6 +9611,8 @@
             <column name="DISABLED_REASON" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="NAME" type="varchar" size="256"/>
+            <column name="ORDER_INDEX" type="integer"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="QUANTITY_FROM" type="numeric" decimal-digits="9"/>
@@ -9430,11 +9679,12 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="DISCOUNT" type="numeric" decimal-digits="9"/>
-            <column name="DISCOUNT_IS_PERCENTAGE" type="bit"/>
             <column name="PRICE_MULTIPLIER" type="numeric" decimal-digits="9"/>
             <column name="PRICE_OFFSET" type="numeric" decimal-digits="9"/>
             <column name="ROUNDING_FACTOR" type="numeric" decimal-digits="9"/>
+            <column name="DISCOUNT" type="numeric" decimal-digits="9"/>
+            <column name="DISCOUNT_IS_PERCENTAGE" type="bit"/>
+            <column name="PRICE_MODIFIER" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_PRICEMODIFIER_">
             <pk>
@@ -9444,6 +9694,7 @@
             <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
             <column name="IDX" type="integer" not-null="true"/>
             <column name="CATEGORY" type="varchar" size="256"/>
+            <column name="CLASSIFICATION" type="varchar" size="256"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK" type="varchar" size="256"/>
             <column name="MODIFIED_BY" type="varchar" size="256"/>
@@ -9572,7 +9823,6 @@
             <column name="ALTERNATE_PRODUCT_NUMBER_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CLASSIFICATION_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="CONFIG_TYPE" type="varchar" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DEFAULT_POSITIONS" type="integer"/>
@@ -9616,8 +9866,6 @@
             <column name="EXT_STRING3" type="varchar" size="256"/>
             <column name="EXT_STRING4" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="GROSS_WEIGHT_KILOGRAM" type="numeric" decimal-digits="9"/>
-            <column name="IS_STOCK_ITEM" type="bit"/>
             <column name="ITEM_NUMBER" type="bigint"/>
             <column name="MAX_POSITIONS" type="integer"/>
             <column name="MAX_QUANTITY" type="numeric" decimal-digits="9"/>
@@ -9626,12 +9874,9 @@
             <column name="MIN_QUANTITY" type="numeric" decimal-digits="9"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
-            <column name="NET_WEIGHT_KILOGRAM" type="numeric" decimal-digits="9"/>
             <column name="OFFSET_QUANTITY" type="numeric" decimal-digits="9"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="PICTURE" type="varchar" size="256"/>
             <column name="PRICE_UOM_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="PRODUCT_DIMENSION" type="varchar" size="256"/>
             <column name="PRODUCT_NUMBER" type="varchar" size="256"/>
             <column name="PRODUCT_STATE" type="smallint"/>
             <column name="PRODUCT_USAGE" type="varchar" size="256"/>
@@ -9699,6 +9944,12 @@
             <column name="USER_STRING4_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="CONFIG_TYPE" type="varchar" size="256"/>
+            <column name="GROSS_WEIGHT_KILOGRAM" type="numeric" decimal-digits="9"/>
+            <column name="IS_STOCK_ITEM" type="bit"/>
+            <column name="NET_WEIGHT_KILOGRAM" type="numeric" decimal-digits="9"/>
+            <column name="PICTURE" type="varchar" size="256"/>
+            <column name="PRODUCT_DIMENSION" type="varchar" size="256"/>
             <column name="PROFILE" type="varchar" size="256"/>
             <column name="VERSION" type="varchar" size="256"/>
         </table>
@@ -10126,11 +10377,10 @@
             <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="CONFIG_TYPE" type="varchar" size="256"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="DISABLED" type="bit"/>
             <column name="DISABLED_REASON" type="varchar" size="256"/>
             <column name="EXTERNAL_LINK_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -10202,6 +10452,7 @@
             <column name="VALID_TO" type="timestamp"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="CONFIG_TYPE" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_PRODUCTCONFIG_">
             <pk>
@@ -10605,15 +10856,15 @@
             <column name="VALID_TO" type="timestamp"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="DECIMAL_VALUE" type="numeric" decimal-digits="9"/>
+            <column name="URI_VALUE" type="varchar" size="256"/>
             <column name="BOOLEAN_VALUE" type="bit"/>
             <column name="DATE_TIME_VALUE" type="timestamp"/>
+            <column name="DECIMAL_VALUE" type="numeric" decimal-digits="9"/>
+            <column name="INTEGER_VALUE" type="integer"/>
             <column name="DATE_VALUE" type="date"/>
-            <column name="STRING_VALUE" type="varchar" size="4000"/>
             <column name="REFERENCE_VALUE" type="varchar" size="256"/>
             <column name="WEIGHT" type="numeric" decimal-digits="9"/>
-            <column name="URI_VALUE" type="varchar" size="256"/>
-            <column name="INTEGER_VALUE" type="integer"/>
+            <column name="STRING_VALUE" type="varchar" size="4000"/>
         </table>
         <table name="OOCKE1_PROPERTYSET">
             <pk column="OBJECT_ID"/>
@@ -10623,8 +10874,8 @@
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
+            <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -12564,6 +12815,9 @@
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
+            <column name="IS_LOCKED" type="bit"/>
+            <column name="LOCK_MODIFIED_AT" type="timestamp"/>
+            <column name="LOCKING_REASON" type="smallint"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="ORIGIN_CONTEXT_PARAMS_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -12957,9 +13211,9 @@
             <column name="USER_NUMBER4" type="numeric" decimal-digits="9"/>
             <column name="USER_STRING4" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
-            <column name="OPERAND" type="varchar" size="256"/>
             <column name="CONDITION_ARGUMENT" type="varchar" size="256"/>
             <column name="SCOPE" type="varchar" size="256"/>
+            <column name="OPERAND" type="varchar" size="256"/>
             <fk to-table="OOCKE1_VALIDATORCONDITION" column="OBJECT_ID"/>
         </table>
         <table name="OOCKE1_VALUERANGE">
@@ -12986,9 +13240,9 @@
             <column name="STORAGE_PATH" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
+            <column name="SEQUENCE_PROVIDER_URI" type="varchar" size="256"/>
             <column name="INCREMENT_VALUE" type="integer"/>
             <column name="START_VALUE" type="integer"/>
-            <column name="SEQUENCE_PROVIDER_URI" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_VALUERANGE_">
             <pk>
@@ -13259,13 +13513,13 @@
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
             <column name="INTEGER_VALUE" type="integer"/>
-            <column name="DATE_VALUE" type="date"/>
             <column name="DATE_TIME_VALUE" type="timestamp"/>
             <column name="DECIMAL_VALUE" type="numeric" decimal-digits="9"/>
-            <column name="BOOLEAN_VALUE" type="bit"/>
-            <column name="STRING_VALUE" type="varchar" size="256"/>
-            <column name="URI_VALUE" type="varchar" size="256"/>
+            <column name="DATE_VALUE" type="date"/>
             <column name="REFERENCE_VALUE" type="varchar" size="256"/>
+            <column name="URI_VALUE" type="varchar" size="256"/>
+            <column name="STRING_VALUE" type="varchar" size="256"/>
+            <column name="BOOLEAN_VALUE" type="bit"/>
         </table>
         <table name="OOCKE1_WFPROCESSINSTANCEPARAM_">
             <pk>
@@ -13379,6 +13633,7 @@
             <column name="ORIGIN_TYPE" type="varchar" size="256"/>
             <column name="ORIGIN_XRI" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
+            <column name="REMARKS" type="varchar" size="256"/>
             <column name="SNAPSHOT_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
@@ -13561,8 +13816,8 @@
             <fk to-table="OOCKE1_WORKRECORD" column="OBJECT_ID"/>
         </table>
         <table name="OOMSE2_AUTHENTICATIONCONTEXT">
-            <pk logical="true" column="OBJECT_ID"/>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
             <column name="COMPLETION" type="smallint"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -13574,12 +13829,12 @@
             <column name="MODIFIED_AT" type="timestamp"/>
         </table>
         <table name="OOMSE2_AUTHENTICATIONCONTEXT_">
-            <pk logical="true">
+            <pk>
                 <on column="OBJECT_ID"/>
                 <on column="IDX"/>
             </pk>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
-            <column name="IDX" type="integer"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
             <column name="MODIFIED_BY" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
@@ -13599,7 +13854,7 @@
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
             <column name="PASSWD" type="varchar" size="256"/>
-            <column name="ADDRESS" type="varbinary"/>
+            <column name="ADDRESS" type="varbinary" size="-1"/>
             <column name="TEMPLATE" type="smallint"/>
         </table>
         <table name="OOMSE2_CREDENTIAL_">
@@ -13616,8 +13871,8 @@
             <fk to-table="OOMSE2_CREDENTIAL" column="OBJECT_ID"/>
         </table>
         <table name="OOMSE2_PERMISSION">
-            <pk logical="true" column="OBJECT_ID"/>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
             <column name="ACTION_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -13632,12 +13887,12 @@
             <column name="MODIFIED_AT" type="timestamp"/>
         </table>
         <table name="OOMSE2_PERMISSION_">
-            <pk logical="true">
+            <pk>
                 <on column="OBJECT_ID"/>
                 <on column="IDX"/>
             </pk>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
-            <column name="IDX" type="integer"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
             <column name="ACTION" type="varchar" size="256"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
             <column name="LOCALIZED_DESCRIPTION" type="varchar" size="256"/>
@@ -13689,8 +13944,8 @@
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
             <column name="GRANTED_ROLE_" type="integer" type-name="INTEGER DEFAULT -1"/>
-            <column name="LAST_LOGIN_AT" type="timestamp"/>
             <column name="IS_FINAL" type="bit"/>
+            <column name="LAST_LOGIN_AT" type="timestamp"/>
         </table>
         <table name="OOMSE2_PRINCIPAL_">
             <pk>
@@ -13709,8 +13964,8 @@
             <fk to-table="OOMSE2_PRINCIPAL" column="OBJECT_ID"/>
         </table>
         <table name="OOMSE2_PRIVILEGE">
-            <pk logical="true" column="OBJECT_ID"/>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
             <column name="ACTION_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
@@ -13724,12 +13979,12 @@
             <column name="MODIFIED_AT" type="timestamp"/>
         </table>
         <table name="OOMSE2_PRIVILEGE_">
-            <pk logical="true">
+            <pk>
                 <on column="OBJECT_ID"/>
                 <on column="IDX"/>
             </pk>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
-            <column name="IDX" type="integer"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
             <column name="ACTION" type="varchar" size="256"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
             <column name="LOCALIZED_DESCRIPTION" type="varchar" size="256"/>
@@ -13738,8 +13993,8 @@
             <fk to-table="OOMSE2_PRIVILEGE" column="OBJECT_ID"/>
         </table>
         <table name="OOMSE2_REALM">
-            <pk logical="true" column="OBJECT_ID"/>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
@@ -13750,20 +14005,20 @@
             <column name="MODIFIED_AT" type="timestamp"/>
         </table>
         <table name="OOMSE2_REALM_">
-            <pk logical="true">
+            <pk>
                 <on column="OBJECT_ID"/>
                 <on column="IDX"/>
             </pk>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
-            <column name="IDX" type="integer"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
             <column name="MODIFIED_BY" type="varchar" size="256"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <fk to-table="OOMSE2_REALM" column="OBJECT_ID"/>
         </table>
         <table name="OOMSE2_ROLE">
-            <pk logical="true" column="OBJECT_ID"/>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
+            <pk column="OBJECT_ID"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>
             <column name="CREATED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DESCRIPTION" type="varchar" size="256"/>
@@ -13777,12 +14032,12 @@
             <column name="MODIFIED_AT" type="timestamp"/>
         </table>
         <table name="OOMSE2_ROLE_">
-            <pk logical="true">
+            <pk>
                 <on column="OBJECT_ID"/>
                 <on column="IDX"/>
             </pk>
-            <column name="OBJECT_ID" type="varchar" size="256"/>
-            <column name="IDX" type="integer"/>
+            <column name="OBJECT_ID" type="varchar" not-null="true" size="256"/>
+            <column name="IDX" type="integer" not-null="true"/>
             <column name="CREATED_BY" type="varchar" size="256"/>
             <column name="LOCALIZED_DESCRIPTION" type="varchar" size="256"/>
             <column name="MODIFIED_BY" type="varchar" size="256"/>

@@ -100,8 +100,8 @@ import org.opencrx.kernel.uom1.jmi1.Uom;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
@@ -110,7 +110,7 @@ import org.w3c.spi2.Structures;
  * CreateWorkAndExpenseRecordController
  *
  */
-public class CreateWorkAndExpenseRecordController extends AbstractWizardController {
+public class CreateWorkAndExpenseRecordController extends JspWizardController {
 
 	/**
 	 * FormFields
@@ -846,7 +846,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 		org.opencrx.kernel.home1.cci2.UserHomeQuery userHomeFilter = (org.opencrx.kernel.home1.cci2.UserHomeQuery)pm.newQuery(org.opencrx.kernel.home1.jmi1.UserHome.class);
 		userHomeFilter.thereExistsContact().equalTo(resource.getContact());
 		List<UserHome> userHomes = homeSegment.getUserHome(userHomeFilter);
-		return userHomes.isEmpty() ? null : userHomes.iterator().next().refGetPath().getBase();
+		return userHomes.isEmpty() ? null : userHomes.iterator().next().refGetPath().getLastSegment().toString();
 	}
 
 	/**
@@ -921,7 +921,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	}	
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.AbstractWizardController#init(javax.servlet.http.HttpServletRequest, java.lang.String, boolean, boolean)
+	 * @see org.openmdx.portal.servlet.JspWizardController#init(javax.servlet.http.HttpServletRequest, java.lang.String, boolean, boolean)
 	 */
 	@Override
     public boolean init(
@@ -1121,7 +1121,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doNextMonth(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		GregorianCalendar date = this.parseDate(formFields.getSelectedDateStr());
 		date.add(GregorianCalendar.MONTH, 1);
@@ -1145,7 +1145,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doPrevMonth(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		GregorianCalendar date = this.parseDate(formFields.getSelectedDateStr());
 		date.add(GregorianCalendar.MONTH, -1);
@@ -1169,7 +1169,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doNextYear(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		GregorianCalendar date = this.parseDate(formFields.getSelectedDateStr());
 		date.add(GregorianCalendar.YEAR, 1);
@@ -1193,7 +1193,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doPrevYear(
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) throws ServiceException {
 		GregorianCalendar date = this.parseDate(formFields.getSelectedDateStr());
 		date.add(GregorianCalendar.YEAR, -1);
@@ -1217,8 +1217,8 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doSelectDate(
-		@RequestParameter(name = "dayOfMonth") Integer dayOfMonth,
-		@RequestParameter(type = "Bean") FormFields formFields		
+		@JspWizardController.RequestParameter(name = "dayOfMonth") Integer dayOfMonth,
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) throws ServiceException {
 		Map<String,String[]> parameterMap = new HashMap<String,String[]>(
 			this.getRequest().getParameterMap()
@@ -1245,8 +1245,8 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doSelectDateP(
-		@RequestParameter(name = "dayOfMonth") Integer dayOfMonth,
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(name = "dayOfMonth") Integer dayOfMonth,
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		Map<String,String[]> parameterMap = new HashMap<String,String[]>(
 			this.getRequest().getParameterMap()
@@ -1275,8 +1275,8 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doSelectDateN(
-		@RequestParameter(name = "dayOfMonth") Integer dayOfMonth,
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(name = "dayOfMonth") Integer dayOfMonth,
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		Map<String,String[]> parameterMap = new HashMap<String,String[]>(
 			this.getRequest().getParameterMap()
@@ -1304,7 +1304,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doAddWorkRecord(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(formFields);
@@ -1495,8 +1495,8 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doDeleteWorkRecord(
-		@RequestParameter(type = "Bean") FormFields formFields,
-		@RequestParameter(name = "deleteWorkRecordXri") String deleteWorkRecordXri
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields,
+		@JspWizardController.RequestParameter(name = "deleteWorkRecordXri") String deleteWorkRecordXri
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		this.doRefresh(formFields);
@@ -1523,7 +1523,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doReload(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		this.doRefresh(formFields);
 	}
@@ -1535,7 +1535,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doEvictReload(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		this.doRefresh(formFields);
 	}
@@ -1547,7 +1547,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 	 * @throws ServiceException
 	 */
 	public void doRefresh(
-		@RequestParameter(type = "Bean") FormFields formFields
+		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		RefObject_1_0 obj = this.getObject();
@@ -2054,7 +2054,7 @@ public class CreateWorkAndExpenseRecordController extends AbstractWizardControll
 					this.getSegmentName()
 				);
 				principal = org.opencrx.kernel.backend.SecureObject.getInstance().findPrincipal(
-					myUserHome.refGetPath().getBase(),
+					myUserHome.refGetPath().getLastSegment().toString(),
 					realm
 				);
 				// check whether user is member of at least one private group which is also an owning group of the selected activity

@@ -52,11 +52,15 @@ DROP VIEW OOCKE1_JOIN_DEPCONTAINSBKE COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPENTCONTAINSBKE COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_DEPHASDEPREF COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPHOLCONTAINSBKE COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPPOSCONTAINSBKE COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPPOSCONTAINSINVL COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_DEPPOSHASDEPPOSREF COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_DEPREPITMHASBK COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -65,6 +69,14 @@ DROP VIEW OOCKE1_JOIN_DEPREPITMHASSBK COMMAND_TERMINATOR
 DROP VIEW OOCKE1_JOIN_ENTITYCONTAINSDEP COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_FILTERINCLDESCONTR COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_FILTERINCLDESBK COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_FILTERINCLDESSBK COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_FILTERINCLDESCB COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_FILTERINCLDESIL COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_FLDCONTAINSFLD COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -80,6 +92,8 @@ DROP VIEW OOCKE1_JOIN_OBJHASASSTIMER COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_OBJHASIDXENTRY COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_OBJISINVOLVEDIN COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_PRODCLASSHASASSPROD COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_RESCONTAINSWRE COMMAND_TERMINATOR
@@ -94,7 +108,7 @@ DROP VIEW OOCKE1_JOIN_SEGCONTAINSBU COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_SEGCONTAINSADR COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
-DROP VIEW OOCKE1_JOIN_SNAPCONTAINSITM COMMAND_TERMINATOR 
+DROP VIEW OOCKE1_JOIN_SNAPCONTAINSCURITM COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_SNAPCONTAINSADDITM COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -107,6 +121,8 @@ DROP VIEW OOCKE1_JOIN_SEGCONTAINSWRE COMMAND_TERMINATOR
 DROP VIEW OOCKE1_JOIN_WFPROCHASPROCINST COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_WFPROCINSTHASCHILD COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_WLCONTAINSCURITM COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_TOBJ_ACTIVITYLINKFROM COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -535,6 +551,14 @@ FROM
     OOCKE1_INDEXENTRY e COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
+CREATE VIEW OOCKE1_JOIN_OBJISINVOLVEDIN AS
+SELECT
+    i.object_id AS involved_in_object,
+    i.involved AS involved_object
+FROM
+    OOCKE1_INVOLVEDOBJECT i COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
 CREATE VIEW OOCKE1_JOIN_PRODCLASSHASASSPROD AS
 SELECT
     p_.classification AS product_classification,
@@ -599,9 +623,9 @@ ON
    (bu2.P_PARENT = bu1.object_id) COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 
-CREATE VIEW OOCKE1_JOIN_SNAPCONTAINSITM AS
+CREATE VIEW OOCKE1_JOIN_SNAPCONTAINSCURITM AS
 SELECT 
-    wli_.object_id AS item,
+    wli_.object_id AS current_item,
     wli_.snapshot AS snapshot
 FROM
    OOCKE1_WORKLISTITEM_ wli_ COMMAND_TERMINATOR
@@ -633,6 +657,18 @@ ON
    wli_.snapshot = snap.predecessor
 WHERE
    NOT EXISTS (SELECT 0 FROM OOCKE1_WORKLISTITEM_ wlip_ WHERE wlip_.object_id = wli_.object_id AND wlip_.snapshot = snap.object_id) COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_WLCONTAINSCURITM AS
+SELECT 
+    wli_.object_id AS current_item,
+    wl.object_id AS work_list
+FROM
+    OOCKE1_WORKLIST wl
+INNER JOIN
+    OOCKE1_WORKLISTITEM_ wli_
+ON
+    wli_.snapshot = wl.current_snapshot COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 
 CREATE VIEW OOCKE1_JOIN_HOMEHASASSCONTR AS
@@ -865,6 +901,14 @@ FROM
     OOCKE1_TOBJ_SINGLEBKE be COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
+CREATE VIEW OOCKE1_JOIN_DEPHASDEPREF AS
+SELECT
+    dr.depot AS depot,
+    dr.object_id AS depot_reference
+FROM
+    OOCKE1_DEPOTREFERENCE dr COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
 CREATE VIEW OOCKE1_JOIN_DEPHOLCONTAINSBKE AS
 SELECT
     be.depot_holder AS depot_holder,
@@ -889,6 +933,14 @@ FROM
     OOCKE1_INVENTORYLEVEL l COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 
+CREATE VIEW OOCKE1_JOIN_DEPPOSHASDEPPOSREF AS
+SELECT
+    dr.depot_position AS depot_position,
+    dr.object_id AS depot_position_reference
+FROM
+    OOCKE1_DEPOTREFERENCE dr COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
 CREATE VIEW OOCKE1_JOIN_FILTERINCLDESCONTR AS
 SELECT
     f.object_id AS contract_filter,
@@ -897,6 +949,54 @@ FROM
     OOCKE1_FILTER f
 INNER JOIN
     OOCKE1_CONTRACT c
+ON
+    (1=1) COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_FILTERINCLDESBK AS
+SELECT
+    f.object_id AS booking_filter,
+    bk.object_id AS filtered_single_booking
+FROM
+    OOCKE1_FILTER f
+INNER JOIN
+    OOCKE1_BOOKING bk
+ON
+    (1=1) COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_FILTERINCLDESSBK AS
+SELECT
+    f.object_id AS booking_filter,
+    sbk.object_id AS filtered_simple_booking
+FROM
+    OOCKE1_FILTER f
+INNER JOIN
+    OOCKE1_SIMPLEBOOKING sbk
+ON
+    (1=1) COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_FILTERINCLDESCB AS
+SELECT
+    f.object_id AS booking_filter,
+    cb.object_id AS filtered_compound_booking
+FROM
+    OOCKE1_FILTER f
+INNER JOIN
+    OOCKE1_COMPOUNDBOOKING cb
+ON
+    (1=1) COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_FILTERINCLDESIL AS
+SELECT
+    f.object_id AS inventory_level_filter,
+    il.object_id AS filtered_inventory_level
+FROM
+    OOCKE1_FILTER f
+INNER JOIN
+    OOCKE1_INVENTORYLEVEL il
 ON
     (1=1) COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
@@ -2997,6 +3097,7 @@ SELECT
     b.origin AS origin,
     b.booking_status AS booking_status,
     b.booking_type AS booking_type,
+    b.booking_text AS booking_text,
     b.cb AS cb,
     b.created_at AS created_at,
     b.created_by_ AS created_by_,

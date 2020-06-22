@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_6Kk6MN8HEdmKapscEl8OLg" name="generic">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_6Kk6MN8HEdmKapscEl8OLg" name="generic">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99F803B8PPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99F803B8PP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC99F803B8P" name="kernel">
@@ -47,6 +47,9 @@
               <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_q8yyMKHQEdu_d_nrk2Vfag"/>
             </generalization>
             <generalization xmi:id="_ADffAGhmEeGeXMwL52ae1A" general="_ArMfkGhjEeGeXMwL52ae1A"/>
+            <generalization xmi:id="_QEQ-gIOZEemmaKCm0goXMQ">
+              <general xmi:type="uml:Class" href="org.opencrx.kernel.base.uml#_PYJRoIOUEemmaKCm0goXMQ"/>
+            </generalization>
             <ownedAttribute xmi:id="_3C7B8A60016D3F82E6ED039E" name="disabled">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iaV3EGVvEdykF7CxhRNCFg"/>
@@ -938,7 +941,7 @@
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vr6kMyXaEeODQo140bDL4A" value="1"/>
             </ownedEnd>
           </packagedElement>
-          <packagedElement xmi:type="uml:Association" xmi:id="_Aa_woCXbEeODQo140bDL4A" name="CrxObjectHasInvolvedObject" memberEnd="_Aa_woSXbEeODQo140bDL4A _Aa_JkCXbEeODQo140bDL4A" navigableOwnedEnd="_Aa_woSXbEeODQo140bDL4A">
+          <packagedElement xmi:type="uml:Association" xmi:id="_Aa_woCXbEeODQo140bDL4A" name="ObjectHasInvolvedObject" memberEnd="_Aa_woSXbEeODQo140bDL4A _Aa_JkCXbEeODQo140bDL4A" navigableOwnedEnd="_Aa_woSXbEeODQo140bDL4A">
             <ownedEnd xmi:id="_Aa_woSXbEeODQo140bDL4A" name="involvedObject" type="_Q7JlsCXaEeODQo140bDL4A" aggregation="composite" association="_Aa_woCXbEeODQo140bDL4A">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Aa_woiXbEeODQo140bDL4A"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Aa_woyXbEeODQo140bDL4A" value="1"/>
@@ -974,6 +977,18 @@
             <ownedAttribute xmi:id="_U7Fs8HRxEeOFTcUBkaKZGQ" name="count">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3CC6A34B0011"/>
             </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_UJFmcO5jEembb5sGcWc13w" name="ObjectIsInvolvedIn" isDerived="true" memberEnd="_UJWFIO5jEembb5sGcWc13w _UJZIcO5jEembb5sGcWc13w" navigableOwnedEnd="_UJZIcO5jEembb5sGcWc13w">
+            <eAnnotations xmi:id="_UJTB0O5jEembb5sGcWc13w" source="org.eclipse.papyrus">
+              <details xmi:id="_UJTo4O5jEembb5sGcWc13w" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:id="_UJZIcO5jEembb5sGcWc13w" name="involvedInObject" type="_Q7JlsCXaEeODQo140bDL4A" aggregation="shared" association="_UJFmcO5jEembb5sGcWc13w">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZLaQ0O5jEembb5sGcWc13w"/>
+              <qualifier xmi:type="uml:Port" xmi:id="__uO2YO5jEembb5sGcWc13w" name="id">
+                <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              </qualifier>
+            </ownedEnd>
+            <ownedEnd xmi:id="_UJWFIO5jEembb5sGcWc13w" name="involvedObject" type="_3C7B8A60016D3F3FB4530021" association="_UJFmcO5jEembb5sGcWc13w"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>

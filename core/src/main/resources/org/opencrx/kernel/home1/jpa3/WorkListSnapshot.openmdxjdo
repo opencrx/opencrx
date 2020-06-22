@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openmdxjdo PUBLIC "-//openMDX//DTD Java Data Objects Metadata Extension 2.0//EN" "http://www.openmdx.org/dtd/openmdx-jdo_2_0.dtd">
+<openmdxjdo>
+	<package name="org.opencrx.kernel.home1.jpa3">
+		<class name="WorkListSnapshot" table="OOCKE1_WORKLISTSNAPSHOT">
+			<field name="openmdxjdoIdentity" visibility="none">
+				<column name="OBJECT_ID"/>
+			</field>
+			<field name="workList" visibility="none">
+				<column name="P$$PARENT"/>
+			</field>
+			<field name="currentItem" visibility="cci">
+				<join table="OOCKE1_JOIN_SNAPCONTAINSCURITM"/>
+			</field>
+			<field name="addedItem" visibility="cci">
+				<join table="OOCKE1_JOIN_SNAPCONTAINSADDITM"/>
+			</field>
+			<field name="removedItem" visibility="cci">
+				<join table="OOCKE1_JOIN_SNAPCONTAINSREMITM"/>
+			</field>
+		</class>
+	</package>
+</openmdxjdo>

@@ -63,14 +63,14 @@ import javax.jdo.PersistenceManager;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.portal.servlet.AbstractWizardController;
 import org.openmdx.portal.servlet.ApplicationContext;
+import org.openmdx.portal.servlet.JspWizardController;
 
 /**
  * ConnectionHelperController
  *
  */
-public class ConnectionHelperController extends AbstractWizardController {
+public class ConnectionHelperController extends JspWizardController {
 
 	/**
 	 * ResourceType
@@ -125,19 +125,19 @@ public class ConnectionHelperController extends AbstractWizardController {
 	}
 	
 	public void doReload(
-		@RequestParameter(name = "isInitialized") Boolean isInitialized,
-		@RequestParameter(name = "mustReload") Boolean mustReload,
-		@RequestParameter(name = "anchorObjectXri") String anchorObjectXri,
-		@RequestParameter(name = "type") String resourceType,
-		@RequestParameter(name = "selectorType") String selectorType,
-		@RequestParameter(name = "optionMax") Integer optionMax,
-		@RequestParameter(name = "optionUser") String optionUser,
-		@RequestParameter(name = "optionIsDisabled") Boolean optionIsDisabled,
-		@RequestParameter(name = "optionSummaryPrefix") String optionSummaryPrefix,
-		@RequestParameter(name = "optionCategories") String optionCategories,
-		@RequestParameter(name = "optionYear") Integer optionYear,
-		@RequestParameter(name = "optionTimelineHeight") Integer optionTimelineHeight,
-		@RequestParameter(name = "optionAlarm") Boolean optionAlarm
+		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,
+		@JspWizardController.RequestParameter(name = "mustReload") Boolean mustReload,
+		@JspWizardController.RequestParameter(name = "anchorObjectXri") String anchorObjectXri,
+		@JspWizardController.RequestParameter(name = "type") String resourceType,
+		@JspWizardController.RequestParameter(name = "selectorType") String selectorType,
+		@JspWizardController.RequestParameter(name = "optionMax") Integer optionMax,
+		@JspWizardController.RequestParameter(name = "optionUser") String optionUser,
+		@JspWizardController.RequestParameter(name = "optionIsDisabled") Boolean optionIsDisabled,
+		@JspWizardController.RequestParameter(name = "optionSummaryPrefix") String optionSummaryPrefix,
+		@JspWizardController.RequestParameter(name = "optionCategories") String optionCategories,
+		@JspWizardController.RequestParameter(name = "optionYear") Integer optionYear,
+		@JspWizardController.RequestParameter(name = "optionTimelineHeight") Integer optionTimelineHeight,
+		@JspWizardController.RequestParameter(name = "optionAlarm") Boolean optionAlarm
 	) throws ServiceException {
 		ApplicationContext app = this.getApp();
 		PersistenceManager pm = this.getPm();
@@ -407,7 +407,7 @@ public class ConnectionHelperController extends AbstractWizardController {
 		            try {
 		                contact = userHome.getContact();
 		            } catch (Exception e) {}
-		            String principal = userHome.refGetPath().getBase();
+		            String principal = userHome.refGetPath().getLastSegment().toString();
 		            String display = (contact != null && contact.getFullName() != null ? contact.getFullName() : UNKNOWN) + " [" + principal + "]";
 		            String sortKey = display.toUpperCase() + formatter.format(index++);
 		            this.anchorObjects.put(
