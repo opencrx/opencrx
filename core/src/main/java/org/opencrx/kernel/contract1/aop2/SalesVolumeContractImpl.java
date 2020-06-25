@@ -1,12 +1,14 @@
-/**
- * =======================================================================
- * = Description: openCRX/Core settings.gradle.kts
- * = Copyright:   (c) 2003-2020 CRIXP AG
- * =======================================================================
+/*
+ * ====================================================================
+ * Project:     openCRX/Core, http://www.opencrx.org/
+ * Description: SalesVolumeContract
+ * Owner:       CRIXP AG, Switzerland, http://www.crixp.com
+ * ====================================================================
+ *
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2003-2020, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2020, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -40,23 +42,41 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  * 
+ * ------------------
+ * 
  * This product includes software developed by the Apache Software
  * Foundation (http://www.apache.org/).
  * 
  * This product includes software developed by contributors to
  * openMDX (http://www.openmdx.org/)
  */
-buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-        maven {
-            url = uri("https://www.opencrx.org/repos/releases")
-        }
+package org.opencrx.kernel.contract1.aop2;
+
+import javax.jdo.listener.DeleteCallback;
+import javax.jdo.listener.StoreCallback;
+
+public class SalesVolumeContractImpl
+	<S extends org.opencrx.kernel.contract1.jmi1.SalesVolumeContract,N extends org.opencrx.kernel.contract1.cci2.SalesVolumeContract,C extends Void>
+	extends AbstractContractImpl<S,N,C>
+	implements StoreCallback, DeleteCallback {
+
+    public SalesVolumeContractImpl(
+        S same,
+        N next
+    ) {
+    	super(same, next);
     }
-    dependencies {
-        classpath("org.opencrx:opencrx-gradle:4.3-20200625")
+
+	@Override
+    public void jdoPreStore(
+    ) {
+	    super.jdoPreStore();
     }
+
+	@Override
+    public void jdoPreDelete(
+    ) {
+	    super.jdoPreDelete();
+    }
+		
 }
-rootProject.name = "opencrx"
-include("core","publish","gradle")
