@@ -248,7 +248,41 @@ public class Base extends AbstractImpl {
 	}
 
     /**
-     * Send alert to given users.
+     * Send alert to users.
+     * 
+     * @param target
+     * @param toUsers
+     * @param name
+     * @param description
+     * @param importance
+     * @param resendDelayInSeconds
+     * @param reference
+     * @return
+     * @throws ServiceException
+     */
+    public List<Path> sendAlert(
+    	ContextCapable target,
+        String toUsers,
+        String name,
+        String description,
+        short importance,
+        Integer resendDelayInSeconds,
+        ContextCapable reference
+    ) throws ServiceException {
+    	return this.sendAlert(
+    		target,
+    		toUsers,
+    		name,
+    		description,
+    		importance,
+    		resendDelayInSeconds,
+    		reference,
+    		false
+    	);
+    }
+
+    /**
+     * Send alert to users.
      * 
      * @param target
      * @param toUsers
@@ -262,12 +296,13 @@ public class Base extends AbstractImpl {
      */
     public List<Path> sendAlert(
     	ContextCapable target,
-        String toUsers,        
+        String toUsers,
         String name,
         String description,
         short importance,
         Integer resendDelayInSeconds,
-        ContextCapable reference
+        ContextCapable reference,
+        boolean containerManaged
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(target);    	
         StringTokenizer tokenizer = new StringTokenizer(
@@ -289,46 +324,63 @@ public class Base extends AbstractImpl {
                 	reference.refGetPath();                
                 // Only create alert if there is not already an alert with the 
                 // same alert reference and created within the delay period.
-                PersistenceManager pmRoot = pm.getPersistenceManagerFactory().getPersistenceManager(
-                	SecurityKeys.ROOT_PRINCIPAL, 
-                	null
-                );
-                ContextCapable alertReference = (ContextCapable)pmRoot.getObjectById(referenceIdentity);
-                AlertQuery alertQuery = (AlertQuery)pmRoot.newQuery(Alert.class);
-                alertQuery.thereExistsReference().equalTo(alertReference);
-                alertQuery.createdAt().greaterThanOrEqualTo(
-                	new Date(System.currentTimeMillis() - 1000 * (resendDelayInSeconds == null ? 0 : resendDelayInSeconds.intValue()))
-                );
-                UserHome userHomeByRoot = (UserHome)pmRoot.getObjectById(userHome.refGetPath());
-                List<Alert> existingAlerts = userHomeByRoot.getAlert(alertQuery);
-                if(existingAlerts.isEmpty()) {
-                	Alert alert = pmRoot.newInstance(Alert.class);
-                	alert.setAlertState(new Short((short)1));
-                	alert.setName(
-                        name == null || name.length() == 0 ?
-                            "--" : // name is mandatory
-                            name
-                    );
-                    if(description != null) {
-                        alert.setDescription(description);
-                    }
-                    alert.setImportance(importance);
-                    alert.setReference(alertReference);
-                    alert.getOwningGroup().clear();
-                    alert.getOwningGroup().addAll(
-                        userHomeByRoot.getOwningGroup()
-                    );
-                    // Only owner of alert may delete and update
-                    alert.setAccessLevelDelete(SecurityKeys.ACCESS_LEVEL_PRIVATE);
-                    alert.setAccessLevelUpdate(SecurityKeys.ACCESS_LEVEL_PRIVATE);
-                    pmRoot.currentTransaction().begin();
-                    userHomeByRoot.addAlert(
-                    	this.getUidAsString(),
-                    	alert
-                    );
-                    pmRoot.currentTransaction().commit();
-                    alertIdentities.add(alert.refGetPath());
-                    pmRoot.close();
+                PersistenceManager pmRoot = null;
+                try {
+	                if(containerManaged) {
+	                	pmRoot = super.getContainerManagedPersistenceManager(SecurityKeys.ROOT_PRINCIPAL);
+	                } else {
+		                pmRoot = pm.getPersistenceManagerFactory().getPersistenceManager(
+		                	SecurityKeys.ROOT_PRINCIPAL, 
+		                	null
+		                );
+	                }
+	                ContextCapable alertReference = (ContextCapable)pmRoot.getObjectById(referenceIdentity);
+	                AlertQuery alertQuery = (AlertQuery)pmRoot.newQuery(Alert.class);
+	                alertQuery.thereExistsReference().equalTo(alertReference);
+	                alertQuery.createdAt().greaterThanOrEqualTo(
+	                	new Date(System.currentTimeMillis() - 1000 * (resendDelayInSeconds == null ? 0 : resendDelayInSeconds.intValue()))
+	                );
+	                UserHome userHomeByRoot = (UserHome)pmRoot.getObjectById(userHome.refGetPath());
+	                List<Alert> existingAlerts = userHomeByRoot.getAlert(alertQuery);
+	                if(existingAlerts.isEmpty()) {
+	                	Alert alert = pmRoot.newInstance(Alert.class);
+	                	alert.setAlertState(new Short((short)1));
+	                	alert.setName(
+	                        name == null || name.length() == 0 ?
+	                            "--" : // name is mandatory
+	                            name
+	                    );
+	                    if(description != null) {
+	                        alert.setDescription(description);
+	                    }
+	                    alert.setImportance(importance);
+	                    alert.setReference(alertReference);
+	                    alert.getOwningGroup().clear();
+	                    alert.getOwningGroup().addAll(
+	                        userHomeByRoot.getOwningGroup()
+	                    );
+	                    // Only owner of alert may delete and update
+	                    alert.setAccessLevelDelete(SecurityKeys.ACCESS_LEVEL_PRIVATE);
+	                    alert.setAccessLevelUpdate(SecurityKeys.ACCESS_LEVEL_PRIVATE);
+	                    if(!containerManaged) {
+	                    	pmRoot.currentTransaction().begin();
+	                    }
+	                    userHomeByRoot.addAlert(
+	                    	this.getUidAsString(),
+	                    	alert
+	                    );
+	                    if(!containerManaged) {
+	                    	pmRoot.currentTransaction().commit();
+	                    }
+	                    alertIdentities.add(alert.refGetPath());
+	                }
+                } finally {
+                	if(pmRoot != null) {
+	                    if(containerManaged) {
+	                    	pmRoot.flush();
+	                    }
+	                    pmRoot.close();
+                	}
                 }
             }
         }

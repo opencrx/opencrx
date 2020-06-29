@@ -175,15 +175,28 @@ public abstract class AbstractImpl {
      * @return
      * @throws ServiceException
      */
-    public PersistenceManager getPersistenceManager(
+    public PersistenceManager getContainerManagedPersistenceManager(
     	org.opencrx.kernel.base.jmi1.SecureObject secureObject
     ) throws ServiceException {
 		String owningUserName = secureObject.getOwningUser().getName();
 		String ownerPrincipal = owningUserName.substring(0, owningUserName.lastIndexOf("."));
+		return this.getContainerManagedPersistenceManager(ownerPrincipal);
+    }
+
+    /**
+     * Get a persistence manager joining the current transaction with the given userid.
+     * 
+     * @param userid
+     * @return
+     * @throws ServiceException
+     */
+    public PersistenceManager getContainerManagedPersistenceManager(
+    	String userid
+    ) throws ServiceException {
 		Map<String,Object> props = new HashMap<String,Object>();
 		props.put(ConfigurableProperty.ContainerManaged.qualifiedName(), Boolean.TRUE);
 		return Utils.getPersistenceManagerFactory(props).getPersistenceManager(
-			ownerPrincipal,
+			userid,
 			null
 		);
     }

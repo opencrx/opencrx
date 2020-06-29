@@ -2305,7 +2305,7 @@ public class Depots extends AbstractImpl {
 	    			);
 	        	} else {
 	        		correctionBooking = correctionBookings.iterator().next();
-					pmBooking = this.getPersistenceManager(correctionBooking);
+					pmBooking = this.getContainerManagedPersistenceManager(correctionBooking);
 			        org.opencrx.kernel.depot1.jmi1.Segment depotSegment = this.getDepotSegment(pmBooking, providerName, segmentName);
 		    		bookingTemplate = (BookingTemplate)pmBooking.getObjectById(inventoryLevel.getCorrectionBookingTemplate().refGetPath());			        
 	        		correctionBooking = (CompoundBooking)pmBooking.getObjectById(correctionBooking.refGetPath());
@@ -2525,7 +2525,7 @@ public class Depots extends AbstractImpl {
 			for(CompoundBooking correctionBooking: inventoryLevel.<CompoundBooking>getCompoundBooking(compoundBookingQuery)) {
 				PersistenceManager pmBooking = null;
 				try {
-					pmBooking = this.getPersistenceManager(correctionBooking);
+					pmBooking = this.getContainerManagedPersistenceManager(correctionBooking);
 					this.removeCompoundBooking(
 						(CompoundBooking)pmBooking.getObjectById(correctionBooking.refGetPath()),
 						false
@@ -2562,7 +2562,7 @@ public class Depots extends AbstractImpl {
 		for(CompoundBooking correctionBooking: inventoryLevel.<CompoundBooking>getCompoundBooking(compoundBookingQuery)) {
 			PersistenceManager pmBooking = null;
 			try {
-				pmBooking = this.getPersistenceManager(correctionBooking);
+				pmBooking = this.getContainerManagedPersistenceManager(correctionBooking);
 				this.removeCompoundBooking(
 					(CompoundBooking)pmBooking.getObjectById(correctionBooking.refGetPath()),
 					false
