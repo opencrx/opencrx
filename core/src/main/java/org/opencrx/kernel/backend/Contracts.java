@@ -480,6 +480,7 @@ public class Contracts extends AbstractImpl {
         target.getCategory().addAll(source.getCategory());
         target.setCarrier(source.getCarrier());
         target.setFreightTerms(source.getFreightTerms());
+        target.setSalesTaxTypeGroup(source.getSalesTaxTypeGroup());
     	copyCrxObject(
     		source,
     		target
@@ -529,6 +530,7 @@ public class Contracts extends AbstractImpl {
     	try { target.setGift(source.isGift()); } catch(Exception e) {}
     	target.setGiftMessage(source.getGiftMessage());
     	target.setCarrier(source.getCarrier());
+    	target.setSalesTransactionType(source.getSalesTransactionType());
     	if(source instanceof ConfiguredProduct && target instanceof ConfiguredProduct) {
     		((ConfiguredProduct)target).setProduct(((ConfiguredProduct)source).getProduct());
     		((ConfiguredProduct)target).setProductSerialNumber(((ConfiguredProduct)source).getProductSerialNumber());
