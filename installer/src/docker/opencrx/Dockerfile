@@ -1,6 +1,6 @@
 FROM ubuntu
 MAINTAINER docker@opencrx.org
-ENV VERSION 4.3.0
+ENV VERSION 4.3.0-rc.1
 ENV PLATFORM jre-1.8
 ENV HOME /root
 ENV TOMEE_BASEDIR apache-tomee-plus-7.0.5
@@ -52,7 +52,7 @@ RUN ls -al $HOME
 # Get and install openCRX
 RUN mkdir $HOME/opt \
   && mkdir $HOME/temp \
-  && wget -O $HOME/temp/opencrxServer-$VERSION-installer.$PLATFORM.jar https://github.com/opencrx/opencrx/releases/download/opencrx-v4.3.0-rc.1/opencrxServer-$VERSION-rc.1-installer.$PLATFORM.jar \
+  && wget -O $HOME/temp/opencrxServer-$VERSION-installer.$PLATFORM.jar https://github.com/opencrx/opencrx/releases/download/opencrx-v$VERSION/opencrxServer-$VERSION-installer.$PLATFORM.jar \
   && echo "INSTALL_PATH=$HOME/opt/opencrx" > $HOME/temp/opencrx-install.properties \
   && echo "JDKPath=/usr/lib/jvm/java-8-openjdk-amd64" >> $HOME/temp/opencrx-install.properties \
   && echo "ANTPath=/usr/bin/ant" >> $HOME/temp/opencrx-install.properties \
