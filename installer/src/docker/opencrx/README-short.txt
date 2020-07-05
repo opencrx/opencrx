@@ -1,1 +1,0 @@
-openCRX - The Professional Enterprise Class Open Source CRM Solution.
