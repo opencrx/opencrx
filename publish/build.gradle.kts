@@ -70,8 +70,10 @@ publishing {
     repositories {
         maven {
         	// Local
+            /**/
             val releasesRepoUrl = uri("$buildDir/repos/releases")
             val snapshotsRepoUrl = uri("$buildDir/repos/snapshots")
+            /**/
             // OSSRH
             /*
             credentials {
@@ -314,7 +316,7 @@ signing {
     sign(publishing.publications["opencrxGradle"])
     sign(publishing.publications["opencrxCore"])
     sign(publishing.publications["opencrxCoreModels"])
-    sign(publishing.publications["opencrxCoreData"])
+    sign(publishing.publications["opencrxCoreConfig"])
     sign(publishing.publications["opencrxClient"])
     */
 }
