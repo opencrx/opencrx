@@ -49,6 +49,7 @@
  */
 
 import org.gradle.kotlin.dsl.*
+import org.w3c.dom.Element
 
 plugins {
 	java
@@ -69,9 +70,39 @@ repositories {
     }
 }
 
+fun setJreContainerOptions(el: Element) {
+    fun Element.firstElement(predicate: (Element.() -> Boolean)) =
+        childNodes
+            .run { (0 until length).map(::item) }
+            .filterIsInstance<Element>()
+            .first { it.predicate() }
+    var jreContainerEl = el
+        .firstElement {
+            tagName == "classpathentry"
+            && getAttribute("kind") == "con"
+            && getAttribute("path").startsWith("org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType")
+        }		
+    var xmlDoc = el.getOwnerDocument()
+    var addExportsEl = xmlDoc.createElement("attribute")
+    addExportsEl.setAttribute("name", "add-exports")
+    addExportsEl.setAttribute("value", "java.naming/com.sun.jndi.ldap=ALL-UNNAMED")
+    var moduleEl = xmlDoc.createElement("attribute")
+    moduleEl.setAttribute("name", "module")
+    moduleEl.setAttribute("value", "true")
+    var attributesEl = xmlDoc.createElement("attributes")
+    attributesEl.appendChild(addExportsEl)
+    attributesEl.appendChild(moduleEl)
+    jreContainerEl.appendChild(attributesEl)
+}
+
 eclipse {
 	project {
-    	name = "openCRX 4 ~ Core (jre-" + JavaVersion.current() + ")"
+    	name = "openCRX 5 ~ Core"
+    }
+    classpath {
+    	file {
+            withXml { setJreContainerOptions(asElement()) }
+    	}
     }
 }
 
@@ -139,6 +170,7 @@ tasks {
 
 tasks.withType<JavaCompile> {
 	dependsOn("generate-model")
+	options.compilerArgs = listOf("--add-exports", "java.naming/com.sun.jndi.ldap=ALL-UNNAMED")
 }
 
 tasks.register("deliverables") {
@@ -159,7 +191,7 @@ distributions {
             from("etc") { into("core/etc") }
             // rootDir
             from("..") { include("*.properties", "*.kts" ) }
-            // jre-1.8 
+            // jre-...
             from("../jre-" + JavaVersion.current() + "/core/lib") { into("jre-" + JavaVersion.current() + "/core/lib") }
             from("../jre-" + JavaVersion.current() + "/gradle/repo") { into("jre-" + JavaVersion.current() + "/gradle/repo") }
         }

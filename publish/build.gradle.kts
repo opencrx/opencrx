@@ -62,7 +62,7 @@ repositories {
 
 eclipse {
 	project {
-    	name = "openCRX 4 ~ Publish (jre-" + JavaVersion.current() + ")"
+    	name = "openCRX 5 ~ Publish"
     }
 }
 

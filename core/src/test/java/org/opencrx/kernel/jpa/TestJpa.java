@@ -60,50 +60,19 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class TestJpa
-    extends TestCase {
+public class TestJpa {
 
-    //-----------------------------------------------------------------------
-    /**
-     * Constructs a test case with the given name.
-     */
-    public TestJpa(
-        String name
-    ) {
-        super(name);
+	@BeforeEach
+    public void initEntityManager() {
         if(em == null) {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory(null);            
             em = emf.createEntityManager();        
         }
     }
-    
-    //-----------------------------------------------------------------------
-    /**
-     * The batch TestRunner can be given a class to run directly.
-     * To start the batch runner from your main you can write: 
-     */
-    public static void main(
-        String[] args
-    ) {
-        junit.textui.TestRunner.run (suite());
-    }
-    
-    //-----------------------------------------------------------------------
-    /**
-     * A test runner either expects a static method suite as the
-     * entry point to get a test to run or it will extract the 
-     * suite automatically. 
-     */
-    public static Test suite(
-    ) {
-        return new TestSuite(TestJpa.class);
-    }
 
-    //-----------------------------------------------------------------------
     private void printSecureObject(
         org.opencrx.kernel.base.cci2.SecureObject secureObject
     ) {
@@ -113,7 +82,6 @@ public class TestJpa
         System.out.println("  access level update: " + secureObject.getAccessLevelUpdate());        
     }
     
-    //-----------------------------------------------------------------------
     private void printAccountAddress(
         org.opencrx.kernel.address1.cci2.Addressable address
     ) {
@@ -143,7 +111,6 @@ public class TestJpa
         }           
     }
 
-    //-----------------------------------------------------------------------
     public void printCrxObject(
         org.opencrx.kernel.generic.cci2.CrxObject crxObject
     ) {
@@ -186,7 +153,7 @@ public class TestJpa
         }
     }
 
-    //-----------------------------------------------------------------------
+    @Test
     public void testAccounts(
     ) throws Exception {
         if(RUN_TEST_ACCOUNTS) {
@@ -278,7 +245,6 @@ public class TestJpa
         }
     }
 
-    //-----------------------------------------------------------------------
     private void printActivity(
         org.opencrx.kernel.activity1.cci2.Activity activity
     ) {
@@ -296,8 +262,8 @@ public class TestJpa
             System.out.println("    text: " + followUp.getText());
         }
     }
-    
-    //-----------------------------------------------------------------------
+
+    @Test
     public void testActivities(
     ) throws Exception {
         if(RUN_TEST_ACTIVITIES) {
@@ -466,7 +432,6 @@ public class TestJpa
         }
     }
 
-    //-----------------------------------------------------------------------
     private void printContractPosition(
         org.opencrx.kernel.contract1.cci2.SalesContractPosition position
     ) {
@@ -476,8 +441,8 @@ public class TestJpa
         System.out.println("    description: " + position.getDescription());
         System.out.println("    base amount: " + position.getBaseAmount());
     }
-    
-    //-----------------------------------------------------------------------
+
+    @Test
     public void testContracts(
     ) throws Exception {
         if(RUN_TEST_CONTRACTS) {
@@ -600,7 +565,6 @@ public class TestJpa
         }
     }
 
-    //-----------------------------------------------------------------------
     private void printProduct(
         org.opencrx.kernel.product1.cci2.AbstractProduct product
     ) {
@@ -623,8 +587,8 @@ public class TestJpa
             if(ii > MAX_COUNT) break;
         }                
     }
-    
-    //-----------------------------------------------------------------------
+
+    @Test
     public void testProducts(
     ) throws Exception {
         if(RUN_TEST_PRODUCTS) {
@@ -654,7 +618,7 @@ public class TestJpa
         }
     }
 
-    //-----------------------------------------------------------------------
+    @Test
     public void testUserHomes(
     ) throws Exception {
         if(RUN_TEST_USERHOMES) {
@@ -706,7 +670,6 @@ public class TestJpa
         }
     }
 
-    //-----------------------------------------------------------------------
     private void printBooking(
         org.opencrx.kernel.depot1.cci2.SingleBooking booking
     ) {
@@ -716,8 +679,8 @@ public class TestJpa
         System.out.println("  booking date: " + booking.getBookingDate());
         this.printCrxObject(booking);        
     }
-    
-    //-----------------------------------------------------------------------
+
+    @Test
     public void testDepots(
     ) throws Exception {
         if(RUN_TEST_DEPOTS) {

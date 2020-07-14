@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<installation version="1.0">
+<izpack:installation version="5.0" xmlns:izpack="http://izpack.org/schema/installation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
 	<info>
 		<appname>opencrxServer-@{project.implementation.version}</appname>
 		<appversion>@{project.implementation.version}</appversion>
@@ -26,7 +26,7 @@
 		<variable name="HSQLDB_PORT" value="9001" />
 		<variable name="TOMCAT_SERVER_PORT" value="8005" />
 		<variable name="TOMCAT_HTTP_PORT" value="8080" />
-		<variable name="TOMEE_BASEDIR" value="apache-tomee-plus-7.0.5" />
+		<variable name="TOMEE_BASEDIR" value="apache-tomee-plus-8.0.3" />
 	</dynamicvariables>
 	<resources>
 		<res id="splash" src="image/opencrx-server/installer/splash.gif" />
@@ -39,27 +39,17 @@
 		<res id="shortcutSpec.xml" src="src/izpack/opencrx-server-windows-shortcut-spec.xml" />
 	</resources>
 	<panels>
-		<panel classname="HTMLHelloPanel" />
-		<panel classname="LicencePanel" /> 
-		<panel classname="JDKPathPanel">
-			<variables>
-			  <variable name="JDKPathPanel.minVersion" value="1.8.0" />
-			  <variable name="JDKPathPanel.maxVersion" value="1.8.99" />
-			</variables>
-		</panel>
-		<panel classname="UserInputPanel" />
-		<panel classname="TargetPanel" />
-		<panel classname="SummaryPanel" />
-		<panel classname="InstallPanel" />
-		<panel classname="ShortcutPanel" />
-		<panel classname="HTMLInfoPanel" />
-		<panel classname="SimpleFinishPanel" />
+		<panel id="HelloPanel" classname="HTMLHelloPanel" />
+		<panel id="LicencePanel" classname="LicencePanel" /> 
+		<panel id="JdkHome" classname="UserInputPanel" />
+		<panel id="AntHome" classname="UserInputPanel" />
+		<panel id="TargetPanel" classname="TargetPanel" />
+		<panel id="SummaryPanel" classname="SummaryPanel" />
+		<panel id="InstallPanel" classname="InstallPanel" />
+		<panel id="ShortcutPanel" classname="ShortcutPanel" />
+		<panel id="InfoPanel" classname="HTMLInfoPanel" />
+		<panel id="FinishPanel" classname="SimpleFinishPanel" />
 	</panels>
-	<listeners>
-		<listener installer="SummaryLoggerInstallerListener">
-			<os family="windows" />
-		</listener>
-	</listeners>
 	<packs>
 		<pack name="Main" required="yes" installGroups="New Application">
 			<description>Main tasks.</description>
@@ -67,7 +57,7 @@
 			<fileset dir="image/opencrx-server" targetdir="$INSTALL_PATH" />
 			<!-- Additional files -->
 			<file src="../@{build.target.platform}/core/deployment-unit/opencrx-core-CRX.ear" targetdir="$INSTALL_PATH/installer/files"/>
-			<file src="../../openmdx/@{build.target.platform}/tomcat/lib/catalina-openmdx.jar" targetdir="$INSTALL_PATH/installer/files"/>
+			<file src="../../openmdx/jre-1.8/tomcat/lib/catalina-openmdx.jar" targetdir="$INSTALL_PATH/installer/files"/>
 			<!-- Generic -->
 			<parsable targetfile="$INSTALL_PATH/installer/bin/postinstaller.xml" type="xml" encoding="UTF-8" />
 			<parsable targetfile="$INSTALL_PATH/data/hsqldb/sqltool.rc" encoding="UTF-8" />
@@ -98,4 +88,4 @@
 	</packs>
 	<native type="izpack" name="ShellLink.dll" />
 	<native type="izpack" name="ShellLink_x64.dll" />
-</installation>
+</izpack:installation>

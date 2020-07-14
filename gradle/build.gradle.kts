@@ -64,7 +64,7 @@ repositories {
 
 eclipse {
 	project {
-    	name = "openCRX 4 ~ Gradle (jre-" + JavaVersion.current() + ")"
+    	name = "openCRX 5 ~ Gradle"
     }
 }
 

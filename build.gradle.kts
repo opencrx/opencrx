@@ -54,10 +54,10 @@ plugins {
 
 allprojects {
     group = "org.opencrx"
-    version = "4.3.0"
+    version = "5.0-20200714"
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
