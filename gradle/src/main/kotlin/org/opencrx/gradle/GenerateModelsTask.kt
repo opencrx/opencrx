@@ -76,8 +76,6 @@ open class GenerateModelsTask : ExecTask() {
 			"--openmdxjdo=" + File(project.getProjectDir(), "src/main/resources"),
 			"--dataproviderVersion=2",
 			"--format=xmi1",
-			"--format=uml.openmdx-1",
-			"--format=uml2.openmdx-1",
 			"--format=cci2",
 			"--format=jmi1",
 			"--format=jpa3",
