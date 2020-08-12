@@ -127,6 +127,7 @@ import org.openmdx.base.query.Condition;
 import org.openmdx.base.query.IsInCondition;
 import org.openmdx.base.query.IsLikeCondition;
 import org.openmdx.base.query.Quantifier;
+import org.openmdx.base.query.SoundsLikeCondition;
 import org.openmdx.base.rest.spi.QueryExtensionRecord;
 import org.openmdx.kernel.log.SysLog;
 import org.openmdx.portal.servlet.Action;
@@ -741,9 +742,16 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
     	);
     	Condition condition = conditionParser.parse(filterValue);
     	filterValue = filterValue.substring(conditionParser.getOffset());
-    	if(condition instanceof IsLikeCondition) {
+    	{
 	    	String clause = null;
-    		boolean negate = !((IsLikeCondition)condition).isFulfil();
+    		boolean negate = false;
+    		if(condition instanceof IsLikeCondition) {
+    			negate = !((IsLikeCondition)condition).isFulfil();
+    		} else if(condition instanceof SoundsLikeCondition) {
+    			negate = !((SoundsLikeCondition)condition).isFulfil();
+    		} else if(condition instanceof IsInCondition) {
+    			negate = !((IsInCondition)condition).isFulfil();
+    		}
 	    	int paramCount = queryFilterStringParamCount;
 	    	String s0 = "?s" + paramCount++;
 	    	String s1 = "?s" + paramCount++;
@@ -907,13 +915,6 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 	        	stringParams,
 	        	app
 	        );
-    	} else {
-            return super.getQuery(
-            	qualifiedFeatureName,
-            	filterValue,
-            	queryFilterStringParamCount,
-            	app
-            );
     	}
     }
 
