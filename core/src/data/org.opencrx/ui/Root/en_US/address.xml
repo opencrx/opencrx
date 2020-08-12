@@ -169,6 +169,25 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:address">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Addresses</_item>
+											</toolTip>
+											<label>
+												<_item>Addresses</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<maxMember>18</maxMember>
+											<showMaxMember>4</showMaxMember>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<!-- linkback -->
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAddress:authority">
 										<_object>
@@ -882,6 +901,24 @@
 										</_object>
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddress:identity">
+										<_object>
+											<active>true</active>
+											<filterable>false</filterable>
+											<toolTip>
+												<_item>Address</_item>
+											</toolTip>
+											<label>
+												<_item>Address</_item>
+											</label>
+											<orderObjectContainer>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>1</_item>
+											</orderObjectContainer>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:Address:identity">
 										<_object>
 											<active>true</active>
@@ -1344,6 +1381,115 @@
 											</toolTip>
 											<label>
 												<_item>URI [P]</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>60</_item>
+											</order>
+											<iconKey>UriAddress</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!--Inspector definitions for org:opencrx:kernel:activity1-->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EMailAddress">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>E-mail Address</_item>
+											</toolTip>
+											<label>
+												<_item>E-mail [Act]</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+											<iconKey>EMailAddress</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PhoneNumber">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Phone Number</_item>
+											</toolTip>
+											<label>
+												<_item>Phone [Act]</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+											<iconKey>PhoneNumber</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Room">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Room</_item>
+											</toolTip>
+											<label>
+												<_item>Room [Act]</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>30</_item>
+											</order>
+											<iconKey>Room</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Postal Address</_item>
+											</toolTip>
+											<label>
+												<_item>Postal Address [Act]</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>40</_item>
+											</order>
+											<iconKey>PostalAddress</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WebAddress">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Web Address</_item>
+											</toolTip>
+											<label>
+												<_item>Web [Act]</_item>
+											</label>
+											<order>
+												<_item>0</_item>
+												<_item>0</_item>
+												<_item>50</_item>
+											</order>
+											<iconKey>WebAddress</iconKey>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:UriAddress">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>URI Address</_item>
+											</toolTip>
+											<label>
+												<_item>URI [Act]</_item>
 											</label>
 											<order>
 												<_item>0</_item>
@@ -2126,6 +2272,69 @@
 										<_content/>
 									</org.openmdx.ui1.ElementDefinition>
 									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:PostalAddress:picture">
+										<_object>
+											<active>true</active>
+											<spanRow>4</spanRow>
+											<toolTip>
+												<_item>Title / Source</_item>
+											</toolTip>
+											<label>
+												<_item>Title / Source</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>0</_item>
+												<_item>20</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<!-- address maps activity1 -->
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:Pane:Attr:Tab:25">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item>Map</_item>
+											</toolTip>
+											<label>
+												<_item>Map</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:Pane:Attr:Tab:25:Group:0">
+										<_object>
+											<active>true</active>
+											<toolTip>
+												<_item></_item>
+											</toolTip>
+											<label>
+												<_item>&amp;nbsp;</_item>
+											</label>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:pictureContent">
+										<_object>
+											<spanRow>7</spanRow>
+											<active>true</active>
+											<changeable>false</changeable>
+											<inPlace>true</inPlace>
+											<toolTip>
+												<_item>Picture</_item>
+											</toolTip>
+											<label>
+												<_item>Picture</_item>
+											</label>
+											<order>
+												<_item>25</_item>
+												<_item>0</_item>
+												<_item>10</_item>
+											</order>
+										</_object>
+										<_content/>
+									</org.openmdx.ui1.ElementDefinition>
+									<org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:picture">
 										<_object>
 											<active>true</active>
 											<spanRow>4</spanRow>

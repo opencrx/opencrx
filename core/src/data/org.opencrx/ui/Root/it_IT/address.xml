@@ -84,6 +84,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:address" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Indirizzi</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Indirizzi</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAddress:identity" _operation="create">
                     <_object>
                       <label>
@@ -118,6 +129,17 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:identity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Indirizzo</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Indirizzo</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddress:identity" _operation="create">
                     <_object>
                       <label>
                         <_item>Indirizzo</_item>
@@ -360,6 +382,61 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:WebAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Web</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Indirizzo Web</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EMailAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>E-mail</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Indirizzo E-mail</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PhoneNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Telefono</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Numero Telefonico</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Room" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Stanza</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Stanza</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Recapito Postale</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Recapito Postale</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WebAddress" _operation="create">
                     <_object>
                       <label>
                         <_item>Web</_item>
@@ -784,6 +861,47 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:Pane:Attr:Tab:25" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Mappa</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Mappa</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:Pane:Attr:Tab:25:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:pictureContent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Foto</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Foto</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:picture" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Titolo/Fonte</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Titolo/Fonte</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddress:Pane:Attr:Tab:25" _operation="create">
                     <_object>
                       <label>
@@ -884,6 +1002,28 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:validTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valido fino al</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valido fino al</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddress:validFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valido dal</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valido dal</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddress:validTo" _operation="create">
                     <_object>
                       <label>
                         <_item>Valido fino al</_item>

@@ -84,6 +84,17 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Activity:address" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Adresses</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Adresses</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:account1:AccountAddress:identity" _operation="create">
                     <_object>
                       <label>
@@ -118,6 +129,17 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:identity" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Adresse</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Adresse</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity:ActivityAddress:identity" _operation="create">
                     <_object>
                       <label>
                         <_item>Adresse</_item>
@@ -360,6 +382,61 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:WebAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Web</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Adresse web</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:EMailAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>E-mail</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Adresse e-mail</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PhoneNumber" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Téléphone</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Numéros de téléphone</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:Room" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Pièce</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Pièce</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Adresse postale</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Adresse postale</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:WebAddress" _operation="create">
                     <_object>
                       <label>
                         <_item>Web</_item>
@@ -784,6 +861,47 @@
                     </_object>
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:Pane:Attr:Tab:25" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Carte</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Carte</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:Pane:Attr:Tab:25:Group:0" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>&amp;nbsp;</_item>
+                      </label>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:pictureContent" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Photographie</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Photographie</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:PostalAddress:picture" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Titre / Source</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Titre / Source</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:address1:PostalAddress:Pane:Attr:Tab:25" _operation="create">
                     <_object>
                       <label>
@@ -884,6 +1002,28 @@
                     <_content/>
                   </org.openmdx.ui1.ElementDefinition>
                   <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:product1:ProductAddress:validTo" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Valide jusqu&apos;au</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valide jusqu&apos;au</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddress:validFrom" _operation="create">
+                    <_object>
+                      <label>
+                        <_item>Effectif depuis</_item>
+                      </label>
+                      <toolTip>
+                        <_item>Valide depuis</_item>
+                      </toolTip>
+                    </_object>
+                    <_content/>
+                  </org.openmdx.ui1.ElementDefinition>
+                  <org.openmdx.ui1.ElementDefinition name="org:opencrx:kernel:activity1:ActivityAddress:validTo" _operation="create">
                     <_object>
                       <label>
                         <_item>Valide jusqu&apos;au</_item>
