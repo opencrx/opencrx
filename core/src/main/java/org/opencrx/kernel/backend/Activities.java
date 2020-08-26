@@ -3273,17 +3273,15 @@ public class Activities extends AbstractImpl {
     		replica.setMisc2(activity.getMisc2());
     		replica.setMisc3(activity.getMisc3());
     		replica.setLocation(activity.getLocation());
-    	}
-    	// Obfuscate
-    	else if(linkTo.getActivityLinkType() == ActivityLinkType.IS_REPLICA_OF_OBFUSCATED.getValue()) {
+    	} else if(linkTo.getActivityLinkType() == ActivityLinkType.IS_REPLICA_OF_OBFUSCATED.getValue()) {
+        	// Obfuscate
     		replica.setName(linkTo.getName());
-    		replica.setDescription(linkTo.getDescription());        		
+    		replica.setDescription(linkTo.getDescription());
     	}
     	String ical = activity.getIcal();
     	// Copy ical-specific fields to replica
     	if(ical != null) {
-    		// Copy RRULE, EXDATE
-    		for(String field: Arrays.asList("RRULE:", "EXDATE:")) {
+    		for(String field: Arrays.asList("EXDATE:")) {
 	    		String fieldValue = null;
 	    		int pos1 = ical.indexOf(field);
 	    		if(pos1 >= 0) {
@@ -3318,6 +3316,7 @@ public class Activities extends AbstractImpl {
 		replica.setActualEnd(activity.getActualEnd());
 		replica.setDueBy(activity.getDueBy());
 		replica.setPriority(activity.getPriority());
+		replica.setRecurrenceRule(activity.getRecurrenceRule());
 		replica.setDisabled(activity.isDisabled());
     }
 
