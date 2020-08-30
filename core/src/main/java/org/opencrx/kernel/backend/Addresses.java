@@ -52,6 +52,7 @@
  */
 package org.opencrx.kernel.backend;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +60,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
 
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
@@ -344,6 +346,36 @@ public class Addresses extends AbstractImpl {
     	if(emailAddress.getEmailAddress() != null) {
     		if(!Utils.areEqual(emailAddress.getEmailAddress(), emailAddress.getEmailAddress().trim())) {
     			emailAddress.setEmailAddress(emailAddress.getEmailAddress().trim());
+    		}
+    	}
+    }
+
+    /**
+     * parse uri reference.
+     * 
+     * @param uriAddress
+     * @throws ServiceException
+     */
+    public void updateUriAddress(
+    	org.opencrx.kernel.address1.jmi1.UriAddressable uriAddress
+    ) throws ServiceException {
+    	if(uriAddress.getUriReference() != null) {
+    		if(Boolean.TRUE.equals(uriAddress.isAutomaticParsing())) {
+    			try {
+    				URI uri = new URI(uriAddress.getUriReference());
+    				uriAddress.setUriAuthority(uri.getAuthority());
+    				uriAddress.setUriFragment(uri.getFragment());
+    				uriAddress.setUriHost(uri.getHost());
+    				uriAddress.setUriPath(uri.getPath());
+    				uriAddress.setUriPort(Integer.toString(uri.getPort()));
+    				uriAddress.setUriQuery(uri.getQuery());
+    				uriAddress.setUriScheme(uri.getScheme());
+    				uriAddress.setUriSchemeSpecificPart(uri.getSchemeSpecificPart());
+    				uriAddress.setUriUserInfo(uri.getRawUserInfo());
+    			} catch(Exception e) {
+    				ServiceException se = new ServiceException(e);
+    				SysLog.log(Level.FINE, "Invalid URI {0}", uriAddress, se);
+    			}
     		}
     	}
     }

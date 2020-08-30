@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ufP7gN8HEdmKapscEl8OLg" name="address1">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ufP7gN8HEdmKapscEl8OLg" name="address1">
   <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9ECE0173PPP" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9ECE0173PP" name="opencrx">
       <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9ECE0173P" name="kernel">
         <packagedElement xmi:type="uml:Package" xmi:id="_3C7B8A60016D3FEC9ECE0173" name="address1">
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F3FE1E60399" name="PostalAddressable" isAbstract="true">
-            <eAnnotations xmi:id="_IIkhBN7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_IIkhBd7NEdmKapscEl8OLg" key="root"/>
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIkhBN7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIkhBd7NEdmKapscEl8OLg" key="root"/>
             </eAnnotations>
-            <generalization xmi:id="_3C7B8A60016D40DDCD4001A0">
+            <generalization xmi:type="uml:Generalization" xmi:id="_3C7B8A60016D40DDCD4001A0">
               <general xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D40D73EC00319"/>
             </generalization>
-            <ownedAttribute xmi:id="_3C7B8A60016D40280FFB02F5" name="postalAddressLine">
-              <eAnnotations xmi:id="_IIkg6t7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-                <details xmi:id="_IIkg697NEdmKapscEl8OLg" key="list"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D40280FFB02F5" name="postalAddressLine">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIkg6t7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIkg697NEdmKapscEl8OLg" key="list"/>
               </eAnnotations>
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F8555AC022C" name="postalStreet">
-              <eAnnotations xmi:id="_IIkg7d7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-                <details xmi:id="_IIkg7t7NEdmKapscEl8OLg" key="list"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F8555AC022C" name="postalStreet">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIkg7d7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIkg7t7NEdmKapscEl8OLg" key="list"/>
               </eAnnotations>
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB1C600CC" name="postalCity">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB1C600CC" name="postalCity">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIkg8N7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIkg8d7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB1D00275" name="postalState">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB1D00275" name="postalState">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIkg897NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIkg9N7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB1EF0003" name="postalCounty">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB1EF0003" name="postalCounty">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIkg9t7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIkg997NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB1F50391" name="postalCountry">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB1F50391" name="postalCountry">
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB21C001C" name="postalCode">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB21C001C" name="postalCode">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIkg-t7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIkg-97NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB2320244" name="postalUtcOffset">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB2320244" name="postalUtcOffset">
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB24E030D" name="postalFreightTerms">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB24E030D" name="postalFreightTerms">
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB28000AC" name="postalLatitude">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB28000AC" name="postalLatitude">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIkg_97NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIkhAN7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F3FB292035B" name="postalLongitude">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F3FB292035B" name="postalLongitude">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIkhAt7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIkhA97NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_jsagQB_REdyVTI9zXLV5lA" name="postalStreetNumber">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_jsagQB_REdyVTI9zXLV5lA" name="postalStreetNumber">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rvPuQB_REdyVTI9zXLV5lA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rvPuQR_REdyVTI9zXLV5lA" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_hmzkEIcMEeeb0q7mRxFazQ" name="postalCodeAddOn" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_hmzkEIcMEeeb0q7mRxFazQ" name="postalCodeAddOn" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hzdgAIcMEeeb0q7mRxFazQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hzeuIIcMEeeb0q7mRxFazQ" value="1"/>
@@ -75,7 +75,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_ivZj0IcMEeeb0q7mRxFazQ" name="postalCodeId" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_ivZj0IcMEeeb0q7mRxFazQ" name="postalCodeId" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i4t34IcMEeeb0q7mRxFazQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i4ue8IcMEeeb0q7mRxFazQ" value="1"/>
@@ -85,113 +85,113 @@
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F78A28B0398" name="EMailAddressable" isAbstract="true">
-            <eAnnotations xmi:id="_IIqngd7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_IIqngt7NEdmKapscEl8OLg" key="root"/>
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIqngd7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIqngt7NEdmKapscEl8OLg" key="root"/>
             </eAnnotations>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F78A5030075" name="emailAddress">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F78A5030075" name="emailAddress">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIkhCN7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIkhCd7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F78A4EB0003" name="emailType">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F78A4EB0003" name="emailType">
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F78A4D401A4" name="emailFormat">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F78A4D401A4" name="emailFormat">
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F78A2E101D9" name="PhoneNumberAddressable" isAbstract="true">
-            <eAnnotations xmi:id="_IIqnkt7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_IIqnk97NEdmKapscEl8OLg" key="root"/>
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIqnkt7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIqnk97NEdmKapscEl8OLg" key="root"/>
             </eAnnotations>
-            <ownedAttribute xmi:id="_3C7B8A60016D3FD3D2D300CD" name="phoneNumberFull">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3FD3D2D300CD" name="phoneNumberFull">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIqnhd7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIqnht7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3FD3D37A02FE" name="automaticParsing">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3FD3D37A02FE" name="automaticParsing">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F78A40B0227" name="phoneCountryPrefix">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F78A40B0227" name="phoneCountryPrefix">
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F78A41F01EA" name="phoneCityArea">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F78A41F01EA" name="phoneCityArea">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIqnit7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIqni97NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F78A4340349" name="phoneLocalNumber">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F78A4340349" name="phoneLocalNumber">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIqnjd7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIqnjt7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3FA772DC033A" name="phoneExtension">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3FA772DC033A" name="phoneExtension">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIqnkN7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIqnkd7NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F78A77D0348" name="WebAddressable" isAbstract="true">
-            <eAnnotations xmi:id="_IIqnmN7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_IIqnmd7NEdmKapscEl8OLg" key="root"/>
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIqnmN7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIqnmd7NEdmKapscEl8OLg" key="root"/>
             </eAnnotations>
-            <ownedAttribute xmi:id="_3C7B8A60016D3F78A7850209" name="webUrl">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3F78A7850209" name="webUrl">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IIqnlt7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IIqnl97NEdmKapscEl8OLg" value="1"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F932399021B" name="Addressable" isAbstract="true">
-            <eAnnotations xmi:id="_IIqnn97NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_IIqnoN7NEdmKapscEl8OLg" key="root"/>
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIqnn97NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIqnoN7NEdmKapscEl8OLg" key="root"/>
             </eAnnotations>
-            <ownedAttribute xmi:id="_3C7B8A60016D3FA772F8022C" name="usage">
-              <eAnnotations xmi:id="_IIqnnN7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-                <details xmi:id="_IIqnnd7NEdmKapscEl8OLg" key="list"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3FA772F8022C" name="usage">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IIqnnN7NEdmKapscEl8OLg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IIqnnd7NEdmKapscEl8OLg" key="list"/>
               </eAnnotations>
               <type xmi:type="uml:Class" href="org.opencrx.uml#_3C7B8A60016D40747CF6015D"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3C7B8A60016D3FA7946C0315" name="isMain">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3C7B8A60016D3FA7946C0315" name="isMain">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_i2a6EUi1Ed-hZsNYMNcVzA" name="building" association="_i2ZE4Ei1Ed-hZsNYMNcVzA">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_i2a6EUi1Ed-hZsNYMNcVzA" name="building" association="_i2ZE4Ei1Ed-hZsNYMNcVzA">
               <type xmi:type="uml:Class" href="org.opencrx.kernel.building1.uml#_3C7B8A60016D3F4E19CA0176"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tg-_UEi1Ed-hZsNYMNcVzA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tg-YQEi1Ed-hZsNYMNcVzA" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_7AEUgBzOEeGTXbJH1WaQBg" name="tz" aggregation="composite">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_7AEUgBzOEeGTXbJH1WaQBg" name="tz" aggregation="composite">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I4NJARzPEeGTXbJH1WaQBg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I4NJABzPEeGTXbJH1WaQBg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_hXThggvXEeKVD5YCc253Vg" name="regionType1" association="_hXKXkAvXEeKVD5YCc253Vg">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_hXThggvXEeKVD5YCc253Vg" name="regionType1" association="_hXKXkAvXEeKVD5YCc253Vg">
               <type xmi:type="uml:Class" href="org.opencrx.kernel.code1.uml#_3C7B8A60016D3F42A01900B6"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hXUIkAvXEeKVD5YCc253Vg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hXUIkQvXEeKVD5YCc253Vg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_1ZGb4wvXEeKVD5YCc253Vg" name="regionType2" association="_1ZFNwAvXEeKVD5YCc253Vg">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1ZGb4wvXEeKVD5YCc253Vg" name="regionType2" association="_1ZFNwAvXEeKVD5YCc253Vg">
               <type xmi:type="uml:Class" href="org.opencrx.kernel.code1.uml#_3C7B8A60016D3F42A01900B6"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1ZHC8AvXEeKVD5YCc253Vg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1ZHC8QvXEeKVD5YCc253Vg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_FQX2kAvYEeKVD5YCc253Vg" name="regionType3" association="_FQUMMAvYEeKVD5YCc253Vg">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_FQX2kAvYEeKVD5YCc253Vg" name="regionType3" association="_FQUMMAvYEeKVD5YCc253Vg">
               <type xmi:type="uml:Class" href="org.opencrx.kernel.code1.uml#_3C7B8A60016D3F42A01900B6"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FQYdoAvYEeKVD5YCc253Vg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FQYdoQvYEeKVD5YCc253Vg" value="1"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_qoGFgAvZEeKVD5YCc253Vg" name="region1" aggregation="composite">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_qoGFgAvZEeKVD5YCc253Vg" name="region1" aggregation="composite">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_za-QYAvZEeKVD5YCc253Vg"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_s_c-cAvZEeKVD5YCc253Vg" name="region2" aggregation="composite">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_s_c-cAvZEeKVD5YCc253Vg" name="region2" aggregation="composite">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0JpUQAvZEeKVD5YCc253Vg"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_uaKB4AvZEeKVD5YCc253Vg" name="region3" aggregation="composite">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_uaKB4AvZEeKVD5YCc253Vg" name="region3" aggregation="composite">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_00UB4AvZEeKVD5YCc253Vg"/>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_Uc9IEERUEeeyvax8OVs9GQ" name="validFrom" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Uc9IEERUEeeyvax8OVs9GQ" name="validFrom" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UxRLMERUEeeyvax8OVs9GQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UxTAYERUEeeyvax8OVs9GQ" value="1"/>
@@ -199,7 +199,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_Vkpv8ERUEeeyvax8OVs9GQ" name="validTo" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Vkpv8ERUEeeyvax8OVs9GQ" name="validTo" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VwGyAERUEeeyvax8OVs9GQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VwInMERUEeeyvax8OVs9GQ" value="1"/>
@@ -207,7 +207,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_WswAcERUEeeyvax8OVs9GQ" name="description" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_WswAcERUEeeyvax8OVs9GQ" name="description" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W3zZ4ERUEeeyvax8OVs9GQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W30oAERUEeeyvax8OVs9GQ" value="1"/>
@@ -215,7 +215,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_Xnkp8ERUEeeyvax8OVs9GQ" name="salutationForCorrespondance" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Xnkp8ERUEeeyvax8OVs9GQ" name="salutationForCorrespondance" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XyL-gERUEeeyvax8OVs9GQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XyNMoERUEeeyvax8OVs9GQ" value="1"/>
@@ -225,44 +225,44 @@
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_fBLBcO8BEdmRceqq7KYXeQ" name="RoomAddressable" isAbstract="true">
-            <eAnnotations xmi:id="_holvoO8BEdmRceqq7KYXeQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_holvoe8BEdmRceqq7KYXeQ" key="root"/>
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_holvoO8BEdmRceqq7KYXeQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_holvoe8BEdmRceqq7KYXeQ" key="root"/>
             </eAnnotations>
-            <ownedAttribute xmi:id="_lvUUcO8BEdmRceqq7KYXeQ" name="roomNumber">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_lvUUcO8BEdmRceqq7KYXeQ" name="roomNumber">
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0Z2PMO8BEdmRceqq7KYXeQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Z2PMe8BEdmRceqq7KYXeQ" value="1"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_i2ZE4Ei1Ed-hZsNYMNcVzA" name="AddressableOfBuildingUnit" memberEnd="_i2aTAEi1Ed-hZsNYMNcVzA _i2a6EUi1Ed-hZsNYMNcVzA">
-            <ownedEnd xmi:id="_i2aTAEi1Ed-hZsNYMNcVzA" name="addressable" type="_3C7B8A60016D3F932399021B" association="_i2ZE4Ei1Ed-hZsNYMNcVzA">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_i2aTAEi1Ed-hZsNYMNcVzA" name="addressable" type="_3C7B8A60016D3F932399021B" association="_i2ZE4Ei1Ed-hZsNYMNcVzA">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v0fTAUi1Ed-hZsNYMNcVzA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v0fTAEi1Ed-hZsNYMNcVzA" value="*"/>
             </ownedEnd>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_hXKXkAvXEeKVD5YCc253Vg" name="AddressableHasRegionType1" memberEnd="_hXS6cAvXEeKVD5YCc253Vg _hXThggvXEeKVD5YCc253Vg">
-            <ownedEnd xmi:id="_hXS6cAvXEeKVD5YCc253Vg" name="addressable" type="_3C7B8A60016D3F932399021B" association="_hXKXkAvXEeKVD5YCc253Vg">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_hXS6cAvXEeKVD5YCc253Vg" name="addressable" type="_3C7B8A60016D3F932399021B" association="_hXKXkAvXEeKVD5YCc253Vg">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hXThgAvXEeKVD5YCc253Vg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hXThgQvXEeKVD5YCc253Vg" value="*"/>
             </ownedEnd>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_1ZFNwAvXEeKVD5YCc253Vg" name="AddressableHasRegionType2" memberEnd="_1ZGb4AvXEeKVD5YCc253Vg _1ZGb4wvXEeKVD5YCc253Vg">
-            <ownedEnd xmi:id="_1ZGb4AvXEeKVD5YCc253Vg" name="addressable" type="_3C7B8A60016D3F932399021B" association="_1ZFNwAvXEeKVD5YCc253Vg">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_1ZGb4AvXEeKVD5YCc253Vg" name="addressable" type="_3C7B8A60016D3F932399021B" association="_1ZFNwAvXEeKVD5YCc253Vg">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1ZGb4QvXEeKVD5YCc253Vg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1ZGb4gvXEeKVD5YCc253Vg" value="*"/>
             </ownedEnd>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_FQUMMAvYEeKVD5YCc253Vg" name="AddressableHasRegionType3" memberEnd="_FQWocAvYEeKVD5YCc253Vg _FQX2kAvYEeKVD5YCc253Vg">
-            <ownedEnd xmi:id="_FQWocAvYEeKVD5YCc253Vg" name="addressable" type="_3C7B8A60016D3F932399021B" association="_FQUMMAvYEeKVD5YCc253Vg">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_FQWocAvYEeKVD5YCc253Vg" name="addressable" type="_3C7B8A60016D3F932399021B" association="_FQUMMAvYEeKVD5YCc253Vg">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FQXPgAvYEeKVD5YCc253Vg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FQXPgQvYEeKVD5YCc253Vg" value="*"/>
             </ownedEnd>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_A9r6kND_Eee7VflwEpS8GA" name="UriAddressable" isAbstract="true">
-            <eAnnotations xmi:id="_VSAIUND_Eee7VflwEpS8GA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-              <details xmi:id="_WRG04ND_Eee7VflwEpS8GA" key="root"/>
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VSAIUND_Eee7VflwEpS8GA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WRG04ND_Eee7VflwEpS8GA" key="root"/>
             </eAnnotations>
-            <ownedAttribute xmi:id="_E5UCoND_Eee7VflwEpS8GA" name="uriReference" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_E5UCoND_Eee7VflwEpS8GA" name="uriReference" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FDVhUND_Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FDWIYND_Eee7VflwEpS8GA" value="1"/>
@@ -270,7 +270,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_azLj0ND9Eee7VflwEpS8GA" name="uriScheme" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_azLj0ND9Eee7VflwEpS8GA" name="uriScheme" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bE93YND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bE_FgND9Eee7VflwEpS8GA" value="1"/>
@@ -278,7 +278,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_yOQuMND9Eee7VflwEpS8GA" name="uriSchemeSpecificPart" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_yOQuMND9Eee7VflwEpS8GA" name="uriSchemeSpecificPart" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yd8wAND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yd9XEND9Eee7VflwEpS8GA" value="1"/>
@@ -286,7 +286,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_0rqkwND9Eee7VflwEpS8GA" name="uriAuthority" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_0rqkwND9Eee7VflwEpS8GA" name="uriAuthority" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_02hw8ND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_02iYAND9Eee7VflwEpS8GA" value="1"/>
@@ -294,7 +294,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_2TFOgND9Eee7VflwEpS8GA" name="uriUserInfo" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_2TFOgND9Eee7VflwEpS8GA" name="uriUserInfo" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2dzQwND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2d0e4ND9Eee7VflwEpS8GA" value="1"/>
@@ -302,7 +302,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_3my5IND9Eee7VflwEpS8GA" name="uriHost" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3my5IND9Eee7VflwEpS8GA" name="uriHost" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3wyioND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3wzJsND9Eee7VflwEpS8GA" value="1"/>
@@ -310,7 +310,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_5hFbkND9Eee7VflwEpS8GA" name="uriPort" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_5hFbkND9Eee7VflwEpS8GA" name="uriPort" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5sjrwND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5skS0ND9Eee7VflwEpS8GA" value="1"/>
@@ -318,7 +318,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_6zO_8ND9Eee7VflwEpS8GA" name="uriPath" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_6zO_8ND9Eee7VflwEpS8GA" name="uriPath" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_69tKkND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_69txoND9Eee7VflwEpS8GA" value="1"/>
@@ -326,7 +326,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_8HCKIND9Eee7VflwEpS8GA" name="uriQuery" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_8HCKIND9Eee7VflwEpS8GA" name="uriQuery" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8SdXAND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8SelIND9Eee7VflwEpS8GA" value="1"/>
@@ -334,7 +334,7 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
-            <ownedAttribute xmi:id="_9uAvAND9Eee7VflwEpS8GA" name="uriFragment" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_9uAvAND9Eee7VflwEpS8GA" name="uriFragment" visibility="public">
               <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_94m1cND9Eee7VflwEpS8GA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_94ncgND9Eee7VflwEpS8GA" value="1"/>
@@ -342,9 +342,23 @@
                 <value xsi:nil="true"/>
               </defaultValue>
             </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_kDnkAOkrEeqtSJdb4HPksg" name="automaticParsing">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B63180083"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n0KdcOkrEeqtSJdb4HPksg"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_o0_BQOkrEeqtSJdb4HPksg" name="uriSchemeSpecificPartFormatted">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX 2 ~ Core (EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uYKV8OkrEeqtSJdb4HPksg"/>
+            </ownedAttribute>
           </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>
   </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7_C-MOkyEeqtSJdb4HPksg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7_DlQOkyEeqtSJdb4HPksg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
 </uml:Model>

@@ -116,6 +116,7 @@ import org.opencrx.kernel.product1.jmi1.ProductPhasePriceLevel;
 import org.opencrx.kernel.product1.jmi1.ProductQueryFilterProperty;
 import org.opencrx.kernel.product1.jmi1.RelatedProduct;
 import org.opencrx.kernel.product1.jmi1.SalesTaxType;
+import org.opencrx.kernel.product1.jmi1.UriAddress;
 import org.opencrx.kernel.uom1.jmi1.Uom;
 import org.opencrx.kernel.utils.ScriptUtils;
 import org.opencrx.kernel.utils.Utils;
@@ -2135,6 +2136,8 @@ public class Products extends AbstractImpl {
     		Addresses.getInstance().updatePhoneNumber((PhoneNumber)object);
 		} else if(object instanceof EMailAddress) {
     		Addresses.getInstance().updateEMailAddress((EMailAddress)object);			
+		} else if(object instanceof UriAddress) {
+    		Addresses.getInstance().updateUriAddress((UriAddress)object);
 		}
 	}
 

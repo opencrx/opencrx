@@ -101,6 +101,7 @@ import org.opencrx.kernel.depot1.jmi1.PhoneNumber;
 import org.opencrx.kernel.depot1.jmi1.ProductDepotPosition;
 import org.opencrx.kernel.depot1.jmi1.SimpleBooking;
 import org.opencrx.kernel.depot1.jmi1.SingleBooking;
+import org.opencrx.kernel.depot1.jmi1.UriAddress;
 import org.opencrx.kernel.generic.OpenCrxException;
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.generic.jmi1.CrxObject;
@@ -2710,6 +2711,8 @@ public class Depots extends AbstractImpl {
 			this.updateInventoryLevel((InventoryLevel)object);
 		} else if(object instanceof BookingTemplate) {
 			this.updateBookingTemplate((BookingTemplate)object);			
+		} else if(object instanceof UriAddress) {
+    		Addresses.getInstance().updateUriAddress((UriAddress)object);
 		}
 	}
 

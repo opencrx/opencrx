@@ -118,6 +118,7 @@ import org.opencrx.kernel.contract1.jmi1.SalesContractPosition;
 import org.opencrx.kernel.contract1.jmi1.SalesOrder;
 import org.opencrx.kernel.contract1.jmi1.SalesOrderPosition;
 import org.opencrx.kernel.contract1.jmi1.SalesVolumeContract;
+import org.opencrx.kernel.contract1.jmi1.UriAddress;
 import org.opencrx.kernel.depot1.cci2.DepotPositionReferenceQuery;
 import org.opencrx.kernel.depot1.cci2.DepotReferenceQuery;
 import org.opencrx.kernel.depot1.jmi1.Depot;
@@ -3595,6 +3596,8 @@ public class Contracts extends AbstractImpl {
 			Addresses.getInstance().updatePhoneNumber((PhoneNumber)object);
 		} else if(object instanceof EMailAddress) {
 			Addresses.getInstance().updateEMailAddress((EMailAddress)object);			
+		} else if(object instanceof UriAddress) {
+    		Addresses.getInstance().updateUriAddress((UriAddress)object);
 		}
 	}
 

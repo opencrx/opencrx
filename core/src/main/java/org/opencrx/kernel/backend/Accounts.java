@@ -87,6 +87,7 @@ import org.opencrx.kernel.account1.jmi1.Member;
 import org.opencrx.kernel.account1.jmi1.PhoneNumber;
 import org.opencrx.kernel.account1.jmi1.PostalAddress;
 import org.opencrx.kernel.account1.jmi1.Room;
+import org.opencrx.kernel.account1.jmi1.UriAddress;
 import org.opencrx.kernel.account1.jmi1.WebAddress;
 import org.opencrx.kernel.activity1.cci2.AddressGroupMemberQuery;
 import org.opencrx.kernel.activity1.cci2.EMailQuery;
@@ -845,6 +846,10 @@ public class Accounts extends AbstractImpl {
     	} else if(address instanceof EMailAddress) {
     		Addresses.getInstance().updateEMailAddress(
     			(EMailAddress)address
+    		);
+    	} else if(address instanceof UriAddress) {
+    		Addresses.getInstance().updateUriAddress(
+    			(UriAddress)address
     		);
     	}
     	// Amend assigned addresses

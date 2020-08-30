@@ -2155,6 +2155,7 @@
             <column name="URI_REFERENCE" type="varchar" size="256"/>
             <column name="URI_SCHEME" type="varchar" size="256"/>
             <column name="URI_SCHEME_SPECIFIC_PART" type="varchar" size="256"/>
+            <column name="URI_SCHEME_SPECIFIC_PART_FORMATTED" type="varchar" size="256"/>
             <column name="URI_USER_INFO" type="varchar" size="256"/>
             <column name="EMAIL_ADDRESS" type="varchar" size="256"/>
             <column name="EMAIL_FORMAT" type="smallint"/>
@@ -6914,13 +6915,12 @@
             <column name="DESCRIPTION" type="varchar" size="256"/>
             <column name="DOCUMENT" type="varchar" size="256"/>
             <column name="DOCUMENT_LINK_TYPE" type="smallint"/>
-            <column name="LINK_FROM" type="varchar" size="256"/>
+            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
             <column name="MODIFIED_BY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="NAME" type="varchar" size="256"/>
             <column name="OWNER_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="DTYPE" type="varchar" size="256"/>
             <column name="MODIFIED_AT" type="timestamp"/>
-            <column name="&quot;P$$PARENT&quot;" type="varchar" size="256"/>
         </table>
         <table name="OOCKE1_DOCUMENTATTACHMENT_">
             <pk>
