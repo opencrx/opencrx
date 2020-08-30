@@ -75,7 +75,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -203,10 +202,8 @@ import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.rest.cci.QueryExtensionRecord;
 import org.openmdx.base.text.conversion.Base64;
-import org.openmdx.base.text.conversion.UUIDConversion;
 import org.openmdx.base.text.conversion.XMLEncoder;
 import org.openmdx.kernel.exception.BasicException;
-import org.openmdx.kernel.id.UUIDs;
 import org.openmdx.kernel.loading.Classes;
 import org.openmdx.kernel.log.SysLog;
 import org.w3c.cci2.BinaryLargeObjects;
@@ -817,7 +814,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(newState);
         processTransition.setNextState(openState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)20));
+        processTransition.setNewPercentComplete(Short.valueOf((short)20));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -853,7 +850,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(openState);
         processTransition.setNextState(openState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)50));
+        processTransition.setNewPercentComplete(Short.valueOf((short)50));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -867,7 +864,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(openState);
         processTransition.setNextState(openState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)50));
+        processTransition.setNewPercentComplete(Short.valueOf((short)50));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -897,7 +894,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(openState);
         processTransition.setNextState(openState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)50));
+        processTransition.setNewPercentComplete(Short.valueOf((short)50));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -927,7 +924,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(openState);
         processTransition.setNextState(closedState);
         processTransition.setNewActivityState((short)20);
-        processTransition.setNewPercentComplete(new Short((short)100));
+        processTransition.setNewPercentComplete(Short.valueOf((short)100));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1049,7 +1046,7 @@ public class Activities extends AbstractImpl {
         transitionAddNoteDraft.setPrevState(draftState);
         transitionAddNoteDraft.setNextState(draftState);
         transitionAddNoteDraft.setNewActivityState((short)10);
-        transitionAddNoteDraft.setNewPercentComplete(new Short((short)25));
+        transitionAddNoteDraft.setNewPercentComplete(Short.valueOf((short)25));
         transitionAddNoteDraft.getOwningGroup().addAll(owningGroups);
         transitionAddNoteDraft.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionAddNoteDraft.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1063,7 +1060,7 @@ public class Activities extends AbstractImpl {
         transitionSendAsAttachmentDraft.setPrevState(draftState);
         transitionSendAsAttachmentDraft.setNextState(draftState);
         transitionSendAsAttachmentDraft.setNewActivityState((short)10);
-        transitionSendAsAttachmentDraft.setNewPercentComplete(new Short((short)25));
+        transitionSendAsAttachmentDraft.setNewPercentComplete(Short.valueOf((short)25));
         transitionSendAsAttachmentDraft.getOwningGroup().addAll(owningGroups);
         transitionSendAsAttachmentDraft.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionSendAsAttachmentDraft.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1093,7 +1090,7 @@ public class Activities extends AbstractImpl {
         transitionApprove.setPrevState(draftState);
         transitionApprove.setNextState(openState);
         transitionApprove.setNewActivityState((short)10);
-        transitionApprove.setNewPercentComplete(new Short((short)50));
+        transitionApprove.setNewPercentComplete(Short.valueOf((short)50));
         transitionApprove.getOwningGroup().addAll(owningGroups);
         transitionApprove.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionApprove.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1129,7 +1126,7 @@ public class Activities extends AbstractImpl {
         transitionCancelDraft.setPrevState(draftState);
         transitionCancelDraft.setNextState(cancelledState);
         transitionCancelDraft.setNewActivityState((short)30);
-        transitionCancelDraft.setNewPercentComplete(new Short((short)100));
+        transitionCancelDraft.setNewPercentComplete(Short.valueOf((short)100));
         transitionCancelDraft.getOwningGroup().addAll(owningGroups);
         transitionCancelDraft.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionCancelDraft.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1143,7 +1140,7 @@ public class Activities extends AbstractImpl {
         transitionAddNote.setPrevState(openState);
         transitionAddNote.setNextState(openState);
         transitionAddNote.setNewActivityState((short)10);
-        transitionAddNote.setNewPercentComplete(new Short((short)50));
+        transitionAddNote.setNewPercentComplete(Short.valueOf((short)50));
         transitionAddNote.getOwningGroup().addAll(owningGroups);
         transitionAddNote.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionAddNote.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1157,7 +1154,7 @@ public class Activities extends AbstractImpl {
         transitionSendAsAttachment.setPrevState(openState);
         transitionSendAsAttachment.setNextState(openState);
         transitionSendAsAttachment.setNewActivityState((short)10);
-        transitionSendAsAttachment.setNewPercentComplete(new Short((short)50));
+        transitionSendAsAttachment.setNewPercentComplete(Short.valueOf((short)50));
         transitionSendAsAttachment.getOwningGroup().addAll(owningGroups);
         transitionSendAsAttachment.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionSendAsAttachment.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1187,7 +1184,7 @@ public class Activities extends AbstractImpl {
         transitionSend.setPrevState(openState);
         transitionSend.setNextState(openState);
         transitionSend.setNewActivityState((short)10);
-        transitionSend.setNewPercentComplete(new Short((short)50));
+        transitionSend.setNewPercentComplete(Short.valueOf((short)50));
         transitionSend.getOwningGroup().addAll(owningGroups);
         transitionSend.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionSend.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1217,7 +1214,7 @@ public class Activities extends AbstractImpl {
         transitionClose.setPrevState(openState);
         transitionClose.setNextState(closedState);
         transitionClose.setNewActivityState((short)20);
-        transitionClose.setNewPercentComplete(new Short((short)100));
+        transitionClose.setNewPercentComplete(Short.valueOf((short)100));
         transitionClose.getOwningGroup().addAll(owningGroups);
         transitionClose.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionClose.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1242,7 +1239,7 @@ public class Activities extends AbstractImpl {
         transitionCancel.setPrevState(openState);
         transitionCancel.setNextState(cancelledState);
         transitionCancel.setNewActivityState((short)30);
-        transitionCancel.setNewPercentComplete(new Short((short)100));
+        transitionCancel.setNewPercentComplete(Short.valueOf((short)100));
         transitionCancel.getOwningGroup().addAll(owningGroups);
         transitionCancel.setAccessLevelUpdate(accessLevelUpdateDelete);
         transitionCancel.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1353,7 +1350,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(inProgressState);
         processTransition.setNextState(inProgressState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)50));
+        processTransition.setNewPercentComplete(Short.valueOf((short)50));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);        
@@ -1367,7 +1364,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(newState);
         processTransition.setNextState(inProgressState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)20));
+        processTransition.setNewPercentComplete(Short.valueOf((short)20));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1403,7 +1400,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(completeState);
         processTransition.setNextState(closedState);
         processTransition.setNewActivityState((short)20);
-        processTransition.setNewPercentComplete(new Short((short)100));
+        processTransition.setNewPercentComplete(Short.valueOf((short)100));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1417,7 +1414,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(inProgressState);
         processTransition.setNextState(completeState);
         processTransition.setNewActivityState((short)20);
-        processTransition.setNewPercentComplete(new Short((short)100));
+        processTransition.setNewPercentComplete(Short.valueOf((short)100));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                
@@ -1453,7 +1450,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(newState);
         processTransition.setNextState(newState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)0));
+        processTransition.setNewPercentComplete(Short.valueOf((short)0));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                        
@@ -1467,7 +1464,7 @@ public class Activities extends AbstractImpl {
         processTransition.setPrevState(completeState);
         processTransition.setNextState(inProgressState);
         processTransition.setNewActivityState((short)10);
-        processTransition.setNewPercentComplete(new Short((short)50));
+        processTransition.setNewPercentComplete(Short.valueOf((short)50));
         processTransition.getOwningGroup().addAll(owningGroups);
         processTransition.setAccessLevelUpdate(accessLevelUpdateDelete);
         processTransition.setAccessLevelDelete(accessLevelUpdateDelete);                        
@@ -1967,55 +1964,47 @@ public class Activities extends AbstractImpl {
         }
         // Update tracker
         activityTracker.setSumEstimateEffortHours(
-        	new Integer(estimateEffortHours + estimateEffortMinutes / 60)
+        	Integer.valueOf(estimateEffortHours + estimateEffortMinutes / 60)
         );
         activityTracker.setSumEstimateEffortMinutes(
-            new Integer(estimateEffortMinutes % 60)
+            Integer.valueOf(estimateEffortMinutes % 60)
         );
         return activityTracker;
     }
     
     /**
-     * Activity replication descriptor.
-     *
-     */
-    public static class ActivityReplicationDescr {
-
-    	private final Activity activity;
-		private final ActivityLinkTo linkTo;
-    	
-		public ActivityReplicationDescr(
-    		Activity activity,
-    		ActivityLinkTo linkTo
-    	) {
-			this.activity = activity;
-			this.linkTo = linkTo;
-    	}
-
-    	public Activity getActivity(
-    	) {
-        	return this.activity;
-        }
-
-    	public ActivityLinkTo getLinkTo(
-    	) {
-        	return this.linkTo;
-        }
-		
-    }
-
-    /**
-     * {@link #newActivity()} allows to create replica of the newly created 
-     * activity.
+     * {@link #newActivity()} allows to create or update replicated activities.
      * 
      * @param activity activity to be replicated.
      * @param activityCreator creator used to create activity.
      */
-    public List<ActivityReplicationDescr> replicateActivity(
+    public void createOrUpdateReplicatedActivities(
     	Activity activity,
     	ActivityCreator activityCreator
     ) throws ServiceException {
-    	return Collections.emptyList();
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(activity);
+    	String providerName = activity.refGetPath().getSegment(2).toString();
+    	String segmentName = activity.refGetPath().getSegment(4).toString();
+    	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = Activities.getInstance().getActivitySegment(pm, providerName, segmentName);
+    	ActivityQuery replicaQuery = (ActivityQuery)pm.newQuery(Activity.class);
+    	replicaQuery.thereExistsActivityLinkTo().activityLinkType().elementOf(
+        	Arrays.asList(
+        		ActivityLinkType.IS_REPLICA_OF.getValue(), 
+        		ActivityLinkType.IS_REPLICA_OF_OBFUSCATED.getValue()
+        	)
+    	);
+    	replicaQuery.thereExistsActivityLinkTo().thereExistsLinkTo().equalTo(activity);
+    	for(Activity replica: activitySegment.getActivity(replicaQuery)) {
+    		ActivityLinkToQuery activityLinkToQuery = (ActivityLinkToQuery)pm.newQuery(ActivityLinkTo.class);
+    		activityLinkToQuery.thereExistsLinkTo().equalTo(activity);
+    		for(ActivityLinkTo activityLinkTo: replica.getActivityLinkTo(activityLinkToQuery)) {
+	        	this.updateReplicatedActivity(
+	        		activity,
+	        		replica,
+	        		activityLinkTo
+	        	);
+    		}
+    	}    	
     }
 
     /**
@@ -2205,22 +2194,22 @@ public class Activities extends AbstractImpl {
             		newActivity.setPercentComplete(transition.getNewPercentComplete());
             		newActivity.setActivityState(transition.getNewActivityState());
             	} else {
-                    newActivity.setPercentComplete(new Short((short)0));
-                	newActivity.setActivityState(new Short((short)0));
+                    newActivity.setPercentComplete(Short.valueOf((short)0));
+                	newActivity.setActivityState(Short.valueOf((short)0));
             	}
             } else {
-                newActivity.setPercentComplete(new Short((short)0));
-            	newActivity.setActivityState(new Short((short)0));
+                newActivity.setPercentComplete(Short.valueOf((short)0));
+            	newActivity.setActivityState(Short.valueOf((short)0));
             }
             newActivity.setCreationContext(creationContext);
             // Set code values to 0 (non-optional attributes)
             if(newActivity instanceof Incident) {
             	Incident incident = (Incident)newActivity;
-            	incident.setCaseOrigin(new Short((short)0));
-            	incident.setCaseType(new Short((short)0));
-            	incident.setCustomerSatisfaction(new Short((short)0));
-            	incident.setSeverity(new Short((short)0));
-            	incident.setReproducibility(new Short((short)0));
+            	incident.setCaseOrigin(Short.valueOf((short)0));
+            	incident.setCaseType(Short.valueOf((short)0));
+            	incident.setCustomerSatisfaction(Short.valueOf((short)0));
+            	incident.setSeverity(Short.valueOf((short)0));
+            	incident.setReproducibility(Short.valueOf((short)0));
             }
             try {
                 // Create activity
@@ -2241,21 +2230,13 @@ public class Activities extends AbstractImpl {
                 this.updateIcal(
                     newActivity
                 );
-            	// Create replicas
-            	List<ActivityReplicationDescr> replicationDescrs = this.replicateActivity(
+            	// Create or update replicas
+            	this.createOrUpdateReplicatedActivities(
             		newActivity,
             		activityCreator            		
             	);
-            	for(ActivityReplicationDescr replicationDescr: replicationDescrs) {
-                	this.updateReplicatedActivity(
-                		newActivity, 
-                		replicationDescr.getActivity(), 
-                		replicationDescr.getLinkTo()
-                	);            		
-            	}
                 return newActivity;
-            }
-            catch(ServiceException e) {
+            } catch(ServiceException e) {
             	SysLog.warning("Creation of new activity failed", e.getMessage());
             	SysLog.warning(e.getMessage(), e.getCause());
             }
@@ -3132,7 +3113,7 @@ public class Activities extends AbstractImpl {
         	Uom uomHour = null;
         	try {
         		uomHour = (Uom)pm.getObjectById(
-        			new Path("xri:@openmdx:org.opencrx.kernel.uom1/provider/" + activity.refGetPath().get(2) + "/segment/Root/uom/hour")
+        			new Path("xri:@openmdx:org.opencrx.kernel.uom1/provider/" + activity.refGetPath().getSegment(2) + "/segment/Root/uom/hour")
         		);
         	} catch(Exception e) {}
         	workRecord.setQuantityUom(uomHour);
@@ -3351,10 +3332,6 @@ public class Activities extends AbstractImpl {
         boolean updateIcal,
         boolean updateReplicas
     ) throws ServiceException {
-    	PersistenceManager pm = JDOHelper.getPersistenceManager(activity);
-    	String providerName = activity.refGetPath().getSegment(2).toString();
-    	String segmentName = activity.refGetPath().getSegment(4).toString();
-    	org.opencrx.kernel.activity1.jmi1.Segment activitySegment = this.getActivitySegment(pm, providerName, segmentName);
         if(!JDOHelper.isPersistent(activity) && JDOHelper.isNew(activity)) {
             if((activity.getDueBy() == null)) {
             	try {
@@ -3362,7 +3339,7 @@ public class Activities extends AbstractImpl {
             	} catch(Exception e) {}
             }
             if(activity.getPercentComplete() == null) {
-                activity.setPercentComplete(new Short((short)0));
+                activity.setPercentComplete(Short.valueOf((short)0));
             }
         }
         if(updateIcal) {
@@ -3423,25 +3400,10 @@ public class Activities extends AbstractImpl {
         }
         // Update replicas
         if(updateReplicas) {
-        	ActivityQuery replicaQuery = (ActivityQuery)pm.newQuery(Activity.class);
-        	replicaQuery.thereExistsActivityLinkTo().activityLinkType().elementOf(
-	        	Arrays.asList(
-	        		ActivityLinkType.IS_REPLICA_OF.getValue(), 
-	        		ActivityLinkType.IS_REPLICA_OF_OBFUSCATED.getValue()
-	        	)
+        	this.createOrUpdateReplicatedActivities(
+        		activity,
+        		activity.getLastAppliedCreator()
         	);
-        	replicaQuery.thereExistsActivityLinkTo().thereExistsLinkTo().equalTo(activity);
-        	for(Activity replica: activitySegment.getActivity(replicaQuery)) {
-        		ActivityLinkToQuery activityLinkToQuery = (ActivityLinkToQuery)pm.newQuery(ActivityLinkTo.class);
-        		activityLinkToQuery.thereExistsLinkTo().equalTo(activity);
-        		for(ActivityLinkTo activityLinkTo: replica.getActivityLinkTo(activityLinkToQuery)) {
-		        	this.updateReplicatedActivity(
-		        		activity,
-		        		replica,
-		        		activityLinkTo
-		        	);
-        		}
-        	}
         }
     }
 
@@ -3484,18 +3446,10 @@ public class Activities extends AbstractImpl {
             (resource.getName() != null ? resource.getName() : "") +
             ")"
         );
-        resourceAssignment.setResource(
-            resource
-        );
-        resourceAssignment.setResourceRole(
-            new Short((short)0)
-        );
-        resourceAssignment.setResourceOrder(
-            new Short(resourceOrder)
-        );                    
-        resourceAssignment.setWorkDurationPercentage(
-            new Short((short)100)
-        );
+        resourceAssignment.setResource(resource);
+        resourceAssignment.setResourceRole(Short.valueOf((short)0));
+        resourceAssignment.setResourceOrder(Short.valueOf(resourceOrder));                    
+        resourceAssignment.setWorkDurationPercentage(Short.valueOf((short)100));
         resourceAssignment.getOwningGroup().addAll(
         	activity.getOwningGroup()
         );
@@ -3634,12 +3588,13 @@ public class Activities extends AbstractImpl {
                     // Create ResourceAssignments
                     List<Resource> resources = new ArrayList<Resource>();
                     if(!activityCreator.getResource().isEmpty()) {
-                        List<Resource> rs = activityCreator.getResource();
-                        for(Resource resource: rs) {
+                        for(Resource resource: activityCreator.<Resource>getResource()) {
                             resources.add(resource);
                         }
                     } else {
-                    	List<Resource> rs = this.getDefaultResources(activity);
+                        for(Resource resource: this.getDefaultResources(activity)) {
+                            resources.add(resource);
+                        }
                     }
                     // Remove already assigned resources from list to be added 
                     Collection<ResourceAssignment> existingResourceAssignments = activity.getAssignedResource();
@@ -3668,12 +3623,12 @@ public class Activities extends AbstractImpl {
                     List<Short> excludesDepotUsages = new ArrayList<Short>();
                     for(DepotReference existingDepotReference: existingDepotReferences) {
                         excludesDepotUsages.add(
-                            new Short(existingDepotReference.getDepotUsage())
+                        		Short.valueOf(existingDepotReference.getDepotUsage())
                         );
                     }                    
                     Collection<DepotReference> depotReferences = activityCreator.getDepotReference();
                     for(DepotReference depotReference: depotReferences) {
-                        if(!excludesDepotUsages.contains(new Short(depotReference.getDepotUsage()))) {
+                        if(!excludesDepotUsages.contains(Short.valueOf(depotReference.getDepotUsage()))) {
                             Cloneable.getInstance().cloneObject(
                                 depotReference,
                                 activity,
