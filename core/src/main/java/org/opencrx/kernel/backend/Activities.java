@@ -1976,11 +1976,9 @@ public class Activities extends AbstractImpl {
      * {@link #newActivity()} allows to create or update replicated activities.
      * 
      * @param activity activity to be replicated.
-     * @param activityCreator creator used to create activity.
      */
     public void createOrUpdateReplicatedActivities(
-    	Activity activity,
-    	ActivityCreator activityCreator
+    	Activity activity
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(activity);
     	String providerName = activity.refGetPath().getSegment(2).toString();
@@ -2212,7 +2210,6 @@ public class Activities extends AbstractImpl {
             	incident.setReproducibility(Short.valueOf((short)0));
             }
             try {
-                // Create activity
             	activitySegment.addActivity(
             		this.getUidAsString(),
             		newActivity
@@ -2227,14 +2224,8 @@ public class Activities extends AbstractImpl {
                 	false, 
                 	useRunAsPrincipal 
                 );
-                this.updateIcal(
-                    newActivity
-                );
-            	// Create or update replicas
-            	this.createOrUpdateReplicatedActivities(
-            		newActivity,
-            		activityCreator            		
-            	);
+                this.updateIcal(newActivity);
+            	this.createOrUpdateReplicatedActivities(newActivity);
                 return newActivity;
             } catch(ServiceException e) {
             	SysLog.warning("Creation of new activity failed", e.getMessage());
@@ -3400,16 +3391,13 @@ public class Activities extends AbstractImpl {
         }
         // Update replicas
         if(updateReplicas) {
-        	this.createOrUpdateReplicatedActivities(
-        		activity,
-        		activity.getLastAppliedCreator()
-        	);
+        	this.createOrUpdateReplicatedActivities(activity);
         }
     }
 
     /**
      * Update calculated and derived fields of given activity group. Override for
-     * custom-specific behaviour.
+     * custom-specific behavior.
      * 
      * @param activity
      * @throws ServiceException
