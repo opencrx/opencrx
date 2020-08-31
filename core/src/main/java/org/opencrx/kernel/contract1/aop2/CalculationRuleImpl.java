@@ -53,6 +53,7 @@
 package org.opencrx.kernel.contract1.aop2;
 
 import org.opencrx.kernel.backend.Contracts;
+import org.opencrx.kernel.backend.Contracts.SalesContractAmounts;
 import org.opencrx.kernel.contract1.jmi1.GetContractAmountsResult;
 import org.opencrx.kernel.contract1.jmi1.GetPositionAmountsResult;
 import org.openmdx.base.accessor.jmi.cci.JmiServiceException;
@@ -111,16 +112,18 @@ public class CalculationRuleImpl
         org.opencrx.kernel.contract1.jmi1.GetContractAmountsParams params
     ) {
         try {
+        	SalesContractAmounts salesContractAmounts = new SalesContractAmounts();
+        	salesContractAmounts.lineItemNumbers.addAll(params.getLineItemNumber());
+        	salesContractAmounts.positionBaseAmounts.addAll(params.getPositionBaseAmount());
+        	salesContractAmounts.positionDiscountAmounts.addAll(params.getPositionDiscountAmount());
+        	salesContractAmounts.positionTaxAmounts.addAll(params.getPositionTaxAmount());
+        	salesContractAmounts.positionAmounts.addAll(params.getPositionAmount());
+        	salesContractAmounts.salesCommissions.addAll(params.getSalesCommission());
+        	salesContractAmounts.salesCommissionIsPercentages.addAll(params.getSalesCommissionIsPercentage());
             GetContractAmountsResult result = Contracts.getInstance().getContractAmounts(
                 this.sameObject(),
                 params.getContract(),
-                params.getLineItemNumber(),
-                params.getPositionBaseAmount(),
-                params.getPositionDiscountAmount(),
-                params.getPositionTaxAmount(),
-                params.getPositionAmount(),
-                params.getSalesCommission(),
-                params.getSalesCommissionIsPercentage()
+                salesContractAmounts
             );
             return result;
         } catch(ServiceException e) {

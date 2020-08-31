@@ -947,13 +947,7 @@ public class Contracts extends AbstractImpl {
     public GetContractAmountsResult getContractAmounts(
         CalculationRule calculationRule,
         SalesContract contract,
-        List<?> lineItemNumbers,
-        List<?> positionBaseAmounts,
-        List<?> positionDiscountAmounts,
-        List<?> positionTaxAmounts,
-        List<?> positionAmounts,
-        List<?> salesCommissions,
-        List<?> salesCommissionIsPercentages
+        SalesContractAmounts salesContractAmounts
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(calculationRule);
         String script = (calculationRule.getGetContractAmountsScript() == null) || (calculationRule.getGetContractAmountsScript().length() == 0) ? 
@@ -984,13 +978,13 @@ public class Contracts extends AbstractImpl {
                         contractPkg.refOutermostPackage(),
                         calculationRule,
                         contract,
-                        lineItemNumbers.toArray(new Integer[lineItemNumbers.size()]),
-                        positionBaseAmounts.toArray(new BigDecimal[positionBaseAmounts.size()]),
-                        positionDiscountAmounts.toArray(new BigDecimal[positionDiscountAmounts.size()]),
-                        positionTaxAmounts.toArray(new BigDecimal[positionTaxAmounts.size()]),
-                        positionAmounts.toArray(new BigDecimal[positionAmounts.size()]),
-                        salesCommissions.toArray(new BigDecimal[salesCommissions.size()]),
-                        salesCommissionIsPercentages.toArray(new Boolean[salesCommissionIsPercentages.size()])
+                        salesContractAmounts.lineItemNumbers.toArray(new Integer[salesContractAmounts.lineItemNumbers.size()]),
+                        salesContractAmounts.positionBaseAmounts.toArray(new BigDecimal[salesContractAmounts.positionBaseAmounts.size()]),
+                        salesContractAmounts.positionDiscountAmounts.toArray(new BigDecimal[salesContractAmounts.positionDiscountAmounts.size()]),
+                        salesContractAmounts.positionTaxAmounts.toArray(new BigDecimal[salesContractAmounts.positionTaxAmounts.size()]),
+                        salesContractAmounts.positionAmounts.toArray(new BigDecimal[salesContractAmounts.positionAmounts.size()]),
+                        salesContractAmounts.salesCommissions.toArray(new BigDecimal[salesContractAmounts.salesCommissions.size()]),
+                        salesContractAmounts.salesCommissionIsPercentages.toArray(new Boolean[salesContractAmounts.salesCommissionIsPercentages.size()])
                     }
                 );
             return result;
@@ -1099,11 +1093,11 @@ public class Contracts extends AbstractImpl {
                position.getDiscount();
             // Discount is per piece in case of !discountIsPercentage
             discountAmount = discountIsPercentage.booleanValue() ? 
-                baseAmount.multiply(discount.divide(HUNDRED, BigDecimal.ROUND_UP)) : 
+                baseAmount.multiply(discount.divide(HUNDRED, RoundingMode.UP)) : 
                 minMaxAdjustedQuantity.multiply(discount.multiply(uomScaleFactor));
             // taxAmount
             taxAmount = baseAmount.subtract(discountAmount).multiply(
-                salesTaxRate.divide(HUNDRED, BigDecimal.ROUND_UP)
+                salesTaxRate.divide(HUNDRED, RoundingMode.UP)
             );    
             // amount
             amount = baseAmount.subtract(discountAmount).add(taxAmount);      
@@ -1338,13 +1332,34 @@ public class Contracts extends AbstractImpl {
     }
     
     /**
+     * SalesContractAmounts
+     *
+     */
+    public static class SalesContractAmounts {
+        public BigDecimal totalBaseAmount = null;
+        public BigDecimal totalDiscountAmount = null;
+        public BigDecimal totalTaxAmount = null;                
+        public BigDecimal totalAmount = null;
+        public BigDecimal totalAmountIncludingTax = null;
+        public BigDecimal totalSalesCommission = null;
+        public List<SalesContractPosition> positions = new ArrayList<SalesContractPosition>();
+        public List<Integer> lineItemNumbers = new ArrayList<Integer>();
+        public List<BigDecimal> positionBaseAmounts = new ArrayList<BigDecimal>();
+        public List<BigDecimal> positionDiscountAmounts = new ArrayList<BigDecimal>();
+        public List<BigDecimal> positionTaxAmounts = new ArrayList<BigDecimal>();
+        public List<BigDecimal> positionAmounts = new ArrayList<BigDecimal>();
+        public List<BigDecimal> salesCommissions = new ArrayList<BigDecimal>();
+        public List<Boolean> salesCommissionIsPercentages = new ArrayList<Boolean>();
+    }
+   
+    /**
      * Calculate amounts for given contract.
      * 
      * @param contract
      * @return
      * @throws ServiceException
      */
-    public BigDecimal[] calculateAmounts(
+    public SalesContractAmounts calculateAmounts(
         SalesContract contract
     ) throws ServiceException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(contract);
@@ -1355,55 +1370,32 @@ public class Contracts extends AbstractImpl {
     		providerName, 
     		segmentName
     	);
-        BigDecimal totalBaseAmount = null;
-        BigDecimal totalDiscountAmount = null;
-        BigDecimal totalTaxAmount = null;                
-        BigDecimal totalAmount = null;
-        BigDecimal totalAmountIncludingTax = null;
-        BigDecimal totalSalesCommission = null;
+    	SalesContractAmounts salesContractAmounts = new SalesContractAmounts();
         if(contract instanceof Lead) {
         	Lead lead = (Lead)contract;
-        	totalBaseAmount = lead.getEstimatedValue();
-        	totalBaseAmount = totalBaseAmount == null ? BigDecimal.ZERO : totalBaseAmount;
-        	totalDiscountAmount = BigDecimal.ZERO;
-        	totalTaxAmount = BigDecimal.ZERO;
-        	totalAmount = totalBaseAmount;        	
-        	totalAmountIncludingTax = totalBaseAmount;
-        	totalSalesCommission = BigDecimal.ZERO;
+        	salesContractAmounts.totalBaseAmount = lead.getEstimatedValue();
+        	salesContractAmounts.totalBaseAmount = salesContractAmounts.totalBaseAmount == null ? BigDecimal.ZERO : salesContractAmounts.totalBaseAmount;
+        	salesContractAmounts.totalDiscountAmount = BigDecimal.ZERO;
+        	salesContractAmounts.totalTaxAmount = BigDecimal.ZERO;
+        	salesContractAmounts.totalAmount = salesContractAmounts.totalBaseAmount;        	
+        	salesContractAmounts.totalAmountIncludingTax = salesContractAmounts.totalBaseAmount;
+        	salesContractAmounts.totalSalesCommission = BigDecimal.ZERO;
         } else {
         	List<SalesContractPosition> positions = this.getSalesContractPositions(contract);
-	        List<Integer> lineItemNumbers = new ArrayList<Integer>();
-	        List<BigDecimal> positionBaseAmounts = new ArrayList<BigDecimal>();
-	        List<BigDecimal> positionDiscountAmounts = new ArrayList<BigDecimal>();
-	        List<BigDecimal> positionTaxAmounts = new ArrayList<BigDecimal>();
-	        List<BigDecimal> positionAmounts = new ArrayList<BigDecimal>();
-	        List<BigDecimal> salesCommissions = new ArrayList<BigDecimal>();
-	        List<Boolean> salesCommissionIsPercentages = new ArrayList<Boolean>();
 	        for(SalesContractPosition position: positions) {
-	            BigDecimal[] amounts = this.calculateAmounts(
-	                position
-	            );
-	            lineItemNumbers.add(
-	                (int)position.getLineItemNumber()
-	            );
-	            positionBaseAmounts.add(
-	            	amounts[0]
-	            );
-	            positionDiscountAmounts.add(
-	            	amounts[1]
-	            );
-	            positionAmounts.add(
-	            	amounts[2]
-	            );
-	            positionTaxAmounts.add(
-	            	amounts[3]
-	            );
-	            salesCommissions.add(
+	            BigDecimal[] amounts = this.calculateAmounts(position);
+	            salesContractAmounts.positions.add(position);
+	            salesContractAmounts.lineItemNumbers.add((int)position.getLineItemNumber());
+	            salesContractAmounts.positionBaseAmounts.add(amounts[0]);
+	            salesContractAmounts.positionDiscountAmounts.add(amounts[1]);
+	            salesContractAmounts.positionAmounts.add(amounts[2]);
+	            salesContractAmounts.positionTaxAmounts.add(amounts[3]);
+	            salesContractAmounts.salesCommissions.add(
 	                position.getSalesCommission() == null ? 
 	                    BigDecimal.ZERO : 
 	                    position.getSalesCommission()
 	            );
-	            salesCommissionIsPercentages.add(
+	            salesContractAmounts.salesCommissionIsPercentages.add(
 	                position.isDiscountIsPercentage() == null ?
 	                    Boolean.FALSE : 
 	                    position.isSalesCommissionIsPercentage()
@@ -1417,13 +1409,7 @@ public class Contracts extends AbstractImpl {
 	            GetContractAmountsResult result = this.getContractAmounts(
 	                calculationRule,
 	                contract,
-	                lineItemNumbers,
-	                positionBaseAmounts,
-	                positionDiscountAmounts,
-	                positionTaxAmounts,
-	                positionAmounts,
-	                salesCommissions,
-	                salesCommissionIsPercentages
+	                salesContractAmounts
 	            );
 	            if(result.getStatusCode() != STATUS_CODE_OK) {
 	                throw new ServiceException(
@@ -1433,54 +1419,47 @@ public class Contracts extends AbstractImpl {
 	                    new BasicException.Parameter("result", result)
 	                );
 	            }
-	            totalBaseAmount = result.getTotalBaseAmount();
-	            totalDiscountAmount = result.getTotalDiscountAmount();   
-	            totalTaxAmount = result.getTotalTaxAmount();
-	            totalAmount = result.getTotalAmount();   
-	            totalAmountIncludingTax = result.getTotalAmountIncludingTax();
-	            totalSalesCommission = result.getTotalSalesCommission();   
+	            salesContractAmounts.totalBaseAmount = result.getTotalBaseAmount();
+	            salesContractAmounts.totalDiscountAmount = result.getTotalDiscountAmount();
+	            salesContractAmounts.totalTaxAmount = result.getTotalTaxAmount();
+	            salesContractAmounts.totalAmount = result.getTotalAmount();
+	            salesContractAmounts.totalAmountIncludingTax = result.getTotalAmountIncludingTax();
+	            salesContractAmounts.totalSalesCommission = result.getTotalSalesCommission();
 	        } else {
-		        // To default amount calculation if no calculation rule is defined
-	            totalBaseAmount = BigDecimal.ZERO;
-	            totalDiscountAmount = BigDecimal.ZERO;
-	            totalTaxAmount = BigDecimal.ZERO;
-	            totalSalesCommission = BigDecimal.ZERO;
-	            for(int i = 0; i < positionBaseAmounts.size(); i++) {
-	                totalBaseAmount = totalBaseAmount.add(
-	                  positionBaseAmounts.get(i)
+		        // Default amount calculation if no calculation rule is defined
+	        	salesContractAmounts.totalBaseAmount = BigDecimal.ZERO;
+	        	salesContractAmounts.totalDiscountAmount = BigDecimal.ZERO;
+	        	salesContractAmounts.totalTaxAmount = BigDecimal.ZERO;
+	        	salesContractAmounts.totalSalesCommission = BigDecimal.ZERO;
+	            for(int i = 0; i < salesContractAmounts.positionBaseAmounts.size(); i++) {
+	            	salesContractAmounts.totalBaseAmount = salesContractAmounts.totalBaseAmount.add(
+	                	salesContractAmounts.positionBaseAmounts.get(i)
 	                );
-	                BigDecimal discountAmount = positionDiscountAmounts.get(i);
-	                totalDiscountAmount = totalDiscountAmount.add(discountAmount);
-	                totalTaxAmount = totalTaxAmount.add(
-	                  positionTaxAmounts.get(i)
+	                BigDecimal discountAmount = salesContractAmounts.positionDiscountAmounts.get(i);
+	                salesContractAmounts.totalDiscountAmount = salesContractAmounts.totalDiscountAmount.add(discountAmount);
+	                salesContractAmounts.totalTaxAmount = salesContractAmounts.totalTaxAmount.add(
+	                	salesContractAmounts.positionTaxAmounts.get(i)
 	                );
-	                BigDecimal salesCommission = salesCommissions.get(i) != null ? 
-	                    (BigDecimal) salesCommissions.get(i) : 
+	                BigDecimal salesCommission = salesContractAmounts.salesCommissions.get(i) != null ? 
+	                    (BigDecimal)salesContractAmounts.salesCommissions.get(i) : 
 	                    BigDecimal.ZERO;
-	                BigDecimal baseAmount = positionBaseAmounts.get(i);
-	                totalSalesCommission = totalSalesCommission.add(
-	                  (salesCommissionIsPercentages.get(i) != null) &&
-	                  ((salesCommissionIsPercentages.get(i)).booleanValue()) ? 
-	                	  baseAmount.subtract(discountAmount).multiply(salesCommission.divide(HUNDRED, BigDecimal.ROUND_UP)) : 
-	                	  salesCommission
+	                BigDecimal baseAmount = salesContractAmounts.positionBaseAmounts.get(i);
+	                salesContractAmounts.totalSalesCommission = salesContractAmounts.totalSalesCommission.add(
+	                	(salesContractAmounts.salesCommissionIsPercentages.get(i) != null) &&
+	                	(Boolean.TRUE.equals(salesContractAmounts.salesCommissionIsPercentages.get(i)))
+	                		? baseAmount.subtract(discountAmount).multiply(salesCommission.divide(HUNDRED, RoundingMode.UP))
+	                		: salesCommission
 	                );
 	            }
-	            totalAmount = totalBaseAmount.subtract(totalDiscountAmount);
-	            totalAmountIncludingTax = totalAmount.add(totalTaxAmount);
+	            salesContractAmounts.totalAmount = salesContractAmounts.totalBaseAmount.subtract(salesContractAmounts.totalDiscountAmount);
+	            salesContractAmounts.totalAmountIncludingTax = salesContractAmounts.totalAmount.add(salesContractAmounts.totalTaxAmount);
 	        }
         }
-        return new BigDecimal[]{
-        	totalBaseAmount,
-        	totalDiscountAmount,
-        	totalAmount,
-        	totalTaxAmount,
-        	totalAmountIncludingTax,
-        	totalSalesCommission
-        };
+        return salesContractAmounts;
     }
 
     /**
-     * Update contract callback. Override for custom-specific behaviour.
+     * Update contract callback. Override for custom-specific behavior.
      * 
      * @param contract
      * @throws ServiceException
@@ -1520,28 +1499,29 @@ public class Contracts extends AbstractImpl {
      * @param contract
      * @throws ServiceException
      */
-    public void recalcSalesContract(
+    public SalesContractAmounts recalcSalesContract(
     	SalesContract contract
     ) throws ServiceException {
-		BigDecimal[] amounts = Contracts.getInstance().calculateAmounts(contract);
-		if(!Utils.areEqual(contract.getTotalBaseAmount(), amounts[0])) {
-			contract.setTotalBaseAmount(amounts[0]);
+		SalesContractAmounts salesContractAmounts = Contracts.getInstance().calculateAmounts(contract);
+		if(!Utils.areEqual(contract.getTotalBaseAmount(), salesContractAmounts.totalBaseAmount)) {
+			contract.setTotalBaseAmount(salesContractAmounts.totalBaseAmount);
 		}
-		if(!Utils.areEqual(contract.getTotalDiscountAmount(), amounts[1])) {
-			contract.setTotalDiscountAmount(amounts[1]);
+		if(!Utils.areEqual(contract.getTotalDiscountAmount(), salesContractAmounts.totalDiscountAmount)) {
+			contract.setTotalDiscountAmount(salesContractAmounts.totalDiscountAmount);
 		}
-		if(!Utils.areEqual(contract.getTotalAmount(), amounts[2])) {
-			contract.setTotalAmount(amounts[2]);
+		if(!Utils.areEqual(contract.getTotalAmount(), salesContractAmounts.totalAmount)) {
+			contract.setTotalAmount(salesContractAmounts.totalAmount);
 		}
-		if(!Utils.areEqual(contract.getTotalTaxAmount(), amounts[3])) {		
-			contract.setTotalTaxAmount(amounts[3]);
+		if(!Utils.areEqual(contract.getTotalTaxAmount(), salesContractAmounts.totalTaxAmount)) {		
+			contract.setTotalTaxAmount(salesContractAmounts.totalTaxAmount);
 		}
-		if(!Utils.areEqual(contract.getTotalAmountIncludingTax(), amounts[4])) {		
-			contract.setTotalAmountIncludingTax(amounts[4]);
+		if(!Utils.areEqual(contract.getTotalAmountIncludingTax(), salesContractAmounts.totalAmountIncludingTax)) {		
+			contract.setTotalAmountIncludingTax(salesContractAmounts.totalAmountIncludingTax);
 		}
-		if(!Utils.areEqual(contract.getTotalSalesCommission(), amounts[5])) {		
-			contract.setTotalSalesCommission(amounts[5]);
+		if(!Utils.areEqual(contract.getTotalSalesCommission(), salesContractAmounts.totalSalesCommission)) {
+			contract.setTotalSalesCommission(salesContractAmounts.totalSalesCommission);
 		}
+		return salesContractAmounts;
     }
 
     /**
@@ -2185,7 +2165,7 @@ public class Contracts extends AbstractImpl {
             return null;
         }
         // lineItemNumber
-    	Long positionNumber = new Long(100000 * (maxLineItemNumber / 100000 + 1));
+    	Long positionNumber = Long.valueOf(100000 * (maxLineItemNumber / 100000 + 1));
         position.setLineItemNumber(
         	positionNumber
         );
@@ -2931,7 +2911,7 @@ public class Contracts extends AbstractImpl {
             BigDecimal salesCommission = salesCommissions[i] != null ? salesCommissions[i] : BigDecimal.ZERO;
             totalSalesCommission = totalSalesCommission.add(
             	(salesCommissionIsPercentages[i] != null) && (salesCommissionIsPercentages[i].booleanValue())
-	              	? baseAmount.subtract(discountAmount).multiply(salesCommission.divide(new BigDecimal(100), BigDecimal.ROUND_UP))
+	              	? baseAmount.subtract(discountAmount).multiply(salesCommission.divide(new BigDecimal(100), RoundingMode.UP))
 	              	: salesCommission
             );
         }
