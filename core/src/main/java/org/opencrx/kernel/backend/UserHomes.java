@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2012, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2020, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -683,9 +683,7 @@ public class UserHomes extends AbstractImpl {
         }
         // Check permission
     	List<String> principalChain = UserObjects.getPrincipalChain(pm);
-        String requestingPrincipalName = !principalChain.isEmpty() ? 
-        	principalChain.get(0) : 
-        		"guest";
+        String requestingPrincipalName = !principalChain.isEmpty() ? principalChain.get(0) : "guest";
         // make sure that the requesting principal changes the password of its
         // own user home (qualifier of user home matches the principal). If yes,
         // execute changePassword as segment administrator. If not, execute it as
@@ -699,10 +697,12 @@ public class UserHomes extends AbstractImpl {
         if(!requestingPrincipalOwnsUserHome && !requestingPrincipalIsAdmin) {
         	return CAN_NOT_CHANGE_PASSWORD;
         }
-        boolean verifyOldPassword = !requestingPrincipalIsAdmin;
+        boolean verifyOldPassword =
+        	(oldPassword != null) && oldPassword.startsWith(RESET_PASSWORD_PREFIX) ||
+        	!requestingPrincipalIsAdmin;
         if(verifyOldPassword && oldPassword == null) {
             return MISSING_OLD_PASSWORD;
-        }        
+        }
         // qualifier of user home is the principal name
         String principalName = userHome.refGetPath().getLastSegment().toString();
         // get principal
@@ -720,9 +720,17 @@ public class UserHomes extends AbstractImpl {
             SysLog.warning(e0.getMessage(), e0.getCause());
             return CAN_NOT_RETRIEVE_REQUESTED_PRINCIPAL;
         }
-        if(principal.getCredential() != null) {
+        if(principal.getCredential() instanceof org.openmdx.security.authentication1.jmi1.Password) {
+        	org.openmdx.security.authentication1.jmi1.Password passwordCredential = (org.openmdx.security.authentication1.jmi1.Password)principal.getCredential();
+        	// Test for TTL_PASSWORD_RESET_TOKEN
+        	if(
+        		oldPassword.startsWith(RESET_PASSWORD_PREFIX) &&
+        		passwordCredential.getModifiedAt().getTime() + TTL_PASSWORD_RESET_TOKEN < System.currentTimeMillis()
+        	) {
+        		return CAN_NOT_CHANGE_PASSWORD;
+        	}
 	        return this.changePassword(
-	            (org.openmdx.security.authentication1.jmi1.Password)principal.getCredential(),
+	        	passwordCredential,
 	            verifyOldPassword ? oldPassword : null,
 	            newPassword
 	        );
@@ -1692,13 +1700,13 @@ public class UserHomes extends AbstractImpl {
 				(newSettings.getSubscriptions() != null) && (newSettings.getSubscriptions().get("topicIsActive-" + topicId) != null)
 			);
 			if((newSettings.getSubscriptions() != null) && (newSettings.getSubscriptions().get("topicCreation-" + topicId) != null)) {
-				subscription.getEventType().add(new Short((short)1));
+				subscription.getEventType().add(Short.valueOf((short)1));
 			}
 			if((newSettings.getSubscriptions() != null) && (newSettings.getSubscriptions().get("topicReplacement-" + topicId) != null)) {
-				subscription.getEventType().add(new Short((short)3));
+				subscription.getEventType().add(Short.valueOf((short)3));
 			}
 			if((newSettings.getSubscriptions() != null) && (newSettings.getSubscriptions().get("topicRemoval-" + topicId) != null)) {
-				subscription.getEventType().add(new Short((short)4));
+				subscription.getEventType().add(Short.valueOf((short)4));
 			}
 		}
 		// Store settings
@@ -2681,6 +2689,7 @@ public class UserHomes extends AbstractImpl {
 	// Members
 	//-----------------------------------------------------------------------	
     public static final String RESET_PASSWORD_PREFIX = "{RESET}";
+    public static final long TTL_PASSWORD_RESET_TOKEN = 600000L; // password reset token is valid for 10 minutes 
     private static final Path PATH_PATTERN_USER_HOME = new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", ":*", "segment", ":*", "userHome", ":*");    
     
 }

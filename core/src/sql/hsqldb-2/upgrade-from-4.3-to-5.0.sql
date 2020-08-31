@@ -43,5 +43,7 @@
 /* openMDX (http://www.openmdx.org/)                                         */
 /*                                                                           */
 
-ALTER TABLE OOCKE1_ADDRESS ADD COLUMN URI_SCHEME_SPECIFIC_PART_FORMATTED VARCHAR(256);
+ALTER TABLE OOCKE1_CONTRACT ADD COLUMN RECALC_DETAILS VARCHAR(256);
 
+
+ALTER TABLE OOCKE1_ADDRESS ADD COLUMN URI_SCHEME_SPECIFIC_PART_FORMATTED VARCHAR(256);
