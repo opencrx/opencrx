@@ -54,6 +54,9 @@ package org.opencrx.gradle
 
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Internal
+import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.JavaVersion
 import java.io.File
@@ -72,43 +75,43 @@ open class ArchiveTask() : Jar() {
 		env.load(FileInputStream(File(getProject().getProjectDir(), "build.properties")))
 	}
 
-	var providerName = env.getProperty("provider.name")
-	var buildDir = getProject().getBuildDir()
-	var projectDir = getProject().getProjectDir()
-	var deliverDir = File(project.getRootDir(), "jre-" + JavaVersion.current() + "/" + project.getName())
-	var appSourceName = "opencrx-core-" + providerName
-	var appTargetName = "opencrx-core-" + providerName
-	var dataHome = File(projectDir, "src/data") 
-	var dataDir = env.getProperty("data.dir")
-	var dataDirGeneric = env.getProperty("data.dir.generic") 
-	var datasourceName = env.getProperty("datasource.name")
-	var configurationClassName = env.getProperty("configuration.class.name")
-	var kernelApplicationPluginClassName = env.getProperty("kernel.application.plugin.class.name")
-	var kernelModelPluginClassName = env.getProperty("kernel.model.plugin.class.name")
-	var kernelPersistencePluginClassName = env.getProperty("kernel.persistence.plugin.class.name")
-	var securityApplicationPluginClassName = env.getProperty("security.application.plugin.class.name")
-	var imapListenPort = env.getProperty("imap.listenPort")	
-	var ldapListenPort = env.getProperty("ldap.listenPort")
-	var calendarGlobalInterfaceLanguage = env.getProperty("calendar.globalInterfaceLanguage")
-	var calendarGlobalInterfaceCustomLanguages = env.getProperty("calendar.globalInterfaceCustomLanguages")
+	@Internal var providerName = env.getProperty("provider.name")
+	@Internal var buildDir = getProject().getBuildDir()
+	@Internal var projectDir = getProject().getProjectDir()
+	@OutputDirectory var deliverDir = File(project.getRootDir(), "jre-" + JavaVersion.current() + "/" + project.getName())
+	@Internal var appSourceName = "opencrx-core-" + providerName
+	@Internal var appTargetName = "opencrx-core-" + providerName
+	@InputDirectory var dataHome = File(projectDir, "src/data") 
+	@Internal var dataDir = env.getProperty("data.dir")
+	@Internal var dataDirGeneric = env.getProperty("data.dir.generic") 
+	@Internal var datasourceName = env.getProperty("datasource.name")
+	@Internal var configurationClassName = env.getProperty("configuration.class.name")
+	@Internal var kernelApplicationPluginClassName = env.getProperty("kernel.application.plugin.class.name")
+	@Internal var kernelModelPluginClassName = env.getProperty("kernel.model.plugin.class.name")
+	@Internal var kernelPersistencePluginClassName = env.getProperty("kernel.persistence.plugin.class.name")
+	@Internal var securityApplicationPluginClassName = env.getProperty("security.application.plugin.class.name")
+	@Internal var imapListenPort = env.getProperty("imap.listenPort")	
+	@Internal var ldapListenPort = env.getProperty("ldap.listenPort")
+	@Internal var calendarGlobalInterfaceLanguage = env.getProperty("calendar.globalInterfaceLanguage")
+	@Internal var calendarGlobalInterfaceCustomLanguages = env.getProperty("calendar.globalInterfaceCustomLanguages")
 	
-	var projectImplementationVersion: String
+	@Input var projectImplementationVersion: String
 	init {		
 		projectImplementationVersion = project.getVersion().toString();
 	}
 
-	var projectSpecificationVersion: String
+	@Input var projectSpecificationVersion: String
 	init {
 		projectSpecificationVersion = project.getVersion().toString()
 	}
 
-	var projectVendorId: String
+	@Input var projectVendorId: String
 	init {
 		val v = env.getProperty("project.vendor.id");
 		projectVendorId = if(v == null) "org.opencrx" else v;
 	}
 
-	var projectVendorName: String
+	@Input var projectVendorName: String
 	init {
 		val v = env.getProperty("project.vendor.name");
 		projectVendorName = if(v == null) "openCRX" else v;
@@ -116,12 +119,6 @@ open class ArchiveTask() : Jar() {
 
 	fun getWebAppName(name: String): String {
 		return "opencrx-" + name + "-" + providerName
-	}
-	
-	fun buildTime(): String {
-	    val df = SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'")
-	    df.setTimeZone(TimeZone.getTimeZone("UTC"))
-	    return df.format(Date())
 	}
 	
 	fun getManifest(
@@ -135,7 +132,7 @@ open class ArchiveTask() : Jar() {
 			"Implementation-Vendor" to projectVendorName,
 			"Implementation-Vendor-Id" to projectVendorId,
 			"Specification-Version" to projectSpecificationVersion,
-			"Implementation-Version" to projectImplementationVersion + "-" + buildTime(),
+			"Implementation-Version" to projectImplementationVersion,
 			"Specification-Title" to specificationTitle,
 			"Implementation-Title" to implementationTitle
 	    )
