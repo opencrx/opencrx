@@ -923,29 +923,20 @@ public class Addresses extends AbstractImpl {
 			
 	}
     
-    /**
-     * @deprecated
-     */
+    @Deprecated
     public static final Short USAGE_BUSINESS_MOBILE = new Short((short)540);
-    /**
-     * @deprecated
-     */
+    @Deprecated
     public static final Short USAGE_HOME_MOBILE = new Short((short)440);
     public static final Short USAGE_MOBILE = new Short((short)200);
     public static final Short USAGE_BUSINESS_FAX = new Short((short)530);
     public static final Short USAGE_HOME_FAX = new Short((short)430);
-    /**
-     * @deprecated
-     */
+    @Deprecated
     public static final Short USAGE_BUSINESS_MAIN_PHONE = new Short((short)520);
-    /**
-     * @deprecated
-     */
+    @Deprecated
     public static final Short USAGE_HOME_MAIN_PHONE = new Short((short)420);
     public static final Short USAGE_OTHER = new Short((short)1800);
     public static final Short USAGE_BUSINESS = new Short((short)500);
     public static final Short USAGE_HOME = new Short((short)400);
-    
     public static final Short USAGE_CONTRACT_INVOICE = 10000;
     public static final Short USAGE_CONTRACT_DELIVERY = 10200;
     

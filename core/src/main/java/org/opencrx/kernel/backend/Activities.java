@@ -282,8 +282,8 @@ public class Activities extends AbstractImpl {
      * @param segment
      * @param pm
      * @return
-     * @deprecated
      */
+    @Deprecated
     public ActivityType findActivityType(
         String name,
         org.opencrx.kernel.activity1.jmi1.Segment segment,
@@ -321,8 +321,8 @@ public class Activities extends AbstractImpl {
      * @param segment
      * @param pm
      * @return
-     * @deprecated
      */
+    @Deprecated
     public ActivityProcess findActivityProcess(
         String name,
         org.opencrx.kernel.activity1.jmi1.Segment segment,
@@ -400,6 +400,7 @@ public class Activities extends AbstractImpl {
     /**
      * @deprecated use {@link #findActivityTracker(String, Segment)} instead.
      */
+    @Deprecated
     public ActivityTracker findActivityTracker(
         String name,
         org.opencrx.kernel.activity1.jmi1.Segment segment,
@@ -491,6 +492,7 @@ public class Activities extends AbstractImpl {
     /**
      * @deprecated use {@link #findActivityCategory(String, Segment)} instead
      */
+    @Deprecated
     public ActivityCategory findActivityCategory(
         String name,
         org.opencrx.kernel.activity1.jmi1.Segment segment,
@@ -542,6 +544,7 @@ public class Activities extends AbstractImpl {
     /**
      * @deprecated use {@link #findCalendar(String, Segment)} instead.
      */
+    @Deprecated
     public Calendar findCalendar(
         String name,
         org.opencrx.kernel.activity1.jmi1.Segment segment,
@@ -574,6 +577,7 @@ public class Activities extends AbstractImpl {
     /**
      * @deprecated use {@link #initCalendar(String, PersistenceManager, String, String, List, short)} instead.
      */
+    @Deprecated
     public Calendar initCalendar(
         String calendarName,
         PersistenceManager pm,
@@ -1594,8 +1598,8 @@ public class Activities extends AbstractImpl {
      * @param providerName
      * @param segmentName
      * @return
-     * @deprecated
      */
+    @Deprecated
     public ActivityTracker initActivityTracker(
         String trackerName,
         List<PrincipalGroup> owningGroups,        
@@ -1660,8 +1664,8 @@ public class Activities extends AbstractImpl {
      * @param providerName
      * @param segmentName
      * @return
-     * @deprecated
      */
+    @Deprecated
     public ActivityCategory initActivityCategory(
         String categoryName,
         List<org.opencrx.security.realm1.jmi1.PrincipalGroup> owningGroups,        

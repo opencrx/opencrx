@@ -141,7 +141,91 @@ org.openmdx.base.naming.*
 			OF = new ObjectFinder();
 		}
 
-		function timeTick(hh_mm, upMins) {
+    function timeNowRound15() {
+      var right_now = new Date();
+			var hrs = right_now.getHours();
+			var mins = right_now.getMinutes();
+			if (hrs < 10) {
+				hrsStr = "0" + hrs;
+			} else {
+				hrsStr = hrs;
+			}
+			if (mins < 10) {
+				minsStr = "0" + mins;
+			} else {
+				minsStr = mins;
+			}
+			timeStr = hrsStr + ":" + minsStr;
+			if (mins != 0) {
+			  if (mins < 8) {
+    			timeStr = timeTick(timeStr, -15);
+    		} else {
+    			timeStr = timeTick(timeStr, 15);
+    		}
+    	}
+  		return timeStr;
+    }
+    
+    function timeShift(hh_base, mm_base, hh_add, mm_add, hh_sub, mm_sub) {
+			var right_now = new Date();
+ 			var hrs = right_now.getHours();
+ 			var mins = right_now.getMinutes();
+ 			//debugger;
+ 			try {
+ 				hrs = parseInt(hh_base, 10);
+ 			} catch (e) {
+ 				hrs = right_now.getHours();
+ 			}
+ 			try {
+ 				mins = parseInt(mm_base, 10);
+ 			} catch (e) {
+ 				mins = right_now.getMinutes();
+ 			}
+ 			var hrsAdd = 0;
+ 			var minAdd = 0;
+			try {
+				hrsAdd = parseInt(hh_add, 10);
+ 			} catch (e) {
+ 				hrsAdd = 0;
+ 			}
+ 			try {
+ 				minAdd = parseInt(mm_add, 10);
+ 			} catch (e) {
+ 				minAdd = 0;
+ 			}
+ 			var hrsSub = 0;
+ 			var minSub = 0;
+			try {
+				hrsSub = parseInt(hh_sub, 10);
+ 			} catch (e) {
+ 				hrsSub = 0;
+ 			}
+ 			try {
+ 				minSub = parseInt(mm_sub, 10);
+ 			} catch (e) {
+ 				minSub = 0;
+ 			}
+ 			//alert("hrs: " + hrs + " / mins: " + mins + " / hrsAdd: " + hrsAdd + " / minsAdd: " + minAdd + " / hrsSub: " + hrsSub + " / minSub: " + minSub);
+			var newMins = hrs*60+mins+(hrsAdd*60+minAdd)-(hrsSub*60+minSub);
+			
+			var hrs =  Math.floor(newMins / 60);
+			var mins = newMins % 60;
+ 			
+ 			if (hrs < 10) {
+ 				hrsStr = "0" + hrs;
+ 			} else {
+ 				hrsStr = hrs;
+ 			}
+ 			if (mins < 10) {
+ 				minsStr = "0" + mins;
+ 			} else {
+ 				minsStr = mins;
+ 			}
+ 			//alert("newMins: " + newMins + " / hrs: " + hrs + " / mins: " + mins + " / result: " + hrsStr + ":" + minsStr);
+   		return hrsStr + ":" + minsStr;
+     }
+
+    function timeTick(hh_mm, upMins) {
 			var right_now = new Date();
 			var hrs = right_now.getHours();
 			var mins = right_now.getMinutes();
@@ -961,7 +1045,7 @@ org.openmdx.base.naming.*
 																<span class="nw"><%=wc.getFieldLabel(CreateWorkAndExpenseRecordController.WORKANDEXPENSERECORD_CLASS, "rate", app.getCurrentLocaleAsIndex())%>:</span>
 															</td>
 															<td nowrap>
-																<input type="text" name="rate" id="rate" <%=isWorkRecord ? "" : "class='mandatory'"%> style="font-weight:bold;width:47%;float:right;padding-top:2px;padding-right:2px;text-align:right;<%=!isWorkRecord && wc.getParaRate() == null ? errorStyleInline: ""%>" tabindex="<%=tabIndex+5%>" value="<%=wc.getResourceRate()%>" onfocus="<%=ONFOCUS_HANDLER%>" />
+																<input type="text" name="rate" id="rate" <%=isWorkRecord ? "" : "class='mandatory'"%> style="font-weight:bold;width:47%;float:right;padding-top:2px;padding-right:2px;text-align:right;<%=!isWorkRecord && wc.getParaRate() == null ? errorStyleInline: ""%>" tabindex="<%=tabIndex+5%>" value="<%= wc.getResourceRate() == null ? "" : wc.getResourceRate() %>" onfocus="<%=ONFOCUS_HANDLER%>" />
 																<select class="valueL" style="width:49%;float:left;" id="billingCurrency" name="billingCurrency" tabindex="<%=tabIndex++%>" onfocus="<%=ONFOCUS_HANDLER%>">
 <%
 																	Map<Short,String> billingCurrency_longTextsC = wc.getCodes().getLongTextByCode(featureBillingCurrency, app.getCurrentLocaleAsIndex(), false);
@@ -1002,41 +1086,43 @@ org.openmdx.base.naming.*
 															<td class="time">
 																<table>
 																	<tr class="centered" <%=isWorkRecordInPercent ? "style='display:none;'" : ""%>>
-																		<td><%=wc.getFieldLabel(CreateWorkAndExpenseRecordController.WORKANDEXPENSERECORD_CLASS, "startedAt", app.getCurrentLocaleAsIndex())%></td>
+																		<td style="cursor:pointer;" onmouseover="javascript:this.title='&darr; ' + timeNowRound15();" onclick="javascript:var hh_mm = timeNowRound15();$('startedAtHH').value = hh_mm.split(':')[0];$('startedAtMM').value = hh_mm.split(':')[1];"><%=wc.getFieldLabel(CreateWorkAndExpenseRecordController.WORKANDEXPENSERECORD_CLASS, "startedAt", app.getCurrentLocaleAsIndex())%></td>
 																		<td></td>
-																		<td><%=wc.getFieldLabel(CreateWorkAndExpenseRecordController.WORKANDEXPENSERECORD_CLASS, "endedAt", app.getCurrentLocaleAsIndex())%></td>
+																		<td style="cursor:pointer;" onmouseover="javascript:this.title='&darr; ' + timeNowRound15();" onclick="javascript:var hh_mm = timeNowRound15();$('endedAtHH').value = hh_mm.split(':')[0];$('endedAtMM').value = hh_mm.split(':')[1];"><%=wc.getFieldLabel(CreateWorkAndExpenseRecordController.WORKANDEXPENSERECORD_CLASS, "endedAt", app.getCurrentLocaleAsIndex())%></td>
 																		<td style="width:100%;">&nbsp;</td>
 																	</tr>
 																	<tr class="centered" <%=isWorkRecordInPercent ? "style='display:none;'" : ""%>>
 																		<td>
-																			<img class="timeButtonL" border="0" title="- 0:15" alt="" src="../../images/arrow_smallleft.gif" onclick="javascript:var hh_mm = timeTick($('startedAtHH').value + ':' + $('startedAtMM').value, -15);$('startedAtHH').value = hh_mm.split(':')[0];$('startedAtMM').value = hh_mm.split(':')[1];" /><input type="text" class="time" name="startedAtHH" id="startedAtHH" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getStartedAtHH()%>" <%=wc.getStartedAt() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />:<input type="text" class="time" name="startedAtMM" id="startedAtMM"" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getStartedAtMM()%>" <%=wc.getStartedAt() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" /><img class="timeButtonR" border="0" title="+ 0:15" alt="" src="../../images/arrow_smallright.gif" onclick="javascript:var hh_mm = timeTick($('startedAtHH').value + ':' + $('startedAtMM').value, +15);$('startedAtHH').value = hh_mm.split(':')[0];$('startedAtMM').value = hh_mm.split(':')[1];" />
+																			<img class="timeButtonL" border="0" title="- 0:15" alt="" src="../../images/arrow_smallleft.gif" style="height:25px;" onclick="javascript:var hh_mm = timeTick($('startedAtHH').value + ':' + $('startedAtMM').value, -15);$('startedAtHH').value = hh_mm.split(':')[0];$('startedAtMM').value = hh_mm.split(':')[1];" /><input type="text" class="time" name="startedAtHH" id="startedAtHH" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getStartedAtHH()%>" <%=wc.getStartedAt() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />:<input type="text" class="time" name="startedAtMM" id="startedAtMM"" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getStartedAtMM()%>" <%=wc.getStartedAt() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" /><img class="timeButtonR" border="0" title="+ 0:15" alt="" src="../../images/arrow_smallright.gif" style="height:25px;" onclick="javascript:var hh_mm = timeTick($('startedAtHH').value + ':' + $('startedAtMM').value, +15);$('startedAtHH').value = hh_mm.split(':')[0];$('startedAtMM').value = hh_mm.split(':')[1];" />
 																		</td>
 																		<td>&mdash;</td>
 																		<td>
-																			<img class="timeButtonL" border="0" title="- 0:15" alt="" src="../../images/arrow_smallleft.gif" onclick="javascript:var hh_mm = timeTick($('endedAtHH').value + ':' + $('endedAtMM').value, -15);$('endedAtHH').value = hh_mm.split(':')[0];$('endedAtMM').value = hh_mm.split(':')[1];" /><input type="text" class="time" name="endedAtHH" id="endedAtHH" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEndedAtHH()%>" onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />:<input type="text" class="time" name="endedAtMM" id="endedAtMM" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEndedAtMM()%>" onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" /><img class="timeButtonR" border="0" title="+ 0:15" alt="" src="../../images/arrow_smallright.gif" onclick="javascript:var hh_mm = timeTick($('endedAtHH').value + ':' + $('endedAtMM').value, +15);$('endedAtHH').value = hh_mm.split(':')[0];$('endedAtMM').value = hh_mm.split(':')[1];" />
+																			<img class="timeButtonL" border="0" title="- 0:15" alt="" src="../../images/arrow_smallleft.gif" style="height:25px;" onclick="javascript:var hh_mm = timeTick($('endedAtHH').value + ':' + $('endedAtMM').value, -15);$('endedAtHH').value = hh_mm.split(':')[0];$('endedAtMM').value = hh_mm.split(':')[1];" /><input type="text" class="time" name="endedAtHH" id="endedAtHH" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEndedAtHH()%>" onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />:<input type="text" class="time" name="endedAtMM" id="endedAtMM" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEndedAtMM()%>" onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" /><img class="timeButtonR" border="0" title="+ 0:15" alt="" src="../../images/arrow_smallright.gif" style="height:25px;" onclick="javascript:var hh_mm = timeTick($('endedAtHH').value + ':' + $('endedAtMM').value, +15);$('endedAtHH').value = hh_mm.split(':')[0];$('endedAtMM').value = hh_mm.split(':')[1];" />
 																		</td>
 																		<td></td>
 																	</tr>
 					
 																	<!--	WorkRecord -->
-																	<tr class="centered" <%=isWorkRecord && !isWorkRecordInPercent ? "" : "style='display:none;'"%>>
-																		<td style="padding-top:5px;">hh:mm</td>
-																		<td></td>
-																		<td></td>
+																	<tr class="centered" <%=isWorkRecord && !isWorkRecordInPercent ? "style='font-size:30px;font-weight:bold;'" : "style='display:none;'"%>>
+																		<td style="cursor:pointer;" onclick="javascript:var hh_mm = timeShift($('endedAtHH').value, $('endedAtMM').value, '0', '0', $('effortHH').value, $('effortMM').value);$('startedAtHH').value = hh_mm.split(':')[0];$('startedAtMM').value = hh_mm.split(':')[1];">&nwArr;</td>
+																		<td style="cursor:pointer;" onclick="javascript:var hh_mm = timeShift($('endedAtHH').value, $('endedAtMM').value, '0', '0', $('startedAtHH').value, $('startedAtMM').value);$('effortHH').value = hh_mm.split(':')[0];$('effortMM').value = hh_mm.split(':')[1];">&dArr;</td>
+																		<td style="cursor:pointer;" onclick="javascript:var hh_mm = timeShift($('startedAtHH').value, $('startedAtMM').value, $('effortHH').value, $('effortMM').value, '0', '0');$('endedAtHH').value = hh_mm.split(':')[0];$('endedAtMM').value = hh_mm.split(':')[1];">&neArr;</td>
 																		<td></td>
 																	</tr>
 																	<tr class="centered" <%=isWorkRecord && !isWorkRecordInPercent ? "" : "style='display:none;'"%>>
-																		<td>
-																			<img class="timeButtonL" border="0" title="- 0:15" alt="" src="../../images/arrow_smallleft.gif" onclick="javascript:var hh_mm = timeTick($('effortHH').value + ':' + $('effortMM').value, -15);$('effortHH').value = hh_mm.split(':')[0];$('effortMM').value = hh_mm.split(':')[1];" /><input type="text" class="time" name="effortHH" id="effortHH" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEffortHH()%>" <%=wc.getParaEffortHH() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />:<input type="text" class="time" name="effortMM" id="effortMM" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEffortMM()%>" <%=wc.getParaEffortMM() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" /><img class="timeButtonR" border="0" title="+ 0:15" alt="" src="../../images/arrow_smallright.gif" onclick="javascript:var hh_mm = timeTick($('effortHH').value + ':' + $('effortMM').value, +15);$('effortHH').value = hh_mm.split(':')[0];$('effortMM').value = hh_mm.split(':')[1];" />
+																		<td colspan="3">hh:mm</td>
+																		<td></td>
+																	</tr>
+																	<tr class="centered" <%=isWorkRecord && !isWorkRecordInPercent ? "" : "style='display:none;'"%>>
+																		<td colspan="3">
+																			<img class="timeButtonL" border="0" title="- 0:15" alt="" src="../../images/arrow_smallleft.gif" style="height:25px;" onclick="javascript:var hh_mm = timeTick($('effortHH').value + ':' + $('effortMM').value, -15);$('effortHH').value = hh_mm.split(':')[0];$('effortMM').value = hh_mm.split(':')[1];" /><input type="text" class="time" name="effortHH" id="effortHH" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEffortHH()%>" <%=wc.getParaEffortHH() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />:<input type="text" class="time" name="effortMM" id="effortMM" tabindex="<%=tabIndex++%>" value="<%=wc.getFormFields().getEffortMM()%>" <%=wc.getParaEffortMM() == null ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" /><img class="timeButtonR" border="0" title="+ 0:15" alt="" src="../../images/arrow_smallright.gif" style="height:25px;" onclick="javascript:var hh_mm = timeTick($('effortHH').value + ':' + $('effortMM').value, +15);$('effortHH').value = hh_mm.split(':')[0];$('effortMM').value = hh_mm.split(':')[1];" />
 																		</td>
-																		<td></td>
-																		<td></td>
 																		<td></td>
 																	</tr>
 																	<!--	WorkRecordInPercent -->
 																	<tr <%=isWorkRecordInPercent ? "" : "style='display:none;'"%>>
 																		<td style="vertical-align:bottom;">
-																			<img class="timeButtonL" border="0" title="- 5%" alt="" src="../../images/arrow_smallleft.gif" onclick="javascript:$('quantPercent').value = percentageTick($('quantPercent').value, -5);" /><input type="text" class="percentage" name="quantPercent" id="quantPercent" tabindex="<%=tabIndex++%>" value="<%= wc.getFormFields().getQuantPercent() %>" <%= wc.getFormFields().getQuantPercent() == null || wc.getFormFields().getQuantPercent().isEmpty() ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />%<img class="timeButtonR" border="0" title="+ 5%" alt="" src="../../images/arrow_smallright.gif" onclick="javascript:$('quantPercent').value = percentageTick($('quantPercent').value, 5);" />
+																			<img class="timeButtonL" border="0" title="- 5%" alt="" src="../../images/arrow_smallleft.gif" style="height:25px;" onclick="javascript:$('quantPercent').value = percentageTick($('quantPercent').value, -5);" /><input type="text" class="percentage" name="quantPercent" id="quantPercent" tabindex="<%=tabIndex++%>" value="<%= wc.getFormFields().getQuantPercent() %>" <%= wc.getFormFields().getQuantPercent() == null || wc.getFormFields().getQuantPercent().isEmpty() ? errorStyle : ""%> onkeypress="javascript:oldValue=this.value;" onkeyup="javascript:positiveDecimalsVerify(this);" onfocus="<%=ONFOCUS_HANDLER%>" />%<img class="timeButtonR" border="0" title="+ 5%" alt="" src="../../images/arrow_smallright.gif" style="height:25px;" onclick="javascript:$('quantPercent').value = percentageTick($('quantPercent').value, 5);" />
 																		</td>
 																		<td style="vertical-align:bottom;width:30px;">&nbsp;</td>
 																		<td style="vertical-align:bottom;padding-right:30px;">

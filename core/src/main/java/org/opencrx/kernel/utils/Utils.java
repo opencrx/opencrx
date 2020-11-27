@@ -284,6 +284,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static javax.jmi.reflect.RefPackage getJmiPackage(
         PersistenceManager pm,
         String authorityXri
@@ -302,6 +303,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static org.opencrx.kernel.workflow1.jmi1.Workflow1Package getWorkflowPackage(
         PersistenceManager pm
     ) {
@@ -318,6 +320,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static org.opencrx.kernel.code1.jmi1.Code1Package getCodePackage(
         PersistenceManager pm
     ) {
@@ -334,6 +337,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static org.opencrx.kernel.document1.jmi1.Document1Package getDocumentPackage(
         PersistenceManager pm
     ) {
@@ -350,6 +354,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Admin1Package getAdminPackage(
         PersistenceManager pm
     ) {
@@ -366,6 +371,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static org.openmdx.base.jmi1.BasePackage getOpenMdxBasePackage(
         PersistenceManager pm
     ) {
@@ -382,6 +388,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Home1Package getHomePackage(
         PersistenceManager pm
     ) {
@@ -398,6 +405,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Contract1Package getContractPackage(
         PersistenceManager pm
     ) {
@@ -414,6 +422,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Depot1Package getDepotPackage(
         PersistenceManager pm
     ) {
@@ -430,6 +439,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Building1Package getBuildingPackage(
         PersistenceManager pm
     ) {
@@ -446,6 +456,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Product1Package getProductPackage(
         PersistenceManager pm
     ) {
@@ -462,6 +473,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Uom1Package getUomPackage(
         PersistenceManager pm
     ) {
@@ -478,6 +490,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Realm1Package getRealmPackage(
         PersistenceManager pm
     ) {
@@ -494,6 +507,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static org.opencrx.kernel.base.jmi1.BasePackage getBasePackage(
         PersistenceManager pm
     ) {
@@ -510,6 +524,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Activity1Package getActivityPackage(
         PersistenceManager pm
     ) {
@@ -526,6 +541,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Account1Package getAccountPackage(
         PersistenceManager pm
     ) {
@@ -542,6 +558,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static Forecast1Package getForecastPackage(
         PersistenceManager pm
     ) {
@@ -558,6 +575,7 @@ public abstract class Utils {
      * @return
      * @deprecated use PersistenceManager.newInstance(), PersistenceManager.newQuery(), Structures.create() instead. 
      */
+    @Deprecated
     public static GenericPackage getGenericPackage(
         PersistenceManager pm
     ) {

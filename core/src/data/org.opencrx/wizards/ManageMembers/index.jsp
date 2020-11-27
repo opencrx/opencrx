@@ -54,6 +54,7 @@
 %>
 <%@ page session="true" import="
 java.util.*,
+java.util.logging.Level,
 java.io.*,
 java.text.*,
 java.math.*,
@@ -558,7 +559,7 @@ org.apache.poi.hssf.util.*
     	      memberRoleList.add(rolesText);
         }
         catch(Exception em) {
-          new ServiceException(em).log();
+        	SysLog.log(Level.WARNING, "ManageMembers {0} - addAccount no permission", accountMembership.refGetPath());
         }
     	}
     }
@@ -1436,7 +1437,7 @@ String mode = (request.getParameter("mode") == null ? "0" : request.getParameter
 				              		try {
 				                  	account = ((org.opencrx.kernel.account1.jmi1.Member)crxObject).getAccount();
 				                  } catch (Exception e) {
-				                  	new ServiceException(e).log();
+				                  	SysLog.log(Level.WARNING, "ManageMembers {0} - getAccount no permission", crxObject.refGetPath());
 				                  }
 				              }
 				          } catch (Exception e) {

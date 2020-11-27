@@ -8,7 +8,7 @@
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2004-2008, CRIXP Corp., Switzerland
+ * Copyright (c) 2004-2020, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -55,9 +55,8 @@ package org.opencrx.mail.workflow;
 /**
  * @deprecated use org.opencrx.application.mail.exporter.ExportMailWorkflow instead.
  */
+@Deprecated
 public class ExportMailWorkflow 
     extends org.opencrx.application.mail.exporter.ExportMailWorkflow {
     
 }
-
-//--- End of File -----------------------------------------------------------

@@ -239,8 +239,8 @@ public class Workflows extends AbstractImpl {
      * @param pm
      * @return
      * 
-     * @deprecated
      */
+    @Deprecated
     public Topic findTopic(
         String name,
         org.opencrx.kernel.workflow1.jmi1.Segment segment,

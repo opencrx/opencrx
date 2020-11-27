@@ -392,6 +392,7 @@ public class TNEFUtils {
      *         represent a valid GUID
      * @deprecated use the GUID class for GUID manipulation
      */
+    @Deprecated
     public static byte[] toGUID(String guid) throws IllegalArgumentException {
         return new GUID(guid).toByteArray();
     }
@@ -408,6 +409,7 @@ public class TNEFUtils {
      * @return the CRC32 value
      * @deprecated use {@link CompressedRTFInputStream#calculateCRC32} instead
      */
+    @Deprecated
     public static int calculateCRC32(byte[] buf, int off, int len) {
         return CompressedRTFInputStream.calculateCRC32(buf, off, len);
     }
@@ -421,6 +423,7 @@ public class TNEFUtils {
      *         compressed-RTF bytes
      * @deprecated use {@link CompressedRTFInputStream#decompressRTF} instead
      */
+    @Deprecated
     public static byte[] decompressRTF(byte[] src) {
         return CompressedRTFInputStream.decompressRTF(src);
     }

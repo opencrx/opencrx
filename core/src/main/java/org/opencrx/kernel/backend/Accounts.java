@@ -174,8 +174,8 @@ public class Accounts extends AbstractImpl {
      * @param name
      * @param description
      * @throws ServiceException
-     * @deprecated use contract creators instead.
      */
+    @Deprecated
     public void initContract(
         SalesContract contract,
         Account account,
@@ -209,8 +209,8 @@ public class Accounts extends AbstractImpl {
      * @param basedOn
      * @return
      * @throws ServiceException
-     * @deprecated use contract creators instead
      */
+    @Deprecated
     public Lead createLead(
         Account account,
         String name,
@@ -251,8 +251,8 @@ public class Accounts extends AbstractImpl {
      * @param basedOn
      * @return
      * @throws ServiceException
-     * @deprecated use contract creators instead
      */
+    @Deprecated
     public Opportunity createOpportunity(
         Account account,
         String name,
@@ -292,8 +292,8 @@ public class Accounts extends AbstractImpl {
      * @param basedOn
      * @return
      * @throws ServiceException
-     * @deprecated use contract creators instead
      */
+    @Deprecated    
     public Quote createQuote(
         Account account,
         String name,
@@ -331,8 +331,8 @@ public class Accounts extends AbstractImpl {
      * @param basedOn
      * @return
      * @throws ServiceException
-     * @deprecated use contract creators instead
      */
+    @Deprecated
     public SalesOrder createSalesOrder(
         Account account,
         String name,
@@ -370,8 +370,8 @@ public class Accounts extends AbstractImpl {
      * @param basedOn
      * @return
      * @throws ServiceException
-     * @deprecated use contract creators instead
      */
+    @Deprecated
     public Invoice createInvoice(
         Account account,
         String name,

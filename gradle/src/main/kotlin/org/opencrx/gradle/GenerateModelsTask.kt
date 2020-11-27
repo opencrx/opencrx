@@ -70,6 +70,8 @@ open class GenerateModelsTask : ExecTask() {
 			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/openmdx/portal") + "/",
 			"--pathMapSymbol=openCRX 4 ~ Core (EMF)",
 			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/opencrx/core") + "/",
+			"--pathMapSymbol=openCRX 5 ~ Core (EMF)",
+			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/opencrx/core") + "/",
 			"--url=file:src/model/emf/models.uml",
 			"--xmi=emf",
 			"--out=" + File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + "-models.zip"),

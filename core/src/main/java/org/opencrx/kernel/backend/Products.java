@@ -283,8 +283,8 @@ public class Products extends AbstractImpl {
      * @param pm
      * @return
      * 
-     * @deprecated
      */
+    @Deprecated
     public org.opencrx.kernel.product1.jmi1.PricingRule findPricingRule(
         String name,
         org.opencrx.kernel.product1.jmi1.Segment segment,

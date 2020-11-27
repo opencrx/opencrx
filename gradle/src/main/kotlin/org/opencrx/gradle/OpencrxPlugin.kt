@@ -199,7 +199,7 @@ open class OpencrxPlugin: Plugin<Project> {
 		project.getConfigurations().maybeCreate("opencrxCoreModels")
 		project.getConfigurations().maybeCreate("opencrxCoreConfig")
 		// openmdx
-		val openmdxVersion = "2.17-20200904"
+		val openmdxVersion = "2.17-20200911"
 		project.getConfigurations().maybeCreate("openmdxInspector")
 		project.getConfigurations().maybeCreate("openmdxBaseModels")
 		project.getConfigurations().maybeCreate("openmdxSecurityModels")
