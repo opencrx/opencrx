@@ -4,10 +4,10 @@
 >
 	<property name="install.path" value="$INSTALL_PATH" />
 	<target name="expand-native">
-		<exec command="unzip ${install.path}/installer/files/apache-tomee-plus-8.0.3.zip -d ${install.path}" />
+		<exec command="unzip ${install.path}/installer/files/apache-tomee-plus-8.0.5.zip -d ${install.path}" />
 	</target>
 	<target name="expand-ant">
-		<unzip src="${install.path}/installer/files/apache-tomee-plus-8.0.3.zip" dest="${install.path}" />
+		<unzip src="${install.path}/installer/files/apache-tomee-plus-8.0.5.zip" dest="${install.path}" />
 	</target>
 	<target name="postinstall">
 		<antcall inheritAll="true" target="${expand.target}"/>
