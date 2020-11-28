@@ -154,11 +154,12 @@ public class Codes extends AbstractImpl {
     }
 
 	/**
-	 * ValueProvider
+	 * ValueRangeProvider
 	 *
 	 */
 	public interface ValueRangeProvider {
-		public int getNextValue();
+		public int getNextValue(
+		) throws ServiceException;
 	}
 
 	/**
