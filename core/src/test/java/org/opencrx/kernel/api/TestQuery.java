@@ -52,6 +52,8 @@
  */
 package org.opencrx.kernel.api;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -73,6 +75,7 @@ import org.opencrx.kernel.account1.cci2.ContactQuery;
 import org.opencrx.kernel.account1.cci2.EMailAddressQuery;
 import org.opencrx.kernel.account1.cci2.GroupQuery;
 import org.opencrx.kernel.account1.cci2.MemberQuery;
+import org.opencrx.kernel.account1.cci2.PostalAddressQuery;
 import org.opencrx.kernel.account1.jmi1.AbstractGroup;
 import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.account1.jmi1.AccountAddress;
@@ -80,6 +83,7 @@ import org.opencrx.kernel.account1.jmi1.Contact;
 import org.opencrx.kernel.account1.jmi1.EMailAddress;
 import org.opencrx.kernel.account1.jmi1.Group;
 import org.opencrx.kernel.account1.jmi1.Member;
+import org.opencrx.kernel.account1.jmi1.PostalAddress;
 import org.opencrx.kernel.activity1.cci2.ActivityProcessStateQuery;
 import org.opencrx.kernel.activity1.cci2.ActivityQuery;
 import org.opencrx.kernel.activity1.cci2.ActivityTypeQuery;
@@ -415,7 +419,7 @@ public class TestQuery extends AbstractTest {
 					salesVolumeContractQuery.thereExistsAssignedAccount().forAllValidFrom().lessThanOrEqualTo(salesOrderDate);
 					salesVolumeContractQuery.thereExistsAssignedAccount().forAllValidTo().greaterThanOrEqualTo(salesOrderDate);
 					salesVolumeContractQuery.thereExistsAssignedAccount().accountRole().equalTo((short)100);
-					salesVolumeContractQuery.contractState().lessThanOrEqualTo(new Short((short)1000));
+					salesVolumeContractQuery.contractState().lessThanOrEqualTo(Short.valueOf((short)1000));
 					salesVolumeContractQuery.forAllActiveOn().lessThanOrEqualTo(salesOrderDate);
 					salesVolumeContractQuery.forAllExpiresOn().greaterThanOrEqualTo(salesOrderDate);
 					salesVolumeContractQuery.orderByContractNumber().ascending();
@@ -641,6 +645,31 @@ public class TestQuery extends AbstractTest {
     		if(count > 50) break;
     	}
     }
+    
+    @Test
+    public void testQueryPersonsHavingCountry(
+    ) throws ServiceException, IOException, ParseException {
+    	org.opencrx.kernel.account1.jmi1.Segment accountSegment =
+    		(org.opencrx.kernel.account1.jmi1.Segment)this.pm.getObjectById(
+        		new Path("xri://@openmdx*org.opencrx.kernel.account1").getDescendant("provider", providerName, "segment", segmentName)
+    		);
+    	ContactQuery contactQuery = (ContactQuery)this.pm.newQuery(Contact.class);
+    	contactQuery.forAllDisabled().isFalse();
+    	contactQuery.thereExistsLastName().like(".*L.*");
+    	contactQuery.thereExistsFirstName().like(".*F.*");
+    	PostalAddressQuery postalAddressQuery = (PostalAddressQuery)this.pm.newQuery(PostalAddress.class);
+    	postalAddressQuery.postalCountry().equalTo(Short.valueOf((short)240));
+    	postalAddressQuery.thereExistsUsage().equalTo((short)400);
+    	contactQuery.thereExistsAddress().elementOf(PersistenceHelper.asSubquery(postalAddressQuery));
+    	List<Contact> contacts = accountSegment.getAccount(contactQuery);
+    	int count = 0;
+    	for(Contact contact: contacts) {
+			System.out.println("contact[" + count + "]=" + contact.refGetPath());
+			count++;
+			if(count > 1) break;
+    	}
+    }
+
     //-----------------------------------------------------------------------
     // Members
     //-----------------------------------------------------------------------
