@@ -1,12 +1,12 @@
 /**
  * =======================================================================
  * = Description: openCRX/Core settings.gradle.kts
- * = Copyright:   (c) 2003-2020 CRIXP AG
+ * = Copyright:   (c) 2003-2021 CRIXP AG
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2003-2020, CRIXP Corp., Switzerland
+ * Copyright (c) 2003-2021, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -55,7 +55,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("org.opencrx:opencrx-gradle:5.0-20201127")
+        classpath("org.opencrx:opencrx-gradle:5.0.1")
     }
 }
 rootProject.name = "opencrx"
