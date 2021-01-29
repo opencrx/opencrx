@@ -53,17 +53,20 @@
 package org.opencrx.kernel.backend;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+
 import org.oasisopen.jmi1.RefContainer;
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.base.jmi1.BasicObject;
 import org.openmdx.base.marshalling.Marshaller;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 
@@ -219,7 +222,20 @@ public class Cloneable extends AbstractImpl {
 		
     }
     
-    //-------------------------------------------------------------------------
+    /**
+     * Clone object.
+     * 
+     * @param object
+     * @param target
+     * @param referenceName
+     * @param excludeAttributes
+     * @param objectMarshallers
+     * @param referenceFilter
+     * @param owningUser
+     * @param owningGroup
+     * @return
+     * @throws ServiceException
+     */
     public RefObject_1_0 cloneObject(
         RefObject_1_0 object,
         RefObject_1_0 target,
@@ -230,14 +246,19 @@ public class Cloneable extends AbstractImpl {
         org.opencrx.security.realm1.jmi1.User owningUser,
         List<org.opencrx.security.realm1.cci2.PrincipalGroup> owningGroup
     ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(object);
+    	String providerName = object.refGetPath().getSegment(2).toString();
+    	String segmentName = object.refGetPath().getSegment(4).toString();
     	CloneContext cloneContext = (CloneContext)Utils.traverseObjectTree(
     		object, 
     		referenceFilter,
     		new CloneCallback(
     			excludeAttributes,
     			objectMarshallers,
-    			owningUser,
-    			owningGroup
+    			owningUser == null
+    				? Utils.getRequestingUser(pm, providerName, segmentName)
+    				: owningUser,
+    			Collections.emptyList()
     		),
     		new CloneContext(
     			target,
@@ -247,8 +268,6 @@ public class Cloneable extends AbstractImpl {
         return cloneContext.target;
     }
 
-    //-------------------------------------------------------------------------
-    // Variables
     //-------------------------------------------------------------------------    
     public static final Set<String> CLONE_EXCLUDE_ATTRIBUTES =
         new HashSet<String>(Arrays.asList("activityNumber", "contractNumber"));
@@ -259,5 +278,3 @@ public class Cloneable extends AbstractImpl {
     public static final int MANUAL_QUALIFIER_THRESHOLD = 10;
     
 }
-
-//--- End of File -----------------------------------------------------------

@@ -96,6 +96,7 @@ import org.opencrx.kernel.building1.jmi1.Building1Package;
 import org.opencrx.kernel.contract1.jmi1.Contract1Package;
 import org.opencrx.kernel.depot1.jmi1.Depot1Package;
 import org.opencrx.kernel.forecast1.jmi1.Forecast1Package;
+import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.generic.jmi1.GenericPackage;
 import org.opencrx.kernel.home1.jmi1.Home1Package;
 import org.opencrx.kernel.home1.jmi1.UserHome;
@@ -882,7 +883,27 @@ public abstract class Utils {
 			new Path("xri://@openmdx*org.openmdx.security.realm1").getDescendant("provider", providerName, "segment", "Root", "realm", segmentName, "principal", principalChain.get(0))
         );
     }
-    
+
+    /**
+     * Get user assigned to pm.
+     * 
+     * @param pm
+     * @param providerName
+     * @param segmentName
+     * @return
+     */
+    public static org.opencrx.security.realm1.jmi1.User getRequestingUser(
+    	PersistenceManager pm,
+    	String providerName,
+    	String segmentName
+    ) {
+    	List<String> principalChain = UserObjects.getPrincipalChain(pm);
+    	if(principalChain.isEmpty()) return null;
+    	return (org.opencrx.security.realm1.jmi1.User)pm.getObjectById(
+    		new Path("xri://@openmdx*org.openmdx.security.realm1").getDescendant("provider", providerName, "segment", "Root", "realm", segmentName, "principal", principalChain.get(0) + "." + SecurityKeys.USER_SUFFIX)
+    	);
+    }
+
     /**
      * Return true if principal is member of at least one of the given groups.
      * 
