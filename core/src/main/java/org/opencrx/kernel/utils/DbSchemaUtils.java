@@ -61,10 +61,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
@@ -187,7 +187,7 @@ public class DbSchemaUtils {
 	 * @return
 	 * @throws ServiceException
 	 */
-	protected static Connection getSchemaConnection(
+	public static Connection getSchemaConnection(
 	) throws ServiceException {
 		try {
 			// Schema database as mem: database
@@ -242,7 +242,7 @@ public class DbSchemaUtils {
 	 * @return
 	 * @throws ServiceException
 	 */
-	protected static List<String> getSchema(
+	public static List<String> getSchema(
 		Connection conn
 	) throws ServiceException {
 		List<String> schema = new ArrayList<String>();
@@ -275,7 +275,7 @@ public class DbSchemaUtils {
 	 * @param replaceObject
 	 * @return
 	 */
-	protected static String getObjectDefinition(
+	public static String getObjectDefinition(
 		String type,
 		String object,
 		List<String> schema,
@@ -559,6 +559,57 @@ public class DbSchemaUtils {
 			} catch(Exception ignore) {}
 		}
 	}
+
+    /**
+     * Get column names for given db object.
+     * 
+     * @param dbObject
+     * @param includeColumnTypes
+     * @param excludeColumnTypes
+     * @return
+     * @throws ServiceException
+     */
+    public static List<String> getColumnNames(
+    	String dbObject,
+    	List<Integer> includeColumnTypes,
+    	List<Integer> excludeColumnTypes
+    ) throws ServiceException {
+    	List<String> columnNames = new ArrayList<String>();
+    	Connection conn = null;
+		try {
+			conn = getSchemaConnection();
+			String statement = "SELECT * FROM " + dbObject + " WHERE 1=0";
+			PreparedStatement ps = conn.prepareStatement(statement);		
+			ResultSet rs = null;
+			try {
+				rs = ps.executeQuery();					
+				ResultSetMetaData rsmd = rs.getMetaData();
+			    for(int i = 0; i < rsmd.getColumnCount(); i++) {
+			    	boolean includeColumn = includeColumnTypes == null || includeColumnTypes.isEmpty() || includeColumnTypes.contains(rsmd.getColumnType(i + 1));
+			    	boolean excludeColumn = excludeColumnTypes != null && !excludeColumnTypes.isEmpty() && excludeColumnTypes.contains(rsmd.getColumnType(i + 1));
+			    	if(includeColumn && !excludeColumn) {
+			    		columnNames.add(rsmd.getColumnName(i + 1).toLowerCase());
+			    	}
+			    }
+			} catch(Exception e) {
+				throw new ServiceException(e);
+			} finally {
+				try {
+					rs.close();
+				} catch(Exception e) {}
+				try {
+					ps.close();
+				} catch(Exception e) {}		
+			}
+		} catch(SQLException e) {
+			throw new ServiceException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch(Exception e0) {}
+		}
+		return columnNames;
+    }
 
 	/**
 	 * Get all index names from reference schema.
@@ -911,399 +962,6 @@ public class DbSchemaUtils {
 			try {
 				connS.close();
 			} catch(Exception ignore) {}
-		}
-		return report;
-	}
-
-	/**
-	 * Migrate data from an older schema version to latest version.
-	 * 
-	 * @param connT
-	 * @param fix
-	 * @return
-	 * @throws ServiceException
-	 */
-	public static List<String> migrateData(
-		Connection connT,
-		boolean fix
-	) throws ServiceException {
-		MigrationDefinition[] migrationDefinitions = {
-			new MigrationDefinition(
-				"2.2 -> 2.3",
-				"SELECT member_role FROM OOCKE1_ACCOUNTASSIGNMENT_ WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOCKE1_ACCOUNTASSIGNMENT SET MEMBER_ROLE_0 = (SELECT MEMBER_ROLE FROM OOCKE1_ACCOUNTASSIGNMENT_ ass_ WHERE ass_.OBJECT_ID = OOCKE1_ACCOUNTASSIGNMENT.OBJECT_ID AND ass_.IDX = 0) WHERE MEMBER_ROLE_0 IS NULL",
-					"UPDATE OOCKE1_ACCOUNTASSIGNMENT SET MEMBER_ROLE_1 = (SELECT MEMBER_ROLE FROM OOCKE1_ACCOUNTASSIGNMENT_ ass_ WHERE ass_.OBJECT_ID = OOCKE1_ACCOUNTASSIGNMENT.OBJECT_ID AND ass_.IDX = 1) WHERE MEMBER_ROLE_1 IS NULL",
-					"UPDATE OOCKE1_ACCOUNTASSIGNMENT SET MEMBER_ROLE_2 = (SELECT MEMBER_ROLE FROM OOCKE1_ACCOUNTASSIGNMENT_ ass_ WHERE ass_.OBJECT_ID = OOCKE1_ACCOUNTASSIGNMENT.OBJECT_ID AND ass_.IDX = 2) WHERE MEMBER_ROLE_2 IS NULL",
-					"UPDATE OOCKE1_ACCOUNTASSIGNMENT SET MEMBER_ROLE_3 = (SELECT MEMBER_ROLE FROM OOCKE1_ACCOUNTASSIGNMENT_ ass_ WHERE ass_.OBJECT_ID = OOCKE1_ACCOUNTASSIGNMENT.OBJECT_ID AND ass_.IDX = 3) WHERE MEMBER_ROLE_3 IS NULL",
-					"UPDATE OOCKE1_ACCOUNTASSIGNMENT SET MEMBER_ROLE_4 = (SELECT MEMBER_ROLE FROM OOCKE1_ACCOUNTASSIGNMENT_ ass_ WHERE ass_.OBJECT_ID = OOCKE1_ACCOUNTASSIGNMENT.OBJECT_ID AND ass_.IDX = 4) WHERE MEMBER_ROLE_4 IS NULL"
-				)
-			),
-			new MigrationDefinition(
-				"2.3 -> 2.4",
-				null,
-				Collections.<String>emptyList()
-			),
-			new MigrationDefinition(
-				"2.4 -> 2.5",
-				"SELECT rate_type FROM OOCKE1_WORKRECORD WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOCKE1_WORKRECORD SET PAYMENT_TYPE = 0 WHERE PAYMENT_TYPE IS NULL",
-					"UPDATE OOCKE1_WORKRECORD SET RECORD_TYPE = RATE_TYPE WHERE RECORD_TYPE IS NULL",
-					"UPDATE OOCKE1_WORKRECORD SET QUANTITY = (1.0 * DURATION_HOURS) + (DURATION_MINUTES / 60.0) WHERE QUANTITY IS NULL",
-					"UPDATE OOCKE1_WORKRECORD SET QUANTITY_UOM = N'uom/CRX/Root/hour' WHERE QUANTITY_UOM IS NULL"
-				)				
-			),
-			new MigrationDefinition(
-				"2.5 -> 2.6",
-				null,
-				Arrays.asList(
-					"DELETE FROM OOCKE1_CALENDARFEED_ WHERE OBJECT_ID IN (SELECT OBJECT_ID FROM OOCKE1_CALENDARFEED WHERE DTYPE = 'org:opencrx:kernel:home1:IcalFeed')",
-					"DELETE FROM OOCKE1_CALENDARFEED WHERE DTYPE = 'org:opencrx:kernel:home1:IcalFeed'"
-				)								
-			),
-			new MigrationDefinition(
-				"2.6 -> 2.7",
-				null,
-				Collections.<String>emptyList()
-			),
-			new MigrationDefinition(
-				"2.7 -> 2.8",
-				"SELECT e_mail_address FROM OOCKE1_EMAILACCOUNT WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOCKE1_ACTIVITYPARTY SET PARTY_STATUS = 0 WHERE PARTY_STATUS IS NULL",
-					"UPDATE OOCKE1_DOCUMENTFOLDERASS SET ASSIGNMENT_ROLE = 0 WHERE ASSIGNMENT_ROLE IS NULL",
-					"UPDATE OOCKE1_SEGMENT SET ACCESS_LEVEL_UPDATE = 3 WHERE ACCESS_LEVEL_UPDATE IS NULL",
-					"UPDATE OOCKE1_EMAILACCOUNT SET NAME = E_MAIL_ADDRESS, IS_ACTIVE = true WHERE NAME IS NULL"
-				)				
-			),
-			new MigrationDefinition(
-				"2.8 -> 2.9",
-				"SELECT reference_filter FROM OOCKE1_EXPORTPROFILE WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOMSE2_PRIVILEGE SET DTYPE = 'org:openmdx:security:realm1:Privilege' WHERE DTYPE LIKE 'org:openmdx:security:authorization1:%'", 
-					"UPDATE OOMSE2_PRIVILEGE_ SET DTYPE = 'org:openmdx:security:realm1:Privilege' WHERE DTYPE LIKE 'org:openmdx:security:authorization1:%'",
-					"UPDATE OOCKE1_EXPORTPROFILE SET EXPORT_PARAMS = REFERENCE_FILTER",
-					"UPDATE OOCKE1_EXPORTPROFILE SET LOCALE = 0 WHERE LOCALE IS NULL",
-					"UPDATE OOCKE1_ACTIVITYCREATOR SET ICAL_TYPE = 1 WHERE ICAL_TYPE = 0 AND EXISTS (SELECT 0 FROM OOCKE1_ACTIVITYTYPE T WHERE OOCKE1_ACTIVITYCREATOR.ACTIVITY_TYPE = T.OBJECT_ID AND ACTIVITY_CLASS <> 8)",
-					"UPDATE OOCKE1_ACTIVITYCREATOR SET ICAL_TYPE = 2 WHERE ICAL_TYPE = 0 AND EXISTS (SELECT 0 FROM OOCKE1_ACTIVITYTYPE T WHERE OOCKE1_ACTIVITYCREATOR.ACTIVITY_TYPE = T.OBJECT_ID AND ACTIVITY_CLASS = 8)",
-					"UPDATE OOCKE1_ACTIVITY SET ICAL_TYPE = 1 WHERE ICAL_TYPE = 0 AND DTYPE <> 'org:opencrx:kernel:activity1:Task'",
-					"UPDATE OOCKE1_ACTIVITY SET ICAL_TYPE = 2 WHERE ICAL_TYPE = 0 AND DTYPE = 'org:opencrx:kernel:activity1:Task'"		
-				)								 
-			),
-			new MigrationDefinition(
-				"2.9 -> 2.10",
-				"SELECT CLOSING_CODE FROM OOCKE1_ACCOUNT WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOCKE1_ACCOUNT SET CLOSING_CODE = 0 WHERE CLOSING_CODE IS NULL",
-					"DELETE FROM OOCKE1_ALERT WHERE REFERENCE LIKE 'reminder/%'",
-					"DELETE FROM OOCKE1_ALERT_ WHERE NOT EXISTS (SELECT 0 FROM OOCKE1_ALERT a WHERE a.OBJECT_ID = OOCKE1_ALERT_.OBJECT_ID)"			
-				)								 				
-			),
-			new MigrationDefinition(
-				"2.10 -> 2.11",
-				"SELECT ICAL_CLASS FROM OOCKE1_ACTIVITYCREATOR WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOCKE1_ACTIVITYCREATOR SET ICAL_CLASS = 3 WHERE ICAL_CLASS IS NULL",
-					"UPDATE OOCKE1_ACTIVITY SET ICAL_CLASS = 1 WHERE ICAL_CLASS IS NULL AND ICAL LIKE '%CLASS:PRIVATE%'",
-					"UPDATE OOCKE1_ACTIVITY SET ICAL_CLASS = 2 WHERE ICAL_CLASS IS NULL AND ICAL LIKE '%CLASS:CONFIDENTIAL%'",
-					"UPDATE OOCKE1_ACTIVITY SET ICAL_CLASS = 3 WHERE ICAL_CLASS IS NULL AND ICAL LIKE '%CLASS:PUBLIC%'",
-					"UPDATE OOCKE1_ACTIVITY SET ICAL_CLASS = 2 WHERE ICAL_CLASS IS NULL"
-				)
-			),
-			new MigrationDefinition(
-				"2.11 -> 2.12",
-				"SELECT CONTENT_LANGUAGE FROM OOCKE1_DOCUMENT_ WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOCKE1_DOCUMENT_ SET CONTENT_LANGUAGE = (SELECT CONTENT_LANGUAGE FROM OOCKE1_DOCUMENT DOC WHERE DOC.OBJECT_ID = OOCKE1_DOCUMENT_.OBJECT_ID) WHERE IDX = 0",
-					"UPDATE OOCKE1_DOCUMENT SET CONTENT_LANGUAGE_ = 0 WHERE CONTENT_LANGUAGE_ IS NULL",
-					"UPDATE OOCKE1_ACTIVITYGROUP SET ACTIVITY_GROUP_TYPE = 0 WHERE ACTIVITY_GROUP_TYPE IS NULL",
-					"{HSQL,PostgreSQL,MySQL,DB2,Microsoft}UPDATE OOCKE1_INVOLVEDOBJECT SET OBJECT_ID = SUBSTRING(OBJECT_ID, 1, POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + 1__SUBSTR_VOID_ENDPOS__))) || 'activity' || SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + POSITION('/' IN SUBSTRING(OBJECT_ID,POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + 1__SUBSTR_VOID_ENDPOS__))__SUBSTR_VOID_ENDPOS__) WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'",
-					"{HSQL,PostgreSQL,MySQL,DB2,Microsoft}UPDATE OOCKE1_INVOLVEDOBJECT_ SET OBJECT_ID = SUBSTRING(OBJECT_ID, 1, POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + 1__SUBSTR_VOID_ENDPOS__))) || 'activity' || SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + POSITION('/' IN SUBSTRING(OBJECT_ID,POSITION('/' IN OBJECT_ID) + POSITION('/' IN SUBSTRING(OBJECT_ID, POSITION('/' IN OBJECT_ID) + 1__SUBSTR_VOID_ENDPOS__)) + 1__SUBSTR_VOID_ENDPOS__))__SUBSTR_VOID_ENDPOS__) WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'",
-					"{Oracle}UPDATE OOCKE1_INVOLVEDOBJECT SET OBJECT_ID = SUBSTR(OBJECT_ID, 1, INSTR(OBJECT_ID, '/', 1, 3)) || 'activity' || SUBSTR(OBJECT_ID, INSTR(OBJECT_ID, '/', 1, 3)) WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'",
-					"{Oracle}UPDATE OOCKE1_INVOLVEDOBJECT_ SET OBJECT_ID = SUBSTR(OBJECT_ID, 1, INSTR(OBJECT_ID, '/', 1, 3)) || 'activity' || SUBSTR(OBJECT_ID, INSTR(OBJECT_ID, '/', 1, 3)) WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'",
-					"UPDATE OOCKE1_INVOLVEDOBJECT SET OBJECT_ID = REPLACE(OBJECT_ID, 'involvedObject/', 'involvedObject1/org:opencrx:kernel:activity1/') WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'",
-					"UPDATE OOCKE1_INVOLVEDOBJECT_ SET OBJECT_ID = REPLACE(OBJECT_ID, 'involvedObject/', 'involvedObject1/org:opencrx:kernel:activity1/') WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'",
-					"UPDATE OOCKE1_INVOLVEDOBJECT SET DTYPE = 'org:opencrx:kernel:generic:InvolvedObject' WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'",
-					"UPDATE OOCKE1_INVOLVEDOBJECT_ SET DTYPE = 'org:opencrx:kernel:generic:InvolvedObject' WHERE DTYPE = 'org:opencrx:kernel:activity1:InvolvedObject'"
-				)
-			),
-			new MigrationDefinition(
-				"2.12 -> 2.13",
-				"SELECT * FROM OOCKE1_RESOURCE r INNER JOIN OOCKE1_RESOURCERATE rr ON r.OBJECT_ID = rr.P$$PARENT WHERE r.STANDARD_RATE IS NOT NULL",
-				Arrays.asList(
-					// Migrate FX -> FR
-					"UPDATE OOCKE1_ADDRESS SET POSTAL_COUNTRY = 250 WHERE POSTAL_COUNTRY = 249",
-					// Migrate Resource::standardRate -> OOCKE1_RESOURCERATE 
-					"INSERT INTO OOCKE1_RESOURCERATE (" +
-					"  OBJECT_ID," + 
-					"  ACCESS_LEVEL_BROWSE," + 
-					"  ACCESS_LEVEL_DELETE," + 
-					"  ACCESS_LEVEL_UPDATE," + 
-					"  CATEGORY_," + 
-					"  CREATED_AT," + 
-					"  CREATED_BY_," + 
-					"  DESCRIPTION," + 
-					"  DISABLED," + 
-					"  DISABLED_REASON," + 
-					"  EXTERNAL_LINK_," + 
-					"  MODIFIED_BY_," + 
-					"  NAME," + 
-					"  OWNER_," + 
-					"  RATE," + 
-					"  RATE_CURRENCY," + 
-					"  RATE_TYPE," + 
-					"  P$$PARENT," + 
-					"  USER_BOOLEAN4_," + 
-					"  USER_CODE4_," + 
-					"  USER_DATE4_," + 
-					"  USER_DATE_TIME4_," + 
-					"  USER_NUMBER4_," + 
-					"  USER_STRING4_," + 
-					"  DTYPE," + 
-					"  MODIFIED_AT" + 
-					") " + 
-					"SELECT " + 
-					"  REPLACE(" + "r.OBJECT_ID, 'resource', 'resourceRate') || '/' || 'StandardRate'," + 
-					"  r.ACCESS_LEVEL_BROWSE," + 
-					"  r.ACCESS_LEVEL_DELETE," + 
-					"  r.ACCESS_LEVEL_UPDATE," + 
-					"  0," + 
-					"  r.CREATED_AT," + 
-					"  0," + 
-					"  NULL," + 
-					"  NULL," + 
-					"  NULL," + 
-					"  0," + 
-					"  0," + 
-					"  'Standard rate'," + 
-					"  0," + 
-					"  r.STANDARD_RATE," + 
-					"  r.RATE_CURRENCY," + 
-					"  1," + // 1=Work (Standard Rate)
-					"  r.OBJECT_ID," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  'org:opencrx:kernel:activity1:ResourceRate'," + 
-					"  r.MODIFIED_AT " + 
-					"FROM " + 
-					"  OOCKE1_RESOURCE r " + 
-					"WHERE " + 
-					"  r.STANDARD_RATE IS NOT NULL",
-					// Migrate Resource::standardRate -> OOCKE1_RESOURCERATE_					
-					"INSERT INTO OOCKE1_RESOURCERATE_ (" + 
-					"  OBJECT_ID," + 
-					"  IDX," + 
-					"  CREATED_BY," + 
-					"  MODIFIED_BY," + 
-					"  OWNER," + 
-					"  DTYPE" + 
-					") " + 
-					"SELECT" + 
-					"  REPLACE(r.OBJECT_ID, 'resource', 'resourceRate') || '/' || 'StandardRate'," + 
-					"  R_.IDX," + 
-					"  R_.CREATED_BY," + 
-					"  R_.MODIFIED_BY," + 
-					"  R_.OWNER," + 
-					"  'org:opencrx:kernel:activity1:ResourceRate'" + 
-					"FROM " + 
-					"  OOCKE1_RESOURCE_ r_ " + 
-					"INNER JOIN " + 
-					"  OOCKE1_RESOURCE r " + 
-					"ON " + 
-					"  r.OBJECT_ID = r_.OBJECT_ID " + 
-					"WHERE " + 
-					"  r.STANDARD_RATE IS NOT NULL",
-					// Migrate Resource::overtimeRate -> OOCKE1_RESOURCERATE
-					"INSERT INTO OOCKE1_RESOURCERATE (" +
-					"  OBJECT_ID," + 
-					"  ACCESS_LEVEL_BROWSE," + 
-					"  ACCESS_LEVEL_DELETE," + 
-					"  ACCESS_LEVEL_UPDATE," + 
-					"  CATEGORY_," + 
-					"  CREATED_AT," + 
-					"  CREATED_BY_," + 
-					"  DESCRIPTION," + 
-					"  DISABLED," + 
-					"  DISABLED_REASON," + 
-					"  EXTERNAL_LINK_," + 
-					"  MODIFIED_BY_," + 
-					"  NAME," + 
-					"  OWNER_," + 
-					"  RATE," + 
-					"  RATE_CURRENCY," + 
-					"  RATE_TYPE," + 
-					"  P$$PARENT," + 
-					"  USER_BOOLEAN4_," + 
-					"  USER_CODE4_," + 
-					"  USER_DATE4_," + 
-					"  USER_DATE_TIME4_," + 
-					"  USER_NUMBER4_," + 
-					"  USER_STRING4_," + 
-					"  DTYPE," + 
-					"  MODIFIED_AT" + 
-					") " + 
-					"SELECT " + 
-					"  REPLACE(" + "r.OBJECT_ID, 'resource', 'resourceRate') || '/' || 'OvertimeRate'," + 
-					"  r.ACCESS_LEVEL_BROWSE," + 
-					"  r.ACCESS_LEVEL_DELETE," + 
-					"  r.ACCESS_LEVEL_UPDATE," + 
-					"  0," + 
-					"  r.CREATED_AT," + 
-					"  0," + 
-					"  NULL," + 
-					"  NULL," + 
-					"  NULL," + 
-					"  0," + 
-					"  0," + 
-					"  'Overtime rate'," + 
-					"  0," + 
-					"  r.OVERTIME_RATE," + 
-					"  r.RATE_CURRENCY," + 
-					"  2," + // 2=Work (Overtime Rate)
-					"  r.OBJECT_ID," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  0," + 
-					"  'org:opencrx:kernel:activity1:ResourceRate'," + 
-					"  r.MODIFIED_AT " + 
-					"FROM " + 
-					"  OOCKE1_RESOURCE r " + 
-					"WHERE " + 
-					"  r.OVERTIME_RATE IS NOT NULL",
-					// Migrate Resource::overtimeRate -> OOCKE1_RESOURCERATE_					
-					"INSERT INTO OOCKE1_RESOURCERATE_ (" + 
-					"  OBJECT_ID," + 
-					"  IDX," + 
-					"  CREATED_BY," + 
-					"  MODIFIED_BY," + 
-					"  OWNER," + 
-					"  DTYPE" + 
-					") " + 
-					"SELECT" + 
-					"  REPLACE(r.OBJECT_ID, 'resource', 'resourceRate') || '/' || 'OvertimeRate'," + 
-					"  R_.IDX," + 
-					"  R_.CREATED_BY," + 
-					"  R_.MODIFIED_BY," + 
-					"  R_.OWNER," + 
-					"  'org:opencrx:kernel:activity1:ResourceRate'" + 
-					"FROM " + 
-					"  OOCKE1_RESOURCE_ r_ " + 
-					"INNER JOIN " + 
-					"  OOCKE1_RESOURCE r " + 
-					"ON " + 
-					"  r.OBJECT_ID = r_.OBJECT_ID " + 
-					"WHERE " + 
-					"  r.OVERTIME_RATE IS NOT NULL"
-				)
-			),
-			new MigrationDefinition(
-				"4.0 -> 4.1",
-				"SELECT QUICK_ACCESS_STATUS FROM OOCKE1_QUICKACCESS WHERE 1=0",
-				Arrays.asList(
-					"UPDATE OOCKE1_QUICKACCESS SET QUICK_ACCESS_STATUS = 0 WHERE QUICK_ACCESS_STATUS IS NULL",
-					"UPDATE OOCKE1_ACCESSHISTORY SET ACCESS_HISTORY_STATUS = 0 WHERE ACCESS_HISTORY_STATUS IS NULL",
-					"UPDATE OOCKE1_CONTRACT SET FREIGHT_TERMS = 0 WHERE FREIGHT_TERMS IS NULL AND DTYPE IN ('org:opencrx:kernel:contract1:Lead','org:opencrx:kernel:contract1:Opportunity','org:opencrx:kernel:contract1:Quote','org:opencrx:kernel:contract1:SalesOrder','org:opencrx:kernel:contract1:Invoice')",
-					"UPDATE OOCKE1_CONTRACT SET SUBMIT_STATUS = 0 WHERE SUBMIT_STATUS IS NULL AND DTYPE IN ('org:opencrx:kernel:contract1:Lead','org:opencrx:kernel:contract1:Opportunity','org:opencrx:kernel:contract1:Quote','org:opencrx:kernel:contract1:SalesOrder','org:opencrx:kernel:contract1:Invoice')"
-				)
-			),	
-		};
-		String targetDatabaseName = "";
-		try {
-			targetDatabaseName = connT.getMetaData().getDatabaseProductName();
-		} catch(Exception e) {}
-		List<String> report = new ArrayList<String>();
-		PreparedStatement psT = null;
-		for(MigrationDefinition migrationDefinition: migrationDefinitions) {
-			try {
-				if(migrationDefinition.getTestForVersionStatement() != null) {
-					psT = connT.prepareStatement(migrationDefinition.getTestForVersionStatement());
-					psT.executeQuery();
-					ResultSet rsT = psT.executeQuery();
-					rsT.next();
-					rsT.close();			
-					psT.close();
-				}
-				for(String statement: migrationDefinition.getMigrationStatements()) {
-					boolean includeStatement = false;
-					if(statement.startsWith("{")) {
-						int pos = statement.indexOf("}");
-						for(String name: statement.substring(1, pos).split(",")) {
-							if(targetDatabaseName.indexOf(name) >= 0) {
-								includeStatement = true;
-								break;
-							}
-						}
-						statement = statement.substring(pos + 1);
-					} else {
-						includeStatement = true;
-					}
-					if(includeStatement) {
-						if(targetDatabaseName.indexOf("DB2") >=0) {
-							statement = statement.replace("true", "1");
-							statement = statement.replace("false", "0");
-							statement = statement.replace("POSITION('/' IN ", "LOCATE('/', ");
-							statement = statement.replace("SUBSTRING(", "SUBSTR(");
-							statement = statement.replace("__SUBSTR_VOID_ENDPOS__", "");
-						} else if(targetDatabaseName.indexOf("Oracle") >=0) {
-							statement = statement.replace("true", "1");
-							statement = statement.replace("false", "0");
-							statement = statement.replace("__SUBSTR_VOID_ENDPOS__", "");						
-						} else if(targetDatabaseName.indexOf("Microsoft") >=0) {
-							statement = statement.replace(" || ", " + ");
-							statement = statement.replace("POSITION('/' IN ", "CHARINDEX('/', ");
-							statement = statement.replace("__SUBSTR_VOID_ENDPOS__", ",1000");
-						} else {
-							statement = statement.replace("__SUBSTR_VOID_ENDPOS__", "");						
-						}
-						if(statement.startsWith(ALTER_TABLE_PREFIX)) {
-							statement = mapColumnDefinition(targetDatabaseName, statement);
-							if(targetDatabaseName.indexOf("PostgreSQL") >=0) {
-								// nothing to do
-							} else if(targetDatabaseName.indexOf("HSQL") >=0) {
-								statement = statement.replace("TYPE ", "");							
-							} else if(targetDatabaseName.indexOf("Oracle") >=0) {
-								statement = statement.replace("ALTER COLUMN", "MODIFY");
-								statement = statement.replace("TYPE ", "");
-							} else if(targetDatabaseName.indexOf("MySQL") >=0) {
-								statement = statement.replace("ALTER COLUMN", "MODIFY");						
-								statement = statement.replace("TYPE ", "");
-							} else if(targetDatabaseName.indexOf("DB2") >=0) {
-								statement = statement.replace("TYPE ", "SET DATA TYPE ");
-							} else if(targetDatabaseName.indexOf("Microsoft") >=0) {
-								statement = statement.replace("TYPE ", "");
-							}
-						}
-						if(fix) {
-							try {					
-								report.add("SQL (" + migrationDefinition.getName() + "): " + statement);
-								psT = connT.prepareStatement(statement);
-								psT.executeUpdate();
-							} catch(Exception e) {
-								report.add("ERROR: Migration failed (message=" + e + ")");									
-							} finally {
-								try {
-									psT.close();
-								} catch(Exception e0) {}
-							}
-						} else {								
-							report.add("FIX (" + migrationDefinition.getName() + "): " + statement);								
-						}
-					}
-				}
-			} catch(Exception e) {
-				try {
-					psT.close();
-				} catch(Exception e0) {}
-				// Schema is not valid for migration
-			}
 		}
 		return report;
 	}

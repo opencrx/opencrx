@@ -193,14 +193,6 @@ public class DbSchemaWizardController extends JspWizardController {
 				)
 			);
 			System.out.println("done");
-			System.out.print(new java.util.Date() + ": DbSchemaWizard  Migrating data ... ");
-			this.report.addAll(
-				org.opencrx.kernel.utils.DbSchemaUtils.migrateData(
-					connT,
-					true // migrate by default
-				)
-			);
-			System.out.println("done");
 			System.out.print(new java.util.Date() + ": DbSchemaWizard  Validating " + (fix ? "and fixing " : "") + "views ... ");
 			this.report.addAll(
 				org.opencrx.kernel.utils.DbSchemaUtils.validateViews(

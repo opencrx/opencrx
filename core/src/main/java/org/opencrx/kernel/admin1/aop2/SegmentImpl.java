@@ -57,6 +57,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.opencrx.kernel.admin1.jmi1.Admin1Package;
+import org.opencrx.kernel.admin1.jmi1.GenerateDatabaseScriptResult;
 import org.opencrx.kernel.backend.Admin;
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.layer.persistence.Media_2;
@@ -181,4 +182,24 @@ public class SegmentImpl
     	);
     }
 
+    /**
+     * Generate database script.
+     * 
+     * @param params
+     * @return
+     */
+    public org.opencrx.kernel.admin1.jmi1.GenerateDatabaseScriptResult generateDatabaseScript(
+    	org.opencrx.kernel.admin1.jmi1.GenerateDatabaseScriptParams params
+    ) {
+    	try {
+	    	GenerateDatabaseScriptResult result = Admin.getInstance().generateDatabaseScript(
+	            this.sameObject(),
+	            params.getCommand()
+	        );
+	    	return result;
+        } catch(ServiceException e) {
+            throw new JmiServiceException(e);
+        }
+    }
+    
 }

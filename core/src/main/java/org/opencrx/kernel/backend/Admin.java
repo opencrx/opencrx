@@ -55,10 +55,14 @@ package org.opencrx.kernel.backend;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -66,14 +70,18 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.concurrent.Callable;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 
 import org.opencrx.kernel.account1.jmi1.Contact;
 import org.opencrx.kernel.activity1.jmi1.ActivityProcessState;
+import org.opencrx.kernel.admin1.jmi1.GenerateDatabaseScriptResult;
 import org.opencrx.kernel.generic.OpenCrxException;
 import org.opencrx.kernel.generic.SecurityKeys;
+import org.opencrx.kernel.utils.DbSchemaUtils;
+import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.query.ConditionType;
@@ -81,6 +89,12 @@ import org.openmdx.base.query.Quantifier;
 import org.openmdx.kernel.exception.BasicException;
 import org.openmdx.kernel.log.SysLog;
 import org.openmdx.portal.servlet.CssClass;
+import org.w3c.spi2.Datatypes;
+import org.w3c.spi2.Structures;
+
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 /**
  * Admin backend class.
@@ -127,6 +141,32 @@ public class Admin extends AbstractImpl {
 		GROUP
 	}
 	
+	/**
+	 * Check whether requesting principal has root permission.
+	 * 
+	 * @param adminSegment
+	 * @param operationName
+	 * @throws ServiceException
+	 */
+	public void checkRootPermission(
+		org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
+		String operationName
+	) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(adminSegment);
+    	String providerName = adminSegment.refGetPath().getSegment(2).toString();
+    	String segmentName = adminSegment.refGetPath().getSegment(4).toString();
+    	org.openmdx.security.realm1.jmi1.Principal requestingPrincipal = Utils.getRequestingPrincipal(pm, providerName, segmentName);
+    	if(!requestingPrincipal.refGetPath().endsWith(SecurityKeys.ROOT_PRINCIPAL)) {
+			throw new ServiceException(
+                OpenCrxException.DOMAIN,
+                OpenCrxException.AUTHORIZATION_FAILURE_UPDATE,
+    			String.format("No permission for %s on object", operationName),
+                new BasicException.Parameter("object", operationName),
+                new BasicException.Parameter("param0", requestingPrincipal.refGetPath())
+    		);
+    	}
+	}
+
     /**
      * Create segment.
      * 
@@ -153,9 +193,9 @@ public class Admin extends AbstractImpl {
 	        if(segment instanceof org.opencrx.kernel.base.jmi1.SecureObject) {
 		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).setOwningUser(owningUser);
 		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).getOwningGroup().add(owningGroup);
-		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).setAccessLevelBrowse(new Short(SecurityKeys.ACCESS_LEVEL_GLOBAL));
-		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).setAccessLevelUpdate(new Short(SecurityKeys.ACCESS_LEVEL_DEEP));
-		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).setAccessLevelDelete(new Short(SecurityKeys.ACCESS_LEVEL_PRIVATE));                
+		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).setAccessLevelBrowse(Short.valueOf(SecurityKeys.ACCESS_LEVEL_GLOBAL));
+		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).setAccessLevelUpdate(Short.valueOf(SecurityKeys.ACCESS_LEVEL_DEEP));
+		        ((org.opencrx.kernel.base.jmi1.SecureObject)segment).setAccessLevelDelete(Short.valueOf(SecurityKeys.ACCESS_LEVEL_PRIVATE));                
 	        }
 	        try {
 	        	provider.addSegment(
@@ -193,7 +233,7 @@ public class Admin extends AbstractImpl {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(adminSegment);
     	org.opencrx.kernel.account1.jmi1.Segment accountSegment = 
     		(org.opencrx.kernel.account1.jmi1.Segment)pm.getObjectById(
-    			new Path("xri://@openmdx*org.opencrx.kernel.account1").getDescendant("provider", adminSegment.refGetPath().get(2), "segment", segmentName)
+    			new Path("xri://@openmdx*org.opencrx.kernel.account1").getDescendant("provider", adminSegment.refGetPath().getSegment(2).toString(), "segment", segmentName)
     		);
     	Contact contact = null;
         try {
@@ -424,8 +464,9 @@ public class Admin extends AbstractImpl {
         String initialPasswordVerification,
         List<String> errors
     ) throws ServiceException {
+        this.checkRootPermission(adminSegment, "createAdministrator");
     	PersistenceManager pm = JDOHelper.getPersistenceManager(adminSegment);
-        String providerName = adminSegment.refGetPath().get(2);
+        String providerName = adminSegment.refGetPath().getSegment(2).toString();
         Path realmIdentity = SecureObject.getRealmIdentity(providerName, segmentName);
         Path contactIdentity = null;
         Path groupAdministratorsIdentity = null;
@@ -451,7 +492,7 @@ public class Admin extends AbstractImpl {
 	            // Create segment administrator if it does not exist
 	        	org.opencrx.security.identity1.jmi1.Segment identitySegment = 
 	        		(org.opencrx.security.identity1.jmi1.Segment)pmRoot.getObjectById(
-	        			new Path("xri://@openmdx*org.opencrx.security.identity1").getDescendant("provider", loginRealmIdentity.get(2), "segment", "Root")
+	        			new Path("xri://@openmdx*org.opencrx.security.identity1").getDescendant("provider", loginRealmIdentity.getSegment(2).toString(), "segment", "Root")
 	        		);
 	            // Create segment administrator's subject
 	        	segmentAdminSubject = this.createSubject(
@@ -734,6 +775,7 @@ public class Admin extends AbstractImpl {
         org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
         byte[] item
     ) throws ServiceException {
+        this.checkRootPermission(adminSegment, "importLoginPrincipals");    	
     	PersistenceManager pm = JDOHelper.getPersistenceManager(adminSegment);
         BufferedReader reader = null;
         try {
@@ -742,10 +784,10 @@ public class Admin extends AbstractImpl {
 	        );
         } catch (UnsupportedEncodingException e) {}
         org.openmdx.security.realm1.jmi1.Realm loginRealm = (org.openmdx.security.realm1.jmi1.Realm)pm.getObjectById(
-        	SecureObject.getInstance().getLoginRealmIdentity(adminSegment.refGetPath().get(2))
+        	SecureObject.getInstance().getLoginRealmIdentity(adminSegment.refGetPath().getSegment(2).toString())
         );
         org.opencrx.security.identity1.jmi1.Segment identitySegment = (org.opencrx.security.identity1.jmi1.Segment)pm.getObjectById( 
-            new Path("xri://@openmdx*org.opencrx.security.identity1").getDescendant("provider", adminSegment.refGetPath().get(2), "segment", "Root")
+            new Path("xri://@openmdx*org.opencrx.security.identity1").getDescendant("provider", adminSegment.refGetPath().getSegment(2).toString(), "segment", "Root")
         );
         int nCreatedPrincipals = 0;
         int nExistingPrincipals = 0;
@@ -864,13 +906,13 @@ public class Admin extends AbstractImpl {
 		// CONTRACT_FILTER_NAME_LEAD_FORECAST
 		org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty.class);
 		contractTypeFilterProperty.setName("Lead");
-		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setActive(Boolean.TRUE);
 		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Lead");
 		org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty contractQueryFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty .class);
 		contractQueryFilterProperty.setName("Estimated close date >= Today");
-		contractQueryFilterProperty.setActive(new Boolean (true));
+		contractQueryFilterProperty.setActive(Boolean.TRUE);
 		contractQueryFilterProperty.setClause("(v.estimated_close_date >= now())");
 		Contracts.getInstance().initContractFilter(
 			CONTRACT_FILTER_NAME_LEAD_FORECAST,
@@ -884,16 +926,16 @@ public class Admin extends AbstractImpl {
 		// CONTRACT_FILTER_NAME_WON_LEADS
 		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
 		contractTypeFilterProperty.setName("Lead");
-		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setActive(Boolean.TRUE);
 		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Lead");
 		org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty contractStateFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty.class);
 		contractStateFilterProperty.setName("Won");
-		contractStateFilterProperty.setActive(new Boolean (true));
+		contractStateFilterProperty.setActive(Boolean.TRUE);
 		contractStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
-		contractStateFilterProperty.getContractState().add(new Short((short)1110));
+		contractStateFilterProperty.getContractState().add(Short.valueOf((short)1110));
 		Contracts.getInstance().initContractFilter(
 			CONTRACT_FILTER_NAME_WON_LEADS,
 			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
@@ -906,13 +948,13 @@ public class Admin extends AbstractImpl {
 		// CONTRACT_FILTER_NAME_OPPORTUNITY_FORECAST
 		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
 		contractTypeFilterProperty.setName("Opportunity");
-		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setActive(Boolean.TRUE);
 		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Opportunity");
 		contractQueryFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty .class);
 		contractQueryFilterProperty.setName("Estimated close date >= Today");
-		contractQueryFilterProperty.setActive(new Boolean (true));
+		contractQueryFilterProperty.setActive(Boolean.TRUE);
 		contractQueryFilterProperty.setClause("(v.estimated_close_date >= now())");
 		Contracts.getInstance().initContractFilter(
 			CONTRACT_FILTER_NAME_OPPORTUNITY_FORECAST,
@@ -926,16 +968,16 @@ public class Admin extends AbstractImpl {
 		// CONTRACT_FILTER_NAME_WON_OPPORTUNITIES
 		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
 		contractTypeFilterProperty.setName("Opportunity");
-		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setActive(Boolean.TRUE);
 		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Opportunity");
 		contractStateFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty.class);
 		contractStateFilterProperty.setName("Won");
-		contractStateFilterProperty.setActive(new Boolean (true));
+		contractStateFilterProperty.setActive(Boolean.TRUE);
 		contractStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
-		contractStateFilterProperty.getContractState().add(new Short((short)1210));
+		contractStateFilterProperty.getContractState().add(Short.valueOf((short)1210));
 		Contracts.getInstance().initContractFilter(
 			CONTRACT_FILTER_NAME_WON_OPPORTUNITIES,
 			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
@@ -948,13 +990,13 @@ public class Admin extends AbstractImpl {
 		// CONTRACT_FILTER_NAME_QUOTE_FORECAST
 		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
 		contractTypeFilterProperty.setName("Quote");
-		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setActive(Boolean.TRUE);
 		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Quote");
 		contractQueryFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractQueryFilterProperty .class);
 		contractQueryFilterProperty.setName("Estimated close date >= Today");
-		contractQueryFilterProperty.setActive(new Boolean (true));
+		contractQueryFilterProperty.setActive(Boolean.TRUE);
 		contractQueryFilterProperty.setClause("(v.estimated_close_date >= now())");
 		Contracts.getInstance().initContractFilter(
 			CONTRACT_FILTER_NAME_QUOTE_FORECAST,
@@ -968,16 +1010,16 @@ public class Admin extends AbstractImpl {
 		// CONTRACT_FILTER_NAME_WON_QUOTES
 		contractTypeFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractTypeFilterProperty .class);
 		contractTypeFilterProperty.setName("Quote");
-		contractTypeFilterProperty.setActive(new Boolean (true));
+		contractTypeFilterProperty.setActive(Boolean.TRUE);
 		contractTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		contractTypeFilterProperty.getContractType().add("org:opencrx:kernel:contract1:Quote");
 		contractStateFilterProperty = pm.newInstance(org.opencrx.kernel.contract1.jmi1.ContractStateFilterProperty.class);
 		contractStateFilterProperty.setName("Won");
-		contractStateFilterProperty.setActive(new Boolean (true));
+		contractStateFilterProperty.setActive(Boolean.TRUE);
 		contractStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		contractStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
-		contractStateFilterProperty.getContractState().add(new Short((short)1310));
+		contractStateFilterProperty.getContractState().add(Short.valueOf((short)1310));
 		Contracts.getInstance().initContractFilter(
 			CONTRACT_FILTER_NAME_WON_QUOTES,
 			new org.opencrx.kernel.contract1.jmi1.ContractFilterProperty[]{
@@ -1012,7 +1054,7 @@ public class Admin extends AbstractImpl {
 		// ACCOUNT_FILTER_NAME_NO_OR_BROKEN_VCARD
 		org.opencrx.kernel.account1.jmi1.AccountQueryFilterProperty accountQueryFilterProperty = pm.newInstance(org.opencrx.kernel.account1.jmi1.AccountQueryFilterProperty .class);
 		accountQueryFilterProperty.setName("external_link is null or vcard is null");
-		accountQueryFilterProperty.setActive(new Boolean (true));
+		accountQueryFilterProperty.setActive(Boolean.TRUE);
 		accountQueryFilterProperty.setClause("object_id IN (\n" +
           "  select oocke1_account.object_id from oocke1_account, oocke1_account_\n" +
           "  where oocke1_account.object_id = oocke1_account_.object_id\n" +
@@ -1342,7 +1384,7 @@ public class Admin extends AbstractImpl {
 		// ACTIVITY_FILTER_NAME_PHONE_CALLS
 		org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
 		activityTypeFilterProperty.setName("Phone Calls");
-		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setActive(Boolean.TRUE);
 		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		activityTypeFilterProperty.getActivityType().add(phoneCallsType);
@@ -1357,7 +1399,7 @@ public class Admin extends AbstractImpl {
 		// ACTIVITY_FILTER_NAME_MEETINGS
 		activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
 		activityTypeFilterProperty.setName("Meetings");
-		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setActive(Boolean.TRUE);
 		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		activityTypeFilterProperty.getActivityType().add(meetingsType);
@@ -1372,7 +1414,7 @@ public class Admin extends AbstractImpl {
 		// ACTIVITY_FILTER_NAME_NEW_ACTIVITIES
 		activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
 		activityTypeFilterProperty.setName("All Types");
-		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setActive(Boolean.TRUE);
 		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		activityTypeFilterProperty.getActivityType().add(bugsAndFeaturesType);
@@ -1396,7 +1438,7 @@ public class Admin extends AbstractImpl {
 		// ACTIVITY_FILTER_NAME_OPEN_ACTIVITIES
 		activityTypeFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityTypeFilterProperty.class);
 		activityTypeFilterProperty.setName("All Types");
-		activityTypeFilterProperty.setActive(new Boolean (true));
+		activityTypeFilterProperty.setActive(Boolean.TRUE);
 		activityTypeFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		activityTypeFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		activityTypeFilterProperty.getActivityType().add(bugsAndFeaturesType);
@@ -1405,7 +1447,7 @@ public class Admin extends AbstractImpl {
 		activityTypeFilterProperty.getActivityType().add(phoneCallsType);
 		activityProcessStateFilterProperty = pm.newInstance(org.opencrx.kernel.activity1.jmi1.ActivityProcessStateFilterProperty.class);
 		activityProcessStateFilterProperty.setName("Open");
-		activityProcessStateFilterProperty.setActive(new Boolean (true));
+		activityProcessStateFilterProperty.setActive(Boolean.TRUE);
 		activityProcessStateFilterProperty.setFilterQuantor(Quantifier.THERE_EXISTS.code());
 		activityProcessStateFilterProperty.setFilterOperator(ConditionType.IS_IN.code());
 		activityProcessStateFilterProperty.getProcessState().add(bugAndFeatureTrackingProcessStateInProgress);
@@ -1677,6 +1719,361 @@ public class Admin extends AbstractImpl {
 		return report.toString();
     }
     
+    /**
+     * Get where patterns for selecting rows used by the generate database script commands.
+     *  
+     * @param tableName
+     * @param providerName
+     * @param segmentName
+     * @param includeRootAndDefaultSegments
+     * @return
+     */
+    protected List<String> getGenerateDatabaseScriptWherePatterns(
+    	String tableName,
+    	String providerName,
+    	String segmentName,
+    	boolean includeRootAndDefaultSegments
+    ) {
+		List<String> wherePatterns = new ArrayList<String>();
+		if(tableName.toUpperCase().startsWith("OOCKE1_SEGMENT")) {
+			wherePatterns.add(String.format("%%/%s/%s", providerName, segmentName));
+		} else if(
+			tableName.toUpperCase().startsWith("OOMSE2_POLICY") ||
+			tableName.toUpperCase().startsWith("OOMSE2_REALM")
+		) {
+			wherePatterns.add(String.format("%%/%s/Root/%s", providerName, segmentName));
+		} else if(tableName.toUpperCase().startsWith("OOMSE2_")) {
+			wherePatterns.add(String.format("%%/%s/%s/%s/%%", providerName, "Root", segmentName));
+			if(includeRootAndDefaultSegments) {
+				if(
+					tableName.toUpperCase().startsWith("OOMSE2_CREDENTIAL") ||
+					tableName.toUpperCase().startsWith("OOMSE2_SUBJECT")
+				) {
+					wherePatterns.add(String.format("%%/%s/%s/%%", providerName, "Root"));
+				} else {
+					wherePatterns.add(String.format("%%/%s/%s/%s/%%", providerName, "Root", "Default"));
+				}
+			}
+		} else {
+			wherePatterns.add(String.format("%%/%s/%s/%%", providerName, segmentName));
+		}
+		return wherePatterns;
+    }
+
+    @Command(
+    	name = "generateDatabaseScript"
+    )
+    class GenerateDatabaseScriptCommand {
+    	
+    }
+    
+    @Command(name = "createSchema", description = "Generate script with database schema (tables only).")
+    class GenerateDatabaseSchemaScriptCommand implements Callable<Integer> {
+    	public GenerateDatabaseSchemaScriptCommand(
+    		StringBuffer scriptName,
+    		PrintWriter scriptWriter
+    	) {
+    		this.scriptName = scriptName;
+    		this.scriptWriter = scriptWriter;
+    		this.databaseType = "HSQL";
+    	}
+		@Override
+		public Integer call(
+		) throws Exception {
+			this.scriptName.append("createSchema.sql");
+			List<String> schema = null;
+			{
+				Connection connS = null;
+				try {
+					connS = DbSchemaUtils.getSchemaConnection();
+					schema = DbSchemaUtils.getSchema(connS);
+				} finally {
+					try {
+						connS.close();
+					} catch(Exception ignore) {}
+				}
+			}
+			List<String> tableNames = DbSchemaUtils.getTableNames();
+			for(String tableName: tableNames) {
+				String objectDefinition = DbSchemaUtils.getObjectDefinition(
+					DbSchemaUtils.CREATE_TABLE_PREFIX,
+					tableName,
+					schema,
+					this.databaseType,
+					false
+				);
+				this.scriptWriter.print(objectDefinition);
+				this.scriptWriter.println(";");
+			}
+			return 0;
+		}
+    	@Option(names = { "-t", "--databaseType" }, required = true, paramLabel = "TYPE", description = "database type [PostgreSQL, HSQL, MySQL, DB2, Oracle, Microsoft]")
+    	String databaseType;
+     	@Option(names = { "-h", "--help" }, usageHelp = true, description = "display a help message")
+     	private boolean helpRequested = false;
+    	private final StringBuffer scriptName;
+        private final PrintWriter scriptWriter;
+    }
+
+    @Command(name = "deleteSegment", description = "Generate script to delete a segment.")
+    class GenerateDeleteSegmentScriptCommand implements Callable<Integer> {
+    	public GenerateDeleteSegmentScriptCommand(
+        	org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
+    		StringBuffer scriptName,
+    		PrintWriter scriptWriter
+    	) {
+    		this.adminSegment = adminSegment;
+    		this.scriptName = scriptName;
+    		this.scriptWriter = scriptWriter;
+			this.providerName = this.adminSegment.refGetPath().getSegment(2).toString();
+    	}
+		@Override
+		public Integer call(
+		) throws Exception {
+			this.scriptName.append("deleteSegment-").append(this.segmentName).append(".sql");
+			List<String> tableNames = DbSchemaUtils.getTableNames();
+			for(String tableName: tableNames) {
+				this.scriptWriter.println(String.format("DELETE FROM %s", tableName));
+				// WHEREGenerateSchemaScriptCommand
+				{
+					List<String> wherePatterns = getGenerateDatabaseScriptWherePatterns(
+						tableName,
+						this.providerName,
+						this.segmentName,
+						false // must not delete shared principals and subjects in Root and Default segments
+					);
+					// Remove admin-{segment} principals, subjects, credentials
+					if(tableName.toUpperCase().startsWith("OOMSE2_")) {
+						wherePatterns.add(String.format("%%/admin-%s", this.segmentName));
+					}
+					String sep = "  ";
+					this.scriptWriter.println(String.format("WHERE"));
+					for(String wherePattern: wherePatterns) {
+						this.scriptWriter.println(String.format("  %s object_id LIKE '%s'", sep, wherePattern));
+						sep = "OR";
+					}
+				}
+				this.scriptWriter.println(";");
+			}
+			return 0;
+		}
+    	@Option(names = { "-p", "--provider" }, required = false, paramLabel = "PROVIDER", description = "the provider name")
+    	String providerName;
+    	@Option(names = { "-s", "--segment" }, required = true, paramLabel = "SEGMENT", description = "the segment name")
+    	String segmentName;
+     	@Option(names = { "-h", "--help" }, usageHelp = true, description = "display a help message")
+     	private boolean helpRequested = false;
+     	private final org.opencrx.kernel.admin1.jmi1.Segment adminSegment;
+    	private final StringBuffer scriptName;
+        private final PrintWriter scriptWriter;
+    }
+ 
+    @Command(name = "copySegment", description = "Generate script to copy a segment.")    
+    class GenerateCopySegmentScriptCommand implements Callable<Integer> {
+    	public GenerateCopySegmentScriptCommand(
+        	org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
+    		StringBuffer scriptName,
+    		PrintWriter scriptWriter
+    	) {
+    		this.adminSegment = adminSegment;
+    		this.scriptName = scriptName;
+    		this.scriptWriter = scriptWriter;
+			this.providerName = this.adminSegment.refGetPath().getSegment(2).toString();
+			this.databaseName = "";
+    	}
+		@Override
+		public Integer call(
+		) throws Exception {
+			this.scriptName.append("copySegment-").append(this.segmentName).append(".sql");
+			List<String> tableNames = DbSchemaUtils.getTableNames();
+			for(String tableName: tableNames) {
+				String selectTableAlias = "v";
+				List<String> columnNames = DbSchemaUtils.getColumnNames(tableName, null, null);
+				// INSERT
+				{
+					this.scriptWriter.println(String.format("INSERT INTO %s (", tableName));
+					String sep = " ";
+					for(String columnName: columnNames) {
+						this.scriptWriter.print(String.format("%s %s", sep, columnName));
+						sep = ",";
+					}
+					this.scriptWriter.println();
+					this.scriptWriter.println(")");
+				}
+				// SELECT
+				{
+					this.scriptWriter.println("SELECT");
+					String sep = " ";
+					for(String columnName: columnNames) {
+						this.scriptWriter.print(String.format("%s %s", sep, columnName));
+						sep = ",";
+					}
+					this.scriptWriter.println();
+					this.scriptWriter.println("FROM");
+					this.scriptWriter.println(String.format("  %s%s %s", this.databaseName, tableName, selectTableAlias));
+				}
+				// WHERE
+				{
+					this.scriptWriter.println("WHERE");
+					// Prevent duplicate principals, subjects, credentials
+					if(tableName.toUpperCase().startsWith("OOMSE2_")) {
+						this.scriptWriter.println(String.format("  NOT EXISTS (SELECT 1 FROM %s WHERE object_id = %s.object_id) AND", tableName, selectTableAlias));
+					}
+					List<String> wherePatterns = getGenerateDatabaseScriptWherePatterns(
+						tableName,
+						this.providerName,
+						this.segmentName,
+						true // must include shared principals and subjects in Root and Default segments
+					);
+					String sep = "  ";
+					this.scriptWriter.println("  (");
+					for(String wherePattern: wherePatterns) {
+						this.scriptWriter.println(String.format("    %s %s.object_id LIKE '%s'", sep, selectTableAlias, wherePattern));
+						sep = "OR";
+					}
+					this.scriptWriter.println("  )");
+				}
+				this.scriptWriter.println(";");
+			}
+			return 0;
+		}
+    	@Option(names = { "-p", "--provider" }, required = false, paramLabel = "PROVIDER", description = "the provider name")
+    	String providerName;
+    	@Option(names = { "-s", "--segment" }, required = true, paramLabel = "SEGMENT", description = "the segment name")
+    	String segmentName;
+    	@Option(names = { "-d", "--database" }, required = true, paramLabel = "DATABASE", description = "the name of the source database / schema")
+    	String databaseName;
+    	@Option(names = { "-h", "--help" }, usageHelp = true, description = "display a help message")
+    	private boolean helpRequested = false;
+    	private final org.opencrx.kernel.admin1.jmi1.Segment adminSegment;
+    	private final StringBuffer scriptName;
+        private final PrintWriter scriptWriter;
+    }
+
+    @Command(name = "renameSegment", description = "Generate script to rename a segment.")
+    class GenerateRenameSegmentScriptCommand implements Callable<Integer> {
+    	public GenerateRenameSegmentScriptCommand(
+    		org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
+    		StringBuffer scriptName,
+    		PrintWriter scriptWriter
+    	) {
+    		this.adminSegment = adminSegment;
+    		this.scriptName = scriptName;
+    		this.scriptWriter = scriptWriter;
+			this.providerName = this.adminSegment.refGetPath().getSegment(2).toString();
+    	}
+		@Override
+		public Integer call(
+		) throws Exception {
+			this.scriptName.append("renameSegment-").append(this.segmentNameFrom).append("-").append(this.segmentNameTo).append(".sql");
+			List<String> tableNames = DbSchemaUtils.getTableNames();
+			for(String tableName: tableNames) {				
+				List<String> columnNames = DbSchemaUtils.getColumnNames(
+					tableName,
+					Arrays.asList(java.sql.Types.VARCHAR, java.sql.Types.NVARCHAR, java.sql.Types.CHAR, java.sql.Types.NCHAR, java.sql.Types.LONGVARCHAR, java.sql.Types.LONGNVARCHAR, java.sql.Types.CLOB, java.sql.Types.NCLOB),
+					null
+				);
+				// UPDATE
+				this.scriptWriter.println(String.format("UPDATE %s SET", tableName));
+				// SET
+				{
+					String sep = " ";
+					for(String columnName: columnNames) {
+						String replaceExpr = columnName;
+						for(String replacePattern: Arrays.asList("%s/%s", "%s/Root/%s", "/provider/%s/segment/%s")) {
+							replaceExpr = String.format("REPLACE(%s, '" + replacePattern + "', '" + replacePattern + "')", replaceExpr, this.providerName, this.segmentNameFrom, this.providerName, this.segmentNameTo);
+						}
+						for(String replacePattern: Arrays.asList("admin-%s", "%s\\\\", "%s:")) {
+							replaceExpr = String.format("REPLACE(%s, '" + replacePattern + "', '" + replacePattern + "')", replaceExpr, this.segmentNameFrom, this.segmentNameTo);
+						}
+						this.scriptWriter.println(String.format("  %s %s = %s", sep, columnName, replaceExpr));
+						sep = ",";
+					}
+				}
+				// WHERE
+				{
+					List<String> wherePatterns = getGenerateDatabaseScriptWherePatterns(
+						tableName,
+						this.providerName,
+						this.segmentNameFrom,
+						true // must replace principals and subjects in Root and Default segments
+					);
+					String sep = "  ";
+					this.scriptWriter.println(String.format("WHERE"));
+					for(String wherePattern: wherePatterns) {
+						this.scriptWriter.println(String.format("  %s object_id LIKE '%s'", sep, wherePattern));
+						sep = "OR";
+					}
+				}
+				this.scriptWriter.println(";");
+			}
+			return 0;
+		}
+    	@Option(names = { "-p", "--provider" }, required = false, paramLabel = "PROVIDER", description = "the provider name")
+    	String providerName;
+    	@Option(names = { "-f", "--segmentFrom" }, required = true, paramLabel = "FROM", description = "the FROM segment name")
+    	String segmentNameFrom;
+    	@Option(names = { "-t", "--segmentTo" }, required = true, paramLabel = "TO", description = "the TO segment name")
+    	String segmentNameTo;
+    	@Option(names = { "-h", "--help" }, usageHelp = true, description = "display a help message")
+    	private boolean helpRequested = false;
+    	private final org.opencrx.kernel.admin1.jmi1.Segment adminSegment;
+    	private final StringBuffer scriptName;
+    	private final PrintWriter scriptWriter;
+    }
+
+    /**
+     * Generate database script.
+     * 
+     * @param command
+     * @return
+     */
+    public GenerateDatabaseScriptResult generateDatabaseScript(
+        org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
+    	String command
+    ) throws ServiceException {
+        this.checkRootPermission(adminSegment, "generateDatabaseScript");
+    	try {
+	    	ByteArrayOutputStream statusMessage = new ByteArrayOutputStream();
+	    	PrintWriter statusMessageWriter = new PrintWriter(new OutputStreamWriter(statusMessage, "UTF-8"));
+	    	ByteArrayOutputStream script = new ByteArrayOutputStream();
+	    	PrintWriter scriptWriter = new PrintWriter(new OutputStreamWriter(script, "UTF-8"));    	
+	    	StringBuffer scriptName = new StringBuffer("");
+	    	String scriptMimeType = "application/sql";
+	    	CommandLine generateDatabaseScriptCommand = new CommandLine(new GenerateDatabaseScriptCommand());
+	    	generateDatabaseScriptCommand.setOut(statusMessageWriter).setErr(statusMessageWriter).setTrimQuotes(true);
+	    	CommandLine generateDatabaseSchemaScriptCommand = new CommandLine(new GenerateDatabaseSchemaScriptCommand(scriptName, scriptWriter));
+	    	generateDatabaseSchemaScriptCommand.setOut(statusMessageWriter).setErr(statusMessageWriter).setTrimQuotes(true);
+	    	CommandLine generateDeleteSegmentScriptCommand = new CommandLine(new GenerateDeleteSegmentScriptCommand(adminSegment, scriptName, scriptWriter));
+	    	generateDeleteSegmentScriptCommand.setOut(statusMessageWriter).setErr(statusMessageWriter).setTrimQuotes(true);
+	    	CommandLine generateCopySegmentScriptCommand = new CommandLine(new GenerateCopySegmentScriptCommand(adminSegment, scriptName, scriptWriter));
+	    	generateCopySegmentScriptCommand.setOut(statusMessageWriter).setErr(statusMessageWriter).setTrimQuotes(true);
+	    	CommandLine generateRenameSegmentScriptCommand = new CommandLine(new GenerateRenameSegmentScriptCommand(adminSegment, scriptName, scriptWriter));
+	    	generateRenameSegmentScriptCommand.setOut(statusMessageWriter).setErr(statusMessageWriter).setTrimQuotes(true);
+	    	statusMessageWriter.println("<pre>");
+	    	generateDatabaseScriptCommand
+	    		.setOut(statusMessageWriter)
+	    		.setErr(statusMessageWriter)
+	    		.addSubcommand("createSchema", generateDatabaseSchemaScriptCommand)
+	    		.addSubcommand("deleteSegment", generateDeleteSegmentScriptCommand)
+	    		.addSubcommand("copySegment", generateCopySegmentScriptCommand)
+	    		.addSubcommand("renameSegment", generateRenameSegmentScriptCommand);
+	    	short statusCode = (short)generateDatabaseScriptCommand.execute(command == null ? new String[]{} : command.split(" "));
+	    	statusMessageWriter.println("</pre>");
+	    	scriptWriter.close();
+	        return Structures.create(
+	        	GenerateDatabaseScriptResult.class,
+	        	Datatypes.member(GenerateDatabaseScriptResult.Member.statusCode, statusCode),
+	        	Datatypes.member(GenerateDatabaseScriptResult.Member.statusMessage, statusMessage.toString("UTF-8")),
+	        	Datatypes.member(GenerateDatabaseScriptResult.Member.script, script.toByteArray()),
+	        	Datatypes.member(GenerateDatabaseScriptResult.Member.scriptName, scriptName.toString()),
+	        	Datatypes.member(GenerateDatabaseScriptResult.Member.scriptMimeType, scriptMimeType)
+	        );
+    	} catch(Exception e) {
+    		throw new ServiceException(e);
+    	}
+    }
+
     //----------------------------------------------------------------------------------------
     // Members
     //----------------------------------------------------------------------------------------

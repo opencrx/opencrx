@@ -117,7 +117,7 @@ public class FastResultSet {
     if(value == null) {
         int index = this.columnNames.indexOf(columnNameLowerCase);
         if(index < 0) {
-            throw new SQLException("AbstractDatabase_1: column " + columnName + " not found");
+            throw new SQLException("column " + columnName + " not found");
         }
         // get all column values up to requested index
         while(this.currentColumnIndex < index) {
