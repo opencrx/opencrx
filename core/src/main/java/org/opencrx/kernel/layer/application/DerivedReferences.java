@@ -398,12 +398,14 @@ public class DerivedReferences {
 	        		response
 	        	);
 	            return true;
-	        } else if(path.isLike(GLOBAL_FILTER_INCLUDES_PRODUCT)) {
-		        // GlobalFilterIncludesProduct
+	        } else if(
+	        	path.isLike(GLOBAL_FILTER_INCLUDES_PRODUCT) ||
+	        	path.isLike(PRODUCT_PRICE_LEVEL_INCLUDES_FILTERED_PRODUCT)
+	        ) {
 	        	p.addFindRequest(
 	        		this.remapQuery(
 		                request,
-		                path.getPrefix(5).getChild("product"),
+		                path,
 		                this.getProductFilterProperties(
 		                	path.getPrefix(path.size() - 1),
 		                    false
@@ -498,11 +500,7 @@ public class DerivedReferences {
 	            	response
 	            );
 	            return true;
-	        } else if(
-	            path.isLike(PRODUCT_PRICE_LEVEL_INCLUDES_FILTERED_PRODUCT) ||
-	            path.isLike(SALES_VOLUME_BUDGET_POSITION_INCLUDES_FILTERED_PRODUCT)
-	        ) {
-		        // FilterIncludesProduct
+	        } else if(path.isLike(SALES_VOLUME_BUDGET_POSITION_INCLUDES_FILTERED_PRODUCT)) {
 	            List<FilterProperty> filterProperties = new ArrayList<FilterProperty>();
 	            filterProperties.addAll(
 	                Arrays.asList(

@@ -78,6 +78,8 @@ DROP VIEW OOCKE1_JOIN_FILTERINCLDESCB COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_FILTERINCLDESIL COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_FILTERINCLUDESPROD COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_FLDCONTAINSFLD COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_IITEMHASBOOKING COMMAND_TERMINATOR 
@@ -997,6 +999,28 @@ FROM
     OOCKE1_FILTER f
 INNER JOIN
     OOCKE1_INVENTORYLEVEL il
+ON
+    (1=1) COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_FILTERINCLUDESPROD AS
+SELECT
+    f.object_id AS product_filter,
+    p.object_id AS filtered_product
+FROM
+    OOCKE1_FILTER f
+INNER JOIN
+    OOCKE1_PRODUCT p
+ON
+    (1=1)
+UNION ALL
+SELECT
+    f.object_id AS product_filter,
+    p.object_id AS filtered_product
+FROM
+    OOCKE1_PRICELEVEL f
+INNER JOIN
+    OOCKE1_PRODUCT p
 ON
     (1=1) COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"

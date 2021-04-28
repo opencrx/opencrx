@@ -1,4 +1,4 @@
-/* Copyright (C) 1991-2019 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2020 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -13,7 +13,7 @@
 
    You should have received a copy of the GNU Lesser General Public
    License along with the GNU C Library; if not, see
-   <http://www.gnu.org/licenses/>.  */
+   <https://www.gnu.org/licenses/>.  */
 /* This header is separate from features.h so that the compiler can
    include it implicitly at the start of every compilation.  It must
    not itself include <features.h> or any other header that includes
@@ -115,6 +115,7 @@ DROP VIEW OOCKE1_JOIN_FILTERINCLDESBK ;
 DROP VIEW OOCKE1_JOIN_FILTERINCLDESSBK ;
 DROP VIEW OOCKE1_JOIN_FILTERINCLDESCB ;
 DROP VIEW OOCKE1_JOIN_FILTERINCLDESIL ;
+DROP VIEW OOCKE1_JOIN_FILTERINCLUDESPROD ;
 DROP VIEW OOCKE1_JOIN_FLDCONTAINSFLD ;
 DROP VIEW OOCKE1_JOIN_IITEMHASBOOKING ;
 DROP VIEW OOCKE1_JOIN_HOMEHASASSACT ;
@@ -841,6 +842,26 @@ FROM
     OOCKE1_FILTER f
 INNER JOIN
     OOCKE1_INVENTORYLEVEL il
+ON
+    (1=1) ;
+CREATE VIEW OOCKE1_JOIN_FILTERINCLUDESPROD AS
+SELECT
+    f.object_id AS product_filter,
+    p.object_id AS filtered_product
+FROM
+    OOCKE1_FILTER f
+INNER JOIN
+    OOCKE1_PRODUCT p
+ON
+    (1=1)
+UNION ALL
+SELECT
+    f.object_id AS product_filter,
+    p.object_id AS filtered_product
+FROM
+    OOCKE1_PRICELEVEL f
+INNER JOIN
+    OOCKE1_PRODUCT p
 ON
     (1=1) ;
 CREATE VIEW OOCKE1_JOIN_ACTGCONTAINSWRE AS
