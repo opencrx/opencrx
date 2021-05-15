@@ -55,6 +55,7 @@ package org.opencrx.kernel.backend;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -600,7 +601,15 @@ public class Products extends AbstractImpl {
     	productConfiguration.setDisabled(true);
     }
 
-    //-------------------------------------------------------------------------
+    /**
+     * Add filter properties defined by query to product filter.
+     * 
+     * @param productFilter
+     * @param query
+     * @param forCounting
+     * @return
+     * @throws ServiceException
+     */
     public ProductQuery getFilteredProductQuery(
         AbstractFilterProduct productFilter,
         ProductQuery query,
@@ -609,8 +618,7 @@ public class Products extends AbstractImpl {
         Collection<ProductFilterProperty> filterProperties = productFilter.getProductFilterProperty();
         boolean hasQueryFilterClause = false;
         for(ProductFilterProperty filterProperty: filterProperties) {
-            Boolean isActive = filterProperty.isActive();            
-            if((isActive != null) && isActive.booleanValue()) {
+            if(Boolean.TRUE.equals(filterProperty.isActive())) {
                 // Query filter
                 if(filterProperty instanceof ProductQueryFilterProperty) {
                 	ProductQueryFilterProperty p = (ProductQueryFilterProperty)filterProperty;
@@ -640,9 +648,8 @@ public class Products extends AbstractImpl {
                     	p.getDateTimeParam()
                     );
                     hasQueryFilterClause = true;
-                }
-                // Attribute filter
-                else if(filterProperty instanceof AttributeFilterProperty) {
+                } else if(filterProperty instanceof AttributeFilterProperty) {
+                    // Attribute filter
                 	AttributeFilterProperty attributeFilterProperty = (AttributeFilterProperty)filterProperty;
                     // Get filterOperator, filterQuantor
                     short operator = attributeFilterProperty.getFilterOperator();
@@ -652,8 +659,7 @@ public class Products extends AbstractImpl {
                     short quantor = attributeFilterProperty.getFilterQuantor();
                     quantor = quantor == 0 ? 
                     	Quantifier.THERE_EXISTS.code() : 
-                    	quantor;   
-                    
+                    	quantor;
                     if(filterProperty instanceof PriceUomFilterProperty) {
                     	PriceUomFilterProperty p = (PriceUomFilterProperty)filterProperty;
                     	switch(Quantifier.valueOf(quantor)) {
@@ -684,8 +690,7 @@ public class Products extends AbstractImpl {
 	                			}
 	                			break;
                     	}
-                	}
-                    else if(filterProperty instanceof CategoryFilterProperty) {
+                	} else if(filterProperty instanceof CategoryFilterProperty) {
                     	CategoryFilterProperty p = (CategoryFilterProperty)filterProperty;
                     	switch(Quantifier.valueOf(quantor)) {
 	                		case FOR_ALL:
@@ -751,8 +756,7 @@ public class Products extends AbstractImpl {
                     			}
                     			break;
                     	}
-                    }
-                    else if(filterProperty instanceof ProductClassificationFilterProperty) {
+                    } else if(filterProperty instanceof ProductClassificationFilterProperty) {
                     	ProductClassificationFilterProperty p = (ProductClassificationFilterProperty)filterProperty;
                     	switch(Quantifier.valueOf(quantor)) {
 	                		case FOR_ALL:
@@ -782,8 +786,7 @@ public class Products extends AbstractImpl {
 	                			}
 	                			break;
                     	}
-                    }
-                    else if(filterProperty instanceof DefaultSalesTaxTypeFilterProperty) {
+                    } else if(filterProperty instanceof DefaultSalesTaxTypeFilterProperty) {
                     	DefaultSalesTaxTypeFilterProperty p = (DefaultSalesTaxTypeFilterProperty)filterProperty;
                     	switch(Quantifier.valueOf(quantor)) {
 	                		case FOR_ALL:
@@ -813,8 +816,7 @@ public class Products extends AbstractImpl {
 	                			}
 	                			break;
                     	}                    	
-                    }
-                    else if(filterProperty instanceof DisabledFilterProperty) {
+                    } else if(filterProperty instanceof DisabledFilterProperty) {
                     	DisabledFilterProperty p = (DisabledFilterProperty)filterProperty;                    	
                     	switch(Quantifier.valueOf(quantor)) {
 	                		case FOR_ALL:
@@ -1180,7 +1182,7 @@ public class Products extends AbstractImpl {
                             new BigDecimal("0.5")
                         ).toBigInteger()
                     ).divide(
-                        roundingFactor, price.scale(), BigDecimal.ROUND_FLOOR 
+                        roundingFactor, price.scale(), RoundingMode.FLOOR 
                     ).add(
                         priceOffset
                     );
@@ -1212,7 +1214,15 @@ public class Products extends AbstractImpl {
         }        
     }
     
-    //-------------------------------------------------------------------------
+    /**
+     * Calculated prices for price level.
+     * 
+     * @param priceLevel
+     * @param testOnly
+     * @param includeProductsModifiedSince
+     * @return
+     * @throws ServiceException
+     */
     public int calculatePrices(
         AbstractPriceLevel priceLevel,
         boolean testOnly,
@@ -1242,14 +1252,9 @@ public class Products extends AbstractImpl {
         	productQuery,
         	false	
         );
-        org.opencrx.kernel.product1.jmi1.Segment productSegment =
-        	(org.opencrx.kernel.product1.jmi1.Segment)pm.getObjectById(
-        		priceLevel.refGetPath().getParent().getParent()
-        	);        		
-        List<Product> filteredProducts = productSegment.getProduct(productQuery);
         int numberProcessed = 0;
         // Iterate all matching products and calculate prices
-        for(Product product: filteredProducts) {
+        for(Product product: priceLevel.<Product>getFilteredProduct(productQuery)) {
             List<ProductBasePrice> basedOnPrices = this.findPrices(
                 product,
                 priceLevel,
@@ -1523,13 +1528,8 @@ public class Products extends AbstractImpl {
         	productQuery,
         	false
         );
-        org.opencrx.kernel.product1.jmi1.Segment productSegment =
-        	(org.opencrx.kernel.product1.jmi1.Segment)pm.getObjectById(
-        		priceLevel.refGetPath().getPrefix(5)
-        	);
-        List<Product> products = productSegment.getProduct(productQuery);
         int numberProcessed = 0;
-        for(Product product: products) {
+        for(Product product: priceLevel.<Product>getFilteredProduct(productQuery)) {
             List<ProductBasePrice> basePrices = this.findPrices(
                 product,
                 priceLevel,
