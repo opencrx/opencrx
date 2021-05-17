@@ -58,7 +58,6 @@ import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.api.file.FileTree
 import org.gradle.api.file.RelativePath
 import java.io.File
-import org.gradle.api.JavaVersion
 
 open class PortalWarTask: ArchiveTask() {
 

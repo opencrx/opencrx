@@ -47,6 +47,10 @@
  * This product includes software developed by contributors to
  * openMDX (http://www.openmdx.org/)
  */
+
+import java.io.*
+import java.util.*
+
  plugins {
     `kotlin-dsl`
     eclipse
@@ -62,6 +66,10 @@ repositories {
     mavenCentral()
 }
 
+var env = Properties()
+env.load(FileInputStream(File(project.getRootDir(), "build.properties")))
+val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
+
 eclipse {
 	project {
     	name = "openCRX 5 ~ Gradle"
@@ -70,14 +78,14 @@ eclipse {
 
 tasks.register<Jar>("opencrx-gradle.jar") {
 	dependsOn("classes")
-	destinationDirectory.set(File("../jre-" + JavaVersion.current() + "/" + project.getName() + "/lib"))
+	destinationDirectory.set(File("../jre-" + targetPlatform + "/" + project.getName() + "/lib"))
     archiveFileName.set("opencrx-gradle.jar")
     from("$buildDir/classes/kotlin/main")
     from("$buildDir/resources/main")
 	doLast {
 		ant.withGroovyBuilder {
 			"jar"(
-				"destfile" to File("../jre-" + JavaVersion.current() + "/" + project.getName() + "/lib/opencrx-gradle-sources.jar")
+				"destfile" to File("../jre-" + targetPlatform + "/" + project.getName() + "/lib/opencrx-gradle-sources.jar")
 			) {
 				"fileset"(
 					"dir" to "src/main/kotlin"

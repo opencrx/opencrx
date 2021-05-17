@@ -55,7 +55,6 @@ package org.opencrx.gradle
 import org.gradle.api.tasks.JavaExec
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFiles
-import org.gradle.api.JavaVersion
 import java.io.File
 import java.io.FileInputStream
 import java.util.Properties

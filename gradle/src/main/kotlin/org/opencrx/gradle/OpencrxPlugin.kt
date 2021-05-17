@@ -54,7 +54,8 @@ package org.opencrx.gradle
 
 import org.gradle.api.Project
 import org.gradle.api.Plugin
-import java.io.File
+import java.io.*
+import java.util.*
 import org.gradle.kotlin.dsl.*
 
 open class OpencrxPluginExtension(project: Project) {
@@ -193,13 +194,59 @@ open class OpencrxPlugin: Plugin<Project> {
 				}
 			}
 		}
-		// configurations
+        var buildProperties = Properties()
+        buildProperties.put("axis2.version", "1.7.+");
+        buildProperties.put("bcprov-jdk16.version", "1.46");
+        buildProperties.put("commons-compiler.version", "3.1.+");
+        buildProperties.put("groovy.version", "3.0.+");
+        buildProperties.put("gson.version", "2.8.+");
+        buildProperties.put("hsqldb.version", "2.4.+");
+        buildProperties.put("httpclient.version", "4.5.+");
+        buildProperties.put("itextpdf.version", "5.4.+");
+        buildProperties.put("janino.version", "3.1.+");
+        buildProperties.put("javaee-api.version", "8.0.+");
+        buildProperties.put("jdo-api.version", "3.1");
+        buildProperties.put("libphonenumber.version", "8.12.+");
+        buildProperties.put("openjpa.version", "2.4.+");
+        buildProperties.put("openmdx.version", "2.17.+");
+        buildProperties.put("pdfbox.version", "2.0.+");
+        buildProperties.put("picocli.version", "4.6.+");
+        buildProperties.put("poi.version", "4.1.+");
+        buildProperties.put("protobuf-javanano.version", "3.1.+");
+        buildProperties.put("smack.version", "3.2.+");
+        buildProperties.put("xmlbeans.version", "3.1.+");
+        buildProperties.put("zxing-core.version", "3.4.+");
+        var buildPropertiesFile = File(project.getRootDir(), "build.properties")
+        // versions
+        if(buildPropertiesFile.exists()) {
+            buildProperties.load(FileInputStream(buildPropertiesFile))
+        }
+		// versions
+        val axis2Version = buildProperties.getProperty("axis2.version")
+        val bcprovJdk16Version = buildProperties.getProperty("bcprov-jdk16.version")
+        val commonsCompilerVersion = buildProperties.getProperty("commons-compiler.version")
+        val groovyVersion = buildProperties.getProperty("groovy.version")
+        val gsonVersion = buildProperties.getProperty("gson.version")
+        val hsqldbVersion = buildProperties.getProperty("hsqldb.version")
+        val httpclientVersion = buildProperties.getProperty("httpclient.version")
+        val itextpdfVersion = buildProperties.getProperty("itextpdf.version")
+        val janinoVersion = buildProperties.getProperty("janino.version")
+        val javaeeApiVersion = buildProperties.getProperty("javaee-api.version")
+        val jdoApiVersion = buildProperties.getProperty("jdo-api.version")
+        val libphonenumberVersion = buildProperties.getProperty("libphonenumber.version")
+        val openjpaVersion = buildProperties.getProperty("openjpa.version")
+        val openmdxVersion = buildProperties.getProperty("openmdx.version")
+        val pdfboxVersion = buildProperties.getProperty("pdfbox.version")
+        val picocliVersion = buildProperties.getProperty("picocli.version")
+        val poiVersion = buildProperties.getProperty("poi.version")
+        val protobufJavananoVersion = buildProperties.getProperty("protobuf-javanano.version")
+        val smackVersion = buildProperties.getProperty("smack.version")
+        val xmlbeansVersion = buildProperties.getProperty("xmlbeans.version")
+        val zxingCoreVersion = buildProperties.getProperty("zxing-core.version")
+        // configurations
 		var implementation = project.getConfigurations().maybeCreate("implementation")
-		// opencrx
 		project.getConfigurations().maybeCreate("opencrxCoreModels")
 		project.getConfigurations().maybeCreate("opencrxCoreConfig")
-		// openmdx
-		val openmdxVersion = "2.17.+"
 		project.getConfigurations().maybeCreate("openmdxInspector")
 		project.getConfigurations().maybeCreate("openmdxBaseModels")
 		project.getConfigurations().maybeCreate("openmdxSecurityModels")
@@ -208,25 +255,25 @@ open class OpencrxPlugin: Plugin<Project> {
 		// dependencies
 		var dependencies = project.getDependencies()
 		// implementation
-		dependencies.add("implementation", "com.googlecode.libphonenumber:libphonenumber:8.12.+")
-		dependencies.add("implementation", "com.google.code.gson:gson:2.8.+")
-		dependencies.add("implementation", "com.google.zxing:core:3.4.+")
-		dependencies.add("implementation", "com.itextpdf:itextpdf:5.4.+")
-        dependencies.add("implementation", "info.picocli:picocli:4.6.+")
-		dependencies.add("implementation", "javax.jdo:jdo-api:3.1")
-		dependencies.add("implementation", "javax:javaee-api:8.0.+")
-		dependencies.add("implementation", "org.apache.axis2:axis2:1.7.+")
-		dependencies.add("implementation", "org.apache.httpcomponents:httpclient:4.5.+")
-		dependencies.add("implementation", "org.apache.poi:poi:4.1.+")
-		dependencies.add("implementation", "org.apache.poi:poi-ooxml:4.1.+")
-		dependencies.add("implementation", "org.apache.poi:poi-scratchpad:4.1.+")
-		dependencies.add("implementation", "org.apache.pdfbox:pdfbox:2.0.+")
-		dependencies.add("implementation", "org.apache.openjpa:openjpa:2.4.+")
-		dependencies.add("implementation", "org.apache.xmlbeans:xmlbeans:3.1.+")
-		dependencies.add("implementation", "org.codehaus.janino:janino:3.1.+")
-		dependencies.add("implementation", "org.codehaus.janino:commons-compiler:3.1.+")
-		dependencies.add("implementation", "org.hsqldb:hsqldb:2.4.+")
-		dependencies.add("implementation", "org.igniterealtime.smack:smack:3.2.+")
+		dependencies.add("implementation", "com.googlecode.libphonenumber:libphonenumber:${libphonenumberVersion}")
+		dependencies.add("implementation", "com.google.code.gson:gson:${gsonVersion}")
+		dependencies.add("implementation", "com.google.zxing:core:${zxingCoreVersion}")
+		dependencies.add("implementation", "com.itextpdf:itextpdf:${itextpdfVersion}")
+        dependencies.add("implementation", "info.picocli:picocli:${picocliVersion}")
+		dependencies.add("implementation", "javax.jdo:jdo-api:${jdoApiVersion}")
+		dependencies.add("implementation", "javax:javaee-api:${javaeeApiVersion}")
+		dependencies.add("implementation", "org.apache.axis2:axis2:${axis2Version}")
+		dependencies.add("implementation", "org.apache.httpcomponents:httpclient:${httpclientVersion}")
+		dependencies.add("implementation", "org.apache.poi:poi:${poiVersion}")
+		dependencies.add("implementation", "org.apache.poi:poi-ooxml:${poiVersion}")
+		dependencies.add("implementation", "org.apache.poi:poi-scratchpad:${poiVersion}")
+		dependencies.add("implementation", "org.apache.pdfbox:pdfbox:${pdfboxVersion}")
+		dependencies.add("implementation", "org.apache.openjpa:openjpa:${openjpaVersion}")
+		dependencies.add("implementation", "org.apache.xmlbeans:xmlbeans:${xmlbeansVersion}")
+		dependencies.add("implementation", "org.codehaus.janino:janino:${janinoVersion}")
+		dependencies.add("implementation", "org.codehaus.janino:commons-compiler:${commonsCompilerVersion}")
+		dependencies.add("implementation", "org.hsqldb:hsqldb:${hsqldbVersion}")
+		dependencies.add("implementation", "org.igniterealtime.smack:smack:${smackVersion}")
 		dependencies.add("implementation", "org.openmdx:openmdx-base:${openmdxVersion}")
 		dependencies.add("implementation", "org.openmdx:openmdx-portal:${openmdxVersion}")
 		dependencies.add("implementation", "org.openmdx:openmdx-security:${openmdxVersion}")
@@ -236,38 +283,38 @@ open class OpencrxPlugin: Plugin<Project> {
 	    dependencies.add("openmdxSecurityModels", "org.openmdx:openmdx-security-models:${openmdxVersion}")
 	    dependencies.add("openmdxPortalModels", "org.openmdx:openmdx-portal-models:${openmdxVersion}")
 		// earlib
-		dependencies.add("earlib", "com.google.code.gson:gson:2.8.+")
-		dependencies.add("earlib", "com.google.zxing:core:3.4.+")
-		dependencies.add("earlib", "com.googlecode.libphonenumber:libphonenumber:8.12.+")
-		dependencies.add("earlib", "com.google.protobuf.nano:protobuf-javanano:3.1.+")
-        dependencies.add("earlib", "info.picocli:picocli:4.6.+")
-		dependencies.add("earlib", "org.apache.openjpa:openjpa:2.4.+")
-		dependencies.add("earlib", "org.apache.pdfbox:pdfbox:2.0.+")
-		dependencies.add("earlib", "org.apache.pdfbox:xmpbox:2.0.+")
-		dependencies.add("earlib", "org.apache.pdfbox:preflight:2.0.+")
-		dependencies.add("earlib", "org.apache.pdfbox:pdfbox-tools:2.0.+")
-		dependencies.add("earlib", "org.apache.poi:poi:4.1.+")
-		dependencies.add("earlib", "org.apache.poi:poi-ooxml:4.1.+")
-		dependencies.add("earlib", "org.apache.poi:poi-scratchpad:4.1.+")
-		dependencies.add("earlib", "org.apache.poi:poi-excelant:4.1.+")
-		dependencies.add("earlib", "org.apache.xmlbeans:xmlbeans:3.1.+")
-		dependencies.add("earlib", "org.bouncycastle:bcprov-jdk16:1.46")
-		dependencies.add("earlib", "org.codehaus.janino:janino:3.1.+")
-		dependencies.add("earlib", "org.codehaus.janino:commons-compiler:3.1.+")
-		dependencies.add("earlib", "org.codehaus.groovy:groovy:3.0.+")
-		dependencies.add("earlib", "org.igniterealtime.smack:smack:3.2.+")
-		dependencies.add("earlib", "org.igniterealtime.smack:smackx:3.2.+")
-		dependencies.add("earlib", "org.igniterealtime.smack:smackx:3.2.+")
-		dependencies.add("earlib", "org.igniterealtime.smack:smackx-jingle:3.2.+")
-		dependencies.add("earlib", "org.igniterealtime.smack:smackx-debug:3.2.+")
-		dependencies.add("earlib", "com.itextpdf:itextpdf:5.4.+")
+		dependencies.add("earlib", "com.google.code.gson:gson:${gsonVersion}")
+		dependencies.add("earlib", "com.google.zxing:core:${zxingCoreVersion}")
+		dependencies.add("earlib", "com.googlecode.libphonenumber:libphonenumber:${libphonenumberVersion}")
+		dependencies.add("earlib", "com.google.protobuf.nano:protobuf-javanano:${protobufJavananoVersion}")
+        dependencies.add("earlib", "info.picocli:picocli:${picocliVersion}")
+		dependencies.add("earlib", "org.apache.openjpa:openjpa:${openjpaVersion}")
+		dependencies.add("earlib", "org.apache.pdfbox:pdfbox:${pdfboxVersion}")
+		dependencies.add("earlib", "org.apache.pdfbox:xmpbox:${pdfboxVersion}")
+		dependencies.add("earlib", "org.apache.pdfbox:preflight:${pdfboxVersion}")
+		dependencies.add("earlib", "org.apache.pdfbox:pdfbox-tools:${pdfboxVersion}")
+		dependencies.add("earlib", "org.apache.poi:poi:${poiVersion}")
+		dependencies.add("earlib", "org.apache.poi:poi-ooxml:${poiVersion}")
+		dependencies.add("earlib", "org.apache.poi:poi-scratchpad:${poiVersion}")
+		dependencies.add("earlib", "org.apache.poi:poi-excelant:${poiVersion}")
+		dependencies.add("earlib", "org.apache.xmlbeans:xmlbeans:${xmlbeansVersion}")
+		dependencies.add("earlib", "org.bouncycastle:bcprov-jdk16:${bcprovJdk16Version}")
+		dependencies.add("earlib", "org.codehaus.janino:janino:${janinoVersion}")
+		dependencies.add("earlib", "org.codehaus.janino:commons-compiler:${commonsCompilerVersion}")
+		dependencies.add("earlib", "org.codehaus.groovy:groovy:${groovyVersion}")
+		dependencies.add("earlib", "org.igniterealtime.smack:smack:${smackVersion}")
+		dependencies.add("earlib", "org.igniterealtime.smack:smackx:${smackVersion}")
+		dependencies.add("earlib", "org.igniterealtime.smack:smackx:${smackVersion}")
+		dependencies.add("earlib", "org.igniterealtime.smack:smackx-jingle:${smackVersion}")
+		dependencies.add("earlib", "org.igniterealtime.smack:smackx-debug:${smackVersion}")
+		dependencies.add("earlib", "com.itextpdf:itextpdf:${itextpdfVersion}")
 		dependencies.add("earlib", "org.openmdx:openmdx-base:${openmdxVersion}")
 		dependencies.add("earlib", "org.openmdx:openmdx-portal:${openmdxVersion}")
 		dependencies.add("earlib", "org.openmdx:openmdx-security:${openmdxVersion}")
 		// tools
 	    dependencies.add("tools", implementation)
-		dependencies.add("tools", "javax:javaee-api:8.0.+")
-		dependencies.add("tools", "org.apache.openjpa:openjpa:2.4.+")
-		dependencies.add("tools", "org.hsqldb:hsqldb:2.4.+")
+		dependencies.add("tools", "javax:javaee-api:${javaeeApiVersion}")
+		dependencies.add("tools", "org.apache.openjpa:openjpa:${openjpaVersion}")
+		dependencies.add("tools", "org.hsqldb:hsqldb:${hsqldbVersion}")
 	}
 }

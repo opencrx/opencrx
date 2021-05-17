@@ -50,6 +50,8 @@
 
 import org.gradle.kotlin.dsl.*
 import org.w3c.dom.Element
+import java.util.*
+import java.io.*
 
 plugins {
 	java
@@ -69,6 +71,10 @@ repositories {
         url = uri("https://www.openmdx.org/repos/releases")
     }
 }
+
+var env = Properties()
+env.load(FileInputStream(File(project.getRootDir(), "build.properties")))
+val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
 
 fun setJreContainerOptions(el: Element) {
     fun Element.firstElement(predicate: (Element.() -> Boolean)) =
@@ -104,6 +110,11 @@ eclipse {
             withXml { setJreContainerOptions(asElement()) }
     	}
     }
+    jdt {
+		sourceCompatibility = targetPlatform
+    	targetCompatibility = targetPlatform
+    	javaRuntimeName = "JavaSE-" + targetPlatform    	
+    }    
 }
 
 fun getProjectImplementationVersion(): String {
@@ -111,7 +122,7 @@ fun getProjectImplementationVersion(): String {
 }
 
 fun getDeliverDir(): File {
-	return File(project.getRootDir(), "jre-" + JavaVersion.current() + "/" + project.getName());
+	return File(project.getRootDir(), "jre-" + targetPlatform + "/" + project.getName());
 }
 
 fun touch(file: File) {
@@ -179,7 +190,7 @@ tasks.register("deliverables") {
 
 distributions {
     main {
-    	distributionBaseName.set("opencrx-" + getProjectImplementationVersion() + "-core-jre-" + JavaVersion.current())
+    	distributionBaseName.set("opencrx-" + getProjectImplementationVersion() + "-core-jre-" + targetPlatform)
         contents {
         	// core
         	from(".") { into("core"); include("LICENSE", "*.LICENSE", "NOTICE", "*.properties", "build*.*", "*.xml", "*.kts") }
@@ -192,8 +203,8 @@ distributions {
             // rootDir
             from("..") { include("*.properties", "*.kts" ) }
             // jre-...
-            from("../jre-" + JavaVersion.current() + "/core/lib") { into("jre-" + JavaVersion.current() + "/core/lib") }
-            from("../jre-" + JavaVersion.current() + "/gradle/repo") { into("jre-" + JavaVersion.current() + "/gradle/repo") }
+            from("../jre-" + targetPlatform + "/core/lib") { into("jre-" + targetPlatform + "/core/lib") }
+            from("../jre-" + targetPlatform + "/gradle/repo") { into("jre-" + targetPlatform + "/gradle/repo") }
         }
     }
 }

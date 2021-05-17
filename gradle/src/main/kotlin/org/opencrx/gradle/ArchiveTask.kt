@@ -72,13 +72,15 @@ open class ArchiveTask() : Jar() {
     var env: Properties 
 	init {
 		env = Properties()
+		env.load(FileInputStream(File(getProject().getRootDir(), "build.properties")))
 		env.load(FileInputStream(File(getProject().getProjectDir(), "build.properties")))
 	}
 
+	@Internal val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
 	@Internal var providerName = env.getProperty("provider.name")
 	@Internal var buildDir = getProject().getBuildDir()
 	@Internal var projectDir = getProject().getProjectDir()
-	@OutputDirectory var deliverDir = File(project.getRootDir(), "jre-" + JavaVersion.current() + "/" + project.getName())
+	@OutputDirectory var deliverDir = File(project.getRootDir(), "jre-" + targetPlatform + "/" + project.getName())
 	@Internal var appSourceName = "opencrx-core-" + providerName
 	@Internal var appTargetName = "opencrx-core-" + providerName
 	@InputDirectory var dataHome = File(projectDir, "src/data") 

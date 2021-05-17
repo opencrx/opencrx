@@ -47,6 +47,9 @@
  * openMDX (http://www.openmdx.org/)
  */
 
+import java.io.*
+import java.util.*
+
 plugins {
 	java
 	`java-library`
@@ -59,6 +62,10 @@ repositories {
 	mavenCentral()
 	jcenter()
 }
+
+var env = Properties()
+env.load(FileInputStream(File(project.getRootDir(), "build.properties")))
+val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
 
 eclipse {
 	project {
@@ -90,8 +97,8 @@ publishing {
     publications {
         create<MavenPublication>("opencrxGradle") {
             artifactId = "opencrx-gradle"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + JavaVersion.current() + "/gradle/lib/opencrx-gradle.jar")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + JavaVersion.current() + "/gradle/lib/opencrx-gradle-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/gradle/lib/opencrx-gradle.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/gradle/lib/opencrx-gradle-sources.jar")) { type = "jar"; classifier = "sources" })
             artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-gradle-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
                 name.set("opencrx-gradle")
@@ -134,8 +141,8 @@ publishing {
         }
         create<MavenPublication>("opencrxCore") {
             artifactId = "opencrx-core"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + JavaVersion.current() + "/core/lib/opencrx-core.jar")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + JavaVersion.current() + "/core/lib/opencrx-core-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-core.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-core-sources.jar")) { type = "jar"; classifier = "sources" })
             artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
                 name.set("opencrx-core")
@@ -222,7 +229,7 @@ publishing {
         }
         create<MavenPublication>("opencrxCoreConfig") {
             artifactId = "opencrx-core-config"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + JavaVersion.current() + "/core/lib/opencrx-core-config.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-core-config.jar")) { type = "jar" })
             artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-config-sources.jar")) { type = "jar"; classifier = "sources" })
             artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-config-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
@@ -266,8 +273,8 @@ publishing {
         }
         create<MavenPublication>("opencrxClient") {
             artifactId = "opencrx-client"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + JavaVersion.current() + "/core/lib/opencrx-client.jar")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + JavaVersion.current() + "/core/lib/opencrx-client-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-client.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-client-sources.jar")) { type = "jar"; classifier = "sources" })
             artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-client-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
                 name.set("opencrx-client")
