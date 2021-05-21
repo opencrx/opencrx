@@ -159,7 +159,7 @@ open class OpencrxPlugin: Plugin<Project> {
 		generateModelTask {
 			inputs.dir("${projectDir}/src/model/emf")
 			inputs.dir("${projectDir}/src/main/resources")
-			outputs.file("${buildDir}/generated/sources/model/opencrx-" + project.getName() + "-models.jar")
+			outputs.file("${buildDir}/generated/sources/model/opencrx-" + project.getName() + "-models.zip")
 			outputs.file("${buildDir}/generated/sources/model/opencrx-" + project.getName() + ".openmdx-xmi.zip")
 			classpath = configurations["compileClasspath"]
 			doFirst {
@@ -185,9 +185,9 @@ open class OpencrxPlugin: Plugin<Project> {
 			doLast {
 				copy {	
 					from(
-						zipTree("${buildDir}/generated/sources/model/opencrx-" + project.getName() + "-models.zip")
+						zipTree(File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + "-models.zip"))
 					)
-					into("$buildDir/generated/sources/java/main")
+					into(File(project.getBuildDir(), "generated/sources/java/main"))
 					include(
 						"**/*.java"
 					)
