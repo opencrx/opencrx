@@ -70,7 +70,6 @@ import org.opencrx.kernel.activity1.jmi1.Resource;
 import org.opencrx.kernel.home1.cci2.SyncFeedQuery;
 import org.opencrx.kernel.home1.jmi1.ActivityFilterCalendarFeed;
 import org.opencrx.kernel.home1.jmi1.ActivityGroupCalendarFeed;
-import org.opencrx.kernel.home1.jmi1.AirSyncProfile;
 import org.opencrx.kernel.home1.jmi1.CalendarProfile;
 import org.opencrx.kernel.home1.jmi1.CardProfile;
 import org.opencrx.kernel.home1.jmi1.ContactsFeed;
@@ -794,45 +793,6 @@ public class AdapterConnectionHelper {
 				baseUrl.endsWith("/") ? baseUrl + "accounts?id=" : baseUrl + "/accounts?id=",
 				obj,
 				"vcard",
-				paths
-			);
-		} catch(Exception e) {
-			throw new ServiceException(e);
-		}
-	}
-
-	/**
-	 * Get AirSync URLs for given object.
-	 * 
-	 * @param baseUrl
-	 * @param obj
-	 * @return
-	 * @throws ServiceException
-	 */
-	public static List<ConnectionURL> getAirSyncURLs(
-		String baseUrl,
-		RefObject_1_0 obj
-	) throws ServiceException {
-		try {
-			List<ResourcePath> paths = new ArrayList<ResourcePath>();
-			PersistenceManager pm = JDOHelper.getPersistenceManager(obj);
-			if(obj instanceof AirSyncProfile) {
-				AirSyncProfile syncProfile =
-		            (AirSyncProfile)obj;
-		        if((syncProfile.getName() != null) && !syncProfile.getName().isEmpty()) {
-		        	UserHome userHome = (UserHome)pm.getObjectById(obj.refGetPath().getParent().getParent());
-		        	paths.add(
-		        		new ResourcePath(
-		        			userHome,
-		        			"/user/" + userHome.refGetPath().getLastSegment().toString() + "/profile/" + syncProfile.getName()
-		        		)
-		        	);	        		        	
-		        }
-			}
-			return mapToURLs(
-				baseUrl.endsWith("/") ? baseUrl : baseUrl + "/",
-				obj,
-				"airsync",
 				paths
 			);
 		} catch(Exception e) {

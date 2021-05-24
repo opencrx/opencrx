@@ -1962,54 +1962,6 @@ public class UserHomes extends AbstractImpl {
 			resource.setOwningUser(
 			    setOwningUserParams
 			);
-			// AirSync profile
-			org.opencrx.kernel.home1.jmi1.AirSyncProfile airSyncProfile = null;
-			try {
-				airSyncProfile = (org.opencrx.kernel.home1.jmi1.AirSyncProfile)pm.getObjectById(
-					userHome.refGetPath().getDescendant("syncProfile", "AirSync")
-				);
-			} catch(Exception e) {}
-			if(airSyncProfile == null) {
-				airSyncProfile = pm.newInstance(org.opencrx.kernel.home1.jmi1.AirSyncProfile.class);
-				airSyncProfile.setName("AirSync");
-				userHome.addSyncProfile(
-					"AirSync",
-					airSyncProfile
-				);
-				ActivityGroupCalendarFeed calendarFeed = pm.newInstance(ActivityGroupCalendarFeed.class);
-				calendarFeed.setName(principalName + Base.PRIVATE_SUFFIX);
-				calendarFeed.setDescription("Calendar Feed");
-				calendarFeed.setActivityGroup(privateTracker);
-				calendarFeed.setActive(true);
-				calendarFeed.setAllowAddDelete(true);
-				calendarFeed.setAllowChange(true);
-				airSyncProfile.addFeed(
-					this.getUidAsString(), 
-					calendarFeed
-				);
-				ContactsFeed contactsFeed = pm.newInstance(ContactsFeed.class);
-				contactsFeed.setName(principalName + Base.PRIVATE_SUFFIX);
-				contactsFeed.setDescription("Contacts Feed");
-				contactsFeed.setAccountGroup(privateAccountGroup);
-				contactsFeed.setActive(true);
-				contactsFeed.setAllowAddDelete(true);
-				contactsFeed.setAllowChange(true);
-				airSyncProfile.addFeed(
-					this.getUidAsString(), 
-					contactsFeed
-				);
-				DocumentFeed notesFeed = pm.newInstance(DocumentFeed.class);
-				notesFeed.setName(principalName + Documents.PRIVATE_DOCUMENTS_FOLDER_SUFFIX);
-				notesFeed.setDescription("Notes Feed");
-				notesFeed.setDocumentFolder(privateDocumentFolder);
-				notesFeed.setActive(true);
-				notesFeed.setAllowAddDelete(true);
-				notesFeed.setAllowChange(true);
-				airSyncProfile.addFeed(
-					this.getUidAsString(), 
-					notesFeed
-				);
-			}
 			// Contacts profile
 			org.opencrx.kernel.home1.jmi1.CardProfile cardProfile = null;
 			try {

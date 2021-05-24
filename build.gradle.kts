@@ -54,7 +54,7 @@ plugins {
 
 allprojects {
     group = "org.opencrx"
-    version = "5.1.0"
+    version = "5.2-20210524"
 }
 
 java {

@@ -192,7 +192,6 @@ org.openmdx.kernel.log.*
                         <td class="<%= CssClass.fieldLabel %>"><span class="nw">Selector type:</span></td>
                         <td>
                             <select class="valueL" id="selectorType" name="selectorType" class="valueL" tabindex="<%= tabIndex + 10 %>" onchange="javascript:$('Reload.button').click();">
-                                <option <%= wc.getSelectorType() == SelectorType.AIRSYNCPROFILE ? "selected" : "" %> value="<%= SelectorType.AIRSYNCPROFILE %>"><%= app.getLabel(ConnectionHelperController.AIRSYNCPROFILE_CLASS) %></option>
                                 <option <%= wc.getSelectorType() == SelectorType.CALENDARPROFILE ? "selected" : "" %> value="<%= SelectorType.CALENDARPROFILE %>"><%= app.getLabel(ConnectionHelperController.CALENDARPROFILE_CLASS) %></option>
                                 <option <%= wc.getSelectorType() == SelectorType.CARDPROFILE ? "selected" : "" %> value="<%= SelectorType.CARDPROFILE %>"><%= app.getLabel(ConnectionHelperController.CARDPROFILE_CLASS) %></option>
                                 <option <%= wc.getSelectorType() == SelectorType.DOCUMENTPROFILE ? "selected" : "" %> value="<%= SelectorType.DOCUMENTPROFILE %>"><%= app.getLabel(ConnectionHelperController.DOCUMENTPROFILE_CLASS) %></option>
@@ -393,20 +392,6 @@ org.openmdx.kernel.log.*
 %>
                 	<a href="<%= connectionURL.getUrl() %>" target="_blank" title="<%= app.getPortalExtension().getTitle(connectionURL.getObject(), (short)0, null, false, app) %>"><%= connectionURL.getUrl() %></a>
                 	<br />
-<%
-				}
-			}
-			urls = org.opencrx.application.utils.AdapterConnectionHelper.getAirSyncURLs(wc.getUrlBase(), anchorObject);
-			if(!urls.isEmpty()) {
-%>
-				<br />
-				<div class="fieldGroupName">AirSync URLs</div>
-				<br />
-<%				
-				for(AdapterConnectionHelper.ConnectionURL connectionURL: urls) {
-%>
-                	<a href="<%= connectionURL.getUrl() %>" target="_blank" title="<%= app.getPortalExtension().getTitle(connectionURL.getObject(), (short)0, null, false, app) %>"><%= connectionURL.getUrl() %></a>
-                	<br />                	
 <%
 				}
 			}

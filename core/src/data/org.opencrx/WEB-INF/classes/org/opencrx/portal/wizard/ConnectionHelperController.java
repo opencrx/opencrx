@@ -106,7 +106,6 @@ public class ConnectionHelperController extends JspWizardController {
     	MILESTONE_FILTER,
     	GLOBAL_FILTER,
     	USERHOME,
-    	AIRSYNCPROFILE,
     	CALENDARPROFILE,
     	RESOURCE,
     	BDAY,
@@ -429,19 +428,6 @@ public class ConnectionHelperController extends JspWizardController {
 			            );
 		        	}
 		        }
-		    } else if(this.selectorType == SelectorType.AIRSYNCPROFILE) {
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.home1.jmi1.SyncProfile> i = currentUserHome.<org.opencrx.kernel.home1.jmi1.SyncProfile>getSyncProfile().iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.home1.jmi1.SyncProfile syncProfile = i.next();
-		            if(syncProfile instanceof org.opencrx.kernel.home1.jmi1.AirSyncProfile) {
-		                String display = (syncProfile.getName() != null ? syncProfile.getName() : "?");
-		                String sortKey = display.toUpperCase() + formatter.format(index++);
-		                this.anchorObjects.put(
-		                    HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                    syncProfile.refMofId()
-		                );
-		            }
-		        }
 		    } else if(this.selectorType == SelectorType.CARDPROFILE) {
 		    	this.anchorObjectLabel = app.getLabel(CARDPROFILE_CLASS);
 		        int index = 0;
@@ -645,7 +631,6 @@ public class ConnectionHelperController extends JspWizardController {
     public static final String RESOURCE_CLASS = "org:opencrx:kernel:activity1:Resource";
     public static final String RESOURCEASSIGNMENT_CLASS = "org:opencrx:kernel:activity1:ResourceAssignment";
     public static final String USERHOME_CLASS = "org:opencrx:kernel:home1:UserHome";
-    public static final String AIRSYNCPROFILE_CLASS = "org:opencrx:kernel:home1:AirSyncProfile";
     public static final String CALENDARPROFILE_CLASS = "org:opencrx:kernel:home1:CalendarProfile";
     public static final String ACCOUNTFILTERGLOBAL_CLASS = "org:opencrx:kernel:account1:AccountFilterGlobal";
     public static final String CONTACT_CLASS = "org:opencrx:kernel:account1:Contact";

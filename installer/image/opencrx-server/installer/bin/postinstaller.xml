@@ -12,7 +12,6 @@
 	<target name="postinstall">
 		<antcall inheritAll="true" target="${expand.target}"/>
 		<mkdir dir="${install.path}/$TOMEE_BASEDIR/maildir" />
-		<mkdir dir="${install.path}/$TOMEE_BASEDIR/airsyncdir" />
 		<!-- Update conf -->
 		<move file="${install.path}/$TOMEE_BASEDIR/conf/tomee.xml" tofile="${install.path}/$TOMEE_BASEDIR/conf/tomee.orig"/>
 		<copy file="${install.path}/installer/files/tomee.xml" todir="${install.path}/$TOMEE_BASEDIR/conf"/>
