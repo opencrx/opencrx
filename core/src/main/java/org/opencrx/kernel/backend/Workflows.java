@@ -75,6 +75,7 @@ import org.opencrx.kernel.base.jmi1.ObjectRemovalAuditEntry;
 import org.opencrx.kernel.base.jmi1.StringProperty;
 import org.opencrx.kernel.base.jmi1.WorkflowTarget;
 import org.opencrx.kernel.generic.OpenCrxException;
+import org.opencrx.kernel.generic.jmi1.CrxObject;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.opencrx.kernel.home1.jmi1.WfActionLogEntry;
 import org.opencrx.kernel.home1.jmi1.WfBooleanParameter;
@@ -1029,6 +1030,24 @@ public class Workflows extends AbstractImpl {
 		} catch(Exception e) {
 			throw new ServiceException(e);
 		}
+	}
+
+	/**
+	 * Synchronize the data between syncSource and syncTarget. Override 
+	 * this method for custom-specific logic. Invoke this method from
+	 * custom-specific importer tasks.
+	 * 
+	 * @param syncSource
+	 * @param syncTarget
+	 * @param statusMessage
+	 * @return
+	 */
+	public short syncData(
+		java.sql.Connection syncSource,
+		CrxObject syncTarget,
+		StringBuilder statusMessage
+	) {
+		return -1;
 	}
 
     /**

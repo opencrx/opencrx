@@ -140,30 +140,33 @@ public class ImporterImpl
             		runImportParams
             	);
                 return Structures.create(
-                	ImportItemResult.class, 
+                	ImportItemResult.class,
             		Datatypes.member(ImportItemResult.Member.importedObject, result.getImportedObject()),
                 	Datatypes.member(ImportItemResult.Member.status, result.getStatus()),
-                	Datatypes.member(ImportItemResult.Member.statusMessage, result.getStatusMessage())            	
+                	Datatypes.member(ImportItemResult.Member.statusMessage, result.getStatusMessage()),
+                	Datatypes.member(ImportItemResult.Member.item, result.getFile()),
+                	Datatypes.member(ImportItemResult.Member.itemName, result.getFileName()),
+                	Datatypes.member(ImportItemResult.Member.itemMimeType, result.getFileMimeType())
                 );
             }
             if(importedObject != null) {
             	return Structures.create(
-            		ImportItemResult.class, 
+            		ImportItemResult.class,
             		Datatypes.member(ImportItemResult.Member.importedObject, importedObject),
             		Datatypes.member(ImportItemResult.Member.status, Base.IMPORT_EXPORT_OK),
-            		Datatypes.member(ImportItemResult.Member.statusMessage, Base.getInstance().analyseReport(report))            		
+            		Datatypes.member(ImportItemResult.Member.statusMessage, Base.getInstance().analyseReport(report))
             	);
             } else {
             	return Structures.create(
-            		ImportItemResult.class, 
+            		ImportItemResult.class,
             		Datatypes.member(ImportItemResult.Member.importedObject, null),
             		Datatypes.member(ImportItemResult.Member.status, Base.IMPORT_EXPORT_ITEM_NOT_VALID),
-            		Datatypes.member(ImportItemResult.Member.statusMessage, Base.getInstance().analyseReport(errors))            		
+            		Datatypes.member(ImportItemResult.Member.statusMessage, Base.getInstance().analyseReport(errors))
             	);
             }
         } catch(ServiceException e) {
             throw new JmiServiceException(e);
-        }                
+        }
     }
         
 }
