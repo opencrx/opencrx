@@ -1045,7 +1045,8 @@ public class Workflows extends AbstractImpl {
 	public short syncData(
 		java.sql.Connection syncSource,
 		CrxObject syncTarget,
-		StringBuilder statusMessage
+		StringBuilder statusMessage,
+		String schemaName
 	) {
 		return -1;
 	}

@@ -147,6 +147,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
     testRuntimeOnly(earlib)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter:5.6.0")
+    testRuntimeOnly("org.xerial:sqlite-jdbc:3.34.+")
 }
 
 sourceSets {
