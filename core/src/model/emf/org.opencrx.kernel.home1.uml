@@ -1748,6 +1748,26 @@
             </ownedEnd>
             <ownedEnd xmi:type="uml:Property" xmi:id="_BrvaQCCzEemWGfHZa-muhg" name="workList" type="_eAhEAPv_EeiyAO8Y3a1saQ" association="_BruMICCzEemWGfHZa-muhg"/>
           </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_TXey4L4LEeuWwooTpj50fQ" name="AppSyncProfile">
+            <generalization xmi:type="uml:Generalization" xmi:id="_VfDjYL4LEeuWwooTpj50fQ" general="_p5gUgG_SEd2k1trwDO0y0g"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_hIXv4L4LEeuWwooTpj50fQ" name="ObjectFeed">
+            <generalization xmi:type="uml:Generalization" xmi:id="_kYYIEL4LEeuWwooTpj50fQ" general="_ejjTcG_TEd2k1trwDO0y0g"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_w7QZ0L4LEeuWwooTpj50fQ" name="targetObject" association="_w7N9kL4LEeuWwooTpj50fQ">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.generic.uml#_3C7B8A60016D3F3FB4530021"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w7QZ0b4LEeuWwooTpj50fQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w7QZ0r4LEeuWwooTpj50fQ" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_w7N9kL4LEeuWwooTpj50fQ" name="ObjectFeedHasTargetObject" memberEnd="_w7QZ0L4LEeuWwooTpj50fQ _w7QZ074LEeuWwooTpj50fQ">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_w7PywL4LEeuWwooTpj50fQ" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_w7Pywb4LEeuWwooTpj50fQ" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_w7QZ074LEeuWwooTpj50fQ" name="syncFeed" type="_hIXv4L4LEeuWwooTpj50fQ" association="_w7N9kL4LEeuWwooTpj50fQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6EpnQL4LEeuWwooTpj50fQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Ew8AL4LEeuWwooTpj50fQ" value="*"/>
+            </ownedEnd>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>

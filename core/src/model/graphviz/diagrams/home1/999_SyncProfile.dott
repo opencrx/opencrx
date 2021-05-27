@@ -21,7 +21,7 @@ digraph "Diagram SyncProfile [Package org:opencrx:kernel:home1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:home1:SyncProfile,compartments=true,width=12]};
+	  ${CLASS[name=org:opencrx:kernel:home1:SyncProfile,compartments=true,width=13]};
 	}
 	{
 	  rank=same;
@@ -29,11 +29,12 @@ digraph "Diagram SyncProfile [Package org:opencrx:kernel:home1]" {
 	  ${CLASS[name=org:opencrx:kernel:home1:CalendarProfile,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:home1:CardProfile,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:home1:DocumentProfile,compartments=true,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:home1:AppSyncProfile,compartments=true,width=2]};
 	}
 	{
 	  rank=same;
 	  LAYER2[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:home1:SyncFeed,compartments=true,width=12]};
+	  ${CLASS[name=org:opencrx:kernel:home1:SyncFeed,compartments=true,width=14]};
 	}
 	{
 	  rank=same;
@@ -43,6 +44,7 @@ digraph "Diagram SyncProfile [Package org:opencrx:kernel:home1]" {
 	  ${CLASS[name=org:opencrx:kernel:home1:ActivityFilterCalendarFeed,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:home1:DocumentFeed,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:home1:DocumentFilterFeed,compartments=true,width=2]};
+	  ${CLASS[name=org:opencrx:kernel:home1:ObjectFeed,compartments=true,width=2]};
 	  ${CLASS[name=org:opencrx:kernel:home1:SyncData,compartments=true,width=2]};
 	}
 	{
@@ -53,6 +55,7 @@ digraph "Diagram SyncProfile [Package org:opencrx:kernel:home1]" {
 	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractFilterActivity,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentFolder,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:document1:DocumentFilterGlobal,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:generic:CrxObject,compartments=false,fillcolor="#FFBD9D",width=2]};
 	  ${CLASS[name=org:opencrx:kernel:base:Note,compartments=false,fillcolor="#FFBD9D",width=2]};
 	}
 

@@ -139,12 +139,13 @@ public class SyncDataClient {
 		ImporterTask syncDataTask = (ImporterTask)workflowSegment.getWfProcess("SyncDataTask");
 		RunImportExportParams syncDataParam = Structures.create(
 			RunImportExportParams.class,
-			Datatypes.member(RunImportExportParams.Member.param0, "xri://@openmdx*org.opencrx.kernel.activity1/provider/CRX/segment/Standard/activityTracker/0000004"),
+			Datatypes.member(RunImportExportParams.Member.param0, null),
 			Datatypes.member(RunImportExportParams.Member.param1, fileContentBase64),
 			Datatypes.member(RunImportExportParams.Member.param2, databaseName),	
 			Datatypes.member(RunImportExportParams.Member.param3, "application/vnd.sqlite3"),
 			Datatypes.member(RunImportExportParams.Member.param4, "org.opencrx.kernel.tasks/test-activities")
 		);
+		// Sync with sync profile "org.opencrx.kernel.tasks/test-activities"
 		RunImportResult syncDataResult = syncDataTask.runImport(syncDataParam);
 		pm.currentTransaction().commit();
 		// Store database
@@ -155,6 +156,9 @@ public class SyncDataClient {
 				new FileOutputStream(file)
 			);
 		}
+		System.out.println(String.format("status: %d", syncDataResult.getStatus()));
+		System.out.println(String.format("statusMessage: %s", syncDataResult.getStatusMessage()));
+		System.out.println(String.format("database: %s", file.toString()));
 		pm.close();
 	}
 
