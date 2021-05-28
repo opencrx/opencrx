@@ -96,6 +96,8 @@ DROP VIEW OOCKE1_JOIN_OBJHASIDXENTRY COMMAND_TERMINATOR
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_OBJISINVOLVEDIN COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
+DROP VIEW OOCKE1_JOIN_PLINCLPROD COMMAND_TERMINATOR
+#include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_PRODCLASSHASASSPROD COMMAND_TERMINATOR 
 #include "sql-command-separator.tsql"
 DROP VIEW OOCKE1_JOIN_RESCONTAINSWRE COMMAND_TERMINATOR
@@ -1012,8 +1014,10 @@ FROM
 INNER JOIN
     OOCKE1_PRODUCT p
 ON
-    (1=1)
-UNION ALL
+    (1=1) COMMAND_TERMINATOR 
+#include "sql-command-separator.tsql"
+
+CREATE VIEW OOCKE1_JOIN_PLINCLPROD AS
 SELECT
     f.object_id AS product_filter,
     p.object_id AS filtered_product
