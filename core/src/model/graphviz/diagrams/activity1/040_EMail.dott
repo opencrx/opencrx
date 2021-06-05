@@ -37,6 +37,8 @@ digraph "Diagram EMail [Package org:opencrx:kernel:activity1]" {
 	  rank=same;
 	  LAYER3[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:activity1:AbstractEMailRecipient,compartments=true,width=6]};
+	  ${CLASS[name=org:openmdx:base:BasicObject,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  NOTE0[label="Valid gateway types:\l* EMailAccount\l* EMailAddressable\l}",fillcolor="#D8F2FA"];	  
 	}
 	{
 	  rank=same;
@@ -48,13 +50,8 @@ digraph "Diagram EMail [Package org:opencrx:kernel:activity1]" {
 	{
 	  rank=same;
 	  LAYER5[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:account1:AccountAddress,compartments=false,fillcolor="#FFBD9D",width=2]};
+	  ${CLASS[name=org:opencrx:kernel:account1:AccountAddress,compartments=false,fillcolor="#FFBD9D",width=5]};
 	  ${CLASS[name=org:opencrx:kernel:activity1:AddressGroup,compartments=false,width=2]};
-	}
-	{
-	  rank=same;
-	  LAYER6[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:account1:EMailAddress,compartments=false,fillcolor="#FFBD9D",width=2]};
 	}
 	
 	LAYER0->LAYER1[style=invis];
@@ -62,7 +59,6 @@ digraph "Diagram EMail [Package org:opencrx:kernel:activity1]" {
 	LAYER2->LAYER3[style=invis];
 	LAYER3->LAYER4[style=invis];
 	LAYER4->LAYER5[style=invis];
-	LAYER5->LAYER6[style=invis];
 	
 	${ASSOCIATION[name=org:opencrx:kernel:activity1:SegmentContainsActivity,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:activity1:EMailContainsRecipient,minlen=3]}

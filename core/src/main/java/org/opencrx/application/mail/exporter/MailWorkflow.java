@@ -556,20 +556,31 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
             			? false
             			: Boolean.valueOf(System.getProperty("org.opencrx.usesendmail." + providerName))
             		: Boolean.valueOf(System.getProperty("org.opencrx.usesendmail." + providerName + "." + segmentName));
-            	if(useSendmail) {            			
+            	if(useSendmail) {
             		// no-op
             	} else {
             		// Use JavaMail service
-	                // Try to get mail service name from user's email account
-	                String mailServiceName = eMailAccountUser.getOutgoingMailServiceName();                
-	                // Try to get mail service name from workflow configuration
+            		// Priority 1: Get email service from EMail::gateway
+	                String mailServiceName = null;
+            		if(target instanceof EMail) {
+            			EMail email = (EMail)target;
+            			if(email.getGateway() instanceof EMailAccount) {
+            				EMailAccount emailAccount = (EMailAccount)email.getGateway();
+            				mailServiceName = emailAccount.getOutgoingMailServiceName();
+            			}
+            		}
+	                // Priority 2: Get mail service from user's email account
+            		if(mailServiceName == null || mailServiceName.isEmpty()) {
+            			mailServiceName = eMailAccountUser.getOutgoingMailServiceName();
+            		}
+	                // Priority 3: Get mail service name from workflow configuration
 	                if(
 	                    ((mailServiceName == null) || mailServiceName.isEmpty()) &&
 	                    wfProcessInstance.getProcess() != null
 	                ) {
 	                	mailServiceName = (String)params.get(MailWorkflow.OPTION_MAIL_SERVICE_NAME);
 	                }
-	                // If not configured take mail/provider/<provider>/segment/<segment> as default
+	                // Priority 4: construct from segment name 'mail/provider/<provider>/segment/<segment>'
 	                if(mailServiceName == null) {
 	                    mailServiceName = "/mail/provider/" + providerName + "/segment/" + segmentName;
 	                }

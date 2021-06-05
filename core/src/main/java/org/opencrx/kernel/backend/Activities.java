@@ -172,6 +172,7 @@ import org.opencrx.kernel.activity1.jmi1.TaskParty;
 import org.opencrx.kernel.activity1.jmi1.WeekDay;
 import org.opencrx.kernel.activity1.jmi1.WfAction;
 import org.opencrx.kernel.activity1.jmi1.WorkAndExpenseRecord;
+import org.opencrx.kernel.address1.jmi1.EMailAddressable;
 import org.opencrx.kernel.backend.Depots.BookingType;
 import org.opencrx.kernel.backend.Depots.DepotUsage;
 import org.opencrx.kernel.backend.ICalendar.ICalClass;
@@ -186,6 +187,7 @@ import org.opencrx.kernel.generic.SecurityKeys.Action;
 import org.opencrx.kernel.generic.jmi1.Media;
 import org.opencrx.kernel.generic.jmi1.Note;
 import org.opencrx.kernel.generic.jmi1.PropertySet;
+import org.opencrx.kernel.home1.jmi1.EMailAccount;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.opencrx.kernel.home1.jmi1.WfProcessInstance;
 import org.opencrx.kernel.uom1.jmi1.Uom;
@@ -197,6 +199,7 @@ import org.opencrx.security.realm1.jmi1.PrincipalGroup;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.dataprovider.layer.persistence.jdbc.spi.Database_1_Attributes;
 import org.openmdx.base.exception.ServiceException;
+import org.openmdx.base.jmi1.BasicObject;
 import org.openmdx.base.jmi1.ContextCapable;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
@@ -4607,7 +4610,7 @@ public class Activities extends AbstractImpl {
      */
     public String getInternetAddress(
         AccountAddress address,
-        String gateway
+        BasicObject gateway
     ) {
         if(address instanceof EMailAddress) {
             return ((EMailAddress)address).getEmailAddress();
@@ -4623,10 +4626,14 @@ public class Activities extends AbstractImpl {
                     inetAddress.append(Character.toUpperCase(c));
                 }
             }
-            if((gateway != null) && (gateway.indexOf("@") > 0)) {
-                inetAddress.append(
-                    gateway.substring(gateway.indexOf("@"))
-                );
+            String gatewayName = null;
+            if(gateway instanceof EMailAddressable) {
+            	gatewayName = ((EMailAddressable)gateway).getEmailAddress();
+            } else if(gateway instanceof EMailAccount) {
+            	gatewayName = ((EMailAccount)gateway).getName();
+            }
+            if((gatewayName != null) && (gatewayName.indexOf("@") > 0)) {
+                inetAddress.append(gatewayName.substring(gatewayName.indexOf("@")));
             }
             return inetAddress.toString();
         } else {
@@ -4662,10 +4669,7 @@ public class Activities extends AbstractImpl {
         Message message            
     ) throws AddressException, MessagingException {
     	PersistenceManager pm = JDOHelper.getPersistenceManager(email);
-        String gateway = email.getGateway() == null ?
-            null : 
-            email.getGateway().getEmailAddress();
-        List<Address> recipients = new ArrayList<Address>();        
+        List<Address> recipients = new ArrayList<Address>();
         AccountAddress sender = null;
         try {
             sender = email.getSender();
@@ -4674,10 +4678,7 @@ public class Activities extends AbstractImpl {
             SysLog.detail(e0.getMessage(), e0.getCause());
         }
         if(sender != null) {
-            String inetAddress = this.getInternetAddress(
-                sender,
-                gateway
-            );
+            String inetAddress = this.getInternetAddress(sender, email.getGateway());
             if(inetAddress != null) {
             	if(message != null) {
 	                message.setFrom(
@@ -4713,10 +4714,7 @@ public class Activities extends AbstractImpl {
                 	if((address != null) && !Boolean.TRUE.equals(address.isDisabled())) {
 	                    String inetAddress = null;
 	                    try {
-	                        inetAddress = this.getInternetAddress(
-	                            address,
-	                            gateway
-	                        );
+	                        inetAddress = this.getInternetAddress(address, email.getGateway());
 	                    } catch(Exception e) {
 	                        ServiceException e0 = new ServiceException(e);
 	                        SysLog.detail(e0.getMessage(), e0.getCause());
@@ -4757,10 +4755,7 @@ public class Activities extends AbstractImpl {
 	                        	(address != null) &&
 	                        	!Boolean.TRUE.equals(address.isDisabled())
 	                        ) {
-	                            String inetAddress = this.getInternetAddress(
-	                                address,
-	                                gateway
-	                            );
+	                            String inetAddress = this.getInternetAddress(address, email.getGateway());
 	                            if(inetAddress != null) {
 	                                try {
 	                                    Address to = new InternetAddress(inetAddress);
