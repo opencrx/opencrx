@@ -55,8 +55,10 @@ package org.opencrx.kernel.activity1.aop2;
 import javax.jdo.listener.DeleteCallback;
 import javax.jdo.listener.StoreCallback;
 
+import org.opencrx.kernel.backend.Activities;
+
 public class TaskImpl
-	<S extends org.opencrx.kernel.activity1.jmi1.Task,N extends org.opencrx.kernel.activity1.cci2.Task,C extends ActivityImpl.DerivedAttributes>
+	<S extends org.opencrx.kernel.activity1.jmi1.Task,N extends org.opencrx.kernel.activity1.cci2.Task,C extends Activities.DerivedAttributes>
 	extends ActivityImpl<S,N,C>
 	implements StoreCallback, DeleteCallback {
 

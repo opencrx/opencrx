@@ -55,8 +55,10 @@ package org.opencrx.kernel.activity1.aop2;
 import javax.jdo.listener.DeleteCallback;
 import javax.jdo.listener.StoreCallback;
 
+import org.opencrx.kernel.backend.Activities;
+
 public class AbsenceImpl
-	<S extends org.opencrx.kernel.activity1.jmi1.Absence,N extends org.opencrx.kernel.activity1.cci2.Absence,C extends ActivityImpl.DerivedAttributes>
+	<S extends org.opencrx.kernel.activity1.jmi1.Absence,N extends org.opencrx.kernel.activity1.cci2.Absence,C extends Activities.DerivedAttributes>
 	extends ActivityImpl<S,N,C>
 	implements StoreCallback, DeleteCallback {
 

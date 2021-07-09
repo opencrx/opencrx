@@ -76,28 +76,10 @@ import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
 
 public class ActivityImpl
-	<S extends org.opencrx.kernel.activity1.jmi1.Activity,N extends org.opencrx.kernel.activity1.cci2.Activity,C extends ActivityImpl.DerivedAttributes>
+	<S extends org.opencrx.kernel.activity1.jmi1.Activity,N extends org.opencrx.kernel.activity1.cci2.Activity,C extends Activities.DerivedAttributes>
 	extends AbstractObject<S,N,C>
 	implements StoreCallback, DeleteCallback {
 
-    //-----------------------------------------------------------------------
-	public static class DerivedAttributes {
-		
-		public DerivedAttributes(
-			Object[] mainEffortEstimate
-		) {
-			this.mainEstimateEffortHours = (Integer)mainEffortEstimate[0];
-			this.mainEstimateEffortMinutes = (Integer)mainEffortEstimate[1];
-			this.mainEstimateEffortHhMm = (String)mainEffortEstimate[2];
-		}
-		
-		public Integer mainEstimateEffortHours;
-		public Integer mainEstimateEffortMinutes;
-		public String mainEstimateEffortHhMm;
-		
-	}
-	
-    //-----------------------------------------------------------------------
     public ActivityImpl(
         S same,
         N next
@@ -105,7 +87,12 @@ public class ActivityImpl
     	super(same, next);
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Add vote to activity.
+     * 
+     * @param params
+     * @return
+     */
     public org.openmdx.base.jmi1.Void voteForActivity(
         org.opencrx.kernel.activity1.jmi1.ActivityVoteForActivityParams params
     ) {
@@ -122,7 +109,12 @@ public class ActivityImpl
         }            
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Assign activity to resource.
+     * 
+     * @param params
+     * @return
+     */
     public org.openmdx.base.jmi1.Void assignTo(
         org.opencrx.kernel.activity1.jmi1.ActivityAssignToParams params
     ) {
@@ -138,7 +130,12 @@ public class ActivityImpl
         }            
     }
         
-    //-----------------------------------------------------------------------
+    /**
+     * Re-apply activity creator.
+     * 
+     * @param params
+     * @return
+     */
     public org.openmdx.base.jmi1.Void reapplyActivityCreator(
         org.opencrx.kernel.activity1.jmi1.ReapplyActivityCreatorParams params
     ) {
@@ -161,7 +158,12 @@ public class ActivityImpl
         }
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Follow-up activity.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.activity1.jmi1.ActivityDoFollowUpResult doFollowUp(
         org.opencrx.kernel.activity1.jmi1.ActivityDoFollowUpParams params
     ) {
@@ -183,7 +185,12 @@ public class ActivityImpl
         }                   
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Add work record to activity and assign to resource.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.activity1.jmi1.AddWorkAndExpenseRecordResult addWorkRecord(
         org.opencrx.kernel.activity1.jmi1.ActivityAddWorkRecordParams params
     ) {
@@ -191,7 +198,7 @@ public class ActivityImpl
         	Uom uomHour = null;
         	try {
         		uomHour = (Uom)this.sameManager().getObjectById(
-        			new Path("xri:@openmdx:org.opencrx.kernel.uom1/provider/" + this.sameObject().refGetPath().get(2) + "/segment/Root/uom/hour")
+        			new Path("xri:@openmdx:org.opencrx.kernel.uom1/provider/" + this.sameObject().refGetPath().getSegment(2) + "/segment/Root/uom/hour")
         		);
         	}
         	catch(Exception e) {}    
@@ -225,7 +232,12 @@ public class ActivityImpl
         }                                    
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Add expense record to activity and assign to resource.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.activity1.jmi1.AddWorkAndExpenseRecordResult addExpenseRecord(
         org.opencrx.kernel.activity1.jmi1.ActivityAddExpenseRecordParams params
     ) {
@@ -258,7 +270,11 @@ public class ActivityImpl
         }                                    
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Update ::ical.
+     * 
+     * @return
+     */
     public org.openmdx.base.jmi1.Void updateIcal(
     ) {
         try {
@@ -272,13 +288,21 @@ public class ActivityImpl
         }                                            
     }
 
-    //-------------------------------------------------------------------------
+    /**
+     * Calculate the derived attribute ::totalVotes.
+     * 
+     * @return
+     */
     public int getTotalVotes(
     ) {
-    	return this.sameObject().getVote().size();
+    	return ((Activities.DerivedAttributes)super.thisContext()).totalVotes;
     }
-        
-    // ----------------------------------------------------------------------------
+
+    /**
+     * Check whether activity is marked as all-day event.
+     * 
+     * @return
+     */
     public java.lang.Boolean isAllDayEvent(
     ) {
     	DateTimeFormat utcf = DateTimeFormat.BASIC_UTC_FORMAT;
@@ -291,7 +315,12 @@ public class ActivityImpl
     	return scheduledStart.endsWith("T000000.000Z") && scheduledEnd.endsWith("T000000.000Z"); 
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Mark activity as all-day event.
+     * 
+     * @param params
+     * @return
+     */
     public org.openmdx.base.cci2.Void markAsAllDayEvent(
     	org.opencrx.kernel.activity1.jmi1.MarkAsAllDayEventParams params    	
     ) {
@@ -307,25 +336,42 @@ public class ActivityImpl
         }                                    
     }
         
-    // ----------------------------------------------------------------------------
+    /**
+     * Get derived attribute ::mainEstimateEfforHhMm
+     * 
+     * @return
+     */
     public java.lang.String getMainEstimateEffortHhMm(
     ) {
-    	return super.thisContext().mainEstimateEffortHhMm;
+    	return ((Activities.DerivedAttributes)super.thisContext()).mainEstimateEffortHhMm;
     }
 
-    // ----------------------------------------------------------------------------
+    /**
+     * Get derived attribute ::mainEstimateEfforHours
+     * 
+     * @return
+     */
     public java.lang.Integer getMainEstimateEffortHours(
     ) {
-    	return super.thisContext().mainEstimateEffortHours;
+    	return ((Activities.DerivedAttributes)super.thisContext()).mainEstimateEffortHours;
     }
 
-    // ----------------------------------------------------------------------------
+    /**
+     * Get derived attribute ::mainEstimateEfforMinutes
+     * 
+     * @return
+     */
     public java.lang.Integer getMainEstimateEffortMinutes(
     ) {
-    	return super.thisContext().mainEstimateEffortMinutes;
+    	return ((Activities.DerivedAttributes)super.thisContext()).mainEstimateEffortMinutes;
     }
     
-    //-----------------------------------------------------------------------
+    /**
+     * Calculate totals for work and expense records.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.activity1.jmi1.CalcTotalQuantityResult calcTotalQuantity(
         org.opencrx.kernel.activity1.jmi1.CalcTotalQuantityParams params    	
     ) {
@@ -350,7 +396,12 @@ public class ActivityImpl
         }            
     }
 
-    //-----------------------------------------------------------------------
+    /**
+     * Link to another activity and log follow-up.
+     * 
+     * @param params
+     * @return
+     */
     public org.opencrx.kernel.activity1.jmi1.LinkToAndFollowUpResult linkToAndFollowUp(
         org.opencrx.kernel.activity1.jmi1.LinkToAndFollowUpParams params
     ) {
@@ -411,19 +462,22 @@ public class ActivityImpl
     	}
     }
 
-	//-----------------------------------------------------------------------
+	/**
+	 * Create request-level context.
+	 * 
+	 */
 	@SuppressWarnings("unchecked")
     @Override
     protected C newContext(
     ) {
 		try {
-			return (C)new DerivedAttributes(
-		    	Activities.getInstance().calcMainEffortEstimate(
-		    		this.sameObject()
-		    	)
+			Activities.DerivedAttributes derivedAttributes = new Activities.DerivedAttributes();
+			Activities.getInstance().calcDerivedAttributes(
+		    	this.sameObject(),
+		    	derivedAttributes
 		    );
-		}
-		catch(ServiceException e) {
+			return (C)derivedAttributes;
+		} catch(ServiceException e) {
 			throw new JDOUserException(
 				"newContext failed",
 				e,
@@ -431,5 +485,5 @@ public class ActivityImpl
 			);
 		}
     }
-        
+
 }

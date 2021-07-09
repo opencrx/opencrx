@@ -55,8 +55,10 @@ package org.opencrx.kernel.activity1.aop2;
 import javax.jdo.listener.DeleteCallback;
 import javax.jdo.listener.StoreCallback;
 
+import org.opencrx.kernel.backend.Activities;
+
 public class SalesVisitImpl
-	<S extends org.opencrx.kernel.activity1.jmi1.SalesVisit,N extends org.opencrx.kernel.activity1.cci2.SalesVisit,C extends ActivityImpl.DerivedAttributes>
+	<S extends org.opencrx.kernel.activity1.jmi1.SalesVisit,N extends org.opencrx.kernel.activity1.cci2.SalesVisit,C extends Activities.DerivedAttributes>
 	extends ActivityImpl<S,N,C>
 	implements StoreCallback, DeleteCallback {
 

@@ -251,6 +251,17 @@ public class Activities extends AbstractImpl {
 		
 	}
 	
+	/**
+	 * Derived attributes of activity.
+	 *
+	 */
+	public static class DerivedAttributes {		
+		public Integer totalVotes;
+		public Integer mainEstimateEffortHours;
+		public Integer mainEstimateEffortMinutes;
+		public String mainEstimateEffortHhMm;
+	}
+
     /**
      * Refresh items for the given activity tracker.
      * 
@@ -4015,8 +4026,9 @@ public class Activities extends AbstractImpl {
      * @return
      * @throws ServiceException
      */
-    public Object[] calcMainEffortEstimate(
-        Activity activity
+    public void calcMainEffortEstimate(
+    	Activity activity,
+    	DerivedAttributes derivedAttributes
     ) throws ServiceException {
         Collection<EffortEstimate> estimates = activity.getEffortEstimate();
         BigDecimal estimateEffortHours = BigDecimal.ZERO;
@@ -4036,13 +4048,39 @@ public class Activities extends AbstractImpl {
         boolean isNegative = 
             estimateEffortHours.intValue() < 0 || 
             effortEstimateMinutes.intValue() < 0;
-        return new Object[]{
-        	hours,
-        	minutes,
-        	(isNegative ? "-" : "") + hours + ":" + (minutes < 10 ? "0" + minutes : "" + minutes) + "'"
-        };
+        derivedAttributes.mainEstimateEffortHours = hours;
+        derivedAttributes.mainEstimateEffortMinutes = minutes;
+        derivedAttributes.mainEstimateEffortHhMm = (isNegative ? "-" : "") + hours + ":" + (minutes < 10 ? "0" + minutes : "" + minutes) + "'";
+    }
+
+    /**
+     * Calculate total votes.
+     * 
+     * @param activity
+     * @param derivedAttributes
+     */
+    public void calcTotalVotes(
+    	Activity activity,
+    	DerivedAttributes derivedAttributes
+    ) {
+    	derivedAttributes.totalVotes = activity.getVote().size();
     }
     
+    /**
+     * Calculate derived attributes.
+     * 
+     * @param activity
+     * @return
+     * @throws ServiceException
+     */
+    public void calcDerivedAttributes(
+    	Activity activity,
+    	DerivedAttributes derivedAttributes    	
+    ) throws ServiceException {
+    	this.calcMainEffortEstimate(activity, derivedAttributes);
+    	this.calcTotalVotes(activity, derivedAttributes);
+    }
+
     /**
      * Count activities of given activity filter.
      * 
