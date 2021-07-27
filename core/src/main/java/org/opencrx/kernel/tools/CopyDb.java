@@ -252,6 +252,7 @@ public class CopyDb {
 			s.close();
 			// Read all rows from source
 			s = connSource.prepareStatement(currentStatement = "SELECT * FROM " + dbObject + (useSuffix ? "_" : ""));
+			s.setFetchSize(100);
 			ResultSet rs = s.executeQuery();
 			if(rs != null) {
 				ResultSetMetaData rsm = rs.getMetaData();
@@ -547,7 +548,7 @@ public class CopyDb {
 			props.put("user", usernameSource);
 			props.put("password", passwordSource);
 			Connection connSource = DriverManager.getConnection(jdbcUrlSource, props);
-			connSource.setAutoCommit(true);
+			connSource.setAutoCommit(false);
 			// Target connection
 			Class.forName(jdbcDriverTarget);
 			props = new Properties();

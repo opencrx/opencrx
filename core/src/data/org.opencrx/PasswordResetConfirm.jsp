@@ -11,7 +11,7 @@
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2015 CRIXP Corp., Switzerland
+ * Copyright (c) 2015-2021 CRIXP Corp., Switzerland
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -60,6 +60,7 @@ java.util.Enumeration,
 java.io.PrintWriter,
 org.w3c.spi2.*,
 org.openmdx.portal.servlet.*,
+org.openmdx.kernel.log.*,
 org.openmdx.base.naming.*
 "%>
 <%
@@ -70,20 +71,25 @@ org.openmdx.base.naming.*
 	String id = request.getParameter("id");
 	String password1 = request.getParameter("password1");
 	String password2 = request.getParameter("password2");
+	// Get user home with supplied parameters
+	org.opencrx.kernel.home1.jmi1.UserHome userHome = null;
+	try {
+		javax.jdo.PersistenceManagerFactory pmf = org.opencrx.kernel.utils.Utils.getPersistenceManagerFactory();
+		javax.jdo.PersistenceManager pm = pmf.getPersistenceManager(id, null);
+		Path userHomePath = new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", segmentName, "userHome", id);
+		userHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(userHomePath);
+	} catch(Exception e) {
+		// Silently catch exception and log as warning
+		SysLog.warning(String.format("Invalid password reset request. p=%s, s=%s, id=%s. Rejecting.", providerName, segmentName, id));
+	}
 	if(
+		userHome != null &&
 		resetToken != null && !resetToken.isEmpty() &&
-		providerName != null && !providerName.isEmpty() &&
-		segmentName != null && !segmentName.isEmpty() &&
-		id != null && !id.isEmpty() &&
 		password1 != null && !password1.isEmpty() &&
 		password2 != null && !password2.isEmpty()
 	) {
-		javax.jdo.PersistenceManagerFactory pmf = org.opencrx.kernel.utils.Utils.getPersistenceManagerFactory();
-		javax.jdo.PersistenceManager pm = pmf.getPersistenceManager(id, null);
+		javax.jdo.PersistenceManager pm = javax.jdo.JDOHelper.getPersistenceManager(userHome);
 		try {
-			org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(
-				new Path("xri://@openmdx*org.opencrx.kernel.home1").getDescendant("provider", providerName, "segment", segmentName, "userHome", id)
-			);
 			pm.currentTransaction().begin();
 			org.opencrx.kernel.home1.jmi1.ChangePasswordParams params = Structures.create(
 				org.opencrx.kernel.home1.jmi1.ChangePasswordParams.class, 
@@ -154,10 +160,8 @@ org.openmdx.base.naming.*
 				<h2>Unable to reset password</h2>
 <%
 			} else if(
-				resetToken != null && !resetToken.isEmpty() &&
-				providerName != null && !providerName.isEmpty() &&
-				segmentName != null && !segmentName.isEmpty() &&
-				id != null && !id.isEmpty()
+				userHome != null &&
+				resetToken != null && !resetToken.isEmpty()
 			) {
 %>
 			    <form role="form" class="form-signin" style="max-width:400px;margin:0 auto;" method="POST" action="PasswordResetConfirm.jsp" accept-charset="UTF-8">
