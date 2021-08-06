@@ -169,6 +169,11 @@ sourceSets {
     }
 }
 
+sourceSets.create("sample") {
+    java.srcDir("src/sample/java")
+    resources.srcDir("src/sample/resources")
+}
+
 tasks.test {
     useJUnitPlatform()
     maxHeapSize = "4G"

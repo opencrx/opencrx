@@ -50,7 +50,7 @@
  * This product includes software developed by contributors to
  * openMDX (http://www.openmdx.org/)
  */
-package org.opencrx.kernel.client;
+package org.opencrx.application.client;
 
 import java.util.Collections;
 

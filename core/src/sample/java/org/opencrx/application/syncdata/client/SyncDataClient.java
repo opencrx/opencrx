@@ -50,7 +50,7 @@
  * This product includes software developed by contributors to
  * openMDX (http://www.openmdx.org/)
  */
-package org.opencrx.kernel.tasks;
+package org.opencrx.application.syncdata.client;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

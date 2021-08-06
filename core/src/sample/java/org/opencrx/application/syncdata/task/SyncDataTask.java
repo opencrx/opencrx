@@ -51,7 +51,7 @@
  * openMDX (http://www.openmdx.org/)
  */
 
-package org.opencrx.kernel.tasks;
+package org.opencrx.application.syncdata.task;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -200,6 +200,7 @@ public class SyncDataTask {
 			            	Short priority = rs.getShort("priority");
 			            	Boolean isDisabled = rs.getBoolean("is_disabled");
 			            	statusMessage.append(String.format("Update activity: %s\n", objectXri));
+			            	SysLog.warning(String.format("Update activity: %s", objectXri));
 			            	Activity activity = (Activity)pm.getObjectById(new Path(objectXri));
 			            	activity.setName(name);
 			            	activity.setDescription(description);
@@ -225,6 +226,7 @@ public class SyncDataTask {
 			            	Timestamp dueBy = rs.getTimestamp("due_by");
 			            	Short priority = rs.getShort("priority");
 			            	statusMessage.append(String.format("Create activity: %s\n", name));
+			            	SysLog.warning(String.format("Create activity: %s", name));
 			            	Activities.getInstance().newActivity(
 		    		            activityCreator,
 		    		            name,
@@ -249,7 +251,8 @@ public class SyncDataTask {
 			            IncidentQuery incidentQuery = (IncidentQuery)pm.newQuery(Incident.class);
 			            incidentQuery.forAllDisabled().isFalse();
 			            for(Incident incident: activityTracker.<Incident>getFilteredActivity(incidentQuery)) {
-			            	statusMessage.append(String.format("Return activity: %s\n", incident.refGetPath().toString()));	            	
+			            	statusMessage.append(String.format("Return activity: %s\n", incident.refGetPath().toString()));
+			            	SysLog.warning(String.format("Return activity: %s", incident.refGetPath().toString()));
 			            	PreparedStatement ps = syncSource.prepareStatement("insert into activity (object_xri, activity_number, name, description, scheduled_start, scheduled_end, due_by, priority, created_at, modified_at, is_dirty) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			            	ps.setString(1, incident.refGetPath().toString());
 			            	ps.setString(2, incident.getActivityNumber());
