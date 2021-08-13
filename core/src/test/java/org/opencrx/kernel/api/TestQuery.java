@@ -56,17 +56,22 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Consumer;
 
+import javax.jmi.reflect.RefObject;
 import javax.naming.NamingException;
+import javax.naming.spi.NamingManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.oasisopen.jmi1.RefContainer;
 import org.opencrx.generic.AbstractTest;
 import org.opencrx.kernel.account1.cci2.AbstractGroupQuery;
 import org.opencrx.kernel.account1.cci2.AccountAddressQuery;
@@ -110,33 +115,49 @@ import org.opencrx.kernel.product1.jmi1.AccountAssignmentProduct;
 import org.opencrx.kernel.product1.jmi1.Product;
 import org.opencrx.kernel.product1.jmi1.ProductFilterGlobal;
 import org.opencrx.kernel.utils.Utils;
+import org.openmdx.base.cci2.BasicObjectQuery;
+import org.openmdx.base.dataprovider.layer.persistence.jdbc.spi.Database_1_Attributes;
 import org.openmdx.base.exception.ServiceException;
+import org.openmdx.base.jmi1.BasicObject;
 import org.openmdx.base.jmi1.ExtentCapable;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.rest.cci.QueryExtensionRecord;
+import org.openmdx.kernel.lightweight.naming.NonManagedInitialContextFactoryBuilder;
+import org.openmdx.kernel.log.SysLog;
+import org.w3c.cci2.Container;
 
 /**
  * TestQuery
  */
 public class TestQuery extends AbstractTest {
 
-    @BeforeEach
+	@BeforeEach
     public void initialize(
     ) throws NamingException, ServiceException {
-//    	{
+//    	if(false) {
+//    	  // In-process deployment with LightweightContainer
 //          if(!NamingManager.hasInitialContextFactoryBuilder()) {
-//                NonManagedInitialContextFactoryBuilder.install(null);
-//          }    		
-//        	entityManagerFactory = Utils.getPersistenceManagerFactory();
+//                NonManagedInitialContextFactoryBuilder.install(
+//    				Collections.singletonMap(
+//						"org.openmdx.comp.env.jdbc_opencrx_CRX",
+//						"jdbc:postgresql:\\/\\/localhost:5432\\/CRX?user=...&password=..."
+//					)
+//                );
+//          }
+//          entityManagerFactory = Utils.getPersistenceManagerFactory();
+//          pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager("admin-Standard", null);
 //    	}
-    	entityManagerFactory = Utils.getPersistenceManagerFactoryProxy(
-    		"http://127.0.0.1:8080/opencrx-rest-CRX/", 
-    		"admin-Standard", 
-    		"admin-Standard", 
-    		"application/vnd.openmdx.wbxml" // text/xml
-    	);
-        pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();
+    	if(true) {
+	    	// Remote access
+	    	entityManagerFactory = Utils.getPersistenceManagerFactoryProxy(
+	    		"http://127.0.0.1:8080/opencrx-rest-CRX/", 
+	    		"admin-Standard", 
+	    		"admin-Standard", 
+	    		"application/vnd.openmdx.wbxml" // text/xml
+	    	);
+	    	pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();
+    	}
     }
 
     @AfterEach
@@ -669,6 +690,38 @@ public class TestQuery extends AbstractTest {
 			System.out.println("contact[" + count + "]=" + contact.refGetPath());
 			count++;
 			if(count > 1) break;
+    	}
+    }
+
+    @Test
+    public void testReflectiveQueries(
+    ) {
+    	org.opencrx.kernel.account1.jmi1.Segment accountSegment =
+    		(org.opencrx.kernel.account1.jmi1.Segment)this.pm.getObjectById(
+        		new Path("xri://@openmdx*org.opencrx.kernel.account1").getDescendant("provider", providerName, "segment", segmentName)
+    		);
+    	{
+        	// QueryExtension and processAll
+    		Path referenceId = accountSegment.refGetPath().getDescendant("account");
+    	    List<Path> ids = new ArrayList<>();
+    	    Path objectId = referenceId.getParent();
+    	    String referenceName = referenceId.getLastSegment().toClassicRepresentation();
+    	    RefObject object = (RefObject) pm.getObjectById(objectId);
+    	    BasicObjectQuery query = (BasicObjectQuery)pm.newQuery(BasicObject.class);
+    	    QueryExtensionRecord queryExtension = PersistenceHelper.newQueryExtension(query);
+    	    queryExtension.setClause(Database_1_Attributes.HINT_COLUMN_SELECTOR + " v.object_id, v.dtype */(1=1)");
+    	    @SuppressWarnings("unchecked")
+			Container<BasicObject> content = (RefContainer<BasicObject>)object.refGetValue(referenceName);
+    	    content.processAll(
+	    	    query,
+	    	    new Consumer<BasicObject>() {
+	    	        @Override
+	    	        public void accept(BasicObject object) {
+	    	        	 ids.add(object.refGetPath());
+	    	        	 SysLog.warning("id: " + object.refGetPath());
+	    	        }
+	    	    }
+	    	);
     	}
     }
 
