@@ -2,12 +2,12 @@
 <!--
  * =======================================================================
  * = Description: openCRX/Installer build.xml
- * = Copyright:   (c) 2003-2020 CRIXP AG
+ * = Copyright:   (c) 2003-2021 CRIXP AG
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
  * 
- * Copyright (c) 2014-2020, CRIXP Corp., Switzerland
+ * Copyright (c) 2014-2021, CRIXP Corp., Switzerland
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
@@ -57,6 +57,8 @@
 	<property name="openmdx.version" value="2.16.2"/>
 	<property name="IZPACK_HOME" value="${env.IZPACK_HOME}"/>
 	<echo message="${IZPACK_HOME}" />
+	<property name="OPENMDX_HOME" value="${env.OPENMDX_HOME}"/>
+	<echo message="${OPENMDX_HOME}" />
 	<taskdef name="izpack" classname="com.izforge.izpack.ant.IzPackTask">
 		 <classpath>
 		      <fileset dir="${IZPACK_HOME}/lib">
