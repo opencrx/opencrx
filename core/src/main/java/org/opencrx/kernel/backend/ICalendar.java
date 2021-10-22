@@ -59,6 +59,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.StreamTokenizer;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
@@ -929,71 +930,86 @@ public class ICalendar extends AbstractImpl {
                     addProperty = false;
                 }
                 if(addProperty) {
-                    int pos;
-                	if((pos = line.indexOf(":")) >= 0) {
-                    	String qualifiedFieldName = line.substring(0, pos).toUpperCase();
-                        String[] fieldNameParts = qualifiedFieldName.split(";");
-                        Map<String,List<String>> parameters = new HashMap<String,List<String>>();
-                        for(int i = 1; i < fieldNameParts.length; i++) {
-                        	String fieldNamePart = fieldNameParts[i];
-                        	String parameterName = "TYPE";
-                        	String[] parameterValues = new String[]{};
-                        	if(fieldNamePart.indexOf("=") > 0) {
-                        		int index = fieldNamePart.indexOf("=");
-                        		parameterName = fieldNamePart.substring(0, index);
-                        		parameterValues = fieldNamePart.substring(index + 1).split(",");
-                        	} else {
-                        		parameterName = "TYPE";
-                        		parameterValues = fieldNamePart.split(",");
-                        	}
-                        	if(parameters.get(parameterName) != null) {
-                        		parameters.get(parameterName).addAll(
-                        			Arrays.asList(parameterValues)
-                        		);
-                        	} else {
-                        		parameters.put(
-                        			parameterName, 
-                        			new ArrayList<String>(Arrays.asList(parameterValues))
-                        		);
-                        	}
-                        }
-                        String attributeValue = line.substring(pos + 1, line.length()).replace("\\n", "\n").replace("\\", "");
-                        String attributeName = fieldNameParts[0];
-                        {
-	                        // Add parameter CN if missing for attribute ATTENDEE 
-	                        if(
-	                        	attributeName.equalsIgnoreCase("ATTENDEE") && 
-	                        	parameters.get("CN") == null &&
-	                        	attributeValue.startsWith("mailto:") || attributeValue.startsWith("MAILTO:")
-	                        ) {
-	                        	String cn = attributeValue.substring(7);
-	                        	qualifiedFieldName += ";CN=" + cn;
-	                        	parameters.put(
-	                        		"CN",
-	                        		Collections.singletonList(cn)
-	                        	);
-	                        }
-                        }
-                        // Check for duplicate attributes
-                        {
-	                        ICalField existingField = ical.get(
-	                        	qualifiedFieldName
-	                        );
-	                        ICalField newField = new ICalField(
-	                        	attributeName,
-	                        	attributeValue,
-	                        	parameters
-	                        );
-	                        if(ical.get(qualifiedFieldName) != null) {
-	                        	SysLog.log(Level.WARNING, "ICAL has duplicate fields. Existing={0}, Ignored={1}, ICAL={2}", existingField, newField, lines);
-	                        } else {                        
-		                        ical.put(
-		                            qualifiedFieldName,
-		                            newField
-		                        );
-	                        }
-                        }
+                	int pos = 0;
+                	{
+                		// scan up to first non-quoted ':'
+                		boolean inQuotes = false;
+	                	while(pos < line.length()) {
+	                		char c = line.charAt(pos);
+	                		if(c == '\"') {
+	                			inQuotes = !inQuotes;
+	                		} else if(c == ':' && !inQuotes) {
+	                			break;
+	                		}
+	                		pos++;
+	                	}
                 	}
+                	String qualifiedFieldName = line.substring(0, pos);
+                    String[] fieldNameParts = qualifiedFieldName.split(";");
+                    Map<String,List<String>> parameters = new HashMap<String,List<String>>();
+                    for(int i = 1; i < fieldNameParts.length; i++) {
+                    	String fieldNamePart = fieldNameParts[i];
+                    	String parameterName = "TYPE";
+                    	String[] parameterValues = new String[]{};
+                    	if(fieldNamePart.indexOf("=") > 0) {
+                    		int index = fieldNamePart.indexOf("=");
+                    		parameterName = fieldNamePart.substring(0, index);
+                    		parameterValues = fieldNamePart.substring(index + 1).split(",");
+                    	} else {
+                    		parameterName = "TYPE";
+                    		parameterValues = fieldNamePart.split(",");
+                    	}
+                    	if(parameters.get(parameterName) != null) {
+                    		parameters.get(parameterName).addAll(
+                    			Arrays.asList(parameterValues)
+                    		);
+                    	} else {
+                    		parameters.put(
+                    			parameterName, 
+                    			new ArrayList<String>(Arrays.asList(parameterValues))
+                    		);
+                    	}
+                    }
+                    String attributeValue = line
+                    	.substring(
+                        	qualifiedFieldName.length() + 1,
+                        	line.length()
+                        ).replace("\\n", "\n").replace("\\", "");
+                    String attributeName = fieldNameParts[0];
+                    {
+                        // Add parameter CN if missing for attribute ATTENDEE 
+                        if(
+                        	attributeName.equalsIgnoreCase("ATTENDEE") && 
+                        	parameters.get("CN") == null &&
+                        	attributeValue.startsWith("mailto:") || attributeValue.startsWith("MAILTO:")
+                        ) {
+                        	String cn = attributeValue.substring(7);
+                        	qualifiedFieldName += ";CN=" + cn;
+                        	parameters.put(
+                        		"CN",
+                        		Collections.singletonList(cn)
+                        	);
+                        }
+                    }
+                    // Check for duplicate attributes
+                    {
+                        ICalField existingField = ical.get(
+                        	qualifiedFieldName
+                        );
+                        ICalField newField = new ICalField(
+                        	attributeName,
+                        	attributeValue,
+                        	parameters
+                        );
+                        if(ical.get(qualifiedFieldName) != null) {
+                        	SysLog.log(Level.WARNING, "ICAL has duplicate fields. Existing={0}, Ignored={1}, ICAL={2}", existingField, newField, lines);
+                        } else {                        
+	                        ical.put(
+	                            qualifiedFieldName,
+	                            newField
+	                        );
+                        }
+                    }
 	            }
 	        }
         } catch(Exception e) {
