@@ -59,7 +59,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.StreamTokenizer;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
@@ -910,106 +909,117 @@ public class ICalendar extends AbstractImpl {
 	            ) {
 	            	continue parse;
 	            }
-                icalAsString.append(line).append("\n");
-                boolean addProperty = isEvent && (nEvents == 0);
-                if(
-                    line.startsWith("BEGIN:VEVENT") || 
-                    line.startsWith("begin:vevent") || 
-                    line.startsWith("BEGIN:VTODO") || 
-                    line.startsWith("begin:vtodo") 
-                ) {
-                    isEvent = true;
-                } else if(
-                    line.startsWith("END:VEVENT") || 
-                    line.startsWith("end:vevent") || 
-                    line.startsWith("END:VTODO") || 
-                    line.startsWith("end:vtodo") 
-                ) {
-                    nEvents++;
-                    isEvent = false;
-                    addProperty = false;
-                }
-                if(addProperty) {
-                	int pos = 0;
-                	{
-                		// scan up to first non-quoted ':'
-                		boolean inQuotes = false;
-	                	while(pos < line.length()) {
-	                		char c = line.charAt(pos);
-	                		if(c == '\"') {
-	                			inQuotes = !inQuotes;
-	                		} else if(c == ':' && !inQuotes) {
-	                			break;
-	                		}
-	                		pos++;
+	            // Remove trailing "\n"
+	            while(line.endsWith("\n")) {
+	            	line = line.substring(0, line.length() - 1);
+	            }
+	            while(line.endsWith("\\n")) {
+	            	line = line.substring(0, line.length() - 2);
+	            }
+	            if(!line.isEmpty()) {
+	                icalAsString.append(line).append("\n");
+	                boolean addProperty = isEvent && (nEvents == 0);
+	                if(
+	                    line.startsWith("BEGIN:VEVENT") || 
+	                    line.startsWith("begin:vevent") || 
+	                    line.startsWith("BEGIN:VTODO") || 
+	                    line.startsWith("begin:vtodo") 
+	                ) {
+	                    isEvent = true;
+	                } else if(
+	                    line.startsWith("END:VEVENT") || 
+	                    line.startsWith("end:vevent") || 
+	                    line.startsWith("END:VTODO") || 
+	                    line.startsWith("end:vtodo") 
+	                ) {
+	                    nEvents++;
+	                    isEvent = false;
+	                    addProperty = false;
+	                }
+	                if(addProperty) {
+	                	int pos = 0;
+	            		// scan up to first non-quoted ':'
+	                	{
+	                		boolean inQuotes = false;
+		                	while(pos < line.length()) {
+		                		char c = line.charAt(pos);
+		                		if(c == '\"') {
+		                			inQuotes = !inQuotes;
+		                		} else if(c == ':' && !inQuotes) {
+		                			break;
+		                		}
+		                		pos++;
+		                	}
 	                	}
-                	}
-                	String qualifiedFieldName = line.substring(0, pos);
-                    String[] fieldNameParts = qualifiedFieldName.split(";");
-                    Map<String,List<String>> parameters = new HashMap<String,List<String>>();
-                    for(int i = 1; i < fieldNameParts.length; i++) {
-                    	String fieldNamePart = fieldNameParts[i];
-                    	String parameterName = "TYPE";
-                    	String[] parameterValues = new String[]{};
-                    	if(fieldNamePart.indexOf("=") > 0) {
-                    		int index = fieldNamePart.indexOf("=");
-                    		parameterName = fieldNamePart.substring(0, index);
-                    		parameterValues = fieldNamePart.substring(index + 1).split(",");
-                    	} else {
-                    		parameterName = "TYPE";
-                    		parameterValues = fieldNamePart.split(",");
-                    	}
-                    	if(parameters.get(parameterName) != null) {
-                    		parameters.get(parameterName).addAll(
-                    			Arrays.asList(parameterValues)
-                    		);
-                    	} else {
-                    		parameters.put(
-                    			parameterName, 
-                    			new ArrayList<String>(Arrays.asList(parameterValues))
-                    		);
-                    	}
-                    }
-                    String attributeValue = line
-                    	.substring(
-                        	qualifiedFieldName.length() + 1,
-                        	line.length()
-                        ).replace("\\n", "\n").replace("\\", "");
-                    String attributeName = fieldNameParts[0];
-                    {
-                        // Add parameter CN if missing for attribute ATTENDEE 
-                        if(
-                        	attributeName.equalsIgnoreCase("ATTENDEE") && 
-                        	parameters.get("CN") == null &&
-                        	attributeValue.startsWith("mailto:") || attributeValue.startsWith("MAILTO:")
-                        ) {
-                        	String cn = attributeValue.substring(7);
-                        	qualifiedFieldName += ";CN=" + cn;
-                        	parameters.put(
-                        		"CN",
-                        		Collections.singletonList(cn)
-                        	);
-                        }
-                    }
-                    // Check for duplicate attributes
-                    {
-                        ICalField existingField = ical.get(
-                        	qualifiedFieldName
-                        );
-                        ICalField newField = new ICalField(
-                        	attributeName,
-                        	attributeValue,
-                        	parameters
-                        );
-                        if(ical.get(qualifiedFieldName) != null) {
-                        	SysLog.log(Level.WARNING, "ICAL has duplicate fields. Existing={0}, Ignored={1}, ICAL={2}", existingField, newField, lines);
-                        } else {                        
-	                        ical.put(
-	                            qualifiedFieldName,
-	                            newField
-	                        );
-                        }
-                    }
+	                	String qualifiedFieldName = line.substring(0, pos);
+	                    String[] fieldNameParts = qualifiedFieldName.split(";");
+	                    Map<String,List<String>> parameters = new HashMap<String,List<String>>();
+	                    for(int i = 1; i < fieldNameParts.length; i++) {
+	                    	String fieldNamePart = fieldNameParts[i];
+	                    	String parameterName = "TYPE";
+	                    	String[] parameterValues = new String[]{};
+	                    	if(fieldNamePart.indexOf("=") > 0) {
+	                    		int index = fieldNamePart.indexOf("=");
+	                    		parameterName = fieldNamePart.substring(0, index);
+	                    		parameterValues = fieldNamePart.substring(index + 1).split(",");
+	                    	} else {
+	                    		parameterName = "TYPE";
+	                    		parameterValues = fieldNamePart.split(",");
+	                    	}
+	                    	if(parameters.get(parameterName) != null) {
+	                    		parameters.get(parameterName).addAll(
+	                    			Arrays.asList(parameterValues)
+	                    		);
+	                    	} else {
+	                    		parameters.put(
+	                    			parameterName, 
+	                    			new ArrayList<String>(Arrays.asList(parameterValues))
+	                    		);
+	                    	}
+	                    }
+	                    if(fieldNameParts.length > 0 && !fieldNameParts[0].isEmpty()) {
+		                    String attributeName = fieldNameParts[0];
+		                    String attributeValue = "";
+		                    if(pos < line.length()) {
+			                    attributeValue = line
+			                    	.substring(pos + 1, line.length())
+			                    	.replace("\\n", "\n")
+			                    	.replace("\\", "");
+		                    }
+		                    {
+		                        // Add parameter CN if missing for attribute ATTENDEE 
+		                        if(
+		                        	attributeName.equalsIgnoreCase("ATTENDEE") && 
+		                        	parameters.get("CN") == null &&
+		                        	attributeValue.startsWith("mailto:") || attributeValue.startsWith("MAILTO:")
+		                        ) {
+		                        	String cn = attributeValue.substring(7);
+		                        	qualifiedFieldName += ";CN=" + cn;
+		                        	parameters.put(
+		                        		"CN",
+		                        		Collections.singletonList(cn)
+		                        	);
+		                        }
+		                    }
+		                    // Check for duplicate attributes
+		                    {
+		                        ICalField existingField = ical.get(qualifiedFieldName);
+		                        ICalField newField = new ICalField(
+		                        	attributeName,
+		                        	attributeValue,
+		                        	parameters
+		                        );
+		                        if(ical.get(qualifiedFieldName) != null) {
+		                        	SysLog.log(Level.WARNING, "ICAL has duplicate fields. Existing={0}, Ignored={1}, ICAL={2}", existingField, newField, lines);
+		                        } else {
+			                        ical.put(
+			                            qualifiedFieldName,
+			                            newField
+			                        );
+		                        }
+		                    }
+	                    }
+	                }
 	            }
 	        }
         } catch(Exception e) {
@@ -2015,11 +2025,14 @@ public class ICalendar extends AbstractImpl {
 		                                new BufferedReader(new StringReader(activity.getIcal())),
 		                                dummy
 		                            );
-		                    	} catch(Exception ignore) {}
-		                        oldICal.remove("LAST-MODIFIED");
-		                        oldICal.remove("DTSTAMP");                                   
-		                        oldICal.remove("CREATED");                                   
-		                        oldICal.keySet().retainAll(newICal.keySet());
+			                        oldICal.remove("LAST-MODIFIED");
+			                        oldICal.remove("DTSTAMP");                                   
+			                        oldICal.remove("CREATED");                                   
+			                        oldICal.keySet().retainAll(newICal.keySet());
+		                    	} catch(Exception e) {
+		                    		SysLog.log(Level.WARNING, "Unable to parse ical of {0}. Error is {1}", activity.refGetPath().toXRI(), e.getMessage());
+		                    		throw new ServiceException(e);
+		                    	}
 		                    }
 		                    ActivityGroup activityGroup = activitiesHelper.getActivityGroup();
 		                    boolean disabledIsModified = activity == null 

@@ -511,6 +511,32 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
     	}
     }
 
+    /**
+     * Build service exception.
+     *  
+     * @param e
+     * @param wfProcessInstance
+     * @param target
+     * @param recipients
+     * @return
+     */
+    protected ServiceException buildServiceException(
+    	Exception e,
+    	WfProcessInstance wfProcessInstance,
+    	ContextCapable target,
+    	Address[] recipients
+    ) {
+    	return new ServiceException(
+    		e,
+	        BasicException.Code.DEFAULT_DOMAIN,
+	        BasicException.Code.NOT_FOUND,
+	        "Can not send message",
+	        new BasicException.Parameter("workflow", wfProcessInstance.refGetPath().toXRI()),
+	        new BasicException.Parameter("target", target == null ? null: target.refGetPath().toXRI()),
+	        new BasicException.Parameter("recipients", Arrays.asList(recipients))
+    	);
+    }
+
     /* (non-Javadoc)
      * @see org.opencrx.kernel.backend.Workflows.AsynchronousWorkflow#execute(org.opencrx.kernel.home1.jmi1.WfProcessInstance)
      */
@@ -679,7 +705,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
             }
         } catch(SendFailedException e) {
         	SysLog.warning("Can not send message to recipients (reason=SendFailedException)", recipients == null ? null : Arrays.asList(recipients));
-            ServiceException e0 = new ServiceException(e);
+            ServiceException e0 = this.buildServiceException(e, wfProcessInstance, target, recipients);
             SysLog.detail(e0.getMessage(), e0.getCause());
             Pattern reasonPattern = Pattern.compile(".*(\\d\\.\\d\\.\\d).*");
             Matcher reasonMatcher = reasonPattern.matcher(e.getMessage());
@@ -709,7 +735,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
             throw e0;
         } catch(AuthenticationFailedException e) {
         	SysLog.warning("Can not send message to recipients (reason=AuthenticationFailedException)", recipients == null ? null : Arrays.asList(recipients));
-            ServiceException e0 = new ServiceException(e);
+            ServiceException e0 = this.buildServiceException(e, wfProcessInstance, target, recipients);
             SysLog.detail(e0.getMessage(), e0.getCause());
             WorkflowHelper.createLogEntry(
                 wfProcessInstance,
@@ -719,7 +745,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
             throw e0;
         } catch(AddressException e) {
         	SysLog.warning("Can not send message to recipients (reason=AddressException)", recipients == null ? null : Arrays.asList(recipients));
-            ServiceException e0 = new ServiceException(e);
+            ServiceException e0 = this.buildServiceException(e, wfProcessInstance, target, recipients);
             SysLog.detail(e0.getMessage(), e0.getCause());
             WorkflowHelper.createLogEntry(
                 wfProcessInstance,
@@ -729,7 +755,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
             throw e0;
         } catch(MessagingException e) {
         	SysLog.warning("Can not send message to recipients (reason=MessagingException)", recipients == null ? null : Arrays.asList(recipients));
-            ServiceException e0 = new ServiceException(e);
+            ServiceException e0 = this.buildServiceException(e, wfProcessInstance, target, recipients);
             SysLog.detail(e0.getMessage(), e0.getCause());
             WorkflowHelper.createLogEntry(
                 wfProcessInstance,
@@ -739,7 +765,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
             throw e0;
         } catch(Exception e) {
         	SysLog.warning("Can not send message to recipients (reason=Exception)", recipients == null ? null : Arrays.asList(recipients));
-            ServiceException e0 = new ServiceException(e);
+            ServiceException e0 = this.buildServiceException(e, wfProcessInstance, target, recipients);
             SysLog.detail(e0.getMessage(), e0.getCause());
             WorkflowHelper.createLogEntry(
                 wfProcessInstance,
