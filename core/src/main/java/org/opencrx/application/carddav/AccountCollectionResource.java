@@ -50,6 +50,7 @@
 package org.opencrx.application.carddav;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Set;
 
@@ -197,19 +198,23 @@ public class AccountCollectionResource extends CardDavResource {
 		Date timeRangeStart,
 		Date timeRangeEnd
 	) {
-		PersistenceManager pm = JDOHelper.getPersistenceManager(this.getObject());
-        MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
-        query.forAllDisabled().isFalse();                    
-        query.thereExistsAccount().vcard().isNonNull();
-        query.orderByCreatedAt().ascending();
-        ((Query)query).getFetchPlan().setFetchSize(FETCH_SIZE);
-        return new AccountResourceCollection<Resource>(
-        	this.getRequestContext(),
-        	this.getObject().getAccountGroup().getMember(query),
-        	this
-        );
+    	if(this.getObject() != null && this.getObject().getAccountGroup() != null) {
+			PersistenceManager pm = JDOHelper.getPersistenceManager(this.getObject());
+	        MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
+	        query.forAllDisabled().isFalse();                    
+	        query.thereExistsAccount().vcard().isNonNull();
+	        query.orderByCreatedAt().ascending();
+	        ((Query)query).getFetchPlan().setFetchSize(FETCH_SIZE);
+	        return new AccountResourceCollection<Resource>(
+	        	this.getRequestContext(),
+	        	this.getObject().getAccountGroup().getMember(query),
+	        	this
+	        );
+    	} else {
+    		return Collections.emptyList();
+    	}
 	}
-	
+
 	//-----------------------------------------------------------------------
     // Members
 	//-----------------------------------------------------------------------
