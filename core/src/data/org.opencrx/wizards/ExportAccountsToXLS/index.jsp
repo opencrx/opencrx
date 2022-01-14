@@ -4,16 +4,12 @@
  * Project:     opencrx, http://www.opencrx.org/
  * Name:        ISSA_xls_Contact_list.jsp
  * Description: create sheet with list of organizations
- * Owner:       CRIXP Corp., Switzerland, http://www.crixp.com
+ * Owner:       the original authors.
  * ====================================================================
  *
  * This software is published under the BSD license
  * as listed below.
- *
- * Copyright (c) 2013-2019, CRIXP Corp., Switzerland
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
+ * * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
  *
@@ -25,7 +21,7 @@
  * the documentation and/or other materials provided with the
  * distribution.
  *
- * * Neither the name of CRIXP Corp. nor the names of the contributors
+ * * Neither the name of the openCRX team nor the names of the contributors
  * to openCRX may be used to endorse or promote products derived
  * from this software without specific prior written permission
  *

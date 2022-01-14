@@ -2,20 +2,14 @@
 /*
  * ====================================================================
  * Project:     openCRX/Core, http://www.opencrx.org/
- * Name:        $Id: TestShopService.jsp,v 1.7 2012/05/23 16:34:07 wfro Exp $
  * Description: TestShopService
- * Revision:    $Revision: 1.7 $
- * Owner:       CRIXP AG, Switzerland, http://www.crixp.com
- * Date:        $Date: 2012/05/23 16:34:07 $
+ * Owner:       The original authors.
  * ====================================================================
  *
  * This software is published under the BSD license
  * as listed below.
  *
- * Copyright (c) 2005-2009, CRIXP Corp., Switzerland
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
+ * * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
  *
@@ -27,7 +21,7 @@
  * the documentation and/or other materials provided with the
  * distribution.
  *
- * * Neither the name of CRIXP Corp. nor the names of the contributors
+ * * Neither the name of the openCRX team nor the names of the contributors
  * to openCRX may be used to endorse or promote products derived
  * from this software without specific prior written permission
  *

@@ -3,14 +3,11 @@
  * ====================================================================
  * Project:     openCRX/Core, http://www.openmdx.org/
  * Description: UploadMedia
- * Owner:       CRIXP AG, Switzerland, http://www.crixp.com
+ * Owner:       the original authors.
  * ====================================================================
  *
  * This software is published under the BSD license
  * as listed below.
- *
- * Copyright (c) 2004-2014, CRIXP AG, Switzerland
- * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or
  * without modification, are permitted provided that the following

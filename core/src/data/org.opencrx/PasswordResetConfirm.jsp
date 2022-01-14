@@ -5,14 +5,11 @@
  * ====================================================================
  * Project:     openCRX/Core, http://www.opencrx.org/
  * Description: PasswordResetConfirm
- * Owner:       CRIXP Corp., Switzerland, http://www.crixp.com
+ * Owner:       the original authors.
  * ====================================================================
  *
  * This software is published under the BSD license
  * as listed below.
- *
- * Copyright (c) 2015-2021 CRIXP Corp., Switzerland
- * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -26,7 +23,7 @@
  * the documentation and/or other materials provided with the
  * distribution.
  *
- * * Neither the name of CRIXP Corp. nor the names of the contributors
+ * * Neither the name of the openCRX team nor the names of the contributors
  * to openCRX may be used to endorse or promote products derived
  * from this software without specific prior written permission
  *

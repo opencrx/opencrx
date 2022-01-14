@@ -2,13 +2,10 @@
  * =======================================================================
  * = Description: openCRX/Core
  * = Name: build.gradle.kts
- * = Copyright:   (c) 2020-2021 CRIXP AG
+ * = Copyright:   the original authors.
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
- * 
- * Copyright (c) 2020-2021, CRIXP Corp., Switzerland
- * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions 
@@ -22,7 +19,7 @@
  * the documentation and/or other materials provided with the
  * distribution.
  * 
- * * Neither the name of CRIXP Corp. nor the names of the contributors
+ * * Neither the name of the openCRX team nor the names of the contributors
  * to openCRX may be used to endorse or promote products derived
  * from this software without specific prior written permission
  * 
@@ -54,7 +51,7 @@ plugins {
 
 allprojects {
     group = "org.opencrx"
-    version = "5.2-20211031"
+    version = "5.2.1"
 }
 
 java {

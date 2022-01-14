@@ -1,17 +1,11 @@
 /*
  * ====================================================================
  * Project:     openMDX, http://www.openmdx.org/
- * Name:        $Id: ServletPort.java,v 1.23 2012/07/08 13:41:35 wfro Exp $
  * Description: ServletPort 
- * Revision:    $Revision: 1.23 $
- * Owner:       OMEX AG, Switzerland, http://www.omex.ch
- * Date:        $Date: 2012/07/08 13:41:35 $
+ * Owner:       the original authors.
  * ====================================================================
  *
  * This software is published under the BSD license as listed below.
- * 
- * Copyright (c) 2010-2012, OMEX AG, Switzerland
- * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or
  * without modification, are permitted provided that the following
