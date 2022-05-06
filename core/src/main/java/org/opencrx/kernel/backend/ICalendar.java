@@ -2684,7 +2684,7 @@ public class ICalendar extends AbstractImpl {
 			        		}
 			        	} catch(Exception e) {}
 		            }
-		            if(vevent.indexOf("URL:") < 0) {
+		            if(vevent.indexOf("\nURL:") < 0) {
 		            	if(url != null) {
 		            		pw.println("URL:" + url);
 		            	}
@@ -2722,7 +2722,7 @@ public class ICalendar extends AbstractImpl {
 		        	}
 		            pw.print(vtodo);
 		            SysLog.detail(vtodo);
-		            if(vtodo.indexOf("URL:") < 0) {
+		            if(vtodo.indexOf("\nURL:") < 0) {
 		            	if(url != null) {
 		            		pw.println("URL:" + url);
 		            	}
