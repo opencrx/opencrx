@@ -68,22 +68,26 @@ open class ExecTask() : JavaExec() {
 		env.load(FileInputStream(File(project.getProjectDir(), "build.properties")))
 	}
 
+	@get:Input
 	var projectImplementationVersion: String
 	init {
 		projectImplementationVersion = project.getVersion().toString();
 	}
 
+	@get:Input
 	var projectSpecificationVersion: String
 	init {
 		projectSpecificationVersion = project.getVersion().toString();
 	}
 
+	@get:Input
 	var projectVendorId: String
 	init {
 		val v = env.getProperty("project.vendor.id");
 		projectVendorId = if(v == null) "org.opencrx" else v;
 	}
 
+	@get:Input
 	var projectVendorName: String
 	init {
 		val v = env.getProperty("project.vendor.name");

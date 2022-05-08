@@ -46,13 +46,12 @@
 buildscript {
     repositories {
         mavenCentral()
-        jcenter()
         maven {
             url = uri("https://www.opencrx.org/repos/releases")
         }
     }
     dependencies {
-        classpath("org.opencrx:opencrx-gradle:5.2.1")
+        classpath("org.opencrx:opencrx-gradle:5.2-20220506")
     }
 }
 rootProject.name = "opencrx"

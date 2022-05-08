@@ -100,10 +100,6 @@
 		</init-param>
 		<init-param>
 			<param-name>path[5]</param-name>
-			<param-value>/LDAPSynchronizer</param-value>
-		</init-param>
-		<init-param>
-			<param-name>path[6]</param-name>
 			<param-value>/DocumentExporterServlet</param-value>
 		</init-param>
 		<!-- activate if WorkflowController should be initialized at startup
@@ -134,11 +130,6 @@
 	<servlet id="MailImporterServlet">
 		<servlet-name>MailImporterServlet</servlet-name>
 		<servlet-class>org.opencrx.application.mail.importer.MailImporterServlet</servlet-class>
-	</servlet>
-	<!-- LDAPSynchronizer -->
-	<servlet id="LDAPSynchronizer">
-		<servlet-name>LDAPSynchronizer</servlet-name>
-		<servlet-class>org.opencrx.application.ldap.LDAPSynchronizer</servlet-class>
 	</servlet>
 	<!-- DocumentExporter -->
 	<servlet id="DocumentExporterServlet">
@@ -480,10 +471,6 @@
 	<servlet-mapping>
 		<servlet-name>MailImporterServlet</servlet-name>
 		<url-pattern>/MailImporterServlet/*</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>LDAPSynchronizer</servlet-name>
-		<url-pattern>/LDAPSynchronizer/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>DocumentExporterServlet</servlet-name>

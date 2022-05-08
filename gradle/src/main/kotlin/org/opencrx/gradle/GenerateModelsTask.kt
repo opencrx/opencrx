@@ -57,7 +57,7 @@ import org.gradle.kotlin.dsl.*
 open class GenerateModelsTask : ExecTask() {
 
 	init {
-		main = "org.openmdx.application.mof.externalizer.xmi.XMIExternalizer"
+		mainClass.set("org.openmdx.application.mof.externalizer.xmi.XMIExternalizer")
 		args = listOf(
 			"--pathMapSymbol=openMDX 2 ~ Core (EMF)",
 			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/openmdx/base") + "/",

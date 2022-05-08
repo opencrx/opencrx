@@ -70,7 +70,7 @@ open class RenderDiagramsTask : ExecTask() {
 	}
 
 	init {
-		main = "org.openmdx.base.mof.spi.Model_1DiagramDrawer"
+		mainClass.set("org.openmdx.base.mof.spi.Model_1DiagramDrawer")
 		args = listOf(
 			"src/model/graphviz/diagrams",
 			File(project.getBuildDir(), "generated/sources/model/diagrams/dot").toString()

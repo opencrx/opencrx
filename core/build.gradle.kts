@@ -2,7 +2,7 @@
  * =======================================================================
  * = Description: openCRX/Core 
  * = Name: build.gradle.kts
- * = Copyright:   (c) 2020 the original authors.
+ * = Copyright:   (c) 2020-2022 the original authors.
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
@@ -54,8 +54,6 @@ plugins {
 	java
 	`java-library`
 	eclipse
-	war
-	distribution
 }
 
 apply(plugin = "ear")
@@ -63,7 +61,6 @@ apply(plugin = "opencrx")
 
 repositories {
 	mavenCentral()
-	jcenter()
     maven {
         url = uri("https://www.openmdx.org/repos/releases")
     }
@@ -73,39 +70,9 @@ var env = Properties()
 env.load(FileInputStream(File(project.getRootDir(), "build.properties")))
 val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
 
-fun setJreContainerOptions(el: Element) {
-    fun Element.firstElement(predicate: (Element.() -> Boolean)) =
-        childNodes
-            .run { (0 until length).map(::item) }
-            .filterIsInstance<Element>()
-            .first { it.predicate() }
-    var jreContainerEl = el
-        .firstElement {
-            tagName == "classpathentry"
-            && getAttribute("kind") == "con"
-            && getAttribute("path").startsWith("org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType")
-        }		
-    var xmlDoc = el.getOwnerDocument()
-    var addExportsEl = xmlDoc.createElement("attribute")
-    addExportsEl.setAttribute("name", "add-exports")
-    addExportsEl.setAttribute("value", "java.naming/com.sun.jndi.ldap=ALL-UNNAMED")
-    var moduleEl = xmlDoc.createElement("attribute")
-    moduleEl.setAttribute("name", "module")
-    moduleEl.setAttribute("value", "true")
-    var attributesEl = xmlDoc.createElement("attributes")
-    attributesEl.appendChild(addExportsEl)
-    attributesEl.appendChild(moduleEl)
-    jreContainerEl.appendChild(attributesEl)
-}
-
 eclipse {
 	project {
     	name = "openCRX 5 ~ Core"
-    }
-    classpath {
-    	file {
-            withXml { setJreContainerOptions(asElement()) }
-    	}
     }
     jdt {
 		sourceCompatibility = targetPlatform
@@ -130,6 +97,8 @@ val earlib by configurations
 val tools by configurations
 val opencrxCoreModels by configurations
 val opencrxCoreConfig by configurations
+val testRuntimeOnly by configurations
+testRuntimeOnly.extendsFrom(earlib)
 
 // required for bootstrapping 
 touch(File(File(getDeliverDir(), "lib"), "opencrx-core-config.jar"))
@@ -142,7 +111,7 @@ dependencies {
 	tools(files("$buildDir/generated/sources/model/opencrx-core.openmdx-xmi.zip"))
 	// test
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
-    testRuntimeOnly(earlib)
+    // testRuntimeOnly
     testRuntimeOnly("org.junit.jupiter:junit-jupiter:5.6.0")
     testRuntimeOnly("org.xerial:sqlite-jdbc:3.34.+")
 }
@@ -184,30 +153,12 @@ tasks {
 
 tasks.withType<JavaCompile> {
 	dependsOn("generate-model")
-	options.compilerArgs = listOf("--add-exports", "java.naming/com.sun.jndi.ldap=ALL-UNNAMED")
 }
 
 tasks.register("deliverables") {
 	dependsOn("opencrx-core.jar", "opencrx-core-config.jar", "opencrx-client.jar")
 }
 
-distributions {
-    main {
-    	distributionBaseName.set("opencrx-" + getProjectImplementationVersion() + "-core-jre-" + targetPlatform)
-        contents {
-        	// core
-        	from(".") { into("core"); include("LICENSE", "*.LICENSE", "NOTICE", "*.properties", "build*.*", "*.xml", "*.kts") }
-            from("src") { into("core/src") }
-        	// gradle
-        	from("../gradle") { into("gradle"); include("LICENSE", "*.LICENSE", "NOTICE", "*.properties", "build*.*", "*.xml", "*.kts") }
-            from("../gradle/src") { into("gradle/src") }
-            // etc
-            from("etc") { into("core/etc") }
-            // rootDir
-            from("..") { include("*.properties", "*.kts" ) }
-            // jre-...
-            from("../jre-" + targetPlatform + "/core/lib") { into("jre-" + targetPlatform + "/core/lib") }
-            from("../jre-" + targetPlatform + "/gradle/repo") { into("jre-" + targetPlatform + "/gradle/repo") }
-        }
-    }
+tasks.named<Ear>("ear") {
+    dependsOn("opencrx.ear")
 }

@@ -57,7 +57,6 @@ plugins {
 
 repositories {
 	mavenCentral()
-	jcenter()
 }
 
 var env = Properties()

@@ -90,7 +90,6 @@ open class ArchiveTask() : Jar() {
 	@Internal var kernelPersistencePluginClassName = env.getProperty("kernel.persistence.plugin.class.name")
 	@Internal var securityApplicationPluginClassName = env.getProperty("security.application.plugin.class.name")
 	@Internal var imapListenPort = env.getProperty("imap.listenPort")	
-	@Internal var ldapListenPort = env.getProperty("ldap.listenPort")
 	@Internal var calendarGlobalInterfaceLanguage = env.getProperty("calendar.globalInterfaceLanguage")
 	@Internal var calendarGlobalInterfaceCustomLanguages = env.getProperty("calendar.globalInterfaceCustomLanguages")
 	
@@ -160,7 +159,6 @@ open class ArchiveTask() : Jar() {
 		s = s.replace("opencrx-vcard-CRX", "opencrx-vcard-" + providerName);
 		s = s.replace("opencrx-spaces-CRX", "opencrx-spaces-" + providerName);
 		s = s.replace("opencrx-rest-CRX", "opencrx-rest-" + providerName);
-		s = s.replace("opencrx-ldap-CRX", "opencrx-ldap-" + providerName);
 		s = s.replace("opencrx-bpi-CRX", "opencrx-bpi-" + providerName);
 		s = s.replace("opencrx-calendar-CRX", "opencrx-calendar-" + providerName);
 		s = s.replace("opencrx-documents-CRX", "opencrx-documents-" + providerName);
@@ -173,7 +171,6 @@ open class ArchiveTask() : Jar() {
 		s = s.replace("Provider qualifiedName=\"CRX\"", "Provider qualifiedName=\"" + providerName + "\"");
 		s = s.replace("%IMPLEMENTATION_VERSION%", projectImplementationVersion);
 		s = s.replace("imap:143", "imap:" + imapListenPort);
-		s = s.replace("ldap:389", "ldap:" + ldapListenPort);
 		s = s.replace("globalInterfaceLanguage='en_US'", "globalInterfaceLanguage=" + calendarGlobalInterfaceLanguage);
 		s = s.replace("globalInterfaceCustomLanguages=[]", "globalInterfaceCustomLanguages=[" + calendarGlobalInterfaceCustomLanguages + "]");
 		return s;

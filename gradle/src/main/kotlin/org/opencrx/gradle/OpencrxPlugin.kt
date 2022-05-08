@@ -65,62 +65,59 @@ open class OpencrxPlugin: Plugin<Project> {
 		val extension = extensions.create<OpencrxPluginExtension>("opencrx", project)
 		// opencrx-core.jar
 		val coreJarTask = tasks.register<CoreJarTask>("opencrx-core.jar")
-		coreJarTask {
-			dependsOn("classes")
-		}
-		// opencrx-core-config.jar
-		val coreConfigJarTask = tasks.register<CoreConfigJarTask>("opencrx-core-config.jar")
-		coreConfigJarTask { dependsOn("classes") }
+		coreJarTask { dependsOn("classes") }
 		// opencrx-client.jar
 		val clientJarTask = tasks.register<ClientJarTask>("opencrx-client.jar")
-		clientJarTask { dependsOn("classes") }
+		clientJarTask { dependsOn("opencrx-core.jar") }
+		// opencrx-core-config.jar
+		val coreConfigJarTask = tasks.register<CoreConfigJarTask>("opencrx-core-config.jar")
+		coreConfigJarTask { dependsOn("opencrx-client.jar") }
 		// opencrx-config.jar
-		tasks.register<ConfigJarTask>("opencrx-config.jar")
+		val configJarTask = tasks.register<ConfigJarTask>("opencrx-config.jar")
+		configJarTask { dependsOn("opencrx-core-config.jar") }
 		// opencrx-portal.war
 		val portalWarTask = tasks.register<PortalWarTask>("opencrx-portal.war")
-		portalWarTask { dependsOn("deliverables") }
+		portalWarTask { dependsOn("deliverables", "opencrx-config.jar") }
 		// opencrx-ical.war
 		val icalWarTask = tasks.register<ICalWarTask>("opencrx-ical.war")
-		icalWarTask { dependsOn("deliverables") }
+		icalWarTask { dependsOn("deliverables", "opencrx-portal.war") }
 		// opencrx-caldav.war
 		val calDavWarTask = tasks.register<CalDavWarTask>("opencrx-caldav.war")
-		calDavWarTask { dependsOn("deliverables") }
+		calDavWarTask { dependsOn("deliverables", "opencrx-ical.war") }
 		// opencrx-carddav.war
 		val cardDavWarTask = tasks.register<CardDavWarTask>("opencrx-carddav.war")
-		cardDavWarTask { dependsOn("deliverables") }
+		cardDavWarTask { dependsOn("deliverables", "opencrx-caldav.war") }
 		// opencrx-webdav.war
 		val webDavWarTask = tasks.register<WebDavWarTask>("opencrx-webdav.war")
-		webDavWarTask { dependsOn("deliverables") }
+		webDavWarTask { dependsOn("deliverables", "opencrx-carddav.war") }
 		// opencrx-imap.war
 		val imapWarTask = tasks.register<ImapWarTask>("opencrx-imap.war")
-		imapWarTask { dependsOn("deliverables") }
+		imapWarTask { dependsOn("deliverables", "opencrx-webdav.war") }
 		// opencrx-vcard.war
 		val vCardWarTask = tasks.register<VCardWarTask>("opencrx-vcard.war")
-		vCardWarTask { dependsOn("deliverables") }
+		vCardWarTask { dependsOn("deliverables", "opencrx-imap.war") }
 		// opencrx-spaces.war
 		val spacesWarTask = tasks.register<SpacesWarTask>("opencrx-spaces.war")
-		spacesWarTask { dependsOn("deliverables") }
+		spacesWarTask { dependsOn("deliverables", "opencrx-vcard.war") }
 		// opencrx-rest.war
 		val restWarTask = tasks.register<RestWarTask>("opencrx-rest.war")
-		restWarTask { dependsOn("deliverables") }
-		// opencrx-ldap.war
-		val ldapWarTask = tasks.register<LdapWarTask>("opencrx-ldap.war")
-		ldapWarTask { dependsOn("deliverables") }
+		restWarTask { dependsOn("deliverables", "opencrx-spaces.war") }
 		// opencrx-bpi.war
 		val bpiWarTask = tasks.register<BpiWarTask>("opencrx-bpi.war")
-		bpiWarTask { dependsOn("deliverables") }
+		bpiWarTask { dependsOn("deliverables", "opencrx-rest.war") }
 		// opencrx-calendar.war
 		val calendarWarTask = tasks.register<CalendarWarTask>("opencrx-calendar.war")
-		calendarWarTask { dependsOn("deliverables") }
+		calendarWarTask { dependsOn("deliverables", "opencrx-bpi.war") }
 		// opencrx-documents.war
 		val documentsWarTask = tasks.register<DocumentsWarTask>("opencrx-documents.war")
-		documentsWarTask { dependsOn("deliverables") }
+		documentsWarTask { dependsOn("deliverables", "opencrx-calendar.war") }
 		// opencrx-contacts.war
 		val contactsWarTask = tasks.register<ContactsWarTask>("opencrx-contacts.war")
-		contactsWarTask { dependsOn("deliverables") }
+		contactsWarTask { dependsOn("deliverables", "opencrx-documents.war") }
 		// opencrx.ear
 		val earTask = tasks.register<org.opencrx.gradle.EarTask>("opencrx.ear")
 		earTask {
+			outputs.dir(deliverDir)
 			dependsOn(
 				"deliverables",
 				"opencrx-config.jar",
@@ -133,7 +130,6 @@ open class OpencrxPlugin: Plugin<Project> {
 				"opencrx-vcard.war",
 				"opencrx-spaces.war",
 				"opencrx-rest.war",
-				"opencrx-ldap.war",
 				"opencrx-bpi.war",
 				"opencrx-calendar.war",
 				"opencrx-documents.war",
@@ -205,7 +201,7 @@ open class OpencrxPlugin: Plugin<Project> {
         buildProperties.put("jdo-api.version", "3.1");
         buildProperties.put("libphonenumber.version", "8.12.+");
         buildProperties.put("openjpa.version", "2.4.+");
-        buildProperties.put("openmdx.version", "2.17.+");
+        buildProperties.put("openmdx.version", "2.18.+");
         buildProperties.put("pdfbox.version", "2.0.+");
         buildProperties.put("picocli.version", "4.6.+");
         buildProperties.put("poi.version", "4.1.+");
@@ -248,7 +244,7 @@ open class OpencrxPlugin: Plugin<Project> {
 		project.getConfigurations().maybeCreate("openmdxBaseModels")
 		project.getConfigurations().maybeCreate("openmdxSecurityModels")
 		project.getConfigurations().maybeCreate("openmdxPortalModels")
-		project.getConfigurations().maybeCreate("tools")
+		var tools = project.getConfigurations().maybeCreate("tools")
 		// dependencies
 		var dependencies = project.getDependencies()
 		// implementation
@@ -309,7 +305,7 @@ open class OpencrxPlugin: Plugin<Project> {
 		dependencies.add("earlib", "org.openmdx:openmdx-portal:${openmdxVersion}")
 		dependencies.add("earlib", "org.openmdx:openmdx-security:${openmdxVersion}")
 		// tools
-	    dependencies.add("tools", implementation)
+	    tools.extendsFrom(implementation)
 		dependencies.add("tools", "javax:javaee-api:${javaeeApiVersion}")
 		dependencies.add("tools", "org.apache.openjpa:openjpa:${openjpaVersion}")
 		dependencies.add("tools", "org.hsqldb:hsqldb:${hsqldbVersion}")
