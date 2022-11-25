@@ -50,20 +50,21 @@
 package org.opencrx.gradle
 
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.InputFiles
 import java.io.File
 
 open class RenderDiagramsTask : ExecTask() {
 
-	var albumPath = File(project.getBuildDir(), "generated/sources/model/diagrams/" + projectVendorName + " " + projectImplementationVersion + " Model")
+	@Internal var albumPath = File(project.getBuildDir(), "generated/sources/model/diagrams/" + projectVendorName + " " + projectImplementationVersion + " Model")
 
-	var albumExec: File
+	@Internal var albumExec: File
 	init {
 		val v = env.getProperty("albumExec");
 		albumExec = if(v == null) File("!!!albumExec!!!") else File(v);		
 	}
 
-	var dotExec: File
+	@Internal var dotExec: File
 	init {
 		val v = env.getProperty("dotExec");
 		dotExec = if(v == null) File("!!!dotExec!!!") else File(v);		
