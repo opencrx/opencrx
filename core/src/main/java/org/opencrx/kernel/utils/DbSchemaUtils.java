@@ -412,9 +412,12 @@ public class DbSchemaUtils {
 			command = command.replace(" BOOLEAN)", " BIT)");
 			command = command.replace(" CLOB)", " LONGTEXT)");
 			command = command.replace(" VARBINARY)", " BLOB)");
+			command = command.replace(",CONDITION ", ",`CONDITION` ");
+			command = command.replace("\"POSITION\"", "`POSITION`");
+			command = command.replace("\"position\"", "`POSITION`");
 			command = command.replace("'\\'", "'\\\\'");
 		} else if(targetDatabaseName.indexOf("DB2") >=0) {
-			// DB2		
+			// DB2
 			command = command.replace(" BOOLEAN,", " SMALLINT,");
 			command = command.replace(" VARBINARY,", " BLOB,");
 			command = command.replace(" BOOLEAN)", " SMALLINT)");

@@ -117,7 +117,7 @@ org.openmdx.base.naming.*
 <pre>Examples:
 * java:comp/env/jdbc_opencrx_CRX
 * jdbc:postgresql://127.0.0.1/CRX
-* jdbc:mysql://127.0.0.1/CRX
+* jdbc:mysql://127.0.0.1/CRX?sessionVariables=sql_mode=ANSI
 * jdbc:hsqldb:hsql://127.0.0.1/CRX
 * jdbc:db2://127.0.0.1:50000/CRX
 * jdbc:oracle:thin:@127.0.0.1:1521:XE

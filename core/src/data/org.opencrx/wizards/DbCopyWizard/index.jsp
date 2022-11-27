@@ -118,7 +118,7 @@ org.openmdx.base.naming.*
 									<input type="text" name="jdbcUrlSource" id="connectionUrl" tabIndex="9000" style="width:50em;" value="<%= wc.getFormFields().getJdbcUrlSource() == null ? "" : wc.getFormFields().getJdbcUrlSource() %>" />
 <pre>Examples:
 * jdbc:postgresql://127.0.0.1/CRX
-* jdbc:mysql://127.0.0.1/CRX
+* jdbc:mysql://127.0.0.1/CRX?sessionVariables=sql_mode=ANSI
 * jdbc:hsqldb:hsql://127.0.0.1/CRX
 * jdbc:db2://127.0.0.1:50000/CRX
 * jdbc:oracle:thin:@127.0.0.1:1521:XE

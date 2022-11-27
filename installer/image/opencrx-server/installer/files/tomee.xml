@@ -86,7 +86,7 @@
 <!--
 <Resource id="jdbc_opencrx_CRX" type="DataSource">
   JdbcDriver com.mysql.jdbc.Driver
-  JdbcUrl jdbc:mysql://127.0.0.1:3306/CRX
+  JdbcUrl jdbc:mysql://127.0.0.1:3306/CRX?sessionVariables=sql_mode=ANSI
   UserName root
   Password manager99
   JtaManaged true

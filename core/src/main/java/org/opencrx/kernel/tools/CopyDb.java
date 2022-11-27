@@ -145,6 +145,13 @@ public class CopyDb {
 			} else {
 				return mappedColumnName;
 			}
+		} else if("MySQL".equals(databaseProductName)) {
+			String mappedColumnName = columnName.toUpperCase();
+			if("CONDITION".equals(mappedColumnName)) {
+				return "`" + mappedColumnName + "`";
+			} else {
+				return mappedColumnName;
+			}
 		} else if("PostgreSQL".equals(databaseProductName)) {
 			String mappedColumnName = columnName.toLowerCase();
 			if("offset".equals(mappedColumnName) || "end".equals(mappedColumnName) || mappedColumnName.indexOf("-") > 0) {
@@ -316,7 +323,7 @@ public class CopyDb {
 								parameter = timestampValueMethod.invoke(parameter, new Object[] {});
 							}
 							if(parameter instanceof java.sql.Timestamp) {
-								t.setTimestamp(j + 1, (java.sql.Timestamp) parameter);
+								t.setTimestamp(j + 1, (java.sql.Timestamp)parameter);
 							} else if(parameter instanceof java.sql.Date) {
 								t.setDate(j + 1, (java.sql.Date) parameter);
 							} else if(parameter instanceof Double) {
