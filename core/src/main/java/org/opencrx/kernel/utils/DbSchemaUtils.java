@@ -405,7 +405,12 @@ public class DbSchemaUtils {
 			// HSQLDB
 		} else if(targetDatabaseName.indexOf("MySQL") >=0) {
 			// MySQL
-			command = command.replace(" TIMESTAMP", " DATETIME");					
+			if(command.indexOf(" TIMESTAMP") > 0) {
+				command = command.replace(" TIMESTAMP", " DATETIME");
+				// MODIFIED_AT needs to be TIMESTAMP in order not to break concurrent modification validation
+				command = command.replace("MODIFIED_AT DATETIME", "MODIFIED_AT TIMESTAMP(6)");
+				command = command.replace("CREATED_AT DATETIME", "CREATED_AT TIMESTAMP(6)");
+			}
 			command = command.replace(" BOOLEAN,", " BIT,");
 			command = command.replace(" CLOB,", " LONGTEXT,");
 			command = command.replace(" VARBINARY,", " BLOB,");

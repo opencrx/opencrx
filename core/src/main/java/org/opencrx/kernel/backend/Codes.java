@@ -775,7 +775,7 @@ public class Codes extends AbstractImpl {
 				aggregatedValue = DateTimeFormat.BASIC_UTC_FORMAT.format((Date)aggregatedValue);
 			}
 			// Apply condition
-			if(basicCondition.getCondition() == ConditionType.IS_IN.code()) {
+			if(basicCondition.getConditionType() == ConditionType.IS_IN.code()) {
 				result = false;
 				for(String argument: basicCondition.getConditionArgument()) {
 					if(argument.equals(aggregatedValue.toString())) {
@@ -783,7 +783,7 @@ public class Codes extends AbstractImpl {
 						break;
 					}
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_NOT_IN.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_NOT_IN.code()) {
 				result = true;
 				for(String argument: basicCondition.getConditionArgument()) {
 					if(argument.equals(aggregatedValue.toString())) {
@@ -791,7 +791,7 @@ public class Codes extends AbstractImpl {
 						break;
 					}
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_LESS_OR_EQUAL.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_LESS_OR_EQUAL.code()) {
 				if(aggregatedValue instanceof Number) {
 					result = this.toBigDecimal(aggregatedValue).compareTo(
 						this.toBigDecimal(basicCondition.getConditionArgument().get(0))
@@ -801,7 +801,7 @@ public class Codes extends AbstractImpl {
 						basicCondition.getConditionArgument().get(0)
 					) <= 0;
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_LESS.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_LESS.code()) {
 				if(aggregatedValue instanceof Number) {
 					result = this.toBigDecimal(aggregatedValue).compareTo(
 						this.toBigDecimal(basicCondition.getConditionArgument().get(0))
@@ -811,7 +811,7 @@ public class Codes extends AbstractImpl {
 						basicCondition.getConditionArgument().get(0)
 					) < 0;
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_GREATER_OR_EQUAL.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_GREATER_OR_EQUAL.code()) {
 				if(aggregatedValue instanceof Number) {
 					result = this.toBigDecimal(aggregatedValue).compareTo(
 						this.toBigDecimal(basicCondition.getConditionArgument().get(0))
@@ -821,7 +821,7 @@ public class Codes extends AbstractImpl {
 						basicCondition.getConditionArgument().get(0)
 					) >= 0;
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_BETWEEN.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_BETWEEN.code()) {
 				if(aggregatedValue instanceof Number) {
 					result = this.toBigDecimal(aggregatedValue).compareTo(
 						this.toBigDecimal(basicCondition.getConditionArgument().get(0))
@@ -830,7 +830,7 @@ public class Codes extends AbstractImpl {
 						this.toBigDecimal(basicCondition.getConditionArgument().get(1))
 					) <= 0;
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_OUTSIDE.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_OUTSIDE.code()) {
 				if(aggregatedValue instanceof Number) {
 					result = this.toBigDecimal(aggregatedValue).compareTo(
 						this.toBigDecimal(basicCondition.getConditionArgument().get(0))
@@ -839,7 +839,7 @@ public class Codes extends AbstractImpl {
 						this.toBigDecimal(basicCondition.getConditionArgument().get(1))
 					) > 0;
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_GREATER.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_GREATER.code()) {
 				if(aggregatedValue instanceof Number) {
 					result = this.toBigDecimal(aggregatedValue).compareTo(
 						this.toBigDecimal(basicCondition.getConditionArgument().get(0))
@@ -849,14 +849,14 @@ public class Codes extends AbstractImpl {
 						basicCondition.getConditionArgument().get(0)
 					) > 0;
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_LIKE.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_LIKE.code()) {
 				result = false;
 				for(String argument: basicCondition.getConditionArgument()) {
 					if(aggregatedValue.toString().matches(argument)) {
 						result = true;
 					}
 				}
-			} else if(basicCondition.getCondition() == ConditionType.IS_UNLIKE.code()) {
+			} else if(basicCondition.getConditionType() == ConditionType.IS_UNLIKE.code()) {
 				result = true;
 				for(String argument: basicCondition.getConditionArgument()) {
 					if(aggregatedValue.toString().matches(argument)) {
