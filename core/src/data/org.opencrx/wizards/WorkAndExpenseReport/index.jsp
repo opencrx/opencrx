@@ -760,6 +760,7 @@ org.apache.poi.hssf.util.*
 	</script>
 
 	<style type="text/css" media="all">
+		@page{margin:auto; size:auto;}
 		fieldset {
 			margin: 0px 10px 20px 0px;
 			padding: 5px 0px 5px 15px;
