@@ -215,6 +215,10 @@ public class DoPropfind extends org.opencrx.application.uses.net.sf.webdav.metho
 					Boolean.TRUE.equals(activityCollectionResource.allowChange())
 				) {
 					writer.writeElement("DAV::all", XMLWriter.NO_CONTENT);
+				} else if(
+					Boolean.TRUE.equals(activityCollectionResource.allowChange())
+				) {
+					writer.writeElement("DAV::write-content", XMLWriter.NO_CONTENT);
 				} else {
 					writer.writeElement("DAV::read", XMLWriter.NO_CONTENT);
 				}

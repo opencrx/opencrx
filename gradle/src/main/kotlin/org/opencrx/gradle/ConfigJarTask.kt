@@ -57,14 +57,14 @@ import org.gradle.api.file.RelativePath
 open class ConfigJarTask : ArchiveTask() {
 
 	init {
-		archiveFileName.set("opencrx-config-" + providerName.toLowerCase() + ".jar")
+		archiveFileName.set("opencrx-config-" + providerName.lowercase() + ".jar")
 		destinationDirectory.set(File(deliverDir, "lib"))
 	    includeEmptyDirs = false		
 		manifest {
 	        attributes(
 	        	getManifest(
 	        		"openCRX/Core Config " + providerName + " Library",
-	        		"opencrx-config-" + providerName.toLowerCase()
+	        		"opencrx-config-" + providerName.lowercase()
 	        	)
 	        )
 	    }
