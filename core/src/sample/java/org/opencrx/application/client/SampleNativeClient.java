@@ -58,7 +58,7 @@ import javax.naming.spi.NamingManager;
 
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.kernel.lightweight.naming.NonManagedInitialContextFactoryBuilder;
+import org.openmdx.kernel.lightweight.naming.LightweightInitialContextFactoryBuilder;
 
 /**
  * Simple native openCRX client program. This program deploys openCRX
@@ -75,7 +75,7 @@ public class SampleNativeClient {
 		if(true) {
 			// Required when deployed with openMDX lightweight container
 			if(!NamingManager.hasInitialContextFactoryBuilder()) {
-				NonManagedInitialContextFactoryBuilder.install(
+				LightweightInitialContextFactoryBuilder.install(
 					Collections.singletonMap(
 						"org.openmdx.comp.env.jdbc_opencrx_CRX",
 						"jdbc:postgresql:\\/\\/localhost:5432\\/CRX?user=...&password=..."
