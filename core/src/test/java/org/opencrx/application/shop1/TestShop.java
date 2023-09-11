@@ -65,7 +65,7 @@ import org.opencrx.application.shop1.test.TestShopService;
 import org.opencrx.generic.AbstractTest;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.kernel.exception.BasicException;
-import org.openmdx.kernel.lightweight.naming.NonManagedInitialContextFactoryBuilder;
+import org.openmdx.kernel.lightweight.naming.LightweightInitialContextFactoryBuilder;
 
 /**
  * TestShop
@@ -76,7 +76,7 @@ public class TestShop extends AbstractTest {
     public void initialize(
     ) throws NamingException, ServiceException {
         if(!NamingManager.hasInitialContextFactoryBuilder()) {
-            NonManagedInitialContextFactoryBuilder.install(null);
+        	LightweightInitialContextFactoryBuilder.install(null);
         }
        	entityManagerFactory = org.opencrx.kernel.utils.Utils.getPersistenceManagerFactory();
         pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();

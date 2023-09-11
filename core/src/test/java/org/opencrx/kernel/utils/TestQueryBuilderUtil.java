@@ -57,7 +57,7 @@ import org.junit.jupiter.api.Test;
 import org.opencrx.generic.AbstractTest;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
-import org.openmdx.kernel.lightweight.naming.NonManagedInitialContextFactoryBuilder;
+import org.openmdx.kernel.lightweight.naming.LightweightInitialContextFactoryBuilder;
 
 /**
  * TestQueryBuilderUtil
@@ -68,7 +68,7 @@ public class TestQueryBuilderUtil extends AbstractTest {
     public void initialize(
     ) throws NamingException, ServiceException {
         if(!NamingManager.hasInitialContextFactoryBuilder()) {
-            NonManagedInitialContextFactoryBuilder.install(null);
+        	LightweightInitialContextFactoryBuilder.install(null);
         }
     }
     

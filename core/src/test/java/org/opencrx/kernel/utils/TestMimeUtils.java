@@ -67,7 +67,7 @@ import org.junit.jupiter.api.Test;
 import org.opencrx.generic.AbstractTest;
 import org.opencrx.kernel.backend.Accounts;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.kernel.lightweight.naming.NonManagedInitialContextFactoryBuilder;
+import org.openmdx.kernel.lightweight.naming.LightweightInitialContextFactoryBuilder;
 
 /**
  * TestMimeUtils
@@ -82,7 +82,7 @@ public class TestMimeUtils extends AbstractTest {
     public void initialize(
     ) throws NamingException, ServiceException {
         if(!NamingManager.hasInitialContextFactoryBuilder()) {
-            NonManagedInitialContextFactoryBuilder.install(null);
+        	LightweightInitialContextFactoryBuilder.install(null);
         }
         entityManagerFactory = org.opencrx.kernel.utils.Utils.getPersistenceManagerFactory();
         pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();

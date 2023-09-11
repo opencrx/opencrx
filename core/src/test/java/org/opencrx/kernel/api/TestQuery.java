@@ -53,7 +53,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -62,7 +61,6 @@ import java.util.function.Consumer;
 
 import javax.jmi.reflect.RefObject;
 import javax.naming.NamingException;
-import javax.naming.spi.NamingManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -120,7 +118,6 @@ import org.openmdx.base.jmi1.ExtentCapable;
 import org.openmdx.base.naming.Path;
 import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.rest.cci.QueryExtensionRecord;
-import org.openmdx.kernel.lightweight.naming.NonManagedInitialContextFactoryBuilder;
 import org.openmdx.kernel.log.SysLog;
 import org.w3c.cci2.Container;
 
