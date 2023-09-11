@@ -503,20 +503,20 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
                     short nCell = 0;
                     try {
                       HSSFCell cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+                      if (cell != null && cell.getCellType() == CellType.STRING) {
                         XRI = cell.getStringCellValue().trim();
                       }
                       cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+                      if (cell != null && cell.getCellType() == CellType.STRING) {
                         name = cell.getStringCellValue().trim();
                       }
                       cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+                      if (cell != null && cell.getCellType() == CellType.STRING) {
                         desc = cell.getStringCellValue().trim();
                       }
                       Set<String> action = new HashSet<String>();
                       cell = (HSSFCell)row.getCell(nCell++);
-                      while (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+                      while (cell != null && cell.getCellType() == CellType.STRING) {
                     	  action.add(cell.getStringCellValue().trim());
                         cell = (HSSFCell)row.getCell(nCell++);
                       }
@@ -569,7 +569,7 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
                     short nCell = 0;
                     try {
                       HSSFCell cell = (HSSFCell)row.getCell(nCell++);
-                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+                      if (cell != null && cell.getCellType() == CellType.STRING) {
                         XRI = cell.getStringCellValue().trim();
                       }
                       if (XRI != null && XRI.compareTo("\\") == 0) {
@@ -579,24 +579,24 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
                     	  	if (role != null) {
 		                    	  	nCell += 3;
 		                          cell = (HSSFCell)row.getCell(nCell++);
-		                          if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+		                          if (cell != null && cell.getCellType() == CellType.STRING) {
 		                            XRI = cell.getStringCellValue().trim();
 		                          }
 				                      cell = (HSSFCell)row.getCell(nCell++);
-				                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+				                      if (cell != null && cell.getCellType() == CellType.STRING) {
 				                        name = cell.getStringCellValue().trim();
 				                      }
 				                      cell = (HSSFCell)row.getCell(nCell++);
-				                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+				                      if (cell != null && cell.getCellType() == CellType.STRING) {
 				                        desc = cell.getStringCellValue().trim();
 				                      }
 		                          cell = (HSSFCell)row.getCell(nCell++);
-		                          if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+		                          if (cell != null && cell.getCellType() == CellType.STRING) {
 		                            privXRI = cell.getStringCellValue().trim();
 		                          }
 		                          Set<String> action = new HashSet<String>();
 		                          cell = (HSSFCell)row.getCell(nCell++);
-		                          while (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+		                          while (cell != null && cell.getCellType() == CellType.STRING) {
 		                        	  action.add(cell.getStringCellValue().trim());
 		                            cell = (HSSFCell)row.getCell(nCell++);
 		                          }
@@ -634,15 +634,15 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
 	                  	  	// role
 	                  	  	role = null;
 		                      cell = (HSSFCell)row.getCell(nCell++);
-		                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+		                      if (cell != null && cell.getCellType() == CellType.STRING) {
 		                        name = cell.getStringCellValue().trim();
 		                      }
 		                      cell = (HSSFCell)row.getCell(nCell++);
-		                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+		                      if (cell != null && cell.getCellType() == CellType.STRING) {
 		                        desc = cell.getStringCellValue().trim();
 		                      }
 		                      cell = (HSSFCell)row.getCell(nCell++);
-		                      if (cell != null && cell.getCellTypeEnum() == CellType.STRING) {
+		                      if (cell != null && cell.getCellType() == CellType.STRING) {
 		                    	  disabled = cell.getBooleanCellValue();
 		                      }
 		                      if (name != null) {
