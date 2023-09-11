@@ -654,7 +654,7 @@ public abstract class AbstractTestShopService {
     ) {
     	List<ProductT> productsT = new ArrayList<ProductT>();
         for(int i = 0; i < 100; i++) {
-            int id = new Double(Math.random() * 100.0).intValue();
+            int id = Double.valueOf(Math.random() * 100.0).intValue();
             String productNumber = Integer.toString(id);
             GetProductsParams getProductsParams = Datatypes.create(
                 GetProductsParams.class,
@@ -834,7 +834,7 @@ public abstract class AbstractTestShopService {
         );
         this.logResult("getProductsByQuery", getProductsByQueryResult.getStatus());
         // Get / Create / Update product
-        int id = new Double(Math.random() * 100.0).intValue();
+        int id = Double.valueOf(Math.random() * 100.0).intValue();
         String productNumber = Integer.toString(id);
         System.out.println(new Date() + "   productNumber " + productNumber);
         ProductT productT = this.newProduct(
@@ -983,7 +983,7 @@ public abstract class AbstractTestShopService {
             }
         }
         // Set status
-        int productStatus = new Double((Math.random() * 5.0)).intValue();
+        int productStatus = Double.valueOf((Math.random() * 5.0)).intValue();
         SetProductStatusParams setProductStatusParams = Datatypes.create(
             SetProductStatusParams.class,
             Datatypes.member(
@@ -1020,7 +1020,7 @@ public abstract class AbstractTestShopService {
         // Get an existing customer
         String customerNumber = null;
         for(int i = 0; i < 100; i++) {
-            int id = new Double(Math.random() * 100.0).intValue();
+            int id = Double.valueOf(Math.random() * 100.0).intValue();
             String userName = Integer.toString(id);
             GetCredentialsParams getCredentialsParams = Datatypes.create(
                 GetCredentialsParams.class,
@@ -1079,7 +1079,7 @@ public abstract class AbstractTestShopService {
                 ),
                 Datatypes.member(
                     ContractPositionT.Member.priceUom,
-                    productT.getPriceUom().get(new Double(Math.random() * productT.getPriceUom().size()).intValue())
+                    productT.getPriceUom().get(Double.valueOf(Math.random() * productT.getPriceUom().size()).intValue())
                 )
             );
             contractPositionsT.add(contractPositionT);
@@ -1247,7 +1247,7 @@ public abstract class AbstractTestShopService {
                     ),
                     Datatypes.member(
                         AddSalesOrderPositionParams.Member.priceUom,
-                        productT.getPriceUom().get(new Double(Math.random() * productT.getPriceUom().size()).intValue())
+                        productT.getPriceUom().get(Double.valueOf(Math.random() * productT.getPriceUom().size()).intValue())
                     )                    
                 );
                 AddSalesOrderPositionResult addSalesOrderPositionResult = null;
@@ -1258,7 +1258,7 @@ public abstract class AbstractTestShopService {
             }
         }
         // Set sales order status
-        int salesOrderStatus = new Double((Math.random() * 5.0)).intValue();
+        int salesOrderStatus = Double.valueOf((Math.random() * 5.0)).intValue();
         SetSalesOrderStatusParams setSalesOrderStatusParams = Datatypes.create(
             SetSalesOrderStatusParams.class,
             Datatypes.member(
@@ -1331,7 +1331,7 @@ public abstract class AbstractTestShopService {
         String customerNumber = null;
         int id = 0;
         for(int i = 0; i < 100; i++) {
-            id = new Double(Math.random() * 100.0).intValue();
+            id = Double.valueOf(Math.random() * 100.0).intValue();
             String userName = Integer.toString(id);
             GetCredentialsParams getCredentialsParams = Datatypes.create(
                 GetCredentialsParams.class,
@@ -1500,7 +1500,7 @@ public abstract class AbstractTestShopService {
     public ReturnStatusT testCustomers(
     ) {        
         System.out.println(new Date() + "   ---------- testCustomers");        
-        int id = new Double(Math.random() * 100.0).intValue();
+        int id = Double.valueOf(Math.random() * 100.0).intValue();
         String firstName = "First-" + id;
         String lastName = "Last-" + id;
         String middleName = "Middle-" + id;
@@ -2366,7 +2366,7 @@ public abstract class AbstractTestShopService {
         );
         this.logResult("getCredentialsByEmailAddress", getCredentialsByEmailAddressResult.getStatus());        
         // Set status
-        int customerStatus = new Double((Math.random() * 5.0)).intValue();
+        int customerStatus = Double.valueOf((Math.random() * 5.0)).intValue();
         SetCustomerStatusParams setCustomerStatusParams = Datatypes.create(
             SetCustomerStatusParams.class,
             Datatypes.member(
@@ -2400,7 +2400,7 @@ public abstract class AbstractTestShopService {
     public ReturnStatusT testLegalEntities(
     ) {
         System.out.println(new Date() + "   ---------- testLegalEntities");    
-        int id = new Double(Math.random() * 100.0).intValue();
+        int id = Double.valueOf(Math.random() * 100.0).intValue();
         // Find legal entity
         String legalName = "Company-" + Integer.toString(id);
         GetCustomersByQueryParams getCustomersByQueryParams = Datatypes.create(
@@ -2759,7 +2759,7 @@ public abstract class AbstractTestShopService {
         // Get an existing customer
         String customerNumber = null;
         for(int i = 0; i < 100; i++) {
-            int id = new Double(Math.random() * 100.0).intValue();
+            int id = Double.valueOf(Math.random() * 100.0).intValue();
             String userName = Integer.toString(id);
             GetCredentialsParams getCredentialsParams = Datatypes.create(
                 GetCredentialsParams.class,
@@ -2805,7 +2805,7 @@ public abstract class AbstractTestShopService {
             CreateInvoiceFromSalesOrderParams.class,
             Datatypes.member(
                 CreateInvoiceFromSalesOrderParams.Member.salesOrderNumber,
-                getSalesOrdersResult.getSalesOrder().get(new Double(Math.random() * getSalesOrdersResult.getSalesOrder().size()).intValue()).getContract().getContractNumber()
+                getSalesOrdersResult.getSalesOrder().get(Double.valueOf(Math.random() * getSalesOrdersResult.getSalesOrder().size()).intValue()).getContract().getContractNumber()
             )
         );
         CreateInvoiceFromSalesOrderResult createInvoiceFromSalesOrderResult = null;
@@ -2914,7 +2914,7 @@ public abstract class AbstractTestShopService {
         // Get voucher customer
         String voucherCustomerNumber = null;
         for(int i = 0; i < 100; i++) {
-            int id = new Double(Math.random() * 100.0).intValue();
+            int id = Double.valueOf(Math.random() * 100.0).intValue();
             String userName = Integer.toString(id);
             GetCredentialsParams getCredentialsParams = Datatypes.create(
                 GetCredentialsParams.class,
@@ -2952,7 +2952,7 @@ public abstract class AbstractTestShopService {
         // Get receiving customer
         String receivingCustomerNumber = null;
         for(int i = 0; i < 100; i++) {
-            int id = new Double(Math.random() * 100.0).intValue();
+            int id = Double.valueOf(Math.random() * 100.0).intValue();
             String userName = Integer.toString(id);
             GetCredentialsParams getCredentialsParams = Datatypes.create(
                 GetCredentialsParams.class,
@@ -2989,7 +2989,7 @@ public abstract class AbstractTestShopService {
         // Get at most three existing products
         List<ProductT> productsT = new ArrayList<ProductT>();
         for(int i = 0; i < 100; i++) {
-            int id = new Double(Math.random() * 100.0).intValue();
+            int id = Double.valueOf(Math.random() * 100.0).intValue();
             String productNumber = Integer.toString(id);
             GetProductsParams getProductsParams = Datatypes.create(
                 GetProductsParams.class,
@@ -3031,7 +3031,7 @@ public abstract class AbstractTestShopService {
                 ),
                 Datatypes.member(
                     ContractPositionT.Member.priceUom,
-                    productT.getPriceUom().get(new Double(Math.random() * productT.getPriceUom().size()).intValue())
+                    productT.getPriceUom().get(Double.valueOf(Math.random() * productT.getPriceUom().size()).intValue())
                 )
             );
             contractPositionsT.add(contractPositionT);
@@ -3155,7 +3155,7 @@ public abstract class AbstractTestShopService {
         String customerNumber = null;
         int id = -1;
         for(int i = 0; i < 100; i++) {
-            id = new Double(Math.random() * 100.0).intValue();
+            id = Double.valueOf(Math.random() * 100.0).intValue();
             String userName = Integer.toString(id);
             GetCredentialsParams getCredentialsParams = Datatypes.create(
                 GetCredentialsParams.class,

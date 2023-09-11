@@ -921,19 +921,19 @@ public class Addresses extends AbstractImpl {
 	}
     
     @Deprecated
-    public static final Short USAGE_BUSINESS_MOBILE = new Short((short)540);
+    public static final Short USAGE_BUSINESS_MOBILE = Short.valueOf((short)540);
     @Deprecated
-    public static final Short USAGE_HOME_MOBILE = new Short((short)440);
-    public static final Short USAGE_MOBILE = new Short((short)200);
-    public static final Short USAGE_BUSINESS_FAX = new Short((short)530);
-    public static final Short USAGE_HOME_FAX = new Short((short)430);
+    public static final Short USAGE_HOME_MOBILE = Short.valueOf((short)440);
+    public static final Short USAGE_MOBILE = Short.valueOf((short)200);
+    public static final Short USAGE_BUSINESS_FAX = Short.valueOf((short)530);
+    public static final Short USAGE_HOME_FAX = Short.valueOf((short)430);
     @Deprecated
-    public static final Short USAGE_BUSINESS_MAIN_PHONE = new Short((short)520);
+    public static final Short USAGE_BUSINESS_MAIN_PHONE = Short.valueOf((short)520);
     @Deprecated
-    public static final Short USAGE_HOME_MAIN_PHONE = new Short((short)420);
-    public static final Short USAGE_OTHER = new Short((short)1800);
-    public static final Short USAGE_BUSINESS = new Short((short)500);
-    public static final Short USAGE_HOME = new Short((short)400);
+    public static final Short USAGE_HOME_MAIN_PHONE = Short.valueOf((short)420);
+    public static final Short USAGE_OTHER = Short.valueOf((short)1800);
+    public static final Short USAGE_BUSINESS = Short.valueOf((short)500);
+    public static final Short USAGE_HOME = Short.valueOf((short)400);
     public static final Short USAGE_CONTRACT_INVOICE = 10000;
     public static final Short USAGE_CONTRACT_DELIVERY = 10200;
     

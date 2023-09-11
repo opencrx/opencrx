@@ -106,9 +106,9 @@ touch(File(File(getDeliverDir(), "lib"), "opencrx-core-config.jar"))
 dependencies {
 	opencrxCoreConfig(fileTree(File(getDeliverDir(), "lib")) { include("opencrx-core-config.jar"); } )
 	earlib(fileTree(File(getDeliverDir(), "lib")) { include("*.jar"); exclude("opencrx-client.jar", "opencrx-core-config.jar" ) } )
-	tools(files("$buildDir/classes/java/main"))
-	tools(files("$buildDir/resources/main"))
-	tools(files("$buildDir/generated/sources/model/opencrx-core.openmdx-xmi.zip"))
+	tools(files(layout.buildDirectory.dir("classes/java/main")))
+	tools(files(layout.buildDirectory.dir("resources/main")))
+	tools(files(layout.buildDirectory.dir("generated/sources/model/opencrx-core.openmdx-xmi.zip")))
 	// test
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
     // testRuntimeOnly
@@ -121,13 +121,13 @@ sourceSets {
         java {
             srcDir("src/main/java")
             srcDir("src/data/org.opencrx/WEB-INF/classes")
-            srcDir("$buildDir/generated/sources/java/main")
+            srcDir(layout.buildDirectory.dir("generated/sources/java/main"))
         }
     }
     test {
         java {
             srcDir("src/test/java")
-            srcDir("$buildDir/generated/sources/java/test")
+            srcDir(layout.buildDirectory.dir("generated/sources/java/test"))
         }
         resources {
         	srcDir("src/test/resources")

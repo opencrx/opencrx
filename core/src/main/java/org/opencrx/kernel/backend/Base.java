@@ -341,7 +341,7 @@ public class Base extends AbstractImpl {
 	                List<Alert> existingAlerts = userHomeByRoot.getAlert(alertQuery);
 	                if(existingAlerts.isEmpty()) {
 	                	Alert alert = pmRoot.newInstance(Alert.class);
-	                	alert.setAlertState(new Short((short)1));
+	                	alert.setAlertState(Short.valueOf((short)1));
 	                	alert.setName(
 	                        name == null || name.length() == 0 ?
 	                            "--" : // name is mandatory
@@ -440,11 +440,11 @@ public class Base extends AbstractImpl {
             Object key = report.get(i);
             Short count = reportAsMap.get(key);
             if(count == null) {
-                count = new Short((short)0);
+                count = Short.valueOf((short)0);
             }
             reportAsMap.put(
                 key,
-                new Short((short)(count.shortValue() + 1))
+                Short.valueOf((short)(count.shortValue() + 1))
             );
         }
         return reportAsMap.toString();

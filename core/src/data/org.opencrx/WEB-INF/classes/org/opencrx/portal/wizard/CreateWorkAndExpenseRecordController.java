@@ -1046,18 +1046,18 @@ public class CreateWorkAndExpenseRecordController extends JspWizardController {
 			workAndExpenseRecordFilter.thereExistsStartedAt().between(beginOfPeriod, endOfPeriod);
 			if (this.formFields.getIsWorkRecord()) {
 				if (this.formFields.getIsWorkRecordInPercent()) {
-					workAndExpenseRecordFilter.recordType().equalTo(new Short((short)1));
+					workAndExpenseRecordFilter.recordType().equalTo(Short.valueOf((short)1));
 					if (this.getUomPercent() != null) {
 						workAndExpenseRecordFilter.thereExistsQuantityUom().equalTo(this.getUomPercent());
 					}
 				} else {
-					workAndExpenseRecordFilter.recordType().between(new Short((short)1), new Short((short)CreateWorkAndExpenseRecordController.RECORDTYPE_WORK_MAX));
+					workAndExpenseRecordFilter.recordType().between(Short.valueOf((short)1), Short.valueOf((short)CreateWorkAndExpenseRecordController.RECORDTYPE_WORK_MAX));
 					if (this.getUomPercent() != null) {
 							workAndExpenseRecordFilter.forAllQuantityUom().notEqualTo(this.getUomPercent());
 					}
 				}
 			} else {
-				workAndExpenseRecordFilter.recordType().greaterThan(new Short((short)CreateWorkAndExpenseRecordController.RECORDTYPE_WORK_MAX));
+				workAndExpenseRecordFilter.recordType().greaterThan(Short.valueOf((short)CreateWorkAndExpenseRecordController.RECORDTYPE_WORK_MAX));
 			}
 			this.sumDays = new double[7];
 			this.sumDaysBillable = new double[7];
@@ -1908,7 +1908,7 @@ public class CreateWorkAndExpenseRecordController extends JspWizardController {
 							this.resourceCalendar = currentResource.getCalendar();
 							// get default load from WeekDay 
 							WeekDayQuery weekDayQuery = (WeekDayQuery)pm.newQuery(WeekDay.class);
-							weekDayQuery.dayOfWeek().equalTo(new Short((short)this.getDayOfWeek(this.formFields.getSelectedDateStr(), app)));
+							weekDayQuery.dayOfWeek().equalTo(Short.valueOf((short)this.getDayOfWeek(this.formFields.getSelectedDateStr(), app)));
 							Collection<WeekDay> daysOfWeek = this.resourceCalendar.getWeekDay(weekDayQuery);
 							if(!daysOfWeek.isEmpty()) {
 								WeekDay weekDay = (org.opencrx.kernel.activity1.jmi1.WeekDay)daysOfWeek.iterator().next();

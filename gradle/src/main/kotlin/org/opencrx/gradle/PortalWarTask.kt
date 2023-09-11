@@ -82,8 +82,8 @@ open class PortalWarTask: ArchiveTask() {
 		from(File(dataHome, dataDir + "/META-INF")) { into("META-INF"); filter { line -> archiveFilter(line) } }
 		from(opencrxCoreConfigFiles) { include(dataDirGeneric + "/META-INF/"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()) }; filter { line -> archiveFilter(line) } }
 	    // WEB-INF/classes
-		from(File(buildDir, "classes/java/main")) { include(dataDir.replace(".","/") + "/portal/wizard/**"); into("WEB-INF/classes") }
-		from(File(buildDir, "classes/java/main")) { include(dataDirGeneric.replace(".","/") + "/portal/wizard/**"); into("WEB-INF/classes") }
+		from(project.layout.buildDirectory.dir("classes/java/main")) { include(dataDir.replace(".","/") + "/portal/wizard/**"); into("WEB-INF/classes") }
+		from(project.layout.buildDirectory.dir("classes/java/main")) { include(dataDirGeneric.replace(".","/") + "/portal/wizard/**"); into("WEB-INF/classes") }
 		// WEB-INF/code
 		from(File(dataHome, dataDir + "/code")) { into("WEB-INF/config/code"); filter { line -> archiveFilter(line) } }
 		from(opencrxCoreConfigFiles) { include(dataDirGeneric + "/code/"); eachFile { relativePath = webInfConfigPath.append(RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray())) }; filter { line -> archiveFilter(line) } }

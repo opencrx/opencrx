@@ -1344,7 +1344,7 @@ public class BulkActivityManager extends JsfWizardController {
 	                	wfProcessInstance.setFailed(Boolean.FALSE);
 	                	wfProcessInstance.setLastActivityOn(new Date());
 	                	wfProcessInstance.setStepCounter(
-	                        new Integer(wfProcessInstance.getStepCounter().intValue() + 1)
+	                        Integer.valueOf(wfProcessInstance.getStepCounter().intValue() + 1)
 	                    );
 	                    pm.currentTransaction().commit();
 					} catch(Exception e) {

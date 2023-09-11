@@ -710,7 +710,7 @@ public class Workflows extends AbstractImpl {
         if(processInstance == null) {
         	processInstance = pm.newInstance(WfProcessInstance.class);
         	processInstance.setName(name == null ? wfProcess.getName() : name);
-            processInstance.setStepCounter(new Integer(0));
+            processInstance.setStepCounter(Integer.valueOf(0));
             processInstance.setProcess(wfProcess);
             processInstance.setTargetObject(targetObjectIdentity.toXRI());            
             processInstance.setFailed(Boolean.FALSE);
@@ -908,10 +908,10 @@ public class Workflows extends AbstractImpl {
                 // Increment stepCounter
                 Number stepCounter = processInstance.getStepCounter();
                 if(stepCounter == null) {
-                    stepCounter = new Integer(0);
+                    stepCounter = Integer.valueOf(0);
                 }
                 processInstance.setStepCounter(
-                    new Integer(stepCounter.intValue() + 1)
+                    Integer.valueOf(stepCounter.intValue() + 1)
                 );
                 // Create log entry
                 WfActionLogEntry logEntry = pm.newInstance(WfActionLogEntry.class);

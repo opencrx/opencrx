@@ -214,15 +214,15 @@ public class Audit_2 extends Indexed_2 {
         );
         auditEntryFacade.attributeValuesAsList("accessLevelBrowse").clear();
         auditEntryFacade.attributeValuesAsList("accessLevelBrowse").add(
-            new Short(SecurityKeys.ACCESS_LEVEL_BASIC)
+            Short.valueOf(SecurityKeys.ACCESS_LEVEL_BASIC)
         );
         auditEntryFacade.attributeValuesAsList("accessLevelUpdate").clear();
         auditEntryFacade.attributeValuesAsList("accessLevelUpdate").add(
-            new Short(SecurityKeys.ACCESS_LEVEL_PRIVATE)
+            Short.valueOf(SecurityKeys.ACCESS_LEVEL_PRIVATE)
         );
         auditEntryFacade.attributeValuesAsList("accessLevelDelete").clear();
         auditEntryFacade.attributeValuesAsList("accessLevelDelete").add(
-            new Short(SecurityKeys.ACCESS_LEVEL_NA)
+            Short.valueOf(SecurityKeys.ACCESS_LEVEL_NA)
         );        
     }
     
@@ -328,7 +328,7 @@ public class Audit_2 extends Indexed_2 {
 	        	if(segment != null) {
 		            Audit_2.this.auditSegments.put(
 		                segmentPath,
-		                isAuditSegment = new Boolean(Audit_2.this.isAuditee(segment))
+		                isAuditSegment = Boolean.valueOf(Audit_2.this.isAuditee(segment))
 		            );
 	        	} else {
 	        		return false;
@@ -465,7 +465,7 @@ public class Audit_2 extends Indexed_2 {
 		            // reply
 	            	response.addAll(mappedAuditEntries);
 		            response.setHasMore(Boolean.FALSE);
-		            response.setTotal(new Integer(mappedAuditEntries.size()));
+		            response.setTotal(Integer.valueOf(mappedAuditEntries.size()));
 		            return true;
 		        } else {
 		            return super.find(
@@ -772,7 +772,7 @@ public class Audit_2 extends Indexed_2 {
 		                (visitorId == null) ||
 		                !Audit_2.this.getVisitorIds().contains(visitorId)
 		            ) {
-		            	response.getBody().put("visitStatus",  new Short((short)2));
+		            	response.getBody().put("visitStatus", Short.valueOf((short)2));
 		            } else if((pos = auditEntryFacade.attributeValuesAsList("visitedBy").indexOf(visitorId + ":" + NOT_VISITED_SUFFIX)) >= 0) {
 			            // Not yet visited by visitorId
 		            	auditEntryFacade.attributeValuesAsList("visitedBy").set(
@@ -784,9 +784,9 @@ public class Audit_2 extends Indexed_2 {
 		            		auditEntry, 
 		            		this.newResult()
 		            	);
-		            	response.getBody().put("visitStatus", new Short((short)0));
+		            	response.getBody().put("visitStatus", Short.valueOf((short)0));
 		            } else {
-		            	response.getBody().put("visitStatus", new Short((short)1));               
+		            	response.getBody().put("visitStatus", Short.valueOf((short)1));               
 		            }
 		            return true;
 		        } else {

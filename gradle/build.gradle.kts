@@ -82,8 +82,8 @@ tasks.register<Jar>("opencrx-gradle.jar") {
 	dependsOn("classes")
 	destinationDirectory.set(File("../jre-" + targetPlatform + "/" + project.getName() + "/lib"))
     archiveFileName.set("opencrx-gradle.jar")
-    from("$buildDir/classes/kotlin/main")
-    from("$buildDir/resources/main")
+    from(project.layout.buildDirectory.dir("classes/kotlin/main"))
+    from(project.layout.buildDirectory.dir("resources/main"))
 	doLast {
 		ant.withGroovyBuilder {
 			"jar"(

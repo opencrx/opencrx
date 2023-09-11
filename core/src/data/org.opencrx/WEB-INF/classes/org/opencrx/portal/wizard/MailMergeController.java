@@ -450,7 +450,7 @@ public class MailMergeController extends JspWizardController {
 							mtpMailingAddress.addText(new org.opencrx.kernel.utils.rtf.TextPart(
 								(mailingAddress.getPostalCountry() == (short)0
 									? ""
-									: (String)(codes.getShortText(FEATURE_NAME_POSTAL_COUNTRY, app.getCurrentLocaleAsIndex(), true, true).get(new Short(mailingAddress.getPostalCountry()))) + "-") + (mailingAddress.getPostalCode() == null
+									: (String)(codes.getShortText(FEATURE_NAME_POSTAL_COUNTRY, app.getCurrentLocaleAsIndex(), true, true).get(Short.valueOf(mailingAddress.getPostalCountry()))) + "-") + (mailingAddress.getPostalCode() == null
 										? ""
 										: (mailingAddress.getPostalCode().length() > 0 ? mailingAddress.getPostalCode() + " " : "")) + (mailingAddress.getPostalCity() == null ? "" : mailingAddress.getPostalCity())
 								));

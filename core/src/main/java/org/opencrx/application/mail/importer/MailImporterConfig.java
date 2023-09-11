@@ -146,7 +146,7 @@ public class MailImporterConfig {
                         mailbox = ((org.opencrx.kernel.base.jmi1.StringProperty)property).getStringValue();
                     }
                     else if((optionPrefix + MailImporterConfig.OPTION_MAIL_DELETE_IMPORTED_MESSAGES + suffix).equals(property.getName())) {
-                        deleteImportedMessages = new Boolean(((org.opencrx.kernel.base.jmi1.BooleanProperty)property).isBooleanValue());
+                        deleteImportedMessages = Boolean.valueOf(((org.opencrx.kernel.base.jmi1.BooleanProperty)property).isBooleanValue());
                     }
                 }
             }

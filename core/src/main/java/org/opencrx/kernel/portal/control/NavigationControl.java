@@ -95,7 +95,7 @@ public class NavigationControl extends org.openmdx.portal.servlet.control.Naviga
 		    if(rootObject instanceof org.opencrx.kernel.home1.jmi1.UserHome) {
 		    	PersistenceManager pm = JDOHelper.getPersistenceManager(rootObject);
 		        org.opencrx.kernel.home1.cci2.AlertQuery alertQuery = (org.opencrx.kernel.home1.cci2.AlertQuery)pm.newQuery(org.opencrx.kernel.home1.jmi1.Alert.class);
-		        alertQuery.alertState().lessThanOrEqualTo(new Short((short)1));
+		        alertQuery.alertState().lessThanOrEqualTo(Short.valueOf((short)1));
 		        Collection<org.opencrx.kernel.home1.jmi1.Alert> alerts = ((org.opencrx.kernel.home1.jmi1.UserHome)rootObject).getAlert(alertQuery);
 		        int alertsSize = 0;
 		        boolean hasMoreAlerts = false;

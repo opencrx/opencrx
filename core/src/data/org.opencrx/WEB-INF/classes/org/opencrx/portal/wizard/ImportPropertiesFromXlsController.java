@@ -69,10 +69,10 @@ import javax.jdo.PersistenceManager;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -189,14 +189,14 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
     		propertyType != null &&
     		(
     			propertyValue == null ||
-    			(propertyType.equals(PROPERTY_DTYPE_STRING) && propertyValue.getCellTypeEnum() == CellType.STRING) ||
-    			(propertyType.equals(PROPERTY_DTYPE_DECIMAL) && propertyValue.getCellTypeEnum() == CellType.NUMERIC && !HSSFDateUtil.isCellDateFormatted(propertyValue)) ||
-    			(propertyType.equals(PROPERTY_DTYPE_INTEGER) && propertyValue.getCellTypeEnum() == CellType.NUMERIC && !HSSFDateUtil.isCellDateFormatted(propertyValue)) ||
-    			(propertyType.equals(PROPERTY_DTYPE_BOOLEAN) && propertyValue.getCellTypeEnum() == CellType.BOOLEAN) ||
-    			(propertyType.equals(PROPERTY_DTYPE_DATETIME) && propertyValue.getCellTypeEnum() == CellType.NUMERIC && HSSFDateUtil.isCellDateFormatted(propertyValue)) ||
-    			(propertyType.equals(PROPERTY_DTYPE_DATE) && propertyValue.getCellTypeEnum() == CellType.NUMERIC && HSSFDateUtil.isCellDateFormatted(propertyValue)) ||
-    			(propertyType.equals(PROPERTY_DTYPE_REFERENCE) && propertyValue.getCellTypeEnum() == CellType.STRING) ||
-    			(propertyType.equals(PROPERTY_DTYPE_URI) && propertyValue.getCellTypeEnum() == CellType.STRING)
+    			(propertyType.equals(PROPERTY_DTYPE_STRING) && propertyValue.getCellType() == CellType.STRING) ||
+    			(propertyType.equals(PROPERTY_DTYPE_DECIMAL) && propertyValue.getCellType() == CellType.NUMERIC && !DateUtil.isCellDateFormatted(propertyValue)) ||
+    			(propertyType.equals(PROPERTY_DTYPE_INTEGER) && propertyValue.getCellType() == CellType.NUMERIC && !DateUtil.isCellDateFormatted(propertyValue)) ||
+    			(propertyType.equals(PROPERTY_DTYPE_BOOLEAN) && propertyValue.getCellType() == CellType.BOOLEAN) ||
+    			(propertyType.equals(PROPERTY_DTYPE_DATETIME) && propertyValue.getCellType() == CellType.NUMERIC && DateUtil.isCellDateFormatted(propertyValue)) ||
+    			(propertyType.equals(PROPERTY_DTYPE_DATE) && propertyValue.getCellType() == CellType.NUMERIC && DateUtil.isCellDateFormatted(propertyValue)) ||
+    			(propertyType.equals(PROPERTY_DTYPE_REFERENCE) && propertyValue.getCellType() == CellType.STRING) ||
+    			(propertyType.equals(PROPERTY_DTYPE_URI) && propertyValue.getCellType() == CellType.STRING)
     			)
     		);
     }
@@ -220,8 +220,8 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
             pm.currentTransaction().begin();
             if (valueMap.get(ATTR_PRODUCTCONFIGURATIONTYPE_VALIDFROM) != null) {
                 cell = valueMap.get(ATTR_PRODUCTCONFIGURATIONTYPE_VALIDFROM);
-                if (cell.getCellTypeEnum() == CellType.NUMERIC && HSSFDateUtil.isCellDateFormatted(cell)) {
-                    productConfigurationType.setValidFrom(HSSFDateUtil.getJavaDate(cell.getNumericCellValue()));
+                if (cell.getCellType() == CellType.NUMERIC && DateUtil.isCellDateFormatted(cell)) {
+                    productConfigurationType.setValidFrom(DateUtil.getJavaDate(cell.getNumericCellValue()));
                     updated = true;
                 }
             }
@@ -237,8 +237,8 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
             pm.currentTransaction().begin();
             if (valueMap.get(ATTR_PRODUCTCONFIGURATIONTYPE_VALIDTO) != null) {
                 cell = valueMap.get(ATTR_PRODUCTCONFIGURATIONTYPE_VALIDTO);
-                if (cell.getCellTypeEnum() == CellType.NUMERIC && HSSFDateUtil.isCellDateFormatted(cell)) {
-                    productConfigurationType.setValidTo(HSSFDateUtil.getJavaDate(cell.getNumericCellValue()));
+                if (cell.getCellType() == CellType.NUMERIC && DateUtil.isCellDateFormatted(cell)) {
+                    productConfigurationType.setValidTo(DateUtil.getJavaDate(cell.getNumericCellValue()));
                     updated = true;
                 }
             }
@@ -254,8 +254,8 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
             pm.currentTransaction().begin();
             if (valueMap.get(ATTR_PRODUCTCONFIGURATIONTYPE_ISDEFAULT) != null) {
                 cell = valueMap.get(ATTR_PRODUCTCONFIGURATIONTYPE_ISDEFAULT);
-                if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
-                    productConfigurationType.setDefault(new Boolean(cell.getBooleanCellValue()));
+                if (cell.getCellType() == CellType.BOOLEAN) {
+                    productConfigurationType.setDefault(Boolean.valueOf(cell.getBooleanCellValue()));
                     updated = true;
                 }
             }
@@ -524,7 +524,7 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
                     }
                     if (property != null) {
                         property.setDescription(propertyDescription);
-                        ((DateTimeProperty)property).setDateTimeValue(propertyValue != null ? HSSFDateUtil.getJavaDate(propertyValue.getNumericCellValue()) : null);
+                        ((DateTimeProperty)property).setDateTimeValue(propertyValue != null ? DateUtil.getJavaDate(propertyValue.getNumericCellValue()) : null);
                     }
                 } else if (propertyType.equals(PROPERTY_DTYPE_DATE)) {
                     if (property == null) {
@@ -549,7 +549,7 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
                             TimeZone timezone = TimeZone.getTimeZone(currentTimeZone);
                             SimpleDateFormat dateonlyf = new SimpleDateFormat("yyyyMMdd", currentLocale); dateonlyf.setTimeZone(timezone);
                             String date =
-    				        	dateonlyf.format(HSSFDateUtil.getJavaDate(propertyValue.getNumericCellValue())).substring(0, 8);
+    				        	dateonlyf.format(DateUtil.getJavaDate(propertyValue.getNumericCellValue())).substring(0, 8);
                             XMLGregorianCalendar cal = org.w3c.spi2.Datatypes.create(
                                 XMLGregorianCalendar.class,
                                 date
@@ -793,7 +793,7 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
 										}
 										try {
 											if (
-												(cell.getCellTypeEnum() == CellType.STRING) &&
+												(cell.getCellType() == CellType.STRING) &&
 												(cell.getStringCellValue() != null)
 											) {
 												boolean isSearchAttribute = false;
@@ -870,7 +870,7 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
 											currentCell = nCell+1;
 											try {
 												cellId =  "id='r" + nRow + (attributeMap.get(DECIMAL_FORMAT_0000.format(nCell))).toString().toUpperCase() + "'";
-												if (cell.getCellTypeEnum() == CellType.STRING) {
+												if (cell.getCellType() == CellType.STRING) {
 													String cellValue = cell.getStringCellValue().trim();
 													valueMap.put(
 														(attributeMap.get(DECIMAL_FORMAT_0000.format(nCell))).toString(), 
@@ -898,7 +898,7 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
 														productConfigurationTypeDescription = cellValue;
 													}
 													this.importReport += "<td " + cellId + ">" + (cellValue != null ? (cellValue.replace("\r\n", EOL_HTML)).replace("\n", EOL_HTML) : "") + "</td>";
-												} else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+												} else if (cell.getCellType() == CellType.NUMERIC) {
 													if (nCell == idxProperty_value) {
 														propertyValue = cell;
 													}
@@ -908,7 +908,7 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
 														cell
 													);
 													this.importReport += "<td " + cellId + ">" + cellValue + "</td>";
-												} else if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
+												} else if (cell.getCellType() == CellType.BOOLEAN) {
 													if (nCell == idxProperty_value) {
 														propertyValue = cell;
 													}
@@ -918,14 +918,14 @@ public class ImportPropertiesFromXlsController extends JspWizardController {
 														cell
 													);
 													this.importReport += "<td " + cellId + ">" + (cellValue ? "TRUE" : "FALSE") + "</td>";
-												} else if (cell.getCellTypeEnum() == CellType.BLANK) {
+												} else if (cell.getCellType() == CellType.BLANK) {
 													valueMap.put(
 														(attributeMap.get(DECIMAL_FORMAT_0000.format(nCell))).toString(), 
 														cell
 													);
 													this.importReport += "<td " + cellId + " class=\"empty\">&nbsp;</td>";
 												} else {
-													this.importReport += "<td class=\"err\">r" + DECIMAL_FORMAT_0000.format(nRow) + "-c" + DECIMAL_FORMAT_0000.format(nCell) + "[cell-type (" + cell.getCellTypeEnum() + ") not supported]<br>" + cell.getCellFormula() + "</td>";
+													this.importReport += "<td class=\"err\">r" + DECIMAL_FORMAT_0000.format(nRow) + "-c" + DECIMAL_FORMAT_0000.format(nCell) + "[cell-type (" + cell.getCellType() + ") not supported]<br>" + cell.getCellFormula() + "</td>";
 												}
 											} catch (Exception ec) {
 												this.importReport += "<td class=\"err\">r" + DECIMAL_FORMAT_0000.format(nRow) + "-c" + DECIMAL_FORMAT_0000.format(nCell) + " [UNKNOWN ERROR]<br>" + cell.getCellFormula() + "</td>";

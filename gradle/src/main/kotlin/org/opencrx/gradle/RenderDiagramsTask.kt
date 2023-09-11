@@ -56,7 +56,7 @@ import java.io.File
 
 open class RenderDiagramsTask : ExecTask() {
 
-	@Internal var albumPath = File(project.getBuildDir(), "generated/sources/model/diagrams/" + projectVendorName + " " + projectImplementationVersion + " Model")
+	@Internal var albumPath = project.layout.buildDirectory.dir("generated/sources/model/diagrams/" + projectVendorName + " " + projectImplementationVersion + " Model").get().asFile
 
 	@Internal var albumExec: File
 	init {
@@ -74,10 +74,10 @@ open class RenderDiagramsTask : ExecTask() {
 		mainClass.set("org.openmdx.base.mof.spi.Model_1DiagramDrawer")
 		args = listOf(
 			"src/model/graphviz/diagrams",
-			File(project.getBuildDir(), "generated/sources/model/diagrams/dot").toString()
+			project.layout.buildDirectory.dir("generated/sources/model/diagrams/dot").get().asFile.toString()
 		)
 		doLast {
-			getProject().copy { from(File(project.getBuildDir(), "generated/sources/model/diagrams/dot")); into(albumPath) }
+			getProject().copy { from(project.layout.buildDirectory.dir("generated/sources/model/diagrams/dot")); into(albumPath) }
 			getProject().fileTree(albumPath).matching { include("**/*.dot") }.forEach { f ->
 				getProject().exec {
 					workingDir(f.parentFile)

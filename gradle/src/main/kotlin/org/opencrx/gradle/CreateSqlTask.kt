@@ -69,7 +69,7 @@ open class CreateSqlTask : DefaultTask() {
 	  			)
 				"schematool"(
 					"action" to "add",
-					"file" to File(project.getBuildDir(), "generated/sources/sql/" + getProject().property("database.name") + "-add.sql"),
+					"file" to project.layout.buildDirectory.file("generated/sources/sql/" + getProject().property("database.name") + "-add.sql").get().asFile,
 					"primaryKeys" to false,
 					"classpath" to tools.asPath
 				) {
@@ -84,7 +84,7 @@ open class CreateSqlTask : DefaultTask() {
 				}
 				"schematool"(
 					"action" to "build",
-					"file" to File(project.getBuildDir(), "generated/sources/sql/" + project.property("database.name") + "-build.sql"),
+					"file" to project.layout.buildDirectory.file("generated/sources/sql/" + project.property("database.name") + "-build.sql").get().asFile,
 					"primaryKeys" to false,
 					"classpath" to tools.asPath
 				) {

@@ -618,7 +618,7 @@ public class DoPropfind extends WebDavMethod {
                 writer.writeElement("DAV::owner", XMLWriter.CLOSING);
 	
 	            int timeout = (int) ((lock.getExpiresAt() - System.currentTimeMillis()) / 1000);
-	            String timeoutStr = new Integer(timeout).toString();
+	            String timeoutStr = Integer.valueOf(timeout).toString();
 	            writer.writeElement("DAV::timeout", XMLWriter.OPENING);
 	            writer.writeText("Second-" + timeoutStr);
 	            writer.writeElement("DAV::timeout", XMLWriter.CLOSING);

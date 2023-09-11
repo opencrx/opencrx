@@ -71,7 +71,7 @@ public class DeliveryInformationFieldMapper {
     ) {
     	return deliveryInformation.getUserCode0() == null ? 
     		null :
-    			new Integer(deliveryInformation.getUserCode0());
+    			Integer.valueOf(deliveryInformation.getUserCode0());
     }
     
     public void setDeliveryStatusDescription(

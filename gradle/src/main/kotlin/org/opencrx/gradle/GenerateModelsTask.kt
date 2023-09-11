@@ -60,18 +60,18 @@ open class GenerateModelsTask : ExecTask() {
 		mainClass.set("org.openmdx.application.mof.externalizer.xmi.XMIExternalizer")
 		args = listOf(
 			"--pathMapSymbol=openMDX 2 ~ Core (EMF)",
-			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/openmdx/base") + "/",
+			"--pathMapPath=file:" + project.layout.buildDirectory.dir("generated/sources/model/openmdx/base").get().asFile + "/",
 			"--pathMapSymbol=openMDX 2 ~ Security (EMF)",
-			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/openmdx/security") + "/",
+			"--pathMapPath=file:" + project.layout.buildDirectory.dir("generated/sources/model/openmdx/security").get().asFile + "/",
 			"--pathMapSymbol=openMDX 2 ~ Portal (EMF)",
-			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/openmdx/portal") + "/",
+			"--pathMapPath=file:" + project.layout.buildDirectory.dir("generated/sources/model/openmdx/portal").get().asFile + "/",
 			"--pathMapSymbol=openCRX 4 ~ Core (EMF)",
-			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/opencrx/core") + "/",
+			"--pathMapPath=file:" + project.layout.buildDirectory.dir("generated/sources/model/opencrx/core").get().asFile + "/",
 			"--pathMapSymbol=openCRX 5 ~ Core (EMF)",
-			"--pathMapPath=file:" + File(project.getBuildDir(), "generated/sources/model/opencrx/core") + "/",
+			"--pathMapPath=file:" + project.layout.buildDirectory.dir("generated/sources/model/opencrx/core").get().asFile + "/",
 			"--url=file:src/model/emf/models.uml",
 			"--xmi=emf",
-			"--out=" + File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + "-models.zip"),
+			"--out=" + project.layout.buildDirectory.file("generated/sources/model/opencrx-" + project.getName() + "-models.zip").get().asFile,
 			"--openmdxjdo=" + File(project.getProjectDir(), "src/main/resources"),
 			"--dataproviderVersion=2",
 			"--format=xmi1",
@@ -83,10 +83,10 @@ open class GenerateModelsTask : ExecTask() {
 		doLast {
 			ant.withGroovyBuilder {
 				"zip"(
-					"destfile" to File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + ".openmdx-xmi.zip")
+					"destfile" to project.layout.buildDirectory.file("generated/sources/model/opencrx-" + project.getName() + ".openmdx-xmi.zip").get().asFile
 				) {
 					"zipfileset"(
-						"src" to File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + "-models.zip")
+						"src" to project.layout.buildDirectory.file("generated/sources/model/opencrx-" + project.getName() + "-models.zip").get().asFile
 					) {
 						"include"("name" to "**/*.xsd")
 						"include"("name" to "**/*.xml")
@@ -96,13 +96,13 @@ open class GenerateModelsTask : ExecTask() {
 			}
 			ant.withGroovyBuilder {
 				"zip"(
-					"destfile" to File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + ".openmdx-emf.zip"),
+					"destfile" to project.layout.buildDirectory.file("generated/sources/model/opencrx-" + project.getName() + ".openmdx-emf.zip").get().asFile,
 					"basedir" to File(project.getProjectDir(), "src/model/emf")
 				)
 			}
 			project.copy {
-				from(project.zipTree(File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + "-models.zip"))) { include("META-INF/") }
-				into(File(project.getBuildDir(), "resources/main"))
+				from(project.zipTree(project.layout.buildDirectory.file("generated/sources/model/opencrx-" + project.getName() + "-models.zip"))) { include("META-INF/") }
+				into(project.layout.buildDirectory.dir("resources/main"))
 			}
 		}
 		

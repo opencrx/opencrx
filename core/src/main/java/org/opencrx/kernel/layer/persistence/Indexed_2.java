@@ -295,10 +295,10 @@ public class Indexed_2 extends Media_2 {
 		        	indexedFacade.attributeValuesAsList("accessLevelBrowse")
 		        );
 		        indexEntryFacade.attributeValuesAsList("accessLevelUpdate").add(
-		            new Short(SecurityKeys.ACCESS_LEVEL_NA)
+		            Short.valueOf(SecurityKeys.ACCESS_LEVEL_NA)
 		        );
 		        indexEntryFacade.attributeValuesAsList("accessLevelDelete").add(
-		            new Short(SecurityKeys.ACCESS_LEVEL_NA)
+		            Short.valueOf(SecurityKeys.ACCESS_LEVEL_NA)
 		        );
 		        Base.getInstance().updateIndexEntry(
 		        	restInteractionCallback,
@@ -571,7 +571,7 @@ public class Indexed_2 extends Media_2 {
 		            	}
 		            }
 		            response.setBody(this.newOperationResult("org:opencrx:kernel:base:UpdateIndexResult"));
-		            response.getBody().put("numberOfIndexedObjects",  new Integer(numberOfIndexedObjects));
+		            response.getBody().put("numberOfIndexedObjects", Integer.valueOf(numberOfIndexedObjects));
 		            return true;
 		        } else {
 			        // Delegate

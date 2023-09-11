@@ -136,7 +136,7 @@ public class MapsController extends JspWizardController {
 		}
 		String country = postalAddress.getPostalCountry() == 0
 			? DEFAULT_COUNTRY
-			: (codes.getLongTextByCode("country", (short)0, true).get(new Short((short)postalAddress.getPostalCountry())));
+			: (codes.getLongTextByCode("country", (short)0, true).get(Short.valueOf((short)postalAddress.getPostalCountry())));
 		tmp = (country.split("\\[")[0]).trim();
 		if (!tmp.isEmpty()) {
 			url += "%20" + tmp;

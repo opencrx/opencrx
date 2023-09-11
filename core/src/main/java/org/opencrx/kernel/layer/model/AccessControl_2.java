@@ -1606,7 +1606,7 @@ public class AccessControl_2 extends AbstractRestPort {
 		                facade.getPath(),
 		                new Object[]{
 		                    Object_2Facade.cloneObject(object),
-		                    new Long(System.currentTimeMillis() + TTL_CACHED_OBJECTS)
+		                    Long.valueOf(System.currentTimeMillis() + TTL_CACHED_OBJECTS)
 		                }
 		            );
 		        } else {
@@ -1706,7 +1706,7 @@ public class AccessControl_2 extends AbstractRestPort {
 		                ) {
 		                	newObjectFacade.attributeValuesAsList(mode).clear();
 		                	newObjectFacade.attributeValuesAsList(mode).add(
-		                        new Short(
+		                        Short.valueOf(
 		                            "accessLevelBrowse".equals(mode) ? 
 		                            	SecurityKeys.ACCESS_LEVEL_DEEP : 
 		                            	SecurityKeys.ACCESS_LEVEL_BASIC

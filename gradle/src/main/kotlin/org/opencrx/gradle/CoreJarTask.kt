@@ -58,10 +58,10 @@ open class CoreJarTask : ArchiveTask() {
 
 	init {
 		from(
-			File(buildDir, "classes/java/main"),
-			File(buildDir, "src/main/resources"),
+			project.layout.buildDirectory.dir("classes/java/main"),
+			project.layout.buildDirectory.dir("src/main/resources"),
 			"src/main/resources",
-			project.zipTree(File(buildDir, "generated/sources/model/opencrx-" + project.getName() + ".openmdx-xmi.zip"))
+			project.zipTree(project.layout.buildDirectory.dir("generated/sources/model/opencrx-" + project.getName() + ".openmdx-xmi.zip"))
 		)
 		archiveFileName.set("opencrx-core.jar")
 		destinationDirectory.set(File(deliverDir, "lib"))
@@ -95,7 +95,7 @@ open class CoreJarTask : ArchiveTask() {
 						"dir" to "src/main/java"
 					)
 					"fileset"(
-						"dir" to File(buildDir, "generated/sources/java/main")
+						"dir" to project.layout.buildDirectory.dir("generated/sources/java/main").get().asFile
 					)
 				}
 			}

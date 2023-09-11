@@ -960,7 +960,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
                 (member.isDisabled() == null || (!member.isDisabled().booleanValue()))
             ) {
                 // disable member if memberAccount is disabled
-                member.setDisabled(new Boolean(true));
+                member.setDisabled(Boolean.TRUE);
                 member.setDisabledReason("referenced Account is disabled");
             }
             this.setUserFields(
@@ -1115,7 +1115,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 				}
 				try {
 					if (
-						(cell.getCellTypeEnum() == CellType.STRING) &&
+						(cell.getCellType() == CellType.STRING) &&
 						(cell.getStringCellValue() != null)
 					) {
 						boolean isSearchAttribute = false;
@@ -1152,7 +1152,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 						importReport.append("<td " + (isSearchAttribute ? "class='searchAttr' title='attribute used for matching'" : "") + "Col-" + DECIMAL_FORMAT_4.format(idxCell) + EOL_HTML + cellValue + "</td>");
 					} else {
 						String cellType = null;
-						switch(cell.getCellTypeEnum()) {
+						switch(cell.getCellType()) {
 							case BLANK: 
 								cellType = "CELL_TYPE_BLANK";
 								break;
@@ -1216,7 +1216,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 			Cell cell = (Cell)cells.next();
 			idxCell = cell.getColumnIndex();
 			try {
-				if (cell.getCellTypeEnum() == CellType.STRING) {
+				if (cell.getCellType() == CellType.STRING) {
 					String cellValue = cell.getStringCellValue().trim();
 					record.setFieldValue(
 						idxCell, 
@@ -1277,7 +1277,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 						AccountRecord.ImportStatusElement.CONTENT, 
 						(cellValue != null ? (cellValue.replace("\r\n", EOL_HTML)).replace("\n", EOL_HTML) : "")
 					);
-				} else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+				} else if (cell.getCellType() == CellType.NUMERIC) {
 					BigDecimal cellValue = new BigDecimal(cell.getNumericCellValue());
 					if (idxCell == recordDefinition.getIdxExtString0()) {
 						record.setExtString0(cellValue.toString());
@@ -1296,7 +1296,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 						AccountRecord.ImportStatusElement.CONTENT, 
 						cellValue.toString()
 					);
-				} else if(cell.getCellTypeEnum() == CellType.BOOLEAN) {
+				} else if(cell.getCellType() == CellType.BOOLEAN) {
 					boolean cellValue = cell.getBooleanCellValue();
 					record.setFieldValue(
 						idxCell, 
@@ -1307,7 +1307,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 						AccountRecord.ImportStatusElement.CONTENT, 
 						(cellValue ? "TRUE" : "FALSE")
 					);
-				} else if (cell.getCellTypeEnum() == CellType.BLANK) {
+				} else if (cell.getCellType() == CellType.BLANK) {
 					record.appendImportStatus(
 						idxCell, 
 						AccountRecord.ImportStatusElement.ATTR_CLASS, 
@@ -1327,7 +1327,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 					record.appendImportStatus(
 						idxCell, 
 						AccountRecord.ImportStatusElement.CONTENT, 
-						"r" + DECIMAL_FORMAT_4.format(nRow) + ":c" + DECIMAL_FORMAT_4.format(idxCell) + ": cell type '" + cell.getCellTypeEnum() + "' not supported<br>"
+						"r" + DECIMAL_FORMAT_4.format(nRow) + ":c" + DECIMAL_FORMAT_4.format(idxCell) + ": cell type '" + cell.getCellType() + "' not supported<br>"
 					);
 				}
 			} catch (Exception e) {
@@ -2443,7 +2443,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 					org.openmdx.security.realm1.jmi1.Principal principal = SecureObject.getInstance().findPrincipal(group, realm);
 					if(
 						principal instanceof PrincipalGroup && 
-						!account.getOwningGroup().contains(principal)
+						!account.getOwningGroup().contains((PrincipalGroup)principal)
 					) {
 						account.getOwningGroup().add((PrincipalGroup)principal);
 					}

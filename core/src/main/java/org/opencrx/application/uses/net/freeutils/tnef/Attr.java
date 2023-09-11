@@ -281,13 +281,13 @@ public class Attr {
                     o = new RawInputStream(ris);
                     break;
                 case atpShort:
-                    o = new Short((short)ris.readU16());
+                    o = Short.valueOf((short)ris.readU16());
                     break;
                 case atpDword:
-                    o = new Long(ris.readU32());
+                    o = Long.valueOf(ris.readU32());
                     break;
                 case atpLong:
-                    o = new Long(ris.readU32());
+                    o = Long.valueOf(ris.readU32());
                     break;
                 case atpString:
                 case atpText:

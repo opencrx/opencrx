@@ -61,7 +61,7 @@ open class CreateSchemaTask : DefaultTask() {
 
 	init {
 		doLast {
-			project.mkdir(File(project.getBuildDir(), "generated/sources/sql"))
+			project.mkdir(project.layout.buildDirectory.dir("generated/sources/sql"))
 			ant.withGroovyBuilder {
 				"taskdef"(
 					"name" to "mappingtool",
@@ -70,7 +70,7 @@ open class CreateSchemaTask : DefaultTask() {
 		  		)
 				"mappingtool"(
 					"action" to "buildSchema",
-					"schemaFile" to File(project.getBuildDir(), "generated/sources/sql/openjpa-schema.xml"),
+					"schemaFile" to project.layout.buildDirectory.file("generated/sources/sql/openjpa-schema.xml").get().asFile,
 					"classpath" to tools.asPath
 				) {
 					"config"(

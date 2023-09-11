@@ -74,8 +74,8 @@ publishing {
         maven {
         	// Local
             /**/
-            val releasesRepoUrl = uri("$buildDir/repos/releases")
-            val snapshotsRepoUrl = uri("$buildDir/repos/snapshots")
+            val releasesRepoUrl = uri(project.layout.buildDirectory.dir("repos/releases"))
+            val snapshotsRepoUrl = uri(project.layout.buildDirectory.dir("repos/snapshots"))
             /**/
             // OSSRH
             /*

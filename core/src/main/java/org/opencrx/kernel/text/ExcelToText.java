@@ -156,7 +156,7 @@ public class ExcelToText implements HSSFListener {
                             this.text.append(" ");
                             curentRow = rowNum;
                         }
-                        String value = (new Double(bof2.getValue())).toString();
+                        String value = (Double.valueOf(bof2.getValue())).toString();
                         this.text.append(value + " ");
                     }
                 }

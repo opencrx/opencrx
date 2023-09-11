@@ -133,12 +133,12 @@ public class MAPIValue {
 
                 case MAPIProp.PT_SHORT:
                     // 2 bytes
-                    o = new Short((short)ris.readU16());
+                    o = Short.valueOf((short)ris.readU16());
                     break;
 
                 case MAPIProp.PT_INT:
                     // 4 bytes
-                    o = new Integer((int)ris.readU32());
+                    o = Integer.valueOf((int)ris.readU32());
                     break;
 
                 case MAPIProp.PT_BOOLEAN:
@@ -148,12 +148,12 @@ public class MAPIValue {
 
                 case MAPIProp.PT_FLOAT:
                     // 4 bytes
-                    o = new Float(Float.intBitsToFloat((int)ris.readU32()));
+                    o = Float.valueOf(Float.intBitsToFloat((int)ris.readU32()));
                     break;
 
                 case MAPIProp.PT_ERROR:
                     // 4 bytes
-                    o = new Integer((int)ris.readU32());
+                    o = Integer.valueOf((int)ris.readU32());
                     break;
 
                 case MAPIProp.PT_APPTIME:
@@ -170,7 +170,7 @@ public class MAPIValue {
 
                 case MAPIProp.PT_DOUBLE:
                     // 8 bytes
-                    o = new Double(Double.longBitsToDouble(ris.readU64()));
+                    o = Double.valueOf(Double.longBitsToDouble(ris.readU64()));
                     break;
 
                 case MAPIProp.PT_CURRENCY:

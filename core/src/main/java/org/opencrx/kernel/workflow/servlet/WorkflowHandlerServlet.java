@@ -329,7 +329,7 @@ public class WorkflowHandlerServlet extends HttpServlet {
                                 wfProcessInstance.setFailed(Boolean.FALSE);
                                 wfProcessInstance.setLastActivityOn(new Date());
                                 wfProcessInstance.setStepCounter(
-                                    new Integer(wfProcessInstance.getStepCounter().intValue() + 1)
+                                    Integer.valueOf(wfProcessInstance.getStepCounter().intValue() + 1)
                                 );
                                 this.pm.currentTransaction().commit();
                             } catch(Exception e) {
@@ -343,7 +343,7 @@ public class WorkflowHandlerServlet extends HttpServlet {
                             	this.pm.currentTransaction().begin();
                                 wfProcessInstance.setLastActivityOn(new Date());
                                 wfProcessInstance.setStepCounter(
-                                    new Integer(wfProcessInstance.getStepCounter().intValue() + 1)
+                                    Integer.valueOf(wfProcessInstance.getStepCounter().intValue() + 1)
                                 );
                                 this.pm.currentTransaction().commit();
                             } catch(Exception e) {

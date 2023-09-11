@@ -215,11 +215,11 @@ public class DoDelete extends WebDavMethod {
                 }
                 _store.removeResource(requestContext, path, child);
             } catch (AccessDeniedException e) {
-                errorList.put(path + "/" + child.getName(), new Integer(HttpServletResponse.SC_FORBIDDEN));
+                errorList.put(path + "/" + child.getName(), Integer.valueOf(HttpServletResponse.SC_FORBIDDEN));
             } catch (ObjectNotFoundException e) {
-                errorList.put(path + "/" + child.getName(), new Integer(HttpServletResponse.SC_NOT_FOUND));
+                errorList.put(path + "/" + child.getName(), Integer.valueOf(HttpServletResponse.SC_NOT_FOUND));
             } catch (WebdavException e) {
-                errorList.put(path + "/" + child.getName(), new Integer(HttpServletResponse.SC_INTERNAL_SERVER_ERROR));
+                errorList.put(path + "/" + child.getName(), Integer.valueOf(HttpServletResponse.SC_INTERNAL_SERVER_ERROR));
             }
         }
 

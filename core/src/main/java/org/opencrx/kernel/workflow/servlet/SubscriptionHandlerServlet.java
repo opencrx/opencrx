@@ -275,7 +275,7 @@ public class SubscriptionHandlerServlet extends HttpServlet {
 		                	Datatypes.member(ExecuteWorkflowParams.Member.targetObject, targetObject),
 		                	Datatypes.member(ExecuteWorkflowParams.Member.triggeredBy, pmUser.getObjectById(triggeredBy.refGetPath())),
 		                	Datatypes.member(ExecuteWorkflowParams.Member.triggeredByEventId, Base64.encode(md.digest()).replace('/', '-')),
-		                	Datatypes.member(ExecuteWorkflowParams.Member.triggeredByEventType, new Integer(triggeredByEventType.getValue())),
+		                	Datatypes.member(ExecuteWorkflowParams.Member.triggeredByEventType, Integer.valueOf(triggeredByEventType.getValue())),
 		                	Datatypes.member(ExecuteWorkflowParams.Member.workflow, pmUser.getObjectById(wfProcess.refGetPath()))
 		                );
 		                try {

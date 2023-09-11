@@ -179,14 +179,14 @@ public class DatatypeMappers {
     public static Short toShort(
         Number number
     ) {
-        return number == null ? null : new Short(number.shortValue());
+        return number == null ? null : Short.valueOf(number.shortValue());
     }
     
     //-----------------------------------------------------------------------
     public static Integer toInteger(
         Number number
     ) {
-        return number == null ? null : new Integer(number.intValue());
+        return number == null ? null : Integer.valueOf(number.intValue());
     }
     
     //-----------------------------------------------------------------------
@@ -1782,7 +1782,7 @@ public class DatatypeMappers {
         // product bundle defined by the filter
         List<String> productBundles = new ArrayList<String>();
         ProductFilterGlobalQuery productFilterQuery = (ProductFilterGlobalQuery)pm.newQuery(ProductFilterGlobal.class);
-        productFilterQuery.thereExistsUserCode0().equalTo(new Short((short)ProductFilterType.PRODUCT_BUNDLE.getValue()));
+        productFilterQuery.thereExistsUserCode0().equalTo(Short.valueOf((short)ProductFilterType.PRODUCT_BUNDLE.getValue()));
         Collection<ProductFilterGlobal> bundleFilters = productSegment.getProductFilter(productFilterQuery);
         for(ProductFilterGlobal bundleFilter: bundleFilters) {
             org.opencrx.kernel.product1.cci2.ProductQuery productQuery = (ProductQuery)pm.newQuery(Product.class);
@@ -1800,7 +1800,7 @@ public class DatatypeMappers {
         // product bundle defined by the filter
         List<String> contentPartners = new ArrayList<String>();
         productFilterQuery = (ProductFilterGlobalQuery)pm.newQuery(ProductFilterGlobal.class);
-        productFilterQuery.thereExistsUserCode0().equalTo(new Short((short)ProductFilterType.CONTENT_PARTNER.getValue()));
+        productFilterQuery.thereExistsUserCode0().equalTo(Short.valueOf((short)ProductFilterType.CONTENT_PARTNER.getValue()));
         Collection<ProductFilterGlobal> contentPartnerFilters = productSegment.getProductFilter(productFilterQuery);
         for(ProductFilterGlobal contentPartnerFilter: contentPartnerFilters) {
             org.opencrx.kernel.product1.cci2.ProductQuery productQuery = (ProductQuery)pm.newQuery(Product.class);
@@ -2357,7 +2357,7 @@ public class DatatypeMappers {
 	        	DocumentT.Member.contentLanguage,
 	        	document.getContentLanguage().isEmpty() 
 	        		? 0
-	        		: new Integer(document.getContentLanguage().get(0))
+	        		: Integer.valueOf(document.getContentLanguage().get(0))
 	        ),
             Datatypes.member(
 	        	DocumentT.Member.contentMimeType, 

@@ -229,7 +229,7 @@ public class SetTimerOnCrxObjectController extends JspWizardController {
 				timer.setTriggerRepeat(1);
 				timer.setTriggerIntervalMinutes(5); /* note that this value MUST be bigger than the ping interval of the subscription handler */
 				timer.setDisabled(false);
-				timer.setTimerState(new Short((short)10)); // open
+				timer.setTimerState(Short.valueOf((short)10)); // open
 				timer.setTimerEndAt(this.incDate(this.triggerAtDate, 60, app).getTime());
 				timer.setTarget((org.openmdx.base.jmi1.BasicObject)this.getObject());
 				currentUserHome.addTimer(

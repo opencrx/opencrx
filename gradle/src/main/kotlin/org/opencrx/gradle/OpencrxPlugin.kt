@@ -152,35 +152,35 @@ open class OpencrxPlugin: Plugin<Project> {
 		generateModelTask {
 			inputs.dir("${projectDir}/src/model/emf")
 			inputs.dir("${projectDir}/src/main/resources")
-			outputs.file("${buildDir}/generated/sources/model/opencrx-" + project.getName() + "-models.zip")
-			outputs.file("${buildDir}/generated/sources/model/opencrx-" + project.getName() + ".openmdx-xmi.zip")
+			outputs.file(project.layout.buildDirectory.dir("generated/sources/model/opencrx-" + project.getName() + "-models.zip"))
+			outputs.file(project.layout.buildDirectory.dir("generated/sources/model/opencrx-" + project.getName() + ".openmdx-xmi.zip"))
 			classpath = configurations["compileClasspath"]
 			doFirst {
 				project.copy {
 					from(project.zipTree(project.getConfigurations().getByName("openmdxBaseModels").singleFile))
-					into(File(project.getBuildDir(), "generated/sources/model/openmdx/base"))
+					into(project.layout.buildDirectory.dir("generated/sources/model/openmdx/base"))
 				}
 				project.copy {
 					from(project.zipTree(project.getConfigurations().getByName("openmdxSecurityModels").singleFile))
-					into(File(project.getBuildDir(), "generated/sources/model/openmdx/security"))
+					into(project.layout.buildDirectory.dir("generated/sources/model/openmdx/security"))
 				}
 				project.copy {
 					from(project.zipTree(project.getConfigurations().getByName("openmdxPortalModels").singleFile))
-					into(File(project.getBuildDir(), "generated/sources/model/openmdx/portal"))
+					into(project.layout.buildDirectory.dir("generated/sources/model/openmdx/portal"))
 				}
 				if(!project.getConfigurations().getByName("opencrxCoreModels").isEmpty()) {
 					project.copy {
 						from(project.zipTree(project.getConfigurations().getByName("opencrxCoreModels").singleFile))
-						into(File(project.getBuildDir(), "generated/sources/model/opencrx/core"))
+						into(project.layout.buildDirectory.dir("generated/sources/model/opencrx/core"))
 					}
 				}
 			}
 			doLast {
 				copy {	
 					from(
-						zipTree(File(project.getBuildDir(), "generated/sources/model/opencrx-" + project.getName() + "-models.zip"))
+						zipTree(project.layout.buildDirectory.dir("generated/sources/model/opencrx-" + project.getName() + "-models.zip"))
 					)
-					into(File(project.getBuildDir(), "generated/sources/java/main"))
+					into(project.layout.buildDirectory.dir("generated/sources/java/main"))
 					include(
 						"**/*.java"
 					)

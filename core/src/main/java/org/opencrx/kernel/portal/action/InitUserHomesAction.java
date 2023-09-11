@@ -281,13 +281,13 @@ public class InitUserHomesAction extends BoundAction {
 												if(Boolean.TRUE.equals(subscription.isActive())) {
 													settingSubscriptions.put("topicIsActive-" + topicId, "1");
 												}
-												if(eventTypes.contains(new Short((short)1))) {
+												if(eventTypes.contains(Short.valueOf((short)1))) {
 													settingSubscriptions.put("topicCreation-" + topicId, "1");
 												}
-												if(eventTypes.contains(new Short((short)3))) {
+												if(eventTypes.contains(Short.valueOf((short)3))) {
 													settingSubscriptions.put("topicReplacement-" + topicId, "3");
 												}
-												if(eventTypes.contains(new Short((short)4))) {
+												if(eventTypes.contains(Short.valueOf((short)4))) {
 													settingSubscriptions.put("topicRemoval-" + topicId, "4");
 												}
 											}

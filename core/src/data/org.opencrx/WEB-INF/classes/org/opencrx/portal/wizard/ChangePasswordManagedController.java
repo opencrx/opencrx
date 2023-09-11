@@ -359,7 +359,7 @@ public class ChangePasswordManagedController extends JspWizardController {
 					pm.currentTransaction().commit();
 					short resultCode = result.getStatus();
 					try {
-						this.resultText = "[" + resultCode + "]: " + (String)(this.getCodes().getLongText("org:opencrx:kernel:home1:ChangePasswordResult:status", app.getCurrentLocaleAsIndex(), true, true).get(new Short(resultCode)));
+						this.resultText = "[" + resultCode + "]: " + (String)(this.getCodes().getLongText("org:opencrx:kernel:home1:ChangePasswordResult:status", app.getCurrentLocaleAsIndex(), true, true).get(Short.valueOf(resultCode)));
 					} catch (Exception e) {
 						this.errorMsg = "unknown error";
 					}

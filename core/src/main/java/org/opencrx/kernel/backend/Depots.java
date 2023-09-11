@@ -723,7 +723,7 @@ public class Depots extends AbstractImpl {
             	booking = debitBooking;
             }
             booking.setValueDate(valueDate);
-            booking.setBookingType(new Short(bookingType));
+            booking.setBookingType(Short.valueOf(bookingType));
             booking.setBookingStatus(BookingStatus.PENDING.getValue());
             booking.setBookingDate(bookingDate);
             booking.setPosition(depotPosition);
@@ -760,7 +760,7 @@ public class Depots extends AbstractImpl {
         Date bookingDate = new Date();
         CompoundBooking compoundBooking = pm.newInstance(CompoundBooking.class);
         compoundBooking.setName(name);
-        compoundBooking.setBookingType(new Short(bookingType));
+        compoundBooking.setBookingType(Short.valueOf(bookingType));
         compoundBooking.setBookingStatus(BookingStatus.PENDING.getValue());
         compoundBooking.setBookingDate(bookingDate);
         depotSegment.addCb(
@@ -1449,7 +1449,7 @@ public class Depots extends AbstractImpl {
                 newReport.setName(bookingPeriod.getName());
                 newReport.setDescription(bookingPeriod.getDescription());
                 newReport.setDraft(Boolean.TRUE);
-                newReport.setBookingStatusThreshold(new Short(bookingStatusThreshold));
+                newReport.setBookingStatusThreshold(Short.valueOf(bookingStatusThreshold));
                 newReport.setBookingPeriod(bookingPeriod);
                 depot.addReport(
                 	this.getUidAsString(),
@@ -2125,7 +2125,7 @@ public class Depots extends AbstractImpl {
             );                                                
         }
         cb.setLocked(Boolean.TRUE);
-        cb.setLockingReason(new Short(lockingReason));
+        cb.setLockingReason(Short.valueOf(lockingReason));
         cb.setLockModifiedAt(new Date());
     }
     
@@ -2173,7 +2173,7 @@ public class Depots extends AbstractImpl {
             );                                                
         }
         inventoryLevel.setLocked(Boolean.TRUE);
-        inventoryLevel.setLockingReason(new Short(lockingReason));
+        inventoryLevel.setLockingReason(Short.valueOf(lockingReason));
         inventoryLevel.setLockModifiedAt(new Date());
     }
 
@@ -2195,7 +2195,7 @@ public class Depots extends AbstractImpl {
             );                                                
         }
         cb.setLocked(Boolean.FALSE);
-        cb.setLockingReason(new Short((short)0));
+        cb.setLockingReason(Short.valueOf((short)0));
         cb.setLockModifiedAt(new Date());
     }
     
@@ -2217,7 +2217,7 @@ public class Depots extends AbstractImpl {
             );                                                
         }
         simpleBooking.setLocked(Boolean.FALSE);
-        simpleBooking.setLockingReason(new Short((short)0));
+        simpleBooking.setLockingReason(Short.valueOf((short)0));
         simpleBooking.setLockModifiedAt(new Date());
     }
 
@@ -2239,7 +2239,7 @@ public class Depots extends AbstractImpl {
             );                                                
         }
         inventoryLevel.setLocked(Boolean.FALSE);
-        inventoryLevel.setLockingReason(new Short((short)0));
+        inventoryLevel.setLockingReason(Short.valueOf((short)0));
         inventoryLevel.setLockModifiedAt(new Date());
     }
 

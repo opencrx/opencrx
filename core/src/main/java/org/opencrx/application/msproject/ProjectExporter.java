@@ -551,11 +551,11 @@ public class ProjectExporter {
     this.exportTask0();
     
     List<Integer> outlineNumber = new ArrayList<Integer>();
-    outlineNumber.add(new Integer(0));
+    outlineNumber.add(Integer.valueOf(0));
     for (Iterator<ActivityMapper> i=activityMappers.values().iterator(); i.hasNext(); ) {
      ActivityMapper am = i.next();
      if (am.isRootActivity()) {
-       outlineNumber.set(0, new Integer((outlineNumber.get(0)).intValue() + 1)); 
+       outlineNumber.set(0, Integer.valueOf((outlineNumber.get(0)).intValue() + 1)); 
        this.exportTask(am,outlineNumber);
      }
     }
@@ -754,10 +754,10 @@ public class ProjectExporter {
 
     int lastOutlineNumberIx =outlineNumber.size();
     int lastOutlineNumber = 0;
-    outlineNumber.add(lastOutlineNumberIx, new Integer(lastOutlineNumber));
+    outlineNumber.add(lastOutlineNumberIx, Integer.valueOf(lastOutlineNumber));
     for (Iterator<ActivityMapper> i=am.getPartActivityMappers().iterator(); i.hasNext();) {
         lastOutlineNumber++;
-        outlineNumber.set(lastOutlineNumberIx, new Integer(lastOutlineNumber));
+        outlineNumber.set(lastOutlineNumberIx, Integer.valueOf(lastOutlineNumber));
         this.exportTask(i.next(), outlineNumber);
     }
     outlineNumber.remove(lastOutlineNumberIx);

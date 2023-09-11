@@ -71,7 +71,7 @@ open class CoreConfigJarTask : ArchiveTask() {
 	    }
 		from(File(project.getProjectDir(), "src/data"))
 		from("src/main/resources") { include("META-INF/") }
-		from(File(buildDir, "resources/main")) { include("META-INF/") }
+		from(project.layout.buildDirectory.dir("resources/main")) { include("META-INF/") }
 	}
 
 }

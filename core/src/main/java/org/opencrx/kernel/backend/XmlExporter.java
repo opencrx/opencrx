@@ -842,7 +842,7 @@ public class XmlExporter extends AbstractImpl {
 				this.objectCount = 0;
 				this.metainf = this.wb.getSheet("META-INF");
 				HSSFCell mCell = (this.metainf == null) || (this.metainf.getRow(1) == null) ? null : this.metainf.getRow(1).getCell(this.getColumnIndex(this.metainf, "META-INF", "MaxObjects"));
-				this.objectLimit = mCell == null ? MAX_OBJECTS : new Double(mCell.getNumericCellValue()).intValue();
+				this.objectLimit = mCell == null ? MAX_OBJECTS : Double.valueOf(mCell.getNumericCellValue()).intValue();
 			}
 
 			private int getColumnIndex(
@@ -1063,7 +1063,7 @@ public class XmlExporter extends AbstractImpl {
 						}
 					}
 					HSSFCell mCell = (this.metainf == null) || (this.metainf.getRow(1) == null) ? null : this.metainf.getRow(1).getCell(this.getColumnIndex(this.metainf, "META-INF", sheetName));
-					int rowLimit = mCell == null ? this.objectLimit : new Double(mCell.getNumericCellValue()).intValue();
+					int rowLimit = mCell == null ? this.objectLimit : Double.valueOf(mCell.getNumericCellValue()).intValue();
 					return this.sheet.getLastRowNum() < rowLimit;
 				}
 				else {
@@ -1192,7 +1192,7 @@ public class XmlExporter extends AbstractImpl {
 									stringValue = t;
 								}
 								else if(PrimitiveTypes.LONG.equals(typeName) || PrimitiveTypes.INTEGER.equals(typeName) || PrimitiveTypes.SHORT.equals(typeName)) {
-									value = new Long(((Number) value).longValue());
+									value = Long.valueOf(((Number) value).longValue());
 									stringValue = value.toString();
 								}
 								else if(PrimitiveTypes.BINARY.equals(typeName)) {

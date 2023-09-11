@@ -326,17 +326,13 @@ public class DoCopy extends WebDavMethod {
                         );
                     }
                 } catch (AccessDeniedException e) {
-                    errorList.put(destinationPath + "/" + childSo.getName(), new Integer(
-                            HttpServletResponse.SC_FORBIDDEN));
+                    errorList.put(destinationPath + "/" + childSo.getName(), Integer.valueOf(HttpServletResponse.SC_FORBIDDEN));
                 } catch (ObjectNotFoundException e) {
-                    errorList.put(destinationPath + "/" + childSo.getName(), new Integer(
-                            HttpServletResponse.SC_NOT_FOUND));
+                    errorList.put(destinationPath + "/" + childSo.getName(), Integer.valueOf(HttpServletResponse.SC_NOT_FOUND));
                 } catch (ObjectAlreadyExistsException e) {
-                    errorList.put(destinationPath + "/" + childSo.getName(), new Integer(
-                            HttpServletResponse.SC_CONFLICT));
+                    errorList.put(destinationPath + "/" + childSo.getName(), Integer.valueOf(HttpServletResponse.SC_CONFLICT));
                 } catch (Exception e) {
-                    errorList.put(destinationPath + "/" + childSo.getName(), new Integer(
-                            HttpServletResponse.SC_INTERNAL_SERVER_ERROR));
+                    errorList.put(destinationPath + "/" + childSo.getName(), Integer.valueOf(HttpServletResponse.SC_INTERNAL_SERVER_ERROR));
                 }
             }
         }

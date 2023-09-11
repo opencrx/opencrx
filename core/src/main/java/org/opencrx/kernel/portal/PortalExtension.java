@@ -1063,7 +1063,7 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
             if(context instanceof Resource) {
                 Resource resource = (Resource)context;
                 ActivityQuery filter = (ActivityQuery)pm.newQuery(Activity.class);
-                filter.thereExistsPercentComplete().lessThan(new Short((short)100));
+                filter.thereExistsPercentComplete().lessThan(Short.valueOf((short)100));
                 filter.orderByActivityNumber().ascending();
                 selectableValues = new ArrayList<ObjectReference>();
                 int count = 0;

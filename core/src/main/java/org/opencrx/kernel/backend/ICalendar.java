@@ -1499,7 +1499,7 @@ public class ICalendar extends AbstractImpl {
                     case 8: priority = 2; break; // normal
                     case 9: priority = 1; break; // low
                 }
-                activity.setPriority(new Short((short)priority));
+                activity.setPriority(Short.valueOf((short)priority));
             } catch(Exception e) {
                 errors.add("PRIORITY (" + s + ")");
             }
@@ -2449,7 +2449,7 @@ public class ICalendar extends AbstractImpl {
     					// iOS
     					alarm.indexOf("ACKNOWLEDGED:") > 0
     				);
-    				timer.setTimerState(new Short((short)10)); // open
+    				timer.setTimerState(Short.valueOf((short)10)); // open
     				timer.setTimerEndAt(new Date(event.getScheduledStart().getTime() + 3600000L));
     				pm.currentTransaction().commit();
     			} catch(Exception e) {
@@ -2749,7 +2749,7 @@ public class ICalendar extends AbstractImpl {
     public static final String FILE_EXTENSION = ".ics";
     public static final String ICAL_SCHEMA = "ICAL:";    
     public static final String ICAL_RECURRENCE_ID_SCHEMA = "ICAL-RECURRENCE-ID:";    
-    public static final Short USAGE_EMAIL_PRIMARY = new Short((short)300);
+    public static final Short USAGE_EMAIL_PRIMARY = Short.valueOf((short)300);
     // If X-OPENCRX-RENDER-ALARMS is set to TRUE printAlarms() retrieves assigned timers and
     // renders them as ALARMS. The flag is auto-calculated on activity updates: it is set
     // to TRUE if the activity has assigned timers, otherwise it is set to FALSE. The flag's
