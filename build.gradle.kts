@@ -45,16 +45,22 @@
  * openMDX (http://www.openmdx.org/)
  */
 
+import java.util.*
+import java.io.*
+
 plugins {
 	java
 }
+apply(plugin = "java")
 
 allprojects {
     group = "org.opencrx"
-    version = "5.3-20230911"
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    version = "5.3-20230913"
+    var env = Properties()
+    env.load(FileInputStream(File(project.getRootDir(), "build.properties")))
+    val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))    
+    tasks.withType<JavaCompile> {
+        sourceCompatibility = targetPlatform.toString()
+        targetCompatibility = targetPlatform.toString()
+    }
 }
