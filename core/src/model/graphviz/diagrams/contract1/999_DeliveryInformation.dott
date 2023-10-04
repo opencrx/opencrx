@@ -21,15 +21,22 @@ digraph "Diagram DeliveryInformation [Package org:opencrx:kernel:contract1]" {
 	{
 	  rank=same;
 	  LAYER0[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:contract1:DeliveryInformation,compartments=true,width=8]};
+	  ${CLASS[name=org:opencrx:kernel:depot1:BookingOrigin,compartments=false,fillcolor="#FFBD9D",width=3]};
 	}
 	{
 	  rank=same;
 	  LAYER1[style=invis];
-	  ${CLASS[name=org:opencrx:kernel:uom1:Uom,compartments=false,fillcolor="#FFBD9D",width=8]};
+	  ${CLASS[name=org:opencrx:kernel:contract1:DeliveryInformation,compartments=true,width=11]};
+	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:uom1:Uom,compartments=false,fillcolor="#FFBD9D",width=7]};
+	  ${CLASS[name=org:opencrx:kernel:activity1:Activity,compartments=false,fillcolor="#FFBD9D",width=3]};
 	}
 
 	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
 
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:DeliveryInformationHasQuantityShippedUom,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:DeliveryInformationHasQuantityShippedUom2,minlen=3]}
