@@ -760,7 +760,8 @@ org.apache.poi.hssf.util.*
 	</script>
 
 	<style type="text/css" media="all">
-		@page{margin:auto; size:auto;}
+  	@page{margin:auto; size:auto;} 
+	
 		fieldset {
 			margin: 0px 10px 20px 0px;
 			padding: 5px 0px 5px 15px;
@@ -804,7 +805,7 @@ org.apache.poi.hssf.util.*
 			overflow:hidden;
 		}
         .table td, .table th {
-          padding: .75rem;	
+          padding: .15rem;	
         }	
 		td.total {
 		    border-top:1px solid black;
