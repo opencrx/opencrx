@@ -127,7 +127,7 @@ class DocumentProfileResource extends WebDavResource {
 		documentFeedQuery.thereExistsIsActive().isTrue();
 		for(DocumentFeed documentFeed: syncProfile.<DocumentFeed>getFeed(documentFeedQuery)) {
 			children.add(
-				new DocumentFolderFeedResource(
+				new DocumentCollectionResource(
 					this.getRequestContext(),
 					documentFeed
 				)
@@ -138,12 +138,12 @@ class DocumentProfileResource extends WebDavResource {
 		documentFilterFeedQuery.thereExistsIsActive().isTrue();
 		for(DocumentFilterFeed documentFilterFeed: syncProfile.<DocumentFilterFeed>getFeed(documentFilterFeedQuery)) {
 			children.add(
-				new DocumentFilterFeedResource(
+				new DocumentCollectionResource(
 					this.getRequestContext(),
 					documentFilterFeed
 				)
 			);
-		}		
+		}
 		return children;
 	}
 

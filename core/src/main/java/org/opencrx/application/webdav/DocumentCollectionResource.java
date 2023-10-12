@@ -67,12 +67,14 @@ import org.opencrx.kernel.document1.jmi1.DocumentBasedFolderEntry;
 import org.opencrx.kernel.document1.jmi1.DocumentFilterGlobal;
 import org.opencrx.kernel.document1.jmi1.DocumentFolder;
 import org.opencrx.kernel.generic.ChainingCollection;
+import org.opencrx.kernel.home1.jmi1.DocumentFeed;
+import org.opencrx.kernel.home1.jmi1.DocumentFilterFeed;
 import org.openmdx.base.collection.MarshallingCollection;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.jmi1.BasicObject;
 import org.openmdx.base.marshalling.Marshaller;
 
-public abstract class DocumentCollectionResource extends WebDavResource {
+public class DocumentCollectionResource extends WebDavResource {
 	
 	/**
 	 * DocumentResourceCollectionBasedOnFolderEntry
@@ -123,7 +125,7 @@ public abstract class DocumentCollectionResource extends WebDavResource {
         private static final long serialVersionUID = 6257982279508324945L;
 
 	}
-
+	
 	/**
 	 * DocumentResourceCollectionBasedOnDocument
 	 *
@@ -192,7 +194,7 @@ public abstract class DocumentCollectionResource extends WebDavResource {
                     	Object source
                     ) throws ServiceException {
 						if(source instanceof DocumentFolder) {
-							return new DocumentFolderResource(
+							return new DocumentCollectionResource(
 								requestContext,
 								(DocumentFolder)source
 							);
@@ -230,11 +232,11 @@ public abstract class DocumentCollectionResource extends WebDavResource {
 	 */
 	public DocumentCollectionResource(
 		RequestContext requestContext,
-		DocumentFolder documentFolder
+		DocumentFeed documentFeed
 	) {
 		super(
 			requestContext,
-			documentFolder
+			documentFeed
 		);
 	}
 
@@ -246,13 +248,39 @@ public abstract class DocumentCollectionResource extends WebDavResource {
 	 */
 	public DocumentCollectionResource(
 		RequestContext requestContext,
-		DocumentFilterGlobal documentFilter
+		DocumentFilterFeed documentFilterFeed
 	) {
 		super(
 			requestContext,
-			documentFilter
+			documentFilterFeed
 		);
 	}
+	
+	/**
+	 * Constructor.
+	 * 
+	 * @param requestContext
+	 * @param documentFolder
+	 */
+	public DocumentCollectionResource(
+		RequestContext requestContext,
+		DocumentFolder documentFolder
+	) {
+		super(
+			requestContext,
+			documentFolder
+		);
+	}
+
+	@Override
+    public String getName(
+    ) {
+		if(this.getObject() instanceof DocumentFolder) {
+			return ((DocumentFolder)this.getObject()).getName();
+		} else {
+			return super.getName();
+		}
+    }
 
 	/* (non-Javadoc)
 	 * @see org.opencrx.application.uses.net.sf.webdav.Resource#getDisplayName()
@@ -267,7 +295,7 @@ public abstract class DocumentCollectionResource extends WebDavResource {
     	}
     	return name;
     }
-    		
+
 	/* (non-Javadoc)
 	 * @see org.opencrx.application.uses.net.sf.webdav.Resource#isCollection()
 	 */
@@ -277,22 +305,6 @@ public abstract class DocumentCollectionResource extends WebDavResource {
 		return true;
     }
 	
-    /* (non-Javadoc)
-     * @see org.opencrx.application.webdav.WebDavResource#getName()
-     */
-    @Override
-    public String getName(
-    ) {
-    	BasicObject documentCollection = this.getObject();
-    	if(documentCollection instanceof DocumentFolder) {
-    		return ((DocumentFolder)documentCollection).getName();
-    	} else if(documentCollection instanceof DocumentFilterGlobal) {
-    		return ((DocumentFilterGlobal)documentCollection).getName();
-    	} else {
-    		return "NA";
-    	}
-    }
-
 	/**
 	 * Get query for retrieving folder entries.
 	 * 
@@ -334,6 +346,22 @@ public abstract class DocumentCollectionResource extends WebDavResource {
 	    return query;
 	}
 
+	/**
+	 * If defined for this collection, Get document folder
+	 * 
+	 * @return
+	 */
+	public DocumentFolder getDocumentFolder(
+	) {
+    	if(this.getObject() instanceof DocumentFolder) {
+    		return (DocumentFolder)this.getObject();
+    	} else if(this.getObject() instanceof DocumentFeed) {
+    		return ((DocumentFeed)this.getObject()).getDocumentFolder();
+    	} else {
+    		return null;
+    	}
+	}
+
     /* (non-Javadoc)
      * @see org.opencrx.application.webdav.WebDavResource#getChildren()
      */
@@ -343,7 +371,14 @@ public abstract class DocumentCollectionResource extends WebDavResource {
 		Date timeRangeStart,
 		Date timeRangeEnd
 	) {
-    	BasicObject documentCollection = this.getObject();
+    	BasicObject documentCollection = null;
+    	if(this.getObject() instanceof DocumentFolder) {
+    		documentCollection = (DocumentFolder)this.getObject();
+    	} else if(this.getObject() instanceof DocumentFeed) {
+    		documentCollection = ((DocumentFeed)this.getObject()).getDocumentFolder();
+    	} else if(this.getObject() instanceof DocumentFilterFeed) {
+    		documentCollection = ((DocumentFilterFeed)this.getObject()).getDocumentFilter();    		
+    	}
     	if(documentCollection instanceof DocumentFolder) {
     		DocumentFolder documentFolder = (DocumentFolder)documentCollection;
 			DocumentBasedFolderEntryQuery folderEntryQuery = this.getFolderEntryQuery();

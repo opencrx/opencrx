@@ -61,7 +61,6 @@ java.net.*,
 java.sql.*,
 org.opencrx.portal.wizard.*,
 org.opencrx.portal.wizard.ConnectionHelperController.SelectorType,
-org.opencrx.portal.wizard.ConnectionHelperController.ResourceType,
 org.opencrx.application.utils.*,
 org.openmdx.base.accessor.jmi.cci.*,
 org.openmdx.base.exception.*,
@@ -152,39 +151,8 @@ org.openmdx.kernel.log.*
 			<div>
                <table class="fieldGroup">
                  <tr>
-                   <td class="abel"><span class="nw"><%= wc.getFieldLabel(ConnectionHelperController.RESOURCEASSIGNMENT_CLASS, "resourceRole", app.getCurrentLocaleAsIndex()) %>:</span></td>
-                   <td>
-                       <select class="valueL" id="type" name="type" class="valueL" tabindex="<%= tabIndex + 10 %>" onchange="javascript:$('Reload.button').click();">
-                           <option <%= wc.getResourceType() == ResourceType.PROFILE ? "selected" : "" %> value="<%= ResourceType.PROFILE.toString()  %>"><%= ResourceType.PROFILE.getLabel() %></option>
-                           <option <%= wc.getResourceType() == ResourceType.EVENTS_AND_TASKS ? "selected" : "" %> value="<%= ResourceType.EVENTS_AND_TASKS.toString() %>"><%= ResourceType.EVENTS_AND_TASKS.getLabel() %></option>
-                           <option <%= wc.getResourceType() == ResourceType.CONTACT ? "selected" : "" %> value="<%= ResourceType.CONTACT.toString() %>"><%= ResourceType.CONTACT.getLabel() %></option>
-                       </select>
-                   </td>
-                   <td class="addon"></td>
-                 </tr>
-                 <tr>
 <%
-                    if(wc.getResourceType() == ResourceType.EVENTS_AND_TASKS) {
-%>
-                        <td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= wc.getFieldLabel(ConnectionHelperController.ABSTRACTPRICELEVEL_CLASS, "basedOn", app.getCurrentLocaleAsIndex()) %>:</span></td>
-                        <td>
-                            <select class="valueL" id="selectorType" name="selectorType" class="valueL" tabindex="<%= tabIndex + 10 %>" onchange="javascript:$('Reload.button').click();">
-                                <option <%= wc.getSelectorType() == SelectorType.TRACKER ?          "selected" : "" %> value="<%= SelectorType.TRACKER.toString() %>"><%= app.getLabel(ConnectionHelperController.ACTIVITYTRACKER_CLASS)      %></option>
-                                <option <%= wc.getSelectorType() == SelectorType.TRACKER_FILTER ?   "selected" : "" %> value="<%= SelectorType.TRACKER_FILTER.toString() %>"><%= app.getLabel(ConnectionHelperController.ACTIVITYTRACKER_CLASS)      %> &lt;<%= app.getLabel(ConnectionHelperController.ACTIVITYFILTERGROUP_CLASS) %>&gt;</option>
-                                <option <%= wc.getSelectorType() == SelectorType.CATEGORY?          "selected" : "" %> value="<%= SelectorType.CATEGORY %>"><%= app.getLabel(ConnectionHelperController.ACTIVITYCATEGORY_CLASS)     %></option>
-                                <option <%= wc.getSelectorType() == SelectorType.CATEGORY_FILTER ?  "selected" : "" %> value="<%= SelectorType.CATEGORY_FILTER.toString() %>"><%= app.getLabel(ConnectionHelperController.ACTIVITYCATEGORY_CLASS)     %> &lt;<%= app.getLabel(ConnectionHelperController.ACTIVITYFILTERGROUP_CLASS) %>&gt;</option>
-                                <option <%= wc.getSelectorType() == SelectorType.MILESTONE ?        "selected" : "" %> value="<%= SelectorType.MILESTONE.toString() %>"><%= app.getLabel(ConnectionHelperController.ACTIVITYMILESTONE_CLASS)    %></option>
-                                <option <%= wc.getSelectorType() == SelectorType.MILESTONE_FILTER ? "selected" : "" %> value="<%= SelectorType.MILESTONE_FILTER.toString() %>"><%= app.getLabel(ConnectionHelperController.ACTIVITYMILESTONE_CLASS)    %> &lt;<%= app.getLabel(ConnectionHelperController.ACTIVITYFILTERGROUP_CLASS) %>&gt;</option>
-                                <option <%= wc.getSelectorType() == SelectorType.GLOBAL_FILTER ?    "selected" : "" %> value="<%= SelectorType.GLOBAL_FILTER.toString() %>"><%= app.getLabel(ConnectionHelperController.ACTIVITYFILTERGLOBAL_CLASS) %></option>
-                                <option <%= wc.getSelectorType() == SelectorType.USERHOME ?         "selected" : "" %> value="<%= SelectorType.USERHOME.toString() %>"><%= app.getLabel(ConnectionHelperController.USERHOME_CLASS)             %></option>
-                                <option <%= wc.getSelectorType() == SelectorType.RESOURCE ?         "selected" : "" %> value="<%= SelectorType.RESOURCE.toString() %>"><%= app.getLabel(ConnectionHelperController.RESOURCE_CLASS)             %></option>
-                                <option <%= wc.getSelectorType() == SelectorType.BDAY ?             "selected" : "" %> value="<%= SelectorType.BDAY.toString() %>"><%= app.getLabel(ConnectionHelperController.ACCOUNTFILTERGLOBAL_CLASS)  %> / <%= wc.getFieldLabel(ConnectionHelperController.CONTACT_CLASS, "birthdate", app.getCurrentLocaleAsIndex()) %></option>
-                            </select>
-                        </td>
-                        <td class="addon"></td>
-<%
-                    } 
-                    else if(wc.getResourceType() == ResourceType.PROFILE) {
+                    {
 %>
                         <td class="<%= CssClass.fieldLabel %>"><span class="nw">Selector type:</span></td>
                         <td>
@@ -197,24 +165,13 @@ org.openmdx.kernel.log.*
                         <td class="addon"></td>
 <%
                     } 
-                    else if(wc.getResourceType() == ResourceType.CONTACT) {
-%>
-                        <td class="<%= CssClass.fieldLabel %>"><span class="nw">Selector type:</span></td>
-                        <td>
-                            <select class="valueL" id="selectorType" name="selectorType" class="valueL" tabindex="<%= tabIndex + 10 %>" onchange="javascript:$('Reload.button').click();">
-                                <option <%= wc.getSelectorType().equals(SelectorType.VCARD) ? "selected" : "" %> value="<%= SelectorType.VCARD %>"><%= app.getLabel(ConnectionHelperController.ACCOUNTFILTERGLOBAL_CLASS)  %></option>
-                            </select>
-                        </td>
-                        <td class="addon"></td>
-<%
-                    }
 %>
                   </tr>
                   <tr>
                     <td class="<%= CssClass.fieldLabel %>"><span class="nw"><%= wc.getAnchorObjectLabel() %>:</span></td>
                     <td>
 <%
-                        if (wc.getAnchorObjects().isEmpty()) {
+                        if(wc.getAnchorObjects() == null || wc.getAnchorObjects().isEmpty()) {
 %>
                             <select class="valueL" id="anchorObjectXri" name="anchorObjectXri" class="valueL" tabindex="<%= tabIndex + 10 %>" onchange="javascript:$('Reload.button').click();">
                                 <option value="">--</option>
@@ -229,8 +186,7 @@ org.openmdx.kernel.log.*
                                     String key = i.next();
                                     String value = wc.getAnchorObjects().get(key);
                                     boolean selected = 
-                                    	((wc.getAnchorObjectXri() != null) && (value != null) && (wc.getAnchorObjectXri().equals(value))) ||                                    	
-                                        (!Boolean.TRUE.equals(wc.getIsInitialized()) && value.equals(wc.getAnchorObjectXriFromInitialObject()));  
+                                    	((wc.getAnchorObjectXri() != null) && (value != null) && (wc.getAnchorObjectXri().equals(value)));
                                     if (selected) {
                                         hasSelection = true;
                                     }
@@ -253,8 +209,8 @@ org.openmdx.kernel.log.*
             </div>
 <%
 			RefObject_1_0 anchorObject = obj;
-			if(wc.getAnchorObjectXriFromInitialObject() != null && !wc.getAnchorObjectXriFromInitialObject().isEmpty()) {
-				anchorObject = (RefObject_1_0)pm.getObjectById(new Path(wc.getAnchorObjectXriFromInitialObject()));
+			if(wc.getAnchorObjectXri() != null && !wc.getAnchorObjectXri().isEmpty()) {
+				anchorObject = (RefObject_1_0)pm.getObjectById(new Path(wc.getAnchorObjectXri()));
 			}
 			boolean showOptionIsDisabled = false;
 			boolean showOptionMax = false;
@@ -311,6 +267,20 @@ org.openmdx.kernel.log.*
 <%
 				}
 			}
+			urls = org.opencrx.application.utils.AdapterConnectionHelper.getWebDavCollectionSetURLs(wc.getUrlBase(), anchorObject);
+			if(!urls.isEmpty()) {
+%>
+				<br />
+				<div class="fieldGroupName">WebDAV Collections Home (use with WebDAV clients only)</div>
+				<br />
+<%				
+	            for(AdapterConnectionHelper.ConnectionURL connectionURL: urls) {
+%>
+    	            <a href="<%= connectionURL.getUrl() %>" target="_blank" title="<%= app.getPortalExtension().getTitle(connectionURL.getObject(), (short)0, null, false, app) %>"><%= connectionURL.getUrl() %></a>
+    	            <br />
+<%
+        	    }
+			}			
 			urls = org.opencrx.application.utils.AdapterConnectionHelper.getWebDavCollectionURLs(wc.getUrlBase(), anchorObject);
 			if(!urls.isEmpty()) {
 %>

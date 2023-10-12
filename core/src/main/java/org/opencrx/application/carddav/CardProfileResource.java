@@ -58,9 +58,11 @@ import javax.jdo.PersistenceManager;
 
 import org.opencrx.application.uses.net.sf.webdav.RequestContext;
 import org.opencrx.application.uses.net.sf.webdav.Resource;
-import org.opencrx.kernel.home1.cci2.ContactsFeedQuery;
+import org.opencrx.kernel.home1.cci2.SyncFeedQuery;
+import org.opencrx.kernel.home1.jmi1.AccountFilterFeed;
 import org.opencrx.kernel.home1.jmi1.CardProfile;
 import org.opencrx.kernel.home1.jmi1.ContactsFeed;
+import org.opencrx.kernel.home1.jmi1.SyncFeed;
 import org.opencrx.kernel.home1.jmi1.SyncProfile;
 
 class CardProfileResource extends CardDavResource {
@@ -96,17 +98,25 @@ class CardProfileResource extends CardDavResource {
 	) {
 		SyncProfile syncProfile = this.getObject();
 		PersistenceManager pm = JDOHelper.getPersistenceManager(syncProfile);
-		ContactsFeedQuery query = (ContactsFeedQuery)pm.newQuery(ContactsFeed.class);
+		SyncFeedQuery query = (SyncFeedQuery)pm.newQuery(SyncFeed.class);
 		query.thereExistsIsActive().isTrue();
 		Collection<Resource> children = new ArrayList<Resource>();
-		Collection<ContactsFeed> contactFeeds = syncProfile.getFeed(query);
-		for(ContactsFeed contactsFeed: contactFeeds) {
-			children.add(
-				new AccountCollectionResource(
-					this.getRequestContext(),
-					contactsFeed
-				)
-			);
+		for(SyncFeed feed: syncProfile.getFeed(query)) {
+			if(feed instanceof ContactsFeed) {
+				children.add(
+					new AccountCollectionResource(
+						this.getRequestContext(),
+						(ContactsFeed)feed
+					)
+				);
+			} else if(feed instanceof AccountFilterFeed) {
+				children.add(
+					new AccountCollectionResource(
+						this.getRequestContext(),
+						(AccountFilterFeed)feed
+					)
+				);				
+			}
 		}
 		return children;
 	}

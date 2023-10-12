@@ -60,10 +60,14 @@ import javax.jdo.Query;
 
 import org.opencrx.application.uses.net.sf.webdav.RequestContext;
 import org.opencrx.application.uses.net.sf.webdav.Resource;
+import org.opencrx.kernel.account1.cci2.AccountQuery;
 import org.opencrx.kernel.account1.cci2.MemberQuery;
+import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.account1.jmi1.Member;
 import org.opencrx.kernel.backend.ICalendar;
+import org.opencrx.kernel.home1.jmi1.AccountFilterFeed;
 import org.opencrx.kernel.home1.jmi1.ContactsFeed;
+import org.opencrx.kernel.home1.jmi1.SyncFeed;
 import org.openmdx.base.collection.MarshallingCollection;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.marshalling.Marshaller;
@@ -79,9 +83,9 @@ public class AccountCollectionResource extends CardDavResource {
 	 *
 	 * @param <T>
 	 */
-	static class AccountResourceCollection<T> extends MarshallingCollection<T> {
+	static class MemberResourceCollection<T> extends MarshallingCollection<T> {
 		
-		public AccountResourceCollection(
+		public MemberResourceCollection(
 			final RequestContext requestContext,
 			Collection<Member> members,
 			final AccountCollectionResource accountCollectionResource
@@ -126,13 +130,64 @@ public class AccountCollectionResource extends CardDavResource {
 	}
 	
 	/**
+	 * Marshaling collection which maps Accounts to AccountResources.
+	 *
+	 * @param <T>
+	 */
+	static class AccountResourceCollection<T> extends MarshallingCollection<T> {
+		
+		public AccountResourceCollection(
+			final RequestContext requestContext,
+			Collection<Account> accounts,
+			final AccountCollectionResource accountCollectionResource
+		) {
+			super(
+				new Marshaller(){
+
+					@Override
+                    public Object marshal(
+                    	Object source
+                    ) throws ServiceException {
+						if(source instanceof Account) {
+							return new AccountResource(
+								requestContext,
+								(Account)source,
+								accountCollectionResource
+							);
+						} else {
+							return source;
+						}
+                    }
+
+					@Override
+                    public Object unmarshal(
+                    	Object source
+                    ) throws ServiceException {
+						if(source instanceof CardDavResource) {
+							return ((CardDavResource)source).getObject();
+						}
+						else {
+							return source;
+						}
+                    }
+					
+				},
+				accounts
+			);
+		}
+		
+		private static final long serialVersionUID = 6297568010507613763L;		
+
+	}
+	
+	/**
 	 * Constructor
 	 * @param requestContext
 	 * @param contactsFeed
 	 */
 	public AccountCollectionResource(
 		RequestContext requestContext,
-		ContactsFeed contactsFeed
+		ContactsFeed contactsFeed	
 	) {
 		super(
 			requestContext,
@@ -140,13 +195,28 @@ public class AccountCollectionResource extends CardDavResource {
 		);
 	}
 
+	/**
+	 * Constructor
+	 * @param requestContext
+	 * @param accounterFilterFeed
+	 */
+	public AccountCollectionResource(
+		RequestContext requestContext,
+		AccountFilterFeed accounterFilterFeed	
+	) {
+		super(
+			requestContext,
+			accounterFilterFeed
+		);
+	}
+
 	/* (non-Javadoc)
 	 * @see org.opencrx.application.carddav.CardDavResource#getObject()
 	 */
 	@Override
-    public ContactsFeed getObject(
+    public SyncFeed getObject(
     ) {
-        return (ContactsFeed)super.getObject();
+        return (SyncFeed)super.getObject();
     }
 
     /* (non-Javadoc)
@@ -189,7 +259,7 @@ public class AccountCollectionResource extends CardDavResource {
     ) {
 		return ICalendar.MIME_TYPE;
     }
-
+    	
     /* (non-Javadoc)
      * @see org.opencrx.application.carddav.CardDavResource#getChildren()
      */
@@ -198,20 +268,42 @@ public class AccountCollectionResource extends CardDavResource {
 		Date timeRangeStart,
 		Date timeRangeEnd
 	) {
-    	if(this.getObject() != null && this.getObject().getAccountGroup() != null) {
-			PersistenceManager pm = JDOHelper.getPersistenceManager(this.getObject());
-	        MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
-	        query.forAllDisabled().isFalse();                    
-	        query.thereExistsAccount().vcard().isNonNull();
-	        query.orderByCreatedAt().ascending();
-	        ((Query)query).getFetchPlan().setFetchSize(FETCH_SIZE);
-	        return new AccountResourceCollection<Resource>(
-	        	this.getRequestContext(),
-	        	this.getObject().getAccountGroup().getMember(query),
-	        	this
-	        );
+    	if(this.getObject() instanceof ContactsFeed) {
+    		ContactsFeed contactsFeed = (ContactsFeed)this.getObject();
+    		if(contactsFeed.getAccountGroup() != null) {
+				PersistenceManager pm = JDOHelper.getPersistenceManager(this.getObject());
+		        MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
+		        query.forAllDisabled().isFalse();                    
+		        query.thereExistsAccount().vcard().isNonNull();
+		        query.orderByCreatedAt().ascending();
+		        ((Query)query).getFetchPlan().setFetchSize(FETCH_SIZE);
+		        return new MemberResourceCollection<Resource>(
+		        	this.getRequestContext(),
+		        	contactsFeed.getAccountGroup().getMember(query),
+		        	this
+		        );
+	    	} else {
+	    		return Collections.emptyList();
+	    	}
+    	} else if(this.getObject() instanceof AccountFilterFeed) {
+    		AccountFilterFeed accountFilterFeed = (AccountFilterFeed)this.getObject();
+    		if(accountFilterFeed.getAccountFilter() != null) {
+				PersistenceManager pm = JDOHelper.getPersistenceManager(this.getObject());
+		        AccountQuery query = (AccountQuery)pm.newQuery(Account.class);
+		        query.forAllDisabled().isFalse();
+		        query.vcard().isNonNull();
+		        query.orderByCreatedAt().ascending();
+		        ((Query)query).getFetchPlan().setFetchSize(FETCH_SIZE);
+		        return new AccountResourceCollection<Resource>(
+		        	this.getRequestContext(),
+		        	accountFilterFeed.getAccountFilter().getFilteredAccount(query),
+		        	this
+		        );
+	    	} else {
+	    		return Collections.emptyList();
+	    	}
     	} else {
-    		return Collections.emptyList();
+    		return Collections.emptyList();    		
     	}
 	}
 

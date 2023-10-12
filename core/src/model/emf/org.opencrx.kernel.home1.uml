@@ -1768,6 +1768,20 @@
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Ew8AL4LEeuWwooTpj50fQ" value="*"/>
             </ownedEnd>
           </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_VljF4GXSEe6cON_MpOKIcA" name="AccountFilterFeed">
+            <generalization xmi:type="uml:Generalization" xmi:id="_eAn0wGXSEe6cON_MpOKIcA" general="_ejjTcG_TEd2k1trwDO0y0g"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_3cOFYGXSEe6cON_MpOKIcA" name="accountFilter" association="_3cMQMGXSEe6cON_MpOKIcA">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.account1.uml#_6kaqQImwEdqT-YHfpV38vQ"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3cOFYWXSEe6cON_MpOKIcA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3cOFYmXSEe6cON_MpOKIcA" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_3cMQMGXSEe6cON_MpOKIcA" name="AccountFilterFeedHasAccountFilter" memberEnd="_3cOFYGXSEe6cON_MpOKIcA _3cOFY2XSEe6cON_MpOKIcA">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3cNeUGXSEe6cON_MpOKIcA" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cNeUWXSEe6cON_MpOKIcA" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_3cOFY2XSEe6cON_MpOKIcA" name="accountFilterFeed" type="_VljF4GXSEe6cON_MpOKIcA" association="_3cMQMGXSEe6cON_MpOKIcA"/>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>

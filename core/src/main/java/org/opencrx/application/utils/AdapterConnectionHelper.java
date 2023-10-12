@@ -65,6 +65,7 @@ import org.opencrx.kernel.activity1.jmi1.ActivityMilestone;
 import org.opencrx.kernel.activity1.jmi1.ActivityTracker;
 import org.opencrx.kernel.activity1.jmi1.Resource;
 import org.opencrx.kernel.home1.cci2.SyncFeedQuery;
+import org.opencrx.kernel.home1.jmi1.AccountFilterFeed;
 import org.opencrx.kernel.home1.jmi1.ActivityFilterCalendarFeed;
 import org.opencrx.kernel.home1.jmi1.ActivityGroupCalendarFeed;
 import org.opencrx.kernel.home1.jmi1.CalendarProfile;
@@ -171,6 +172,11 @@ public class AdapterConnectionHelper {
 		
 	}
 	
+	enum PathType {
+		SYNCFEED,
+		ORIGIN
+	}
+
 	/**
 	 * Map paths to URLs.
 	 * 
@@ -188,8 +194,8 @@ public class AdapterConnectionHelper {
 		List<ResourcePath> paths
 	) throws ServiceException {
 		try {
-			String providerName = obj.refGetPath().get(2);	
-			String segmentName = obj.refGetPath().get(4);			
+			String providerName = obj.refGetPath().getSegment(2).toString();	
+			String segmentName = obj.refGetPath().getSegment(4).toString();
 			List<ConnectionURL> urls = new ArrayList<ConnectionURL>();
 			for(ResourcePath path: paths) {
 				urls.add(
@@ -217,7 +223,8 @@ public class AdapterConnectionHelper {
 	private static List<ResourcePath> getCalendarPaths(
 		RefObject_1_0 obj,
 		boolean isCollectionTypeTask,
-		String suffix
+		String suffix,
+		PathType pathType
 	) throws ServiceException {
 		try {
 			PersistenceManager pm = JDOHelper.getPersistenceManager(obj);
@@ -227,67 +234,81 @@ public class AdapterConnectionHelper {
 				if((activityFilterGroup.getName() != null) && !activityFilterGroup.getName().isEmpty()) {
 					ActivityGroup group = (ActivityGroup)pm.getObjectById(activityFilterGroup.refGetPath().getParent().getParent());
 					if(group instanceof ActivityTracker) {
-						paths.add(
-							new ResourcePath(
-								group,
-								"/tracker/" + group.getName() + "/filter/" + activityFilterGroup.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-							)
-						);
+						if(pathType == PathType.ORIGIN) {
+							paths.add(
+								new ResourcePath(
+									group,
+									"/tracker/" + group.getName() + "/filter/" + activityFilterGroup.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+								)
+							);
+						}
 					} else if(group instanceof ActivityMilestone) {
-						paths.add(
-							new ResourcePath(
-								group,
-								"/milestone/" +  group.getName() + "/filter/" + activityFilterGroup.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-							)
-						);						
+						if(pathType == PathType.ORIGIN) {
+							paths.add(
+								new ResourcePath(
+									group,
+									"/milestone/" +  group.getName() + "/filter/" + activityFilterGroup.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+								)
+							);
+						}
 					} else if(group instanceof ActivityCategory) {
-						paths.add(
-							new ResourcePath(
-								group,
-								"/category/" +  group.getName() + "/filter/" + activityFilterGroup.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-							)
-						);						
+						if(pathType == PathType.ORIGIN) {
+							paths.add(
+								new ResourcePath(
+									group,
+									"/category/" +  group.getName() + "/filter/" + activityFilterGroup.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+								)
+							);
+						}
 					}
 				}
 			} else if(obj instanceof ActivityFilterGlobal) {
 				ActivityFilterGlobal activityFilterGlobal = (ActivityFilterGlobal)obj;
 				if((activityFilterGlobal.getName() != null) && !activityFilterGlobal.getName().isEmpty()) {
-					paths.add(
-						new ResourcePath(
-							activityFilterGlobal,
-							"/globalfilter/" + activityFilterGlobal.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-						)
-					);
+					if(pathType == PathType.ORIGIN) {
+						paths.add(
+							new ResourcePath(
+								activityFilterGlobal,
+								"/globalfilter/" + activityFilterGlobal.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+							)
+						);
+					}
 				}
 			} else if(obj instanceof ActivityTracker) {
 				ActivityTracker activityTracker = (ActivityTracker)obj;
 				if((activityTracker.getName() != null) && !activityTracker.getName().isEmpty()) {
-					paths.add(
-						new ResourcePath(
-							activityTracker,
-							"/tracker/" + activityTracker.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-						)
-					);						
+					if(pathType == PathType.ORIGIN) {
+						paths.add(
+							new ResourcePath(
+								activityTracker,
+								"/tracker/" + activityTracker.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+							)
+						);
+					}
 				}
 			} else if(obj instanceof ActivityCategory) {
 				ActivityCategory activityCategory = (ActivityCategory)obj;
 				if((activityCategory.getName() != null) && !activityCategory.getName().isEmpty()) {
-					paths.add(
-						new ResourcePath(
-							activityCategory,
-							"/category/" + activityCategory.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-						)
-					);
+					if(pathType == PathType.ORIGIN) {
+						paths.add(
+							new ResourcePath(
+								activityCategory,
+								"/category/" + activityCategory.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+							)
+						);
+					}
 				}
 			} else if(obj instanceof ActivityMilestone) {
 				ActivityMilestone activityMilestone = (ActivityMilestone)obj;
 				if((activityMilestone.getName() != null) && !activityMilestone.getName().isEmpty()) {
-					paths.add(
-						new ResourcePath(
-							activityMilestone,
-							"/milestone/" + activityMilestone.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-						)
-					);
+					if(pathType == PathType.ORIGIN) {
+						paths.add(
+							new ResourcePath(
+								activityMilestone,
+								"/milestone/" + activityMilestone.getName() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+							)
+						);
+					}
 				}
 			} else if(obj instanceof CalendarProfile) {
 				CalendarProfile calendarProfile = (CalendarProfile)obj;
@@ -302,7 +323,8 @@ public class AdapterConnectionHelper {
 									getCalendarPaths(
 										((ActivityFilterCalendarFeed)feed).getActivityFilter(),
 										isCollectionTypeTask,
-										suffix
+										suffix,
+										pathType
 									)
 								);
 							} catch(Exception ignore) {
@@ -314,19 +336,22 @@ public class AdapterConnectionHelper {
 									getCalendarPaths(
 										((ActivityGroupCalendarFeed)feed).getActivityGroup(),
 										isCollectionTypeTask,
-										suffix
+										suffix,
+										pathType
 									)
 								);
 							} catch(Exception ignore) {
 								// In case of AUTHORIZATION_FAILUREs								
 							}
 						}
-						paths.add(
-							new ResourcePath(
-								feed,
-								"/user/" + calendarProfile.refGetPath().getSegment(6).toString() + "/profile/" + calendarProfile.refGetPath().getSegment(8).toString() + "/" + feed.refGetPath().getLastSegment().toString() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
-							)
-						);						
+						if(pathType == PathType.SYNCFEED) {
+							paths.add(
+								new ResourcePath(
+									feed,
+									"/user/" + calendarProfile.refGetPath().getSegment(6).toString() + "/profile/" + calendarProfile.refGetPath().getSegment(8).toString() + "/" + feed.refGetPath().getLastSegment().toString() + (isCollectionTypeTask ? "/VTODO" : "") + suffix
+								)
+							);
+						}
 					}
 				}
 			} else if(obj instanceof UserHome) {
@@ -353,7 +378,8 @@ public class AdapterConnectionHelper {
 	 */
 	private static List<ResourcePath> getCardPaths(
 		RefObject_1_0 obj,
-		String suffix
+		String suffix,
+		PathType pathType
 	) throws ServiceException {
 		try {
 			List<ResourcePath> paths = new ArrayList<ResourcePath>();
@@ -361,39 +387,100 @@ public class AdapterConnectionHelper {
 		    	org.opencrx.kernel.account1.jmi1.AccountFilterGlobal accountFilterGlobal =
 		    		(org.opencrx.kernel.account1.jmi1.AccountFilterGlobal)obj;
 		    	if((accountFilterGlobal.getName() != null) && !accountFilterGlobal.getName().isEmpty()) {
-		    		paths.add(
-		    			new ResourcePath(
-		    				accountFilterGlobal,
-		    				"/filter/" + accountFilterGlobal.getName() + suffix
-		    			)
-		    		);
+		    		if(pathType == PathType.ORIGIN) {
+			    		paths.add(
+			    			new ResourcePath(
+			    				accountFilterGlobal,
+			    				"/filter/" + accountFilterGlobal.getName() + suffix
+			    			)
+			    		);
+		    		}
 		    	}
 		    } else if(obj instanceof org.opencrx.kernel.account1.jmi1.AbstractGroup) {
 		    	org.opencrx.kernel.account1.jmi1.AbstractGroup accountGroup =
 		    		(org.opencrx.kernel.account1.jmi1.AbstractGroup)obj;
 		    	if((accountGroup.getName() != null) && !accountGroup.getName().isEmpty()) {
-		    		paths.add(
-		    			new ResourcePath(
-		    				accountGroup,
-		    				"/group/" + accountGroup.getName() + suffix
-		    			)
-		    		);
+		    		if(pathType == PathType.ORIGIN) {
+			    		paths.add(
+			    			new ResourcePath(
+			    				accountGroup,
+			    				"/group/" + accountGroup.getName() + suffix
+			    			)
+			    		);
+		    		}
 		    	}
 		    } else if(obj instanceof CardProfile) {
 		    	CardProfile cardProfile = (CardProfile)obj;
 				for(SyncFeed feed: cardProfile.<SyncFeed>getFeed()) {
 					if(Boolean.TRUE.equals(feed.isActive())) {
-						try {
-							if(feed instanceof ContactsFeed) {
+						if(feed instanceof ContactsFeed) {
+							try {
 								paths.addAll(
 									getCardPaths(
 										((ContactsFeed)feed).getAccountGroup(),
-										suffix
+										suffix,
+										pathType
 									)
 								);
+							} catch(Exception igore) {
+								// In case of AUTHORIZATION_FAILUREs							
 							}
-						} catch(Exception igore) {
-							// In case of AUTHORIZATION_FAILUREs							
+						} else if (feed instanceof AccountFilterFeed) {
+							try {
+								paths.addAll(
+									getCardPaths(
+										((AccountFilterFeed)feed).getAccountFilter(),
+										suffix,
+										pathType
+									)
+								);
+							} catch(Exception igore) {
+								// In case of AUTHORIZATION_FAILUREs							
+							}
+						}
+						if(pathType == PathType.SYNCFEED) {
+							paths.add(
+								new ResourcePath(
+									feed,
+									"/user/" + cardProfile.refGetPath().getSegment(6).toString() + "/profile/" + cardProfile.refGetPath().getSegment(8).toString() + "/" + feed.refGetPath().getLastSegment().toString() + suffix
+								)
+							);
+						}
+					}
+				}
+			}
+		    return paths;
+		} catch(Exception e) {
+			throw new ServiceException(e);
+		}
+	}
+
+	/**
+	 * Get document paths for given object.
+	 * 
+	 * @param obj
+	 * @param suffix
+	 * @return
+	 * @throws ServiceException
+	 */
+	private static List<ResourcePath> getDocumentPaths(
+		RefObject_1_0 obj,
+		String suffix,
+		PathType pathType
+	) throws ServiceException {
+		try {
+			List<ResourcePath> paths = new ArrayList<ResourcePath>();
+		    if(obj instanceof DocumentProfile) {
+		    	DocumentProfile documentProfile = (DocumentProfile)obj;
+				for(SyncFeed feed: documentProfile.<SyncFeed>getFeed()) {
+					if(Boolean.TRUE.equals(feed.isActive())) {
+						if(pathType == PathType.SYNCFEED) {
+							paths.add(
+								new ResourcePath(
+									feed,
+									"/user/" + documentProfile.refGetPath().getSegment(6).toString() + "/profile/" + documentProfile.refGetPath().getSegment(8).toString() + "/" + feed.refGetPath().getLastSegment().toString() + suffix
+								)
+							);
 						}
 					}
 				}
@@ -458,7 +545,7 @@ public class AdapterConnectionHelper {
 			baseUrl.endsWith("/") ? baseUrl : baseUrl + "/",
 			obj,
 			"caldav",
-			getCalendarPaths(obj, false, "")
+			getCalendarPaths(obj, false, "", PathType.SYNCFEED)
 		);
 	}
 
@@ -478,19 +565,19 @@ public class AdapterConnectionHelper {
 			baseUrl.endsWith("/") ? baseUrl : baseUrl + "/",
 			obj,
 			"caldav",
-			getCalendarPaths(obj, true, "")
+			getCalendarPaths(obj, true, "", PathType.SYNCFEED)
 		);
 	}
 
 	/**
-	 * Get WebDAV collection URLs for given object.
+	 * Get WebDAV collection set URLs for given object.
 	 * 
 	 * @param baseUrl
 	 * @param obj
 	 * @return
 	 * @throws ServiceException
 	 */
-	public static List<ConnectionURL> getWebDavCollectionURLs(
+	public static List<ConnectionURL> getWebDavCollectionSetURLs(
 		String baseUrl,
 		RefObject_1_0 obj
 	) throws ServiceException {		
@@ -518,6 +605,26 @@ public class AdapterConnectionHelper {
 		} catch(Exception e) {
 			throw new ServiceException(e);
 		}
+	}
+
+	/**
+	 * Get WebDAV collection URLs for given object.
+	 * 
+	 * @param baseUrl
+	 * @param obj
+	 * @return
+	 * @throws ServiceException
+	 */
+	public static List<ConnectionURL> getWebDavCollectionURLs(
+		String baseUrl,
+		RefObject_1_0 obj
+	) throws ServiceException {
+		return mapToURLs(
+			baseUrl.endsWith("/") ? baseUrl : baseUrl + "/",
+			obj,
+			"webdav",
+			getDocumentPaths(obj, "", PathType.SYNCFEED)
+		);
 	}
 
 	/**
@@ -570,36 +677,12 @@ public class AdapterConnectionHelper {
 		String baseUrl,
 		RefObject_1_0 obj
 	) throws ServiceException {
-		try {
-			List<ResourcePath> paths = new ArrayList<ResourcePath>();
-			PersistenceManager pm = JDOHelper.getPersistenceManager(obj);			
-			if(obj instanceof CardProfile) {
-				CardProfile cardProfile = (CardProfile)obj;
-		        if((cardProfile.getName() != null) && !cardProfile.getName().isEmpty()) {
-		        	UserHome userHome =  (UserHome)pm.getObjectById(obj.refGetPath().getParent().getParent());
-					for(SyncFeed feed: cardProfile.<SyncFeed>getFeed()) {
-						if(Boolean.TRUE.equals(feed.isActive())) {					
-							if(feed instanceof ContactsFeed) {
-								paths.add(
-									new ResourcePath(
-										feed,
-										"/" + userHome.refGetPath().getLastSegment().toString() + "/" + cardProfile.refGetPath().getLastSegment().toString() + "/" + feed.refGetPath().getLastSegment().toString()
-									)
-								);
-							}
-						}
-					}
-				}
-			}
-			return mapToURLs(
-				baseUrl.endsWith("/") ? baseUrl : baseUrl + "/",
-				obj,
-				"carddav",
-				paths
-			);
-		} catch(Exception e) {
-			throw new ServiceException(e);
-		}
+		return mapToURLs(
+			baseUrl.endsWith("/") ? baseUrl : baseUrl + "/",
+			obj,
+			"carddav",
+			getCardPaths(obj, "", PathType.SYNCFEED)
+		);
 	}
 
 	/**
@@ -636,7 +719,8 @@ public class AdapterConnectionHelper {
 		    	getCalendarPaths(
 		    		obj,
 		    		false,
-		    		suffix
+		    		suffix,
+		    		PathType.ORIGIN
 		    	)
 		    );
 			return mapToURLs(
@@ -693,14 +777,16 @@ public class AdapterConnectionHelper {
 		    	getCalendarPaths(
 		    		obj, 
 		    		false,
-		    		suffix1
+		    		suffix1,
+		    		PathType.ORIGIN
 		    	)
 		    );
 		    paths.addAll(
 		    	getCalendarPaths(
 		    		obj, 
 		    		false,
-		    		suffix2
+		    		suffix2,
+		    		PathType.ORIGIN
 		    	)
 		    );
 			return mapToURLs(
@@ -741,13 +827,15 @@ public class AdapterConnectionHelper {
 			paths.addAll(
 				getCardPaths(
 					obj,
-					"&type=ics&max=" + optionMax + "&icalType=VEVENT&summaryPrefix=" + (optionSummaryPrefix == null ? "" : optionSummaryPrefix) + "&categories=" + (optionCategories == null ? "" : optionCategories) + "&year=" + (optionYear == null ? "" : optionYear) + "&alarm=" + (optionAlarm == null ? "" : optionAlarm)
+					"&type=ics&max=" + optionMax + "&icalType=VEVENT&summaryPrefix=" + (optionSummaryPrefix == null ? "" : optionSummaryPrefix) + "&categories=" + (optionCategories == null ? "" : optionCategories) + "&year=" + (optionYear == null ? "" : optionYear) + "&alarm=" + (optionAlarm == null ? "" : optionAlarm),
+					PathType.ORIGIN
 				)
 			);
 			paths.addAll(
 				getCardPaths(
 					obj,
-					"&type=ics&max=" + optionMax + "&icalType=VTODO&summaryPrefix=" + (optionSummaryPrefix == null ? "" : optionSummaryPrefix) + "&categories=" + (optionCategories == null ? "" : optionCategories) + "&year=" + (optionYear == null ? "" : optionYear) + "&alarm=" + (optionAlarm == null ? "" : optionAlarm)
+					"&type=ics&max=" + optionMax + "&icalType=VTODO&summaryPrefix=" + (optionSummaryPrefix == null ? "" : optionSummaryPrefix) + "&categories=" + (optionCategories == null ? "" : optionCategories) + "&year=" + (optionYear == null ? "" : optionYear) + "&alarm=" + (optionAlarm == null ? "" : optionAlarm),
+					PathType.ORIGIN
 				)
 			);
 			List<ConnectionURL> urls = new ArrayList<ConnectionURL>();
@@ -784,7 +872,8 @@ public class AdapterConnectionHelper {
 		try {
 			List<ResourcePath> paths = getCardPaths(
 				obj,
-				"&type=vcf"
+				"&type=vcf",
+				PathType.ORIGIN
 			);
 			return mapToURLs(
 				baseUrl.endsWith("/") ? baseUrl + "accounts?id=" : baseUrl + "/accounts?id=",

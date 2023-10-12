@@ -51,15 +51,19 @@ package org.opencrx.portal.wizard;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
 import javax.jdo.PersistenceManager;
 
+import org.opencrx.kernel.home1.cci2.CalendarProfileQuery;
+import org.opencrx.kernel.home1.cci2.CardProfileQuery;
+import org.opencrx.kernel.home1.cci2.DocumentProfileQuery;
+import org.opencrx.kernel.home1.jmi1.CalendarProfile;
+import org.opencrx.kernel.home1.jmi1.CardProfile;
+import org.opencrx.kernel.home1.jmi1.DocumentProfile;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.base.naming.Path;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JspWizardController;
 
@@ -69,44 +73,12 @@ import org.openmdx.portal.servlet.JspWizardController;
  */
 public class ConnectionHelperController extends JspWizardController {
 
-	/**
-	 * ResourceType
-	 *
-	 */
-	public enum ResourceType {
-    	PROFILE("Profiles"),
-    	EVENTS_AND_TASKS("Events / Tasks"),
-    	CONTACT("Contacts");
-    	
-    	private ResourceType(
-    		String label
-    	) {
-    		this.label = label;
-    	}
-    	public String getLabel(
-    	) {
-    		return this.label;
-    	}
-    	private final String label;
-	}
-
     /**
      * SelectorType
      *
      */
     public enum SelectorType {
-    	TRACKER,
-    	TRACKER_FILTER,
-    	CATEGORY,
-    	CATEGORY_FILTER,
-    	MILESTONE,
-    	MILESTONE_FILTER,
-    	GLOBAL_FILTER,
-    	USERHOME,
     	CALENDARPROFILE,
-    	RESOURCE,
-    	BDAY,
-    	VCARD,
     	DOCUMENTPROFILE,
     	CARDPROFILE
     }
@@ -124,7 +96,6 @@ public class ConnectionHelperController extends JspWizardController {
 		@JspWizardController.RequestParameter(name = "isInitialized") Boolean isInitialized,
 		@JspWizardController.RequestParameter(name = "mustReload") Boolean mustReload,
 		@JspWizardController.RequestParameter(name = "anchorObjectXri") String anchorObjectXri,
-		@JspWizardController.RequestParameter(name = "type") String resourceType,
 		@JspWizardController.RequestParameter(name = "selectorType") String selectorType,
 		@JspWizardController.RequestParameter(name = "optionMax") Integer optionMax,
 		@JspWizardController.RequestParameter(name = "optionUser") String optionUser,
@@ -140,362 +111,78 @@ public class ConnectionHelperController extends JspWizardController {
 		RefObject_1_0 obj = this.getObject();
 		this.isInitialized = isInitialized;
 		this.anchorObjectXri = anchorObjectXri;
-	    this.resourceType = resourceType != null ? ResourceType.valueOf(resourceType) : null;
 	    this.selectorType = selectorType != null ? SelectorType.valueOf(selectorType) : null;
 		this.optionMax = optionMax == null ? 500 : optionMax;
 		this.optionUser = optionUser == null ? app.getLoginPrincipal() : optionUser;	
 		this.optionIsDisabled = optionIsDisabled == null ? false : optionIsDisabled;
 		this.optionSummaryPrefix = optionSummaryPrefix == null ? "Birthdays" : optionSummaryPrefix;
 		this.optionCategories = optionCategories == null ? "Birthday" : optionCategories;
-		this.optionYear =optionYear == null ? 2012 : optionYear;
+		this.optionYear = optionYear == null ? 2012 : optionYear;
 		this.optionTimelineHeight = optionTimelineHeight == null ? 500 : optionTimelineHeight;
 		this.optionAlarm = optionAlarm == null ? false : optionAlarm;
-	    if(Boolean.TRUE.equals(isInitialized) && (anchorObjectXri != null)) {
-	        try {
-	            obj = (RefObject_1_0)pm.getObjectById(new Path(anchorObjectXri));
-	        } catch (Exception e) {}
-	    }
+		if(!Boolean.TRUE.equals(this.isInitialized)) {
+			this.selectorType = SelectorType.CALENDARPROFILE;
+		}
 	    {
 	    	NumberFormat formatter = new DecimalFormat("00000");	    	
 		    this.urlBase = (this.getRequest().getRequestURL().toString()).substring(0, (this.getRequest().getRequestURL().toString()).indexOf(this.getRequest().getServletPath().toString()));
-		    this.anchorObjectXriFromInitialObject = "";
-		    String anchorObjectFilteredXriFromInitialObject = null;
-	
-		    // get current userHome
-		    org.opencrx.kernel.home1.jmi1.UserHome currentUserHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(app.getUserHomeIdentityAsPath());
-		    org.opencrx.kernel.account1.jmi1.Segment accountSegment = org.opencrx.kernel.backend.Accounts.getInstance().getAccountSegment(pm, this.getProviderName(), this.getSegmentName());
-		    org.opencrx.kernel.activity1.jmi1.Segment activitySegment = org.opencrx.kernel.backend.Activities.getInstance().getActivitySegment(pm, this.getProviderName(), this.getSegmentName());
-		    org.opencrx.kernel.home1.jmi1.Segment homeSegment = org.opencrx.kernel.backend.UserHomes.getInstance().getUserHomeSegment(pm, this.getProviderName(), this.getSegmentName());
-	
-		    // Option activity filter at group level
-		    boolean isGroupFilter = false;
-		    if(obj instanceof org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup) {
-		    	isGroupFilter = true;
-				org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup activityFilterGroup =
-		        	(org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup)obj;
-		      	if((activityFilterGroup.getName() != null) && !activityFilterGroup.getName().isEmpty()) {
-		      		this.anchorObjectXriFromInitialObject = activityFilterGroup.refMofId();
-		      	}
-		      	obj = (RefObject_1_0)pm.getObjectById(activityFilterGroup.refGetPath().getParent().getParent());
-		    } 
-		    if(obj instanceof org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal) {
-		    	if(this.resourceType == null) {
-		    		this.resourceType = ResourceType.EVENTS_AND_TASKS;
-			    	this.selectorType = SelectorType.GLOBAL_FILTER;
-		    	}
-		      	org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal activityFilterGlobal =
-		        	(org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal)obj;
-		      	if((activityFilterGlobal.getName() != null) && !activityFilterGlobal.getName().isEmpty()) {
-		        	anchorObjectFilteredXriFromInitialObject = activityFilterGlobal.refMofId();
-		      	}
-		    } else if(obj instanceof org.opencrx.kernel.activity1.jmi1.ActivityTracker) {
-				org.opencrx.kernel.activity1.jmi1.ActivityTracker activityTracker =
-					(org.opencrx.kernel.activity1.jmi1.ActivityTracker)obj;
-				if((activityTracker.getName() != null) && !activityTracker.getName().isEmpty()) {
-			        if(!isGroupFilter) {
-			        	this.anchorObjectXriFromInitialObject = activityTracker.refMofId();
-			        }
-		      	}
-				if(this.resourceType == null) {
-					this.resourceType = ResourceType.EVENTS_AND_TASKS;
-					this.selectorType = isGroupFilter ? SelectorType.TRACKER_FILTER : SelectorType.TRACKER;
-				}
-		    } else if(obj instanceof org.opencrx.kernel.activity1.jmi1.ActivityCategory) {
-				org.opencrx.kernel.activity1.jmi1.ActivityCategory activityCategory =
-					(org.opencrx.kernel.activity1.jmi1.ActivityCategory)obj;
-				if((activityCategory.getName() != null) && !activityCategory.getName().isEmpty()) {
-			        if (!isGroupFilter) {
-			        	this.anchorObjectXriFromInitialObject = activityCategory.refMofId();
-			        }
-				}
-				if(this.resourceType == null) {
-					this.resourceType = ResourceType.EVENTS_AND_TASKS;
-					this.selectorType = isGroupFilter ? SelectorType.CATEGORY_FILTER : SelectorType.CATEGORY;
-				}
-		    } else if(obj instanceof org.opencrx.kernel.activity1.jmi1.ActivityMilestone) {
-				org.opencrx.kernel.activity1.jmi1.ActivityMilestone activityMilestone =
-					(org.opencrx.kernel.activity1.jmi1.ActivityMilestone)obj;
-				if ((activityMilestone.getName() != null) && !activityMilestone.getName().isEmpty()) {
-			        if(!isGroupFilter) {
-			        	this.anchorObjectXriFromInitialObject = activityMilestone.refMofId();
-			        }
-				}
-				if(this.resourceType == null) {
-					this.resourceType = ResourceType.EVENTS_AND_TASKS;
-					this.selectorType = isGroupFilter ? SelectorType.MILESTONE_FILTER : SelectorType.MILESTONE;
-				}
-		    } else if(obj instanceof org.opencrx.kernel.home1.jmi1.UserHome) {
-		    	if(this.resourceType == null) {
-		    		this.resourceType = ResourceType.EVENTS_AND_TASKS;
-			    	this.selectorType = SelectorType.USERHOME;
-		    	}
-		        if(Boolean.TRUE.equals(isInitialized)) {
-		        	this.anchorObjectXriFromInitialObject = ((org.opencrx.kernel.home1.jmi1.UserHome)obj).refMofId();
-		        }
-		    } else if(obj instanceof org.opencrx.kernel.home1.jmi1.SyncProfile) {
-		    	if(this.resourceType == null) {
-		    		this.resourceType = ResourceType.PROFILE;
-		    	}
-		    	org.opencrx.kernel.home1.jmi1.SyncProfile syncProfile = (org.opencrx.kernel.home1.jmi1.SyncProfile)obj;
-				if((syncProfile.getName() != null) && !syncProfile.getName().isEmpty()) {
-			        if (!isGroupFilter) {
-			        	this.anchorObjectXriFromInitialObject = syncProfile.refMofId();
-			        }
-				}
-		    } else if(obj instanceof org.opencrx.kernel.activity1.jmi1.Resource) {
-		    	if(this.resourceType == null) {
-		    		this.resourceType = ResourceType.EVENTS_AND_TASKS;
-			    	this.selectorType = SelectorType.RESOURCE;
-		    	}
-		    	org.opencrx.kernel.activity1.jmi1.Resource resource = (org.opencrx.kernel.activity1.jmi1.Resource)obj;
-				if((resource.getName() != null) && !resource.getName().isEmpty()) {
-			        if (!isGroupFilter) {
-			        	this.anchorObjectXriFromInitialObject = resource.refMofId();
-			        }
-				}
-		    } else if(obj instanceof org.opencrx.kernel.account1.jmi1.AccountFilterGlobal) {
-		        if(this.resourceType == ResourceType.CONTACT) {
-		        	this.selectorType = SelectorType.VCARD;
-		        } else if(this.resourceType == null) {
-		        	this.resourceType = ResourceType.EVENTS_AND_TASKS;
-		        	this.selectorType = SelectorType.BDAY;
-		        }
-		        org.opencrx.kernel.account1.jmi1.AccountFilterGlobal accountFilterGlobal =
-		          (org.opencrx.kernel.account1.jmi1.AccountFilterGlobal)obj;
-		        if ((accountFilterGlobal.getName() != null) && (accountFilterGlobal.getName().length() > 0)) {
-		          anchorObjectFilteredXriFromInitialObject = accountFilterGlobal.refMofId();
-		        }
-		    }
-		    if(anchorObjectFilteredXriFromInitialObject != null) {
-		    	this.anchorObjectXriFromInitialObject = anchorObjectFilteredXriFromInitialObject;
-		    }
 		    this.anchorObjectLabel = "Anchor object";
-	
 		    this.anchorObjects = new TreeMap<String,String>();
-	
-		    if(this.selectorType == SelectorType.TRACKER) {
-		    	this.anchorObjectLabel = app.getLabel(ACTIVITYTRACKER_CLASS);
-		        // get ActivityTrackers (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ActivityTrackerQuery trackerQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ActivityTrackerQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityTracker.class);
-		        trackerQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(org.opencrx.kernel.activity1.jmi1.ActivityGroup ag: activitySegment.getActivityTracker(trackerQuery)) {
-		            String display = (ag.getName() != null ? ag.getName() : UNKNOWN);
-		            String sortKey = display.toUpperCase() + formatter.format(index++);
-		            this.anchorObjects.put(
-		                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                ag.refMofId()
-		            );
-		        }
-		    } else if(this.selectorType == SelectorType.TRACKER_FILTER) {
-		    	this.anchorObjectLabel = app.getLabel(ACTIVITYTRACKER_CLASS);
-		        // get ActivityFilters of ActivityTrackers (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ActivityTrackerQuery trackerQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ActivityTrackerQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityTracker.class);
-		        trackerQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityTracker> i = activitySegment.getActivityTracker(trackerQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.activity1.jmi1.ActivityGroup ag = i.next();
-		            for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup> j = ag.<org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup>getActivityFilter().iterator(); j.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		                org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup afg = j.next();
-		                String display = (ag.getName() != null ? ag.getName() : UNKNOWN) + " &lt;" + (afg.getName() != null ? afg.getName() : UNKNOWN) + "&gt;";
-		                String sortKey = display.toUpperCase() + formatter.format(index++);
-		                this.anchorObjects.put(
-		                    HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                    afg.refMofId()
-		                );
-		            }
-		        }
-		    } else if(this.selectorType == SelectorType.CATEGORY) {
-		    	this.anchorObjectLabel = app.getLabel(ACTIVITYCATEGORY_CLASS);
-		        // get ActivityCategories (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ActivityCategoryQuery categoryQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ActivityCategoryQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityCategory.class);
-		        categoryQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityCategory> i = activitySegment.getActivityCategory(categoryQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.activity1.jmi1.ActivityGroup ag = i.next();
-		            String display = (ag.getName() != null ? ag.getName() : UNKNOWN);
-		            String sortKey = display.toUpperCase() + formatter.format(index++);
-		            this.anchorObjects.put(
-		                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                ag.refMofId()
-		            );
-		        }
-		    } else if(this.selectorType == SelectorType.CATEGORY_FILTER) {
-		    	this.anchorObjectLabel = app.getLabel(ACTIVITYCATEGORY_CLASS);
-		        // get ActivityFilters of ActivityCategories (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ActivityCategoryQuery categoryQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ActivityCategoryQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityCategory.class);
-		        categoryQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityCategory> i = activitySegment.getActivityCategory(categoryQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.activity1.jmi1.ActivityGroup ag = i.next();
-		            for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup> j = ag.<org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup>getActivityFilter().iterator(); j.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		                org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup afg = j.next();
-		                String display = (ag.getName() != null ? ag.getName() : UNKNOWN) + " &lt;" + (afg.getName() != null ? afg.getName() : UNKNOWN) + "&gt;";
-		                String sortKey = display.toUpperCase() + formatter.format(index++);
-		                this.anchorObjects.put(
-		                    HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                    afg.refMofId()
-		                );
-		            }
-		        }
-		    } else if(this.selectorType == SelectorType.MILESTONE) {
-		    	this.anchorObjectLabel = app.getLabel(ACTIVITYMILESTONE_CLASS);
-		        // get ActivityMilestones (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ActivityMilestoneQuery milestoneQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ActivityMilestoneQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityMilestone.class);
-		        milestoneQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityMilestone> i = activitySegment.getActivityMilestone(milestoneQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.activity1.jmi1.ActivityGroup ag = i.next();
-		            String display = (ag.getName() != null ? ag.getName() : UNKNOWN);
-		            String sortKey = display.toUpperCase() + formatter.format(index++);
-		            this.anchorObjects.put(
-		                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                ag.refMofId()
-		            );
-		        }
-		    } else if(this.selectorType == SelectorType.MILESTONE_FILTER) {
-		    	this.anchorObjectLabel = app.getLabel(ACTIVITYMILESTONE_CLASS);
-		        // get ActivityFilters of ActivityMilestones (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ActivityMilestoneQuery milestoneQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ActivityMilestoneQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityMilestone.class);
-		        milestoneQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityMilestone> i = activitySegment.getActivityMilestone(milestoneQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.activity1.jmi1.ActivityGroup ag = i.next();
-		            for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup> j = ag.<org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup>getActivityFilter().iterator(); j.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		                org.opencrx.kernel.activity1.jmi1.ActivityFilterGroup afg = j.next();
-		                String display = (ag.getName() != null ? ag.getName() : UNKNOWN) + " &lt;" + (afg.getName() != null ? afg.getName() : UNKNOWN) + "&gt;";
-		                String sortKey = display.toUpperCase() + formatter.format(index++);
-		                this.anchorObjects.put(
-		                    HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                    afg.refMofId()
-		                );
-		            }
-		        }
-		    } else if(this.selectorType == SelectorType.GLOBAL_FILTER) {
-		    	this.anchorObjectLabel = app.getLabel(ACTIVITYFILTERGLOBAL_CLASS);
-		        // get ActivityTrackers (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ActivityFilterGlobalQuery activityQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ActivityFilterGlobalQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal.class);
-		        activityQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal> i = activitySegment.getActivityFilter(activityQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.activity1.jmi1.ActivityFilterGlobal af = i.next();
-		            String display = (af.getName() != null ? af.getName() : UNKNOWN);
-		            String sortKey = display.toUpperCase() + formatter.format(index++);
-		            anchorObjects.put(
-		                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                af.refMofId()
-		            );
-		        }
-		    } else if(this.selectorType == SelectorType.USERHOME) {
-		    	this.anchorObjectLabel = app.getLabel(USERHOME_CLASS);
-		        // get UserHomes
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.home1.jmi1.UserHome> i = homeSegment.<org.opencrx.kernel.home1.jmi1.UserHome>getUserHome().iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.home1.jmi1.UserHome userHome = i.next();
-		            org.opencrx.kernel.account1.jmi1.Contact contact = null;
-		            try {
-		                contact = userHome.getContact();
-		            } catch (Exception e) {}
-		            String principal = userHome.refGetPath().getLastSegment().toString();
-		            String display = (contact != null && contact.getFullName() != null ? contact.getFullName() : UNKNOWN) + " [" + principal + "]";
-		            String sortKey = display.toUpperCase() + formatter.format(index++);
-		            this.anchorObjects.put(
-		                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                userHome.refMofId()
-		            );
-		        }
-		    } else if(this.selectorType == SelectorType.CALENDARPROFILE) {
+	    	if(this.selectorType == SelectorType.CALENDARPROFILE) {
 		    	this.anchorObjectLabel = app.getLabel(CALENDARPROFILE_CLASS);
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.home1.jmi1.SyncProfile> i = currentUserHome.<org.opencrx.kernel.home1.jmi1.SyncProfile>getSyncProfile().iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.home1.jmi1.SyncProfile syncProfile = i.next();
-		            if(syncProfile instanceof org.opencrx.kernel.home1.jmi1.CalendarProfile) {
+		        if(obj instanceof org.opencrx.kernel.home1.jmi1.UserHome) {
+		        	org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)obj;
+		        	CalendarProfileQuery profileQuery = (CalendarProfileQuery)pm.newQuery(CalendarProfile.class);
+		        	profileQuery.orderByName().ascending();
+			        int index = 0;
+			        for(CalendarProfile syncProfile: userHome.<CalendarProfile>getSyncProfile(profileQuery)) {
 			            String display = (syncProfile.getName() != null ? syncProfile.getName() : "?");
-			            String sortKey = display.toUpperCase() + formatter.format(index++);
+			            String sortKey = formatter.format(index++) + ":" + display.toUpperCase();
 			            this.anchorObjects.put(
 			                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
 			                syncProfile.refMofId()
 			            );
-		        	}
+			        }
 		        }
 		    } else if(this.selectorType == SelectorType.CARDPROFILE) {
 		    	this.anchorObjectLabel = app.getLabel(CARDPROFILE_CLASS);
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.home1.jmi1.SyncProfile> i = currentUserHome.<org.opencrx.kernel.home1.jmi1.SyncProfile>getSyncProfile().iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.home1.jmi1.SyncProfile syncProfile = i.next();
-		            if (syncProfile instanceof org.opencrx.kernel.home1.jmi1.CardProfile) {
+		        if(obj instanceof org.opencrx.kernel.home1.jmi1.UserHome) {
+		        	org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)obj;
+		        	CardProfileQuery profileQuery = (CardProfileQuery)pm.newQuery(CardProfile.class);
+		        	profileQuery.orderByName().ascending();
+			        int index = 0;
+			        for(CardProfile syncProfile: userHome.<CardProfile>getSyncProfile(profileQuery)) {
 		                String display = (syncProfile.getName() != null ? syncProfile.getName() : "?");
-		                String sortKey = display.toUpperCase() + formatter.format(index++);
+		                String sortKey = formatter.format(index++) + ":" + display.toUpperCase();
 		                this.anchorObjects.put(
 		                    HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
 		                    syncProfile.refMofId()
 		                );
-		            }
+			        }
 		        }
 		    } else if(this.selectorType == SelectorType.DOCUMENTPROFILE) {
 		    	this.anchorObjectLabel = app.getLabel(DOCUMENTPROFILE_CLASS);
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.home1.jmi1.SyncProfile> i = currentUserHome.<org.opencrx.kernel.home1.jmi1.SyncProfile>getSyncProfile().iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.home1.jmi1.SyncProfile syncProfile = i.next();
-		            if (syncProfile instanceof org.opencrx.kernel.home1.jmi1.DocumentProfile) {
+		        if(obj instanceof org.opencrx.kernel.home1.jmi1.UserHome) {
+		        	org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)obj;		        
+		        	DocumentProfileQuery profileQuery = (DocumentProfileQuery)pm.newQuery(DocumentProfile.class);
+		        	profileQuery.orderByName().ascending();
+			        int index = 0;
+			        for(DocumentProfile syncProfile: userHome.<DocumentProfile>getSyncProfile(profileQuery)) {
 		                String display = (syncProfile.getName() != null ? syncProfile.getName() : "?");
-		                String sortKey = display.toUpperCase() + formatter.format(index++);
+		                String sortKey = formatter.format(index++) + ":" + display.toUpperCase();
 		                this.anchorObjects.put(
 		                    HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
 		                    syncProfile.refMofId()
 		                );
-		            }
-		        }
-		    } else if(this.selectorType == SelectorType.RESOURCE) {
-		    	this.anchorObjectLabel = app.getLabel(RESOURCE_CLASS);
-		        // get Resources (not disabled)
-		        org.opencrx.kernel.activity1.cci2.ResourceQuery resourceQuery = 
-		        	(org.opencrx.kernel.activity1.cci2.ResourceQuery)pm.newQuery(org.opencrx.kernel.activity1.jmi1.Resource.class);
-		        resourceQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.activity1.jmi1.Resource> i = activitySegment.getResource(resourceQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.activity1.jmi1.Resource resource = i.next();
-		            org.opencrx.kernel.account1.jmi1.Contact contact = resource.getContact();
-		            String display = (resource.getName() != null ? resource.getName() : UNKNOWN) + " [" + (contact != null && contact.getFullName() != null ? contact.getFullName() : UNKNOWN) + "]";
-		            String sortKey = display.toUpperCase() + formatter.format(index++);
-		            this.anchorObjects.put(
-		                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                resource.refMofId()
-		            );
-		        }
-		    } else if((this.selectorType == SelectorType.BDAY) || (this.selectorType == SelectorType.VCARD)) {
-		    	this.anchorObjectLabel = app.getLabel(ACCOUNTFILTERGLOBAL_CLASS);
-		        // get AccountFilterGlobals (not disabled)
-		        org.opencrx.kernel.account1.cci2.AccountFilterGlobalQuery accountQuery = 
-		        	(org.opencrx.kernel.account1.cci2.AccountFilterGlobalQuery)pm.newQuery(org.opencrx.kernel.account1.jmi1.AccountFilterGlobal.class);
-		        accountQuery.forAllDisabled().isFalse();
-		        int index = 0;
-		        for(Iterator<org.opencrx.kernel.account1.jmi1.AccountFilterGlobal> i = accountSegment.getAccountFilter(accountQuery).iterator(); i.hasNext() && index < MAX_ENTRY_SELECT; ) {
-		            org.opencrx.kernel.account1.jmi1.AccountFilterGlobal af = i.next();
-		            String display = (af.getName() != null ? af.getName() : UNKNOWN);
-		            String sortKey = display.toUpperCase() + formatter.format(index++);
-		            this.anchorObjects.put(
-		                HTML_COMMENT_BEGIN + sortKey + HTML_COMMENT_END + display,
-		                af.refMofId()
-		            );
+			        }
 		        }
 		    }
 	    }
-	}
-
-    /**
-	 * @return the resourceType
-	 */
-	public ResourceType getResourceType(
-	) {
-		return this.resourceType;
+		if(!Boolean.TRUE.equals(this.isInitialized)) {
+			if(!this.anchorObjects.isEmpty()) {
+				this.anchorObjectXri = this.anchorObjects.firstEntry().getValue();
+			}
+		}
 	}
 
 	/**
@@ -594,14 +281,6 @@ public class ConnectionHelperController extends JspWizardController {
 	}
 	
 	/**
-	 * @return the anchorObjectXriFromInitialObject
-	 */
-	public String getAnchorObjectXriFromInitialObject(
-	) {
-		return this.anchorObjectXriFromInitialObject;
-	}
-
-	/**
 	 * @return the urlBase
 	 */
 	public String getUrlBase(
@@ -644,11 +323,9 @@ public class ConnectionHelperController extends JspWizardController {
     public static final String UNKNOWN = "_?_";
     
     private Boolean isInitialized;
-	private ResourceType resourceType;
 	private SelectorType selectorType;
 	private String anchorObjectXri;
 	private String anchorObjectLabel;
-	private String anchorObjectXriFromInitialObject;
 	private String urlBase;
 	private Integer optionMax;
 	private String optionUser;	
@@ -658,6 +335,6 @@ public class ConnectionHelperController extends JspWizardController {
 	private Integer optionYear;
 	private Integer optionTimelineHeight;
 	private Boolean optionAlarm;
-	private Map<String,String> anchorObjects;
+	private TreeMap<String,String> anchorObjects;
 	
 }

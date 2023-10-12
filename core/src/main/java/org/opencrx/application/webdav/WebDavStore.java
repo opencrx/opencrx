@@ -81,7 +81,10 @@ import org.opencrx.kernel.document1.jmi1.DocumentLock;
 import org.opencrx.kernel.document1.jmi1.DocumentRevision;
 import org.opencrx.kernel.document1.jmi1.MediaContent;
 import org.opencrx.kernel.home1.cci2.DocumentProfileQuery;
+import org.opencrx.kernel.home1.jmi1.DocumentFeed;
+import org.opencrx.kernel.home1.jmi1.DocumentFilterFeed;
 import org.opencrx.kernel.home1.jmi1.DocumentProfile;
+import org.opencrx.kernel.home1.jmi1.SyncFeed;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
@@ -177,8 +180,8 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
 			if(parent != null) {
 				String name = path.substring(pos + 1);
 				PersistenceManager pm = JDOHelper.getPersistenceManager(parent.getObject());
-				if(parent.getObject() instanceof DocumentFolder) {
-					DocumentFolder parentFolder = (DocumentFolder)parent.getObject();
+				DocumentFolder parentFolder = parent.getDocumentFolder();
+				if(parentFolder != null) {
 					// Do not create if folder with same name exists
 					DocumentFolderQuery query = (DocumentFolderQuery)pm.newQuery(DocumentFolder.class);
 					query.name().equalTo(name);
@@ -254,7 +257,7 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
 
 	/**
 	 * Path is of the form:
-	 * {provider.id} "/" {segment.id} ["/user/"] {user.id} ["/profile/"] {profile.name} "/" {feed.name} ["/" {folder.name} ]* "/" {document.name}
+	 * {provider.id} "/" {segment.id} ["/user/"] {user.id} ["/profile/"] {profile.name} "/" {feed.id} ["/" {folder.name} ]* "/" {document.name}
 	 */
 	@Override
 	public Resource getResourceByPath(
@@ -289,22 +292,20 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
     			return documentProfileResource;
         	}
     		// Find document collection resource matching name components[4]
-    		String feedName = components[4];
-    		DocumentCollectionResource documentCollectionResource = null;    		
-    		for(Resource resource: documentProfileResource.getChildren(null, null)) {
-    			if(resource instanceof DocumentFolderFeedResource) {
-    				DocumentFolderFeedResource documentFeedResource = (DocumentFolderFeedResource)resource;
-    				if(documentFeedResource.getName().equals(feedName)) {
-    					documentCollectionResource = documentFeedResource;
-    					break;
-    				}
-    			} else if(resource instanceof DocumentFilterFeedResource) {
-    				DocumentFilterFeedResource documentFilterFeedResource = (DocumentFilterFeedResource)resource;
-    				if(documentFilterFeedResource.getName().equals(feedName)) {
-    					documentCollectionResource = documentFilterFeedResource;
-    					break;
-    				}    				
-    			}
+    		DocumentProfile documentProfile = documentProfileResource.getObject();
+    		String feedId = components[4];
+    		SyncFeed feed = documentProfile.getFeed(feedId);
+    		DocumentCollectionResource documentCollectionResource = null;
+    		if(feed instanceof DocumentFeed) {
+    			documentCollectionResource = new DocumentCollectionResource(
+    				requestContext,
+    				(DocumentFeed)feed
+    			);
+    		} else if(feed instanceof DocumentFilterFeed) {
+    			documentCollectionResource = new DocumentCollectionResource(
+    				requestContext,
+    				(DocumentFilterFeed)feed
+    			);
     		}
     		if(documentCollectionResource == null) {
     			return null;
@@ -312,19 +313,19 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
 			// Recursively walk path starting from components[5]
 			for(int i = 5; i < components.length; i++) {
 				String name = components[i];
-				if(documentCollectionResource.getObject() instanceof DocumentFolder) {
-					DocumentFolder documentFolder = (DocumentFolder)documentCollectionResource.getObject();
+				DocumentFolder documentFolder = documentCollectionResource.getDocumentFolder();
+				if(documentFolder != null) {
 					// Test for folder
 					DocumentFolderQuery folderQuery = documentCollectionResource.getFolderQuery();
 					folderQuery.name().equalTo(name);
 					List<DocumentFolder> documentFolders = documentFolder.getSubFolder(folderQuery);
 					// Is resource with given name a folder?
 					if(!documentFolders.isEmpty()) {
-						documentCollectionResource = new DocumentFolderResource(
+						documentCollectionResource = new DocumentCollectionResource(
 							requestContext,
 							documentFolders.iterator().next()
 						);
-					} else {					
+					} else {
 						// No, it must be a document
 						DocumentBasedFolderEntryQuery folderEntryQuery = documentCollectionResource.getFolderEntryQuery();
 						folderEntryQuery.name().equalTo(name);
@@ -337,23 +338,23 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
 								documentCollectionResource
 							);
 					}
-				} else if(documentCollectionResource instanceof DocumentFilterFeedResource) {
-					DocumentFilterFeedResource filterFeedResource = (DocumentFilterFeedResource)documentCollectionResource;
+				} else if(documentCollectionResource.getObject() instanceof DocumentFilterFeed) {
+					DocumentFilterGlobal documentFilter = ((DocumentFilterFeed)documentCollectionResource.getObject()).getDocumentFilter();
 					DocumentQuery documentQuery = documentCollectionResource.getDocumentQuery();
 					documentQuery.name().equalTo(name);
-					List<Document> entries = filterFeedResource.getObject().getFilteredDocument(documentQuery);
+					List<Document> entries = documentFilter.getFilteredDocument(documentQuery);
 					return entries.isEmpty()
 						? null 
 						: new DocumentResource(
-							requestContext, 
-							entries.iterator().next(), 
+							requestContext,
+							entries.iterator().next(),
 							documentCollectionResource
 						);
 				}
 			}
 			return documentCollectionResource;
 		}
-		return null;		
+		return null;
 	}
 
 	/* (non-Javadoc)
@@ -371,8 +372,8 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
 			DocumentCollectionResource documentCollectionResource = ((DocumentResource)res).getDocumentCollectionResource();
 			try {
 				pm.currentTransaction().begin();
-				if(documentCollectionResource.getObject() instanceof DocumentFolder) {
-					DocumentFolder documentFolder = (DocumentFolder)documentCollectionResource.getObject();
+				DocumentFolder documentFolder = documentCollectionResource.getDocumentFolder();
+				if(documentFolder != null) {
 					document.getFolder().remove(documentFolder);
 				}
 				// Disable document only if it is not contained in any folder
@@ -389,11 +390,11 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
 				return Status.FORBIDDEN;
 			}
 		} else if(res instanceof DocumentCollectionResource) {
-			BasicObject documentCollection = ((DocumentCollectionResource)res).getObject();
-			if(documentCollection instanceof DocumentFolder) {
+			DocumentFolder documentFolder = ((DocumentCollectionResource)res).getDocumentFolder();
+			if(documentFolder != null) {
 				try {
 					pm.currentTransaction().begin();
-					((DocumentFolder)documentCollection).setDisabled(true);
+					documentFolder.setDisabled(true);
 					pm.currentTransaction().commit();
 					return Status.OK;
 				} catch(Exception e) {
@@ -480,17 +481,12 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
         	// Move CollectionResource
 			if(sourceFolderName.equals(destFolderName)) {
 				PersistenceManager pm = ((WebDavRequestContext)requestContext).getPersistenceManager();
-				BasicObject documentCollection = ((DocumentCollectionResource)sourceRes).getObject();
-				if(documentCollection instanceof DocumentFolder) {
+				DocumentFolder documentFolder = ((DocumentCollectionResource)sourceRes).getDocumentFolder();
+				if(documentFolder != null) {
 					pm.currentTransaction().begin();
-					((DocumentFolder)documentCollection).setName(newName);
+					documentFolder.setName(newName);
 					pm.currentTransaction().commit();
 					return Status.OK_CREATED;
-				} else if(documentCollection instanceof DocumentFilterGlobal) {
-					pm.currentTransaction().begin();
-					((DocumentFilterGlobal)documentCollection).setName(newName);
-					pm.currentTransaction().commit();
-					return Status.OK_CREATED;					
 				} else {
 					return Status.FORBIDDEN;
 				}
@@ -563,9 +559,9 @@ public class WebDavStore implements org.opencrx.application.uses.net.sf.webdav.W
 		if(parent instanceof DocumentCollectionResource) {
 	    	try {
 	    		DocumentCollectionResource documentCollectionResource = (DocumentCollectionResource)parent;
-	    		if(documentCollectionResource.getObject() instanceof DocumentFolder) {
+	    		DocumentFolder documentFolder = documentCollectionResource.getDocumentFolder();
+	    		if(documentFolder != null) {
 		    		Status status = Status.OK;
-		    		DocumentFolder documentFolder = (DocumentFolder)documentCollectionResource.getObject();
 		    		PersistenceManager pm = JDOHelper.getPersistenceManager(documentFolder);
 		    		org.opencrx.kernel.document1.jmi1.Segment documentSegment = 
 		    			(org.opencrx.kernel.document1.jmi1.Segment)pm.getObjectById(

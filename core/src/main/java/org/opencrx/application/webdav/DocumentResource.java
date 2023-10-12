@@ -99,11 +99,13 @@ class DocumentResource extends WebDavResource {
     			: headRevision.getName();
     }
 
+    @Override
     public String getDisplayName(
     ) {
-    	return this.getObject().getTitle();
+    	String title = this.getObject().getTitle();
+    	return title == null ? this.getName() : title;
     }
-        
+
     @Override
     public Date getLastModified(
     ) {

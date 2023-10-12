@@ -82,8 +82,10 @@ import org.opencrx.kernel.backend.Base;
 import org.opencrx.kernel.backend.VCard;
 import org.opencrx.kernel.backend.VCard.PutVCardResult;
 import org.opencrx.kernel.home1.cci2.CardProfileQuery;
+import org.opencrx.kernel.home1.jmi1.AccountFilterFeed;
 import org.opencrx.kernel.home1.jmi1.CardProfile;
 import org.opencrx.kernel.home1.jmi1.ContactsFeed;
+import org.opencrx.kernel.home1.jmi1.SyncFeed;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
@@ -279,11 +281,18 @@ public class CardDavStore implements WebDavStore {
         		}
         	} else if(components.length == 5) {
 				String feedId = components[4];
-				ContactsFeed contactsFeed = (ContactsFeed)cardProfile.getFeed(feedId);
-	    		return new AccountCollectionResource(
-	    			requestContext,
-	    			contactsFeed
-	    		);
+				SyncFeed feed = cardProfile.getFeed(feedId);
+				if(feed instanceof ContactsFeed) {
+		    		return new AccountCollectionResource(
+		    			requestContext,
+		    			(ContactsFeed)feed
+		    		);
+				} else if(feed instanceof AccountFilterFeed) {
+		    		return new AccountCollectionResource(
+		    			requestContext,
+		    			(AccountFilterFeed)feed
+		    		);
+				}
 			} else if(components.length == 6) {
 				AccountCollectionResource parent = (AccountCollectionResource)this.getResourceByPath(
 		   			requestContext, 
@@ -341,15 +350,21 @@ public class CardDavStore implements WebDavStore {
 				PersistenceManager pm = ((CardDavRequestContext)requestContext).getPersistenceManager();
 				try {
 					Account account = ((AccountResource)res).getObject();
-					MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
-					query.thereExistsAccount().equalTo(account);
-					List<Member> members = ((AccountResource)res).getAccountCollectionResource().getObject().getAccountGroup().getMember(query);
-					pm.currentTransaction().begin();
-					for(Member member: members) {
-						member.setDisabled(true);
+					SyncFeed feed = ((AccountResource)res).getAccountCollectionResource().getObject();
+					if(feed instanceof ContactsFeed) {
+						ContactsFeed contactsFeed = (ContactsFeed)feed;
+						MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
+						query.thereExistsAccount().equalTo(account);
+						List<Member> members = contactsFeed.getAccountGroup().getMember(query);
+						pm.currentTransaction().begin();
+						for(Member member: members) {
+							member.setDisabled(true);
+						}
+						pm.currentTransaction().commit();
+						return Status.OK;
+					} else {
+						return Status.FORBIDDEN;						
 					}
-					pm.currentTransaction().commit();
-					return Status.OK;
 				} catch(Exception e) {
 					new ServiceException(e).log();
 					try {
@@ -445,54 +460,59 @@ public class CardDavStore implements WebDavStore {
 		    		new InputStreamReader(content, "UTF-8")
 		    	);
 		    	// Create/Update account
-		    	ContactsFeed feed = ((AccountCollectionResource)parent).getObject();
+		    	SyncFeed feed = ((AccountCollectionResource)parent).getObject();
 		    	if(feed.isAllowChange()) {
-			    	AbstractGroup group = feed.getAccountGroup();		    	
-			    	PersistenceManager pm = JDOHelper.getPersistenceManager(group);
-			    	org.opencrx.kernel.account1.jmi1.Segment accountSegment =
-			    		(org.opencrx.kernel.account1.jmi1.Segment)pm.getObjectById(
-			    			group.refGetPath().getParent().getParent()
-			    		);
-		        	VCard.PutVCardResult result = VCard.getInstance().putVCard(
-		        		reader, 
-		        		accountSegment
-		        	);
-		        	if(result.getStatus() != PutVCardResult.Status.ERROR) {
-			        	// Create membership
-			        	if(result.getAccount() != null) {
-			        		MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
-			        		query.thereExistsAccount().equalTo(result.getAccount());
-			        		List<Member> members = group.getMember(query);
-			        		if(members.isEmpty()) {
-			        			boolean isTxLocal = !pm.currentTransaction().isActive();
-			        			if(isTxLocal) {
-			        				pm.currentTransaction().begin();
-			        			}
-			        			Member member = pm.newInstance(Member.class);
-								member.setName(result.getAccount().getFullName());
-								member.setAccount(result.getAccount());
-								member.setQuality(Accounts.MEMBER_QUALITY_NORMAL);
-								group.addMember(
-									Base.getInstance().getUidAsString(), 
-									member
-								);
-								if(isTxLocal) {
-									pm.currentTransaction().commit();
-								}
-			        		}
-		 	        	}
-			            if(result.getOldUID() != null && result.getAccount() != null) {
-			            	this.uidMapping.put(
-			            		result.getOldUID(), 
-			            		result.getAccount().refGetPath().getLastSegment().toString()
-			            	);
+		    		if(feed instanceof ContactsFeed) {
+		    			ContactsFeed contactsFeed = (ContactsFeed)feed;
+				    	AbstractGroup group = contactsFeed.getAccountGroup();  	
+				    	PersistenceManager pm = JDOHelper.getPersistenceManager(group);
+				    	org.opencrx.kernel.account1.jmi1.Segment accountSegment =
+				    		(org.opencrx.kernel.account1.jmi1.Segment)pm.getObjectById(
+				    			group.refGetPath().getParent().getParent()
+				    		);
+			        	VCard.PutVCardResult result = VCard.getInstance().putVCard(
+			        		reader, 
+			        		accountSegment
+			        	);
+			        	if(result.getStatus() != PutVCardResult.Status.ERROR) {
+				        	// Create membership
+				        	if(result.getAccount() != null) {
+				        		MemberQuery query = (MemberQuery)pm.newQuery(Member.class);
+				        		query.thereExistsAccount().equalTo(result.getAccount());
+				        		List<Member> members = group.getMember(query);
+				        		if(members.isEmpty()) {
+				        			boolean isTxLocal = !pm.currentTransaction().isActive();
+				        			if(isTxLocal) {
+				        				pm.currentTransaction().begin();
+				        			}
+				        			Member member = pm.newInstance(Member.class);
+									member.setName(result.getAccount().getFullName());
+									member.setAccount(result.getAccount());
+									member.setQuality(Accounts.MEMBER_QUALITY_NORMAL);
+									group.addMember(
+										Base.getInstance().getUidAsString(), 
+										member
+									);
+									if(isTxLocal) {
+										pm.currentTransaction().commit();
+									}
+				        		}
+			 	        	}
+				            if(result.getOldUID() != null && result.getAccount() != null) {
+				            	this.uidMapping.put(
+				            		result.getOldUID(), 
+				            		result.getAccount().refGetPath().getLastSegment().toString()
+				            	);
+				            }
+			        	}
+			            switch(result.getStatus()) {
+				            case CREATED: return Status.OK_CREATED;
+				            case UPDATED: return Status.OK;
+				            case ERROR: return Status.FORBIDDEN;
 			            }
-		        	}
-		            switch(result.getStatus()) {
-			            case CREATED: return Status.OK_CREATED;
-			            case UPDATED: return Status.OK;
-			            case ERROR: return Status.FORBIDDEN;
-		            }
+		    		} else {
+			    		return Status.FORBIDDEN;		    			
+		    		}
 		    	} else {
 		    		return Status.FORBIDDEN;
 		    	}
