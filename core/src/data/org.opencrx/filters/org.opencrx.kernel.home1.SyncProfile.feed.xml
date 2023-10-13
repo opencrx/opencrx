@@ -29,7 +29,7 @@
 								<void index="0">
 									<object class="org.openmdx.base.persistence.spi.QueryExtension">
 										<void property="clause">
-											<string>EXISTS (SELECT 0 FROM OOCKE1_CALENDARFEED WHERE object_id = v.object_id AND (not ((activity_group is null) and (activity_filter is null) and (account_group is null) and (document_folder is null))))</string>
+											<string>EXISTS (SELECT 0 FROM OOCKE1_CALENDARFEED WHERE object_id = v.object_id AND (not ((activity_group is null) and (activity_filter is null) and (account_group is null) and (document_folder is null) and (account_filter is null))))</string>
 										</void>
 									</object>
 								</void>
