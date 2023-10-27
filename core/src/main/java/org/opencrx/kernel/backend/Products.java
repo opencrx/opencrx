@@ -1946,10 +1946,14 @@ public class Products extends AbstractImpl {
 										DiscountRuleQuery discountRuleQuery = (DiscountRuleQuery) pm.newQuery(DiscountRule.class);
 										discountRuleQuery.forAllDisabled().isFalse();
 										for(DiscountRule discountRule: discountSchedule.getDiscountRule(discountRuleQuery)) {
-											if(discountRule.getCondition() != null) {
+											// No validation in case position is not supplied
+											if(
+												position != null &&
+												discountRule.getCondition() != null
+											) {
 												ValidateObjectResult result = Codes.getInstance().validateObject(
 													discountRule.getCondition(),
-													(ContextCapable) position,
+													(ContextCapable)position,
 													new Date(),
 												    Collections.<String> emptyList(),
 												    null, // default anchor

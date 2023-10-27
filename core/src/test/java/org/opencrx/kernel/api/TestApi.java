@@ -71,6 +71,7 @@ import org.opencrx.kernel.base.jmi1.CheckPermissionsResult;
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.home1.jmi1.CreateUserParams;
 import org.opencrx.kernel.home1.jmi1.CreateUserResult;
+import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;
 import org.w3c.spi2.Datatypes;
@@ -84,13 +85,29 @@ public class TestApi extends AbstractTest {
     @BeforeEach
     public void initialize(
     ) throws NamingException, ServiceException {
-    	entityManagerFactory = org.opencrx.kernel.utils.Utils.getPersistenceManagerFactoryProxy(
-    		"http://127.0.0.1:8080/opencrx-rest-CRX/", 
-    		"admin-Standard", 
-    		"admin-Standard", 
-    		"application/vnd.openmdx.wbxml" // text/xml
-    	);
-        pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();
+//    	if(false) {
+//  	  // In-process deployment with LightweightContainer
+//        if(!NamingManager.hasInitialContextFactoryBuilder()) {
+//              LightweightInitialContextFactoryBuilder.install(
+//  				Collections.singletonMap(
+//						"org.openmdx.comp.env.jdbc_opencrx_CRX",
+//						"jdbc:postgresql:\\/\\/localhost:5432\\/CRX?user=postgres&password=secret&driverClassName=org.postgresql.Driver&maxPoolSize=5"
+//					)
+//              );
+//        }
+//        entityManagerFactory = Utils.getPersistenceManagerFactory();
+//        pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager("admin-Standard", null);
+//  	}
+	  	if(true) {
+		    	// Remote access
+		    	entityManagerFactory = Utils.getPersistenceManagerFactoryProxy(
+		    		"http://127.0.0.1:8080/opencrx-rest-CRX/", 
+		    		"admin-Standard", 
+		    		"admin-Standard", 
+		    		"application/vnd.openmdx.wbxml" // text/xml
+		    	);
+		    	pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();
+	  	}
     }
 
     @AfterEach

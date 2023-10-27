@@ -60,6 +60,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 
 import org.opencrx.application.shop1.cci2.*;
@@ -95,6 +96,7 @@ import org.opencrx.kernel.backend.Accounts;
 import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.backend.Activities.Priority;
 import org.opencrx.kernel.backend.Addresses;
+import org.opencrx.kernel.backend.Contracts;
 import org.opencrx.kernel.backend.ICalendar;
 import org.opencrx.kernel.backend.Products;
 import org.opencrx.kernel.base.jmi1.Property;
@@ -108,17 +110,21 @@ import org.opencrx.kernel.code1.jmi1.SimpleEntry;
 import org.opencrx.kernel.contract1.cci2.InvoicePositionQuery;
 import org.opencrx.kernel.contract1.cci2.InvoiceQuery;
 import org.opencrx.kernel.contract1.cci2.LeadQuery;
+import org.opencrx.kernel.contract1.cci2.SalesContractCreatorQuery;
 import org.opencrx.kernel.contract1.cci2.SalesOrderQuery;
 import org.opencrx.kernel.contract1.jmi1.AbstractContract;
 import org.opencrx.kernel.contract1.jmi1.AbstractInvoicePosition;
 import org.opencrx.kernel.contract1.jmi1.AbstractSalesOrderPosition;
 import org.opencrx.kernel.contract1.jmi1.AccountAssignmentContract;
+import org.opencrx.kernel.contract1.jmi1.CreateContractResult;
 import org.opencrx.kernel.contract1.jmi1.CreatePositionParams;
+import org.opencrx.kernel.contract1.jmi1.CreateSalesContractParams;
 import org.opencrx.kernel.contract1.jmi1.DeliveryInformation;
 import org.opencrx.kernel.contract1.jmi1.Invoice;
 import org.opencrx.kernel.contract1.jmi1.InvoicePosition;
 import org.opencrx.kernel.contract1.jmi1.Lead;
 import org.opencrx.kernel.contract1.jmi1.SalesContract;
+import org.opencrx.kernel.contract1.jmi1.SalesContractCreator;
 import org.opencrx.kernel.contract1.jmi1.SalesContractPosition;
 import org.opencrx.kernel.contract1.jmi1.SalesOrder;
 import org.opencrx.kernel.contract1.jmi1.SalesOrderCreateInvoiceResult;
@@ -1111,6 +1117,45 @@ public class ShopServiceImpl
         return positionsT;
     }
     
+    /**
+     * Create invoice.
+     * 
+     * @param customer
+     * @param name
+     * @param description
+     * @param basedOn
+     * @return
+     */
+    protected Invoice createInvoice(
+    	Account customer, 
+    	String name,
+    	String description,
+    	SalesContract basedOn
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(customer);
+    	org.opencrx.kernel.contract1.jmi1.Segment contractSegment = Contracts.getInstance().getContractSegment(pm, this.providerName, this.segmentName);
+    	SalesContractCreatorQuery contractCreatorQuery = (SalesContractCreatorQuery)pm.newQuery(SalesContractCreator.class);
+    	contractCreatorQuery.name().equalTo(this.shopName + " - Invoice");
+    	List<SalesContractCreator> contractCreators = contractSegment.getContractCreator(contractCreatorQuery);
+    	if(!contractCreators.isEmpty()) {
+    		SalesContractCreator invoiceCreator = contractCreators.iterator().next();
+			pm.currentTransaction().begin();
+			CreateSalesContractParams createSalesContractParams = Structures.create(
+				CreateSalesContractParams.class, 
+				Datatypes.member(CreateSalesContractParams.Member.customer, customer),
+				Datatypes.member(CreateSalesContractParams.Member.description, description),
+				Datatypes.member(CreateSalesContractParams.Member.name, name),
+				Datatypes.member(CreateSalesContractParams.Member.contractCurrency, Short.valueOf((short)0)),
+				Datatypes.member(CreateSalesContractParams.Member.basedOn, basedOn)
+			);
+    		CreateContractResult result = invoiceCreator.createSalesContract(createSalesContractParams);
+    		pm.currentTransaction().commit();
+    		return (Invoice)pm.getObjectById(result.getContract().refGetPath());
+    	} else {
+    		return  null;
+    	}
+    }
+
     //-----------------------------------------------------------------------
     public void setContractStatus(
         AbstractContract contract,
@@ -1949,6 +1994,7 @@ public class ShopServiceImpl
                     Contact customer = this.pm.newInstance(Contact.class);
                     customer.setLastName(params.getLastName());
                     customer.setFirstName(params.getFirstName());
+                    customer.setAliasName(params.getUserName());
                     this.datatypeMappers.getAccountFieldMapper().setUserName(customer, params.getUserName());
                     customer.getOwningGroup().addAll(
                         this.getAccountSegment().getOwningGroup()
@@ -2072,6 +2118,7 @@ public class ShopServiceImpl
                 PersistenceHelper.currentUnitOfWork(this.pm).begin();
                 LegalEntity customer = this.pm.newInstance(LegalEntity.class);
                 customer.setName(params.getLegalName());
+                customer.setAliasName(org.opencrx.kernel.utils.Utils.getUidAsString());
                 customer.getOwningGroup().addAll(
                     this.getAccountSegment().getOwningGroup()
                 );
@@ -2277,14 +2324,13 @@ public class ShopServiceImpl
                 	);
                 	if(validationResult == null) {
 	                    String invoiceNumber = this.getNextInvoiceNumber(customer);
-	                    PersistenceHelper.currentUnitOfWork(this.pm).begin();
-	                    @SuppressWarnings("deprecation")
-                        Invoice invoice = Accounts.getInstance().createInvoice(
+                        Invoice invoice = this.createInvoice(
 	                    	customer, 
 	                    	invoiceNumber + " /" + customerNumber, // name
 	                    	null, // description 
 	                    	null // basedOn
 	                    );
+	                    PersistenceHelper.currentUnitOfWork(this.pm).begin();
 	                    this.datatypeMappers.mapInvoice(                        
 	                        invoice,
 	                        customerContract,
@@ -2404,14 +2450,13 @@ public class ShopServiceImpl
                 Account customer = originalInvoice.getCustomer();                        	
             	String customerNumber = this.datatypeMappers.getAccountFieldMapper().getAccountNumber(customer);
                 String newInvoiceNumber = this.getNextInvoiceNumber(originalInvoice.getCustomer());
-                PersistenceHelper.currentUnitOfWork(this.pm).begin();
-                @SuppressWarnings("deprecation")
-                Invoice newInvoice = Accounts.getInstance().createInvoice(
+                Invoice newInvoice = this.createInvoice(
                 	customer, 
                 	newInvoiceNumber + " /" + customerNumber, // name 
                 	null, // description 
                 	originalInvoice // basedOn
                 );
+                PersistenceHelper.currentUnitOfWork(this.pm).begin();
                 this.datatypeMappers.mapInvoice(
                     newInvoice, 
                     originalInvoice, 

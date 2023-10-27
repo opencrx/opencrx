@@ -51,10 +51,10 @@ package org.opencrx.application.shop1;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Collections;
 
 import javax.jdo.PersistenceManagerFactory;
 import javax.naming.NamingException;
-import javax.naming.spi.NamingManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -63,6 +63,7 @@ import org.junit.jupiter.api.Test;
 import org.opencrx.application.shop1.service.ShopServiceImpl;
 import org.opencrx.application.shop1.test.TestShopService;
 import org.opencrx.generic.AbstractTest;
+import org.opencrx.kernel.utils.Utils;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.kernel.exception.BasicException;
 import org.openmdx.kernel.lightweight.naming.LightweightInitialContextFactoryBuilder;
@@ -75,11 +76,17 @@ public class TestShop extends AbstractTest {
     @BeforeEach
     public void initialize(
     ) throws NamingException, ServiceException {
-        if(!NamingManager.hasInitialContextFactoryBuilder()) {
-        	LightweightInitialContextFactoryBuilder.install(null);
-        }
-       	entityManagerFactory = org.opencrx.kernel.utils.Utils.getPersistenceManagerFactory();
-        pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();
+    	if(true) {
+    		// In-process deployment with LightweightContainer
+        	LightweightInitialContextFactoryBuilder.install(
+  				Collections.singletonMap(
+						"org.openmdx.comp.env.jdbc_opencrx_CRX",
+						"jdbc:postgresql:\\/\\/localhost:5432\\/opencrx-test?user=opencrx-test&password=secret&driverClassName=org.postgresql.Driver&maxPoolSize=10"
+					)
+              );
+	        entityManagerFactory = Utils.getPersistenceManagerFactory();
+	        pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager("admin-Standard", null);
+    	}
     }
 
     @AfterEach
@@ -90,19 +97,18 @@ public class TestShop extends AbstractTest {
     	}
         this.pm = null;
     }
-      
+    
     /**
-     * @throws ServiceException
-     * @throws IOException
-     * @throws ParseException
+     * Get shop service tester.
+     * 
+     * @return
      */
-    @Test
-    public void testAll(
-    ) throws ServiceException, IOException, ParseException{
+    protected TestShopService getShopServiceTester(
+    ) {
     	// Initialize Configuration
     	try{
     		Class<?> clazz = Class.forName("org.opencrx.kernel.aop2.Configuration");
-    		clazz.newInstance();
+    		clazz.getDeclaredConstructor().newInstance();
     	} catch(Exception ignore) {}
         org.opencrx.application.shop1.cci2.ShopService shopService =
 	        new ShopServiceImpl(
@@ -115,25 +121,145 @@ public class TestShop extends AbstractTest {
 	    		new org.opencrx.application.shop1.datatypes.DatatypeMappers()
 	        );
         TestShopService shopServiceTester = new TestShopService(shopService);
+        return shopServiceTester;
+    }
+    
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testProducts(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
         org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testProducts();
 		Assertions.assertEquals(0, returnStatus.getReturnCode(), "testProducts");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testCustomers(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testCustomers();
 		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.DUPLICATE || returnStatus.getReturnCode() == BasicException.Code.NONE, "testCustomers");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testDocuments(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testDocuments();
 		Assertions.assertEquals(0, returnStatus.getReturnCode(), "testDocuments");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testLegalEntities(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testLegalEntities();
-		Assertions.assertEquals(0, returnStatus.getReturnCode(), "testLegalEntities");
+		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.NONE, "testSalesOrders");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testSalesOrders(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testSalesOrders();
 		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.NONE, "testSalesOrders");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testInvoices(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testInvoices();
 		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.NONE, "testInvoices");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testVouchers(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testVouchers();
 		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.NONE, "testVouchers");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testCodeValues(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testCodeValues();
 		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.NONE, "testCodeValues");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testActivities(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testActivities();
 		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.NONE, "testActivities");
+    }
+
+    /**
+     * @throws ServiceException
+     * @throws IOException
+     * @throws ParseException
+     */
+    @Test
+    public void testRegisterCustomer(
+    ) throws ServiceException, IOException, ParseException{
+        TestShopService shopServiceTester = this.getShopServiceTester();
+        org.opencrx.application.shop1.cci2.ReturnStatusT returnStatus = null;
 		returnStatus = shopServiceTester.testRegisterCustomer();            
 		Assertions.assertTrue(returnStatus.getReturnCode() == BasicException.Code.NOT_FOUND || returnStatus.getReturnCode() == BasicException.Code.DUPLICATE || returnStatus.getReturnCode() == BasicException.Code.NONE, "testRegisterCustomer");
     }

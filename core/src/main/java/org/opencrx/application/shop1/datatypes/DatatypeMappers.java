@@ -1558,9 +1558,10 @@ public class DatatypeMappers {
         Collection<AccountAssignmentContract> accountAssignments = customerContract.getAssignedAccount();
         for(AccountAssignmentContract accountAssignment: accountAssignments) {
         	try {
-	        	assignedCustomers.add(
-	        		this.getAccountFieldMapper().getAccountNumber(accountAssignment.getAccount())
-	        	);
+        		String accountNumber = this.getAccountFieldMapper().getAccountNumber(accountAssignment.getAccount());
+        		if(accountNumber != null) {
+        			assignedCustomers.add(accountNumber);
+        		}
         	} catch(Exception e) {
         		ServiceException e0 = new ServiceException(
         			e,

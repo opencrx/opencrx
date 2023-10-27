@@ -2,7 +2,7 @@
  * =======================================================================
  * = Description: openCRX/Core 
  * = Name: build.gradle.kts
- * = Copyright:   (c) 2020-2022 the original authors.
+ * = Copyright:   (c) 2020-2023 the original authors.
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
@@ -98,7 +98,7 @@ val tools by configurations
 val opencrxCoreModels by configurations
 val opencrxCoreConfig by configurations
 val testRuntimeOnly by configurations
-testRuntimeOnly.extendsFrom(earlib)
+testRuntimeOnly.extendsFrom(earlib.copyRecursive())
 
 // required for bootstrapping 
 touch(File(File(getDeliverDir(), "lib"), "opencrx-core-config.jar"))
@@ -110,10 +110,14 @@ dependencies {
 	tools(files(layout.buildDirectory.dir("resources/main")))
 	tools(files(layout.buildDirectory.dir("generated/sources/model/opencrx-core.openmdx-xmi.zip")))
 	// test
-    testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
     // testRuntimeOnly
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter:5.6.0")
+    testRuntimeOnly(fileTree(File(getDeliverDir(), "lib")) { include("*.jar"); exclude("opencrx-client.jar", "opencrx-core-config.jar", "opencrx-config-crx.jar" ) } )
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter:5.10.0")
     testRuntimeOnly("org.xerial:sqlite-jdbc:3.34.+")
+	testRuntimeOnly("com.atomikos:transactions-jta:6.0.0")
+	testRuntimeOnly("com.atomikos:transactions-jdbc:6.0.0")
+    testRuntimeOnly("org.postgresql:postgresql:42.6.0")
 }
 
 sourceSets {

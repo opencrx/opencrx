@@ -52,7 +52,6 @@ package org.opencrx.kernel.utils;
 import java.util.Collection;
 
 import javax.naming.NamingException;
-import javax.naming.spi.NamingManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -69,7 +68,6 @@ import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.home1.jmi1.UserHome;
 import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
-import org.openmdx.kernel.lightweight.naming.LightweightInitialContextFactoryBuilder;
 
 /**
  * TestUtils
@@ -79,11 +77,31 @@ public class TestUtils extends AbstractTest {
     @BeforeEach
     public void initialize(
     ) throws NamingException, ServiceException {
-        if(!NamingManager.hasInitialContextFactoryBuilder()) {
-        	LightweightInitialContextFactoryBuilder.install(null);
-        }
-        entityManagerFactory = org.opencrx.kernel.utils.Utils.getPersistenceManagerFactory();
-        pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();
+//    	if(false) {
+//  	  // In-process deployment with LightweightContainer
+//        if(!NamingManager.hasInitialContextFactoryBuilder()) {
+//              LightweightInitialContextFactoryBuilder.install(
+//  				Collections.singletonMap(
+//						"org.openmdx.comp.env.jdbc_opencrx_CRX",
+//						"jdbc:postgresql:\\/\\/localhost:5432\\/CRX?user=postgres&password=secret&driverClassName=org.postgresql.Driver&maxPoolSize=5"
+//					)
+//              );
+//        }
+//        entityManagerFactory = Utils.getPersistenceManagerFactory();
+//        pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager("admin-Standard", null);
+//  	}
+	  	if(true) {
+		    	// Remote access
+		    	entityManagerFactory = Utils.getPersistenceManagerFactoryProxy(
+		    		"http://127.0.0.1:8080/opencrx-rest-CRX/", 
+		    		"admin-Standard", 
+		    		"admin-Standard", 
+		    		"application/vnd.openmdx.wbxml" // text/xml
+		    	);
+		    	pm = entityManagerFactory == null ? null : entityManagerFactory.getPersistenceManager();
+	  	}
+	  	org.opencrx.kernel.backend.Accounts.register();
+	  	org.opencrx.kernel.backend.Contracts.register();
     }
 
     @AfterEach
@@ -103,11 +121,11 @@ public class TestUtils extends AbstractTest {
     protected void testParseContentType(
     ) throws ServiceException {
     	String[] contentType1 = MimeUtils.parseContentType("application/octet-stream; name=CV_english_January.pdf");
-    	Assertions.assertEquals("contentType[0]", "application/octet-stream", contentType1[0]);
-    	Assertions.assertEquals("contentType[1]", "CV_english_January.pdf", contentType1[1]);
+    	Assertions.assertEquals("application/octet-stream", contentType1[0]);
+    	Assertions.assertEquals("CV_english_January.pdf", contentType1[1]);
     	String[] contentType2 = MimeUtils.parseContentType("application/octet-stream; name=\"CV_english_January.pdf\"");
-    	Assertions.assertEquals("contentType[0]", "application/octet-stream", contentType2[0]);
-    	Assertions.assertEquals("contentType[1]", "CV_english_January.pdf", contentType2[1]);
+    	Assertions.assertEquals("application/octet-stream", contentType2[0]);
+    	Assertions.assertEquals("CV_english_January.pdf", contentType2[1]);
     }
     
     /**

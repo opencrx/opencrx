@@ -132,10 +132,10 @@ public class TestQuery extends AbstractTest {
 //    	if(false) {
 //    	  // In-process deployment with LightweightContainer
 //          if(!NamingManager.hasInitialContextFactoryBuilder()) {
-//                NonManagedInitialContextFactoryBuilder.install(
+//                LightweightInitialContextFactoryBuilder.install(
 //    				Collections.singletonMap(
 //						"org.openmdx.comp.env.jdbc_opencrx_CRX",
-//						"jdbc:postgresql:\\/\\/localhost:5432\\/CRX?user=...&password=..."
+//						"jdbc:postgresql:\\/\\/localhost:5432\\/CRX?user=postgres&password=secret&driverClassName=org.postgresql.Driver&maxPoolSize=5"
 //					)
 //                );
 //          }
@@ -238,8 +238,8 @@ public class TestQuery extends AbstractTest {
         		"  ON " + 
         		"    p.p$$parent = pc.object_id" + 
         		"  WHERE " + 
-        		"    p.name = 'FieldUri' AND " + 
-        		"    pc.name = 'CropScan.Default' AND " + 
+        		"    p.name = 'DownloadLicense.Count' AND " + 
+        		"    pc.name = 'DVD' AND " + 
         		"    cp.p$$parent = v.object_id" + 
         		")"
         	);
@@ -310,14 +310,14 @@ public class TestQuery extends AbstractTest {
 	    			if(count > 50) break;		    			
 	    		}
 	    	}
-        	// Test 3: Get sales orders which have a position which a configuration with name "CropScan.*" and a property "FieldUri"
+        	// Test 3: Get sales orders which have a position which a configuration with name "DVD"
 	    	{
 	        	SalesOrderQuery salesOrderQuery = 
 	        		(org.opencrx.kernel.contract1.cci2.SalesOrderQuery)pm.newQuery(
 	        			org.opencrx.kernel.contract1.jmi1.SalesOrder.class
 	        		);
-	        	salesOrderQuery.thereExistsPosition().thereExistsConfiguration().name().like("CropScan.*");
-	        	salesOrderQuery.thereExistsPosition().thereExistsConfiguration().thereExistsProperty().name().equalTo("FieldUri");
+	        	salesOrderQuery.thereExistsPosition().thereExistsConfiguration().name().like("DVD");
+	        	salesOrderQuery.thereExistsPosition().thereExistsConfiguration().thereExistsProperty().name().equalTo("DownloadLicense.Count");	        	
 	        	List<SalesOrder> salesOrders = contractSegment.getSalesOrder(salesOrderQuery);
 	        	Assertions.assertTrue(!salesOrders.isEmpty(), salesOrderQuery.toString());
 	    	}
@@ -327,7 +327,7 @@ public class TestQuery extends AbstractTest {
 	        		(org.opencrx.kernel.contract1.cci2.SalesOrderQuery)pm.newQuery(
 	        			org.opencrx.kernel.contract1.jmi1.SalesOrder.class
 	        		);
-	        	salesOrderQuery.thereExistsSalesRep().thereExistsFullName().like("F.*");
+	        	salesOrderQuery.thereExistsSalesRep().thereExistsFullName().like("a.*");
 	        	List<SalesOrder> salesOrders = contractSegment.getSalesOrder(salesOrderQuery);
 	        	Assertions.assertTrue(!salesOrders.isEmpty(), salesOrderQuery.toString());
 	    	}
@@ -476,7 +476,7 @@ public class TestQuery extends AbstractTest {
             );
             salesOrderPositionQuery.forAllDisabled().isFalse();
             salesOrderPositionQuery.forAllExternalLink().startsNotWith("TEST:");
-            salesOrderPositionQuery.thereExistsConfiguration().name().equalTo("CropScan.Default");
+            salesOrderPositionQuery.thereExistsConfiguration().name().equalTo("DVD");
             List<SalesOrderPosition> salesOrderPositions = contractSegment.getExtent(salesOrderPositionQuery);            
             List<Path> salesOrderPositionIdentities = new ArrayList<Path>();
             for(SalesOrderPosition salesOrderPosition: salesOrderPositions) {
@@ -645,6 +645,7 @@ public class TestQuery extends AbstractTest {
     	activityQuery.forAllDisabled().isFalse();
     	activityQuery.thereExistsActivityType().elementOf(activityTypes);
     	activityQuery.thereExistsProcessState().notAnElementOf(activityProcessStates);
+    	activityQuery.reportingContact().isNonNull();
     	activityQuery.orderByActivityNumber().ascending();
     	int count = 0;
     	for(Activity activity: activitySegment.getActivity(activityQuery)) {

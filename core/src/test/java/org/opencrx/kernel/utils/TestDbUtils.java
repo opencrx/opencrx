@@ -112,8 +112,8 @@ public class TestDbUtils extends AbstractTest {
     //-----------------------------------------------------------------------
     // Members
     //-----------------------------------------------------------------------
-	protected final static String JDBC_URL = "jdbc:postgresql://localhost/CRX";
-	protected final static String USERNAME = "postgres";
-	protected final static String PASSWORD = "manager99";
+	protected final static String JDBC_URL = "jdbc:postgresql://localhost/opencrx-test";
+	protected final static String USERNAME = "opencrx-test";
+	protected final static String PASSWORD = "secret";
 
 }

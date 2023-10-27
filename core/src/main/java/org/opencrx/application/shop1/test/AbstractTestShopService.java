@@ -785,8 +785,10 @@ public abstract class AbstractTestShopService {
             "project=MyShop", 
             "service=Standard", 
             "service=Premium",
+            "service=Universal",
             "category=123_action", 
             "partner=MyPartner", 
+            "partner=Universal",
             "genre=Action", 
             "genre=Thriller"
         };
