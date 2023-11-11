@@ -70,6 +70,7 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jmi.reflect.RefStruct;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.opencrx.kernel.account1.cci2.AccountQuery;
 import org.opencrx.kernel.account1.jmi1.Account;
@@ -2197,6 +2198,36 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 			featureName, 
 			app
 		);
+	}
+
+	@Override
+	public String getAutostartUrl(
+		HttpSession session,
+		ApplicationContext app
+	) {
+		javax.jdo.PersistenceManager pm = app.getNewPmData();		
+		// Handle TOTP authentication
+		{
+			Path userHomeIdentity = app.getUserHomeIdentityAsPath();
+			String providerName = userHomeIdentity.getSegment(2).toString();
+			String segmentName = userHomeIdentity.getSegment(4).toString();
+			String authKey = org.opencrx.kernel.utils.TOTP.getSessionKey(providerName, segmentName);
+			if(session.getAttribute(authKey) == null) {
+				org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(userHomeIdentity);
+				org.opencrx.kernel.home1.jmi1.Media totpInfo = null;
+				try {
+					totpInfo = org.opencrx.kernel.backend.UserHomes.getInstance().getMedia(
+						userHome,
+						org.opencrx.kernel.utils.TOTP.class.getSimpleName()
+					);
+					if(totpInfo != null) {
+						// TOTP is configured and not authenticated
+						return "/ValidateTOTP.jsp";
+					}
+				} catch(Exception ignore) {}
+			}
+		}
+		return super.getAutostartUrl(session, app);
 	}
 
 	//-------------------------------------------------------------------------

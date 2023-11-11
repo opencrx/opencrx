@@ -132,6 +132,7 @@ import org.openmdx.kernel.log.SysLog;
 import org.openmdx.portal.servlet.UserSettings;
 import org.openmdx.portal.servlet.WebKeys;
 import org.openmdx.security.authentication1.jmi1.PasswordChangeParams;
+import org.w3c.cci2.BinaryLargeObject;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
 
@@ -2493,6 +2494,59 @@ public class UserHomes extends AbstractImpl {
     			}
     		}
     	}
+    }
+
+    /**
+     * Create or update media.
+     * 
+     * @param userHome
+     * @param contentName
+     * @param contentMimeType
+     * @param content
+     * @throws ServiceException
+     */
+    public void createOrUpdateMedia(
+    	UserHome userHome,
+    	String contentName,
+    	String contentMimeType,
+    	BinaryLargeObject content
+    ) throws ServiceException {
+    	try {
+	    	PersistenceManager pm = JDOHelper.getPersistenceManager(userHome);
+	    	org.opencrx.kernel.home1.cci2.MediaQuery mediaQuery = (org.opencrx.kernel.home1.cci2.MediaQuery)pm.newQuery(org.opencrx.kernel.home1.jmi1.Media.class);
+	    	mediaQuery.thereExistsContentName().equalTo(contentName);
+	    	List<org.opencrx.kernel.home1.jmi1.Media> medias = userHome.getChart(mediaQuery);
+	    	org.opencrx.kernel.home1.jmi1.Media media = null;
+	    	if(!medias.isEmpty()) {
+	    		media = medias.iterator().next();
+	    	} else {
+	    		media = pm.newInstance(org.opencrx.kernel.home1.jmi1.Media.class);
+	    		media.setContentName(contentName);
+	    		userHome.addChart(media);
+	    	}
+    		media.setContentMimeType(contentMimeType);
+	    	media.setContent(content);
+    	} catch(Exception e) {
+    		throw new ServiceException(e);
+    	}
+    }
+
+    /**
+     * Return media with given name.
+     * 
+     * @param userHome
+     * @param contentName
+     * @return
+     */
+    public org.opencrx.kernel.home1.jmi1.Media getMedia(
+    	UserHome userHome,
+    	String contentName
+    ) {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(userHome);
+    	org.opencrx.kernel.home1.cci2.MediaQuery mediaQuery = (org.opencrx.kernel.home1.cci2.MediaQuery)pm.newQuery(org.opencrx.kernel.home1.jmi1.Media.class);
+    	mediaQuery.thereExistsContentName().equalTo(contentName);
+    	List<org.opencrx.kernel.home1.jmi1.Media> medias = userHome.getChart(mediaQuery);
+    	return medias.isEmpty() ? null : medias.iterator().next();
     }
 
 	/* (non-Javadoc)
