@@ -51,7 +51,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("org.opencrx:opencrx-gradle:5.3.0")
+        classpath("org.opencrx:opencrx-gradle:5.3.1")
     }
 }
 rootProject.name = "opencrx"
