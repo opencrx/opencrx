@@ -57,7 +57,6 @@ import javax.resource.ResourceException;
 import javax.resource.cci.Interaction;
 
 import org.opencrx.kernel.generic.OpenCrxException;
-import org.openmdx.base.collection.TreeSparseArray;
 import org.openmdx.base.dataprovider.cci.DataproviderRequestProcessor;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.mof.cci.ModelElement_1_0;
@@ -73,6 +72,7 @@ import org.openmdx.base.rest.cci.RestConnection;
 import org.openmdx.base.rest.cci.ResultRecord;
 import org.openmdx.base.rest.spi.AbstractRestInteraction;
 import org.openmdx.base.rest.spi.AbstractRestPort;
+import org.openmdx.kernel.collection.TreeSparseArray;
 import org.openmdx.kernel.exception.BasicException;
 import org.openmdx.kernel.log.SysLog;
 import org.w3c.cci2.SparseArray;
@@ -158,37 +158,29 @@ public class OpenCrxKernel_2 extends AbstractRestPort {
 	    public void testReferenceIsChangeable(
 	        Path referencePath
 	    ) throws ResourceException {
-	    	try {
-		    	Model_1_0 model = Model_1Factory.getModel();
-		        // Reference must be changeable
-		        ModelElement_1_0 reference = null;
-		        try {
-		            reference = model.getReferenceType(referencePath);
-		        } catch(ServiceException e) {
-		        	SysLog.warning("Reference not found in model", referencePath);
-		        }          
-		        if(
-		            (reference != null) &&
-		            !((Boolean)reference.isChangeable()).booleanValue()
-		        ) {
-	    			throw ResourceExceptions.initHolder(
-	            		new ResourceException(
-	            			"Reference is readonly. Can not add/remove objects.",
-	        				BasicException.newEmbeddedExceptionStack(
-	        	                OpenCrxException.DOMAIN,
-	        	                OpenCrxException.REFERENCE_IS_READONLY,
-	        	                new BasicException.Parameter("param0", referencePath)
-			                 )
-		                )
-		            );	        	
-		        }
-	    	} catch(ServiceException e) {
-                throw ResourceExceptions.initHolder(
-                    new ResourceException(
-                        BasicException.newEmbeddedExceptionStack(e)
-                    )
-                );	    		
-	    	}
+	    	Model_1_0 model = Model_1Factory.getModel();
+	        // Reference must be changeable
+	        ModelElement_1_0 reference = null;
+	        try {
+	            reference = model.getReferenceType(referencePath);
+	        } catch(ServiceException e) {
+	        	SysLog.warning("Reference not found in model", referencePath);
+	        }          
+	        if(
+	            (reference != null) &&
+	            !((Boolean)reference.isChangeable()).booleanValue()
+	        ) {
+    			throw ResourceExceptions.initHolder(
+            		new ResourceException(
+            			"Reference is readonly. Can not add/remove objects.",
+        				BasicException.newEmbeddedExceptionStack(
+        	                OpenCrxException.DOMAIN,
+        	                OpenCrxException.REFERENCE_IS_READONLY,
+        	                new BasicException.Parameter("param0", referencePath)
+		                 )
+	                )
+	            );	        	
+	        }
 	    }
 
 	    /* (non-Javadoc)
