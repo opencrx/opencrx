@@ -2213,9 +2213,9 @@ public class PortalExtension extends DefaultPortalExtension implements Serializa
 			String segmentName = userHomeIdentity.getSegment(4).toString();
 			String authKey = org.opencrx.kernel.utils.TOTP.getSessionKey(providerName, segmentName);
 			if(session.getAttribute(authKey) == null) {
-				org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(userHomeIdentity);
 				org.opencrx.kernel.home1.jmi1.Media totpInfo = null;
 				try {
+					org.opencrx.kernel.home1.jmi1.UserHome userHome = (org.opencrx.kernel.home1.jmi1.UserHome)pm.getObjectById(userHomeIdentity);
 					totpInfo = org.opencrx.kernel.backend.UserHomes.getInstance().getMedia(
 						userHome,
 						org.opencrx.kernel.utils.TOTP.class.getSimpleName()
