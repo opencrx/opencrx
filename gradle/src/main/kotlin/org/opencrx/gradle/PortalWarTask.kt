@@ -121,8 +121,8 @@ open class PortalWarTask: ArchiveTask() {
 		from(File(dataHome, dataDir)) { include("**/*.jsp", "**/*.properties"); exclude("**/*.texts.properties"); filter { line -> archiveFilter(line) } }
 		from(opencrxCoreConfigFiles) { include(dataDirGeneric + "/**/*.jsp", dataDirGeneric + "/**/*.properties"); exclude("**/*.texts.properties"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()) }; filter { line -> archiveFilter(line) } }
 		// images
-		from(File(dataHome, dataDir + "/images")) { into("images"); include("*.gif", "*.jpg", "*.png", "*.ico") }
-		from(opencrxCoreConfigFiles) { include(dataDirGeneric + "/images/*.gif", dataDirGeneric + "/images/*.jpg", dataDirGeneric + "/images/*.png", dataDirGeneric + "/images/*.ico"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()) } }
+		from(File(dataHome, dataDir + "/images")) { into("images"); include("*.gif", "*.jpg", "*.png", "*.ico", "*.svg") }
+		from(opencrxCoreConfigFiles) { include(dataDirGeneric + "/images/*.gif", dataDirGeneric + "/images/*.jpg", dataDirGeneric + "/images/*.png", dataDirGeneric + "/images/*.ico", dataDirGeneric + "/images/*.svg"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()) } }
 		// documents
 		from(File(dataHome, dataDir + "/documents")) { into("documents") }
 		from(opencrxCoreConfigFiles) { include(dataDirGeneric + "/documents/"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()) } }
