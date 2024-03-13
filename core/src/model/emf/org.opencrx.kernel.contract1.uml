@@ -892,6 +892,15 @@
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_STy_kGIUEe64ReVtkbMlHA"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_STy_kWIUEe64ReVtkbMlHA" value="1"/>
             </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_ICc2gOFTEe6P5ZVrXiXUaA" name="quantityShipped3">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B631E003C"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PppRYOFTEe6P5ZVrXiXUaA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_qI7MkuFTEe6P5ZVrXiXUaA" name="uomQuantityShipped3" association="_qI6lgOFTEe6P5ZVrXiXUaA">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.uom1.uml#_3C7B8A60016D3F3EBFB30391"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qI7Mk-FTEe6P5ZVrXiXUaA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qI7MlOFTEe6P5ZVrXiXUaA" value="1"/>
+            </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3FD3A9560234" name="DeliveryRequest">
             <generalization xmi:type="uml:Generalization" xmi:id="_3C7B8A60016D3FD3CD3600A9">
@@ -914,6 +923,11 @@
               <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B630802BB"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H6uSQN7NEdmKapscEl8OLg"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H6uSQd7NEdmKapscEl8OLg" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_zwWPQeFSEe6P5ZVrXiXUaA" name="activity" association="_zwPhkOFSEe6P5ZVrXiXUaA">
+              <type xmi:type="uml:Class" href="org.opencrx.kernel.activity1.uml#_3C7B8A60016D3F40064D035D"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zwW2UOFSEe6P5ZVrXiXUaA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zwW2UeFSEe6P5ZVrXiXUaA" value="1"/>
             </ownedAttribute>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D3F3EBD9F010B" name="Invoice">
@@ -3333,6 +3347,18 @@
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_STxxcWIUEe64ReVtkbMlHA" key="nature" value="UML_Nature"/>
             </eAnnotations>
             <ownedEnd xmi:type="uml:Property" xmi:id="_STy_kmIUEe64ReVtkbMlHA" name="deliveryInformation" type="_3C7B8A60016D3FD3CF93017B" association="_STongGIUEe64ReVtkbMlHA"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_zwPhkOFSEe6P5ZVrXiXUaA" name="DeliveryRequestHasActivity" memberEnd="_zwWPQeFSEe6P5ZVrXiXUaA _zwW2UuFSEe6P5ZVrXiXUaA">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zwVoMOFSEe6P5ZVrXiXUaA" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zwWPQOFSEe6P5ZVrXiXUaA" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_zwW2UuFSEe6P5ZVrXiXUaA" name="deliveryRequest" type="_3C7B8A60016D3FD3A9560234" association="_zwPhkOFSEe6P5ZVrXiXUaA"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_qI6lgOFTEe6P5ZVrXiXUaA" name="DeliveryInformationHasQuantityShipped3" memberEnd="_qI7MkuFTEe6P5ZVrXiXUaA _qI7MleFTEe6P5ZVrXiXUaA">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qI7MkOFTEe6P5ZVrXiXUaA" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qI7MkeFTEe6P5ZVrXiXUaA" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_qI7MleFTEe6P5ZVrXiXUaA" name="deliveryInformation" type="_3C7B8A60016D3FD3CF93017B" association="_qI6lgOFTEe6P5ZVrXiXUaA"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>

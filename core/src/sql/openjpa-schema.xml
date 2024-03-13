@@ -5247,6 +5247,7 @@
             <column name="QUANTITY_BEFORE_DELIVERY" type="numeric" decimal-digits="9"/>
             <column name="QUANTITY_SHIPPED" type="numeric" decimal-digits="9"/>
             <column name="QUANTITY_SHIPPED2" type="numeric" decimal-digits="9"/>
+            <column name="QUANTITY_SHIPPED3" type="numeric" decimal-digits="9"/>
             <column name="SEARCH_DATE_TIME0" type="timestamp"/>
             <column name="SEARCH_DATE_TIME1" type="timestamp"/>
             <column name="SEARCH_DATE_TIME2" type="timestamp"/>
@@ -5280,6 +5281,7 @@
             <column name="UOM_QUANTITY_BEFORE_DELIVERY" type="varchar" size="256"/>
             <column name="UOM_QUANTITY_SHIPPED" type="varchar" size="256"/>
             <column name="UOM_QUANTITY_SHIPPED2" type="varchar" size="256"/>
+            <column name="UOM_QUANTITY_SHIPPED3" type="varchar" size="256"/>
             <column name="USER_BOOLEAN0" type="bit"/>
             <column name="USER_BOOLEAN1" type="bit"/>
             <column name="USER_BOOLEAN2" type="bit"/>
@@ -5340,6 +5342,7 @@
             <column name="ACCESS_LEVEL_BROWSE" type="smallint"/>
             <column name="ACCESS_LEVEL_DELETE" type="smallint"/>
             <column name="ACCESS_LEVEL_UPDATE" type="smallint"/>
+            <column name="ACTIVITY" type="varchar" size="256"/>
             <column name="CATEGORY_" type="integer" type-name="INTEGER DEFAULT -1"/>
             <column name="COMMENTS" type="varchar" size="256"/>
             <column name="CREATED_AT" type="timestamp"/>

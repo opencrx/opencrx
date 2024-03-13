@@ -79,6 +79,8 @@ open class RenderDiagramsTask : ExecTask() {
 		doLast {
 			getProject().copy { from(project.layout.buildDirectory.dir("generated/sources/model/diagrams/dot")); into(albumPath) }
 			getProject().fileTree(albumPath).matching { include("**/*.dot") }.forEach { f ->
+				val fileContents = f.readText().replace("constraint=false,", "")
+				f.writeText(fileContents)
 				getProject().exec {
 					workingDir(f.parentFile)
 					commandLine(dotExec, "-Tpng", "-o", f.name.replace(".dot", ".png"), f.name)

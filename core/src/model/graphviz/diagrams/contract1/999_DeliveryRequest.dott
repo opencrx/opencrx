@@ -28,9 +28,16 @@ digraph "Diagram DeliveryRequest [Package org:opencrx:kernel:contract1]" {
 	  LAYER1[style=invis];
 	  ${CLASS[name=org:opencrx:kernel:contract1:DeliveryRequest,compartments=true,width=2]};
 	}
+	{
+	  rank=same;
+	  LAYER2[style=invis];
+	  ${CLASS[name=org:opencrx:kernel:activity1:Activity,compartments=false,fillcolor="#FFBD9D",width=3]};
+	}	
 
 	LAYER0->LAYER1[style=invis];
+	LAYER1->LAYER2[style=invis];
 
+	${ASSOCIATION[name=org:opencrx:kernel:contract1:DeliveryRequestHasActivity,minlen=3]}
 	${ASSOCIATION[name=org:opencrx:kernel:contract1:DeliveryRequestContainerContainsDeliveryRequest,minlen=3]}
 	${ASSOCIATION[name=*]}
 	${INSTANCE_OF}
