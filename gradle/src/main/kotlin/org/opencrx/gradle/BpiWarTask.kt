@@ -62,7 +62,6 @@ open class BpiWarTask : ArchiveTask() {
 	    archiveFileName.set(getWebAppName("bpi") + ".war")
 	    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	    includeEmptyDirs = false
-		filter { line -> archiveFilter(line) }
 		manifest {
 	        attributes(
 	        	getManifest(
@@ -79,9 +78,12 @@ open class BpiWarTask : ArchiveTask() {
 		// WEB-INF
 		from(File(dataHome, dataDir + ".bpi/WEB-INF")) { into("WEB-INF"); include("web.xml", "*.xml"); exclude("*/*"); filter { line -> archiveFilter(line) } }
 		from(opencrxCoreConfigFiles) { include(dataDirGeneric + ".bpi/WEB-INF/web.xml", dataDirGeneric + ".bpi/WEB-INF/*.xml"); exclude("*/*"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()); filter { line -> archiveFilter(line) } } }
-		// data
-		from(File(dataHome, dataDir + ".bpi")) { include("**/*.*"); filter { line -> archiveFilter(line) } }
-		from(opencrxCoreConfigFiles) { include(dataDirGeneric + ".bpi/**/*.*"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()); filter { line -> archiveFilter(line) } } }
+		// jsp
+		from(File(dataHome, dataDir + ".bpi")) { include("*.jsp"); filter { line -> archiveFilter(line) } }
+		from(opencrxCoreConfigFiles) { include(dataDirGeneric + ".bpi/*.jsp"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()) }; filter { line -> archiveFilter(line) } }		
+		// documents
+		from(File(dataHome, dataDir + ".bpi/documents")) { into("documents") }
+		from(opencrxCoreConfigFiles) { include(dataDirGeneric + ".bpi/documents/"); eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(nSegmentsDataDirGeneric).toTypedArray()) } }		
 	}
-	
+
 }
