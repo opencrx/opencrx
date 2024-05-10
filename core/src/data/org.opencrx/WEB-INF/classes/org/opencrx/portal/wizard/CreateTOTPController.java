@@ -241,6 +241,26 @@ public class CreateTOTPController extends JspWizardController {
 				}
 				ImageIO.write(image, QR_FILE_EXT, f);
 				hasDownloadFile = true;
+				// Store TOTP QR-Code
+				try {
+					PersistenceManager pm = this.getPm();
+					UserHome userHome = (UserHome)pm.getObjectById(app.getUserHomeIdentityAsPath());
+					pm.currentTransaction().begin();
+					ByteArrayOutputStream imageContent = new ByteArrayOutputStream();
+					ImageIO.write(image, QR_FILE_EXT, imageContent);
+					UserHomes.getInstance().createOrUpdateMedia(
+						userHome,
+						Utils.toFilename(TOTP.class.getSimpleName() + "_" + account + "@" + issuer.replace("/", "_")) + "." + QR_FILE_EXT,
+						QR_MIME_TYPE,
+						BinaryLargeObjects.valueOf(imageContent.toByteArray())
+					);
+				} catch(Exception e) {
+					try {
+						pm.currentTransaction().rollback();
+					} catch(Exception ignore) {}
+				} finally {
+					pm.currentTransaction().commit();
+				}
 			}
 		} catch (Exception e) {
 			new ServiceException(e).log();
