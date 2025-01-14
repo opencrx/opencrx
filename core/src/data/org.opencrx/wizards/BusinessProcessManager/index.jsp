@@ -1864,28 +1864,12 @@ input.button {
 					//System.out.println(contentName + " is " + (isChecked ? "" : "not") + " checked");
 					if (isChecked) {
 						javax.mail.internet.MimeMessage msg = null;
-
-						// MSG
-						if(contentName != null && contentName.toUpperCase().endsWith(".MSG")) {
-							List<String> newErrors = new ArrayList<String>();
-							msg = org.opencrx.kernel.utils.MimeUtils.mapMsgToMime(
-								new FileInputStream(location),
-								accountSegment,
-								addressMap, //Collections.<String,String>emptyMap(),
-								true, // validateMappedAddresses
-								newErrors
-							);
-							if (!newErrors.isEmpty()) {
-								errors.addAll(newErrors);
-							}
-						}
 						// MIME/EML
-						else {
+						{
 							msg = new org.opencrx.kernel.utils.MimeUtils.MimeMessageImpl(
 								new FileInputStream(location)
 							);																							
 						}
-
 						List<org.opencrx.kernel.activity1.jmi1.EMail> emails = null;
 						if(preErrorCount == errors.size() && msg != null) {
 							emails = org.opencrx.kernel.backend.Activities.getInstance().importMimeMessage(

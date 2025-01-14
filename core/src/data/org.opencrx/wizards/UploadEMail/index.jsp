@@ -316,29 +316,12 @@ org.openmdx.kernel.id.*
 									if (isChecked) {
 										javax.mail.internet.MimeMessage msg = null;
 										System.out.println("addressMap = " + addressMap);
-										
-										// MSG
-										if(contentName != null && contentName.toUpperCase().endsWith(".MSG")) {
-											List<String> newErrors = new ArrayList<String>();
-											msg = org.opencrx.kernel.utils.MimeUtils.mapMsgToMime(
-												new FileInputStream(location),
-												accountSegment,
-												addressMap, //Collections.<String,String>emptyMap(),
-												false, // validateMappedAddresses (note that missing SMTP-Addresses are created with admin-Standard)
-												newErrors
-											);
-											if (!newErrors.isEmpty()) {
-												System.out.println("errors: " + newErrors);
-												errors.addAll(newErrors);
-											}
-										}
 										// MIME/EML
-										else {
+										{
 											msg = new org.opencrx.kernel.utils.MimeUtils.MimeMessageImpl(
 												new FileInputStream(location)
 											);																							
 										}
-
 										if(preErrorCount == errors.size() && msg != null) {
 											List<org.opencrx.kernel.activity1.jmi1.EMail> emails = org.opencrx.kernel.backend.Activities.getInstance().importMimeMessage(
 												pm,
