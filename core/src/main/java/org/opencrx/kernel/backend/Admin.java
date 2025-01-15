@@ -138,6 +138,24 @@ public class Admin extends AbstractImpl {
 		GROUP
 	}
 	
+    /**
+     * Get admin segment.
+     * 
+     * @param pm
+     * @param providerName
+     * @param segmentName
+     * @return
+     */
+    public org.opencrx.kernel.admin1.jmi1.Segment getAdminSegment(
+        PersistenceManager pm,
+        String providerName,
+        String segmentName
+    ) {
+        return (org.opencrx.kernel.admin1.jmi1.Segment) pm.getObjectById(
+            new Path("xri://@openmdx*org.opencrx.kernel.admin1").getDescendant("provider", providerName, "segment", segmentName)
+        );
+    }
+
 	/**
 	 * Check whether requesting principal has root permission.
 	 * 
@@ -761,30 +779,28 @@ public class Admin extends AbstractImpl {
     }
     
     /**
-     * Import login principals.
+     * Import principals.
      * 
-     * @param adminSegment
+     * @param realm
      * @param item
      * @return
      * @throws ServiceException
      */
-    public String importLoginPrincipals(
-        org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
-        byte[] item
+    public String importPrincipals(
+    	org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
+    	org.openmdx.security.realm1.jmi1.Realm realm,
+    	byte[] item
     ) throws ServiceException {
-        this.checkRootPermission(adminSegment, "importLoginPrincipals");    	
-    	PersistenceManager pm = JDOHelper.getPersistenceManager(adminSegment);
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(realm);
+    	String providerName = realm.refGetPath().getSegment(2).toString();
         BufferedReader reader = null;
         try {
 	        reader = new BufferedReader(
 	            new InputStreamReader(new ByteArrayInputStream(item), "UTF-8")
 	        );
         } catch (UnsupportedEncodingException e) {}
-        org.openmdx.security.realm1.jmi1.Realm loginRealm = (org.openmdx.security.realm1.jmi1.Realm)pm.getObjectById(
-        	SecureObject.getInstance().getLoginRealmIdentity(adminSegment.refGetPath().getSegment(2).toString())
-        );
         org.opencrx.security.identity1.jmi1.Segment identitySegment = (org.opencrx.security.identity1.jmi1.Segment)pm.getObjectById( 
-            new Path("xri://@openmdx*org.opencrx.security.identity1").getDescendant("provider", adminSegment.refGetPath().getSegment(2).toString(), "segment", "Root")
+            new Path("xri://@openmdx*org.opencrx.security.identity1").getDescendant("provider", providerName, "segment", "Root")
         );
         int nCreatedPrincipals = 0;
         int nExistingPrincipals = 0;
@@ -800,11 +816,12 @@ public class Admin extends AbstractImpl {
                     t.nextToken();
                     String principalId = t.nextToken();
                     String principalDescription = t.nextToken();
-                    String subjectName = t.nextToken();
-                    String groups = t.nextToken();                       
+                    String subjectName = t.hasMoreTokens() ? t.nextToken() : "";
+                    String groups = t.hasMoreTokens() ? t.nextToken() : "";
+                    String principalType = t.hasMoreTokens() ? t.nextToken() : "";
                     org.openmdx.security.realm1.jmi1.Principal principal = null;
                     try {
-                    	principal = loginRealm.getPrincipal(principalId);
+                    	principal = realm.getPrincipal(principalId);
                     } catch(Exception e) {}
                     if(principal == null) {
                         try {
@@ -812,10 +829,10 @@ public class Admin extends AbstractImpl {
                         		principalId,
                         		principalId, // name
                         		principalDescription, // description
-                        		loginRealm, 
-                        		PrincipalType.PRINCIPAL, 
+                        		realm,
+                        		principalType.isEmpty() ? PrincipalType.PRINCIPAL : PrincipalType.valueOf(principalType),
                         		new ArrayList<org.openmdx.security.realm1.jmi1.Group>(),
-                        		identitySegment.getSubject(subjectName)
+                        		subjectName.isEmpty() ? null : identitySegment.getSubject(subjectName)
                         	);
                             nCreatedPrincipals++;
                         } catch(Exception e) {
@@ -830,13 +847,15 @@ public class Admin extends AbstractImpl {
                         while(g.hasMoreTokens()) {
                             String groupPrincipalName = g.nextToken();
                             org.openmdx.security.realm1.jmi1.Group groupPrincipal = 
-                            	(org.openmdx.security.realm1.jmi1.Group)loginRealm.getPrincipal(groupPrincipalName);
+                            	(org.openmdx.security.realm1.jmi1.Group)realm.getPrincipal(groupPrincipalName);
                             if(!principal.getIsMemberOf().contains(groupPrincipal)) {
                                 principal.getIsMemberOf().add(groupPrincipal);
                             }
                         }
                     }
                 } else if(l.indexOf("Subject") >= 0) {
+                	// Importing Subjects requires root permission
+                	this.checkRootPermission(adminSegment, "importPrincipals");   
                     StringTokenizer t = new StringTokenizer(l, ";");
                     t.nextToken();
                     String subjectName = t.nextToken();
@@ -869,6 +888,30 @@ public class Admin extends AbstractImpl {
         return 
             "Principals=(created:" + nCreatedPrincipals + ",existing:" + nExistingPrincipals + ",failed:" + nFailedPrincipals + "); " +
             "Subjects:(created:" + nCreatedSubjects + ",existing:" + nExistingSubjects + ",failed:" + nFailedSubjects + ")";
+    }
+
+    /**
+     * Import login principals.
+     * 
+     * @param adminSegment
+     * @param item
+     * @return
+     * @throws ServiceException
+     */
+    public String importLoginPrincipals(
+        org.opencrx.kernel.admin1.jmi1.Segment adminSegment,
+        byte[] item
+    ) throws ServiceException {
+        this.checkRootPermission(adminSegment, "importLoginPrincipals");        
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(adminSegment);
+        org.openmdx.security.realm1.jmi1.Realm loginRealm = (org.openmdx.security.realm1.jmi1.Realm)pm.getObjectById(
+        	SecureObject.getInstance().getLoginRealmIdentity(adminSegment.refGetPath().getSegment(2).toString())
+        );
+        return this.importPrincipals(
+        	adminSegment,
+        	loginRealm,
+        	item
+        );
     }
 
     /**

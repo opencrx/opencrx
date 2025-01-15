@@ -35,6 +35,10 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_z8Yu8EcYEdqY8s66EvOcjQ" name="ReturnResultParameter1" type="_Z1DZsEcYEdqY8s66EvOcjQ" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_yvgFEEcYEdqY8s66EvOcjQ" name="in" type="_YiDgwEcYEdqY8s66EvOcjQ"/>
             </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_CjML8NMbEe-Lrqgatbu87g" name="importPrincipals">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_y4wd8NMbEe-Lrqgatbu87g" name="in" type="_E7kYkNMbEe-Lrqgatbu87g"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_1kiHsNMbEe-Lrqgatbu87g" type="_H5hXcNMbEe-Lrqgatbu87g" direction="return"/>
+            </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_3C7B8A60016D40E97F3403D4" name="UserHome">
             <ownedRule xmi:type="uml:Constraint" xmi:id="_IMewj97NEdmKapscEl8OLg" constrainedElement="_3C7B8A60016D40E980F501DB">
@@ -1844,6 +1848,32 @@
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3cNeUWXSEe6cON_MpOKIcA" key="nature" value="UML_Nature"/>
             </eAnnotations>
             <ownedEnd xmi:type="uml:Property" xmi:id="_3cOFY2XSEe6cON_MpOKIcA" name="accountFilterFeed" type="_VljF4GXSEe6cON_MpOKIcA" association="_3cMQMGXSEe6cON_MpOKIcA"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_E7kYkNMbEe-Lrqgatbu87g" name="ImportPrincipalsParams">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NnV14NMbEe-Lrqgatbu87g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OfrMENMbEe-Lrqgatbu87g" key="struct" value="null"/>
+            </eAnnotations>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_aPY7gNMbEe-Lrqgatbu87g" name="item">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3E0F6F8900AB"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h96tcNMbEe-Lrqgatbu87g"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_awNJkNMbEe-Lrqgatbu87g" name="itemMimeType">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kJwS4NMbEe-Lrqgatbu87g"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_bLBdUNMbEe-Lrqgatbu87g" name="itemName">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_myP_INMbEe-Lrqgatbu87g"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_H5hXcNMbEe-Lrqgatbu87g" name="ImportPrincipalsResult">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QzHOUNMbEe-Lrqgatbu87g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RkzxANMbEe-Lrqgatbu87g" key="struct" value="null"/>
+            </eAnnotations>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_b0VgENMbEe-Lrqgatbu87g" name="statusMessage">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oR5M8NMbEe-Lrqgatbu87g"/>
+            </ownedAttribute>
           </packagedElement>
         </packagedElement>
       </packagedElement>

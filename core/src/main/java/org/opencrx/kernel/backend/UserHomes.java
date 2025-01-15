@@ -1261,6 +1261,33 @@ public class UserHomes extends AbstractImpl {
     }
 
     /**
+     * Import principals from given stream (as byte[]).
+     * 
+     * @param homeSegment
+     * @param item
+     * @return
+     * @throws ServiceException
+     */
+    public String importPrincipals(
+        org.opencrx.kernel.home1.jmi1.Segment homeSegment,
+        byte[] item
+    ) throws ServiceException {
+    	PersistenceManager pm = JDOHelper.getPersistenceManager(homeSegment);
+        String providerName = homeSegment.refGetPath().getSegment(2).toString();
+        String segmentName = homeSegment.refGetPath().getSegment(4).toString();
+        org.opencrx.kernel.admin1.jmi1.Segment adminSegment = Admin.getInstance().getAdminSegment(pm, providerName, "Root");
+        org.openmdx.security.realm1.jmi1.Realm realm = (org.openmdx.security.realm1.jmi1.Realm)pm.getObjectById(
+        	SecureObject.getRealmIdentity(providerName, segmentName)
+        );
+        String statusMessage = Admin.getInstance().importPrincipals(
+        	adminSegment,
+        	realm,
+        	item
+        );
+        return statusMessage;
+    }
+
+    /**
      * Create object finder according to given basic search criteria.
      * 
      * @param userHome

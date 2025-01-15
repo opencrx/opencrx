@@ -162,14 +162,37 @@ public class SegmentImpl
             String statusMessage = UserHomes.getInstance().importUsers(
                 this.sameObject(),
                 params.getItem()
-            );          
+            );
             return Structures.create(
-            	org.opencrx.kernel.home1.jmi1.ImportUsersResult.class, 
-            	Datatypes.member(org.opencrx.kernel.home1.jmi1.ImportUsersResult.Member.statusMessage, statusMessage)                	
+            	org.opencrx.kernel.home1.jmi1.ImportUsersResult.class,
+            	Datatypes.member(org.opencrx.kernel.home1.jmi1.ImportUsersResult.Member.statusMessage, statusMessage)
             );            
         } catch(ServiceException e) {
             throw new JmiServiceException(e);
         }                
+    }
+    
+    /**
+     * Import principals.
+     * 
+     * @param params
+     * @return
+     */
+    public org.opencrx.kernel.home1.jmi1.ImportPrincipalsResult importPrincipals(
+		org.opencrx.kernel.home1.jmi1.ImportPrincipalsParams params
+    ) {
+        try {
+            String statusMessage = UserHomes.getInstance().importPrincipals(
+                this.sameObject(),
+                params.getItem()
+            );
+            return Structures.create(
+            	org.opencrx.kernel.home1.jmi1.ImportPrincipalsResult.class,
+            	Datatypes.member(org.opencrx.kernel.home1.jmi1.ImportPrincipalsResult.Member.statusMessage, statusMessage)
+            );
+        } catch(ServiceException e) {
+            throw new JmiServiceException(e);
+        }
     }
     
 }
