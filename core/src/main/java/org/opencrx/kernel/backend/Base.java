@@ -186,6 +186,9 @@ import org.w3c.cci2.BinaryLargeObjects;
 import org.w3c.spi2.Datatypes;
 import org.w3c.spi2.Structures;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 /**
  * Base backend class.
  *
@@ -1746,9 +1749,77 @@ public class Base extends AbstractImpl {
     	return hashValue;
     }
 
+    /**
+     * UiMetadata
+     */
+    public static class DefaultMetadata {
+    	/**
+		 * @return the title
+		 */
+		public String getTitle() {
+			return title;
+		}
+		/**
+		 * @param title the title to set
+		 */
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		/**
+		 * @return the shortTitle
+		 */
+		public String getShortTitle() {
+			return shortTitle;
+		}
+		/**
+		 * @param shortTitle the shortTitle to set
+		 */
+		public void setShortTitle(String shortTitle) {
+			this.shortTitle = shortTitle;
+		}
+		private String title;
+    	private String shortTitle;
+    }
+    
+    /**
+     * Get metadata for given object and category.
+     * 
+     * @param object
+     * @param locale
+     * @param category
+     * @return
+     * @throws ServiceException
+     */
+    public String getMetadata(
+    	org.opencrx.kernel.base.jmi1.MetadataCapable object,
+    	Short locale,
+    	String category
+    ) throws ServiceException {
+    	if(category == null || category.isEmpty() || "Default".equalsIgnoreCase(category)) {
+    		DefaultMetadata metadata = new DefaultMetadata();
+    		metadata.setTitle(this.getTitle(
+				object,
+				null, // codeMapper
+				locale,
+				false // asShortTitle
+			));
+    		metadata.setShortTitle(this.getTitle(
+				object,
+				null, // codeMapper
+				locale,
+				true // asShortTitle
+			));
+    		return gson.toJson(metadata);
+    	} else {
+    		return "{}";
+    	}
+    }
+
 	//-------------------------------------------------------------------------
     // Members
     //-------------------------------------------------------------------------
+    private static final Gson gson = new GsonBuilder().create();
+
 	public static final String PRIVATE_SUFFIX = "~Private";
 
     public static final short IMPORT_EXPORT_OK = 0;

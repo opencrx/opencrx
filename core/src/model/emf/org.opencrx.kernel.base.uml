@@ -1254,7 +1254,7 @@
               </defaultValue>
             </ownedAttribute>
           </packagedElement>
-          <packagedElement xmi:type="uml:Class" xmi:id="_7j70oGB8EeGv4JgTBvupNw" name="UserDefined" isAbstract="true">
+          <packagedElement xmi:type="uml:Class" xmi:id="_7j70oGB8EeGv4JgTBvupNw" name="UserDefined" visibility="public" isAbstract="true">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5_jl4GB-EeGv4JgTBvupNw" source="http://www.eclipse.org/uml2/2.0.0/UML">
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7Mw_4GB-EeGv4JgTBvupNw" key="root"/>
             </eAnnotations>
@@ -1456,6 +1456,36 @@
               </qualifier>
             </ownedEnd>
             <ownedEnd xmi:type="uml:Property" xmi:id="_MO4d0IOYEemmaKCm0goXMQ" name="hashable" type="_PYJRoIOUEemmaKCm0goXMQ" association="_MOus0IOYEemmaKCm0goXMQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_X7EXoNKbEe-Ct5a6Q_-E7Q" name="MetadataCapable">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QLmVENKcEe-Ct5a6Q_-E7Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ScuDINKcEe-Ct5a6Q_-E7Q" key="root" value="null"/>
+            </eAnnotations>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_jRH0cNKcEe-Ct5a6Q_-E7Q" name="getMetadata" isQuery="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_0bcV8NKdEe-Ct5a6Q_-E7Q" name="in" type="_m3pPMNKcEe-Ct5a6Q_-E7Q"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_8_ezkNKdEe-Ct5a6Q_-E7Q" type="_sL6lMNKcEe-Ct5a6Q_-E7Q" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_m3pPMNKcEe-Ct5a6Q_-E7Q" name="GetMetadataParams">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CM23YNKeEe-Ct5a6Q_-E7Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DMOpsNKeEe-Ct5a6Q_-E7Q" key="struct" value="null"/>
+            </eAnnotations>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_wlDvsNKcEe-Ct5a6Q_-E7Q" name="category">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_08Y8UNKcEe-Ct5a6Q_-E7Q"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_UTds4NKdEe-Ct5a6Q_-E7Q" name="locale">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B63110001"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XmTWoNKdEe-Ct5a6Q_-E7Q"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_sL6lMNKcEe-Ct5a6Q_-E7Q" name="GetMetadataResult">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F7CZUNKeEe-Ct5a6Q_-E7Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G9DP8NKeEe-Ct5a6Q_-E7Q" key="struct" value="null"/>
+            </eAnnotations>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_pJybgNKdEe-Ct5a6Q_-E7Q" name="metadata">
+              <type xmi:type="uml:PrimitiveType" href="../openMDX%202%20~%20Core%20(EMF)/org.w3c.uml#_3C7B8A60016D3C8B62E40010"/>
+            </ownedAttribute>
           </packagedElement>
         </packagedElement>
       </packagedElement>
