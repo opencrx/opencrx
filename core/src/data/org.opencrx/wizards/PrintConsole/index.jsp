@@ -67,8 +67,8 @@ org.openmdx.kernel.log.*
 " %>
 <%
 	request.setCharacterEncoding("UTF-8");
-	ApplicationContext app = (ApplicationContext)session.getValue("ObjectInspectorServlet.ApplicationContext");
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ApplicationContext app = (ApplicationContext)session.getAttribute("ObjectInspectorServlet.ApplicationContext");
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	String requestId =  request.getParameter(Action.PARAMETER_REQUEST_ID);
 	if(app == null) {
 		response.sendRedirect(

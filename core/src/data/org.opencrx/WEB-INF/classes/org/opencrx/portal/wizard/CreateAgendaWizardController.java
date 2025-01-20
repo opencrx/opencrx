@@ -55,10 +55,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 
@@ -71,6 +67,11 @@ import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JsfWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
+
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
 
 /**
  * CreateAgendaWizardController
@@ -222,7 +223,7 @@ public class CreateAgendaWizardController extends JsfWizardController {
 	 * @throws ServiceException
 	 */
 	public void doCreate(
-		javax.faces.event.AjaxBehaviorEvent event		
+		jakarta.faces.event.AjaxBehaviorEvent event		
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();

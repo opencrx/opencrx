@@ -62,8 +62,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.TimeZone;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 
@@ -114,6 +112,9 @@ import org.openmdx.base.persistence.cci.PersistenceHelper;
 import org.openmdx.base.rest.cci.QueryExtensionRecord;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JsfWizardController;
+
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
 
 /**
  * BulkActivityManager
@@ -668,7 +669,7 @@ public class BulkActivityManager extends JsfWizardController {
 		   	 * @throws ServiceException
 		   	 */
 		   	public void findAssignTo(
-		   		javax.faces.event.AjaxBehaviorEvent event
+		   		jakarta.faces.event.AjaxBehaviorEvent event
 		   	) throws ServiceException {
 		   		Path path = BulkActivityManager.this.getObjectIdentity();
 		   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
@@ -690,7 +691,7 @@ public class BulkActivityManager extends JsfWizardController {
 		   	 * @throws ServiceException
 		   	 */
 		   	public void findFollowUp1Transition(
-		   		javax.faces.event.AjaxBehaviorEvent event
+		   		jakarta.faces.event.AjaxBehaviorEvent event
 		   	) throws ServiceException {
 		   		Path path = new Path(this.getActivityProcessState().getXri());
 		   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
@@ -712,7 +713,7 @@ public class BulkActivityManager extends JsfWizardController {
 		   	 * @throws ServiceException
 		   	 */
 		   	public void findFollowUp2Transition(
-		   		javax.faces.event.AjaxBehaviorEvent event
+		   		jakarta.faces.event.AjaxBehaviorEvent event
 		   	) throws ServiceException {
 		   		Path path = new Path(this.getActivityProcessState().getXri());
 		   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
@@ -736,7 +737,7 @@ public class BulkActivityManager extends JsfWizardController {
 			 * @throws ServiceException
 			 */
 			public void doBulkActivityFollowUp(
-				javax.faces.event.AjaxBehaviorEvent event
+				jakarta.faces.event.AjaxBehaviorEvent event
 			) throws ServiceException {
 				PersistenceManager pm = BulkActivityManager.this.getPm();
 				ApplicationContext app = BulkActivityManager.this.getApp();
@@ -1078,7 +1079,7 @@ public class BulkActivityManager extends JsfWizardController {
 	   	 * @throws ServiceException
 	   	 */
 	   	public void findTargetGroupEMail1(
-	   		javax.faces.event.AjaxBehaviorEvent event
+	   		jakarta.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
 	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
@@ -1100,7 +1101,7 @@ public class BulkActivityManager extends JsfWizardController {
 	   	 * @throws ServiceException
 	   	 */
 	   	public void findTargetGroupEMail2(
-	   		javax.faces.event.AjaxBehaviorEvent event
+	   		jakarta.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
 	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
@@ -1122,7 +1123,7 @@ public class BulkActivityManager extends JsfWizardController {
 	   	 * @throws ServiceException
 	   	 */
 	   	public void findTargetGroupEMail3(
-	   		javax.faces.event.AjaxBehaviorEvent event
+	   		jakarta.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
 	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
@@ -1144,7 +1145,7 @@ public class BulkActivityManager extends JsfWizardController {
 	   	 * @throws ServiceException
 	   	 */
 	   	public void findSenderEMail(
-	   		javax.faces.event.AjaxBehaviorEvent event
+	   		jakarta.faces.event.AjaxBehaviorEvent event
 	   	) throws ServiceException {
 	   		Path path = BulkActivityManager.this.getObjectIdentity();
 	   		JsfWizardController.QueryBean queryBean = new JsfWizardController.QueryBean();
@@ -1168,7 +1169,7 @@ public class BulkActivityManager extends JsfWizardController {
 		 * @throws ServiceException
 		 */
 		public void doBulkCreateActivity(
-			javax.faces.event.AjaxBehaviorEvent event
+			jakarta.faces.event.AjaxBehaviorEvent event
 		) throws ServiceException {
 			PersistenceManager pm = BulkActivityManager.this.getPm();
 			ApplicationContext app = BulkActivityManager.this.getApp();
@@ -1379,7 +1380,7 @@ public class BulkActivityManager extends JsfWizardController {
 		 * @throws ServiceException
 		 */
 		public void saveActivityTemplate(
-			javax.faces.event.AjaxBehaviorEvent event		
+			jakarta.faces.event.AjaxBehaviorEvent event		
 		) throws ServiceException {
 			PersistenceManager pm = BulkActivityManager.this.getPm();
 			ActivityTemplateBean activityTemplateBean = this.getActivityTemplate();
@@ -2555,7 +2556,7 @@ public class BulkActivityManager extends JsfWizardController {
    	 * @throws ServiceException
    	 */
    	public void doRefreshWfProcesses(
-   		javax.faces.event.AjaxBehaviorEvent event   		
+   		jakarta.faces.event.AjaxBehaviorEvent event   		
    	) throws ServiceException {
    		this.refreshWfProcesses(this.getData());
    	}
@@ -2567,7 +2568,7 @@ public class BulkActivityManager extends JsfWizardController {
    	 * @throws ServiceException
    	 */
    	public void doRefresh(
-   		javax.faces.event.AjaxBehaviorEvent event   		
+   		jakarta.faces.event.AjaxBehaviorEvent event   		
    	) throws ServiceException {
    		this.data = this.newData();
    	}

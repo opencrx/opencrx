@@ -69,8 +69,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jmi.reflect.RefStruct;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpSession;
 
 import org.opencrx.kernel.account1.cci2.AccountQuery;
 import org.opencrx.kernel.account1.jmi1.Account;

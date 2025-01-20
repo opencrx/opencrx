@@ -55,9 +55,9 @@ import java.util.Map;
 
 import javax.jdo.PersistenceManager;
 import javax.jmi.reflect.RefObject;
-import javax.mail.Address;
-import javax.mail.Message;
-import javax.mail.Session;
+import jakarta.mail.Address;
+import jakarta.mail.Message;
+import jakarta.mail.Session;
 
 import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.home1.jmi1.EMailAccount;
@@ -72,7 +72,7 @@ import org.openmdx.base.naming.Path;
 public class SendMailWorkflow extends MailWorkflow {
 
     /* (non-Javadoc)
-     * @see org.opencrx.application.mail.exporter.MailWorkflow#setRecipients(javax.mail.Message, javax.jdo.PersistenceManager, org.openmdx.base.naming.Path, org.opencrx.kernel.home1.jmi1.EMailAccount, java.lang.String)
+     * @see org.opencrx.application.mail.exporter.MailWorkflow#setRecipients(jakarta.mail.Message, javax.jdo.PersistenceManager, org.openmdx.base.naming.Path, org.opencrx.kernel.home1.jmi1.EMailAccount, java.lang.String)
      */
     @Override
     protected Address[] setRecipients(
@@ -100,7 +100,7 @@ public class SendMailWorkflow extends MailWorkflow {
     }
 
     /* (non-Javadoc)
-     * @see org.opencrx.application.mail.exporter.MailWorkflow#setContent(javax.mail.Message, javax.mail.Session, javax.jdo.PersistenceManager, org.openmdx.base.naming.Path, org.openmdx.base.naming.Path, org.opencrx.kernel.home1.jmi1.UserHome, java.util.Map)
+     * @see org.opencrx.application.mail.exporter.MailWorkflow#setContent(jakarta.mail.Message, jakarta.mail.Session, javax.jdo.PersistenceManager, org.openmdx.base.naming.Path, org.openmdx.base.naming.Path, org.opencrx.kernel.home1.jmi1.UserHome, java.util.Map)
      */
     @Override
     protected String setContent(

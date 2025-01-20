@@ -64,6 +64,9 @@ repositories {
     maven {
         url = uri("https://www.openmdx.org/repos/releases")
     }
+    maven {
+        url = uri("https://www.openmdx.org/repos/releases")
+    }    
 }
 
 var env = Properties()
@@ -72,7 +75,7 @@ val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
 
 eclipse {
 	project {
-    	name = "openCRX 5 ~ Core"
+    	name = "openCRX 6 ~ Core"
     }
     jdt {
 		sourceCompatibility = targetPlatform

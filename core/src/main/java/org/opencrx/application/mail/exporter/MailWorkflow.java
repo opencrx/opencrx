@@ -64,16 +64,16 @@ import java.util.regex.Pattern;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
-import javax.mail.Address;
-import javax.mail.AuthenticationFailedException;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.SendFailedException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.Address;
+import jakarta.mail.AuthenticationFailedException;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.SendFailedException;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 

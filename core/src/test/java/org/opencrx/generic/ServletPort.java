@@ -62,27 +62,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.resource.ResourceException;
-import javax.resource.cci.Interaction;
-import javax.servlet.AsyncContext;
-import javax.servlet.DispatcherType;
-import javax.servlet.ReadListener;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.WriteListener;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpUpgradeHandler;
-import javax.servlet.http.Part;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
@@ -106,6 +85,29 @@ import org.openmdx.kernel.exception.BasicException;
 import org.openmdx.kernel.id.UUIDs;
 import org.w3c.cci2.CharacterLargeObjects;
 import org.xml.sax.InputSource;
+
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.Interaction;
+import jakarta.servlet.AsyncContext;
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletConnection;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.WriteListener;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpUpgradeHandler;
+import jakarta.servlet.http.Part;
 /**
  * Servlet Port
  */
@@ -165,7 +167,7 @@ public class ServletPort implements Port<RestConnection>
      */
     protected static String[] NO_VALUES = {};
     /* (non-Javadoc)
-     * @see org.openmdx.base.resource.spi.Port#getInteraction(javax.resource.cci.Connection)
+     * @see org.openmdx.base.resource.spi.Port#getInteraction(jakarta.resource.cci.Connection)
      */
     
     @Override
@@ -245,14 +247,14 @@ public class ServletPort implements Port<RestConnection>
                 }
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getAttribute(java.lang.String)
+             * @see jakarta.servlet.http.HttpSession#getAttribute(java.lang.String)
              */
             public Object getAttribute(String name) {
                 validate();
                 return this.attributes.get(name);
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getAttributeNames()
+             * @see jakarta.servlet.http.HttpSession#getAttributeNames()
              */
             @SuppressWarnings({
 			    "rawtypes", "unchecked"
@@ -262,95 +264,88 @@ public class ServletPort implements Port<RestConnection>
                 return Collections.enumeration(this.attributes.keySet());
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getCreationTime()
+             * @see jakarta.servlet.http.HttpSession#getCreationTime()
              */
             public long getCreationTime() {
                 validate();
                 return this.created;
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getId()
+             * @see jakarta.servlet.http.HttpSession#getId()
              */
             public String getId() {
                 return this.id;
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getLastAccessedTime()
+             * @see jakarta.servlet.http.HttpSession#getLastAccessedTime()
              */
             public long getLastAccessedTime() {
                 return this.accessed;
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getMaxInactiveInterval()
+             * @see jakarta.servlet.http.HttpSession#getMaxInactiveInterval()
              */
             public int getMaxInactiveInterval() {
                 throw new UnsupportedOperationException();
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getServletContext()
+             * @see jakarta.servlet.http.HttpSession#getServletContext()
              */
             public ServletContext getServletContext() {
                 throw new UnsupportedOperationException();
             }
-            /**
-             * @deprecated
-             */
-            @SuppressWarnings("dep-ann")
-            public javax.servlet.http.HttpSessionContext getSessionContext() {
-                throw new UnsupportedOperationException();
-            }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getValue(java.lang.String)
+             * @see jakarta.servlet.http.HttpSession#getValue(java.lang.String)
              */
             public Object getValue(String name) {
                 throw new UnsupportedOperationException();
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#getValueNames()
+             * @see jakarta.servlet.http.HttpSession#getValueNames()
              */
             public String[] getValueNames() {
                 throw new UnsupportedOperationException();
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#invalidate()
+             * @see jakarta.servlet.http.HttpSession#invalidate()
              */
             public void invalidate() {
                 this.created = -1;
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#isNew()
+             * @see jakarta.servlet.http.HttpSession#isNew()
              */
             public boolean isNew() {
                 return this.accessed < 0;
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#putValue(java.lang.String, java.lang.Object)
+             * @see jakarta.servlet.http.HttpSession#putValue(java.lang.String, java.lang.Object)
              */
             public void putValue(String name, Object value) {
                 throw new UnsupportedOperationException();
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#removeAttribute(java.lang.String)
+             * @see jakarta.servlet.http.HttpSession#removeAttribute(java.lang.String)
              */
             public void removeAttribute(String name) {
                 validate();
                 this.attributes.remove(name);
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#removeValue(java.lang.String)
+             * @see jakarta.servlet.http.HttpSession#removeValue(java.lang.String)
              */
             public void removeValue(String name) {
                 throw new UnsupportedOperationException();
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#setAttribute(java.lang.String, java.lang.Object)
+             * @see jakarta.servlet.http.HttpSession#setAttribute(java.lang.String, java.lang.Object)
              */
             public void setAttribute(String name, Object value) {
                 validate();
                 this.attributes.put(name, value);
             }
             /* (non-Javadoc)
-             * @see javax.servlet.http.HttpSession#setMaxInactiveInterval(int)
+             * @see jakarta.servlet.http.HttpSession#setMaxInactiveInterval(int)
              */
             public void setMaxInactiveInterval(int interval) {
                 throw new UnsupportedOperationException();
@@ -403,7 +398,6 @@ public class ServletPort implements Port<RestConnection>
              * @param interactionSpec
              * @param xri
              */
-            @SuppressWarnings("unchecked")
 			ServletMessage(
                 RestInteractionSpec interactionSpec,
                 Path xri
@@ -478,83 +472,75 @@ public class ServletPort implements Port<RestConnection>
             class EmbeddedRequest implements HttpServletRequest {
                 private final Map<String,String> headers = new HashMap<String,String>();
                 private final Map<String,String[]> parameters = new HashMap<String,String[]>();
-            //  @Override
+                @Override
                 public String getAuthType() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getContextPath() {
                    return CONTEXT_PATH;
                 }
-            //  @Override
+                @Override
                 public Cookie[] getCookies() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public long getDateHeader(String name) {
                     return Long.parseLong(getHeader(name));
                 }
-            //  @Override
+                @Override
                 public String getHeader(String name) {
                     return this.headers.get(name.toLowerCase());
                 }
-            //  @Override
-                @SuppressWarnings({
-				    "rawtypes", "unchecked"
-				})
-                public Enumeration getHeaderNames() {
+                @Override
+                public Enumeration<String> getHeaderNames() {
                     return Collections.enumeration(
                         this.headers.keySet()
                     );
                 }
-            //  @Override
-                @SuppressWarnings({
-				    "rawtypes", "unchecked"
-				})
-                public Enumeration getHeaders(String name) {
+                @Override
+                public Enumeration<String> getHeaders(String name) {
                     String header = this.headers.get(name.toLowerCase());
                     final String[] values = header == null ? NO_VALUES : header.split(",");
-                    return new Enumeration(){
+                    return new Enumeration<String>(){
                         private int cursor = 0;
-                    //  @Override
                         public boolean hasMoreElements() {
                             return this.cursor < values.length;
                         }
-                    //  @Override
-                        public Object nextElement() {
+                        public String nextElement() {
                             return values[this.cursor++].trim();
                         }
                     };
                 }
-            //  @Override
+                @Override
                 public int getIntHeader(String name) {
                     return Integer.parseInt(getHeader(name));
                 }
-            //  @Override
+                @Override
                 public String getMethod() {
                     return ServletMessage.this.interactionSpec.getFunctionName();
                 }
-            //  @Override
+                @Override
                 public String getPathInfo() {
                     return null; // Assume default servlet mapping ("/")
                 }
-            //  @Override
+                @Override
                 public String getPathTranslated() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getQueryString() {
                     return null;
                 }
-            //  @Override
+                @Override
                 public String getRemoteUser() {
                     return remoteUser;
                 }
-            //  @Override
+                @Override
                 public String getRequestURI() {
                     return getContextPath() + URITransformation.encode(ServletMessage.this.servletPath);
                 }
-            //  @Override
+                @Override
                 public StringBuffer getRequestURL() {
                     return new StringBuffer(
                         ServletInteraction.this.contextURL
@@ -562,58 +548,51 @@ public class ServletPort implements Port<RestConnection>
                         URITransformation.encode(ServletMessage.this.servletPath)
                     );
                 }
-            //  @Override
+                @Override
                 public String getRequestedSessionId() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getServletPath() {
                     return ServletMessage.this.servletPath;
                 }
-            //  @Override
+                @Override
                 public HttpSession getSession() {
                     return getSession(true);
                 }
-            //  @Override
+                @Override
                 public HttpSession getSession(boolean create) {
                     return ServletInteraction.this.session;
                 }
-            //  @Override
+                @Override
                 public Principal getUserPrincipal() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public boolean isRequestedSessionIdFromCookie() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public boolean isRequestedSessionIdFromURL() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
-                public boolean isRequestedSessionIdFromUrl() {
-                    throw new UnsupportedOperationException();
-                }
-            //  @Override
+                @Override
                 public boolean isRequestedSessionIdValid() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public boolean isUserInRole(String role) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public Object getAttribute(String name) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
-                @SuppressWarnings({
-				    "rawtypes", "unchecked"
-				})
-                public Enumeration getAttributeNames() {
+                @Override
+                public Enumeration<String> getAttributeNames() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getCharacterEncoding() {
                     HttpHeaderFieldContent contentType = new HttpHeaderFieldValue(
                         request.getHeaders("Content-Type")
@@ -636,7 +615,7 @@ public class ServletPort implements Port<RestConnection>
                         }
                     }
                 }
-            //  @Override
+                @Override                
                 public int getContentLength() {
                     String contentLength = headers.get("content-length");
                     try {
@@ -645,176 +624,161 @@ public class ServletPort implements Port<RestConnection>
                         return -1;
                     }
                 }
-            //  @Override
+                @Override
                 public String getContentType() {
                     return request.getHeader("Content-Type");
                 }
-            //  @Override
+                @Override
                 public ServletInputStream getInputStream(
                 ) throws IOException {
                     return ServletMessage.this.outputTarget.body.getBinarySource();
                 }
-            //  @Override
+                @Override
                 public String getLocalAddr(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getLocalName() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public int getLocalPort() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public Locale getLocale() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
-                @SuppressWarnings({
-				    "rawtypes", "unchecked"
-				})
-                public Enumeration getLocales() {
+                @Override
+                public Enumeration<Locale> getLocales() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getParameter(String name) {
                     String[] values = getParameterValues(name);
                     return values == null || values.length == 0 ? null : values[0];
                 }
-            //  @Override
-                @SuppressWarnings({
-				    "rawtypes", "unchecked"
-				})
-                public Map getParameterMap() {
+                @Override
+                public Map<String, String[]> getParameterMap() {
                     return this.parameters;
                 }
-            //  @Override
-                @SuppressWarnings({
-				    "rawtypes", "unchecked"
-				})
-                public Enumeration getParameterNames() {
+                @Override
+                public Enumeration<String> getParameterNames() {
                     return Collections.enumeration(this.parameters.keySet());
                 }
-            //  @Override
+                @Override
                 public String[] getParameterValues(String name) {
                     return this.parameters.get(name);
                 }
-            //  @Override
+                @Override
                 public String getProtocol() {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public BufferedReader getReader(
                 ) throws IOException {
                     return new BufferedReader(
                         ServletMessage.this.outputTarget.body.getCharacterSource()
                     );
                 }
-            //  @Override
-                public String getRealPath(
-                    String path
-                ) {
-                    throw new UnsupportedOperationException();
-                }
-            //  @Override
+                @Override
                 public String getRemoteAddr(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getRemoteHost(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public int getRemotePort(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public RequestDispatcher getRequestDispatcher(
                     String path
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getScheme(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public String getServerName(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public int getServerPort(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public boolean isSecure(
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public void removeAttribute(
                     String name
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public void setAttribute(
                     String name,
                     Object o
                 ) {
                     throw new UnsupportedOperationException();
                 }
-            //  @Override
+                @Override
                 public void setCharacterEncoding(
                     String env
                 ) throws UnsupportedEncodingException {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.ServletRequest#getAsyncContext()
+                 * @see jakarta.servlet.ServletRequest#getAsyncContext()
                  */
                 @Override
                 public AsyncContext getAsyncContext() {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.ServletRequest#getDispatcherType()
+                 * @see jakarta.servlet.ServletRequest#getDispatcherType()
                  */
                 @Override
                 public DispatcherType getDispatcherType() {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.ServletRequest#getServletContext()
+                 * @see jakarta.servlet.ServletRequest#getServletContext()
                  */
                 @Override
                 public ServletContext getServletContext() {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.ServletRequest#isAsyncStarted()
+                 * @see jakarta.servlet.ServletRequest#isAsyncStarted()
                  */
                 @Override
                 public boolean isAsyncStarted() {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.ServletRequest#isAsyncSupported()
+                 * @see jakarta.servlet.ServletRequest#isAsyncSupported()
                  */
                 @Override
                 public boolean isAsyncSupported() {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.ServletRequest#startAsync()
+                 * @see jakarta.servlet.ServletRequest#startAsync()
                  */
                 @Override
                 public AsyncContext startAsync()
@@ -822,7 +786,7 @@ public class ServletPort implements Port<RestConnection>
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.ServletRequest#startAsync(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+                 * @see jakarta.servlet.ServletRequest#startAsync(jakarta.servlet.ServletRequest, jakarta.servlet.ServletResponse)
                  */
                 @Override
                 public AsyncContext startAsync(
@@ -832,7 +796,7 @@ public class ServletPort implements Port<RestConnection>
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletRequest#authenticate(javax.servlet.http.HttpServletResponse)
+                 * @see jakarta.servlet.http.HttpServletRequest#authenticate(jakarta.servlet.http.HttpServletResponse)
                  */
                 @Override
                 public boolean authenticate(HttpServletResponse arg0)
@@ -840,7 +804,7 @@ public class ServletPort implements Port<RestConnection>
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletRequest#getPart(java.lang.String)
+                 * @see jakarta.servlet.http.HttpServletRequest#getPart(java.lang.String)
                  */
                 @Override
                 public Part getPart(String arg0)
@@ -848,7 +812,7 @@ public class ServletPort implements Port<RestConnection>
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletRequest#getParts()
+                 * @see jakarta.servlet.http.HttpServletRequest#getParts()
                  */
                 @Override
                 public Collection<Part> getParts()
@@ -856,7 +820,7 @@ public class ServletPort implements Port<RestConnection>
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletRequest#login(java.lang.String, java.lang.String)
+                 * @see jakarta.servlet.http.HttpServletRequest#login(java.lang.String, java.lang.String)
                  */
                 @Override
                 public void login(String arg0, String arg1)
@@ -864,7 +828,7 @@ public class ServletPort implements Port<RestConnection>
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletRequest#logout()
+                 * @see jakarta.servlet.http.HttpServletRequest#logout()
                  */
                 @Override
                 public void logout()
@@ -884,6 +848,21 @@ public class ServletPort implements Port<RestConnection>
 				@Override
 				public <T extends HttpUpgradeHandler> T upgrade(Class<T> handlerClass)
 						throws IOException, ServletException {
+					// TODO Auto-generated method stub
+					return null;
+				}
+				@Override
+				public String getRequestId() {
+					// TODO Auto-generated method stub
+					return null;
+				}
+				@Override
+				public String getProtocolRequestId() {
+					// TODO Auto-generated method stub
+					return null;
+				}
+				@Override
+				public ServletConnection getServletConnection() {
 					// TODO Auto-generated method stub
 					return null;
 				}
@@ -1086,28 +1065,28 @@ public class ServletPort implements Port<RestConnection>
                     this.locale = loc;
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletResponse#getHeader(java.lang.String)
+                 * @see jakarta.servlet.http.HttpServletResponse#getHeader(java.lang.String)
                  */
                 @Override
                 public String getHeader(String arg0) {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletResponse#getHeaderNames()
+                 * @see jakarta.servlet.http.HttpServletResponse#getHeaderNames()
                  */
                 @Override
                 public Collection<String> getHeaderNames() {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletResponse#getHeaders(java.lang.String)
+                 * @see jakarta.servlet.http.HttpServletResponse#getHeaders(java.lang.String)
                  */
                 @Override
                 public Collection<String> getHeaders(String arg0) {
                     throw new UnsupportedOperationException();
                 }
                 /* (non-Javadoc)
-                 * @see javax.servlet.http.HttpServletResponse#getStatus()
+                 * @see jakarta.servlet.http.HttpServletResponse#getStatus()
                  */
                 @Override
                 public int getStatus() {

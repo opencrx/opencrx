@@ -57,7 +57,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.opencrx.kernel.backend.Base;
 import org.opencrx.kernel.backend.Products;

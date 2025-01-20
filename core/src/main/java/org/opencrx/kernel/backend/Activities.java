@@ -78,20 +78,20 @@ import java.util.zip.ZipOutputStream;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
-import javax.mail.Address;
-import javax.mail.Message;
-import javax.mail.Message.RecipientType;
-import javax.mail.MessagingException;
-import javax.mail.Part;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.InternetHeaders;
-import javax.mail.internet.MailDateFormat;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.mail.internet.MimePart;
-import javax.mail.internet.MimeUtility;
+import jakarta.mail.Address;
+import jakarta.mail.Message;
+import jakarta.mail.Message.RecipientType;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Part;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.InternetHeaders;
+import jakarta.mail.internet.MailDateFormat;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
+import jakarta.mail.internet.MimePart;
+import jakarta.mail.internet.MimeUtility;
 
 import org.omg.mof.spi.Names;
 import org.opencrx.kernel.account1.jmi1.AccountAddress;
@@ -4905,7 +4905,7 @@ public class Activities extends AbstractImpl {
      * @throws AddressException
      */
     public String[] getInternetAddresses(
-        javax.mail.Address[] addresses
+        jakarta.mail.Address[] addresses
     ) throws AddressException {
         String internetAddresses[] = null;
         if (addresses != null && addresses.length > 0) {
@@ -4981,10 +4981,10 @@ public class Activities extends AbstractImpl {
     	String providerName = email.refGetPath().getSegment(2).toString();
     	String segmentName = email.refGetPath().getSegment(4).toString();
         MailDateFormat mailDateFormat = new MailDateFormat();
-        javax.mail.Address[] addressesFrom = mimeMessage.getFrom();
-        javax.mail.Address[] addressesTo = mimeMessage.getRecipients(Message.RecipientType.TO);
-        javax.mail.Address[] addressesCc = mimeMessage.getRecipients(Message.RecipientType.CC);
-        javax.mail.Address[] addressesBcc = mimeMessage.getRecipients(Message.RecipientType.BCC);        
+        jakarta.mail.Address[] addressesFrom = mimeMessage.getFrom();
+        jakarta.mail.Address[] addressesTo = mimeMessage.getRecipients(Message.RecipientType.TO);
+        jakarta.mail.Address[] addressesCc = mimeMessage.getRecipients(Message.RecipientType.CC);
+        jakarta.mail.Address[] addressesBcc = mimeMessage.getRecipients(Message.RecipientType.BCC);        
     	if(isNew) {
             // Update activity step 1
             String subject = mimeMessage.getSubject();

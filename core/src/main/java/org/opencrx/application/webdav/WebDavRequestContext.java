@@ -51,8 +51,8 @@ package org.opencrx.application.webdav;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.application.uses.net.sf.webdav.RequestContext;
 

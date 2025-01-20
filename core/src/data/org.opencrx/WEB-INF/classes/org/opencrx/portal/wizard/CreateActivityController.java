@@ -56,10 +56,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.jdo.PersistenceManager;
 
 import org.opencrx.kernel.account1.jmi1.Account;
@@ -81,6 +77,11 @@ import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JsfWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.spi2.Datatypes;
+
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
 
 /**
  * CreateActivityController
@@ -128,7 +129,7 @@ public class CreateActivityController extends JsfWizardController {
 	 * @throws ServiceException
 	 */
 	public void doCreate(
-   		javax.faces.event.AjaxBehaviorEvent event
+   		jakarta.faces.event.AjaxBehaviorEvent event
 	) throws ServiceException {
 		PersistenceManager pm = this.getPm();
 		ApplicationContext app = this.getApp();

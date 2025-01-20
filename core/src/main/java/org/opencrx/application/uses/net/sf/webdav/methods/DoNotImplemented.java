@@ -69,8 +69,8 @@ package org.opencrx.application.uses.net.sf.webdav.methods;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.application.uses.net.sf.webdav.RequestContext;
 

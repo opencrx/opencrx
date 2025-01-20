@@ -54,8 +54,8 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.application.bpi.datatype.BpiDoFollowUpParams;
 import org.opencrx.kernel.account1.jmi1.Contact;
@@ -77,7 +77,7 @@ import org.w3c.spi2.Structures;
 public class DoFollowUpAction extends BpiAction {
 
 	/* (non-Javadoc)
-	 * @see org.opencrx.application.bpi.adapter.BpiAdapterServlet.Action#handle(org.openmdx.base.naming.Path, javax.jdo.PersistenceManager, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 * @see org.opencrx.application.bpi.adapter.BpiAdapterServlet.Action#handle(org.openmdx.base.naming.Path, javax.jdo.PersistenceManager, jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
 	 */
 	@Override
     public void perform(

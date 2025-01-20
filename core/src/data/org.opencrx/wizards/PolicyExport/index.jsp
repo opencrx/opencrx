@@ -73,8 +73,8 @@ org.apache.poi.hssf.usermodel.*,
 org.apache.poi.hssf.util.*
 " %><%
 	request.setCharacterEncoding("UTF-8");
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	String requestId =  request.getParameter(Action.PARAMETER_REQUEST_ID);
 	String requestIdParam = Action.PARAMETER_REQUEST_ID + "=" + requestId;
 	String objectXri = request.getParameter("xri");

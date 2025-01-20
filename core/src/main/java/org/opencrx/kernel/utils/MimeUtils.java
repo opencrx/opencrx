@@ -56,12 +56,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.mail.Header;
-import javax.mail.MessagingException;
-import javax.mail.Part;
-import javax.mail.Session;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeUtility;
+import jakarta.mail.Header;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Part;
+import jakarta.mail.Session;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeUtility;
 
 public abstract class MimeUtils {
 
@@ -100,7 +100,7 @@ public abstract class MimeUtils {
 	    }
 
 	    /* (non-Javadoc)
-	     * @see javax.mail.Message#getMessageNumber()
+	     * @see jakarta.mail.Message#getMessageNumber()
 	     */
 	    @Override
 	    public int getMessageNumber(
@@ -109,7 +109,7 @@ public abstract class MimeUtils {
 	    }
 
 	    /* (non-Javadoc)
-	     * @see javax.mail.Message#setMessageNumber(int)
+	     * @see jakarta.mail.Message#setMessageNumber(int)
 	     */
 	    @Override
 	    public void setMessageNumber(
@@ -119,7 +119,7 @@ public abstract class MimeUtils {
 	    }
 
 	    /* (non-Javadoc)
-	     * @see javax.mail.internet.MimeMessage#getHeader(java.lang.String, java.lang.String)
+	     * @see jakarta.mail.internet.MimeMessage#getHeader(java.lang.String, java.lang.String)
 	     */
 	    @Override
 	    public String getHeader(

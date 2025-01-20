@@ -54,14 +54,9 @@ import java.util.*
 }
 
 dependencies {
+    implementation(kotlin("stdlib"))	
     implementation(gradleApi())
     implementation(localGroovy())
-}
-
-kotlin {
-    jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of("11"))
-    }
 }
 
 repositories {
@@ -69,25 +64,25 @@ repositories {
 }
 
 var env = Properties()
-env.load(FileInputStream(File(project.getRootDir(), "build.properties")))
+env.load(FileInputStream(File("../", "build.properties")))
 val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
 
 eclipse {
 	project {
-    	name = "openCRX 5 ~ Gradle"
+    	name = "openCRX 6 ~ BuildSrc"
     }
 }
 
-tasks.register<Jar>("opencrx-gradle.jar") {
+tasks.register<Jar>("opencrx-buildSrc.jar") {
 	dependsOn("classes")
 	destinationDirectory.set(File("../jre-" + targetPlatform + "/" + project.getName() + "/lib"))
-    archiveFileName.set("opencrx-gradle.jar")
+    archiveFileName.set("opencrx-buildSrc.jar")
     from(project.layout.buildDirectory.dir("classes/kotlin/main"))
     from(project.layout.buildDirectory.dir("resources/main"))
 	doLast {
 		ant.withGroovyBuilder {
 			"jar"(
-				"destfile" to File("../jre-" + targetPlatform + "/" + project.getName() + "/lib/opencrx-gradle-sources.jar")
+				"destfile" to File("../jre-" + targetPlatform + "/" + project.getName() + "/lib/opencrx-buildSrc-sources.jar")
 			) {
 				"fileset"(
 					"dir" to "src/main/kotlin"
@@ -98,7 +93,7 @@ tasks.register<Jar>("opencrx-gradle.jar") {
 }
 
 tasks.register("deliverables") {
-	dependsOn("opencrx-gradle.jar")
+	dependsOn("opencrx-buildSrc.jar")
 }
 
 tasks {

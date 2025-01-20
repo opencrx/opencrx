@@ -236,8 +236,8 @@ org.apache.poi.poifs.filesystem.POIFSFileSystem
 %>
 <%
   request.setCharacterEncoding("UTF-8");
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	if (app == null) {
 		System.out.println("aborting... (ApplicationContext == null)");
 	    response.sendRedirect(

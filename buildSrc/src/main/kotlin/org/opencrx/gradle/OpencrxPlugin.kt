@@ -188,27 +188,27 @@ open class OpencrxPlugin: Plugin<Project> {
 			}
 		}
         var buildProperties = Properties()
-        buildProperties.put("axis2.version", "1.7.+");
+        buildProperties.put("axis2.version", "1.8.+");
         buildProperties.put("bcprov-jdk16.version", "1.46");
         buildProperties.put("commons-compiler.version", "3.1.+");
         buildProperties.put("groovy.version", "3.0.+");
-        buildProperties.put("gson.version", "2.8.+");
-        buildProperties.put("hsqldb.version", "2.4.+");
+        buildProperties.put("gson.version", "2.11.+");
+        buildProperties.put("hsqldb.version", "2.7.2");
         buildProperties.put("httpclient.version", "4.5.+");
-        buildProperties.put("itextpdf.version", "5.4.+");
+        buildProperties.put("itextpdf.version", "5.5.+");
         buildProperties.put("janino.version", "3.1.+");
-        buildProperties.put("javaee-api.version", "8.0.+");
-        buildProperties.put("jdo-api.version", "3.1");
-        buildProperties.put("libphonenumber.version", "8.12.+");
-        buildProperties.put("openjpa.version", "2.4.+");
-        buildProperties.put("openmdx.version", "2.18.+");
-        buildProperties.put("pdfbox.version", "2.0.+");
-        buildProperties.put("picocli.version", "4.6.+");
-        buildProperties.put("poi.version", "4.1.+");
+        buildProperties.put("jakarta.version", "10.0.+");
+        buildProperties.put("jdo-api.version", "3.2.1");
+        buildProperties.put("libphonenumber.version", "8.13.+");
+        buildProperties.put("openjpa.version", "4.0.+");
+        buildProperties.put("openmdx.version", "4.19.2");
+        buildProperties.put("pdfbox.version", "3.0.+");
+        buildProperties.put("picocli.version", "4.7.+");
+        buildProperties.put("poi.version", "5.4.+");
         buildProperties.put("protobuf-javanano.version", "3.1.+");
         buildProperties.put("smack.version", "3.2.+");
-        buildProperties.put("xmlbeans.version", "3.1.+");
-        buildProperties.put("zxing-core.version", "3.4.+");
+        buildProperties.put("xmlbeans.version", "5.3.+");
+        buildProperties.put("zxing-core.version", "3.5.+");
         var buildPropertiesFile = File(project.getRootDir(), "build.properties")
         // versions
         if(buildPropertiesFile.exists()) {
@@ -224,7 +224,7 @@ open class OpencrxPlugin: Plugin<Project> {
         val httpclientVersion = buildProperties.getProperty("httpclient.version")
         val itextpdfVersion = buildProperties.getProperty("itextpdf.version")
         val janinoVersion = buildProperties.getProperty("janino.version")
-        val javaeeApiVersion = buildProperties.getProperty("javaee-api.version")
+        val jakartaVersion = buildProperties.getProperty("jakarta.version")
         val jdoApiVersion = buildProperties.getProperty("jdo-api.version")
         val libphonenumberVersion = buildProperties.getProperty("libphonenumber.version")
         val openjpaVersion = buildProperties.getProperty("openjpa.version")
@@ -254,7 +254,7 @@ open class OpencrxPlugin: Plugin<Project> {
 		dependencies.add("implementation", "com.itextpdf:itextpdf:${itextpdfVersion}")
         dependencies.add("implementation", "info.picocli:picocli:${picocliVersion}")
 		dependencies.add("implementation", "javax.jdo:jdo-api:${jdoApiVersion}")
-		dependencies.add("implementation", "javax:javaee-api:${javaeeApiVersion}")
+		dependencies.add("implementation", "jakarta.platform:jakarta.jakartaee-api:${jakartaVersion}")
 		dependencies.add("implementation", "org.apache.axis2:axis2:${axis2Version}")
 		dependencies.add("implementation", "org.apache.httpcomponents:httpclient:${httpclientVersion}")
 		dependencies.add("implementation", "org.apache.poi:poi:${poiVersion}")
@@ -306,7 +306,7 @@ open class OpencrxPlugin: Plugin<Project> {
 		dependencies.add("earlib", "org.openmdx:openmdx-security:${openmdxVersion}")
 		// tools
 	    tools.extendsFrom(implementation)
-		dependencies.add("tools", "javax:javaee-api:${javaeeApiVersion}")
+		dependencies.add("tools", "jakarta.platform:jakarta.jakartaee-api:${jakartaVersion}")
 		dependencies.add("tools", "org.apache.openjpa:openjpa:${openjpaVersion}")
 		dependencies.add("tools", "org.hsqldb:hsqldb:${hsqldbVersion}")
 	}

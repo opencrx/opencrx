@@ -56,8 +56,8 @@ import java.util.List;
 
 import javax.jdo.FetchGroup;
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.application.bpi.datatype.BpiCodeTable;
 import org.opencrx.kernel.code1.jmi1.CodeValueContainer;
@@ -71,7 +71,7 @@ import org.openmdx.base.naming.Path;
 public class GetCodeTableAction extends BpiAction {
 
 	/* (non-Javadoc)
-	 * @see org.opencrx.application.bpi.adapter.BpiAdapterServlet.Action#handle(org.openmdx.base.naming.Path, javax.jdo.PersistenceManager, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 * @see org.opencrx.application.bpi.adapter.BpiAdapterServlet.Action#handle(org.openmdx.base.naming.Path, javax.jdo.PersistenceManager, jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
 	 */
 	@Override
     public void perform(

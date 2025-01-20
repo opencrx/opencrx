@@ -68,7 +68,7 @@
 								<div class="col-lg-6">
 									<h:panelGrid styleClass="fieldGroup" columns="3" columnClasses="fieldLabel,inherit,addon">
 										<h:outputLabel for="priority">#{createActivityController.getLabel('org:opencrx:kernel:activity1:Activity:priority')}:</h:outputLabel>
-										<h:selectOneMenu id="priority" class="valueL" value="#{createActivityController.data.priority}" converter="javax.faces.Short">
+										<h:selectOneMenu id="priority" class="valueL" value="#{createActivityController.data.priority}" converter="jakarta.faces.Short">
 											<f:selectItems value="#{createActivityController.getOptions('org:opencrx:kernel:activity1:Activity:priority',false)}" var="item" itemLabel="#{item.title}" itemValue="#{item.value}" />
 										</h:selectOneMenu>
 										<div></div>

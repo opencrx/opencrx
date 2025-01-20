@@ -49,12 +49,12 @@
  */
 package org.opencrx.application.mail.importer;
 
-import javax.mail.Folder;
-import javax.mail.FolderNotFoundException;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Store;
+import jakarta.mail.Folder;
+import jakarta.mail.FolderNotFoundException;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.Store;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 

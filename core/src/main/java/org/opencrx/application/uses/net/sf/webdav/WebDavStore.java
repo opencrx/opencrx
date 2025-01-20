@@ -72,8 +72,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.application.uses.net.sf.webdav.exceptions.LockFailedException;
 import org.opencrx.application.uses.net.sf.webdav.exceptions.WebdavException;

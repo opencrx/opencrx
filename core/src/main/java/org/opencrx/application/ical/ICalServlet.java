@@ -59,9 +59,9 @@ import java.util.GregorianCalendar;
 import java.util.UUID;
 
 import javax.jdo.PersistenceManager;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.kernel.account1.cci2.ContactQuery;
 import org.opencrx.kernel.account1.jmi1.Account;
@@ -433,7 +433,7 @@ public class ICalServlet extends FreeBusyServlet {
     }
 
     /* (non-Javadoc)
-     * @see org.opencrx.application.ical.FreeBusyServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * @see org.opencrx.application.ical.FreeBusyServlet#doGet(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
      */
     @Override
     protected void doGet(

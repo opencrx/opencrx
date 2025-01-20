@@ -71,8 +71,8 @@ import java.net.URLDecoder;
 import java.util.Hashtable;
 import java.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.application.uses.net.sf.webdav.RequestContext;
 import org.opencrx.application.uses.net.sf.webdav.Resource;

@@ -856,8 +856,8 @@ org.openmdx.uses.org.apache.commons.fileupload.*
 
 	// Init
 	request.setCharacterEncoding("UTF-8");
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	String requestId =	null;
 	String objectXri = null;
 	String commandAsString = null;
@@ -1863,7 +1863,7 @@ input.button {
 
 					//System.out.println(contentName + " is " + (isChecked ? "" : "not") + " checked");
 					if (isChecked) {
-						javax.mail.internet.MimeMessage msg = null;
+						jakarta.mail.internet.MimeMessage msg = null;
 						// MIME/EML
 						{
 							msg = new org.opencrx.kernel.utils.MimeUtils.MimeMessageImpl(

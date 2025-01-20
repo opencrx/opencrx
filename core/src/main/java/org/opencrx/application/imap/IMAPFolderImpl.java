@@ -66,13 +66,13 @@ import java.util.TreeMap;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-import javax.mail.Flags;
-import javax.mail.Folder;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.UIDFolder;
-import javax.mail.internet.MimeMessage;
-import javax.mail.search.SearchTerm;
+import jakarta.mail.Flags;
+import jakarta.mail.Folder;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.UIDFolder;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.search.SearchTerm;
 
 import org.opencrx.application.adapter.AbstractSession;
 import org.opencrx.kernel.activity1.cci2.EMailQuery;
@@ -354,7 +354,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
     
     /* (non-Javadoc)
-     * @see javax.mail.Folder#appendMessages(javax.mail.Message[])
+     * @see jakarta.mail.Folder#appendMessages(jakarta.mail.Message[])
      */
     @Override
     public void appendMessages(
@@ -554,7 +554,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
     
     /* (non-Javadoc)
-     * @see javax.mail.Folder#close(boolean)
+     * @see jakarta.mail.Folder#close(boolean)
      */
     @Override
     public void close(boolean arg0) throws MessagingException {
@@ -562,7 +562,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#create(int)
+     * @see jakarta.mail.Folder#create(int)
      */
     @Override
     public boolean create(int arg0) throws MessagingException {
@@ -570,7 +570,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#delete(boolean)
+     * @see jakarta.mail.Folder#delete(boolean)
      */
     @Override
     public boolean delete(
@@ -580,7 +580,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#exists()
+     * @see jakarta.mail.Folder#exists()
      */
     @Override
     public boolean exists(
@@ -589,7 +589,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#expunge()
+     * @see jakarta.mail.Folder#expunge()
      */
     @Override
     public Message[] expunge(
@@ -598,7 +598,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getFolder(java.lang.String)
+     * @see jakarta.mail.Folder#getFolder(java.lang.String)
      */
     @Override
     public Folder getFolder(
@@ -608,7 +608,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getMessage(int)
+     * @see jakarta.mail.Folder#getMessage(int)
      */
     @Override
     public Message getMessage(
@@ -638,7 +638,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getMessageCount()
+     * @see jakarta.mail.Folder#getMessageCount()
      */
     @Override
     public int getMessageCount(
@@ -649,7 +649,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getFullName()
+     * @see jakarta.mail.Folder#getFullName()
      */
     @Override
     public String getFullName(
@@ -658,7 +658,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getName()
+     * @see jakarta.mail.Folder#getName()
      */
     @Override
     public String getName(
@@ -667,7 +667,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getParent()
+     * @see jakarta.mail.Folder#getParent()
      */
     @Override
     public Folder getParent(
@@ -676,7 +676,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getPermanentFlags()
+     * @see jakarta.mail.Folder#getPermanentFlags()
      */
     @Override
     public Flags getPermanentFlags(
@@ -685,7 +685,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getSeparator()
+     * @see jakarta.mail.Folder#getSeparator()
      */
     @Override
     public char getSeparator(
@@ -694,7 +694,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#getType()
+     * @see jakarta.mail.Folder#getType()
      */
     @Override
     public int getType(
@@ -703,7 +703,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#hasNewMessages()
+     * @see jakarta.mail.Folder#hasNewMessages()
      */
     @Override
     public boolean hasNewMessages(
@@ -712,7 +712,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#isOpen()
+     * @see jakarta.mail.Folder#isOpen()
      */
     @Override
     public boolean isOpen(
@@ -721,7 +721,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#list(java.lang.String)
+     * @see jakarta.mail.Folder#list(java.lang.String)
      */
     @Override
     public Folder[] list(
@@ -731,7 +731,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#open(int)
+     * @see jakarta.mail.Folder#open(int)
      */
     @Override
     public void open(
@@ -741,7 +741,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#renameTo(javax.mail.Folder)
+     * @see jakarta.mail.Folder#renameTo(jakarta.mail.Folder)
      */
     @Override
     public boolean renameTo(
@@ -751,7 +751,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.UIDFolder#getMessageByUID(long)
+     * @see jakarta.mail.UIDFolder#getMessageByUID(long)
      */
     @Override
     public Message getMessageByUID(
@@ -775,7 +775,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.UIDFolder#getMessagesByUID(long[])
+     * @see jakarta.mail.UIDFolder#getMessagesByUID(long[])
      */
     @Override
     public Message[] getMessagesByUID(
@@ -785,7 +785,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.UIDFolder#getMessagesByUID(long, long)
+     * @see jakarta.mail.UIDFolder#getMessagesByUID(long, long)
      */
     @Override
     public Message[] getMessagesByUID(
@@ -804,7 +804,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
 
     /* (non-Javadoc)
-     * @see javax.mail.UIDFolder#getUID(javax.mail.Message)
+     * @see jakarta.mail.UIDFolder#getUID(jakarta.mail.Message)
      */
     @Override
     public long getUID(
@@ -815,7 +815,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
 
     
     /* (non-Javadoc)
-     * @see javax.mail.UIDFolder#getUIDValidity()
+     * @see jakarta.mail.UIDFolder#getUIDValidity()
      */
     @Override
     public long getUIDValidity(
@@ -837,7 +837,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
     }
     
 	/* (non-Javadoc)
-	 * @see javax.mail.UIDFolder#getUIDNext()
+	 * @see jakarta.mail.UIDFolder#getUIDNext()
 	 */
 	@Override
 	public long getUIDNext(
@@ -846,7 +846,7 @@ public class IMAPFolderImpl extends Folder implements UIDFolder {
 	}
 
     /* (non-Javadoc)
-     * @see javax.mail.Folder#search(javax.mail.search.SearchTerm)
+     * @see jakarta.mail.Folder#search(jakarta.mail.search.SearchTerm)
      */
     @Override
     public Message[] search(

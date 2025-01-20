@@ -57,15 +57,15 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-import javax.mail.Flags;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.mail.Flags;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.kernel.activity1.jmi1.ActivityGroup;
 import org.opencrx.kernel.activity1.jmi1.ActivityProcess;
@@ -100,7 +100,7 @@ public class MailImporterServlet
     extends HttpServlet {
 
     /* (non-Javadoc)
-     * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
+     * @see jakarta.servlet.Servlet#init(jakarta.servlet.ServletConfig)
      */
     public void init(
         ServletConfig config
@@ -383,7 +383,7 @@ public class MailImporterServlet
     }
 
     /* (non-Javadoc)
-     * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * @see jakarta.servlet.http.HttpServlet#doGet(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
      */
     protected void doGet(
         HttpServletRequest req, 
@@ -398,7 +398,7 @@ public class MailImporterServlet
     }
         
     /* (non-Javadoc)
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * @see jakarta.servlet.http.HttpServlet#doPost(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
      */
     protected void doPost(
         HttpServletRequest req, 

@@ -51,7 +51,7 @@ package org.opencrx.application.shop1.service;
 
 import java.util.Map;
 
-import javax.resource.cci.MappedRecord;
+import jakarta.resource.cci.MappedRecord;
 
 import org.opencrx.application.shop1.cci2.AddActivityFollowUpParams;
 import org.opencrx.application.shop1.cci2.AddCustomerToCustomerContractParams;

@@ -53,8 +53,8 @@ package org.opencrx.kernel.layer.application;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.resource.ResourceException;
-import javax.resource.cci.Interaction;
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.Interaction;
 
 import org.opencrx.kernel.generic.OpenCrxException;
 import org.openmdx.base.dataprovider.cci.DataproviderRequestProcessor;
@@ -110,7 +110,7 @@ public class OpenCrxKernel_2 extends AbstractRestPort {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.base.resource.spi.Port#getInteraction(javax.resource.cci.Connection)
+	 * @see org.openmdx.base.resource.spi.Port#getInteraction(jakarta.resource.cci.Connection)
 	 */
 	@Override
     public Interaction getInteraction(

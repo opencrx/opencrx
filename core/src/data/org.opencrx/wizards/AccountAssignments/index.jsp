@@ -67,8 +67,8 @@ org.openmdx.base.naming.*,
 org.openmdx.base.query.*
 " %><%
 	request.setCharacterEncoding("UTF-8");
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	String requestId = request.getParameter(Action.PARAMETER_REQUEST_ID);
 	String objectXri = request.getParameter("xri");
 	if(objectXri == null || app == null || viewsCache.getView(requestId) == null) {
@@ -141,7 +141,7 @@ org.openmdx.base.query.*
     	Attribute descriptionAttr = null;
     	Attribute modifiedAtAttr = null;
   		Map accountAssignmentInventoryItemValues = null;
-		UserDefinedView userView = (UserDefinedView)session.getValue(FORM_ACTION);
+		UserDefinedView userView = (UserDefinedView)session.getAttribute(FORM_ACTION);
   		if (userView == null) {
     		accountAssignmentInventoryItemValues = new HashMap();
     		userView = new UserDefinedView(

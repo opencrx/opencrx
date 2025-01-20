@@ -49,14 +49,17 @@
  */
 package org.opencrx.kernel.text;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openmdx.base.exception.ServiceException;
+import org.w3c.cci2.BinaryLargeObjects;
 
 /**
  * PDFToText
@@ -74,20 +77,20 @@ public class PDFToText {
     public Reader parse(
         InputStream document
     ) throws ServiceException {
-        PDDocument pdfDocument = null;
+    	PDDocument pdfDocument = null;
         try {
             StringWriter output = new StringWriter();
-            pdfDocument = PDDocument.load(document);
-            if(!pdfDocument.isEncrypted()) {                                          
-                PDFTextStripper stripper = new PDFTextStripper();
-                stripper.setSortByPosition(true);
-                stripper.setStartPage(0);
-                stripper.setEndPage(Integer.MAX_VALUE);
-                stripper.writeText( 
-                    pdfDocument, 
-                    output
-                );
-            }
+            ByteArrayOutputStream documentAsBytes = new ByteArrayOutputStream();
+            BinaryLargeObjects.streamCopy(document, 0L, documentAsBytes);
+            pdfDocument = Loader.loadPDF(documentAsBytes.toByteArray());
+            PDFTextStripper stripper = new PDFTextStripper();
+            stripper.setSortByPosition(true);
+            stripper.setStartPage(0);
+            stripper.setEndPage(Integer.MAX_VALUE);
+            stripper.writeText( 
+                pdfDocument, 
+                output
+            );
             return new StringReader(
                 output.getBuffer().toString()
             );

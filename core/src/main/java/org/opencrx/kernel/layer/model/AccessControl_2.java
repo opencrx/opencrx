@@ -70,10 +70,10 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
-import javax.resource.ResourceException;
-import javax.resource.cci.Connection;
-import javax.resource.cci.Interaction;
-import javax.resource.cci.MappedRecord;
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.Connection;
+import jakarta.resource.cci.Interaction;
+import jakarta.resource.cci.MappedRecord;
 
 import org.opencrx.kernel.generic.OpenCrxException;
 import org.opencrx.kernel.generic.SecurityKeys;
@@ -139,7 +139,7 @@ public class AccessControl_2 extends AbstractRestPort {
 	}
 
     /* (non-Javadoc)
-     * @see org.openmdx.application.dataprovider.layer.model.Standard_1#getInteraction(javax.resource.cci.Connection)
+     * @see org.openmdx.application.dataprovider.layer.model.Standard_1#getInteraction(jakarta.resource.cci.Connection)
      */
 	@Override
     public Interaction getInteraction(

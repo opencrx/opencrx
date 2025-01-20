@@ -54,7 +54,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.opencrx.application.uses.net.sf.webdav.RequestContext;
 import org.opencrx.application.uses.net.sf.webdav.WebDavStore;

@@ -66,7 +66,7 @@ import java.util.TreeMap;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.opencrx.kernel.account1.jmi1.Contact;
@@ -918,7 +918,7 @@ public class CreateWorkAndExpenseRecordController extends JspWizardController {
 	}	
 
 	/* (non-Javadoc)
-	 * @see org.openmdx.portal.servlet.JspWizardController#init(javax.servlet.http.HttpServletRequest, java.lang.String, boolean, boolean)
+	 * @see org.openmdx.portal.servlet.JspWizardController#init(jakarta.servlet.http.HttpServletRequest, java.lang.String, boolean, boolean)
 	 */
 	@Override
     public boolean init(

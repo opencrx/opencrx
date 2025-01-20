@@ -69,13 +69,13 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
-import javax.mail.internet.MimeUtility;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.mail.internet.MimeUtility;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import org.opencrx.kernel.backend.Documents;
 import org.opencrx.kernel.backend.UserHomes;
@@ -490,7 +490,7 @@ public class DocumentFinderServlet extends HttpServlet {
 	}
 
 	/* (non-Javadoc)
-     * @see javax.servlet.GenericServlet#init(javax.servlet.ServletConfig)
+     * @see jakarta.servlet.GenericServlet#init(jakarta.servlet.ServletConfig)
      */
     @Override
     public void init(
@@ -508,7 +508,7 @@ public class DocumentFinderServlet extends HttpServlet {
                 );                
             }
         }
-        this.tempdir = (File)config.getServletContext().getAttribute("javax.servlet.context.tempdir");
+        this.tempdir = (File)config.getServletContext().getAttribute("jakarta.servlet.context.tempdir");
         this.isDebug = Boolean.valueOf(config.getInitParameter("debug"));
         this.checkPermissions = Boolean.valueOf(config.getInitParameter("checkPermissions"));
     }
@@ -1769,7 +1769,7 @@ public class DocumentFinderServlet extends HttpServlet {
     }
 
     /* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 * @see jakarta.servlet.http.HttpServlet#doGet(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	protected void doGet(
@@ -1780,7 +1780,7 @@ public class DocumentFinderServlet extends HttpServlet {
 	}
 
 	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 * @see jakarta.servlet.http.HttpServlet#doPost(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	protected void doPost(

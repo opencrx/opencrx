@@ -72,7 +72,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TimeZone;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 
 /**
  * General purpose request parsing and encoding utility methods.
@@ -108,13 +108,6 @@ public final class RequestUtil {
         buf.append("=");
         buf.append(cookie.getValue());
 
-        String comment = cookie.getComment();
-        if (comment != null) {
-            buf.append("; Comment=\"");
-            buf.append(comment);
-            buf.append("\"");
-        }
-
         String domain = cookie.getDomain();
         if (domain != null) {
             buf.append("; Domain=\"");
@@ -138,13 +131,6 @@ public final class RequestUtil {
 
         if (cookie.getSecure()) {
             buf.append("; Secure");
-        }
-
-        int version = cookie.getVersion();
-        if (version > 0) {
-            buf.append("; Version=\"");
-            buf.append(version);
-            buf.append("\"");
         }
 
         return (buf.toString());

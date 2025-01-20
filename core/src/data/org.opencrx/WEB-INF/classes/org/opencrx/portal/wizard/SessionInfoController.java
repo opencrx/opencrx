@@ -49,17 +49,17 @@
  */
 package org.opencrx.portal.wizard;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
-
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
+
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * SessionInfoController
@@ -289,7 +289,7 @@ public class SessionInfoController extends JspWizardController {
    	 * @throws ServiceException
    	 */
    	public void doRefresh(
-   		javax.faces.event.AjaxBehaviorEvent event
+   		jakarta.faces.event.AjaxBehaviorEvent event
    	) throws ServiceException {
    	}
 
@@ -300,7 +300,7 @@ public class SessionInfoController extends JspWizardController {
    	 * @throws ServiceException
    	 */
    	public void doCancel(
-   		javax.faces.event.AjaxBehaviorEvent event
+   		jakarta.faces.event.AjaxBehaviorEvent event
    	) throws ServiceException {
    		try {
    			Action exitAction = new ObjectReference(this.getObject(), this.getApp()).getSelectObjectAction();

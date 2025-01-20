@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.opencrx.kernel.backend.UserHomes;
 import org.opencrx.kernel.home1.jmi1.UserHome;
