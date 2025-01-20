@@ -57,7 +57,6 @@
 			<fileset dir="image/opencrx-server" targetdir="$INSTALL_PATH" />
 			<!-- Additional files -->
 			<file src="../@{build.target.platform}/core/deployment-unit/opencrx-core-CRX.ear" targetdir="$INSTALL_PATH/installer/files"/>
-			<file src="@{OPENMDX_HOME}/jre-1.8/tomcat/lib/catalina-openmdx.jar" targetdir="$INSTALL_PATH/installer/files"/>
 			<!-- Generic -->
 			<parsable targetfile="$INSTALL_PATH/installer/bin/postinstaller.xml" type="xml" encoding="UTF-8" />
 			<parsable targetfile="$INSTALL_PATH/data/hsqldb/sqltool.rc" encoding="UTF-8" />
