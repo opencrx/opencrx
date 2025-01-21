@@ -63,9 +63,7 @@ repositories {
     mavenCentral()
 }
 
-var env = Properties()
-env.load(FileInputStream(File("../", "build.properties")))
-val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
+val targetPlatform = JavaVersion.valueOf("VERSION_21")
 
 eclipse {
 	project {
@@ -75,7 +73,7 @@ eclipse {
 
 tasks.register<Jar>("opencrx-buildSrc.jar") {
 	dependsOn("classes")
-	destinationDirectory.set(File("../jre-" + targetPlatform + "/" + project.getName() + "/lib"))
+	destinationDirectory.set(File("${rootDir}/jre-" + targetPlatform + "/" + project.getName() + "/lib"))
     archiveFileName.set("opencrx-buildSrc.jar")
     from(project.layout.buildDirectory.dir("classes/kotlin/main"))
     from(project.layout.buildDirectory.dir("resources/main"))

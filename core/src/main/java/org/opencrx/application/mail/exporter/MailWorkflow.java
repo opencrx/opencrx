@@ -530,7 +530,7 @@ public abstract class MailWorkflow extends Workflows.AsynchronousWorkflow {
 	        "Can not send message",
 	        new BasicException.Parameter("workflow", wfProcessInstance.refGetPath().toXRI()),
 	        new BasicException.Parameter("target", target == null ? null: target.refGetPath().toXRI()),
-	        new BasicException.Parameter("recipients", Arrays.asList(recipients))
+	        new BasicException.Parameter("recipients", recipients == null ? null : Arrays.asList(recipients))
     	);
     }
 
