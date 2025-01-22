@@ -71,16 +71,20 @@ eclipse {
     }
 }
 
+fun getDeliverDir(): File {
+	return File("./build");
+}
+
 tasks.register<Jar>("opencrx-buildSrc.jar") {
 	dependsOn("classes")
-	destinationDirectory.set(File("${rootDir}/jre-" + targetPlatform + "/" + project.getName() + "/lib"))
+	destinationDirectory.set(File(getDeliverDir(), "lib"))
     archiveFileName.set("opencrx-buildSrc.jar")
     from(project.layout.buildDirectory.dir("classes/kotlin/main"))
     from(project.layout.buildDirectory.dir("resources/main"))
 	doLast {
 		ant.withGroovyBuilder {
 			"jar"(
-				"destfile" to File("../jre-" + targetPlatform + "/" + project.getName() + "/lib/opencrx-buildSrc-sources.jar")
+				"destfile" to File(getDeliverDir(), "/lib/opencrx-buildSrc-sources.jar")
 			) {
 				"fileset"(
 					"dir" to "src/main/kotlin"

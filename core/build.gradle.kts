@@ -89,7 +89,7 @@ fun getProjectImplementationVersion(): String {
 }
 
 fun getDeliverDir(): File {
-	return File(project.getRootDir(), "jre-" + targetPlatform + "/" + project.getName());
+	return File("./build");
 }
 
 fun touch(file: File) {
@@ -104,7 +104,7 @@ val testRuntimeOnly by configurations
 testRuntimeOnly.extendsFrom(earlib.copyRecursive())
 
 // required for bootstrapping 
-touch(File(File(getDeliverDir(), "lib"), "opencrx-core-config.jar"))
+touch(File(getDeliverDir(), "lib/opencrx-core-config.jar"))
 
 dependencies {
 	opencrxCoreConfig(fileTree(File(getDeliverDir(), "lib")) { include("opencrx-core-config.jar"); } )

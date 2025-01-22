@@ -77,7 +77,7 @@ open class ArchiveTask() : Jar() {
 	@Internal var providerName = env.getProperty("provider.name")
 	@Internal var buildDir = project.layout.buildDirectory.dir("./")
 	@Internal var projectDir = getProject().getProjectDir()
-	@OutputDirectory var deliverDir = File(project.getRootDir(), "jre-" + targetPlatform + "/" + project.getName())
+	@OutputDirectory var deliverDir = File("./build")
 	@Internal var appSourceName = "opencrx-core-" + providerName
 	@Internal var appTargetName = "opencrx-core-" + providerName
 	@InputDirectory var dataHome = File(projectDir, "src/data") 

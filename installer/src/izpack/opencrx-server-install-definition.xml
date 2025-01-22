@@ -26,7 +26,7 @@
 		<variable name="HSQLDB_PORT" value="9001" />
 		<variable name="TOMCAT_SERVER_PORT" value="8005" />
 		<variable name="TOMCAT_HTTP_PORT" value="8080" />
-		<variable name="TOMEE_BASEDIR" value="apache-tomee-plus-8.0.15" />
+		<variable name="TOMEE_BASEDIR" value="apache-tomee-plus-10.0.0" />
 	</dynamicvariables>
 	<resources>
 		<res id="splash" src="image/opencrx-server/installer/splash.gif" />
@@ -56,7 +56,7 @@
 			<!-- Image -->
 			<fileset dir="image/opencrx-server" targetdir="$INSTALL_PATH" />
 			<!-- Additional files -->
-			<file src="../@{build.target.platform}/core/deployment-unit/opencrx-core-CRX.ear" targetdir="$INSTALL_PATH/installer/files"/>
+			<file src="../core/build/deployment-unit/opencrx-core-CRX.ear" targetdir="$INSTALL_PATH/installer/files"/>
 			<!-- Generic -->
 			<parsable targetfile="$INSTALL_PATH/installer/bin/postinstaller.xml" type="xml" encoding="UTF-8" />
 			<parsable targetfile="$INSTALL_PATH/data/hsqldb/sqltool.rc" encoding="UTF-8" />
