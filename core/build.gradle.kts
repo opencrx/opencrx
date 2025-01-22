@@ -89,7 +89,7 @@ fun getProjectImplementationVersion(): String {
 }
 
 fun getDeliverDir(): File {
-	return File("./build");
+	return layout.buildDirectory.getAsFile().get()
 }
 
 fun touch(file: File) {

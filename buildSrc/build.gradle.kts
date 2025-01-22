@@ -72,7 +72,7 @@ eclipse {
 }
 
 fun getDeliverDir(): File {
-	return File("./build");
+	return layout.buildDirectory.getAsFile().get();
 }
 
 tasks.register<Jar>("opencrx-buildSrc.jar") {
