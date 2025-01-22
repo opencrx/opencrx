@@ -193,7 +193,7 @@ open class OpencrxPlugin: Plugin<Project> {
         buildProperties.put("commons-compiler.version", "3.1.+");
         buildProperties.put("groovy.version", "3.0.+");
         buildProperties.put("gson.version", "2.11.+");
-        buildProperties.put("hsqldb.version", "2.7.2");
+        buildProperties.put("hsqldb.version", "2.7.4");
         buildProperties.put("httpclient.version", "4.5.+");
         buildProperties.put("itextpdf.version", "5.5.+");
         buildProperties.put("janino.version", "3.1.+");

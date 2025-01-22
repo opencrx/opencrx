@@ -1,16 +1,17 @@
-<userInput>
-	<panel id="AntHome" order="0">
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<izpack:userinput version="5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:izpack="http://izpack.org/schema/userinput" xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
+	<panel id="AntHome">
 		<createForPack name="Main" />
 		<field type="staticText" align="left" txt="Select home directory of an existing Ant 1.10+ installation, e.g. C:\pgm\apache-ant-1.10.8 on Windows or /opt/apache-ant-1.10.8 on Linux platforms." />
 		<field type="dir" align="left" variable="ANTPath">
 			<spec txt="ANT home directory" size="30" set="${ENV[ANT_HOME]}" mustExist="true" create="false" />
 		</field>
 	</panel>
-	<panel id="JdkHome" order="0">
+	<panel id="JdkHome">
 		<createForPack name="Main" />
 		<field type="staticText" align="left" txt="Select home directory of an existing JDK 21 installation, e.g. C:\pgm\java-21-openjdk-amd64 on Windows or /usr/lib/jvm/java-21-openjdk-amd64 on Linux platforms." />
 		<field type="dir" align="left" variable="JDKPath">
 			<spec txt="JDK home directory" size="30" set="${ENV[JAVA_HOME]}" mustExist="true" create="false" />
 		</field>
 	</panel>
-</userInput>
+</izpack:userinput>

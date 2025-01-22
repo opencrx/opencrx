@@ -15,7 +15,7 @@ set JAVA_HOME=$JDKPath
 set JAVA_HOME=%JAVA_HOME:/=\%
 set PATH=%JAVA_HOME%\bin;%PATH%
 cd $INSTALL_PATH\data\hsqldb
-java -Xmx800M -cp .\hsqldb-2.7.1.jar org.hsqldb.server.Server --port $HSQLDB_PORT --acl acl.txt --database.0 file:crx --dbname.0 CRX
+java -Xmx800M -cp .\hsqldb-2.7.4.jar org.hsqldb.server.Server --port $HSQLDB_PORT --acl acl.txt --database.0 file:crx --dbname.0 CRX
 goto end
 
 :stop
