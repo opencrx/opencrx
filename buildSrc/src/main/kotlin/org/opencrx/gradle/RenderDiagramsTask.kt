@@ -83,7 +83,7 @@ open class RenderDiagramsTask : ExecTask() {
 				f.writeText(fileContents)
 				getProject().exec {
 					workingDir(f.parentFile)
-					commandLine(dotExec, "-Tpng", "-o", f.name.replace(".dot", ".png"), f.name)
+					commandLine(dotExec, "-Tsvg", "-o", f.name.replace(".dot", ".svg"), f.name)
 				}
 				f.delete()
 			}
