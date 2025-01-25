@@ -75,9 +75,9 @@ import java.util.zip.ZipInputStream;
 import javax.jdo.FetchGroup;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
-import javax.resource.ResourceException;
-import javax.resource.cci.MappedRecord;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.MappedRecord;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.opencrx.kernel.account1.jmi1.Account;
 import org.opencrx.kernel.account1.jmi1.AccountAssignment;

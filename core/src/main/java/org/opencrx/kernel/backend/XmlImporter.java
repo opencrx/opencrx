@@ -58,7 +58,7 @@ import java.util.Map;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jmi.reflect.RefObject;
-import javax.resource.cci.MappedRecord;
+import jakarta.resource.cci.MappedRecord;
 
 import org.oasisopen.cci2.QualifierType;
 import org.oasisopen.jmi1.RefContainer;

@@ -49,10 +49,10 @@ buildscript {
         maven {
             url = uri("https://www.opencrx.org/repos/releases")
         }
-    }
-    dependencies {
-        classpath("org.opencrx:opencrx-gradle:5.3.2")
+        maven {
+            url = uri("https://www.openmdx.org/repos/releases")
+        }
     }
 }
 rootProject.name = "opencrx"
-include("core","publish","gradle")
+include("core","publish")

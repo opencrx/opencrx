@@ -720,6 +720,34 @@ public class TestQuery extends AbstractTest {
     	}
     }
 
+    @Test
+    public void testContactsForOwningGroups(
+    ) {
+        try {
+        	org.opencrx.kernel.account1.jmi1.Segment accountSegment =
+        		(org.opencrx.kernel.account1.jmi1.Segment)this.pm.getObjectById(
+            		new Path("xri://@openmdx*org.opencrx.kernel.account1").getDescendant("provider", providerName, "segment", segmentName)
+        		);
+        	System.out.println("account segment=" + accountSegment);
+            ContactQuery contactQuery = (ContactQuery)this.pm.newQuery(Contact.class);
+            contactQuery.forAllDisabled().isFalse();
+        	QueryExtensionRecord queryExtension = PersistenceHelper.newQueryExtension(contactQuery);
+        	queryExtension.setClause(
+        		"EXISTS (" +
+        		"  SELECT 0 FROM " + 
+        		"    OOCKE1_ACCOUNT_ a_ " + 
+        		"  WHERE " + 
+        		"    a_.owner = ?s0 AND " + 
+        		"    a_.object_id = v.object_id" + 
+        		")"
+        	);
+        	queryExtension.setStringParam(segmentName + ":Users");
+        	List<org.opencrx.kernel.account1.jmi1.Contact> contacts = accountSegment.getAccount(contactQuery);
+        	Assertions.assertTrue(!contacts.isEmpty(), contactQuery.toString());	        	
+        } finally {
+        }
+    }
+    
     //-----------------------------------------------------------------------
     // Members
     //-----------------------------------------------------------------------

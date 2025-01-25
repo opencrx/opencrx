@@ -67,7 +67,7 @@ org.openmdx.kernel.id.*,
 org.openmdx.uses.org.apache.commons.fileupload.*
 " %><%
   request.setCharacterEncoding("UTF-8");
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
 
   boolean uploadFailed = false;
   String location = null; // newly uploaed file
@@ -171,7 +171,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*
 	String[] requestIds = (String[])parameterMap.get(Action.PARAMETER_REQUEST_ID);
 	String requestId = (requestIds == null) || (requestIds.length == 0) ? request.getParameter(Action.PARAMETER_REQUEST_ID) : requestIds[0];
 	String requestIdParam = Action.PARAMETER_REQUEST_ID + "=" + requestId;
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	String[] objectXris = (String[])parameterMap.get("xri");
 	String objectXri = (objectXris == null) || (objectXris.length == 0) ? null : objectXris[0];
 	if(app == null || objectXri == null || viewsCache.getView(requestId) == null) {

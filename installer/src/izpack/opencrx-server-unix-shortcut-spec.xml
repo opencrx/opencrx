@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<shortcuts>
+<izpack:shortcuts version="5.0" xmlns:izpack="http://izpack.org/schema/shortcuts" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://izpack.org/schema/shortcuts http://izpack.org/schema/5.0/izpack-shortcuts-5.0.xsd">
 	<programGroup defaultName="openCRX Server $PROJECT_VERSION" location="applications" />
 	<shortcut
 		name="Uninstall $APP_NAME"
@@ -16,7 +16,6 @@
     	applications="no"
     	startMenu="no"
     	startup="no">
-		<creatForPack name="Main" />
 	</shortcut>
 	<shortcut
 		name="Start $APP_NAME ($TOMCAT_HTTP_PORT)"
@@ -33,7 +32,6 @@
     	applications="no"
     	startMenu="no"
     	startup="no">
-		<creatForPack name="Main" />
 	</shortcut>
 	<shortcut
 		name="Stop $APP_NAME ($TOMCAT_HTTP_PORT)"
@@ -50,7 +48,6 @@
     	applications="no"
     	startMenu="no"
     	startup="no">
-		<creatForPack name="Main" />
 	</shortcut>
 	<shortcut
 		name="Start HSQLDB Console for $APP_NAME ($HSQLDB_PORT)"
@@ -66,7 +63,6 @@
     	applications="no"
     	startMenu="no"
     	startup="no">
-		<creatForPack name="Main" />
 	</shortcut>
 	<shortcut
 		name="Start HSQLDB for $APP_NAME ($HSQLDB_PORT)"
@@ -83,7 +79,6 @@
     	applications="no"
     	startMenu="no"
     	startup="no">
-		<creatForPack name="Main" />
 	</shortcut>
 	<shortcut
 		name="Stop HSQLDB for $APP_NAME ($HSQLDB_PORT)"
@@ -100,6 +95,5 @@
     	applications="no"
     	startMenu="no"
     	startup="no">
-		<creatForPack name="Main" />
 	</shortcut>
-</shortcuts>	
+</izpack:shortcuts>	

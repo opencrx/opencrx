@@ -60,9 +60,9 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.jdo.FetchGroup;
-import javax.resource.ResourceException;
-import javax.resource.cci.Interaction;
-import javax.resource.cci.MappedRecord;
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.Interaction;
+import jakarta.resource.cci.MappedRecord;
 
 import org.opencrx.kernel.generic.SecurityKeys;
 import org.opencrx.kernel.utils.DataproviderOperation;
@@ -97,7 +97,7 @@ public class Audit_2 extends Indexed_2 {
 	}
 	
     /* (non-Javadoc)
-     * @see org.opencrx.kernel.layer.persistence.Indexed_1#getInteraction(javax.resource.cci.Connection)
+     * @see org.opencrx.kernel.layer.persistence.Indexed_1#getInteraction(jakarta.resource.cci.Connection)
      */
 	@Override
     public Interaction getInteraction(
@@ -371,7 +371,7 @@ public class Audit_2 extends Indexed_2 {
     	}
 
 	    /* (non-Javadoc)
-	     * @see org.opencrx.kernel.layer.persistence.Indexed_1.LayerInteraction#get(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.opencrx.kernel.layer.persistence.Indexed_1.LayerInteraction#get(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @SuppressWarnings("unchecked")
 	    @Override
@@ -413,7 +413,7 @@ public class Audit_2 extends Indexed_2 {
 	    }
 	    
 	    /* (non-Javadoc)
-	     * @see org.opencrx.kernel.layer.persistence.Indexed_1.LayerInteraction#find(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.opencrx.kernel.layer.persistence.Indexed_1.LayerInteraction#find(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @SuppressWarnings("unchecked")
 	    @Override
@@ -484,7 +484,7 @@ public class Audit_2 extends Indexed_2 {
 	    }
 
 	    /* (non-Javadoc)
-	     * @see org.openmdx.application.dataprovider.layer.persistence.jdbc.AbstractDatabase_1.LayerInteraction#put(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.openmdx.application.dataprovider.layer.persistence.jdbc.AbstractDatabase_1.LayerInteraction#put(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @SuppressWarnings("unchecked")
 	    @Override
@@ -607,7 +607,7 @@ public class Audit_2 extends Indexed_2 {
 	    }
 
 	    /* (non-Javadoc)
-	     * @see org.openmdx.application.dataprovider.layer.persistence.jdbc.AbstractDatabase_1.LayerInteraction#create(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.openmdx.application.dataprovider.layer.persistence.jdbc.AbstractDatabase_1.LayerInteraction#create(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @SuppressWarnings("deprecation")
 	    @Override
@@ -674,7 +674,7 @@ public class Audit_2 extends Indexed_2 {
 	    }
 	    
 	    /* (non-Javadoc)
-	     * @see org.opencrx.kernel.layer.persistence.Indexed_1.LayerInteraction#delete(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.opencrx.kernel.layer.persistence.Indexed_1.LayerInteraction#delete(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @Override
         public boolean delete(

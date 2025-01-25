@@ -53,7 +53,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.opencrx.application.uses.ezvcard.Ezvcard;
 import org.opencrx.application.uses.ezvcard.VCardVersion;

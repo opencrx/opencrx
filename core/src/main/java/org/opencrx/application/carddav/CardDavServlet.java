@@ -51,8 +51,8 @@ package org.opencrx.application.carddav;
 
 import javax.jdo.PersistenceManagerFactory;
 import javax.naming.NamingException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
 
 import org.opencrx.application.uses.net.sf.webdav.AbstractWebDavServlet;
 import org.opencrx.application.uses.net.sf.webdav.WebDavStore;

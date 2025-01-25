@@ -65,7 +65,7 @@ val targetPlatform = JavaVersion.valueOf(env.getProperty("target.platform"))
 
 eclipse {
 	project {
-    	name = "openCRX 5 ~ Publish"
+    	name = "openCRX 6 ~ Publish"
     }
 }
 
@@ -91,14 +91,14 @@ publishing {
         }
     }
     publications {
-        create<MavenPublication>("opencrxGradle") {
-            artifactId = "opencrx-gradle"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/gradle/lib/opencrx-gradle.jar")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/gradle/lib/opencrx-gradle-sources.jar")) { type = "jar"; classifier = "sources" })
-            artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-gradle-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
+        create<MavenPublication>("opencrxBuildSrc") {
+            artifactId = "opencrx-buildSrc"
+            artifact(project.artifacts.add("archives", File("$rootDir/buildSrc/build/lib/opencrx-buildSrc.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/buildSrc/build/lib/opencrx-buildSrc-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/publish/src/main/maven/opencrx-buildSrc-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
-                name.set("opencrx-gradle")
-                description.set("openCRX/Gradle Library")
+                name.set("opencrx-buildSrc")
+                description.set("openCRX/BuildSrc Library")
                 url.set("http://www.opencrx.org")
                 licenses {
                     license {
@@ -108,24 +108,12 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("wfro")
+                        id.set("wfro64")
                         name.set("Werner Froidevaux")
-                        email.set("wfro@users.sourceforge.net")
                     }
                     developer {
-                        id.set("crixpcmu")
+                        id.set("christoph-mueller-crixp")
                         name.set("Christoph Mueller")
-                        email.set("crixpcmu@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("dirty-harry")
-                        name.set("Harry")
-                        email.set("dirty-harry@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("brunostuder")
-                        name.set("Bruno")
-                        email.set("brunostuder@users.sourceforge.net")
                     }
                 }
                 scm {
@@ -137,9 +125,9 @@ publishing {
         }
         create<MavenPublication>("opencrxCore") {
             artifactId = "opencrx-core"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-core.jar")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-core-sources.jar")) { type = "jar"; classifier = "sources" })
-            artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
+            artifact(project.artifacts.add("archives", File("$rootDir/core/build/lib/opencrx-core.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/core/build/lib/opencrx-core-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/publish/src/main/maven/opencrx-core-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
                 name.set("opencrx-core")
                 description.set("openCRX/Core Library")
@@ -152,24 +140,12 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("wfro")
+                        id.set("wfro64")
                         name.set("Werner Froidevaux")
-                        email.set("wfro@users.sourceforge.net")
                     }
                     developer {
-                        id.set("crixpcmu")
+                        id.set("christoph-mueller-crixp")
                         name.set("Christoph Mueller")
-                        email.set("crixpcmu@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("dirty-harry")
-                        name.set("Harry")
-                        email.set("dirty-harry@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("brunostuder")
-                        name.set("Bruno")
-                        email.set("brunostuder@users.sourceforge.net")
                     }
                 }
                 scm {
@@ -182,8 +158,8 @@ publishing {
         create<MavenPublication>("opencrxCoreModels") {
             artifactId = "opencrx-core-models"
             artifact(project.artifacts.add("archives", File("$rootDir/core/build/generated/sources/model/opencrx-core.openmdx-emf.zip")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-models-sources.jar")) { type = "jar"; classifier = "sources" })
-            artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-models-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
+            artifact(project.artifacts.add("archives", File("$rootDir/publish/src/main/maven/opencrx-core-models-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/publish/src/main/maven/opencrx-core-models-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
                 name.set("opencrx-core-models")
                 description.set("openCRX/Core Models Library")
@@ -196,24 +172,12 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("wfro")
+                        id.set("wfro64")
                         name.set("Werner Froidevaux")
-                        email.set("wfro@users.sourceforge.net")
                     }
                     developer {
-                        id.set("crixpcmu")
+                        id.set("christoph-mueller-crixp")
                         name.set("Christoph Mueller")
-                        email.set("crixpcmu@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("dirty-harry")
-                        name.set("Harry")
-                        email.set("dirty-harry@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("brunostuder")
-                        name.set("Bruno")
-                        email.set("brunostuder@users.sourceforge.net")
                     }
                 }
                 scm {
@@ -225,9 +189,9 @@ publishing {
         }
         create<MavenPublication>("opencrxCoreConfig") {
             artifactId = "opencrx-core-config"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-core-config.jar")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-config-sources.jar")) { type = "jar"; classifier = "sources" })
-            artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-core-config-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
+            artifact(project.artifacts.add("archives", File("$rootDir/core/build/lib/opencrx-core-config.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/publish/src/main/maven/opencrx-core-config-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/publish/src/main/maven/opencrx-core-config-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
                 name.set("opencrx-core-config")
                 description.set("openCRX/Core Config Library")
@@ -240,24 +204,12 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("wfro")
+                        id.set("wfro64")
                         name.set("Werner Froidevaux")
-                        email.set("wfro@users.sourceforge.net")
                     }
                     developer {
-                        id.set("crixpcmu")
+                        id.set("christoph-mueller-crixp")
                         name.set("Christoph Mueller")
-                        email.set("crixpcmu@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("dirty-harry")
-                        name.set("Harry")
-                        email.set("dirty-harry@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("brunostuder")
-                        name.set("Bruno")
-                        email.set("brunostuder@users.sourceforge.net")
                     }
                 }
                 scm {
@@ -269,9 +221,9 @@ publishing {
         }
         create<MavenPublication>("opencrxClient") {
             artifactId = "opencrx-client"
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-client.jar")) { type = "jar" })
-            artifact(project.artifacts.add("archives", File("$rootDir/jre-" + targetPlatform + "/core/lib/opencrx-client-sources.jar")) { type = "jar"; classifier = "sources" })
-            artifact(project.artifacts.add("archives", File("src/main/maven/opencrx-client-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
+            artifact(project.artifacts.add("archives", File("$rootDir/core/build/lib/opencrx-client.jar")) { type = "jar" })
+            artifact(project.artifacts.add("archives", File("$rootDir/core/build/lib/opencrx-client-sources.jar")) { type = "jar"; classifier = "sources" })
+            artifact(project.artifacts.add("archives", File("$rootDir/publish/src/main/maven/opencrx-client-javadoc.jar")) { type = "jar"; classifier = "javadoc" })
             pom {
                 name.set("opencrx-client")
                 description.set("openCRX/Client Library")
@@ -284,24 +236,12 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("wfro")
+                        id.set("wfro64")
                         name.set("Werner Froidevaux")
-                        email.set("wfro@users.sourceforge.net")
                     }
                     developer {
-                        id.set("crixpcmu")
+                        id.set("christoph-mueller-crixp")
                         name.set("Christoph Mueller")
-                        email.set("crixpcmu@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("dirty-harry")
-                        name.set("Harry")
-                        email.set("dirty-harry@users.sourceforge.net")
-                    }
-                    developer {
-                        id.set("brunostuder")
-                        name.set("Bruno")
-                        email.set("brunostuder@users.sourceforge.net")
                     }
                 }
                 scm {
@@ -316,7 +256,7 @@ publishing {
 
 signing {
     /*
-    sign(publishing.publications["opencrxGradle"])
+    sign(publishing.publications["opencrxBuildSrc"])
     sign(publishing.publications["opencrxCore"])
     sign(publishing.publications["opencrxCoreModels"])
     sign(publishing.publications["opencrxCoreConfig"])

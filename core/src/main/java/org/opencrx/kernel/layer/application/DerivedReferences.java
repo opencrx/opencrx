@@ -57,8 +57,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.jdo.FetchGroup;
-import javax.resource.ResourceException;
-import javax.resource.cci.MappedRecord;
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.MappedRecord;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.opencrx.kernel.backend.Accounts;

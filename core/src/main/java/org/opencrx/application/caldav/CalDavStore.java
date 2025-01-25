@@ -66,8 +66,8 @@ import java.util.logging.Level;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.opencrx.application.uses.net.sf.webdav.Lock;
 import org.opencrx.application.uses.net.sf.webdav.RequestContext;
@@ -343,7 +343,7 @@ public class CalDavStore implements WebDavStore {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.opencrx.application.uses.net.sf.webdav.WebDavStore#begin(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 * @see org.opencrx.application.uses.net.sf.webdav.WebDavStore#begin(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	public RequestContext begin(

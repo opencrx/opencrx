@@ -380,8 +380,8 @@ org.openmdx.kernel.log.*
 	request.setCharacterEncoding("UTF-8");
 	String servletPath = "." + request.getServletPath();
 	String servletPathPrefix = servletPath.substring(0, servletPath.lastIndexOf("/") + 1);
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	String requestId =  request.getParameter(Action.PARAMETER_REQUEST_ID);
 	String objectXri = request.getParameter(Action.PARAMETER_OBJECTXRI);
 	if(objectXri == null || app == null || viewsCache.getView(requestId) == null) {

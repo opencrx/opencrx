@@ -53,7 +53,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import javax.activation.DataSource;
+import jakarta.activation.DataSource;
 
 import org.opencrx.kernel.utils.QuotaByteArrayOutputStream;
 import org.w3c.cci2.BinaryLargeObjects;

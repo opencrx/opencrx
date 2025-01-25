@@ -83,7 +83,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jmi.reflect.RefObject;
 import javax.naming.NamingException;
-import javax.resource.cci.MappedRecord;
+import jakarta.resource.cci.MappedRecord;
 
 import org.oasisopen.jmi1.RefContainer;
 import org.opencrx.kernel.account1.jmi1.Account1Package;

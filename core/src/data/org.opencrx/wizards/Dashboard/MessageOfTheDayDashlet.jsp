@@ -122,8 +122,8 @@ org.openmdx.kernel.log.*
 
 %><%
 	final String MESSAGE_OF_THE_DAY_DOCUMENT_NAME = "Message of the day.html";
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
-	ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
+	ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 	String parameters = request.getParameter(WebKeys.REQUEST_PARAMETER);
 	if(app != null && parameters != null) {
 		String xri = Action.getParameter(parameters, Action.PARAMETER_OBJECTXRI);

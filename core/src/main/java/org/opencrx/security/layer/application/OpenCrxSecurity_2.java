@@ -53,10 +53,10 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.FetchGroup;
-import javax.resource.ResourceException;
-import javax.resource.cci.Connection;
-import javax.resource.cci.Interaction;
-import javax.resource.cci.MappedRecord;
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.Connection;
+import jakarta.resource.cci.Interaction;
+import jakarta.resource.cci.MappedRecord;
 
 import org.opencrx.kernel.generic.OpenCrxException;
 import org.opencrx.kernel.generic.SecurityKeys;
@@ -114,7 +114,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	}
 
     /* (non-Javadoc)
-     * @see org.openmdx.application.dataprovider.layer.application.Standard_1#getInteraction(javax.resource.cci.Connection)
+     * @see org.openmdx.application.dataprovider.layer.application.Standard_1#getInteraction(jakarta.resource.cci.Connection)
      */
 	@Override
     public Interaction getInteraction(
@@ -431,7 +431,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 		}
         
 	    /* (non-Javadoc)
-	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#delete(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#delete(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @Override
 	    protected boolean delete(
@@ -557,7 +557,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	    }
 
 	    /* (non-Javadoc)
-	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#create(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#create(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @Override
 	    public boolean create(
@@ -582,7 +582,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	    }
 	    
 	    /* (non-Javadoc)
-	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#put(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#put(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Object_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @SuppressWarnings("unchecked")
 	    @Override
@@ -635,7 +635,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	    }
 	    
 	    /* (non-Javadoc)
-	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#get(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#get(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @Override
         protected boolean get(
@@ -696,7 +696,7 @@ public class OpenCrxSecurity_2 extends AbstractRestPort {
 	    }
 
 	    /* (non-Javadoc)
-	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#find(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, javax.resource.cci.IndexedRecord)
+	     * @see org.openmdx.application.dataprovider.spi.Layer_1.LayerInteraction#find(org.openmdx.base.resource.spi.RestInteractionSpec, org.openmdx.base.rest.spi.Query_2Facade, jakarta.resource.cci.IndexedRecord)
 	     */
 	    @Override
 		protected boolean find(

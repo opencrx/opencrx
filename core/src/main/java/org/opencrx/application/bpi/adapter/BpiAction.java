@@ -53,8 +53,8 @@ import java.io.IOException;
 
 import javax.jdo.FetchGroup;
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.base.naming.Path;

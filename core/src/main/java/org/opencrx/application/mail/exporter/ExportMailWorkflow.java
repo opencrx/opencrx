@@ -53,14 +53,14 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.jdo.PersistenceManager;
-import javax.mail.BodyPart;
-import javax.mail.Message;
-import javax.mail.Multipart;
-import javax.mail.Part;
-import javax.mail.Session;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import jakarta.mail.BodyPart;
+import jakarta.mail.Message;
+import jakarta.mail.Multipart;
+import jakarta.mail.Part;
+import jakarta.mail.Session;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
 
 import org.opencrx.kernel.backend.Activities;
 import org.opencrx.kernel.backend.Notifications;
@@ -76,7 +76,7 @@ import org.openmdx.base.naming.Path;
 public class ExportMailWorkflow extends MailWorkflow {
 
     /* (non-Javadoc)
-     * @see org.opencrx.application.mail.exporter.MailWorkflow#setContent(javax.mail.Message, javax.mail.Session, javax.jdo.PersistenceManager, org.openmdx.base.naming.Path, org.openmdx.base.naming.Path, org.opencrx.kernel.home1.jmi1.UserHome, java.util.Map)
+     * @see org.opencrx.application.mail.exporter.MailWorkflow#setContent(jakarta.mail.Message, jakarta.mail.Session, javax.jdo.PersistenceManager, org.openmdx.base.naming.Path, org.openmdx.base.naming.Path, org.opencrx.kernel.home1.jmi1.UserHome, java.util.Map)
      */
     @Override
     protected String setContent(

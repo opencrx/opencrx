@@ -68,7 +68,7 @@ org.openmdx.uses.org.apache.commons.fileupload.*,
 org.openmdx.kernel.id.*
 " %><%
 	request.setCharacterEncoding("UTF-8");
-	ApplicationContext app = (ApplicationContext)session.getValue(WebKeys.APPLICATION_KEY);
+	ApplicationContext app = (ApplicationContext)session.getAttribute(WebKeys.APPLICATION_KEY);
 	Texts_1_0 texts = app.getTexts();
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -190,7 +190,7 @@ org.openmdx.kernel.id.*
 				}
 			}
 
-			ViewsCache viewsCache = (ViewsCache)session.getValue(WebKeys.VIEW_CACHE_KEY_SHOW);
+			ViewsCache viewsCache = (ViewsCache)session.getAttribute(WebKeys.VIEW_CACHE_KEY_SHOW);
 			String[] requestIds = (String[])parameterMap.get(Action.PARAMETER_REQUEST_ID);
 			String requestId = (requestIds == null) || (requestIds.length == 0) ? "" : requestIds[0];
 			javax.jdo.PersistenceManager pm = app.getNewPmData();

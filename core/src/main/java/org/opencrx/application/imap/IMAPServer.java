@@ -57,7 +57,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 
 import org.opencrx.application.adapter.AbstractServer;
 import org.opencrx.application.adapter.AbstractSession;
