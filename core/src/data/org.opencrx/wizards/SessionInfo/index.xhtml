@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:p="jakarta.faces.composite/opencrx">
 <f:metadata>
 	<f:event type="preRenderView" listener="#{sessionInfoController.init}" />
 </f:metadata>	
@@ -18,7 +18,7 @@
 			<table class="tableLayout">
 				<tr>
 					<td class="cellObject">
-						<div class="fieldGroupName">&nbsp;</div>
+						<div class="fieldGroupName">&#xA0;</div>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-lg-12">

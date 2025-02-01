@@ -49,6 +49,7 @@
  */
 package org.opencrx.portal.wizard;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -68,19 +69,20 @@ import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JsfWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
-import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 
 /**
  * CreateAgendaWizardController
  *
  */
-@SuppressWarnings("deprecation")
-@ManagedBean
 @SessionScoped
-public class CreateAgendaWizardController extends JsfWizardController {
+@Named
+public class CreateAgendaWizardController extends JsfWizardController implements Serializable {
+
+	private static final long serialVersionUID = -4623105393199320199L;
 
 	/**
 	 * Constructor.

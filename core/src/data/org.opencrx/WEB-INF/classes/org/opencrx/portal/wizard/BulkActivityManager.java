@@ -51,6 +51,7 @@ package org.opencrx.portal.wizard;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -113,18 +114,19 @@ import org.openmdx.base.rest.cci.QueryExtensionRecord;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JsfWizardController;
 
-import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
 
 /**
  * BulkActivityManager
  *
  */
-@SuppressWarnings("deprecation")
-@ManagedBean
 @SessionScoped
-public class BulkActivityManager extends JsfWizardController {
+@Named
+public class BulkActivityManager extends JsfWizardController implements Serializable {
 
+	private static final long serialVersionUID = -5915908091254440263L;
+	
 	/**
 	 * ActivityFollowUpBean
 	 *

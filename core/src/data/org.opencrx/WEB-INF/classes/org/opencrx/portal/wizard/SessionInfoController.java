@@ -49,26 +49,29 @@
  */
 package org.opencrx.portal.wizard;
 
+import java.io.Serializable;
+
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.portal.servlet.Action;
 import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
-import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * SessionInfoController
  *
  */
-@SuppressWarnings("deprecation")
-@ManagedBean
 @SessionScoped
-public class SessionInfoController extends JspWizardController {
+@Named
+public class SessionInfoController extends JspWizardController implements Serializable {
+
+	private static final long serialVersionUID = 2834139728871627596L;
 
 	public static class DataBean{
 
@@ -223,7 +226,7 @@ public class SessionInfoController extends JspWizardController {
 	) {
 	}
 
-	public void init(
+	public String init(
 	) {
 		try {
 			if(!FacesContext.getCurrentInstance().getPartialViewContext().isAjaxRequest()) {		
@@ -238,6 +241,7 @@ public class SessionInfoController extends JspWizardController {
 		} catch(Exception e) {
 			new ServiceException(e).log();
 		}
+		return null;
 	}
 
 	public DataBean getData(

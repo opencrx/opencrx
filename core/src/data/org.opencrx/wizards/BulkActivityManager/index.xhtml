@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://java.sun.com/jsf/composite/opencrx">
+	xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:p="jakarta.faces.composite/opencrx">
 <f:metadata>
 	<f:event type="preRenderView" listener="#{bulkActivityManager.init}" />
 </f:metadata>
@@ -48,7 +47,7 @@
 								    <h5>#{metaInf.labelTimers}</h5>
 								    <ui:repeat var="item" value="#{bulkActivityManager.data.timers}">
 										<div class="horizontal layout">
-									    	<button type="button" class="btn btn-block" style="text-align:left;">#{item.name}&nbsp;<h:graphicImage value="./images/Timer.gif" border="0" />&nbsp;#{item.triggerAt}</button>
+									    	<button type="button" class="btn btn-block" style="text-align:left;">#{item.name}&#xA0;<h:graphicImage value="./images/Timer.gif" border="0" />&#xA0;#{item.triggerAt}</button>
 									    </div>
 								    </ui:repeat>
 								</h:panelGroup>

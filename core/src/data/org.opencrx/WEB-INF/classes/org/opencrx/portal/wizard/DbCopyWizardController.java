@@ -55,7 +55,6 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import org.opencrx.kernel.utils.DbSchemaUtils;
-import org.openmdx.base.accessor.jmi.cci.RefObject_1_0;
 import org.openmdx.base.exception.ServiceException;
 import org.openmdx.portal.servlet.JspWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
@@ -261,7 +260,6 @@ public class DbCopyWizardController extends JspWizardController {
 		@JspWizardController.RequestParameter(type = "Bean") FormFields formFields		
 	) {
 		this.doRefresh(formFields);
-		RefObject_1_0 obj = this.getObject();
 		ProgressMeter progressMeter = new ProgressMeter();
 		this.getSession().setAttribute(
 			ProgressMeter.class.getName(),

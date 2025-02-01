@@ -56,6 +56,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.math.BigDecimal;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
@@ -1650,7 +1651,7 @@ public class ImportAccountsFromXlsController extends JspWizardController {
 			} else if(fieldName.equalsIgnoreCase(this.ATTR_PICTURE)) {
 				if(fieldValue instanceof String) {
 					try {
-						URL pictureUrl = new URL(fieldValue.toString());
+						URL pictureUrl = new URI(fieldValue.toString()).toURL();
 			        	org.opencrx.kernel.generic.jmi1.Media picture = null;
 			        	try {
 			        		picture = (org.opencrx.kernel.generic.jmi1.Media)pm.getObjectById(contact.refGetPath().getDescendant("media", "PHOTO"));

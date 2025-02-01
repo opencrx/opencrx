@@ -49,6 +49,7 @@
  */
 package org.opencrx.portal.wizard;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -68,19 +69,20 @@ import org.openmdx.portal.servlet.ApplicationContext;
 import org.openmdx.portal.servlet.JsfWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 
-import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 
 /**
  * CreateProjectWizardController
  *
  */
-@SuppressWarnings("deprecation")
-@ManagedBean
 @SessionScoped
-public class CreateProjectWizardController extends JsfWizardController {
+@Named
+public class CreateProjectWizardController extends JsfWizardController implements Serializable {
+
+	private static final long serialVersionUID = -7593839292805834596L;
 
 	/**
 	 * Constructor.
@@ -115,8 +117,8 @@ public class CreateProjectWizardController extends JsfWizardController {
     	String description
 	) throws ServiceException {
 		PersistenceManager pm = JDOHelper.getPersistenceManager(activitySegment);
-		String providerName = activitySegment.refGetPath().get(2);
-		String segmentName = activitySegment.refGetPath().get(4);
+		String providerName = activitySegment.refGetPath().getSegment(2).toString();
+		String segmentName = activitySegment.refGetPath().getSegment(4).toString();
 		org.opencrx.security.realm1.jmi1.PrincipalGroup usersPrincipalGroup =
 			(org.opencrx.security.realm1.jmi1.PrincipalGroup)org.opencrx.kernel.backend.SecureObject.getInstance().findPrincipal(
 				"Users",

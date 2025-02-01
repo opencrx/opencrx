@@ -49,6 +49,7 @@
  */
 package org.opencrx.portal.wizard;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -78,19 +79,20 @@ import org.openmdx.portal.servlet.JsfWizardController;
 import org.openmdx.portal.servlet.ObjectReference;
 import org.w3c.spi2.Datatypes;
 
-import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 
 /**
  * CreateActivityController
  *
  */
-@SuppressWarnings("deprecation")
-@ManagedBean
 @SessionScoped
-public class CreateActivityController extends JsfWizardController {
+@Named
+public class CreateActivityController extends JsfWizardController implements Serializable {
+
+	private static final long serialVersionUID = -1961913364421129475L;
 
 	public CreateActivityController(
 	) {
