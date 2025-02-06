@@ -2,7 +2,7 @@
  * =======================================================================
  * = Description: openCRX/Core 
  * = Name: build.gradle.kts
- * = Copyright:   (c) 2020-2023 the original authors.
+ * = Copyright:   (c) 2020-2025 the original authors.
  * =======================================================================
  * This software is published under the BSD license
  * as listed below.
