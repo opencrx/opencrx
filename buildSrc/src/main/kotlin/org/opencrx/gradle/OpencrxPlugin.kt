@@ -201,7 +201,7 @@ open class OpencrxPlugin: Plugin<Project> {
         buildProperties.put("jdo-api.version", "3.2.1");
         buildProperties.put("libphonenumber.version", "8.13.+");
         buildProperties.put("openjpa.version", "4.0.+");
-        buildProperties.put("openmdx.version", "4.19.2");
+        buildProperties.put("openmdx.version", "4.19.3");
         buildProperties.put("pdfbox.version", "3.0.+");
         buildProperties.put("picocli.version", "4.7.+");
         buildProperties.put("poi.version", "5.4.+");
